@@ -5,10 +5,10 @@ import TypingText from './TypingText'
 
 function getGreeting() {
   const hour = new Date().getHours()
-  if (hour >= 5 && hour < 12) return { text: 'Good morning', emoji: '☀️', accent: 'from-amber-400 to-orange-500' }
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon', emoji: '🌤️', accent: 'from-sky-400 to-blue-500' }
-  if (hour >= 17 && hour < 21) return { text: 'Good evening', emoji: '🌅', accent: 'from-orange-400 to-rose-500' }
-  return { text: 'Good night', emoji: '🌙', accent: 'from-indigo-400 to-purple-500' }
+  if (hour >= 5 && hour < 12) return { text: 'Good morning', emoji: '🔆', accent: 'from-amber-400 to-orange-500' }
+  if (hour >= 12 && hour < 17) return { text: 'Good afternoon', emoji: '⚡', accent: 'from-sky-400 to-blue-500' }
+  if (hour >= 17 && hour < 21) return { text: 'Good evening', emoji: '🌆', accent: 'from-orange-400 to-rose-500' }
+  return { text: 'Burning the midnight oil', emoji: '🦉', accent: 'from-indigo-400 to-purple-500' }
 }
 
 export default function Hero() {
