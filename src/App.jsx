@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
+import ScrollProgress from './components/ScrollProgress'
 import Hero from './components/Hero'
 import About from './components/About'
 import TechStack from './components/TechStack'
@@ -32,6 +33,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
