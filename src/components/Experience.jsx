@@ -7,7 +7,7 @@ import githubLogo from '../../assets/github.png'
 const experiences = [
   {
     logo: githubLogo,
-    title: 'Technical Support Engineer – III',
+    title: 'SE – III',
     company: 'GitHub',
     location: 'Remote',
     period: 'Present',
@@ -21,7 +21,7 @@ const experiences = [
   },
   {
     logo: couchbaseLogo,
-    title: 'Technical Support Engineer – II',
+    title: 'SE – II',
     company: 'Couchbase',
     location: 'Remote',
     period: '2025 – 2026',
@@ -34,7 +34,7 @@ const experiences = [
   },
   {
     logo: growwLogo,
-    title: 'Platform Support Engineer – II',
+    title: 'Product Solution Engineer – II',
     company: 'Groww',
     location: 'Bengaluru, India',
     period: '2025',
