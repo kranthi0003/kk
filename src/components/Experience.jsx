@@ -88,66 +88,64 @@ export default function Experience() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">Experience</h2>
         </div>
 
-        <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <div
-              key={exp.company + exp.period}
-              className={`card-3d bg-card rounded-2xl overflow-hidden border shadow-lg ${
-                exp.current ? 'border-accent/30 ring-1 ring-accent/10' : 'border-border/30'
-              }`}
-            >
-              <div className="p-6 sm:p-8">
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-5">
-                  <a
-                    href={exp.companyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center p-2.5 shadow-sm hover-lift transition-all flex-shrink-0"
-                  >
-                    <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
-                  </a>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <div>
-                        <h3 className="font-heading font-semibold text-lg">{exp.title}</h3>
-                        <a
-                          href={exp.companyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-accent hover:underline text-sm font-medium"
-                        >
-                          {exp.company} <ExternalIcon />
-                        </a>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                        <span className="inline-flex items-center gap-1">
-                          <LocationIcon /> {exp.location}
-                        </span>
-                        <span className={`inline-flex items-center gap-1 font-mono text-xs px-3 py-1 rounded-full ${
-                          exp.current
-                            ? 'bg-accent/10 text-accent font-semibold'
-                            : 'bg-muted'
-                        }`}>
-                          <CalendarIcon /> {exp.period}
-                        </span>
-                      </div>
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-[60px] top-0 bottom-0 w-px bg-border hidden md:block" />
+
+          <div className="space-y-6">
+            {experiences.map((exp) => (
+              <div
+                key={exp.company + exp.period}
+                className={`card-3d bg-card rounded-2xl overflow-hidden border shadow-lg ${
+                  exp.current ? 'border-accent/30 ring-1 ring-accent/10' : 'border-border/30'
+                }`}
+              >
+                <div className="flex flex-col md:flex-row">
+                  {/* Left: Logo + Company */}
+                  <div className="md:w-56 flex-shrink-0 p-6 sm:p-8 flex flex-col items-center md:items-start justify-start gap-3 md:border-r border-border/20">
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover-lift transition-all"
+                    >
+                      <img src={exp.logo} alt={exp.company} className="w-12 h-12 object-contain" />
+                    </a>
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading font-semibold text-base hover:text-accent transition-colors"
+                    >
+                      {exp.company}
+                    </a>
+                  </div>
+
+                  {/* Right: Title + Date + Bullets */}
+                  <div className="flex-1 p-6 sm:p-8">
+                    <h3 className="font-heading font-semibold text-xl mb-2">{exp.title}</h3>
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-5">
+                      <span className="inline-flex items-center gap-1.5">
+                        <CalendarIcon /> {exp.period}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <LocationIcon /> {exp.location}
+                      </span>
                     </div>
+
+                    <ul className="space-y-3">
+                      {exp.description.map((point, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <span className="text-accent mt-0.5 flex-shrink-0 text-lg">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-
-                {/* Bullet points */}
-                <ul className="space-y-2 ml-1">
-                  {exp.description.map((point, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                      <span className="text-accent mt-1.5 flex-shrink-0">•</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
