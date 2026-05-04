@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 
 const MailIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -74,19 +75,59 @@ export default function Connect() {
             </div>
           </div>
 
-          {/* Open to Opportunities card */}
-          <div className="card-3d shadow-xl rounded-2xl animate-float" style={{ animationDelay: '0.4s' }}>
-            <div className="p-8 text-center">
-              <h3 className="font-heading text-xl font-semibold mb-4">Open to Opportunities</h3>
-              <p className="text-muted-foreground mb-6">
-                Always open to new opportunities — email me or download my resume.
+          {/* QR vCard + Open to Opportunities */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* QR vCard */}
+            <div className="rounded-2xl border border-border/30 shadow-xl bg-card p-8 flex flex-col items-center text-center">
+              <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-4">Scan to save contact</p>
+              <div className="p-4 bg-white rounded-2xl shadow-inner mb-4">
+                <QRCodeSVG
+                  value={[
+                    'BEGIN:VCARD',
+                    'VERSION:3.0',
+                    'N:Kiran;Kranthi',
+                    'FN:Kranthi Kiran',
+                    'ORG:GitHub',
+                    'TITLE:SE-III',
+                    'TEL;TYPE=CELL:+919398857319',
+                    'EMAIL:kranthi.kiran@outlook.com',
+                    'URL:https://kranthikiran.dev',
+                    'URL:https://linkedin.com/in/akkiran003',
+                    'URL:https://github.com/kranthi0003',
+                    'END:VCARD',
+                  ].join('\n')}
+                  size={160}
+                  level="M"
+                  bgColor="#ffffff"
+                  fgColor="#1a1a2e"
+                />
+              </div>
+              <p className="text-sm font-medium text-foreground mb-1">Kranthi Kiran</p>
+              <p className="text-xs text-muted-foreground">SE-III @ GitHub | Microsoft</p>
+              <p className="text-[10px] text-muted-foreground/60 mt-2 font-mono">
+                📱 Saves name, phone, email & socials
+              </p>
+            </div>
+
+            {/* Open to Opportunities */}
+            <div className="rounded-2xl border border-border/30 shadow-xl bg-gradient-to-br from-accent/5 via-card to-primary/5 p-8 flex flex-col justify-center text-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
+                </span>
+                <span className="text-green-500 font-mono text-xs font-bold uppercase tracking-wider">Open to Opportunities</span>
+              </div>
+              <h3 className="font-heading text-xl font-bold mb-3">Let's build something together</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Interested in cloud infrastructure, distributed systems, and developer tooling.
+                Always happy to chat about new challenges.
               </p>
               <a
-                href="assets/Kranthi_Resume.pdf"
-                download
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary text-primary font-medium hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all hover-lift"
+                href="mailto:kranthi.kiran@outlook.com"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium text-sm hover-lift shadow-lg transition-all mx-auto"
               >
-                <MailIcon /> Download Resume
+                <MailIcon /> Say Hello
               </a>
             </div>
           </div>
