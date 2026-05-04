@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import awsLogo from '../../assets/aws.png'
 import growwLogo from '../../assets/groww.png'
 import couchbaseLogo from '../../assets/couchbase.png'
@@ -12,11 +12,8 @@ const experiences = [
     location: 'Remote',
     period: 'Present',
     companyUrl: 'https://github.com',
-    description: [
-      'Supporting GitHub Enterprise Server customers with complex infrastructure and platform issues',
-      'Deep-diving into distributed systems, Git internals, and platform reliability at scale',
-      'Building internal tooling and automation for diagnosing and resolving customer issues faster',
-    ],
+    color: '#8b5cf6',
+    description: 'Distributed systems, Git internals, platform reliability at scale. Building internal tooling for customer diagnostics.',
     current: true,
   },
   {
@@ -24,137 +21,139 @@ const experiences = [
     title: 'SE – II',
     company: 'Couchbase',
     location: 'Remote',
-    period: '2025 – 2026',
+    period: '2025–26',
     companyUrl: 'https://www.couchbase.com',
-    description: [
-      'Provided technical support for enterprise NoSQL database customers across multiple industries',
-      'Debugged complex distributed database issues including replication, indexing, and query performance',
-      'Worked with customers like Netflix, Apple, and Salesforce on mission-critical database deployments',
-    ],
+    color: '#ef4444',
+    description: 'Enterprise NoSQL support for Netflix, Apple, Salesforce. Debugged replication, indexing & query performance.',
   },
   {
     logo: growwLogo,
-    title: 'Product Solution Engineer – II',
+    title: 'PSE – II',
     company: 'Groww',
-    location: 'Bengaluru, India',
+    location: 'Bengaluru',
     period: '2025',
     companyUrl: 'https://groww.in',
-    description: [
-      'Platform engineering for one of India\'s fastest growing fintech companies',
-      'Infrastructure automation and reliability engineering for high-traffic trading platform',
-      'Worked on monitoring, alerting, and incident response for production systems',
-    ],
+    color: '#22c55e',
+    description: 'Platform engineering for India\'s fastest growing fintech. Infrastructure automation & incident response.',
   },
   {
     logo: awsLogo,
     title: 'Cloud Engineer',
     company: 'Amazon',
-    location: 'Hyderabad, India',
-    period: '2021 – 2024',
+    location: 'Hyderabad',
+    period: '2021–24',
     companyUrl: 'https://aws.amazon.com',
-    description: [
-      'Built and maintained distributed systems at scale serving millions of customers',
-      'Designed and implemented CI/CD pipelines, reducing deployment times by 40%',
-      'Drove operational excellence through monitoring, alerting, and automated remediation',
-    ],
+    color: '#f59e0b',
+    description: 'Distributed systems at scale serving millions. CI/CD pipelines, monitoring & automated remediation.',
   },
 ]
 
-const LocationIcon = () => (
-  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>
-)
-
-const CalendarIcon = () => (
-  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-  </svg>
-)
-
-const ExternalIcon = () => (
-  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-  </svg>
-)
-
 export default function Experience() {
+  const [expanded, setExpanded] = useState(null)
+
   return (
     <section id="experience" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-14">
           <p className="font-mono text-sm text-accent mb-2">Where I've Shipped</p>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">Experience</h2>
         </div>
 
-        <div className="relative">
-          {/* Continuous left border line */}
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-accent/20 rounded-full" />
-
-          <div className="space-y-8">
-            {experiences.map((exp) => (
-              <div
-                key={exp.company + exp.period}
-                className="relative ml-12 md:ml-16"
-              >
-                {/* Timeline dot */}
-                <div className={`absolute -left-[30px] md:-left-[38px] top-8 w-3 h-3 rounded-full border-2 z-10 ${
-                  exp.current
-                    ? 'border-accent bg-accent shadow-lg shadow-accent/40'
-                    : 'border-accent/40 bg-card'
-                }`} />
-
-                {/* Card */}
-                <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/20 overflow-hidden hover:border-border/40 transition-all duration-300">
-                  <div className="flex flex-col md:flex-row">
-                    {/* Left: Logo + Company */}
-                    <div className="md:w-48 flex-shrink-0 p-6 md:p-8 flex flex-col items-center justify-center gap-2 md:border-r border-border/10">
-                      <a
-                        href={exp.companyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300"
-                      >
-                        <img src={exp.logo} alt={exp.company} className="w-10 h-10 object-contain" />
-                      </a>
-                      <a
-                        href={exp.companyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-heading font-semibold text-sm hover:text-accent transition-colors text-center"
-                      >
-                        {exp.company}
-                      </a>
+        {/* Linked list nodes */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-0">
+          {experiences.map((exp, i) => (
+            <React.Fragment key={exp.company}>
+              {/* Node */}
+              <div className="relative group flex-1 max-w-[240px] w-full">
+                <button
+                  onClick={() => setExpanded(expanded === i ? null : i)}
+                  className={`w-full rounded-2xl border p-5 transition-all duration-300 text-left ${
+                    expanded === i
+                      ? 'bg-card border-accent/40 shadow-lg shadow-accent/10 scale-[1.02]'
+                      : 'bg-card/50 border-border/20 hover:border-border/40 hover:shadow-md'
+                  }`}
+                >
+                  {/* Current badge */}
+                  {exp.current && (
+                    <div className="absolute -top-2.5 left-4 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+                      </span>
+                      <span className="text-[9px] font-mono text-green-500">NOW</span>
                     </div>
+                  )}
 
-                    {/* Right: Title + Date + Bullets */}
-                    <div className="flex-1 p-6 md:p-8">
-                      <h3 className="font-heading font-bold text-lg md:text-xl mb-2">{exp.title}</h3>
-                      <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground mb-5">
-                        <span className="inline-flex items-center gap-1.5">
-                          <CalendarIcon /> {exp.period}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5">
-                          <LocationIcon /> {exp.location}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-4">
-                        {exp.description.map((point, i) => (
-                          <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                            <span className="text-accent/60 mt-1 flex-shrink-0">•</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  {/* Logo + Company */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center border border-border/20 flex-shrink-0">
+                      <img src={exp.logo} alt={exp.company} className="w-6 h-6 object-contain" />
+                    </div>
+                    <div>
+                      <p className="font-heading font-bold text-sm">{exp.company}</p>
+                      <p className="text-[10px] text-muted-foreground font-mono">{exp.period}</p>
                     </div>
                   </div>
-                </div>
+
+                  {/* Title */}
+                  <p className="text-xs font-semibold text-foreground mb-1">{exp.title}</p>
+                  <p className="text-[10px] text-muted-foreground">{exp.location}</p>
+
+                  {/* Expanded detail */}
+                  {expanded === i && (
+                    <div className="mt-3 pt-3 border-t border-border/20 animate-fade-in-up">
+                      <p className="text-xs text-muted-foreground leading-relaxed">{exp.description}</p>
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 mt-2 text-[10px] text-accent hover:underline font-mono"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Visit {exp.company} →
+                      </a>
+                    </div>
+                  )}
+                </button>
+
+                {/* Color accent line at bottom */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: exp.color,
+                    width: expanded === i ? '80%' : '0%',
+                    opacity: expanded === i ? 1 : 0,
+                  }}
+                />
               </div>
-            ))}
-          </div>
+
+              {/* Arrow connector */}
+              {i < experiences.length - 1 && (
+                <>
+                  {/* Desktop: horizontal arrow */}
+                  <div className="hidden md:flex items-center px-1 flex-shrink-0 text-accent/30">
+                    <div className="w-6 h-[2px] bg-accent/20 rounded-full" />
+                    <svg className="w-3 h-3 -ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                    </svg>
+                  </div>
+                  {/* Mobile: vertical arrow */}
+                  <div className="flex md:hidden flex-col items-center py-1 text-accent/30">
+                    <div className="h-4 w-[2px] bg-accent/20 rounded-full" />
+                    <svg className="w-3 h-3 -mt-0.5 rotate-90" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                    </svg>
+                  </div>
+                </>
+              )}
+            </React.Fragment>
+          ))}
         </div>
+
+        {/* Hint */}
+        <p className="text-center text-[10px] text-muted-foreground/50 mt-6 font-mono">
+          click a node to expand
+        </p>
       </div>
     </section>
   )
