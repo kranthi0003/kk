@@ -87,21 +87,21 @@ export default function MatrixEasterEgg({ active, onComplete }) {
                 </div>
               </a>
 
-              <a href="https://linkedin.com/in/kranthiakkumahanthi" target="_blank" rel="noopener noreferrer"
+              <a href="tel:+919398857319"
                  className="flex items-center gap-3 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 rounded-xl px-4 py-3 transition-all group">
-                <span className="text-xl">💼</span>
+                <span className="text-xl">📱</span>
                 <div>
-                  <p className="text-blue-400 font-mono text-sm group-hover:text-blue-300">LinkedIn</p>
-                  <p className="text-gray-500 text-xs">Connect with me directly</p>
+                  <p className="text-blue-400 font-mono text-sm group-hover:text-blue-300">+91 93988 57319</p>
+                  <p className="text-gray-500 text-xs">Call or WhatsApp me directly</p>
                 </div>
               </a>
 
-              <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer"
-                 className="flex items-center gap-3 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 rounded-xl px-4 py-3 transition-all group">
-                <span className="text-xl">🐙</span>
+              <a href="https://x.com/kranthikiran03" target="_blank" rel="noopener noreferrer"
+                 className="flex items-center gap-3 bg-gray-500/10 hover:bg-gray-500/20 border border-gray-500/20 rounded-xl px-4 py-3 transition-all group">
+                <span className="text-xl">𝕏</span>
                 <div>
-                  <p className="text-purple-400 font-mono text-sm group-hover:text-purple-300">GitHub</p>
-                  <p className="text-gray-500 text-xs">Check out my repos & contributions</p>
+                  <p className="text-gray-300 font-mono text-sm group-hover:text-white">@kranthikiran03</p>
+                  <p className="text-gray-500 text-xs">DM me on X</p>
                 </div>
               </a>
             </div>
