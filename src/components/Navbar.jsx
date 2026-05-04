@@ -135,8 +135,10 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             )
           })}
           <div className="w-px h-5 bg-border/50 mx-2" />
-          <NavSpotify />
-          <ThemeToggle onRapidClick={onSecretTrigger} />
+          <div className="flex items-center gap-1">
+            <NavSpotify />
+            <ThemeToggle onRapidClick={onSecretTrigger} />
+          </div>
         </div>
 
         {/* Mobile menu button */}
