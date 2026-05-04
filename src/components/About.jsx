@@ -132,7 +132,7 @@ export default function About() {
             <div className="card-3d rounded-2xl overflow-hidden border border-border/30 shadow-lg">
               <div className="p-4 border-b border-border/30 bg-card">
                 <a
-                  href="https://open.spotify.com/playlist/5Kjyqt6gNEiDM0xKhYb1nx"
+                  href="https://open.spotify.com/playlist/37i9dQZF1DX0ieekvzt1Ic"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 hover:opacity-80 transition-opacity"
@@ -145,7 +145,7 @@ export default function About() {
               </div>
               <div className="bg-card">
                 <iframe
-                  src="https://open.spotify.com/embed/playlist/5Kjyqt6gNEiDM0xKhYb1nx?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0"
                   width="100%"
                   height="352"
                   frameBorder="0"
