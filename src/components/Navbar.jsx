@@ -3,9 +3,10 @@ import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Connect', href: '#connect' },
 ]
 
 export default function Navbar() {
