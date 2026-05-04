@@ -135,12 +135,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             )
           })}
           <div className="w-px h-5 bg-border/50 mx-2" />
-          <button
-            onClick={onResumeClick}
-            className="px-4 py-1.5 rounded-lg bg-accent text-accent-foreground font-medium text-sm hover-lift shadow-md"
-          >
-            Resume
-          </button>
           <NavSpotify />
           <ThemeToggle onRapidClick={onSecretTrigger} />
         </div>
@@ -186,12 +180,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 </a>
               )
             })}
-            <button
-              onClick={() => { setMobileOpen(false); onResumeClick?.() }}
-              className="mt-2 inline-block px-4 py-2.5 rounded-lg bg-accent text-accent-foreground font-medium text-sm text-center w-full"
-            >
-              View Resume
-            </button>
           </div>
         </div>
       )}
