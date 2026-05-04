@@ -1,5 +1,6 @@
 import React from 'react'
 import GitHubStats from './GitHubStats'
+import GitHubHeatmap from './GitHubHeatmap'
 import profile from '../../assets/profile.png'
 
 export default function About() {
@@ -130,8 +131,9 @@ export default function About() {
                   @kranthi0003
                 </a>
               </div>
-              <div className="p-6 bg-card flex-1 flex flex-col justify-center">
+              <div className="p-6 bg-card flex-1 flex flex-col justify-center gap-6">
                 <GitHubStats />
+                <GitHubHeatmap />
               </div>
             </div>
           </div>
