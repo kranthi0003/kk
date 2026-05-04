@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
+import Certifications from './components/Certifications'
 import Projects from './components/Projects'
 import Stats from './components/Stats'
 import Connect from './components/Contact'
@@ -36,6 +37,7 @@ export default function App() {
         <Hero />
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
+        <div className="section-animate"><Certifications /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><Stats /></div>
