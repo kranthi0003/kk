@@ -13,20 +13,14 @@ import Connect from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
-  const [photoClicks, setPhotoClicks] = useState(0)
   const [matrixActive, setMatrixActive] = useState(false)
 
-  const handleFooterSecret = useCallback(() => {
-    setPhotoClicks(c => {
-      const next = c + 1
-      if (next >= 5) setMatrixActive(true)
-      return next
-    })
-  }, [])
+  const handleSecretTrigger = useCallback(() => {
+    if (!matrixActive) setMatrixActive(true)
+  }, [matrixActive])
 
   const handleMatrixComplete = useCallback(() => {
     setMatrixActive(false)
-    setPhotoClicks(0)
   }, [])
 
   useEffect(() => {
@@ -52,7 +46,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
-      <Navbar />
+      <Navbar onSecretTrigger={handleSecretTrigger} />
       <main>
         <Hero />
         <div className="section-animate"><TechStack /></div>
@@ -63,7 +57,7 @@ export default function App() {
         <div className="section-animate"><Stats /></div>
         <div className="section-animate"><Connect /></div>
       </main>
-      <Footer onSecretTrigger={handleFooterSecret} />
+      <Footer />
     </div>
   )
 }

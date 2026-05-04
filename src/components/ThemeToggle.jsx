@@ -12,7 +12,9 @@ const MoonIcon = () => (
   </svg>
 )
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ onRapidClick }) {
+  const clickTimesRef = React.useRef([])
+
   const [dark, setDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme')
@@ -27,9 +29,20 @@ export default function ThemeToggle() {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
+  const handleClick = () => {
+    setDark(d => !d)
+
+    const now = Date.now()
+    clickTimesRef.current = [...clickTimesRef.current.filter(t => now - t < 2000), now]
+    if (clickTimesRef.current.length >= 5) {
+      clickTimesRef.current = []
+      onRapidClick?.()
+    }
+  }
+
   return (
     <button
-      onClick={() => setDark(d => !d)}
+      onClick={handleClick}
       className="p-2 rounded-full bg-muted hover:bg-border transition-colors duration-200"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
     >

@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Connect', href: '#connect' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onSecretTrigger }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -58,12 +58,12 @@ export default function Navbar() {
           >
             Resume
           </a>
-          <ThemeToggle />
+          <ThemeToggle onRapidClick={onSecretTrigger} />
         </div>
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeToggle />
+          <ThemeToggle onRapidClick={onSecretTrigger} />
           <button
             onClick={() => setMobileOpen(o => !o)}
             className="p-2 rounded-lg hover:bg-muted transition-colors"
