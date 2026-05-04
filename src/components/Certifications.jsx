@@ -23,11 +23,25 @@ const certifications = [
     verifyUrl: 'https://aws.amazon.com/verification',
   },
   {
-    name: 'Couchbase Associate Architect',
+    name: 'Couchbase Certified Professional Administrator',
     issuer: 'Couchbase',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg',
     color: 'from-red-500 to-rose-500',
-    verifyUrl: 'https://www.couchbase.com/certification',
+    verifyUrl: 'https://www.credly.com/badges/21986ffd-3145-4312-8ed8-8f870454b7d5/public_url',
+  },
+  {
+    name: 'Couchbase Certified Associate Python Developer',
+    issuer: 'Couchbase',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg',
+    color: 'from-red-500 to-orange-500',
+    verifyUrl: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65',
+  },
+  {
+    name: 'Couchbase Certified Associate Architect with Capella',
+    issuer: 'Couchbase',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg',
+    color: 'from-rose-500 to-red-600',
+    verifyUrl: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433',
   },
   {
     name: 'GitHub Foundations',
