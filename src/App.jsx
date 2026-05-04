@@ -1,142 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import CompanyLogos from './components/CompanyLogos'
-import QuickStats from './components/QuickStats'
-import FeaturedPreview from './components/FeaturedPreview'
+import TechStack from './components/TechStack'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
+import Stats from './components/Stats'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
-import BackToTop from './components/BackToTop'
-import Crypto from './components/Crypto'
-import Photography from './components/Photography'
-import News from './components/News'
-import F1 from './components/F1'
-import Fashion from './components/Shopping'
-import Travel from './components/Travel'
-import Cooking from './components/Cooking'
-import Cricket from './components/Cricket'
-import Gaming from './components/Gaming'
-import Wallet from './components/Wallet';
-
-import Journey from './components/Journey'
-import Projects from './components/Projects'
-
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('home')
-  const [route, setRoute] = useState(window.location.pathname + window.location.hash)
-
   useEffect(() => {
-    const handler = () => {
-      setRoute(window.location.pathname + window.location.hash)
-    }
-    window.addEventListener("popstate", handler)
-    window.addEventListener("hashchange", handler)
-    return () => {
-      window.removeEventListener("popstate", handler)
-      window.removeEventListener("hashchange", handler)
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    document.querySelectorAll('.section-animate').forEach((el) => {
+      observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
-  const navigate = (path) => {
-    window.history.pushState({}, "", path)
-    setRoute(path)
-    setTimeout(() => {
-      if (path === "/" || path === "" || path === "/photography" || path === "/crypto" || path === "/wallet") {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-      } else if (path.includes('#')) {
-        const hash = path.split('#')[1]
-        const el = document.getElementById(hash)
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' })
-        }
-      }
-    }, 0)
-  }
-
-  useEffect(() => {
-    if (route === '/crypto') {
-        setActiveSection('crypto')
-    } else if (route === '/photography') {
-      setActiveSection('photography')
-    } else if (route === '/news') {
-      setActiveSection('news')
-    } else if (route === '/f1') {
-      setActiveSection('f1')
-    } else if (route === '/fashion') {
-      setActiveSection('fashion')
-    } else if (route === '/travel') {
-      setActiveSection('travel')
-    } else if (route === '/cooking') {
-      setActiveSection('cooking')
-    } else if (route === '/cricket') {
-      setActiveSection('cricket')
-    } else if (route === '/gaming') {
-      setActiveSection('gaming')
-    } else if (route === '/music') {
-      setActiveSection('music')
-    } else if (route === '/journey') {
-      setActiveSection('journey')
-    } else if (route === '/projects') {
-      setActiveSection('projects')
-    } else if (route === '/wallet') {
-      setActiveSection('wallet')
-    } else {
-      setActiveSection('home')
-    }
-  }, [route])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (route !== "/" && route !== "") {
-        return
-      }
-      setActiveSection("home")
-    }
-    
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [route])
-
   return (
-    <div>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <Navbar active={activeSection} navigate={navigate} />
-      <main id="main">
-        <div className="container">
-            {route === "/crypto" ? (
-              <Crypto navigate={navigate} />
-          ) : route === "/photography" ? (
-            <Photography />
-          ) : route === "/news" ? (
-            <News />
-          ) : route === "/f1" ? (
-            <F1 />
-          ) : route === "/fashion" ? (
-            <Fashion />
-          ) : route === "/travel" ? (
-            <Travel />
-          ) : route === "/cooking" ? (
-            <Cooking />
-          ) : route === "/cricket" ? (
-            <Cricket />
-          ) : route === "/gaming" ? (
-            <Gaming />
-
-          ) : route === "/wallet" ? (
-            <Wallet />
-          ) : route === "/halvingtracker" ? (
-            <div>HalvingTracker removed</div>
-          ) : (
-            <>
-              <Hero id="top" navigate={navigate} />
-              <CompanyLogos />
-              <QuickStats />
-              <FeaturedPreview navigate={navigate} />
-            </>
-          )}
-        </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <main>
+        <Hero />
+        <div className="section-animate"><TechStack /></div>
+        <div className="section-animate"><Skills /></div>
+        <div className="section-animate"><Stats /></div>
+        <div className="section-animate"><Experience /></div>
+        <div className="section-animate"><Contact /></div>
       </main>
-      <BackToTop />
       <Footer />
     </div>
   )
