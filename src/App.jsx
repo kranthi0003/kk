@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
 import MatrixEasterEgg from './components/KonamiEasterEgg'
@@ -14,6 +14,20 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [photoClicks, setPhotoClicks] = useState(0)
+  const [matrixActive, setMatrixActive] = useState(false)
+
+  const handleFooterSecret = useCallback(() => {
+    setPhotoClicks(c => {
+      const next = c + 1
+      if (next >= 5) setMatrixActive(true)
+      return next
+    })
+  }, [])
+
+  const handleMatrixComplete = useCallback(() => {
+    setMatrixActive(false)
+    setPhotoClicks(0)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +51,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
-      <MatrixEasterEgg triggerCount={photoClicks} />
+      <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar />
       <main>
-        <Hero onPhotoClick={() => setPhotoClicks(c => c + 1)} />
+        <Hero />
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><Certifications /></div>
@@ -49,7 +63,7 @@ export default function App() {
         <div className="section-animate"><Stats /></div>
         <div className="section-animate"><Connect /></div>
       </main>
-      <Footer />
+      <Footer onSecretTrigger={handleFooterSecret} />
     </div>
   )
 }

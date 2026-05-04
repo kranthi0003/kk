@@ -3,7 +3,7 @@ import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
-export default function Hero({ onPhotoClick }) {
+export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Satellite backdrop — starts below navbar, ~40% height, subtle */}
@@ -31,8 +31,7 @@ export default function Hero({ onPhotoClick }) {
             <img
               src={profile}
               alt="Kranthi Kiran"
-              onClick={onPhotoClick}
-              className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto cursor-pointer select-none"
+              className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto"
             />
           </div>
         </div>
