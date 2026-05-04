@@ -10,7 +10,7 @@ const certifications = [
     bg: 'bg-orange-500/5 hover:bg-orange-500/10',
     border: 'border-orange-500/20 hover:border-orange-500/40',
     text: 'text-orange-500',
-    verifyUrl: 'https://aws.amazon.com/verification',
+    verifyUrl: 'https://www.credly.com/badges/4528a7ce-198b-4edd-94dd-54bea26bcafd',
   },
   {
     name: 'Certified Professional Administrator',
