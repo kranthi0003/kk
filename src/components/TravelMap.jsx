@@ -1,30 +1,116 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
+import { ComposableMap, Geographies, Geography, Marker, Line } from 'react-simple-maps'
 
-// Approximate positions on a 500x600 canvas (India outline)
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
+
 const places = [
-  { id: 'vizag', city: 'Visakhapatnam', label: 'Hometown 🏠', x: 330, y: 345, color: '#10b981', home: true, photos: [] },
-  { id: 'hyderabad', city: 'Hyderabad', label: 'Worked here 🏰', x: 280, y: 340, color: '#f59e0b', photos: [] },
-  { id: 'bangalore', city: 'Bangalore', label: 'Garden City 🌳', x: 255, y: 430, color: '#3b82f6', photos: [] },
-  { id: 'mumbai', city: 'Mumbai', label: 'City of dreams 🌊', x: 170, y: 310, color: '#ef4444', photos: [] },
-  { id: 'delhi', city: 'Delhi', label: 'Capital stories 🕌', x: 250, y: 150, color: '#8b5cf6', photos: [] },
-  { id: 'goa', city: 'Goa', label: 'Beach days 🏖️', x: 190, y: 385, color: '#06b6d4', photos: [] },
-  { id: 'chennai', city: 'Chennai', label: 'Temple & tech 🛕', x: 290, y: 440, color: '#ec4899', photos: [] },
-  { id: 'kolkata', city: 'Kolkata', label: 'City of Joy 🌉', x: 380, y: 245, color: '#f97316', photos: [] },
+  { id: 'vizag', city: 'Visakhapatnam', label: 'Hometown 🏠', coords: [83.2185, 17.6868], color: '#10b981', home: true, photos: [] },
+  { id: 'hyderabad', city: 'Hyderabad', label: 'Worked here 🏰', coords: [78.4867, 17.385], color: '#f59e0b', photos: [] },
+  { id: 'bangalore', city: 'Bangalore', label: 'Garden City 🌳', coords: [77.5946, 12.9716], color: '#3b82f6', photos: [] },
+  { id: 'mumbai', city: 'Mumbai', label: 'City of dreams 🌊', coords: [72.8777, 19.076], color: '#ef4444', photos: [] },
+  { id: 'delhi', city: 'Delhi', label: 'Capital stories 🕌', coords: [77.209, 28.6139], color: '#8b5cf6', photos: [] },
+  { id: 'goa', city: 'Goa', label: 'Beach days 🏖️', coords: [74.124, 15.2993], color: '#06b6d4', photos: [] },
+  { id: 'chennai', city: 'Chennai', label: 'Temple & tech 🛕', coords: [80.2707, 13.0827], color: '#ec4899', photos: [] },
+  { id: 'kolkata', city: 'Kolkata', label: 'City of Joy 🌉', coords: [88.3639, 22.5726], color: '#f97316', photos: [] },
 ]
 
-// Network connections (indexes into places array)
 const connections = [
-  [0, 1], // vizag-hyd
-  [1, 2], // hyd-blr
-  [1, 3], // hyd-mum
-  [1, 4], // hyd-delhi
-  [0, 7], // vizag-kolkata
-  [2, 5], // blr-goa
-  [2, 6], // blr-chennai
-  [3, 4], // mum-delhi
-  [4, 7], // delhi-kolkata
-  [0, 6], // vizag-chennai
+  [0, 1], [1, 2], [1, 3], [1, 4], [0, 7], [2, 5], [2, 6], [3, 4], [4, 7], [0, 6],
 ]
+
+const MapChart = memo(({ onSelect, selected, hovered, onHover }) => (
+  <ComposableMap
+    projection="geoMercator"
+    projectionConfig={{ center: [78, 22], scale: 1000 }}
+    width={800}
+    height={600}
+    style={{ width: '100%', height: 'auto' }}
+  >
+    <Geographies geography={GEO_URL}>
+      {({ geographies }) =>
+        geographies.map((geo) => (
+          <Geography
+            key={geo.rsmKey}
+            geography={geo}
+            fill="var(--color-muted)"
+            stroke="var(--color-border)"
+            strokeWidth={0.5}
+            style={{
+              default: { outline: 'none' },
+              hover: { outline: 'none', fill: 'var(--color-muted)' },
+              pressed: { outline: 'none' },
+            }}
+          />
+        ))
+      }
+    </Geographies>
+
+    {/* Connection lines */}
+    {connections.map(([a, b], i) => (
+      <Line
+        key={i}
+        from={places[a].coords}
+        to={places[b].coords}
+        stroke="var(--color-accent)"
+        strokeWidth={1}
+        strokeOpacity={0.2}
+        strokeLinecap="round"
+      />
+    ))}
+
+    {/* City markers */}
+    {places.map((place) => {
+      const isActive = selected?.id === place.id
+      const isHover = hovered === place.id
+      return (
+        <Marker
+          key={place.id}
+          coordinates={place.coords}
+          onClick={() => onSelect(isActive ? null : place)}
+          onMouseEnter={() => onHover(place.id)}
+          onMouseLeave={() => onHover(null)}
+          style={{ cursor: 'pointer' }}
+        >
+          {/* Glow */}
+          {(isActive || isHover) && (
+            <circle r={12} fill={place.color} opacity={0.15} />
+          )}
+          {/* Pulse for home */}
+          {place.home && (
+            <>
+              <circle r={8} fill="none" stroke={place.color} strokeWidth={1} opacity={0.3}>
+                <animate attributeName="r" from="6" to="16" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
+              </circle>
+            </>
+          )}
+          {/* Dot */}
+          <circle
+            r={isActive ? 6 : isHover ? 5 : 4}
+            fill={place.color}
+            stroke="var(--color-background)"
+            strokeWidth={2}
+          />
+          {/* Label */}
+          {(isActive || isHover) && (
+            <text
+              textAnchor="middle"
+              y={-12}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '10px',
+                fill: 'var(--color-foreground)',
+                fontWeight: 600,
+              }}
+            >
+              {place.city}
+            </text>
+          )}
+        </Marker>
+      )
+    })}
+  </ComposableMap>
+))
 
 export default function TravelMap() {
   const [selected, setSelected] = useState(null)
@@ -38,93 +124,26 @@ export default function TravelMap() {
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">✈️</span>
         </h2>
         <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto text-sm">
-          My journey across India — click a pin to explore
+          My journey across India — click a dot to explore
         </p>
 
-        <div className="grid lg:grid-cols-[1fr_260px] gap-6 items-start">
-          {/* SVG Map */}
-          <div className="relative rounded-2xl border border-border/30 shadow-xl bg-card overflow-hidden p-4">
-            <svg viewBox="0 0 500 600" className="w-full h-auto" style={{ maxHeight: '520px' }}>
-              {/* Animated connection lines */}
-              {connections.map(([a, b], i) => (
-                <g key={i}>
-                  <line
-                    x1={places[a].x} y1={places[a].y}
-                    x2={places[b].x} y2={places[b].y}
-                    stroke="var(--color-accent)"
-                    strokeOpacity={0.15}
-                    strokeWidth={1}
-                  />
-                  {/* Animated traveling dot */}
-                  <circle r="2" fill="var(--color-accent)" opacity="0.6">
-                    <animateMotion
-                      dur={`${3 + i * 0.5}s`}
-                      repeatCount="indefinite"
-                      path={`M${places[a].x},${places[a].y} L${places[b].x},${places[b].y}`}
-                    />
-                  </circle>
-                </g>
-              ))}
-
-              {/* City pins */}
-              {places.map((place) => {
-                const isActive = selected?.id === place.id
-                const isHover = hovered === place.id
-
-                return (
-                  <g
-                    key={place.id}
-                    onClick={() => setSelected(isActive ? null : place)}
-                    onMouseEnter={() => setHovered(place.id)}
-                    onMouseLeave={() => setHovered(null)}
-                    className="cursor-pointer"
-                  >
-                    {/* Glow ring */}
-                    <circle
-                      cx={place.x} cy={place.y} r={isActive ? 18 : isHover ? 14 : 0}
-                      fill={place.color}
-                      opacity={0.1}
-                      className="transition-all duration-300"
-                    />
-                    {/* Pulse ring for home */}
-                    {place.home && (
-                      <circle cx={place.x} cy={place.y} r="12" fill="none" stroke={place.color} strokeWidth="1" opacity="0.3">
-                        <animate attributeName="r" from="8" to="20" dur="2s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
-                      </circle>
-                    )}
-                    {/* Main dot */}
-                    <circle
-                      cx={place.x} cy={place.y}
-                      r={isActive ? 7 : isHover ? 6 : 5}
-                      fill={place.color}
-                      stroke="var(--color-background)"
-                      strokeWidth="2"
-                      className="transition-all duration-200"
-                    />
-                    {/* City label */}
-                    <text
-                      x={place.x}
-                      y={place.y - 14}
-                      textAnchor="middle"
-                      className="fill-foreground text-[10px] font-medium"
-                      style={{ fontFamily: 'var(--font-body)' }}
-                      opacity={isActive || isHover ? 1 : 0.6}
-                    >
-                      {place.city}
-                    </text>
-                  </g>
-                )
-              })}
-            </svg>
+        <div className="grid lg:grid-cols-[1fr_240px] gap-6 items-start">
+          {/* Map */}
+          <div className="rounded-2xl border border-border/30 shadow-xl bg-card overflow-hidden">
+            <MapChart
+              selected={selected}
+              hovered={hovered}
+              onSelect={setSelected}
+              onHover={setHovered}
+            />
           </div>
 
-          {/* Sidebar: Location list + selected detail */}
-          <div className="flex flex-col gap-3">
+          {/* Sidebar */}
+          <div className="flex flex-col gap-2">
             {selected ? (
               <div className="rounded-2xl border border-border/30 bg-card p-5 shadow-lg animate-fade-in-up">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: selected.color }} />
+                  <span className="w-3 h-3 rounded-full" style={{ backgroundColor: selected.color }} />
                   <h3 className="font-heading font-bold text-lg">{selected.city}</h3>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">{selected.label}</p>
@@ -140,11 +159,11 @@ export default function TravelMap() {
                     <p className="text-xs text-muted-foreground">Photos coming soon!</p>
                   </div>
                 )}
-                <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← back to list</button>
+                <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← back</button>
               </div>
             ) : (
               <>
-                <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest px-1">
+                <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest px-1">
                   {places.length} locations
                 </p>
                 {places.map(place => (
@@ -153,12 +172,12 @@ export default function TravelMap() {
                     onClick={() => setSelected(place)}
                     onMouseEnter={() => setHovered(place.id)}
                     onMouseLeave={() => setHovered(null)}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all bg-card hover:bg-muted border border-transparent hover:border-border/30"
+                    className="flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all bg-card hover:bg-muted border border-transparent hover:border-border/30"
                   >
-                    <span className="w-3 h-3 rounded-full flex-shrink-0 shadow-sm" style={{ backgroundColor: place.color }} />
+                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: place.color }} />
                     <div className="min-w-0">
-                      <p className="font-medium text-sm text-foreground truncate">{place.city}</p>
-                      <p className="text-[11px] text-muted-foreground truncate">{place.label}</p>
+                      <p className="font-medium text-xs text-foreground truncate">{place.city}</p>
+                      <p className="text-[10px] text-muted-foreground truncate">{place.label}</p>
                     </div>
                   </button>
                 ))}
