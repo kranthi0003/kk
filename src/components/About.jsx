@@ -100,11 +100,11 @@ export default function About() {
                 </svg>
                 <span className="font-semibold">Instagram</span>
               </div>
-              <div className="bg-card flex-1">
+              <div className="bg-card flex-1 overflow-hidden" style={{ maxHeight: '352px' }}>
                 <iframe
-                  src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed"
+                  src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed/captioned"
                   width="100%"
-                  height="400"
+                  height="352"
                   frameBorder="0"
                   scrolling="no"
                   allowTransparency="true"
