@@ -7,8 +7,7 @@ const projects = [
     technologies: ['Go', 'Distributed Systems', 'Rate Limiting', 'High Availability'],
     githubUrl: 'https://github.com/kranthi0003/SketchGate',
     demoUrl: null,
-    gradient: 'from-cyan-500 to-blue-600',
-    emoji: '⚡',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
   },
   {
     title: 'Health Risk Prediction',
@@ -16,8 +15,7 @@ const projects = [
     technologies: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn'],
     githubUrl: 'https://github.com/kranthi0003/Health-Risk-Prediction',
     demoUrl: null,
-    gradient: 'from-green-500 to-emerald-600',
-    emoji: '🏥',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
   },
   {
     title: 'Portfolio Website',
@@ -25,8 +23,7 @@ const projects = [
     technologies: ['React', 'Tailwind CSS', 'Vite', 'JavaScript'],
     githubUrl: 'https://github.com/kranthi0003/kranthi-kiran-site',
     demoUrl: 'https://kranthikiran.dev',
-    gradient: 'from-violet-500 to-purple-600',
-    emoji: '🌐',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
   },
   {
     title: '2028 Halving Strategy',
@@ -34,8 +31,7 @@ const projects = [
     technologies: ['TypeScript', 'Crypto', 'Data Analysis', 'Finance'],
     githubUrl: 'https://github.com/kranthi0003/2028-halving-strategy',
     demoUrl: null,
-    gradient: 'from-amber-500 to-orange-600',
-    emoji: '₿',
+    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop',
   },
   {
     title: 'IoT Smart Home Controller',
@@ -43,8 +39,7 @@ const projects = [
     technologies: ['C++', 'Arduino', 'IoT', 'NodeMCU', 'WiFi'],
     githubUrl: 'https://github.com/kranthi0003/Arduino-app-nodemcu-LEDon-off',
     demoUrl: null,
-    gradient: 'from-red-500 to-pink-600',
-    emoji: '🏠',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
   },
   {
     title: 'Rotating Solar Panel',
@@ -52,8 +47,7 @@ const projects = [
     technologies: ['C++', 'Arduino', 'IoT', 'Solar Energy', 'Hardware'],
     githubUrl: 'https://github.com/kranthi0003/Rotating-Solar-Panel',
     demoUrl: null,
-    gradient: 'from-yellow-500 to-amber-600',
-    emoji: '☀️',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop',
   },
   {
     title: 'Speech Assistant',
@@ -61,8 +55,7 @@ const projects = [
     technologies: ['Python', 'Speech Recognition', 'NLP', 'TTS'],
     githubUrl: 'https://github.com/kranthi0003/Speech-Assistant',
     demoUrl: null,
-    gradient: 'from-indigo-500 to-blue-600',
-    emoji: '🎙️',
+    image: 'https://images.unsplash.com/photo-1589254065878-42c014d21f1e?w=600&h=400&fit=crop',
   },
   {
     title: 'GitHub Foundations Quest',
@@ -70,8 +63,7 @@ const projects = [
     technologies: ['GitHub', 'Certification', 'Education'],
     githubUrl: 'https://github.com/kranthi0003/github-foundations-quest',
     demoUrl: null,
-    gradient: 'from-gray-600 to-gray-800',
-    emoji: '🎓',
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&h=400&fit=crop',
   },
   {
     title: 'Data Visualization',
@@ -79,8 +71,7 @@ const projects = [
     technologies: ['Python', 'Matplotlib', 'Seaborn', 'Pandas'],
     githubUrl: 'https://github.com/kranthi0003/data_visualization',
     demoUrl: null,
-    gradient: 'from-teal-500 to-cyan-600',
-    emoji: '📊',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
   },
 ]
 
@@ -125,9 +116,14 @@ export default function Projects() {
       }`}
       style={{ animationDelay: `${index * 0.2}s`, transitionDelay: isAdditional && showAll ? `${index * 200}ms` : '0ms' }}
     >
-      {/* Project image/gradient */}
-      <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
-        <span className="text-6xl opacity-80">{project.emoji}</span>
+      {/* Project image */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
       </div>
 
