@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -102,6 +102,31 @@ const travelData = [
   },
 ]
 
+function ThemeAwareTiles() {
+  const map = useMap()
+  const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'))
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
+  const tileUrl = isDark
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png'
+
+  return (
+    <TileLayer
+      key={isDark ? 'dark' : 'light'}
+      attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+      url={tileUrl}
+    />
+  )
+}
+
 function FlyToLocation({ coords }) {
   const map = useMap()
   if (coords) {
@@ -135,10 +160,7 @@ export default function TravelMap() {
               className="h-full w-full z-0"
               style={{ background: 'var(--color-card)' }}
             >
-              <TileLayer
-                attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-              />
+              <ThemeAwareTiles />
               {flyTo && <FlyToLocation coords={flyTo} />}
               {travelData.map(place => (
                 <Marker

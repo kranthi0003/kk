@@ -4,17 +4,17 @@
 
 /* Theme CSS Variables */
 :root {
-  --color-background: #f8faff;
-  --color-foreground: #2d3a4a;
-  --color-card: #f0f4fa;
-  --color-card-foreground: #2d3a4a;
-  --color-muted: #e8edf5;
-  --color-muted-foreground: #5a6a7a;
-  --color-accent: #3b82f6;
-  --color-accent-foreground: #f8faff;
-  --color-border: #d5dce8;
-  --color-primary: #2d3a4a;
-  --color-primary-foreground: #f8faff;
+  --color-background: #ffffff;
+  --color-foreground: #1a1a2e;
+  --color-card: #f7f8fc;
+  --color-card-foreground: #1a1a2e;
+  --color-muted: #eef1f8;
+  --color-muted-foreground: #64748b;
+  --color-accent: #2563eb;
+  --color-accent-foreground: #ffffff;
+  --color-border: #e2e8f0;
+  --color-primary: #1a1a2e;
+  --color-primary-foreground: #ffffff;
 }
 
 .dark {
@@ -111,6 +111,15 @@ body {
 
 .card-3d:hover {
   transform: translateY(-8px) scale(1.02);
+}
+
+/* Light mode card refinement */
+:root .card-3d {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+:root .card-3d:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
 }
 
 /* Hover lift */

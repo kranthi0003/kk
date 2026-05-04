@@ -1,13 +1,13 @@
 import React from 'react'
 
 const techStack = [
-  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white' },
+  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white', iconLight: 'https://cdn.simpleicons.org/github/181717' },
   { name: 'GitHub Actions', icon: 'https://cdn.simpleicons.org/githubactions/2088FF' },
-  { name: 'GitHub Copilot', icon: 'https://cdn.simpleicons.org/githubcopilot/white' },
+  { name: 'GitHub Copilot', icon: 'https://cdn.simpleicons.org/githubcopilot/white', iconLight: 'https://cdn.simpleicons.org/githubcopilot/181717' },
   { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
   { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Ruby', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg' },
-  { name: 'Bash', icon: 'https://cdn.simpleicons.org/gnubash/white' },
+  { name: 'Bash', icon: 'https://cdn.simpleicons.org/gnubash/white', iconLight: 'https://cdn.simpleicons.org/gnubash/1a1a2e' },
   { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
   { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
   { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
@@ -42,7 +42,8 @@ export default function TechStack() {
               className="flex-shrink-0 flex flex-col items-center justify-center gap-2 mx-6 group"
             >
               <div className="w-14 h-14 rounded-xl bg-card border border-border/30 shadow-md flex items-center justify-center p-2.5 group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
-                <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
+                <img src={tech.icon} alt={tech.name} className={`w-full h-full object-contain ${tech.iconLight ? 'hidden dark:block' : ''}`} />
+                {tech.iconLight && <img src={tech.iconLight} alt={tech.name} className="w-full h-full object-contain dark:hidden" />}
               </div>
               <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
                 {tech.name}
