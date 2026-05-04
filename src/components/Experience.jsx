@@ -89,58 +89,66 @@ export default function Experience() {
         </div>
 
         <div className="relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-[60px] top-0 bottom-0 w-px bg-border hidden md:block" />
+          {/* Continuous left border line */}
+          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-accent/20 rounded-full" />
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {experiences.map((exp) => (
               <div
                 key={exp.company + exp.period}
-                className={`card-3d bg-card rounded-2xl overflow-hidden border shadow-lg ${
-                  exp.current ? 'border-accent/30 ring-1 ring-accent/10' : 'border-border/30'
-                }`}
+                className="relative ml-12 md:ml-16"
               >
-                <div className="flex flex-col md:flex-row">
-                  {/* Left: Logo + Company */}
-                  <div className="md:w-56 flex-shrink-0 p-6 sm:p-8 flex flex-col items-center md:items-start justify-start gap-3 md:border-r border-border/20">
-                    <a
-                      href={exp.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover-lift transition-all"
-                    >
-                      <img src={exp.logo} alt={exp.company} className="w-12 h-12 object-contain" />
-                    </a>
-                    <a
-                      href={exp.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-heading font-semibold text-base hover:text-accent transition-colors"
-                    >
-                      {exp.company}
-                    </a>
-                  </div>
+                {/* Timeline dot */}
+                <div className={`absolute -left-[30px] md:-left-[38px] top-8 w-3 h-3 rounded-full border-2 z-10 ${
+                  exp.current
+                    ? 'border-accent bg-accent shadow-lg shadow-accent/40'
+                    : 'border-accent/40 bg-card'
+                }`} />
 
-                  {/* Right: Title + Date + Bullets */}
-                  <div className="flex-1 p-6 sm:p-8">
-                    <h3 className="font-heading font-semibold text-xl mb-2">{exp.title}</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-5">
-                      <span className="inline-flex items-center gap-1.5">
-                        <CalendarIcon /> {exp.period}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <LocationIcon /> {exp.location}
-                      </span>
+                {/* Card */}
+                <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/20 overflow-hidden hover:border-border/40 transition-all duration-300">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Left: Logo + Company */}
+                    <div className="md:w-48 flex-shrink-0 p-6 md:p-8 flex flex-col items-center justify-center gap-2 md:border-r border-border/10">
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:scale-110 transition-transform duration-300"
+                      >
+                        <img src={exp.logo} alt={exp.company} className="w-10 h-10 object-contain" />
+                      </a>
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-heading font-semibold text-sm hover:text-accent transition-colors text-center"
+                      >
+                        {exp.company}
+                      </a>
                     </div>
 
-                    <ul className="space-y-3">
-                      {exp.description.map((point, i) => (
-                        <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                          <span className="text-accent mt-0.5 flex-shrink-0 text-lg">•</span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Right: Title + Date + Bullets */}
+                    <div className="flex-1 p-6 md:p-8">
+                      <h3 className="font-heading font-bold text-lg md:text-xl mb-2">{exp.title}</h3>
+                      <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground mb-5">
+                        <span className="inline-flex items-center gap-1.5">
+                          <CalendarIcon /> {exp.period}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <LocationIcon /> {exp.location}
+                        </span>
+                      </div>
+
+                      <ul className="space-y-4">
+                        {exp.description.map((point, i) => (
+                          <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                            <span className="text-accent/60 mt-1 flex-shrink-0">•</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
