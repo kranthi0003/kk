@@ -12,9 +12,11 @@ import TravelMap from './components/TravelMap'
 import Stats from './components/Stats'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
+import ResumeViewer from './components/ResumeViewer'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
+  const [resumeOpen, setResumeOpen] = useState(false)
 
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
@@ -47,9 +49,9 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
-      <Navbar onSecretTrigger={handleSecretTrigger} />
+      <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
-        <Hero />
+        <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><Certifications /></div>
@@ -60,6 +62,7 @@ export default function App() {
         <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
+      <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
     </div>
   )
 }

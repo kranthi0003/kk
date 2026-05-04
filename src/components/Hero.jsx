@@ -3,7 +3,7 @@ import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
-export default function Hero() {
+export default function Hero({ onResumeClick }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Satellite backdrop — starts below navbar, ~40% height, subtle */}
@@ -65,13 +65,12 @@ export default function Hero() {
           </span>
         </div>
         <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <a
-            href="assets/Kranthi_Resume.pdf"
-            download
+          <button
+            onClick={onResumeClick}
             className="px-6 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover-lift shadow-lg transition-all"
           >
-            Download Resume
-          </a>
+            View Resume
+          </button>
           <a
             href="#connect"
             className="px-6 py-3 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all hover-lift"

@@ -57,7 +57,7 @@ const navLinks = [
   { label: 'Connect', href: '#connect' },
 ]
 
-export default function Navbar({ onSecretTrigger }) {
+export default function Navbar({ onSecretTrigger, onResumeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -135,13 +135,12 @@ export default function Navbar({ onSecretTrigger }) {
             )
           })}
           <div className="w-px h-5 bg-border/50 mx-2" />
-          <a
-            href="assets/Kranthi_Resume.pdf"
-            download
+          <button
+            onClick={onResumeClick}
             className="px-4 py-1.5 rounded-lg bg-accent text-accent-foreground font-medium text-sm hover-lift shadow-md"
           >
             Resume
-          </a>
+          </button>
           <NavSpotify />
           <ThemeToggle onRapidClick={onSecretTrigger} />
         </div>
@@ -187,13 +186,12 @@ export default function Navbar({ onSecretTrigger }) {
                 </a>
               )
             })}
-            <a
-              href="assets/Kranthi_Resume.pdf"
-              download
-              className="mt-2 inline-block px-4 py-2.5 rounded-lg bg-accent text-accent-foreground font-medium text-sm text-center"
+            <button
+              onClick={() => { setMobileOpen(false); onResumeClick?.() }}
+              className="mt-2 inline-block px-4 py-2.5 rounded-lg bg-accent text-accent-foreground font-medium text-sm text-center w-full"
             >
-              Download Resume
-            </a>
+              View Resume
+            </button>
           </div>
         </div>
       )}
