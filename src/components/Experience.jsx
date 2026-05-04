@@ -6,18 +6,12 @@ import githubLogo from '../../assets/github.png'
 
 const experiences = [
   {
-    logo: awsLogo,
-    title: 'Software Engineer – I',
-    company: 'Amazon',
-    period: '2021 – 2024',
-    description: 'Built and maintained distributed systems at scale. Worked on cloud infrastructure, CI/CD pipelines, and operational excellence.',
-  },
-  {
-    logo: growwLogo,
-    title: 'Platform SE – II',
-    company: 'Groww',
-    period: '2025',
-    description: 'Platform engineering for one of India\'s fastest growing fintech companies. Infrastructure automation and reliability.',
+    logo: githubLogo,
+    title: 'Technical SE – III',
+    company: 'GitHub',
+    period: 'Present',
+    description: 'Supporting GitHub Enterprise Server customers. Deep-diving into distributed systems, Git internals, and platform reliability.',
+    current: true,
   },
   {
     logo: couchbaseLogo,
@@ -27,12 +21,18 @@ const experiences = [
     description: 'Technical support engineering for enterprise NoSQL database customers. Debugging complex distributed database issues.',
   },
   {
-    logo: githubLogo,
-    title: 'Technical SE – III',
-    company: 'GitHub',
-    period: 'Present',
-    description: 'Supporting GitHub Enterprise Server customers. Deep-diving into distributed systems, Git internals, and platform reliability.',
-    current: true,
+    logo: growwLogo,
+    title: 'Platform SE – II',
+    company: 'Groww',
+    period: '2025',
+    description: 'Platform engineering for one of India\'s fastest growing fintech companies. Infrastructure automation and reliability.',
+  },
+  {
+    logo: awsLogo,
+    title: 'Cloud Engineer',
+    company: 'Amazon',
+    period: '2021 – 2024',
+    description: 'Built and maintained distributed systems at scale. Worked on cloud infrastructure, CI/CD pipelines, and operational excellence.',
   },
 ]
 
