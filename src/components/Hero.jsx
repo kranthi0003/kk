@@ -18,10 +18,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className="font-mono text-sm text-accent mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          Welcome to my portfolio
-        </p>
-        <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           Hey, I'm{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
             Kranthi
