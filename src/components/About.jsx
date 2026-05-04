@@ -174,9 +174,7 @@ export default function About() {
               </div>
               <div className="p-4 bg-card space-y-4">
                 {[
-                  'https://www.instagram.com/p/DS5NAvokmU9XGEyp4Ix3zmWwDmQ7SUbqiCK19U0',
                   'https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0',
-                  'https://www.instagram.com/p/CxjHdjIy1RTHDR8WR44BPPM3Q3PVgwSFVLMnDI0',
                 ].map((url, i) => (
                   <iframe
                     key={i}
