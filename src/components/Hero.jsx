@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
-function getGreeting() {
-  const hour = new Date().getHours()
-  if (hour >= 5 && hour < 12) return { text: 'Good morning', emoji: '🔆', accent: 'from-amber-400 to-orange-500' }
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon', emoji: '⚡', accent: 'from-sky-400 to-blue-500' }
-  if (hour >= 17 && hour < 21) return { text: 'Good evening', emoji: '🌆', accent: 'from-orange-400 to-rose-500' }
-  return { text: 'Burning the midnight oil', emoji: '🦉', accent: 'from-indigo-400 to-purple-500' }
-}
-
 export default function Hero() {
-  const [greeting, setGreeting] = useState(getGreeting)
-
-  useEffect(() => {
-    const interval = setInterval(() => setGreeting(getGreeting()), 60000)
-    return () => clearInterval(interval)
-  }, [])
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Satellite backdrop — starts below navbar, ~40% height, subtle */}
@@ -50,15 +36,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className="text-2xl sm:text-3xl mb-2 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
-          <span className={`bg-gradient-to-r ${greeting.accent} bg-clip-text text-transparent font-semibold`}>
-            {greeting.text}
-          </span>{' '}
-          {greeting.emoji}
-        </p>
-
         <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          I'm{' '}
+          Hey, I'm{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
             Kranthi
           </span>
