@@ -2,46 +2,85 @@ import React, { useState, useCallback, useMemo } from 'react'
 
 const projects = [
   {
-    title: 'GitHub Enterprise Server Support Tools',
-    description: 'Internal tooling and automation for diagnosing and resolving complex GHES customer issues. Deep-dives into Git internals, distributed systems debugging, and platform reliability.',
-    technologies: ['Ruby', 'Bash', 'Docker', 'Git', 'Linux'],
-    githubUrl: null,
+    title: 'SketchGate',
+    description: 'A high-availability distributed rate limiter with penalty queues, built in Go. Designed for cloud-native architectures with support for sliding window counters and adaptive throttling.',
+    technologies: ['Go', 'Distributed Systems', 'Rate Limiting', 'High Availability'],
+    githubUrl: 'https://github.com/kranthi0003/SketchGate',
     demoUrl: null,
+    gradient: 'from-cyan-500 to-blue-600',
+    emoji: '⚡',
   },
   {
-    title: 'Cloud Infrastructure Automation',
-    description: 'End-to-end infrastructure provisioning and management using Terraform and AWS. Automated deployment pipelines with GitHub Actions for multi-region cloud architectures.',
-    technologies: ['Terraform', 'AWS', 'GitHub Actions', 'Python', 'Docker'],
-    githubUrl: 'https://github.com/kranthi0003',
+    title: 'Health Risk Prediction',
+    description: 'Machine learning pipeline for predicting health risks using patient data. Built classification models with feature engineering, data preprocessing, and model evaluation.',
+    technologies: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn'],
+    githubUrl: 'https://github.com/kranthi0003/Health-Risk-Prediction',
     demoUrl: null,
-  },
-  {
-    title: 'Distributed Database Monitoring',
-    description: 'Real-time monitoring and alerting system for Couchbase clusters. Built dashboards with Prometheus and Grafana to track cluster health, replication lag, and query performance.',
-    technologies: ['Prometheus', 'Grafana', 'Python', 'Couchbase', 'Docker'],
-    githubUrl: null,
-    demoUrl: null,
+    gradient: 'from-green-500 to-emerald-600',
+    emoji: '🏥',
   },
   {
     title: 'Portfolio Website',
-    description: 'This very site — a modern single-page portfolio built with React, Tailwind CSS, and Vite. Features light/dark mode, 3D card effects, and smooth scroll animations.',
+    description: 'This very site — a modern single-page portfolio built with React, Tailwind CSS, and Vite. Features light/dark mode, 3D card effects, typing animations, and social embeds.',
     technologies: ['React', 'Tailwind CSS', 'Vite', 'JavaScript'],
     githubUrl: 'https://github.com/kranthi0003/kranthi-kiran-site',
-    demoUrl: 'https://kranthi0003.github.io/kranthi-kiran-site/',
+    demoUrl: 'https://kranthikiran.dev',
+    gradient: 'from-violet-500 to-purple-600',
+    emoji: '🌐',
   },
   {
-    title: 'CI/CD Pipeline Optimization',
-    description: 'Optimized build and deploy pipelines at Amazon, reducing deployment times by 40% through parallelization, caching strategies, and smart artifact management.',
-    technologies: ['AWS CodePipeline', 'Docker', 'Python', 'Bash'],
-    githubUrl: null,
+    title: '2028 Halving Strategy',
+    description: 'Crypto halving cycle strategy tracker built with TypeScript. Analyzes historical Bitcoin halving data and models investment strategies around cycle timing.',
+    technologies: ['TypeScript', 'Crypto', 'Data Analysis', 'Finance'],
+    githubUrl: 'https://github.com/kranthi0003/2028-halving-strategy',
     demoUrl: null,
+    gradient: 'from-amber-500 to-orange-600',
+    emoji: '₿',
   },
   {
-    title: 'Kubernetes Cluster Management',
-    description: 'Production Kubernetes cluster setup and management with auto-scaling, rolling deployments, and comprehensive monitoring for microservices architectures.',
-    technologies: ['Kubernetes', 'Helm', 'ArgoCD', 'Terraform', 'AWS EKS'],
-    githubUrl: null,
+    title: 'IoT Smart Home Controller',
+    description: 'An IoT project using NodeMCU and Arduino to remotely control lights and fans via a mobile app. Uses relays and WiFi for real-time device management.',
+    technologies: ['C++', 'Arduino', 'IoT', 'NodeMCU', 'WiFi'],
+    githubUrl: 'https://github.com/kranthi0003/Arduino-app-nodemcu-LEDon-off',
     demoUrl: null,
+    gradient: 'from-red-500 to-pink-600',
+    emoji: '🏠',
+  },
+  {
+    title: 'Rotating Solar Panel',
+    description: 'Self-rotating solar panel system using gear motor and Arduino UNO. Increases solar energy efficiency by tracking sunlight throughout the day.',
+    technologies: ['C++', 'Arduino', 'IoT', 'Solar Energy', 'Hardware'],
+    githubUrl: 'https://github.com/kranthi0003/Rotating-Solar-Panel',
+    demoUrl: null,
+    gradient: 'from-yellow-500 to-amber-600',
+    emoji: '☀️',
+  },
+  {
+    title: 'Speech Assistant',
+    description: 'Python-based speech recognition and text-to-speech assistant. Processes voice commands and responds with synthesized speech for hands-free interaction.',
+    technologies: ['Python', 'Speech Recognition', 'NLP', 'TTS'],
+    githubUrl: 'https://github.com/kranthi0003/Speech-Assistant',
+    demoUrl: null,
+    gradient: 'from-indigo-500 to-blue-600',
+    emoji: '🎙️',
+  },
+  {
+    title: 'GitHub Foundations Quest',
+    description: 'Gamified preparation tool for the GitHub Foundations Certification. Interactive learning with quizzes, progress tracking, and study materials.',
+    technologies: ['GitHub', 'Certification', 'Education'],
+    githubUrl: 'https://github.com/kranthi0003/github-foundations-quest',
+    demoUrl: null,
+    gradient: 'from-gray-600 to-gray-800',
+    emoji: '🎓',
+  },
+  {
+    title: 'Data Visualization',
+    description: 'Python data visualization projects using matplotlib, seaborn, and pandas. Explores datasets with charts, graphs, and statistical analysis.',
+    technologies: ['Python', 'Matplotlib', 'Seaborn', 'Pandas'],
+    githubUrl: 'https://github.com/kranthi0003/data_visualization',
+    demoUrl: null,
+    gradient: 'from-teal-500 to-cyan-600',
+    emoji: '📊',
   },
 ]
 
@@ -86,11 +125,14 @@ export default function Projects() {
       }`}
       style={{ animationDelay: `${index * 0.2}s`, transitionDelay: isAdditional && showAll ? `${index * 200}ms` : '0ms' }}
     >
-      {/* Gradient header bar */}
-      <div className="h-2 bg-gradient-to-r from-accent to-primary" />
+      {/* Project image/gradient */}
+      <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+        <span className="text-6xl opacity-80">{project.emoji}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+      </div>
 
-      <div className="p-8 flex flex-col flex-grow">
-        <h3 className="font-heading text-xl font-semibold mb-3">{project.title}</h3>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="font-heading text-lg font-semibold mb-2">{project.title}</h3>
         <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-6">
@@ -104,13 +146,13 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="flex gap-4 mt-auto">
+        <div className="flex gap-3 mt-auto">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-primary text-primary text-sm font-medium hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border/50 text-sm font-medium hover:bg-muted transition-all"
             >
               <GithubIcon /> Code
             </a>
@@ -120,15 +162,10 @@ export default function Projects() {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-accent text-accent-foreground text-sm font-medium hover-lift shadow-md"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-accent text-accent-foreground text-sm font-medium hover-lift shadow-md"
             >
               <ExternalIcon /> Demo
             </a>
-          )}
-          {!project.githubUrl && !project.demoUrl && (
-            <span className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-muted text-muted-foreground text-sm font-medium">
-              Internal Project
-            </span>
           )}
         </div>
       </div>
