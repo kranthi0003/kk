@@ -39,7 +39,7 @@ const projects = [
     technologies: ['C++', 'Arduino', 'IoT', 'NodeMCU', 'WiFi'],
     githubUrl: 'https://github.com/kranthi0003/Arduino-app-nodemcu-LEDon-off',
     demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=600&h=400&fit=crop',
   },
   {
     title: 'Rotating Solar Panel',
@@ -55,7 +55,7 @@ const projects = [
     technologies: ['Python', 'Speech Recognition', 'NLP', 'TTS'],
     githubUrl: 'https://github.com/kranthi0003/Speech-Assistant',
     demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1589254065878-42c014d21f1e?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&h=400&fit=crop',
   },
   {
     title: 'GitHub Foundations Quest',
