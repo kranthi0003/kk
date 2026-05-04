@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import resumePdf from '../../assets/Kranthi_Resume.pdf'
 
 export default function ResumeViewer({ open, onClose }) {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function ResumeViewer({ open, onClose }) {
           </div>
           <div className="flex items-center gap-2">
             <a
-              href="assets/Kranthi_Resume.pdf"
+              href={resumePdf}
               download
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-medium hover-lift transition-all"
             >
@@ -63,7 +64,7 @@ export default function ResumeViewer({ open, onClose }) {
         {/* PDF embed */}
         <div className="flex-1 bg-muted/30">
           <iframe
-            src="assets/Kranthi_Resume.pdf"
+            src={resumePdf}
             className="w-full h-full"
             title="Resume"
           />
