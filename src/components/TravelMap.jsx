@@ -12,18 +12,21 @@ const places = [
   { id: 'goa', city: 'Goa', label: 'Beach days 🏖️', coords: [74.124, 15.2993], color: '#06b6d4', photos: [] },
   { id: 'chennai', city: 'Chennai', label: 'Temple & tech 🛕', coords: [80.2707, 13.0827], color: '#ec4899', photos: [] },
   { id: 'kolkata', city: 'Kolkata', label: 'City of Joy 🌉', coords: [88.3639, 22.5726], color: '#f97316', photos: [] },
+  { id: 'lasvegas', city: 'Las Vegas', label: 'What happens in Vegas 🎰', coords: [-115.1398, 36.1699], color: '#eab308', photos: [] },
+  { id: 'chicago', city: 'Chicago', label: 'The Windy City 🌬️', coords: [-87.6298, 41.8781], color: '#14b8a6', photos: [] },
 ]
 
 const connections = [
   [0, 1], [1, 2], [1, 3], [1, 4], [0, 7], [2, 5], [2, 6], [3, 4], [4, 7], [0, 6],
+  [4, 8], [4, 9], [8, 9],
 ]
 
 const MapChart = memo(({ onSelect, selected, hovered, onHover }) => (
   <ComposableMap
-    projection="geoMercator"
-    projectionConfig={{ center: [78, 22], scale: 1000 }}
-    width={800}
-    height={600}
+    projection="geoEqualEarth"
+    projectionConfig={{ center: [0, 25], scale: 180 }}
+    width={900}
+    height={450}
     style={{ width: '100%', height: 'auto' }}
   >
     <Geographies geography={GEO_URL}>
