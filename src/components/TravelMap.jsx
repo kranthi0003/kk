@@ -169,7 +169,7 @@ export default function TravelMap() {
                   <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← all locations</button>
                 </div>
               ) : (
-                <div className="space-y-1 max-h-[400px] overflow-y-auto">
+                <div className="space-y-1 max-h-[200px] sm:max-h-[400px] overflow-y-auto">
                 {places.map(place => (
                   <button
                     key={place.id}

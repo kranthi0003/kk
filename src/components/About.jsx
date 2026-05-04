@@ -109,7 +109,7 @@ export default function About() {
 
           {/* Row 2: Spotify (taller) + GitHub Stats */}
           <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card">
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify Playlist" />
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="300" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl sm:h-[352px]" title="Spotify Playlist" />
           </div>
 
           <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card flex flex-col">
@@ -124,11 +124,11 @@ export default function About() {
           </div>
 
           {/* Row 3: Instagram + Fun Facts */}
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card h-[420px]">
+          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card h-[350px] sm:h-[420px]">
             <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram post" />
           </div>
 
-          <div className="lg:col-span-2 rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-amber-500/5 via-card to-rose-500/5 p-6 flex flex-col justify-between h-[420px]">
+          <div className="lg:col-span-2 rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-amber-500/5 via-card to-rose-500/5 p-5 sm:p-6 flex flex-col justify-between min-h-[350px] sm:h-[420px]">
             <p className="font-mono text-xs text-accent uppercase tracking-widest">Quick bits</p>
             <div className="space-y-4 flex-1 flex flex-col justify-center">
               <div className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20">

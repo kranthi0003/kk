@@ -4,19 +4,19 @@ export default function SpotifyPill() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
+    <div className="fixed bottom-4 left-4 z-50 max-w-[calc(100vw-2rem)]">
       {/* Expanded player */}
       {open && (
         <div className="mb-3 animate-fade-in-up rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-border/30">
           <iframe
             src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0"
-            width="300"
+            width="100%"
             height="152"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
             title="Spotify"
-            className="rounded-2xl"
+            className="rounded-2xl max-w-[300px]"
           />
         </div>
       )}

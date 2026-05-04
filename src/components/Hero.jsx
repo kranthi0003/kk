@@ -17,8 +17,8 @@ export default function Hero() {
         {/* Gradient fade at bottom edge */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         {/* Side fades */}
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-10 sm:w-20 bg-gradient-to-r from-background to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-10 sm:w-20 bg-gradient-to-l from-background to-transparent" />
         {/* Top fade so it blends with navbar area */}
         <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-background to-transparent" />
       </div>
@@ -31,18 +31,18 @@ export default function Hero() {
             <img
               src={profile}
               alt="Kranthi Kiran"
-              className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto"
+              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto"
             />
           </div>
         </div>
 
-        <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           Hey, I'm{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
             Kranthi
           </span>
         </h1>
-        <h2 className="font-heading text-2xl sm:text-3xl text-accent mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl text-accent mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
           <TypingText
             phrases={['Cloud Engineer', 'Infrastructure Builder', 'Distributed Systems Nerd', 'GitHub Engineer']}
             typingSpeed={120}
