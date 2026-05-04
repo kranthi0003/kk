@@ -9,7 +9,6 @@ import Projects from './components/Projects'
 import Stats from './components/Stats'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
-import SatelliteBanner from './components/SatelliteBanner'
 
 export default function App() {
   useEffect(() => {
@@ -38,7 +37,6 @@ export default function App() {
         <Hero />
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
-        <SatelliteBanner />
         <div className="section-animate"><Certifications /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>

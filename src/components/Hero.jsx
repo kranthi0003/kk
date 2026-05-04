@@ -1,19 +1,37 @@
 import React from 'react'
 import profile from '../../assets/profile.png'
+import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16">
-      <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-        {/* Profile Photo */}
+    <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      {/* Satellite backdrop — covers top half */}
+      <div className="absolute inset-x-0 top-0 h-1/2 z-0">
+        <img
+          src={satellite}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Hard cut: gradient fades satellite into page background at bottom edge */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        {/* Subtle side fades */}
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background/80 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background/80 to-transparent" />
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 bg-background/40 dark:bg-background/60" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+        {/* Profile Photo — sits at the split point */}
         <div className="mb-8 animate-fade-in-up">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/10 rounded-full blur-2xl" />
             <img
               src={profile}
               alt="Kranthi Kiran"
-              className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-2xl ring-4 ring-border/50 animate-float mx-auto"
+              className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto"
             />
           </div>
         </div>
