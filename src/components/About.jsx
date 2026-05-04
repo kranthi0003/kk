@@ -1,7 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import GitHubStats from './GitHubStats'
 import GitHubHeatmap from './GitHubHeatmap'
 import profile from '../../assets/profile.png'
+
+function BentoClockCard() {
+  const [time, setTime] = useState(new Date())
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const ist = new Date(time.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+  const hours = ist.getHours().toString().padStart(2, '0')
+  const mins = ist.getMinutes().toString().padStart(2, '0')
+  const secs = ist.getSeconds().toString().padStart(2, '0')
+  const isDay = ist.getHours() >= 6 && ist.getHours() < 19
+
+  return (
+    <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-violet-500/10 via-card to-card p-5 flex flex-col justify-between relative overflow-hidden">
+      <div className="flex items-center justify-between">
+        <p className="font-mono text-[10px] text-accent uppercase tracking-widest">Vizag, India</p>
+        <span className="text-lg">{isDay ? '☀️' : '🌙'}</span>
+      </div>
+      <div className="flex-1 flex items-center justify-center">
+        <p className="font-mono text-3xl sm:text-4xl font-bold tracking-tight">
+          <span className="text-foreground">{hours}</span>
+          <span className="text-accent animate-pulse">:</span>
+          <span className="text-foreground">{mins}</span>
+          <span className="text-muted-foreground/50 text-xl ml-1">{secs}</span>
+        </p>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+        </span>
+        <p className="text-[11px] text-green-500 font-medium">Available for work</p>
+      </div>
+    </div>
+  )
+}
 
 export default function About() {
   return (
@@ -42,23 +81,29 @@ export default function About() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-violet-500/10 via-card to-card p-5 flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-3 right-3 text-4xl opacity-10">✦</div>
-            <p className="text-sm italic text-foreground/80 leading-relaxed">"First, solve the problem. Then, write the code."</p>
-            <p className="text-[11px] text-muted-foreground mt-3 font-mono">— John Johnson</p>
-          </div>
+          {/* Live Clock Card */}
+          <BentoClockCard />
 
-          <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-emerald-500/10 via-card to-card p-5 flex flex-col justify-between relative overflow-hidden">
-            <div>
-              <p className="font-heading font-bold text-lg">📍 Visakhapatnam</p>
-              <p className="text-xs text-muted-foreground mt-1">India • IST (UTC+5:30)</p>
-            </div>
-            <div className="flex items-center gap-1.5 mt-auto">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
-              <p className="text-xs text-green-500 font-medium">Open to opportunities</p>
+          {/* Currently Card */}
+          <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-emerald-500/10 via-card to-card p-5 flex flex-col gap-3 relative overflow-hidden">
+            <p className="font-mono text-[10px] text-accent uppercase tracking-widest">Currently</p>
+            <div className="space-y-2.5 flex-1 flex flex-col justify-center">
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center text-sm">💼</span>
+                <p className="text-xs text-foreground">Building at <span className="font-semibold text-accent">GitHub</span></p>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-purple-500/15 flex items-center justify-center text-sm">🎧</span>
+                <p className="text-xs text-foreground">Listening to <span className="font-semibold">Bollywood Hits</span></p>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center text-sm">📚</span>
+                <p className="text-xs text-foreground">Reading <span className="font-semibold">System Design</span></p>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-rose-500/15 flex items-center justify-center text-sm">🎮</span>
+                <p className="text-xs text-foreground">Playing <span className="font-semibold">Valorant</span></p>
+              </div>
             </div>
           </div>
 
