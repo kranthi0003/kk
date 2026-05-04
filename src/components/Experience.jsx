@@ -70,7 +70,7 @@ export default function Experience() {
               >
                 {/* Current badge */}
                 {exp.current && (
-                  <div className="absolute -top-2.5 left-5 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
+                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
@@ -128,7 +128,7 @@ export default function Experience() {
                 className="relative w-full max-w-sm rounded-2xl border border-border/20 bg-card/50 hover:bg-card p-5 flex items-start gap-4 transition-all"
               >
                 {exp.current && (
-                  <div className="absolute -top-2.5 left-5 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
+                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
