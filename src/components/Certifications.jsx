@@ -29,6 +29,13 @@ const certifications = [
     color: 'from-red-500 to-rose-500',
     verifyUrl: 'https://www.couchbase.com/certification',
   },
+  {
+    name: 'GitHub Foundations',
+    issuer: 'GitHub / Microsoft',
+    icon: 'https://cdn.simpleicons.org/github/white',
+    color: 'from-gray-700 to-gray-900',
+    verifyUrl: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48',
+  },
 ]
 
 const VerifyIcon = () => (
