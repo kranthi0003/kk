@@ -190,14 +190,6 @@ export default function About() {
                   />
                 ))}
                 <div className="text-center pt-2">
-                  <a
-                    href="https://www.instagram.com/kkiran.003/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-medium text-sm hover-lift transition-all"
-                  >
-                    View Profile
-                  </a>
                 </div>
               </div>
             </div>
