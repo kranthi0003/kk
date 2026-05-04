@@ -16,9 +16,15 @@ const places = [
 ]
 
 const arcs = [
-  { from: 0, to: 1 }, { from: 1, to: 2 }, { from: 1, to: 3 }, { from: 1, to: 4 },
-  { from: 0, to: 7 }, { from: 2, to: 5 }, { from: 2, to: 6 }, { from: 3, to: 4 },
-  { from: 4, to: 7 }, { from: 0, to: 6 }, { from: 4, to: 8 }, { from: 4, to: 9 }, { from: 8, to: 9 },
+  // India network
+  { from: 0, to: 1 }, { from: 0, to: 6 }, { from: 0, to: 7 },
+  { from: 1, to: 2 }, { from: 1, to: 3 }, { from: 1, to: 4 },
+  { from: 2, to: 5 }, { from: 2, to: 6 },
+  { from: 3, to: 4 }, { from: 3, to: 5 },
+  { from: 4, to: 7 },
+  // International flights
+  { from: 0, to: 8 }, { from: 0, to: 9 },
+  { from: 8, to: 9 },
 ]
 
 const arcData = arcs.map(a => ({
@@ -46,7 +52,7 @@ export default function TravelMap() {
     const updateSize = () => {
       if (containerRef.current) {
         const w = containerRef.current.offsetWidth
-        setGlobeSize(Math.min(w, 560))
+        setGlobeSize(Math.min(w, 600))
       }
     }
     updateSize()
@@ -85,12 +91,16 @@ export default function TravelMap() {
           Drag & spin the globe — click a dot to explore
         </p>
 
-        <div className="grid lg:grid-cols-[1fr_240px] gap-6 items-start">
+        <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start">
           {/* Globe */}
-          <div ref={containerRef} className="flex justify-center rounded-2xl overflow-hidden">
+          <div ref={containerRef} className="flex-1 flex justify-center relative">
+            {/* Glow behind globe */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[70%] h-[70%] rounded-full bg-accent/5 blur-3xl" />
+            </div>
             <React.Suspense fallback={
               <div className="flex items-center justify-center h-[500px] text-muted-foreground">
-                <p className="font-mono text-sm animate-pulse">Loading globe...</p>
+                <p className="font-mono text-sm animate-pulse">🌍 Loading globe...</p>
               </div>
             }>
               <Globe
@@ -102,62 +112,64 @@ export default function TravelMap() {
                   ? '//unpkg.com/three-globe/example/img/earth-night.jpg'
                   : '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
                 }
-                atmosphereColor={isDark ? '#60a5fa' : '#2563eb'}
-                atmosphereAltitude={0.2}
+                atmosphereColor={isDark ? '#60a5fa' : '#3b82f6'}
+                atmosphereAltitude={0.18}
                 pointsData={places}
                 pointLat="lat"
                 pointLng="lng"
                 pointColor="color"
-                pointAltitude={0.04}
-                pointRadius={0.5}
-                pointLabel={d => `<div style="font-family:system-ui;background:rgba(0,0,0,0.8);color:white;padding:6px 12px;border-radius:8px;font-size:13px;text-align:center"><b>${d.city}</b><br/><span style="opacity:0.7;font-size:11px">${d.label}</span></div>`}
+                pointAltitude={0.06}
+                pointRadius={0.45}
+                pointLabel={d => `<div style="font-family:system-ui;background:rgba(0,0,0,0.85);color:white;padding:8px 14px;border-radius:10px;font-size:13px;text-align:center;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)"><b>${d.city}</b><br/><span style="opacity:0.6;font-size:11px">${d.label}</span></div>`}
                 onPointClick={handlePointClick}
                 arcsData={arcData}
                 arcColor="color"
-                arcStroke={0.5}
-                arcDashLength={0.4}
-                arcDashGap={0.2}
-                arcDashAnimateTime={3000}
-                arcAltitudeAutoScale={0.3}
+                arcStroke={0.6}
+                arcDashLength={0.5}
+                arcDashGap={0.15}
+                arcDashAnimateTime={2500}
+                arcAltitudeAutoScale={0.35}
                 ringsData={places.filter(p => p.home)}
                 ringLat="lat"
                 ringLng="lng"
                 ringColor={() => '#10b981'}
-                ringMaxRadius={3}
+                ringMaxRadius={4}
                 ringPropagationSpeed={2}
-                ringRepeatPeriod={1500}
+                ringRepeatPeriod={1200}
               />
             </React.Suspense>
           </div>
 
           {/* Sidebar */}
-          <div className="flex flex-col gap-2">
-            {selected ? (
-              <div className="rounded-2xl border border-border/30 bg-card p-5 shadow-lg animate-fade-in-up">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-3 h-3 rounded-full" style={{ backgroundColor: selected.color }} />
-                  <h3 className="font-heading font-bold text-lg">{selected.city}</h3>
+          <div className="w-full lg:w-[260px] flex flex-col gap-2 flex-shrink-0">
+            <div className="rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-4 shadow-lg">
+              <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                {places.length} locations • 2 countries
+              </p>
+              {selected ? (
+                <div className="animate-fade-in-up">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: selected.color, boxShadow: `0 0 8px ${selected.color}44` }} />
+                    <h3 className="font-heading font-bold text-base">{selected.city}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">{selected.label}</p>
+                  {selected.photos.length > 0 ? (
+                    <div className="grid grid-cols-2 gap-2">
+                      {selected.photos.map((photo, i) => (
+                        <img key={i} src={photo} alt="" className="w-full h-24 object-cover rounded-lg" />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="bg-muted/50 rounded-xl p-4 text-center border border-border/20">
+                      <p className="text-2xl mb-1">📸</p>
+                      <p className="text-xs text-muted-foreground">Photos coming soon!</p>
+                    </div>
+                  )}
+                  <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← all locations</button>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">{selected.label}</p>
-                {selected.photos.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-2">
-                    {selected.photos.map((photo, i) => (
-                      <img key={i} src={photo} alt="" className="w-full h-24 object-cover rounded-lg" />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="bg-muted/50 rounded-xl p-4 text-center">
-                    <p className="text-2xl mb-1">📸</p>
-                    <p className="text-xs text-muted-foreground">Photos coming soon!</p>
-                  </div>
-                )}
-                <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← back</button>
-              </div>
-            ) : (
-              <>
-                <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest px-1">
-                  {places.length} locations
-                </p>
+              ) : (
+                <div className="space-y-1 max-h-[400px] overflow-y-auto">
                 {places.map(place => (
                   <button
                     key={place.id}
@@ -167,17 +179,18 @@ export default function TravelMap() {
                         globeRef.current.pointOfView({ lat: place.lat, lng: place.lng, altitude: 1.8 }, 800)
                       }
                     }}
-                    className="flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all bg-card hover:bg-muted border border-transparent hover:border-border/30"
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all hover:bg-muted/50 group"
                   >
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: place.color }} />
+                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform" style={{ backgroundColor: place.color }} />
                     <div className="min-w-0">
                       <p className="font-medium text-xs text-foreground truncate">{place.city}</p>
                       <p className="text-[10px] text-muted-foreground truncate">{place.label}</p>
                     </div>
                   </button>
                 ))}
-              </>
-            )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
