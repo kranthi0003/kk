@@ -1,5 +1,6 @@
 import React from 'react'
 import GitHubStats from './GitHubStats'
+import profile from '../../assets/profile.png'
 
 export default function About() {
   return (
@@ -25,22 +26,46 @@ export default function About() {
                 </svg>
                 <span className="font-semibold">LinkedIn</span>
               </div>
-              <div className="p-8 bg-card flex-1 flex flex-col items-center justify-center gap-4">
-                <div className="w-20 h-20 rounded-2xl bg-blue-600/10 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
+              <div className="bg-card flex-1 flex flex-col">
+                {/* Banner - satellite/earth imagery style */}
+                <div className="h-24 relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop"
+                    alt="Banner"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute -bottom-10 left-6">
+                    <img
+                      src={profile}
+                      alt="Kranthi Kiran"
+                      className="w-20 h-20 rounded-full object-cover border-4 border-card shadow-lg"
+                    />
+                  </div>
                 </div>
-                <p className="font-heading font-semibold text-lg">Kranthi Kiran</p>
-                <p className="text-muted-foreground text-sm text-center">Cloud Engineer at GitHub · Ex-Amazon, Couchbase</p>
-                <a
-                  href="https://www.linkedin.com/in/akkiran003/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-2.5 rounded-full bg-blue-600 text-white font-medium text-sm hover-lift transition-all shadow-lg shadow-blue-600/20"
-                >
-                  Connect on LinkedIn
-                </a>
+                {/* Profile info */}
+                <div className="pt-12 px-6 pb-6 flex flex-col gap-1">
+                  <h4 className="font-heading font-bold text-lg">Kranthi Kiran</h4>
+                  <p className="text-sm text-muted-foreground">SE-III @GitHub | Microsoft | prev - Amazon</p>
+                  <p className="text-xs text-muted-foreground">Visakhapatnam, Andhra Pradesh, India</p>
+                  <div className="flex gap-2 mt-3">
+                    <a
+                      href="https://www.linkedin.com/in/akkiran003/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 rounded-full bg-blue-600 text-white font-medium text-sm hover-lift transition-all shadow-md shadow-blue-600/20"
+                    >
+                      Connect
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/akkiran003/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 rounded-full border border-blue-600 text-blue-600 font-medium text-sm hover:bg-blue-600/10 transition-all"
+                    >
+                      View Profile
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
