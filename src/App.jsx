@@ -34,9 +34,9 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <div className="section-animate"><About /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
+        <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><Stats /></div>
         <div className="section-animate"><Connect /></div>
