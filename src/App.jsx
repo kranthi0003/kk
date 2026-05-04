@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
-import KonamiEasterEgg from './components/KonamiEasterEgg'
+import MatrixEasterEgg from './components/KonamiEasterEgg'
 import Hero from './components/Hero'
 import About from './components/About'
 import TechStack from './components/TechStack'
@@ -13,6 +13,8 @@ import Connect from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
+  const [photoClicks, setPhotoClicks] = useState(0)
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,10 +37,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
-      <KonamiEasterEgg />
+      <MatrixEasterEgg triggerCount={photoClicks} />
       <Navbar />
       <main>
-        <Hero />
+        <Hero onPhotoClick={() => setPhotoClicks(c => c + 1)} />
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><Certifications /></div>
