@@ -12,6 +12,7 @@ import TravelMap from './components/TravelMap'
 import Stats from './components/Stats'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
+import SpotifyPill from './components/SpotifyPill'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
@@ -60,6 +61,7 @@ export default function App() {
         <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
+      <SpotifyPill />
     </div>
   )
 }
