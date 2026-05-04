@@ -9,20 +9,6 @@ const certifications = [
     verifyUrl: 'https://aws.amazon.com/verification',
   },
   {
-    name: 'AWS Generative AI',
-    issuer: 'Amazon Web Services',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
-    color: 'from-purple-500 to-pink-500',
-    verifyUrl: 'https://aws.amazon.com/verification',
-  },
-  {
-    name: 'AWS Well-Architected',
-    issuer: 'Amazon Web Services',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
-    color: 'from-blue-500 to-cyan-500',
-    verifyUrl: 'https://aws.amazon.com/verification',
-  },
-  {
     name: 'Couchbase Certified Professional Administrator',
     issuer: 'Couchbase',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/couchbase/couchbase-original.svg',
