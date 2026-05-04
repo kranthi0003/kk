@@ -1,5 +1,6 @@
 import React from 'react'
 import profile from '../../assets/profile.png'
+import TypingText from './TypingText'
 
 export default function Hero() {
   return (
@@ -7,25 +8,25 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
         {/* Text */}
         <div className="flex-1 text-center lg:text-left">
-          <p className="font-mono text-sm text-accent mb-4 animate-fade-in-up">
-            Cloud Engineer · Distributed Systems
-          </p>
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 animate-fade-in-up">
             Hey, I'm{' '}
             <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
               Kranthi
             </span>
-            .
           </h1>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            I break things, fix them, and make them faster ⚡
+          <h2 className="font-heading text-2xl sm:text-3xl text-accent mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <TypingText
+              phrases={['Cloud Engineer', 'Infrastructure Builder', 'Distributed Systems Nerd', 'GitHub Engineer']}
+              typingSpeed={120}
+              deletingSpeed={60}
+              pauseDuration={2500}
+            />
+          </h2>
+          <p className="font-body text-lg text-muted-foreground max-w-xl mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            I break things, fix them, and make them faster ⚡ 4+ years wrangling servers at Amazon, Couchbase,
+            and GitHub. Big fan of making slow things go brrr and building infra that doesn't page me at 3am.
           </p>
-          <p className="font-body text-base text-muted-foreground max-w-xl mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            4+ years wrangling servers at Amazon, Couchbase, and GitHub.
-            Big fan of distributed systems, making slow things go brrr,
-            and building infra that doesn't page me at 3am.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <a
               href="assets/Kranthi_Resume.pdf"
               download
@@ -34,7 +35,7 @@ export default function Hero() {
               Download Resume
             </a>
             <a
-              href="#contact"
+              href="#connect"
               className="px-6 py-3 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all hover-lift"
             >
               Get in Touch

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 import TechStack from './components/TechStack'
-import Skills from './components/Skills'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
 import Stats from './components/Stats'
-import Contact from './components/Contact'
+import Connect from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -33,11 +34,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <div className="section-animate"><About /></div>
         <div className="section-animate"><TechStack /></div>
-        <div className="section-animate"><Skills /></div>
-        <div className="section-animate"><Stats /></div>
         <div className="section-animate"><Experience /></div>
-        <div className="section-animate"><Contact /></div>
+        <div className="section-animate"><Projects /></div>
+        <div className="section-animate"><Stats /></div>
+        <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
     </div>
