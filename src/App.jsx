@@ -13,7 +13,6 @@ import Terminal from './components/Terminal'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
-import PWAInstall from './components/PWAInstall'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
@@ -64,7 +63,6 @@ export default function App() {
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
-      <PWAInstall />
     </div>
   )
 }
