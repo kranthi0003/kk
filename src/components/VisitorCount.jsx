@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { subscribeVisitorChannel, unsubscribeVisitorChannel } from './VisitorTracker'
+import { onPresenceSync, getPresenceState } from './VisitorTracker'
 
 export default function VisitorCount() {
   const [count, setCount] = useState(null)
 
   useEffect(() => {
-    const channel = subscribeVisitorChannel()
-
     const syncCount = () => {
-      const state = channel.presenceState()
+      const state = getPresenceState()
       setCount(Object.keys(state).length)
     }
 
-    channel.on('presence', { event: 'sync' }, syncCount)
-    // Sync immediately in case already subscribed
+    const unsub = onPresenceSync(syncCount)
     syncCount()
 
-    return () => { unsubscribeVisitorChannel() }
+    return () => { unsub() }
   }, [])
 
   if (count === null || count < 2) return null

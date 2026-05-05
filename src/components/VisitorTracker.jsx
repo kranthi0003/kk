@@ -49,14 +49,29 @@ const VISITOR_ID = crypto.randomUUID()
 // Shared channel so AdminDashboard + VisitorCount can read the same presence state
 let sharedChannel = null
 let subscriberCount = 0
+let presenceCallbacks = new Set()
 
 export function getVisitorChannel() {
   if (!sharedChannel) {
     sharedChannel = supabase.channel('visitor-presence', {
       config: { presence: { key: VISITOR_ID } },
     })
+    // Single sync listener that notifies all callbacks
+    sharedChannel.on('presence', { event: 'sync' }, () => {
+      presenceCallbacks.forEach(cb => cb())
+    })
   }
   return sharedChannel
+}
+
+export function onPresenceSync(callback) {
+  presenceCallbacks.add(callback)
+  return () => presenceCallbacks.delete(callback)
+}
+
+export function getPresenceState() {
+  if (!sharedChannel) return {}
+  return sharedChannel.presenceState()
 }
 
 export function subscribeVisitorChannel() {
@@ -70,6 +85,7 @@ export function unsubscribeVisitorChannel() {
     supabase.removeChannel(sharedChannel)
     sharedChannel = null
     subscriberCount = 0
+    presenceCallbacks.clear()
   }
 }
 

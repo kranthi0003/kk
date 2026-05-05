@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { subscribeVisitorChannel, unsubscribeVisitorChannel } from './VisitorTracker'
+import { onPresenceSync, getPresenceState } from './VisitorTracker'
 
 function timeAgo(iso) {
   const diff = Math.floor((Date.now() - new Date(iso).getTime()) / 1000)
@@ -69,31 +69,31 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (!open) return
 
-    const channel = subscribeVisitorChannel()
-    channelRef.current = channel
-
     const syncVisitors = () => {
-      const state = channel.presenceState()
+      const state = getPresenceState()
       const list = []
       Object.entries(state).forEach(([key, presences]) => {
         presences.forEach(p => list.push(p))
       })
-      // Sort by joined_at desc
       list.sort((a, b) => new Date(b.joined_at) - new Date(a.joined_at))
       setVisitors(list)
     }
 
-    channel.on('presence', { event: 'sync' }, syncVisitors)
+    // Listen for presence sync events
+    const unsub = onPresenceSync(syncVisitors)
 
-    // If already subscribed, sync immediately
+    // Sync immediately with current state
     syncVisitors()
 
     // Tick every second to update times
-    const interval = setInterval(() => setTick(t => t + 1), 1000)
+    const interval = setInterval(() => {
+      syncVisitors() // also refresh visitor data
+      setTick(t => t + 1)
+    }, 1000)
 
     return () => {
       clearInterval(interval)
-      unsubscribeVisitorChannel()
+      unsub()
     }
   }, [open])
 
