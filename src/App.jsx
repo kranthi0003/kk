@@ -9,7 +9,6 @@ import Experience from './components/Experience'
 import Certifications from './components/Certifications'
 import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
-import Stats from './components/Stats'
 import Terminal from './components/Terminal'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
@@ -53,14 +52,13 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
+        <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><Certifications /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><TravelMap /></div>
-        <div className="section-animate"><Stats /></div>
-        <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
