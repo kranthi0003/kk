@@ -109,11 +109,28 @@ export default function Terminal() {
   const [input, setInput] = useState('')
   const [cmdHistory, setCmdHistory] = useState([])
   const [historyIdx, setHistoryIdx] = useState(-1)
-  const [game, setGame] = useState(null) // { type, state }
+  const [game, setGame] = useState(null)
   const inputRef = useRef()
   const scrollRef = useRef()
   const gameLoopRef = useRef(null)
   const keyRef = useRef('RIGHT')
+
+  const ALL_PROMPTS = [
+    'list running docker containers', 'find files over 100mb', 'create a new git branch',
+    'check disk usage', 'kill process on port 3000', 'compress folder to tar.gz',
+    'search for text in files', 'show git commit history', 'list all open ports',
+    'restart nginx', 'check memory usage', 'ssh into a remote server',
+    'pull latest docker image', 'create a kubernetes pod', 'set an env variable',
+    'watch file changes', 'count lines in a file', 'rename multiple files',
+    'deploy with terraform', 'check ssl certificate expiry', 'curl with headers',
+    'tail logs in realtime', 'list npm global packages', 'rollback git commit',
+  ]
+  const [prompts, setPrompts] = useState(() => ALL_PROMPTS.slice(0, 4))
+
+  const rotatePrompts = () => {
+    const shuffled = [...ALL_PROMPTS].sort(() => Math.random() - 0.5)
+    setPrompts(shuffled.slice(0, 4))
+  }
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -505,6 +522,7 @@ export default function Terminal() {
         ]}
         return updated
       })
+      rotatePrompts()
     } catch {
       setHistory(prev => {
         const updated = [...prev]
@@ -629,13 +647,7 @@ export default function Terminal() {
 
         {/* Example prompts */}
         <div className="flex flex-wrap justify-center gap-2 mt-4">
-          {[
-            'list running containers',
-            'find files over 100mb',
-            'create a new git branch',
-            'check disk usage',
-            'play snake',
-          ].map(cmd => (
+          {prompts.map(cmd => (
             <button
               key={cmd}
               onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
