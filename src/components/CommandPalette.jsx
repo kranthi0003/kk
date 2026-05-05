@@ -44,7 +44,7 @@ export default function CommandPalette({ onResumeClick }) {
   const inputRef = useRef()
   const listRef = useRef()
 
-  // Open with Cmd+K / Ctrl+K
+  // Open with Cmd+K / Ctrl+K / "/" key
   useEffect(() => {
     const handleKey = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -53,11 +53,18 @@ export default function CommandPalette({ onResumeClick }) {
         setQuery('')
         setSelected(0)
       }
+      // "/" key opens palette (like GitHub) — only when not typing in an input
+      if (e.key === '/' && !open && !['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
+        e.preventDefault()
+        setOpen(true)
+        setQuery('')
+        setSelected(0)
+      }
       if (e.key === 'Escape') setOpen(false)
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [])
+  }, [open])
 
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 50)
@@ -173,7 +180,7 @@ export default function CommandPalette({ onResumeClick }) {
           <span>↑↓ navigate</span>
           <span>↵ select</span>
           <span>esc close</span>
-          <span className="ml-auto">⌘K to toggle</span>
+          <span className="ml-auto">Press / or ⌘K</span>
         </div>
       </div>
     </>

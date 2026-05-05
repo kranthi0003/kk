@@ -350,6 +350,16 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
         {/* Right — Icons (desktop) */}
         <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <button
+            onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-muted/50 border border-border/30 text-muted-foreground hover:text-foreground hover:border-border/50 transition-all text-xs font-mono"
+            title="Search (⌘K or /)"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <kbd className="text-[10px] text-muted-foreground/60">/</kbd>
+          </button>
           <NavStatus />
           <NavWallet />
           <NavSpotify />
