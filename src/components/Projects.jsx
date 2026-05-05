@@ -31,45 +31,45 @@ const projects = [
 ]
 
 const statusColors = {
-  active: { dot: 'bg-green-500', label: 'ACTIVE', text: 'text-green-500' },
-  wip: { dot: 'bg-yellow-500 animate-pulse', label: 'IN PROGRESS', text: 'text-yellow-500' },
-  archived: { dot: 'bg-muted-foreground/40', label: 'ARCHIVED', text: 'text-muted-foreground' },
+  active: { label: '● ACTIVE', text: 'text-green-500' },
+  wip: { label: 'WIP', text: 'text-yellow-500' },
+  archived: { label: 'ARCHIVED', text: 'text-muted-foreground' },
 }
 
 export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-muted/30">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-14">
           <p className="font-mono text-sm text-accent mb-2">~/projects</p>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">What I've Built</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((p) => {
             const s = statusColors[p.status]
             return (
               <div
                 key={p.name}
-                className="rounded-lg border border-border/30 bg-card hover:border-border/60 transition-all duration-200 overflow-hidden"
+                className="rounded-xl border border-border/30 bg-card hover:border-border/60 transition-all duration-200 overflow-hidden"
               >
                 {/* Title bar */}
-                <div className="flex items-center gap-1.5 px-3 py-1.5 border-b border-border/20 bg-muted/30">
-                  <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                  <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-                  <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-                  <span className="flex-1 text-center text-[10px] font-mono text-muted-foreground truncate">{p.name}</span>
-                  <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
+                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border/20 bg-muted/30">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                  <span className="flex-1 text-center text-[11px] font-mono text-muted-foreground truncate">{p.name}</span>
+                  <span className={`text-[9px] font-mono font-bold ${s.text}`}>{s.label}</span>
                 </div>
 
                 {/* Body */}
-                <div className="px-3 py-3">
-                  <p className="font-mono text-xs font-medium text-foreground mb-1"><span className="text-accent">$</span> {p.title}</p>
-                  <p className="text-[11px] text-muted-foreground leading-snug mb-2.5 line-clamp-2">{p.desc}</p>
+                <div className="px-4 py-4">
+                  <p className="font-mono text-sm font-medium text-foreground mb-1.5"><span className="text-accent">$</span> {p.title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-3">{p.desc}</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-1.5">
                       {p.tech.slice(0, 3).map(t => (
-                        <span key={t} className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-muted/50 text-muted-foreground">{t}</span>
+                        <span key={t} className="px-2 py-0.5 rounded text-[10px] font-mono bg-muted/50 text-muted-foreground">{t}</span>
                       ))}
                     </div>
                     <div className="flex items-center gap-2">
