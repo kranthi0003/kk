@@ -154,13 +154,23 @@ function NavStatus() {
     const check = async () => {
       const start = performance.now()
       try {
-        const res = await fetch('https://kranthikiran.com', { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+        await fetch('https://kranthikiran.com', { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
         const latency = Math.round(performance.now() - start)
         
-        // Gather page metrics
+        // Gather real page metrics
         const perf = performance.getEntriesByType('navigation')[0] || {}
         const resources = performance.getEntriesByType('resource')
         const totalSize = resources.reduce((sum, r) => sum + (r.transferSize || 0), 0)
+        const jsCount = resources.filter(r => r.initiatorType === 'script').length
+        const cssCount = resources.filter(r => r.initiatorType === 'link' || r.name?.endsWith('.css')).length
+        const imgCount = resources.filter(r => r.initiatorType === 'img').length
+        
+        // Memory (Chrome only)
+        const mem = performance.memory ? (performance.memory.usedJSHeapSize / 1048576).toFixed(0) : null
+        
+        // FCP
+        const paintEntries = performance.getEntriesByType('paint')
+        const fcp = paintEntries.find(e => e.name === 'first-contentful-paint')
         
         setMetrics({
           status: 'up',
@@ -168,15 +178,21 @@ function NavStatus() {
           domLoad: Math.round(perf.domContentLoadedEventEnd - perf.startTime) || null,
           fullLoad: Math.round(perf.loadEventEnd - perf.startTime) || null,
           resources: resources.length,
-          totalSize: (totalSize / 1024).toFixed(0),
+          totalSize: totalSize > 0 ? (totalSize / 1024).toFixed(0) : Math.round(performance.getEntriesByType('resource').reduce((s, r) => s + (r.encodedBodySize || 0), 0) / 1024),
           ttfb: Math.round(perf.responseStart - perf.startTime) || null,
+          fcp: fcp ? Math.round(fcp.startTime) : null,
+          jsCount,
+          cssCount,
+          imgCount,
+          memMB: mem,
           checkedAt: new Date(),
         })
       } catch {
         setMetrics({ status: 'down', latency: null, checkedAt: new Date() })
       }
     }
-    check()
+    // Delay first check so page fully loads
+    setTimeout(check, 2000)
     const i = setInterval(check, 60000)
     return () => clearInterval(i)
   }, [])
@@ -204,7 +220,7 @@ function NavStatus() {
       </button>
       {open && (
         <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
-          <div className="w-full sm:w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+          <div className="w-full sm:w-[320px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
             {/* Header */}
             <div className="px-4 py-3 border-b border-border/20 flex items-center gap-2">
               <span className="relative flex h-2 w-2">
@@ -219,30 +235,34 @@ function NavStatus() {
 
             {/* Metrics grid */}
             {metrics && isUp && (
-              <div className="p-3 grid grid-cols-2 gap-2">
+              <div className="p-3 grid grid-cols-3 gap-2">
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Response</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.latency}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">Response</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.latency}<span className="text-[8px] text-muted-foreground">ms</span></p>
                 </div>
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">TTFB</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.ttfb || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">TTFB</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.ttfb || '—'}<span className="text-[8px] text-muted-foreground">ms</span></p>
                 </div>
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">DOM Ready</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.domLoad || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">FCP</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.fcp || '—'}<span className="text-[8px] text-muted-foreground">ms</span></p>
                 </div>
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Full Load</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.fullLoad || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">DOM Ready</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.domLoad || '—'}<span className="text-[8px] text-muted-foreground">ms</span></p>
                 </div>
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Resources</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.resources}</p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">Full Load</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.fullLoad || '—'}<span className="text-[8px] text-muted-foreground">ms</span></p>
                 </div>
                 <div className="p-2 rounded-lg bg-muted/30">
-                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Transfer</p>
-                  <p className="text-sm font-mono font-bold text-foreground">{metrics.totalSize}<span className="text-[9px] text-muted-foreground">KB</span></p>
+                  <p className="text-[7px] text-muted-foreground font-mono uppercase">Transfer</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.totalSize}<span className="text-[8px] text-muted-foreground">KB</span></p>
+                </div>
+                <div className="col-span-3 pt-1 flex items-center justify-between text-[8px] font-mono text-muted-foreground/60">
+                  <span>{metrics.resources} resources ({metrics.jsCount} js · {metrics.cssCount} css · {metrics.imgCount} img)</span>
+                  {metrics.memMB && <span>{metrics.memMB}MB heap</span>}
                 </div>
               </div>
             )}
