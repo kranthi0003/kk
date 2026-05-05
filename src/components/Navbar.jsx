@@ -144,6 +144,84 @@ function WalletDropdown() {
   )
 }
 
+function NavStatus() {
+  const [open, setOpen] = useState(false)
+  const [results, setResults] = useState([
+    { name: 'Portfolio', url: 'https://kranthikiran.com', status: 'checking' },
+    { name: 'GitHub', url: 'https://api.github.com', status: 'checking' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com', status: 'checking' },
+  ])
+  const ref = useRef()
+
+  useEffect(() => {
+    const check = async () => {
+      const updated = await Promise.all(results.map(async (s) => {
+        try {
+          const t = performance.now()
+          await fetch(s.url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+          return { ...s, status: 'up', ms: Math.round(performance.now() - t) }
+        } catch { return { ...s, status: 'down', ms: null } }
+      }))
+      setResults(updated)
+    }
+    check()
+    const i = setInterval(check, 60000)
+    return () => clearInterval(i)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const h = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', h)
+    return () => document.removeEventListener('mousedown', h)
+  }, [open])
+
+  const allUp = results.every(r => r.status === 'up')
+  const checking = results.some(r => r.status === 'checking')
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="p-2 rounded-full bg-muted hover:bg-border transition-colors duration-200 relative"
+        aria-label="System status"
+      >
+        <span className={`block w-4 h-4 rounded-full border-2 ${
+          checking ? 'border-yellow-400 bg-yellow-400/20 animate-pulse' :
+          allUp ? 'border-green-400 bg-green-400/20' : 'border-red-400 bg-red-400/20'
+        }`} />
+      </button>
+      {open && (
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
+          <div className="w-full sm:w-[260px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+            <div className="px-4 py-3 border-b border-border/20 flex items-center gap-2">
+              <span className={`relative flex h-2 w-2`}>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${allUp ? 'bg-green-400' : 'bg-red-400'}`} />
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${allUp ? 'bg-green-500' : 'bg-red-500'}`} />
+              </span>
+              <span className={`text-[10px] font-mono font-semibold ${allUp ? 'text-green-500' : 'text-red-500'}`}>
+                {checking ? 'Checking...' : allUp ? 'All Operational' : 'Issues Detected'}
+              </span>
+            </div>
+            {results.map(s => (
+              <div key={s.name} className="px-4 py-2.5 flex items-center gap-2 border-b border-border/10 last:border-0">
+                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                  s.status === 'up' ? 'bg-green-500' : s.status === 'down' ? 'bg-red-500' : 'bg-yellow-500 animate-pulse'
+                }`} />
+                <span className="text-xs text-foreground flex-1">{s.name}</span>
+                {s.ms && <span className="text-[9px] font-mono text-muted-foreground">{s.ms}ms</span>}
+                <span className={`text-[9px] font-mono font-bold ${
+                  s.status === 'up' ? 'text-green-500' : s.status === 'down' ? 'text-red-500' : 'text-yellow-500'
+                }`}>{s.status === 'checking' ? '...' : s.status.toUpperCase()}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
@@ -232,6 +310,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           })}
           <div className="w-px h-5 bg-border/50 mx-3" />
           <div className="flex items-center gap-2">
+            <NavStatus />
             <NavWallet />
             <NavSpotify />
             <ThemeToggle onRapidClick={onSecretTrigger} />
@@ -240,6 +319,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-2.5">
+          <NavStatus />
           <NavWallet />
           <NavSpotify />
           <ThemeToggle onRapidClick={onSecretTrigger} />
