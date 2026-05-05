@@ -704,7 +704,7 @@ export default function Terminal() {
         <div className="text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/terminal</p>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">AI Shell Translator</h2>
-          <p className="text-muted-foreground text-sm mt-2">Describe what you want → get the exact command</p>
+          <p className="text-muted-foreground text-sm mt-2">Describe what you want in plain English · Also has games & architecture diagrams</p>
         </div>
 
         <div className="rounded-2xl border border-border/30 shadow-2xl overflow-hidden bg-card">
@@ -718,15 +718,21 @@ export default function Terminal() {
             <div className="flex-1 text-center">
               <span className="text-[11px] text-muted-foreground font-mono">kranthi@portfolio ~ zsh</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <span className="text-[9px] font-mono text-green-500">● AI</span>
+              <button
+                onClick={() => { setHistory([]); setGame(null) }}
+                className="text-[9px] font-mono text-muted-foreground/40 hover:text-muted-foreground transition-colors"
+              >
+                clear
+              </button>
             </div>
           </div>
 
           {/* Terminal body */}
           <div
             ref={scrollRef}
-            className="p-5 h-[380px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text scroll-smooth"
+            className="p-5 h-[400px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text scroll-smooth"
             onClick={() => inputRef.current?.focus()}
           >
             {history.map((entry, i) => (
@@ -755,6 +761,7 @@ export default function Terminal() {
             <form onSubmit={handleSubmit} className="flex gap-2 items-center">
               <span className="text-accent flex-shrink-0">❯</span>
               <input
+                id="terminal-input"
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -768,17 +775,35 @@ export default function Terminal() {
           </div>
         </div>
 
-        {/* Example prompts */}
-        <div className="flex flex-wrap justify-center gap-2 mt-4">
-          {prompts.map(cmd => (
-            <button
-              key={cmd}
-              onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
-              className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-foreground/20 hover:text-foreground transition-all"
-            >
-              {cmd}
-            </button>
-          ))}
+        {/* Categorized quick actions */}
+        <div className="mt-5 space-y-3">
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="text-[9px] font-mono text-muted-foreground/40 uppercase tracking-wider self-center mr-1">Try:</span>
+            {prompts.map(cmd => (
+              <button
+                key={cmd}
+                onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
+                className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-accent/30 hover:text-foreground hover:bg-muted/30 transition-all"
+              >
+                {cmd.startsWith('design') ? '🏗️ ' : ''}{cmd}
+              </button>
+            ))}
+          </div>
+          <div className="flex justify-center gap-2">
+            <span className="text-[9px] font-mono text-muted-foreground/40 uppercase tracking-wider self-center mr-1">Play:</span>
+            {['🐍 snake', '❌ ttt', '📝 wordle', '🃏 memory'].map(g => {
+              const cmd = 'play ' + g.split(' ')[1]
+              return (
+                <button
+                  key={cmd}
+                  onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
+                  className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-accent/30 hover:text-foreground hover:bg-muted/30 transition-all"
+                >
+                  {g}
+                </button>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
