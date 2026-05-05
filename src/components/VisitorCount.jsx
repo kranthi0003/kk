@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import supabase from '../lib/supabase'
+import { subscribeVisitorChannel, unsubscribeVisitorChannel } from './VisitorTracker'
 
 export default function VisitorCount() {
   const [count, setCount] = useState(null)
 
   useEffect(() => {
-    const channel = supabase.channel('visitors', {
-      config: { presence: { key: crypto.randomUUID() } },
-    })
+    const channel = subscribeVisitorChannel()
 
-    channel
-      .on('presence', { event: 'sync' }, () => {
-        const state = channel.presenceState()
-        setCount(Object.keys(state).length)
-      })
-      .subscribe(async (status) => {
-        if (status === 'SUBSCRIBED') {
-          await channel.track({ online_at: new Date().toISOString() })
-        }
-      })
+    const syncCount = () => {
+      const state = channel.presenceState()
+      setCount(Object.keys(state).length)
+    }
 
-    return () => { supabase.removeChannel(channel) }
+    channel.on('presence', { event: 'sync' }, syncCount)
+    // Sync immediately in case already subscribed
+    syncCount()
+
+    return () => { unsubscribeVisitorChannel() }
   }, [])
 
   if (count === null || count < 2) return null

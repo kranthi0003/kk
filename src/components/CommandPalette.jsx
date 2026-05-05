@@ -27,6 +27,9 @@ const ACTIONS = [
   { id: 'top', label: 'Scroll to Top', desc: 'Back to start', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning' },
   { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url' },
   { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
+  { id: 'admin-dash', label: 'Visitor Dashboard', desc: 'See who\'s viewing (admin)', section: 'Actions', icon: '👀', action: () => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'V', ctrlKey: true, shiftKey: true, bubbles: true }))
+  }, keywords: 'admin visitors dashboard analytics who viewing' },
 
   // Games
   { id: 'g-snake', label: 'Snake', desc: 'Classic snake game', section: 'Games', icon: '🐍', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play' },
