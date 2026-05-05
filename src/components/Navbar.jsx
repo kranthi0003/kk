@@ -147,8 +147,8 @@ function WalletDropdown() {
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
   { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Travel', href: '#travel' },
   { label: 'Connect', href: '#connect' },
 ]
