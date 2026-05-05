@@ -52,34 +52,34 @@ function buildBootSequence() {
   const t = (n) => `[    ${n.toFixed(6).padStart(10)}]`
 
   return [
-    { text: `${t(0)} kernel: Linux version 6.8.0 (gcc 13.2.0) #1 SMP PREEMPT_DYNAMIC`, delay: 0, color: '#aaa' },
-    { text: `${t(0.003)} kernel: Command line: BOOT_IMAGE=/vmlinuz root=UUID=kranthikiran`, delay: 150, color: '#aaa' },
-    { text: `${t(0.021)} kernel: DMI: ${s.os}`, delay: 300, color: '#aaa' },
-    { text: `${t(0.021)} kernel: Hypervisor detected: ${s.browser}`, delay: 450, color: '#aaa' },
-    { text: `${t(0.034)} kernel: CPU(s): ${s.cores || 'detecting...'} cores`, delay: 600, color: '#fff' },
-    { text: `${t(0.034)} kernel: Memory: ${s.mem ? s.mem + ' GB' : 'available'}`, delay: 750, color: '#fff' },
-    ...(s.webgl.vendor ? [{ text: `${t(0.041)} kernel: GPU: ${s.webgl.vendor}`, delay: 900, color: '#fff' }] : []),
-    ...(s.webgl.renderer ? [{ text: `${t(0.041)} kernel:      ${s.webgl.renderer}`, delay: 1050, color: '#aaa' }] : []),
-    ...(s.webgl.version ? [{ text: `${t(0.042)} kernel:      ${s.webgl.version}`, delay: 1150, color: '#aaa' }] : []),
-    { text: `${t(0.058)} kernel: Display: ${s.screen.width}×${s.screen.height} @ ${window.devicePixelRatio || 1}x (${s.screen.colorDepth}-bit color)`, delay: 1300, color: '#fff' },
-    { text: `${t(0.058)} kernel: Input: ${s.touch ? 'touchscreen' : 'pointer'} device`, delay: 1450, color: '#aaa' },
+    { text: `${t(0)} kernel: Linux version 6.8.0 (gcc 13.2.0) #1 SMP PREEMPT_DYNAMIC`, delay: 0 },
+    { text: `${t(0.003)} kernel: Command line: BOOT_IMAGE=/vmlinuz root=UUID=kranthikiran`, delay: 150 },
+    { text: `${t(0.021)} kernel: DMI: ${s.os}`, delay: 300 },
+    { text: `${t(0.021)} kernel: Hypervisor detected: ${s.browser}`, delay: 450 },
+    { text: `${t(0.034)} kernel: CPU(s): ${s.cores || 'detecting...'} cores`, delay: 600, bright: true },
+    { text: `${t(0.034)} kernel: Memory: ${s.mem ? s.mem + ' GB' : 'available'}`, delay: 750, bright: true },
+    ...(s.webgl.vendor ? [{ text: `${t(0.041)} kernel: GPU: ${s.webgl.vendor}`, delay: 900, bright: true }] : []),
+    ...(s.webgl.renderer ? [{ text: `${t(0.041)} kernel:      ${s.webgl.renderer}`, delay: 1050 }] : []),
+    ...(s.webgl.version ? [{ text: `${t(0.042)} kernel:      ${s.webgl.version}`, delay: 1150 }] : []),
+    { text: `${t(0.058)} kernel: Display: ${s.screen.width}×${s.screen.height} @ ${window.devicePixelRatio || 1}x (${s.screen.colorDepth}-bit color)`, delay: 1300, bright: true },
+    { text: `${t(0.058)} kernel: Input: ${s.touch ? 'touchscreen' : 'pointer'} device`, delay: 1450 },
     { text: '', delay: 1600 },
-    { text: `  * systemd[1]: Starting kranthikiran.com...`, delay: 1700, color: '#f90' },
-    { text: `  [ OK ] Detected operating system: ${s.os}`, delay: 1900, color: '#0f0' },
-    { text: `  [ OK ] Detected browser: ${s.browser} ${s.browserVersion}`, delay: 2100, color: '#0f0' },
-    { text: `  [ OK ] Locale: ${s.lang} • Timezone: ${s.tz}`, delay: 2300, color: '#0f0' },
-    { text: `  [ OK ] Network: ${s.online}${s.effectiveType ? ' • ' + s.effectiveType.toUpperCase() : ''}${s.downlink ? ' • ' + s.downlink + ' Mbps' : ''}`, delay: 2500, color: '#0f0' },
-    { text: `  [ OK ] Cookies: ${s.cookiesEnabled ? 'enabled' : 'disabled'} • DNT: ${s.doNotTrack ? 'on' : 'off'}`, delay: 2700, color: '#0f0' },
+    { text: `  * systemd[1]: Starting kranthikiran.com...`, delay: 1700, accent: true },
+    { text: `  [ OK ] Detected operating system: ${s.os}`, delay: 1900, ok: true },
+    { text: `  [ OK ] Detected browser: ${s.browser} ${s.browserVersion}`, delay: 2100, ok: true },
+    { text: `  [ OK ] Locale: ${s.lang} • Timezone: ${s.tz}`, delay: 2300, ok: true },
+    { text: `  [ OK ] Network: ${s.online}${s.effectiveType ? ' • ' + s.effectiveType.toUpperCase() : ''}${s.downlink ? ' • ' + s.downlink + ' Mbps' : ''}`, delay: 2500, ok: true },
+    { text: `  [ OK ] Cookies: ${s.cookiesEnabled ? 'enabled' : 'disabled'} • DNT: ${s.doNotTrack ? 'on' : 'off'}`, delay: 2700, ok: true },
     { text: '', delay: 2900 },
-    { text: `  * systemd[1]: Loading site assets...`, delay: 3000, color: '#f90' },
-    { text: `  [ OK ] Started react.service`, delay: 3200, color: '#0f0' },
-    { text: `  [ OK ] Started tailwind.service`, delay: 3350, color: '#0f0' },
-    { text: `  [ OK ] Started three-globe.service`, delay: 3500, color: '#0f0' },
-    { text: `  [ OK ] Started service-worker.service`, delay: 3650, color: '#0f0' },
+    { text: `  * systemd[1]: Loading site assets...`, delay: 3000, accent: true },
+    { text: `  [ OK ] Started react.service`, delay: 3200, ok: true },
+    { text: `  [ OK ] Started tailwind.service`, delay: 3350, ok: true },
+    { text: `  [ OK ] Started three-globe.service`, delay: 3500, ok: true },
+    { text: `  [ OK ] Started service-worker.service`, delay: 3650, ok: true },
     { text: '', delay: 3800 },
-    { text: `  * systemd[1]: Reached target: portfolio ready`, delay: 3900, color: '#f90' },
+    { text: `  * systemd[1]: Reached target: portfolio ready`, delay: 3900, accent: true },
     { text: '', delay: 4100 },
-    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 4200, color: '#fff' },
+    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 4200, bright: true },
   ]
 }
 
@@ -152,9 +152,8 @@ export default function BootLoader({ onComplete }) {
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex flex-col"
+      className="fixed inset-0 z-[200] flex flex-col bg-background"
       style={{
-        background: '#2c001e',
         fontFamily: '"JetBrains Mono", "Courier New", monospace',
       }}
     >
@@ -166,8 +165,12 @@ export default function BootLoader({ onComplete }) {
         {lines.map((line, i) => (
           <div
             key={i}
-            className="text-xs sm:text-sm leading-relaxed"
-            style={{ color: line.color || '#aaa' }}
+            className={`text-xs sm:text-sm leading-relaxed ${
+              line.ok ? 'text-green-500 dark:text-green-400' :
+              line.accent ? 'text-accent' :
+              line.bright ? 'text-foreground' :
+              'text-muted-foreground'
+            }`}
           >
             {line.text || '\u00A0'}
           </div>
@@ -175,20 +178,20 @@ export default function BootLoader({ onComplete }) {
 
         {phase === 'loading' && (
           <div className="mt-4">
-            <div className="text-white text-xs sm:text-sm mb-2">
+            <div className="text-foreground text-xs sm:text-sm mb-2">
               Loading kranthikiran.com...
             </div>
-            <div className="w-full max-w-md h-4 border border-orange-500/50 rounded-sm overflow-hidden">
+            <div className="w-full max-w-md h-3 border border-accent/30 rounded-sm overflow-hidden bg-muted/20">
               <div
-                className="h-full transition-all duration-100"
+                className="h-full transition-all duration-100 rounded-sm"
                 style={{
                   width: `${progress}%`,
-                  background: 'linear-gradient(90deg, #e95420, #c34113)',
-                  boxShadow: '0 0 10px #e95420',
+                  background: 'var(--color-accent)',
+                  boxShadow: '0 0 8px var(--color-accent)',
                 }}
               />
             </div>
-            <div className="text-orange-400 text-[10px] mt-1 font-mono">{progress}%</div>
+            <div className="text-accent text-[10px] mt-1 font-mono">{progress}%</div>
           </div>
         )}
       </div>
@@ -196,7 +199,7 @@ export default function BootLoader({ onComplete }) {
       {/* Skip button */}
       <button
         onClick={handleSkip}
-        className="absolute bottom-6 right-6 text-[11px] text-gray-600 hover:text-gray-400 font-mono transition-colors z-20"
+        className="absolute bottom-6 right-6 text-[11px] text-muted-foreground/40 hover:text-muted-foreground font-mono transition-colors z-20"
       >
         press to skip →
       </button>
