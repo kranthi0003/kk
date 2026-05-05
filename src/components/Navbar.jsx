@@ -643,18 +643,15 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
             <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
-              const btn = document.querySelector('[title="Screenshot"]')
               try {
                 const html2canvas = (await import('html2canvas')).default
                 const canvas = await html2canvas(document.body, { useCORS: true, scale: 1, height: window.innerHeight, windowHeight: window.innerHeight })
-                canvas.toBlob(blob => {
-                  if (blob) {
-                    navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
-                    if (btn) { btn.style.color = '#22c55e'; setTimeout(() => btn.style.color = '', 1500) }
-                  }
-                })
-              } catch {
-                if (btn) { btn.style.color = '#ef4444'; setTimeout(() => btn.style.color = '', 1500) }
+                const link = document.createElement('a')
+                link.download = `kranthikiran-${Date.now()}.png`
+                link.href = canvas.toDataURL('image/png')
+                link.click()
+              } catch (e) {
+                console.error('Screenshot failed:', e)
               }
             }} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
