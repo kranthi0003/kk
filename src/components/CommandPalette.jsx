@@ -1,41 +1,61 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 
 const ACTIONS = [
-  // Sections
-  { id: 'home', label: 'Go to Home', section: 'Navigate', icon: '🏠', action: () => scrollTo('home') },
-  { id: 'terminal', label: 'Go to Terminal', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal') },
-  { id: 'experience', label: 'Go to Experience', section: 'Navigate', icon: '💼', action: () => scrollTo('experience') },
-  { id: 'techstack', label: 'Go to Tech Stack', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack') },
-  { id: 'certs', label: 'Go to Certifications', section: 'Navigate', icon: '🎓', action: () => scrollTo('certifications') },
-  { id: 'about', label: 'Go to About', section: 'Navigate', icon: '👤', action: () => scrollTo('about') },
-  { id: 'projects', label: 'Go to Projects', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects') },
-  { id: 'travel', label: 'Go to Travel Map', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel') },
-  { id: 'connect', label: 'Go to Connect', section: 'Navigate', icon: '📬', action: () => scrollTo('connect') },
-  { id: 'guestbook', label: 'Go to Guestbook', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook') },
+  // Navigate
+  { id: 'home', label: 'Go to Home', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start' },
+  { id: 'experience', label: 'Go to Experience', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs' },
+  { id: 'techstack', label: 'Go to Skills & Certs', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools' },
+  { id: 'about', label: 'Go to About', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info' },
+  { id: 'terminal', label: 'Go to Terminal', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai' },
+  { id: 'projects', label: 'Go to Projects', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects'), keywords: 'work built apps' },
+  { id: 'travel', label: 'Go to Travel Map', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel'), keywords: 'globe map cities' },
+  { id: 'connect', label: 'Go to Connect', section: 'Navigate', icon: '📬', action: () => scrollTo('connect'), keywords: 'contact email hire' },
+  { id: 'guestbook', label: 'Go to Guestbook', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook'), keywords: 'messages notes sign' },
+
+  // Quick Info
+  { id: 'who', label: 'SE-III at GitHub | Microsoft', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do' },
+  { id: 'location', label: 'Visakhapatnam (Vizag), India', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country' },
+  { id: 'email-info', label: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); alert('Email copied!') }, keywords: 'email address copy contact' },
+  { id: 'exp-years', label: '4+ years · Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked' },
 
   // Actions
   { id: 'theme', label: 'Toggle Dark/Light Mode', section: 'Actions', icon: '🌓', action: () => {
     document.documentElement.classList.toggle('dark')
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
-  }},
-  { id: 'resume', label: 'Open Resume', section: 'Actions', icon: '📄', action: 'resume' },
-  { id: 'top', label: 'Scroll to Top', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
-  { id: 'bottom', label: 'Scroll to Bottom', section: 'Actions', icon: '⬇️', action: () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }) },
+  }, keywords: 'dark light mode switch' },
+  { id: 'resume', label: 'Open Resume / CV', section: 'Actions', icon: '📄', action: 'resume', keywords: 'resume cv pdf download' },
+  { id: 'top', label: 'Scroll to Top', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning' },
+  { id: 'share', label: 'Copy Site Link', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); alert('Link copied!') }, keywords: 'share copy link url' },
+  { id: 'print', label: 'Print Page', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
+
+  // Games
+  { id: 'g-snake', label: 'Play Snake 🐍', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play' },
+  { id: 'g-ttt', label: 'Play Tic-Tac-Toe ❌⭕', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play ttt'), 500) }, keywords: 'tictactoe game play' },
+  { id: 'g-wordle', label: 'Play Wordle 📝', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play wordle'), 500) }, keywords: 'wordle guess game play' },
+  { id: 'g-memory', label: 'Play Memory 🃏', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play memory'), 500) }, keywords: 'memory match game play' },
 
   // Links
-  { id: 'github', label: 'GitHub Profile', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank') },
-  { id: 'linkedin', label: 'LinkedIn Profile', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank') },
-  { id: 'twitter', label: 'X / Twitter', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank') },
-  { id: 'email', label: 'Send Email', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com') },
-
-  // Projects
-  { id: 'p-sketchgate', label: 'SketchGate — Rate Limiter', section: 'Projects', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank') },
-  { id: 'p-site', label: 'Portfolio Source Code', section: 'Projects', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank') },
+  { id: 'github', label: 'GitHub — @kranthi0003', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'github code repos' },
+  { id: 'linkedin', label: 'LinkedIn — akkiran003', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank'), keywords: 'linkedin profile professional' },
+  { id: 'twitter', label: 'X — @kranthikiran03', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank'), keywords: 'twitter x social' },
+  { id: 'email-link', label: 'Send Email', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com'), keywords: 'email send message' },
+  { id: 'p-sketchgate', label: 'SketchGate — Rate Limiter', section: 'Links', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank'), keywords: 'sketchgate project rate limiter' },
+  { id: 'p-site', label: 'Portfolio Source Code', section: 'Links', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site' },
 ]
 
 function scrollTo(id) {
   const el = document.getElementById(id)
   if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
+
+function typeInTerminal(cmd) {
+  const input = document.querySelector('#terminal input')
+  if (input) {
+    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set
+    nativeInputValueSetter.call(input, cmd)
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+    input.form?.requestSubmit()
+  }
 }
 
 export default function CommandPalette({ onResumeClick }) {
@@ -81,7 +101,8 @@ export default function CommandPalette({ onResumeClick }) {
     return ACTIONS.filter(a =>
       a.label.toLowerCase().includes(q) ||
       a.section.toLowerCase().includes(q) ||
-      a.id.includes(q)
+      a.id.includes(q) ||
+      (a.keywords && a.keywords.includes(q))
     )
   }, [query])
 
