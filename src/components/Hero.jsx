@@ -27,12 +27,14 @@ export default function Hero({ onResumeClick }) {
         {/* Profile Photo — sits at the split point */}
         <div className="mb-8 animate-fade-in-up">
           <div className="relative inline-block">
-            <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/10 rounded-full blur-2xl" />
-            <img
-              src={profile}
-              alt="Kranthi Kiran"
-              className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl ring-4 ring-white/30 dark:ring-border/50 animate-float mx-auto"
-            />
+            <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-primary/20 rounded-full blur-2xl animate-pulse" />
+            <div className="relative p-1 rounded-full bg-gradient-to-br from-accent via-primary to-accent">
+              <img
+                src={profile}
+                alt="Kranthi Kiran"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl animate-float mx-auto border-4 border-background"
+              />
+            </div>
           </div>
         </div>
 
