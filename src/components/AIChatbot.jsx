@@ -100,23 +100,23 @@ ABOUT THIS WEBSITE:
 - Domain: kranthikiran.com
 
 RESPONSE GUIDELINES:
-- You ARE Kranthi's digital twin — talk in first person sometimes ("my guy worked at...", "he's the kind of dude who...")
-- Keep answers concise (2-4 sentences max) but packed with personality
-- Be witty, slightly sarcastic, and confident — like a friend hyping up Kranthi but keeping it real
-- Drop casual humor: "Oh, you wanna know about his skills? Grab a chair, this list doesn't end"
-- Use light roasts on Kranthi too: "He says he'll retire at 40... we'll see about that 😏"
-- Throw in cultural references when it fits — Bollywood, chai, cricket, tech bro culture
-- Use specific facts — don't be vague or generic
-- If asked something not covered, be honest but funny: "That's above my pay grade. I'm an AI, not his diary."
-- Never make up facts
-- For technical questions, flex the résumé but keep it chill
-- If someone asks "what does Kranthi do", paint the picture: Amazon → Groww → Couchbase → GitHub, each step leveling up
-- End with a hook sometimes: "Anything else? I literally have nothing better to do 😄"`
+- Talk naturally like a chill, knowledgeable friend — not a hype-man or comedian
+- Keep answers 2-4 sentences. Be informative but conversational
+- Vary your tone — sometimes straightforward, sometimes a little playful, but never forced
+- DON'T repeat catchphrases, hooks, or sign-offs. Every response should feel fresh
+- DON'T end every message with "anything else?" or similar — only occasionally
+- DON'T force humor into every response. Let facts speak. Be witty only when it fits naturally
+- Use emojis sparingly — max 1 per response, and only when it genuinely adds something
+- For career questions, walk through the journey naturally: started at Amazon, moved through Groww and Couchbase, now at GitHub
+- For tech questions, be specific and direct — mention actual tools and experience
+- If you don't know something, just say "I don't have that info" simply
+- Never make up facts about Kranthi
+- Sound like a real person, not a chatbot template`
 
 export default function AIChatbot() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: "Yo! I'm Kranthi's AI sidekick. Ask me anything — his work, skills, or why he thinks he'll retire at 40 😏" }
+    { role: 'assistant', text: "Hey! I know a thing or two about Kranthi. Ask me anything — work, skills, projects, whatever." }
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -134,14 +134,15 @@ export default function AIChatbot() {
   }, [open])
 
   // Cleanup typing interval on unmount
-  useEffect(() => () => { if (typingRef.current) clearInterval(typingRef.current) }, [])
+  useEffect(() => () => { if (typingRef.current) clearTimeout(typingRef.current) }, [])
 
   const typeReply = (fullText) => {
     setTyping(true)
     setMessages(prev => [...prev, { role: 'assistant', text: '', typing: true }])
     let i = 0
-    const speed = Math.max(12, Math.min(30, 1500 / fullText.length))
-    typingRef.current = setInterval(() => {
+    const baseSpeed = Math.max(20, Math.min(45, 2500 / fullText.length))
+    
+    const tick = () => {
       i++
       setMessages(prev => {
         const updated = [...prev]
@@ -149,15 +150,25 @@ export default function AIChatbot() {
         return updated
       })
       if (i >= fullText.length) {
-        clearInterval(typingRef.current)
-        typingRef.current = null
         setMessages(prev => {
           const updated = [...prev]
           updated[updated.length - 1] = { role: 'assistant', text: fullText }
           return updated
         })
         setTyping(false)
+        return
       }
+      // Variable speed — pause longer at punctuation, faster on spaces
+      const char = fullText[i - 1]
+      let delay = baseSpeed + Math.random() * 15
+      if (char === '.' || char === '!' || char === '?') delay += 120
+      else if (char === ',') delay += 60
+      else if (char === ' ') delay = baseSpeed * 0.5
+      typingRef.current = setTimeout(tick, delay)
+    }
+    
+    typingRef.current = setTimeout(tick, 300) // initial pause before typing starts
+  }
     }, speed)
   }
 
@@ -190,7 +201,7 @@ export default function AIChatbot() {
           model: 'llama-3.3-70b-versatile',
           messages: chatMessages,
           max_tokens: 300,
-          temperature: 0.7,
+          temperature: 0.6,
         }),
       })
 
@@ -245,7 +256,7 @@ export default function AIChatbot() {
             </div>
             <div className="flex items-center gap-1">
               <button
-                onClick={() => setMessages([{ role: 'assistant', text: "Fresh start! Go ahead, ask me something about Kranthi. I'm literally made for this 😄" }])}
+                onClick={() => setMessages([{ role: 'assistant', text: "Fresh chat. What do you want to know about Kranthi?" }])}
                 className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
                 title="New chat"
               >
