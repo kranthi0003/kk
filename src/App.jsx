@@ -50,7 +50,7 @@ export default function App() {
   return (
     <>
       {!booted && <BootLoader onComplete={() => setBooted(true)} />}
-      <div className={`min-h-screen bg-background text-foreground ${!booted ? 'hidden' : ''}`}>
+      <div className={`min-h-screen bg-background text-foreground transition-opacity duration-500 ${!booted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
