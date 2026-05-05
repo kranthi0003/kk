@@ -22,7 +22,7 @@ const projects = [
     description: 'This very site — a modern single-page portfolio built with React, Tailwind CSS, and Vite. Features light/dark mode, 3D card effects, typing animations, and social embeds.',
     technologies: ['React', 'Tailwind CSS', 'Vite', 'JavaScript'],
     githubUrl: 'https://github.com/kranthi0003/kranthi-kiran-site',
-    demoUrl: 'https://kranthikiran.dev',
+    demoUrl: 'https://kranthikiran.com',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
   },
   {

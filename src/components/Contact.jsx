@@ -32,8 +32,8 @@ const socials = [
   },
   {
     name: 'Email',
-    url: 'mailto:kranthi0003@gmail.com',
-    handle: 'kranthi0003@gmail.com',
+    url: 'mailto:kranthikiranakkumahanthi@gmail.com',
+    handle: 'kranthikiranakkumahanthi@gmail.com',
     icon: <MailIcon />,
     color: 'text-red-500',
   },
@@ -90,8 +90,8 @@ export default function Connect() {
                     'ORG:GitHub',
                     'TITLE:SE-III',
                     'TEL;TYPE=CELL:+919398857319',
-                    'EMAIL:kranthi.kiran@outlook.com',
-                    'URL:https://kranthikiran.dev',
+                    'EMAIL:kranthikiranakkumahanthi@gmail.com',
+                    'URL:https://kranthikiran.com',
                     'URL:https://linkedin.com/in/akkiran003',
                     'URL:https://github.com/kranthi0003',
                     'END:VCARD',
@@ -124,7 +124,7 @@ export default function Connect() {
                 Always happy to chat about new challenges.
               </p>
               <a
-                href="mailto:kranthi.kiran@outlook.com"
+                href="mailto:kranthikiranakkumahanthi@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium text-sm hover-lift shadow-lg transition-all mx-auto"
               >
                 <MailIcon /> Say Hello

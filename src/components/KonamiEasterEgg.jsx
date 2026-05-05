@@ -78,11 +78,11 @@ export default function MatrixEasterEgg({ active, onComplete }) {
             </div>
 
             <div className="space-y-3">
-              <a href="mailto:kranthi.kiran@outlook.com?subject=Found%20your%20easter%20egg!"
+              <a href="mailto:kranthikiranakkumahanthi@gmail.com?subject=Found%20your%20easter%20egg!"
                  className="flex items-center gap-3 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 rounded-xl px-4 py-3 transition-all group">
                 <span className="text-xl">📧</span>
                 <div>
-                  <p className="text-green-400 font-mono text-sm group-hover:text-green-300">kranthi.kiran@outlook.com</p>
+                  <p className="text-green-400 font-mono text-sm group-hover:text-green-300">kranthikiranakkumahanthi@gmail.com</p>
                   <p className="text-gray-500 text-xs">Direct email — mention the easter egg!</p>
                 </div>
               </a>
