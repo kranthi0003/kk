@@ -49,6 +49,9 @@ const ACTIONS = [
   { id: 'top', label: 'Scroll to Top', desc: 'Back to start', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning scroll up back' },
   { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url website clipboard send' },
   { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save pdf export page' },
+  { id: 'changelog', label: "What's New", desc: 'Latest site changes from GitHub', section: 'Actions', icon: '📋', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-changelog'))
+  }, keywords: 'changelog whats new updates changes commits git history version releases log' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },

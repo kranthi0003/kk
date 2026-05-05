@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
 import CommandPalette from './components/CommandPalette'
+import Changelog from './components/Changelog'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
 import AdminDashboard from './components/AdminDashboard'
@@ -84,6 +85,7 @@ export default function App() {
       <VisitorCount />
       <AdminDashboard />
       <CommandPalette onResumeClick={() => setResumeOpen(true)} />
+      <Changelog />
     </div>
     </>
   )
