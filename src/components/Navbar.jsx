@@ -645,10 +645,10 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
               try {
                 const html2canvas = (await import('html2canvas')).default
-                const canvas = await html2canvas(document.body, { useCORS: true, scale: 1, height: window.innerHeight, windowHeight: window.innerHeight })
+                const canvas = await html2canvas(document.body, { useCORS: true, scale: window.devicePixelRatio || 2, height: window.innerHeight, windowHeight: window.innerHeight })
                 const link = document.createElement('a')
                 link.download = `kranthikiran-${Date.now()}.png`
-                link.href = canvas.toDataURL('image/png')
+                link.href = canvas.toDataURL('image/png', 1.0)
                 link.click()
               } catch (e) {
                 console.error('Screenshot failed:', e)
