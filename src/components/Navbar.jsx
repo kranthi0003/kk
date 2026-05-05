@@ -616,7 +616,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-white/[0.03]">
+      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
           {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
