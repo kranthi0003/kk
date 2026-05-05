@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import React from 'react'
 
 const projects = [
   {
@@ -19,68 +19,12 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
   },
   {
-    title: 'Health Risk Prediction',
-    description: 'Machine learning pipeline for predicting health risks using patient data. Built classification models with feature engineering, data preprocessing, and model evaluation.',
-    technologies: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn'],
-    githubUrl: 'https://github.com/kranthi0003/Health-Risk-Prediction',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
-  },
-  {
     title: 'Portfolio Website',
     description: 'This very site — a modern single-page portfolio built with React, Tailwind CSS, and Vite. Features light/dark mode, 3D card effects, typing animations, and social embeds.',
     technologies: ['React', 'Tailwind CSS', 'Vite', 'JavaScript'],
     githubUrl: 'https://github.com/kranthi0003/kranthi-kiran-site',
     demoUrl: 'https://kranthikiran.com',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-  },
-  {
-    title: '2028 Halving Strategy',
-    description: 'Crypto halving cycle strategy tracker built with TypeScript. Analyzes historical Bitcoin halving data and models investment strategies around cycle timing.',
-    technologies: ['TypeScript', 'Crypto', 'Data Analysis', 'Finance'],
-    githubUrl: 'https://github.com/kranthi0003/2028-halving-strategy',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'IoT Smart Home Controller',
-    description: 'An IoT project using NodeMCU and Arduino to remotely control lights and fans via a mobile app. Uses relays and WiFi for real-time device management.',
-    technologies: ['C++', 'Arduino', 'IoT', 'NodeMCU', 'WiFi'],
-    githubUrl: 'https://github.com/kranthi0003/Arduino-app-nodemcu-LEDon-off',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Rotating Solar Panel',
-    description: 'Self-rotating solar panel system using gear motor and Arduino UNO. Increases solar energy efficiency by tracking sunlight throughout the day.',
-    technologies: ['C++', 'Arduino', 'IoT', 'Solar Energy', 'Hardware'],
-    githubUrl: 'https://github.com/kranthi0003/Rotating-Solar-Panel',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Speech Assistant',
-    description: 'Python-based speech recognition and text-to-speech assistant. Processes voice commands and responds with synthesized speech for hands-free interaction.',
-    technologies: ['Python', 'Speech Recognition', 'NLP', 'TTS'],
-    githubUrl: 'https://github.com/kranthi0003/Speech-Assistant',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'GitHub Foundations Quest',
-    description: 'Gamified preparation tool for the GitHub Foundations Certification. Interactive learning with quizzes, progress tracking, and study materials.',
-    technologies: ['GitHub', 'Certification', 'Education'],
-    githubUrl: 'https://github.com/kranthi0003/github-foundations-quest',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Data Visualization',
-    description: 'Python data visualization projects using matplotlib, seaborn, and pandas. Explores datasets with charts, graphs, and statistical analysis.',
-    technologies: ['Python', 'Matplotlib', 'Seaborn', 'Pandas'],
-    githubUrl: 'https://github.com/kranthi0003/data_visualization',
-    demoUrl: null,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
   },
 ]
 
@@ -109,21 +53,10 @@ const ChevronUp = () => (
 )
 
 export default function Projects() {
-  const [showAll, setShowAll] = useState(false)
-  const toggle = useCallback(() => setShowAll(v => !v), [])
-
-  const { primary, additional } = useMemo(() => ({
-    primary: projects.slice(0, 3),
-    additional: projects.slice(3),
-  }), [])
-
-  const renderCard = (project, index, isAdditional = false) => (
+  const renderCard = (project, index) => (
     <div
-      key={`${isAdditional ? 'add' : 'pri'}-${index}`}
-      className={`card-3d bg-card rounded-2xl overflow-hidden border border-border/30 shadow-lg flex flex-col h-full transition-all duration-500 ${
-        isAdditional && !showAll ? 'translate-y-8 opacity-0' : 'translate-y-0 opacity-100'
-      }`}
-      style={{ animationDelay: `${index * 0.2}s`, transitionDelay: isAdditional && showAll ? `${index * 200}ms` : '0ms' }}
+      key={index}
+      className="card-3d bg-card rounded-2xl overflow-hidden border border-border/30 shadow-lg flex flex-col h-full"
     >
       {/* Project image */}
       <div className="relative h-48 overflow-hidden">
@@ -193,36 +126,9 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Primary projects */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {primary.map((p, i) => renderCard(p, i))}
+          {projects.map((p, i) => renderCard(p, i))}
         </div>
-
-        {/* Show more toggle */}
-        {additional.length > 0 && (
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={toggle}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 hover:border-accent/30 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-            >
-              <span>{showAll ? 'Show Less Projects' : 'Show More Projects'}</span>
-              {showAll ? <ChevronUp /> : <ChevronDown />}
-            </button>
-          </div>
-        )}
-
-        {/* Additional projects */}
-        {additional.length > 0 && (
-          <div className={`transition-all duration-700 ease-in-out overflow-hidden ${showAll ? 'max-h-[6000px] opacity-100 mt-12' : 'max-h-0 opacity-0 mt-0'}`}>
-            <div className="text-center mb-8">
-              <h3 className="font-heading text-2xl font-semibold text-muted-foreground">Additional Projects</h3>
-              <div className="w-24 h-0.5 bg-accent/30 mx-auto mt-2" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {additional.map((p, i) => renderCard(p, i, true))}
-            </div>
-          </div>
-        )}
 
         {/* View all on GitHub */}
         <div className="text-center mt-16">
