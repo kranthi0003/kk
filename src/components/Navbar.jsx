@@ -146,23 +146,34 @@ function WalletDropdown() {
 
 function NavStatus() {
   const [open, setOpen] = useState(false)
-  const [results, setResults] = useState([
-    { name: 'Portfolio', url: 'https://kranthikiran.com', status: 'checking' },
-    { name: 'GitHub', url: 'https://api.github.com', status: 'checking' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com', status: 'checking' },
-  ])
+  const [metrics, setMetrics] = useState(null)
   const ref = useRef()
 
   useEffect(() => {
     const check = async () => {
-      const updated = await Promise.all(results.map(async (s) => {
-        try {
-          const t = performance.now()
-          await fetch(s.url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
-          return { ...s, status: 'up', ms: Math.round(performance.now() - t) }
-        } catch { return { ...s, status: 'down', ms: null } }
-      }))
-      setResults(updated)
+      const start = performance.now()
+      try {
+        const res = await fetch('https://kranthikiran.com', { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+        const latency = Math.round(performance.now() - start)
+        
+        // Gather page metrics
+        const perf = performance.getEntriesByType('navigation')[0] || {}
+        const resources = performance.getEntriesByType('resource')
+        const totalSize = resources.reduce((sum, r) => sum + (r.transferSize || 0), 0)
+        
+        setMetrics({
+          status: 'up',
+          latency,
+          domLoad: Math.round(perf.domContentLoadedEventEnd - perf.startTime) || null,
+          fullLoad: Math.round(perf.loadEventEnd - perf.startTime) || null,
+          resources: resources.length,
+          totalSize: (totalSize / 1024).toFixed(0),
+          ttfb: Math.round(perf.responseStart - perf.startTime) || null,
+          checkedAt: new Date(),
+        })
+      } catch {
+        setMetrics({ status: 'down', latency: null, checkedAt: new Date() })
+      }
     }
     check()
     const i = setInterval(check, 60000)
@@ -176,45 +187,71 @@ function NavStatus() {
     return () => document.removeEventListener('mousedown', h)
   }, [open])
 
-  const allUp = results.every(r => r.status === 'up')
-  const checking = results.some(r => r.status === 'checking')
+  const isUp = metrics?.status === 'up'
 
   return (
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(o => !o)}
         className="p-2 rounded-full bg-muted hover:bg-border transition-colors duration-200 relative"
-        aria-label="System status"
+        aria-label="Site status"
       >
         <span className={`block w-4 h-4 rounded-full border-2 ${
-          checking ? 'border-yellow-400 bg-yellow-400/20 animate-pulse' :
-          allUp ? 'border-green-400 bg-green-400/20' : 'border-red-400 bg-red-400/20'
+          !metrics ? 'border-yellow-400 bg-yellow-400/20 animate-pulse' :
+          isUp ? 'border-green-400 bg-green-400/20' : 'border-red-400 bg-red-400/20'
         }`} />
       </button>
       {open && (
         <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
-          <div className="w-full sm:w-[260px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+          <div className="w-full sm:w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+            {/* Header */}
             <div className="px-4 py-3 border-b border-border/20 flex items-center gap-2">
-              <span className={`relative flex h-2 w-2`}>
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${allUp ? 'bg-green-400' : 'bg-red-400'}`} />
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${allUp ? 'bg-green-500' : 'bg-red-500'}`} />
+              <span className="relative flex h-2 w-2">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isUp ? 'bg-green-400' : 'bg-red-400'}`} />
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${isUp ? 'bg-green-500' : 'bg-red-500'}`} />
               </span>
-              <span className={`text-[10px] font-mono font-semibold ${allUp ? 'text-green-500' : 'text-red-500'}`}>
-                {checking ? 'Checking...' : allUp ? 'All Operational' : 'Issues Detected'}
+              <span className="text-[10px] font-mono font-semibold text-foreground">kranthikiran.com</span>
+              <span className={`ml-auto text-[9px] font-mono font-bold ${isUp ? 'text-green-500' : 'text-red-500'}`}>
+                {isUp ? 'ONLINE' : 'OFFLINE'}
               </span>
             </div>
-            {results.map(s => (
-              <div key={s.name} className="px-4 py-2.5 flex items-center gap-2 border-b border-border/10 last:border-0">
-                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                  s.status === 'up' ? 'bg-green-500' : s.status === 'down' ? 'bg-red-500' : 'bg-yellow-500 animate-pulse'
-                }`} />
-                <span className="text-xs text-foreground flex-1">{s.name}</span>
-                {s.ms && <span className="text-[9px] font-mono text-muted-foreground">{s.ms}ms</span>}
-                <span className={`text-[9px] font-mono font-bold ${
-                  s.status === 'up' ? 'text-green-500' : s.status === 'down' ? 'text-red-500' : 'text-yellow-500'
-                }`}>{s.status === 'checking' ? '...' : s.status.toUpperCase()}</span>
+
+            {/* Metrics grid */}
+            {metrics && isUp && (
+              <div className="p-3 grid grid-cols-2 gap-2">
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Response</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.latency}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                </div>
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">TTFB</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.ttfb || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                </div>
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">DOM Ready</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.domLoad || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                </div>
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Full Load</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.fullLoad || '—'}<span className="text-[9px] text-muted-foreground">ms</span></p>
+                </div>
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Resources</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.resources}</p>
+                </div>
+                <div className="p-2 rounded-lg bg-muted/30">
+                  <p className="text-[8px] text-muted-foreground font-mono uppercase">Transfer</p>
+                  <p className="text-sm font-mono font-bold text-foreground">{metrics.totalSize}<span className="text-[9px] text-muted-foreground">KB</span></p>
+                </div>
               </div>
-            ))}
+            )}
+
+            {/* Footer */}
+            <div className="px-4 py-2 bg-muted/10 border-t border-border/10 text-center">
+              <span className="text-[9px] font-mono text-muted-foreground">
+                checked {metrics?.checkedAt ? metrics.checkedAt.toLocaleTimeString() : '...'} • auto-refreshes 60s
+              </span>
+            </div>
           </div>
         </div>
       )}
