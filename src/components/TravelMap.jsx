@@ -39,18 +39,23 @@ export default function TravelMap() {
   const [selected, setSelected] = useState(null)
   const [globeSize, setGlobeSize] = useState(500)
   const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'))
-  const [issPos, setIssPos] = useState(null)
+  const [issPos, setIssPos] = useState({ lat: 40.1, lng: -141.6, alt: 423 })
   const [issTrail, setIssTrail] = useState([])
 
   // Fetch ISS position
   useEffect(() => {
     const fetchISS = () => {
       fetch('https://api.wheretheiss.at/v1/satellites/25544')
-        .then(r => r.json())
+        .then(r => {
+          if (!r.ok) throw new Error('API error')
+          return r.json()
+        })
         .then(data => {
-          const pos = { lat: data.latitude, lng: data.longitude, alt: data.altitude }
-          setIssPos(pos)
-          setIssTrail(prev => [...prev.slice(-30), pos])
+          if (data.latitude && data.longitude) {
+            const pos = { lat: data.latitude, lng: data.longitude, alt: data.altitude || 408 }
+            setIssPos(pos)
+            setIssTrail(prev => [...prev.slice(-30), pos])
+          }
         })
         .catch(() => {})
     }
@@ -133,7 +138,7 @@ export default function TravelMap() {
                 }
                 atmosphereColor={isDark ? '#60a5fa' : '#3b82f6'}
                 atmosphereAltitude={0.18}
-                pointsData={[...places, ...(issPos ? [{ ...issPos, city: 'ISS 🛰️', label: 'International Space Station', color: '#ef4444', isISS: true }] : [])]}
+                pointsData={[...places, { ...issPos, city: 'ISS 🛰️', label: 'International Space Station (Live)', color: '#ef4444', isISS: true }]}
                 pointLat="lat"
                 pointLng="lng"
                 pointColor="color"
@@ -148,7 +153,7 @@ export default function TravelMap() {
                 arcDashGap={0.15}
                 arcDashAnimateTime={2500}
                 arcAltitudeAutoScale={0.35}
-                ringsData={[...places.filter(p => p.home), ...(issPos ? [issPos] : [])]}
+                ringsData={[...places.filter(p => p.home), issPos]}
                 ringLat="lat"
                 ringLng="lng"
                 ringColor={(d) => d.home ? '#10b981' : '#ef4444'}
@@ -212,8 +217,7 @@ export default function TravelMap() {
             </div>
 
             {/* ISS Live Tracker */}
-            {issPos && (
-              <div className="rounded-2xl border border-red-500/20 bg-card/80 backdrop-blur-sm p-4 shadow-lg mt-2">
+            <div className="rounded-2xl border border-red-500/20 bg-card/80 backdrop-blur-sm p-4 shadow-lg mt-2">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-base">🛰️</span>
                   <span className="text-[10px] font-mono text-red-400 uppercase tracking-widest">ISS — Live</span>
@@ -244,7 +248,6 @@ export default function TravelMap() {
                   Track ISS →
                 </button>
               </div>
-            )}
           </div>
         </div>
       </div>
