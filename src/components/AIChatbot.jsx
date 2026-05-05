@@ -169,8 +169,6 @@ export default function AIChatbot() {
     
     typingRef.current = setTimeout(tick, 300) // initial pause before typing starts
   }
-    }, speed)
-  }
 
   const sendMessage = async (e) => {
     e.preventDefault()
