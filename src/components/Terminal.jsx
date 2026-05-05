@@ -348,7 +348,7 @@ export default function Terminal() {
                   </div>
                 ) : (
                   entry.lines.map((line, j) => (
-            <div className="whitespace-pre" style={{ color: line.color || 'var(--color-muted-foreground)' }}>{line.text}</div>
+            <div key={j} className="whitespace-pre" style={{ color: line.color || 'var(--color-muted-foreground)' }}>{line.text}</div>
                   ))
                 )}
               </div>
