@@ -102,8 +102,14 @@ export default function AIChatbot() {
       })
 
       const data = await res.json()
-      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't process that. Try again!"
-      setMessages(prev => [...prev, { role: 'assistant', text: reply }])
+      if (!res.ok) {
+        const errMsg = data.error?.message || `API error (${res.status})`
+        console.error('Gemini API error:', errMsg)
+        setMessages(prev => [...prev, { role: 'assistant', text: `⚠️ ${errMsg}` }])
+      } else {
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't process that. Try again!"
+        setMessages(prev => [...prev, { role: 'assistant', text: reply }])
+      }
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', text: "Oops, something went wrong. Try again in a moment!" }])
     }
