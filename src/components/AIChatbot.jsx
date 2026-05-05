@@ -209,7 +209,7 @@ export default function AIChatbot() {
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder="Ask about Kranthi..."
-              className="flex-1 bg-muted/30 border border-border/20 rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-accent/40"
+              className="flex-1 bg-background border border-border/40 rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-accent/40"
               disabled={loading}
             />
             <button
