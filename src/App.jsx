@@ -8,7 +8,6 @@ import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import DeployPipeline from './components/DeployPipeline'
 import TravelMap from './components/TravelMap'
 import Terminal from './components/Terminal'
 import Connect from './components/Contact'
@@ -65,7 +64,6 @@ export default function App() {
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><Projects /></div>
-        <div className="section-animate"><DeployPipeline /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
