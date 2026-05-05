@@ -159,16 +159,64 @@ body {
   transform: translateY(0);
 }
 
-/* Reading Mode — strips animations, simplifies layout */
-body.reading-mode * {
-  animation: none !important;
-  transition: none !important;
-}
+/* Reading Mode — clean, focused document layout */
 body.reading-mode {
   background-image: none !important;
+  background-color: var(--color-background) !important;
 }
+body.reading-mode * {
+  animation: none !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+}
+
+/* Hide decorative/interactive elements */
 body.reading-mode canvas,
 body.reading-mode iframe,
-body.reading-mode video {
+body.reading-mode video,
+body.reading-mode [data-chatbot-btn],
+body.reading-mode .fixed:not(nav) {
   display: none !important;
+}
+
+/* Clean typography */
+body.reading-mode main {
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1.5rem !important;
+}
+body.reading-mode main > div {
+  opacity: 1 !important;
+  transform: none !important;
+}
+body.reading-mode section {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Hide satellite backdrop, floating elements, scroll progress */
+body.reading-mode img[aria-hidden="true"] {
+  display: none !important;
+}
+body.reading-mode .absolute.inset-x-0 {
+  display: none !important;
+}
+
+/* Reading mode indicator bar */
+body.reading-mode::before {
+  content: '📖 Reading Mode — Click "Reading Mode" again to exit';
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+  background: var(--color-card);
+  border-top: 1px solid var(--color-border);
 }
