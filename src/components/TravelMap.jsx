@@ -133,12 +133,12 @@ export default function TravelMap() {
                 }
                 atmosphereColor={isDark ? '#60a5fa' : '#3b82f6'}
                 atmosphereAltitude={0.18}
-                pointsData={places}
+                pointsData={[...places, ...(issPos ? [{ ...issPos, city: 'ISS 🛰️', label: 'International Space Station', color: '#ef4444', isISS: true }] : [])]}
                 pointLat="lat"
                 pointLng="lng"
                 pointColor="color"
-                pointAltitude={0.06}
-                pointRadius={0.45}
+                pointAltitude={d => d.isISS ? 0.1 : 0.06}
+                pointRadius={d => d.isISS ? 0.7 : 0.45}
                 pointLabel={d => `<div style="font-family:system-ui;background:rgba(0,0,0,0.85);color:white;padding:8px 14px;border-radius:10px;font-size:13px;text-align:center;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)"><b>${d.city}</b><br/><span style="opacity:0.6;font-size:11px">${d.label}</span></div>`}
                 onPointClick={handlePointClick}
                 arcsData={arcData}
@@ -155,19 +155,6 @@ export default function TravelMap() {
                 ringMaxRadius={4}
                 ringPropagationSpeed={2}
                 ringRepeatPeriod={1200}
-                htmlElementsData={issPos ? [issPos] : []}
-                htmlLat="lat"
-                htmlLng="lng"
-                htmlAltitude={0.05}
-                htmlElement={() => {
-                  const el = document.createElement('div')
-                  el.innerHTML = '🛰️'
-                  el.style.cssText = 'font-size:22px;cursor:pointer;filter:drop-shadow(0 0 6px rgba(239,68,68,0.8));transition:transform 0.3s;'
-                  el.title = 'ISS — International Space Station (Live)'
-                  el.onmouseenter = () => { el.style.transform = 'scale(1.4)' }
-                  el.onmouseleave = () => { el.style.transform = 'scale(1)' }
-                  return el
-                }}
               />
             </React.Suspense>
           </div>
