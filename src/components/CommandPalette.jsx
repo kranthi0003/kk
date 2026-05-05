@@ -25,9 +25,6 @@ const ACTIONS = [
   { id: 'ai-chatbot', label: 'AI Chatbot', desc: 'Ask anything about Kranthi', section: 'Features', icon: '🤖', action: () => {
     document.querySelector('[data-chatbot-btn]')?.click()
   }, keywords: 'ai chatbot bot assistant ask question help chat llm groq llama artificial intelligence conversation' },
-  { id: 'visitor-count', label: 'Live Visitors', desc: 'See who\'s online right now', section: 'Features', icon: '👥', action: () => {
-    window.dispatchEvent(new CustomEvent('toggle-admin-dashboard'))
-  }, keywords: 'visitors live online users viewing count presence realtime people analytics dashboard admin' },
   { id: 'boot-replay', label: 'Replay Boot Sequence', desc: 'Watch the neofetch intro again', section: 'Features', icon: '🖥️', action: () => {
     sessionStorage.removeItem('boot_seen')
     window.location.reload()
