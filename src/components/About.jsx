@@ -50,7 +50,7 @@ export default function About() {
         </div>
 
         {/* Apple-style bento grid */}
-        <div className="grid grid-cols-4 gap-3 auto-rows-[180px]">
+        <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 160px 160px' }}>
 
           {/* Profile — 2 cols, 1 row */}
           <div className="col-span-2 rounded-2xl border border-border/20 bg-card overflow-hidden flex flex-col">
@@ -99,41 +99,42 @@ export default function About() {
             </div>
           </div>
 
-          {/* Spotify — 2 cols, 1 row */}
-          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
+          {/* Row 2-3: Left side stacked, Right side Instagram tall */}
+          
+          {/* Spotify — 2 cols */}
+          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card" style={{ minHeight: '152px' }}>
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
           </div>
 
-          {/* Instagram — 2 cols, 2 rows */}
+          {/* Instagram — 2 cols, spans 2 rows */}
           <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
             <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
-          {/* Quote tile */}
+          {/* Bottom left: Quote + Stats side by side */}
           <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center">
-            <p className="text-[11px] text-muted-foreground italic leading-relaxed">"First, solve the problem. Then, write the code."</p>
-            <p className="text-[9px] text-accent mt-2 font-mono">— John Johnson</p>
+            <p className="text-[12px] text-muted-foreground italic leading-relaxed">"First, solve the problem. Then, write the code."</p>
+            <p className="text-[10px] text-accent mt-2 font-mono">— John Johnson</p>
           </div>
 
-          {/* Quick stats */}
           <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center">
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Quick Stats</p>
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] text-muted-foreground">Experience</span>
-                <span className="text-[11px] font-semibold text-foreground">4+ years</span>
+                <span className="text-[11px] font-semibold text-foreground">4+ yrs</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] text-muted-foreground">Companies</span>
                 <span className="text-[11px] font-semibold text-foreground">4</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Certifications</span>
+                <span className="text-[10px] text-muted-foreground">Certs</span>
                 <span className="text-[11px] font-semibold text-foreground">5</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Countries</span>
-                <span className="text-[11px] font-semibold text-foreground">2</span>
+                <span className="text-[10px] text-muted-foreground">Cities</span>
+                <span className="text-[11px] font-semibold text-foreground">10</span>
               </div>
             </div>
           </div>
