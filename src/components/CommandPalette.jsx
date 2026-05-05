@@ -53,12 +53,16 @@ export default function CommandPalette({ onResumeClick }) {
         setQuery('')
         setSelected(0)
       }
-      // "/" key opens palette (like GitHub) — only when not typing in an input
-      if (e.key === '/' && !open && !['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
-        e.preventDefault()
-        setOpen(true)
-        setQuery('')
-        setSelected(0)
+      // "/" key opens palette — only when not in any editable element
+      if (e.key === '/' && !open) {
+        const tag = e.target.tagName
+        const editable = e.target.isContentEditable
+        if (!editable && !['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+          e.preventDefault()
+          setOpen(true)
+          setQuery('')
+          setSelected(0)
+        }
       }
       if (e.key === 'Escape') setOpen(false)
     }

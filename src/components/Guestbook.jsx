@@ -72,21 +72,23 @@ export default function Guestbook() {
         <form ref={formRef} onSubmit={handleSubmit} className="rounded-xl border border-border/30 bg-card p-4 mb-6">
           <div className="flex gap-3 mb-3">
             <input
+              type="text"
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="Your name"
               maxLength={50}
-              className="flex-1 bg-muted/30 border border-border/30 rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-foreground/20 transition-colors"
+              className="flex-1 bg-background border border-border/30 rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-foreground/20 transition-colors"
               required
             />
           </div>
           <div className="flex gap-2">
             <input
+              type="text"
               value={message}
               onChange={e => setMessage(e.target.value)}
               placeholder="Leave a message..."
               maxLength={280}
-              className="flex-1 bg-muted/30 border border-border/30 rounded-lg px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-foreground/20 transition-colors"
+              className="flex-1 bg-background border border-border/30 rounded-lg px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-foreground/20 transition-colors"
               required
             />
             <button
