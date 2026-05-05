@@ -641,19 +641,21 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               actions[Math.floor(Math.random() * actions.length)]()
             }} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
-            <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => {
-              const perf = performance.getEntriesByType('navigation')[0] || {}
-              const fcp = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')
-              const resources = performance.getEntriesByType('resource')
-              const totalKB = Math.round(resources.reduce((s,r) => s + (r.transferSize||0), 0) / 1024)
-              alert(`⚡ Site Speed Report\n\nFCP: ${fcp ? Math.round(fcp.startTime) : '—'}ms\nDOM Ready: ${Math.round(perf.domContentLoadedEventEnd - perf.startTime)}ms\nFull Load: ${Math.round(perf.loadEventEnd - perf.startTime)}ms\nTTFB: ${Math.round(perf.responseStart - perf.startTime)}ms\nResources: ${resources.length} (${totalKB}KB)`)
-            }} />
+            <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
             <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
+              const btn = document.querySelector('[title="Screenshot"]')
               try {
                 const { default: html2canvas } = await import('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm')
                 const canvas = await html2canvas(document.body, { useCORS: true, scale: 1, height: window.innerHeight, windowHeight: window.innerHeight })
-                canvas.toBlob(blob => { if (blob) { navigator.clipboard.write([new ClipboardItem({'image/png': blob})]); } })
-              } catch {}
+                canvas.toBlob(blob => {
+                  if (blob) {
+                    navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+                    if (btn) { btn.style.color = '#22c55e'; setTimeout(() => btn.style.color = '', 1500) }
+                  }
+                })
+              } catch {
+                if (btn) { btn.style.color = '#ef4444'; setTimeout(() => btn.style.color = '', 1500) }
+              }
             }} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
