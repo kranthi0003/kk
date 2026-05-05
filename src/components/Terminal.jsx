@@ -36,159 +36,19 @@ const COMMANDS = {
     lines: [
       colorize('  Available commands:', T.accent),
       colorize('', ''),
-      colorize('  whoami        ', T.green), colorize('  skills        ', T.green),
-      colorize('  experience    ', T.green), colorize('  contact       ', T.green),
-      colorize('  projects      ', T.green), colorize('  certs         ', T.green),
-      colorize('  social        ', T.green), colorize('  education     ', T.green),
-      colorize('  stack         ', T.green), colorize('  achievements  ', T.green),
-      colorize('  resume        ', T.green), colorize('  theme         ', T.green),
-      colorize('  date          ', T.green), colorize('  weather       ', T.green),
-      colorize('  clear         ', T.green), colorize('  sudo hire me  ', T.yellow),
-      colorize('', ''),
       colorize('  🎮 Games:', T.cyan),
-      colorize('  play snake    ', T.green), colorize('  play ttt      ', T.green),
-      colorize('  play wordle   ', T.green), colorize('  play memory   ', T.green),
+      colorize('  play snake    ', T.green), colorize('    Classic snake — arrow keys', T.muted),
+      colorize('  play ttt      ', T.green), colorize('    Tic-Tac-Toe vs AI', T.muted),
+      colorize('  play wordle   ', T.green), colorize('    Guess 5-letter tech words', T.muted),
+      colorize('  play memory   ', T.green), colorize('    Match tech icon pairs', T.muted),
       colorize('', ''),
-      colorize('  Navigation: open <section>  (e.g. open projects)', T.dim),
-    ],
-  }),
-  whoami: () => ({
-    lines: [
+      colorize('  🧭 Navigation:', T.cyan),
+      colorize('  open <section>  ', T.green), colorize('    e.g. open projects, open about', T.muted),
       colorize('', ''),
-      colorize('  ╭─────────────────────────────────────╮', T.accent),
-      colorize('  │  Kranthi Kiran Akkumahanthi         │', T.fg),
-      colorize('  │  SE-III @ GitHub | Microsoft        │', T.accent),
-      colorize('  │  📍 Visakhapatnam, India             │', T.muted),
-      colorize('  │  ☁️  Cloud · Distributed Systems     │', T.muted),
-      colorize('  │  🎓 B.Tech Computer Science          │', T.muted),
-      colorize('  ╰─────────────────────────────────────╯', T.accent),
-      colorize('', ''),
-    ],
-  }),
-  skills: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  ▸ Languages   ', T.yellow), colorize('    Python · Java · Ruby · Bash', T.fg),
-      colorize('  ▸ Cloud       ', T.cyan), colorize('    AWS · Azure · Terraform', T.fg),
-      colorize('  ▸ DevOps      ', T.purple), colorize('    Docker · K8s · GitHub Actions', T.fg),
-      colorize('  ▸ Databases   ', T.red), colorize('    PostgreSQL · Couchbase · Redis', T.fg),
-      colorize('  ▸ Monitoring  ', T.green), colorize('    Prometheus · Grafana', T.fg),
-      colorize('  ▸ Tools       ', T.pink), colorize('    Git · Linux · VSCode · Copilot', T.fg),
-      colorize('', ''),
-    ],
-  }),
-  experience: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  ┌─ 🟣 GitHub      SE-III          2026–Present', T.purple),
-      colorize('  │    Distributed systems, Git internals, platform reliability', T.muted),
-      colorize('  ├─ 🔴 Couchbase   SE-II           2025–2026', T.red),
-      colorize('  │    Enterprise NoSQL for Netflix, Apple, Salesforce', T.muted),
-      colorize('  ├─ 🟢 Groww       PSE-II          2024–2025', T.green),
-      colorize('  │    Platform engineering for India\'s top fintech', T.muted),
-      colorize('  └─ 🟡 Amazon      Cloud Engineer  2021–2024', T.yellow),
-      colorize('       Distributed systems at scale, CI/CD, monitoring', T.muted),
-      colorize('', ''),
-    ],
-  }),
-  contact: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  📧  kranthikiranakkumahanthi@gmail.com', T.accent),
-      colorize('  📱  +91 93988 57319', T.fg),
-      colorize('  🔗  linkedin.com/in/akkiran003', T.blue),
-      colorize('  🐙  github.com/kranthi0003', T.fg),
-      colorize('  𝕏   x.com/kranthikiran03', T.muted),
-      colorize('  🌐  kranthikiran.com', T.green),
-      colorize('', ''),
-    ],
-  }),
-  projects: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  01  SketchGate         AI image classifier         Python/TF', T.accent),
-      colorize('  02  Health Risk        ML prediction model         Python/ML', T.green),
-      colorize('  03  Portfolio          this site!                  React', T.purple),
-      colorize('  04  IoT Smart Home     ESP32 automation            C++/IoT', T.yellow),
-      colorize('  05  Solar Tracker      rotating solar panel        Arduino', T.red),
-      colorize('', ''),
-      colorize('  → type "open projects" to browse all', T.dim),
-      colorize('', ''),
-    ],
-  }),
-  certs: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  ✅  AWS Solutions Architect – Associate', T.yellow),
-      colorize('  ✅  Couchbase Professional Admin', T.red),
-      colorize('  ✅  Couchbase Python Developer', T.red),
-      colorize('  ✅  Couchbase Architect with Capella', T.red),
-      colorize('  ✅  GitHub Foundations', T.purple),
-      colorize('', ''),
-    ],
-  }),
-  social: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  LinkedIn   ', T.blue), colorize('  linkedin.com/in/akkiran003', T.fg),
-      colorize('  GitHub     ', T.fg), colorize('  github.com/kranthi0003', T.muted),
-      colorize('  X/Twitter  ', T.muted), colorize('  x.com/kranthikiran03', T.fg),
-      colorize('  Spotify    ', T.spotify), colorize('  check the 🎵 in navbar!', T.muted),
-      colorize('', ''),
-    ],
-  }),
-  education: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  🎓 B.Tech in Computer Science', T.accent),
-      colorize('     GITAM University, Visakhapatnam', T.fg),
-      colorize('     2017 – 2021', T.muted),
-      colorize('', ''),
-    ],
-  }),
-  stack: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  This site is built with:', T.accent),
-      colorize('', ''),
-      colorize('  ⚡ Vite           fast build tool', T.yellow),
-      colorize('  ⚛️  React          UI framework', '#61dafb'),
-      colorize('  🎨 Tailwind CSS   utility-first CSS', T.cyan),
-      colorize('  🌍 react-globe.gl 3D globe', T.green),
-      colorize('  📊 qrcode.react   QR vCard generator', T.purple),
-      colorize('  🚀 GitHub Pages   hosting', T.fg),
-      colorize('', ''),
-      colorize('  Source: github.com/kranthi0003/kranthi-kiran-site', T.dim),
-      colorize('', ''),
-    ],
-  }),
-  achievements: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  🏆 2026  Joined GitHub as SE-III', T.purple),
-      colorize('  📜 2025  5x Certifications (AWS, Couchbase, GitHub)', T.yellow),
-      colorize('  🚀 2024  Joined Groww — platform engineering', T.green),
-      colorize('  ☁️  2021  First job — Cloud Engineer at Amazon', T.red),
-      colorize('  🎓 2021  Graduated B.Tech CS from GITAM', T.accent),
-      colorize('', ''),
-    ],
-  }),
-  date: () => ({
-    lines: [
-      colorize('', ''),
-      colorize(`  ${new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`, T.fg),
-      colorize(`  ${new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' })} IST`, T.accent),
-      colorize('', ''),
-    ],
-  }),
-  weather: () => ({
-    lines: [
-      colorize('', ''),
-      colorize('  📍 Visakhapatnam, India', T.fg),
-      colorize('  🌡️ ~30°C  ☀️ Tropical, humid', T.yellow),
-      colorize('  💨 Coastal breeze  🌊 Bay of Bengal', T.cyan),
-      colorize('', ''),
-      colorize('  (static data — I wish I had a weather API budget 😅)', T.dim),
+      colorize('  ⚡ Other:', T.cyan),
+      colorize('  theme         ', T.green), colorize('    Toggle dark/light mode', T.muted),
+      colorize('  clear         ', T.green), colorize('    Clear terminal', T.muted),
+      colorize('  sudo hire me  ', T.yellow), colorize('    😏', T.muted),
       colorize('', ''),
     ],
   }),
@@ -202,16 +62,6 @@ const COMMANDS = {
         colorize(`  Switched to ${isDark ? '🌙 dark' : '☀️ light'} mode`, T.green),
         colorize('', ''),
       ],
-    }
-  },
-  resume: () => {
-    return {
-      lines: [
-        colorize('', ''),
-        colorize('  Opening resume viewer...', T.green),
-        colorize('', ''),
-      ],
-      action: 'resume',
     }
   },
   'sudo hire me': () => ({
@@ -247,8 +97,7 @@ export default function Terminal() {
       colorize('', ''),
       colorize('  ╭──────────────────────────────────────╮', T.accent),
       colorize('  │   Welcome to kranthi.sh  v2.0.0      │', T.fg),
-      colorize('  │   Type "help" to get started          │', T.muted),
-      colorize('  │   🎮 Try "play snake" for games!      │', T.cyan),
+      colorize('  │   Type "help" or pick a game below   │', T.muted),
       colorize('  ╰──────────────────────────────────────╯', T.accent),
       colorize('', ''),
     ]},
@@ -725,7 +574,7 @@ export default function Terminal() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mt-4">
-          {['help', 'whoami', 'skills', 'games', 'sudo hire me'].map(cmd => (
+          {['play snake', 'play ttt', 'play wordle', 'play memory', 'sudo hire me'].map(cmd => (
             <button
               key={cmd}
               onClick={() => { setInput(cmd); inputRef.current?.focus() }}
