@@ -216,17 +216,46 @@ export default function AIChatbot() {
     }
   }
 
+  const [nudge, setNudge] = useState(false)
+
+  // Show nudge tooltip after 8 seconds if chat hasn't been opened
+  useEffect(() => {
+    if (sessionStorage.getItem('chat_nudged')) return
+    const timer = setTimeout(() => {
+      if (!open) {
+        setNudge(true)
+        sessionStorage.setItem('chat_nudged', '1')
+        setTimeout(() => setNudge(false), 6000)
+      }
+    }, 8000)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <>
-      {/* Minimal chat trigger */}
+      {/* Nudge tooltip */}
+      {nudge && !open && (
+        <div className="fixed bottom-20 right-6 z-50 animate-fade-in-up">
+          <div className="relative bg-foreground text-background px-4 py-2.5 rounded-xl shadow-lg max-w-[200px]">
+            <p className="text-xs font-medium">Hey! Ask me anything about Kranthi 👋</p>
+            <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-foreground rotate-45" />
+            <button onClick={() => setNudge(false)} className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-muted text-foreground flex items-center justify-center text-[10px] hover:bg-border transition-colors">✕</button>
+          </div>
+        </div>
+      )}
+
+      {/* Chat trigger */}
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => { setOpen(o => !o); setNudge(false) }}
         className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
           open
             ? 'bg-foreground/10 text-foreground backdrop-blur-sm'
             : 'bg-foreground text-background hover:scale-105'
         }`}
       >
+        {!open && !nudge && (
+          <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border-2 border-background animate-pulse" />
+        )}
         {open ? (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
