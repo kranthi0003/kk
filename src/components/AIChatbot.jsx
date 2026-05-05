@@ -227,7 +227,7 @@ export default function AIChatbot() {
         sessionStorage.setItem('chat_nudged', '1')
         setTimeout(() => setNudge(false), 6000)
       }
-    }, 8000)
+    }, 5000)
     return () => clearTimeout(timer)
   }, [])
 
