@@ -279,6 +279,7 @@ export default function AIChatbot() {
       {/* Chat trigger */}
       <button
         onClick={() => { setOpen(o => !o); setNudge(false) }}
+        data-chatbot-btn
         className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
           open
             ? 'bg-foreground/10 text-foreground backdrop-blur-sm'

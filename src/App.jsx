@@ -29,6 +29,13 @@ export default function App() {
     if (!matrixActive) setMatrixActive(true)
   }, [matrixActive])
 
+  // Listen for matrix trigger from command palette
+  useEffect(() => {
+    const handler = () => { if (!matrixActive) setMatrixActive(true) }
+    window.addEventListener('trigger-matrix', handler)
+    return () => window.removeEventListener('trigger-matrix', handler)
+  }, [matrixActive])
+
   const handleMatrixComplete = useCallback(() => {
     setMatrixActive(false)
   }, [])

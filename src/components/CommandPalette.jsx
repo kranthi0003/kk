@@ -1,49 +1,79 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 
 const ACTIONS = [
-  // Navigate
-  { id: 'home', label: 'Home', desc: 'Go to top', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start' },
-  { id: 'experience', label: 'Experience', desc: 'Work history', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs' },
-  { id: 'techstack', label: 'Skills & Certs', desc: 'Tech stack', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools' },
-  { id: 'about', label: 'About', desc: 'Bio & info', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info' },
-  { id: 'terminal', label: 'Terminal', desc: 'AI shell', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai' },
-  { id: 'projects', label: 'Projects', desc: 'Things I built', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects'), keywords: 'work built apps' },
-  { id: 'travel', label: 'Travel Map', desc: '3D globe', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel'), keywords: 'globe map cities' },
-  { id: 'connect', label: 'Connect', desc: 'Get in touch', section: 'Navigate', icon: '📬', action: () => scrollTo('connect'), keywords: 'contact email hire' },
-  { id: 'guestbook', label: 'Guestbook', desc: 'Leave a note', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook'), keywords: 'messages notes sign' },
+  // Navigate — all site sections
+  { id: 'home', label: 'Home', desc: 'Go to top / hero', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start landing intro welcome banner' },
+  { id: 'experience', label: 'Experience', desc: 'Work history & career', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs amazon groww couchbase github microsoft companies employment history resume timeline' },
+  { id: 'techstack', label: 'Skills & Certifications', desc: 'Tech stack & credentials', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools skills certifications credentials certificates aws azure kubernetes docker java python react node javascript typescript go rust' },
+  { id: 'about', label: 'About', desc: 'Bio, Spotify, clock, Instagram', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info profile personal about bento grid spotify clock instagram quote stats currently' },
+  { id: 'terminal', label: 'Terminal', desc: 'AI shell translator & games', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai terminal command translate linux bash zsh powershell architecture diagram design system' },
+  { id: 'projects', label: 'Projects', desc: 'Things I built', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects'), keywords: 'work built apps portfolio deploydiff cronexplain strangerchat sketchgate rate limiter' },
+  { id: 'travel', label: 'Travel Map', desc: '3D interactive globe', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel'), keywords: 'globe map cities travel world countries visited places 3d earth geography' },
+  { id: 'connect', label: 'Connect', desc: 'Contact form & socials', section: 'Navigate', icon: '📬', action: () => scrollTo('connect'), keywords: 'contact email hire reach out message form social connect touch' },
+  { id: 'guestbook', label: 'Guestbook', desc: 'Leave a message', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook'), keywords: 'messages notes sign guestbook visitor wall comment feedback' },
+
+  // Navbar features — toggleable panels
+  { id: 'bitcoin-wallet', label: 'Bitcoin Wallet', desc: 'Open BTC wallet tracker', section: 'Features', icon: '₿', action: () => {
+    document.querySelector('[data-wallet-btn]')?.click()
+  }, keywords: 'bitcoin btc crypto wallet blockchain cryptocurrency money balance satoshi ethereum web3 finance' },
+  { id: 'spotify-player', label: 'Spotify Player', desc: 'Now playing / embed', section: 'Features', icon: '🎵', action: () => {
+    document.querySelector('[data-spotify-btn]')?.click()
+  }, keywords: 'spotify music player song playing listening audio playlist track album' },
+  { id: 'status-monitor', label: 'Status Monitor', desc: 'Site health & ECG heartbeat', section: 'Features', icon: '💚', action: () => {
+    document.querySelector('[data-status-btn]')?.click()
+  }, keywords: 'status monitor health heartbeat ecg uptime latency performance ping fcp metrics memory' },
+  { id: 'ai-chatbot', label: 'AI Chatbot', desc: 'Ask anything about Kranthi', section: 'Features', icon: '🤖', action: () => {
+    document.querySelector('[data-chatbot-btn]')?.click()
+  }, keywords: 'ai chatbot bot assistant ask question help chat llm groq llama artificial intelligence conversation' },
+  { id: 'visitor-count', label: 'Live Visitors', desc: 'See who\'s online right now', section: 'Features', icon: '👥', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-admin-dashboard'))
+  }, keywords: 'visitors live online users viewing count presence realtime people analytics dashboard admin' },
+  { id: 'boot-replay', label: 'Replay Boot Sequence', desc: 'Watch the neofetch intro again', section: 'Features', icon: '🖥️', action: () => {
+    sessionStorage.removeItem('boot_seen')
+    window.location.reload()
+  }, keywords: 'boot loader startup intro neofetch terminal loading animation sequence replay reboot' },
+  { id: 'matrix-easter', label: 'Matrix Easter Egg', desc: 'Konami code → matrix rain', section: 'Features', icon: '🟢', action: () => {
+    window.dispatchEvent(new CustomEvent('trigger-matrix'))
+  }, keywords: 'matrix easter egg konami code hidden secret rain animation green neo' },
 
   // Quick Info
-  { id: 'who', label: 'SE-III at GitHub | Microsoft', desc: 'Current role', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do' },
-  { id: 'location', label: 'Visakhapatnam, India', desc: 'Location', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country vizag' },
-  { id: 'email-info', label: 'Copy Email', desc: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); }, keywords: 'email address copy contact' },
-  { id: 'exp-years', label: '4+ Years Experience', desc: 'Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked' },
+  { id: 'who', label: 'SE-III at GitHub | Microsoft', desc: 'Current role', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do software engineer title position job designation' },
+  { id: 'location', label: 'Visakhapatnam, India', desc: 'Location', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country vizag andhra pradesh india address based' },
+  { id: 'email-info', label: 'Copy Email', desc: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); }, keywords: 'email address copy contact gmail mail' },
+  { id: 'exp-years', label: '4+ Years Experience', desc: 'Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked sde swe engineer total how long' },
+  { id: 'education', label: 'GITAM University', desc: 'B.Tech Computer Science', section: 'Quick Info', icon: '🎓', action: () => scrollTo('about'), keywords: 'education college university degree btech computer science gitam school study' },
 
   // Actions
-  { id: 'theme', label: 'Toggle Theme', desc: 'Switch dark/light', section: 'Actions', icon: '🌓', action: () => {
+  { id: 'theme', label: 'Toggle Theme', desc: 'Switch dark/light mode', section: 'Actions', icon: '🌓', action: () => {
     document.documentElement.classList.toggle('dark')
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
-  }, keywords: 'dark light mode switch' },
-  { id: 'resume', label: 'Open Resume', desc: 'View CV / PDF', section: 'Actions', icon: '📄', action: 'resume', keywords: 'resume cv pdf download' },
-  { id: 'top', label: 'Scroll to Top', desc: 'Back to start', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning' },
-  { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url' },
-  { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
-  { id: 'admin-dash', label: 'Visitor Dashboard', desc: 'See who\'s viewing (admin)', section: 'Actions', icon: '👀', action: () => {
-    window.dispatchEvent(new CustomEvent('toggle-admin-dashboard'))
-  }, keywords: 'admin visitors dashboard analytics who viewing' },
+  }, keywords: 'dark light mode switch theme toggle night day appearance color scheme' },
+  { id: 'resume', label: 'Open Resume', desc: 'View CV / PDF', section: 'Actions', icon: '📄', action: 'resume', keywords: 'resume cv pdf download curriculum vitae document hire' },
+  { id: 'top', label: 'Scroll to Top', desc: 'Back to start', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning scroll up back' },
+  { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url website clipboard send' },
+  { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save pdf export page' },
+
+  // Terminal AI features
+  { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
+  { id: 'arch-diagram', label: 'Architecture Diagrams', desc: 'Type "design twitter" in terminal', section: 'AI Tools', icon: '📐', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('design twitter'), 500) }, keywords: 'architecture diagram design system twitter uber netflix spotify ascii draw generate' },
 
   // Games
-  { id: 'g-snake', label: 'Snake', desc: 'Classic snake game', section: 'Games', icon: '🐍', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play' },
-  { id: 'g-ttt', label: 'Tic-Tac-Toe', desc: 'X vs O', section: 'Games', icon: '❌', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play ttt'), 500) }, keywords: 'tictactoe game play' },
-  { id: 'g-wordle', label: 'Wordle', desc: 'Guess the tech word', section: 'Games', icon: '🟩', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play wordle'), 500) }, keywords: 'wordle guess game play' },
-  { id: 'g-memory', label: 'Memory', desc: 'Match the cards', section: 'Games', icon: '🃏', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play memory'), 500) }, keywords: 'memory match game play' },
+  { id: 'g-snake', label: 'Snake', desc: 'Classic snake game', section: 'Games', icon: '🐍', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play arcade retro classic fun' },
+  { id: 'g-ttt', label: 'Tic-Tac-Toe', desc: 'X vs O', section: 'Games', icon: '❌', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play ttt'), 500) }, keywords: 'tictactoe tic tac toe game play noughts crosses xo' },
+  { id: 'g-wordle', label: 'Wordle', desc: 'Guess the tech word', section: 'Games', icon: '🟩', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play wordle'), 500) }, keywords: 'wordle guess word game play puzzle daily letters' },
+  { id: 'g-memory', label: 'Memory', desc: 'Match the emoji cards', section: 'Games', icon: '🃏', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play memory'), 500) }, keywords: 'memory match game play cards pairs flip concentration brain' },
 
   // Links
-  { id: 'github', label: 'GitHub', desc: '@kranthi0003', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'github code repos' },
-  { id: 'linkedin', label: 'LinkedIn', desc: 'akkiran003', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank'), keywords: 'linkedin profile professional' },
-  { id: 'twitter', label: 'X / Twitter', desc: '@kranthikiran03', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank'), keywords: 'twitter x social' },
-  { id: 'email-link', label: 'Send Email', desc: 'Open mail client', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com'), keywords: 'email send message' },
-  { id: 'p-sketchgate', label: 'SketchGate', desc: 'Rate limiter project', section: 'Links', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank'), keywords: 'sketchgate project rate limiter' },
-  { id: 'p-site', label: 'Source Code', desc: 'This portfolio repo', section: 'Links', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site' },
+  { id: 'github', label: 'GitHub', desc: '@kranthi0003', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'github code repos repositories open source contributions profile' },
+  { id: 'linkedin', label: 'LinkedIn', desc: 'akkiran003', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank'), keywords: 'linkedin profile professional network career social connect' },
+  { id: 'twitter', label: 'X / Twitter', desc: '@kranthikiran03', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank'), keywords: 'twitter x social media tweets posts feed' },
+  { id: 'instagram', label: 'Instagram', desc: '@kranthikiran03', section: 'Links', icon: '📸', action: () => window.open('https://instagram.com/kranthikiran03', '_blank'), keywords: 'instagram insta photos stories reels social media pictures' },
+  { id: 'email-link', label: 'Send Email', desc: 'Open mail client', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com'), keywords: 'email send message mail compose write letter' },
+  { id: 'p-deploydiff', label: 'DeployDiff', desc: 'Smart deployment diffing tool', section: 'Projects', icon: '🔀', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'deploydiff deploy diff deployment compare changes project wip' },
+  { id: 'p-cronexplain', label: 'CronExplain', desc: 'Cron expression explainer', section: 'Projects', icon: '⏰', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'cronexplain cron job schedule timer expression explain project wip' },
+  { id: 'p-strangerchat', label: 'StrangerChat', desc: 'Anonymous chat app', section: 'Projects', icon: '💬', action: () => window.open('https://github.com/kranthi0003/StrangerChat', '_blank'), keywords: 'strangerchat stranger chat anonymous messaging app omegle random talk' },
+  { id: 'p-sketchgate', label: 'SketchGate', desc: 'Rate limiter library', section: 'Projects', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank'), keywords: 'sketchgate sketch gate rate limiter throttle api library project' },
+  { id: 'p-site', label: 'Portfolio Source', desc: 'This site\'s GitHub repo', section: 'Projects', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site repo repository this website open source' },
 ]
 
 function scrollTo(id) {

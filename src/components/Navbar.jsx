@@ -29,6 +29,7 @@ function NavSpotify() {
           open ? 'bg-green-500/15 text-green-500' : 'bg-muted hover:bg-border text-muted-foreground hover:text-green-500'
         }`}
         aria-label="Toggle music player"
+        data-spotify-btn
       >
         <SpotifyIcon />
       </button>
@@ -72,6 +73,7 @@ function NavWallet() {
           open ? 'bg-accent/15 text-accent' : 'bg-muted hover:bg-border text-muted-foreground hover:text-accent'
         }`}
         aria-label="View Bitcoin wallet"
+        data-wallet-btn
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -213,6 +215,7 @@ function NavStatus() {
         onClick={() => setOpen(o => !o)}
         className="p-2 rounded-full bg-muted hover:bg-border transition-colors duration-200 relative"
         aria-label="Site status"
+        data-status-btn
       >
         <span className={`block w-4 h-4 rounded-full border-2 ${
           !metrics ? 'border-yellow-400 bg-yellow-400/20 animate-pulse' :
