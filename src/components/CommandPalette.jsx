@@ -167,9 +167,8 @@ export default function CommandPalette({ onResumeClick }) {
         style={{ animation: 'spotlight-in 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}>
 
         {/* Frosted glass card */}
-        <div className="rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-white/20 dark:border-white/10"
+        <div className="rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-black/10 dark:border-white/10 bg-white/82 dark:bg-[rgba(30,30,35,0.88)]"
           style={{
-            background: 'var(--spotlight-bg, rgba(255,255,255,0.82))',
             backdropFilter: 'blur(60px) saturate(180%)',
             WebkitBackdropFilter: 'blur(60px) saturate(180%)',
           }}>
@@ -284,8 +283,6 @@ export default function CommandPalette({ onResumeClick }) {
           from { opacity: 0; transform: translateX(-50%) scale(0.96) translateY(-8px); }
           to { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
         }
-        .dark { --spotlight-bg: rgba(30, 30, 35, 0.85); }
-        :root { --spotlight-bg: rgba(255, 255, 255, 0.82); }
       `}</style>
     </>
   )
