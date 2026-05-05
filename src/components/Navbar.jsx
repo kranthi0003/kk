@@ -146,9 +146,10 @@ function WalletDropdown() {
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'About', href: '#about' },
+  { label: 'Travel', href: '#travel' },
   { label: 'Connect', href: '#connect' },
 ]
 
@@ -209,7 +210,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1.5">
           {navLinks.map(link => {
             const isActive = activeSection === link.href.slice(1)
             return (
@@ -229,8 +230,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               </a>
             )
           })}
-          <div className="w-px h-5 bg-border/50 mx-2" />
-          <div className="flex items-center gap-1">
+          <div className="w-px h-5 bg-border/50 mx-3" />
+          <div className="flex items-center gap-2">
             <NavWallet />
             <NavSpotify />
             <ThemeToggle onRapidClick={onSecretTrigger} />
@@ -238,7 +239,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-2.5">
           <NavWallet />
           <NavSpotify />
           <ThemeToggle onRapidClick={onSecretTrigger} />
