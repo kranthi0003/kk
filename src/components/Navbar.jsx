@@ -645,7 +645,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
               const btn = document.querySelector('[title="Screenshot"]')
               try {
-                const { default: html2canvas } = await import('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm')
+                const html2canvas = (await import('html2canvas')).default
                 const canvas = await html2canvas(document.body, { useCORS: true, scale: 1, height: window.innerHeight, windowHeight: window.innerHeight })
                 canvas.toBlob(blob => {
                   if (blob) {
