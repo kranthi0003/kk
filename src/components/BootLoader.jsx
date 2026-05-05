@@ -3,78 +3,83 @@ import React, { useState, useEffect, useRef } from 'react'
 function getSystemInfo() {
   const nav = navigator
   const ua = nav.userAgent
-  const mem = nav.deviceMemory || '?'
-  const cores = nav.hardwareConcurrency || '?'
-  const platform = nav.platform || 'Unknown'
+  const mem = nav.deviceMemory || null
+  const cores = nav.hardwareConcurrency || null
   const lang = nav.language || 'en'
-  const online = nav.onLine ? 'connected' : 'offline'
+  const online = nav.onLine ? 'online' : 'offline'
   const connection = nav.connection || {}
-  const downlink = connection.downlink ? `${connection.downlink} Mbps` : 'unknown'
-  const effectiveType = connection.effectiveType || 'unknown'
+  const downlink = connection.downlink || null
+  const effectiveType = connection.effectiveType || null
   const screen = window.screen
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown'
-  const touch = 'ontouchstart' in window ? 'yes' : 'no'
-  const gpu = (() => {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+  const touch = 'ontouchstart' in window
+  const cookiesEnabled = nav.cookieEnabled
+  const doNotTrack = nav.doNotTrack === '1'
+  const pdfPlugin = nav.pdfViewerEnabled !== undefined ? nav.pdfViewerEnabled : null
+  const webgl = (() => {
     try {
       const c = document.createElement('canvas')
-      const gl = c.getContext('webgl') || c.getContext('experimental-webgl')
-      if (!gl) return 'Unknown'
+      const gl = c.getContext('webgl2') || c.getContext('webgl')
+      if (!gl) return { renderer: null, vendor: null, version: null }
       const ext = gl.getExtension('WEBGL_debug_renderer_info')
-      return ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : 'WebGL supported'
-    } catch { return 'Unknown' }
+      return {
+        renderer: ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : null,
+        vendor: ext ? gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) : null,
+        version: gl.getParameter(gl.VERSION),
+      }
+    } catch { return { renderer: null, vendor: null, version: null } }
   })()
 
-  // Detect browser
   let browser = 'Unknown'
-  if (ua.includes('Firefox/')) browser = 'Firefox ' + ua.split('Firefox/')[1].split(' ')[0]
-  else if (ua.includes('Edg/')) browser = 'Edge ' + ua.split('Edg/')[1].split(' ')[0]
-  else if (ua.includes('Chrome/')) browser = 'Chrome ' + ua.split('Chrome/')[1].split(' ')[0]
-  else if (ua.includes('Safari/') && !ua.includes('Chrome')) browser = 'Safari ' + (ua.split('Version/')[1]?.split(' ')[0] || '')
+  let browserVersion = ''
+  if (ua.includes('Firefox/')) { browser = 'Mozilla Firefox'; browserVersion = ua.split('Firefox/')[1]?.split(' ')[0] }
+  else if (ua.includes('Edg/')) { browser = 'Microsoft Edge'; browserVersion = ua.split('Edg/')[1]?.split(' ')[0] }
+  else if (ua.includes('Chrome/') && !ua.includes('Edg/')) { browser = 'Google Chrome'; browserVersion = ua.split('Chrome/')[1]?.split(' ')[0] }
+  else if (ua.includes('Safari/') && !ua.includes('Chrome')) { browser = 'Apple Safari'; browserVersion = ua.split('Version/')[1]?.split(' ')[0] || '' }
 
-  // Detect OS
-  let os = platform
+  let os = 'Unknown'
   if (ua.includes('Mac OS X')) os = 'macOS ' + (ua.match(/Mac OS X (\d+[._]\d+[._]?\d*)/)?.[1]?.replace(/_/g, '.') || '')
-  else if (ua.includes('Windows NT')) os = 'Windows ' + ({ '10.0': '10/11', '6.3': '8.1', '6.2': '8', '6.1': '7' }[ua.match(/Windows NT (\d+\.\d+)/)?.[1]] || '')
+  else if (ua.includes('Windows NT')) os = 'Windows ' + ({ '10.0': '10/11', '6.3': '8.1', '6.2': '8' }[ua.match(/Windows NT (\d+\.\d+)/)?.[1]] || '')
   else if (ua.includes('Android')) os = 'Android ' + (ua.match(/Android (\d+\.?\d*)/)?.[1] || '')
   else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS ' + (ua.match(/OS (\d+_\d+)/)?.[1]?.replace('_', '.') || '')
   else if (ua.includes('Linux')) os = 'Linux'
 
-  return { browser, os, cores, mem, gpu, screen, lang, tz, online, downlink, effectiveType, touch }
+  return { browser, browserVersion, os, cores, mem, webgl, screen, lang, tz, online, downlink, effectiveType, touch, cookiesEnabled, doNotTrack, pdfPlugin }
 }
 
 function buildBootSequence() {
-  const sys = getSystemInfo()
+  const s = getSystemInfo()
+  const t = (n) => `[    ${n.toFixed(6).padStart(10)}]`
+
   return [
-    { text: `[    0.000000] Linux version 6.8.0-kranthi (gcc 13.2.0) #1 SMP PREEMPT`, delay: 0, color: '#fff' },
-    { text: `[    0.000000] Command line: BOOT_IMAGE=/vmlinuz root=/dev/sda1`, delay: 200, color: '#aaa' },
-    { text: `[    0.012451] BIOS-provided physical RAM map:`, delay: 400, color: '#aaa' },
-    { text: `[    0.034221] CPU: ${sys.cores} cores detected`, delay: 600, color: '#fff' },
-    { text: `[    0.034225] Memory: ${sys.mem !== '?' ? sys.mem + ' GB' : 'detected'} available`, delay: 800, color: '#fff' },
-    { text: `[    0.041102] GPU: ${sys.gpu}`, delay: 1000, color: '#fff' },
-    { text: `[    0.058330] OS: ${sys.os}`, delay: 1200, color: '#fff' },
-    { text: `[    0.058335] Browser: ${sys.browser}`, delay: 1400, color: '#fff' },
+    { text: `${t(0)} kernel: Linux version 6.8.0 (gcc 13.2.0) #1 SMP PREEMPT_DYNAMIC`, delay: 0, color: '#aaa' },
+    { text: `${t(0.003)} kernel: Command line: BOOT_IMAGE=/vmlinuz root=UUID=kranthikiran`, delay: 150, color: '#aaa' },
+    { text: `${t(0.021)} kernel: DMI: ${s.os}`, delay: 300, color: '#aaa' },
+    { text: `${t(0.021)} kernel: Hypervisor detected: ${s.browser}`, delay: 450, color: '#aaa' },
+    { text: `${t(0.034)} kernel: CPU(s): ${s.cores || 'detecting...'} cores`, delay: 600, color: '#fff' },
+    { text: `${t(0.034)} kernel: Memory: ${s.mem ? s.mem + ' GB' : 'available'}`, delay: 750, color: '#fff' },
+    ...(s.webgl.vendor ? [{ text: `${t(0.041)} kernel: GPU: ${s.webgl.vendor}`, delay: 900, color: '#fff' }] : []),
+    ...(s.webgl.renderer ? [{ text: `${t(0.041)} kernel:      ${s.webgl.renderer}`, delay: 1050, color: '#aaa' }] : []),
+    ...(s.webgl.version ? [{ text: `${t(0.042)} kernel:      ${s.webgl.version}`, delay: 1150, color: '#aaa' }] : []),
+    { text: `${t(0.058)} kernel: Display: ${s.screen.width}×${s.screen.height} @ ${window.devicePixelRatio || 1}x (${s.screen.colorDepth}-bit color)`, delay: 1300, color: '#fff' },
+    { text: `${t(0.058)} kernel: Input: ${s.touch ? 'touchscreen' : 'pointer'} device`, delay: 1450, color: '#aaa' },
     { text: '', delay: 1600 },
-    { text: `  * Detecting environment...`, delay: 1700, color: '#f90' },
-    { text: `  [ OK ] Display: ${sys.screen.width}×${sys.screen.height} @ ${window.devicePixelRatio || 1}x`, delay: 1900, color: '#0f0' },
-    { text: `  [ OK ] Locale: ${sys.lang} • Timezone: ${sys.tz}`, delay: 2100, color: '#0f0' },
-    { text: `  [ OK ] Network: ${sys.online} • ${sys.effectiveType} (${sys.downlink})`, delay: 2300, color: '#0f0' },
-    { text: `  [ OK ] Touch: ${sys.touch === 'yes' ? 'touchscreen detected' : 'pointer device'}`, delay: 2500, color: '#0f0' },
-    { text: '', delay: 2700 },
-    { text: `  * Starting services...`, delay: 2800, color: '#f90' },
-    { text: `  [ OK ] Started docker.service`, delay: 3000, color: '#0f0' },
-    { text: `  [ OK ] Started kubelet.service`, delay: 3200, color: '#0f0' },
-    { text: `  [ OK ] Started sshd.service`, delay: 3400, color: '#0f0' },
-    { text: '', delay: 3500 },
-    { text: `  * Mounting experience...`, delay: 3600, color: '#f90' },
-    { text: `  /dev/sda1  /github       ext4  [SE-III]          mounted`, delay: 3800, color: '#aaa' },
-    { text: `  /dev/sda2  /couchbase    ext4  [SE-II]           mounted`, delay: 4000, color: '#aaa' },
-    { text: `  /dev/sda3  /groww        ext4  [PSE-II]          mounted`, delay: 4200, color: '#aaa' },
-    { text: `  /dev/sda4  /amazon       ext4  [Cloud Eng]       mounted`, delay: 4400, color: '#aaa' },
-    { text: '', delay: 4600 },
-    { text: `  * Loading modules...`, delay: 4700, color: '#f90' },
-    { text: `  [mod] python java ruby bash docker k8s terraform aws`, delay: 4900, color: '#aaa' },
-    { text: '', delay: 5100 },
-    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 5300, color: '#fff' },
+    { text: `  * systemd[1]: Starting kranthikiran.com...`, delay: 1700, color: '#f90' },
+    { text: `  [ OK ] Detected operating system: ${s.os}`, delay: 1900, color: '#0f0' },
+    { text: `  [ OK ] Detected browser: ${s.browser} ${s.browserVersion}`, delay: 2100, color: '#0f0' },
+    { text: `  [ OK ] Locale: ${s.lang} • Timezone: ${s.tz}`, delay: 2300, color: '#0f0' },
+    { text: `  [ OK ] Network: ${s.online}${s.effectiveType ? ' • ' + s.effectiveType.toUpperCase() : ''}${s.downlink ? ' • ' + s.downlink + ' Mbps' : ''}`, delay: 2500, color: '#0f0' },
+    { text: `  [ OK ] Cookies: ${s.cookiesEnabled ? 'enabled' : 'disabled'} • DNT: ${s.doNotTrack ? 'on' : 'off'}`, delay: 2700, color: '#0f0' },
+    { text: '', delay: 2900 },
+    { text: `  * systemd[1]: Loading site assets...`, delay: 3000, color: '#f90' },
+    { text: `  [ OK ] Started react.service`, delay: 3200, color: '#0f0' },
+    { text: `  [ OK ] Started tailwind.service`, delay: 3350, color: '#0f0' },
+    { text: `  [ OK ] Started three-globe.service`, delay: 3500, color: '#0f0' },
+    { text: `  [ OK ] Started service-worker.service`, delay: 3650, color: '#0f0' },
+    { text: '', delay: 3800 },
+    { text: `  * systemd[1]: Reached target: portfolio ready`, delay: 3900, color: '#f90' },
+    { text: '', delay: 4100 },
+    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 4200, color: '#fff' },
   ]
 }
 
@@ -106,7 +111,7 @@ export default function BootLoader({ onComplete }) {
         setPhase('loading')
         setProgress(0)
       }
-    }, 5600)
+    }, 4400)
 
     return () => {
       timers.forEach(clearTimeout)
