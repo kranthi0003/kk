@@ -616,17 +616,20 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/15">
+      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
-          {/* Action icons — icon only, tooltip on hover */}
+          {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
             <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
             <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
             <IconBtn icon={<ResumeIcon />} tip="Resume" onClick={onResumeClick} />
             <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
+          </div>
 
-            <div className="w-px h-4 bg-border/20 mx-1.5" />
+          <div className="flex-1" />
 
+          {/* Right group — fun & tools */}
+          <div className="flex items-center gap-0.5">
             <IconBtn icon={<DiceIcon />} tip="Surprise Me" onClick={() => {
               const actions = [
                 () => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }),
