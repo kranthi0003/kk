@@ -1,211 +1,101 @@
-# Kranthi Kiran's Portfolio
+# kranthikiran.com
 
-A modern, fully-featured React + Vite single-page application (SPA) for Kranthi Kiran's personal portfolio. Features a professional backend engineer's resume with interactive sections, a live cryptocurrency dashboard, photography gallery, and personal interest pages.
+Personal portfolio site with AI-powered features, built with React + Tailwind CSS + Vite.
 
-## 🎯 About
+**🌐 Live at [kranthikiran.com](https://kranthikiran.com)**
 
-Backend engineer with 4+ years of experience building production-grade systems at Amazon, Groww, Couchbase, and GitHub. Specializes in distributed systems, performance optimization, and reliable infrastructure that handles scale.
+## Features
 
-## ✨ Features
+### AI-Powered
+- **AI Chatbot** — Ask anything about me, powered by Groq/Llama 3.1. Typing effect, rotating suggestions, response caching
+- **AI Shell Translator** — Type plain English in the terminal, get the exact bash/docker/k8s command back
+- **Command Palette** — Press `/` or `⌘K` to search and navigate everything instantly
 
-### Core Pages
-- **Home** — Hero section with professional tagline and featured projects
-- **Journey** — Professional timeline showcasing career progression and experiences
-- **Projects** — Detailed portfolio of technical projects
-- **Crypto Dashboard** — Live cryptocurrency price tracker with:
-  - Real-time price data from CoinGecko API
-  - 7-day sparkline charts with trend visualization
-  - 24h, 30-day, and 1-year percentage changes
-  - Interactive modal with detailed coin information
-  - Integrated calculators: USD/INR conversion, ROI/P&L, DCA (Dollar-Cost Averaging)
+### Interactive
+- **Terminal Arcade** — 4 mini games: Snake, Tic-Tac-Toe, Wordle (tech words), Memory (icon pairs)
+- **3D Travel Globe** — Interactive globe showing places I've been, built with react-globe.gl + Three.js
+- **Boot Sequence** — Detects real visitor hardware (CPU, GPU, RAM, browser, network) and displays it in a Linux-style boot animation
+- **Matrix Easter Egg** — 5x rapid-click the theme toggle. You'll know when you find it
 
-### Interest Pages
-- **Photography** — Interactive image gallery with tag filtering and lightbox modal
-- **News** — Current news and updates section
-- **Formula 1** — F1 racing content and statistics
-- **Fashion/Shopping** — Fashion and style interests
-- **Travel** — Travel experiences and destinations
-- **Cooking** — Recipes and cooking interests
-- **Cricket** — Cricket updates and statistics
-- **Gaming** — Gaming interests and updates
-- **Music** — Music preferences and recommendations
+### Social & Live Data
+- **Bitcoin Wallet Tracker** — Live balance from blockchain.info + BTC price from CoinGecko
+- **Spotify Player** — Embedded playlist in navbar dropdown
+- **Site Status Monitor** — Real-time response time, TTFB, DOM load, resource count
+- **Guestbook** — Visitors leave messages, stored in Supabase. Admin mode for moderation
 
-### Technical Features
-- **Theme Toggle** — Light/dark mode with localStorage persistence
-- **Responsive Design** — Mobile-first, optimized for all device sizes
-- **SPA Routing** — Client-side routing with smooth transitions
-- **Accessibility** — Skip links, keyboard navigation, ARIA landmarks, semantic HTML
-- **Performance** — Lazy loading, optimized images, efficient API calls
+### Design
+- **Light/Dark Mode** — System-aware with manual toggle
+- **Apple-Style Bento Grid** — About section with LinkedIn card, live clock, currently status, Spotify, Instagram
+- **OS-Styled Project Cards** — macOS window chrome with traffic lights and status badges
+- **Scroll Progress Bar** — Gradient accent bar at top of page
 
-## 📁 Project Structure
+## Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Framework | React 18 |
+| Styling | Tailwind CSS v3 + PostCSS |
+| Build | Vite 5 |
+| 3D | react-globe.gl (Three.js) |
+| AI | Groq API (Llama 3.1 8B) |
+| Database | Supabase (guestbook) |
+| Hosting | GitHub Pages |
+| CI/CD | GitHub Actions |
+| Domain | kranthikiran.com |
+
+## Project Structure
 
 ```
-kranthi-kiran-site/
-├── src/
-│   ├── components/
-│   │   ├── App.jsx              — Main app with SPA routing and state management
-│   │   ├── Navbar.jsx           — Navigation with theme toggle
-│   │   ├── Hero.jsx             — Hero section with intro and profile image
-│   │   ├── Journey.jsx          — Professional timeline
-│   │   ├── Projects.jsx         — Portfolio projects showcase
-│   │   ├── FeaturedProjects.jsx — Featured projects on home page
-│   │   ├── Cryto.jsx            — Crypto dashboard with live API data
-│   │   ├── Photography.jsx      — Photo gallery with filtering
-│   │   ├── News.jsx             — News section
-│   │   ├── F1.jsx               — Formula 1 content
-│   │   ├── Shopping.jsx         — Fashion/shopping interests
-│   │   ├── Travel.jsx           — Travel content
-│   │   ├── Cooking.jsx          — Cooking/recipes
-│   │   ├── Cricket.jsx          — Cricket updates
-│   │   ├── Gaming.jsx           — Gaming content
-│   │   ├── Music.jsx            — Music section
-│   │   ├── Footer.jsx           — Footer with social links
-│   │   ├── Sidebar.jsx          — Mobile navigation sidebar
-│   │   ├── BackToTop.jsx        — Scroll-to-top button
-│   ├── main.jsx                 — React entry point
-│   └── App.jsx                  — App component wrapper
-├── assets/
-│   ├── profile.jpg / profile.png — Profile photos
-│   ├── favicon.png / favicon.svg — Site favicon
-│   ├── aws.png, github.png, etc. — Company/tech logos
-│   ├── Kranthi_Resume.pdf       — Resume PDF
-│   ├── groww.png, couchbase.png — Company logos
-├── index.html                   — HTML entry point (Vite)
-├── style.css                    — Global styles and design tokens
-├── vite.config.js               — Vite configuration
-├── package.json                 — Dependencies and scripts
-├── CNAME                        — Custom domain configuration
-└── .github/workflows/
-    └── deploy.yml               — GitHub Actions CI/CD pipeline
+src/
+├── components/
+│   ├── AIChatbot.jsx        # AI chatbot with Groq/Llama
+│   ├── Terminal.jsx          # AI shell translator + games
+│   ├── CommandPalette.jsx    # ⌘K search palette
+│   ├── BootLoader.jsx        # System-detecting boot sequence
+│   ├── TravelMap.jsx         # 3D globe with react-globe.gl
+│   ├── Navbar.jsx            # Nav with status/wallet/spotify dropdowns
+│   ├── Guestbook.jsx         # Supabase-backed guestbook
+│   ├── KonamiEasterEgg.jsx   # Matrix rain easter egg
+│   ├── Hero.jsx              # Hero with satellite backdrop
+│   ├── Experience.jsx        # Career timeline
+│   ├── TechStack.jsx         # Skills bento + certifications
+│   ├── About.jsx             # Apple-style bento grid
+│   ├── Projects.jsx          # OS-styled project cards
+│   ├── Contact.jsx           # Connect section with QR vCard
+│   └── ...
+├── lib/
+│   └── supabase.js           # Supabase client
+└── index.css                 # Theme variables + animations
 ```
 
-## 🛠 Tech Stack
-
-- **Frontend Framework** — React 18 with Hooks
-- **Build Tool** — Vite 5 (fast build, instant HMR)
-- **Styling** — CSS3 (Grid, Flexbox, CSS Variables, animations)
-- **APIs** — CoinGecko (crypto data), external image services
-- **Deployment** — GitHub Pages with automated CI/CD
-- **JavaScript** — ES6+ with modern best practices
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 16+ and npm/yarn
-
-### Local Development
-
-1. **Clone and install**
-   ```bash
-   git clone https://github.com/kranthi0003/kranthi-kiran-site.git
-   cd kranthi-kiran-site
-   npm install
-   ```
-
-2. **Start dev server** (with hot reload)
-   ```bash
-   npm run dev
-   ```
-   Open `http://localhost:5173` in your browser
-
-3. **Build for production**
-   ```bash
-   npm run build
-   ```
-   Creates optimized `dist/` folder
-
-4. **Preview production build**
-   ```bash
-   npm run preview
-   ```
-
-## 📊 Data Sources & APIs
-
-### Cryptocurrency Data
-- **CoinGecko Public API** — Free, no authentication required
-  - `/api/v3/coins/markets` — Top coins with 24h/30d/1y changes, sparklines
-  - `/api/v3/simple/price` — Simple price fallback endpoint
-  - Fallback proxies: AllOrigins, CodeTabs (for CORS handling)
-
-### Resilience Features
-- **Retry Logic** — 3 attempts with exponential backoff (500ms → 1000ms → 2000ms)
-- **Proxy Fallbacks** — Public proxies when direct API calls fail
-- **Caching** — 10-minute cache between requests to reduce API calls
-- **Graceful Degradation** — Shows cached/fallback data if API unavailable
-- **CORS Handling** — Proxy services for browser CORS restrictions
-
-### Other Data
-- **Images** — Profile photos, company logos, resume PDF stored in `assets/`
-- **Portfolio Data** — Hardcoded in components (journey timeline, projects, etc.)
-
-## ⚙️ Customization
-
-### Update Theme & Colors
-Edit `style.css` for global design tokens:
-```css
-:root {
-  --bg-primary: #0a0a0a;
-  --text-primary: #ffffff;
-  /* ...more colors... */
-}
-```
-
-### Update Crypto Coins
-Edit the `COINS` array in `src/components/Cryto.jsx`:
-```javascript
-const COINS = ['bitcoin', 'ethereum', 'cardano', 'solana', 'ripple', 'tether']
-```
-
-### Update Photography Gallery
-Edit the `PHOTOS` array in `src/components/Photography.jsx` with image URLs and metadata.
-
-### Update Professional Journey
-Edit the timeline data in `src/components/Journey.jsx` with your work experience.
-
-### Update Projects
-Edit project data in `src/components/Projects.jsx` and `src/components/FeaturedProjects.jsx`.
-
-## 🔄 Update Frequencies
-
-- **Crypto data** — Refreshes every 10 minutes (configurable in `Cryto.jsx`)
-- **UI updates** — Instant on user interaction
-- **Theme** — Persists to localStorage for instant recall on next visit
-
-## 🌐 Browser Support
-
-- ✅ Chrome/Chromium (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 📦 Deployment
-
-### GitHub Pages (Current Setup)
-The site is automatically deployed via GitHub Actions on every push to `main`:
-
-1. Push code to `main` branch
-2. GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys
-3. Site is live at custom domain via CNAME
-
-### Manual Deployment
-```bash
-npm run build
-# Deploy dist/ folder to Vercel, Netlify, GitHub Pages, or any static host
-```
-
-### Domain Configuration
-- Custom domain set in `CNAME` file
-- Configure DNS to point to GitHub Pages servers
-
-## 🔧 Scripts
+## Quick Start
 
 ```bash
-npm run dev      # Start development server with hot reload
-npm run build    # Build optimized production bundle
-npm run preview  # Preview production build locally
+git clone https://github.com/kranthi0003/kranthi-kiran-site.git
+cd kranthi-kiran-site
+npm install
+npm run dev
 ```
 
-## 📝 License
+### Environment Variables
 
-Personal portfolio — all rights reserved. Code is available for reference but not for commercial use without permission.
+Set these as GitHub Actions secrets for production builds:
+
+| Variable | Purpose |
+|----------|---------|
+| `VITE_GROQ_API_KEY` | Groq API key for AI chatbot + terminal |
+
+Supabase credentials are in `src/lib/supabase.js` (anon/public key — safe for client-side).
+
+## Deployment
+
+Automatic via GitHub Actions on push to `main`:
+
+1. Builds with Vite (`npm run build`)
+2. Injects `VITE_GROQ_API_KEY` from secrets
+3. Deploys to GitHub Pages via `peaceiris/actions-gh-pages`
+4. CNAME configured for `kranthikiran.com`
+
+## License
+
+Personal portfolio — code available for reference. Not for commercial use without permission.
