@@ -115,21 +115,51 @@ export default function AIChatbot() {
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [typing, setTyping] = useState(false)
   const scrollRef = useRef()
   const inputRef = useRef()
+  const typingRef = useRef(null)
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
-  }, [messages])
+  }, [messages, typing])
 
   useEffect(() => {
     if (open && inputRef.current) inputRef.current.focus()
   }, [open])
 
+  // Cleanup typing interval on unmount
+  useEffect(() => () => { if (typingRef.current) clearInterval(typingRef.current) }, [])
+
+  const typeReply = (fullText) => {
+    setTyping(true)
+    setMessages(prev => [...prev, { role: 'assistant', text: '', typing: true }])
+    let i = 0
+    const speed = Math.max(12, Math.min(30, 1500 / fullText.length))
+    typingRef.current = setInterval(() => {
+      i++
+      setMessages(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { role: 'assistant', text: fullText.slice(0, i), typing: true }
+        return updated
+      })
+      if (i >= fullText.length) {
+        clearInterval(typingRef.current)
+        typingRef.current = null
+        setMessages(prev => {
+          const updated = [...prev]
+          updated[updated.length - 1] = { role: 'assistant', text: fullText }
+          return updated
+        })
+        setTyping(false)
+      }
+    }, speed)
+  }
+
   const sendMessage = async (e) => {
     e.preventDefault()
     const msg = input.trim()
-    if (!msg || loading) return
+    if (!msg || loading || typing) return
 
     const newMessages = [...messages, { role: 'user', text: msg }]
     setMessages(newMessages)
@@ -160,18 +190,19 @@ export default function AIChatbot() {
       })
 
       const data = await res.json()
+      setLoading(false)
       if (!res.ok) {
         const errMsg = data.error?.message || `API error (${res.status})`
         console.error('Groq API error:', errMsg)
         setMessages(prev => [...prev, { role: 'assistant', text: `⚠️ ${errMsg}` }])
       } else {
         const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
-        setMessages(prev => [...prev, { role: 'assistant', text: reply }])
+        typeReply(reply)
       }
     } catch {
+      setLoading(false)
       setMessages(prev => [...prev, { role: 'assistant', text: "Oops, something went wrong. Try again in a moment!" }])
     }
-    setLoading(false)
   }
 
   return (
@@ -255,7 +286,7 @@ export default function AIChatbot() {
                       ? 'bg-gradient-to-br from-accent to-primary text-white rounded-2xl rounded-br-lg'
                       : 'bg-muted/60 text-foreground rounded-2xl rounded-bl-lg border border-border/10'
                   }`}>
-                    {msg.text}
+                    {msg.text}{msg.typing && <span className="inline-block w-0.5 h-4 bg-accent ml-0.5 animate-pulse align-middle" />}
                   </div>
                   <span className="text-[9px] text-muted-foreground/50 mt-1 px-1 font-mono">
                     {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -306,11 +337,11 @@ export default function AIChatbot() {
               onChange={e => setInput(e.target.value)}
               placeholder="Ask anything about Kranthi..."
               className="flex-1 bg-muted/30 border border-border/30 rounded-xl px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-accent/50 focus:bg-background transition-all duration-200"
-              disabled={loading}
+              disabled={loading || typing}
             />
             <button
               type="submit"
-              disabled={loading || !input.trim()}
+              disabled={loading || typing || !input.trim()}
               className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-primary text-white flex items-center justify-center hover:opacity-90 transition-all disabled:opacity-30 disabled:from-muted disabled:to-muted disabled:text-muted-foreground flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
