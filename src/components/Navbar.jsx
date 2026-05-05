@@ -616,15 +616,18 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-background/60 backdrop-blur-md border-t border-border/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-10 flex items-center">
-          {/* Action icons */}
+      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/15">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
+          {/* Action icons — icon only, tooltip on hover */}
           <div className="flex items-center gap-0.5">
-            <ActionBarItem icon={<ClockIcon />} label="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
-            <ActionBarItem icon={<ChatIcon />} label="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
-            <ActionBarItem icon={<ResumeIcon />} label="Resume" onClick={onResumeClick} />
-            <ActionBarItem icon={<QRIcon />} label="QR Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
-            <ActionBarItem icon={<DiceIcon />} label="Surprise Me" onClick={() => {
+            <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
+            <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
+            <IconBtn icon={<ResumeIcon />} tip="Resume" onClick={onResumeClick} />
+            <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
+
+            <div className="w-px h-4 bg-border/20 mx-1.5" />
+
+            <IconBtn icon={<DiceIcon />} tip="Surprise Me" onClick={() => {
               const actions = [
                 () => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }),
                 () => document.getElementById('travel')?.scrollIntoView({ behavior: 'smooth' }),
@@ -634,53 +637,26 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               ]
               actions[Math.floor(Math.random() * actions.length)]()
             }} />
-            <ActionBarItem icon={<ReadIcon />} label="Reading Mode" onClick={() => {
-              document.body.classList.toggle('reading-mode')
-            }} />
-            <ActionBarItem icon={<SpeedIcon />} label="Speed Test" onClick={() => {
+            <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
+            <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => {
               const perf = performance.getEntriesByType('navigation')[0] || {}
               const fcp = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')
               const resources = performance.getEntriesByType('resource')
               const totalKB = Math.round(resources.reduce((s,r) => s + (r.transferSize||0), 0) / 1024)
-              alert(`⚡ Site Speed Report\n\nFCP: ${fcp ? Math.round(fcp.startTime) : '—'}ms\nDOM Ready: ${Math.round(perf.domContentLoadedEventEnd - perf.startTime)}ms\nFull Load: ${Math.round(perf.loadEventEnd - perf.startTime)}ms\nTTFB: ${Math.round(perf.responseStart - perf.startTime)}ms\nResources: ${resources.length} (${totalKB}KB)\nJS files: ${resources.filter(r=>r.initiatorType==='script').length}\nImages: ${resources.filter(r=>r.initiatorType==='img').length}`)
+              alert(`⚡ Site Speed Report\n\nFCP: ${fcp ? Math.round(fcp.startTime) : '—'}ms\nDOM Ready: ${Math.round(perf.domContentLoadedEventEnd - perf.startTime)}ms\nFull Load: ${Math.round(perf.loadEventEnd - perf.startTime)}ms\nTTFB: ${Math.round(perf.responseStart - perf.startTime)}ms\nResources: ${resources.length} (${totalKB}KB)`)
             }} />
-            <ActionBarItem icon={<CameraIcon />} label="Screenshot" onClick={async () => {
+            <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
               try {
                 const { default: html2canvas } = await import('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm')
                 const canvas = await html2canvas(document.body, { useCORS: true, scale: 1, height: window.innerHeight, windowHeight: window.innerHeight })
                 canvas.toBlob(blob => { if (blob) { navigator.clipboard.write([new ClipboardItem({'image/png': blob})]); } })
-              } catch { /* fallback */ }
+              } catch {}
             }} />
-            <ActionBarItem icon={<MailIcon />} label="Hire Me" onClick={() => {
+            <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
               const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
               window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
             }} />
-          </div>
-
-          <div className="w-px h-4 bg-border/30 mx-3" />
-
-          {/* Social links */}
-          <div className="flex items-center gap-1">
-            <SocialLink href="https://github.com/kranthi0003/kranthi-kiran-site" title="Source Code">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-            </SocialLink>
-            <SocialLink href="https://linkedin.com/in/akkiran003" title="LinkedIn">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </SocialLink>
-            <SocialLink href="https://x.com/kranthikiran03" title="X / Twitter">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </SocialLink>
-          </div>
-
-          <div className="flex-1" />
-
-          {/* Tech badges */}
-          <div className="flex items-center gap-2">
-            <TechBadge>React</TechBadge>
-            <TechBadge>Vite</TechBadge>
-            <TechBadge>Tailwind</TechBadge>
-            <TechBadge>Supabase</TechBadge>
           </div>
         </div>
       </div>
@@ -713,15 +689,15 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
   )
 }
 
-// Action bar button with icon + label
-function ActionBarItem({ icon, label, onClick }) {
+// Icon-only button with native tooltip on hover
+function IconBtn({ icon, tip, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-colors"
+      title={tip}
+      className="relative p-2 rounded-lg text-muted-foreground/50 hover:text-foreground hover:bg-muted/50 transition-all duration-150"
     >
       {icon}
-      <span className="text-[11px] font-medium">{label}</span>
     </button>
   )
 }

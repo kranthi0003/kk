@@ -5,9 +5,9 @@ import TypingText from './TypingText'
 
 export default function Hero({ onResumeClick }) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Satellite backdrop — starts below navbar, ~40% height, subtle */}
-      <div className="absolute inset-x-0 top-16 h-[35%] z-0 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-28 overflow-hidden">
+      {/* Satellite backdrop — starts below both navbar lines */}
+      <div className="absolute inset-x-0 top-28 h-[35%] z-0 overflow-hidden">
         <img
           src={satellite}
           alt=""
