@@ -317,8 +317,9 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center">
         {/* Left — Logo */}
         <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0 mr-auto">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-accent-foreground font-heading font-bold text-sm">
+          <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-accent-foreground font-heading font-bold text-sm">
             KK
+            <span className="absolute -top-1.5 -right-2 px-1 py-0 rounded text-[7px] font-bold uppercase tracking-wider bg-yellow-500 text-black leading-tight">β</span>
           </div>
           <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
