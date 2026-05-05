@@ -291,6 +291,198 @@ function NavStatus() {
   )
 }
 
+// Changelog dropdown — shows latest 4 commits
+function NavChangelog() {
+  const [open, setOpen] = useState(false)
+  const [commits, setCommits] = useState([])
+  const [loading, setLoading] = useState(true)
+  const ref = useRef()
+
+  useEffect(() => {
+    if (!open) return
+    const h = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', h)
+    return () => document.removeEventListener('mousedown', h)
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    try {
+      const cached = JSON.parse(sessionStorage.getItem('nav_changelog'))
+      if (cached && Date.now() - cached.ts < 300000) {
+        setCommits(cached.data)
+        setLoading(false)
+        return
+      }
+    } catch {}
+    fetch('https://api.github.com/repos/kranthi0003/kranthi-kiran-site/commits?per_page=4&sha=main')
+      .then(r => r.ok ? r.json() : [])
+      .then(data => {
+        setCommits(data)
+        sessionStorage.setItem('nav_changelog', JSON.stringify({ ts: Date.now(), data }))
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [open])
+
+  const timeAgo = (d) => {
+    const s = Math.floor((Date.now() - new Date(d).getTime()) / 1000)
+    if (s < 60) return 'just now'
+    if (s < 3600) return `${Math.floor(s/60)}m ago`
+    if (s < 86400) return `${Math.floor(s/3600)}h ago`
+    return `${Math.floor(s/86400)}d ago`
+  }
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className={`p-2 rounded-full transition-colors duration-200 ${
+          open ? 'bg-accent/15 text-accent' : 'bg-muted hover:bg-border text-muted-foreground hover:text-foreground'
+        }`}
+        title="What's New"
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </button>
+      {open && (
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
+          <div className="w-full sm:w-[320px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+            <div className="px-4 py-3 border-b border-border/20">
+              <span className="text-xs font-semibold text-foreground">What's New</span>
+            </div>
+            <div className="max-h-[280px] overflow-y-auto">
+              {loading ? (
+                <div className="flex items-center justify-center py-6">
+                  <div className="w-4 h-4 border-2 border-muted-foreground/20 border-t-muted-foreground/60 rounded-full animate-spin" />
+                </div>
+              ) : commits.map((c, i) => (
+                <a key={c.sha} href={c.html_url} target="_blank" rel="noopener noreferrer"
+                  className="flex gap-2.5 px-4 py-2.5 border-b border-border/10 hover:bg-muted/30 transition-colors">
+                  <div className="mt-1.5 flex-shrink-0">
+                    <div className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-green-500' : 'bg-muted-foreground/30'}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[10px] text-muted-foreground/50">{timeAgo(c.commit.author.date)}</p>
+                    <p className="text-xs text-foreground/80 leading-snug line-clamp-2">{c.commit.message.split('\n')[0]}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <button
+              onClick={() => { setOpen(false); window.dispatchEvent(new CustomEvent('toggle-changelog')) }}
+              className="w-full px-4 py-2.5 text-[11px] text-muted-foreground/50 hover:text-foreground transition-colors border-t border-border/20 text-center"
+            >
+              View full changelog →
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Games quick-launch dropdown
+function NavGames() {
+  const [open, setOpen] = useState(false)
+  const ref = useRef()
+
+  useEffect(() => {
+    if (!open) return
+    const h = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', h)
+    return () => document.removeEventListener('mousedown', h)
+  }, [open])
+
+  const games = [
+    { name: 'Snake', icon: '🐍', cmd: 'play snake', desc: 'Classic arcade' },
+    { name: 'Tic-Tac-Toe', icon: '❌', cmd: 'play ttt', desc: 'X vs O' },
+    { name: 'Wordle', icon: '🟩', cmd: 'play wordle', desc: 'Guess the word' },
+    { name: 'Memory', icon: '🃏', cmd: 'play memory', desc: 'Match pairs' },
+  ]
+
+  const launch = (cmd) => {
+    setOpen(false)
+    const el = document.getElementById('terminal')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      const input = document.querySelector('#terminal input')
+      if (input) {
+        const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set
+        setter.call(input, cmd)
+        input.dispatchEvent(new Event('input', { bubbles: true }))
+        input.form?.requestSubmit()
+      }
+    }, 500)
+  }
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className={`p-2 rounded-full transition-colors duration-200 ${
+          open ? 'bg-purple-500/15 text-purple-500' : 'bg-muted hover:bg-border text-muted-foreground hover:text-foreground'
+        }`}
+        title="Games"
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </button>
+      {open && (
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
+          <div className="w-full sm:w-[220px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+            <div className="px-4 py-3 border-b border-border/20">
+              <span className="text-xs font-semibold text-foreground">Quick Play</span>
+            </div>
+            {games.map(g => (
+              <button key={g.cmd} onClick={() => launch(g.cmd)}
+                className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-muted/30 transition-colors text-left border-b border-border/10 last:border-0">
+                <span className="text-base">{g.icon}</span>
+                <div>
+                  <p className="text-xs font-medium text-foreground">{g.name}</p>
+                  <p className="text-[10px] text-muted-foreground/50">{g.desc}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Resume quick button
+function NavResume({ onResumeClick }) {
+  return (
+    <button
+      onClick={onResumeClick}
+      className="p-2 rounded-full bg-muted hover:bg-border text-muted-foreground hover:text-foreground transition-colors duration-200"
+      title="Resume / CV"
+    >
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+    </button>
+  )
+}
+
+// AI Chat quick button
+function NavAIChat() {
+  return (
+    <button
+      onClick={() => document.querySelector('[data-chatbot-btn]')?.click()}
+      className="p-2 rounded-full bg-muted hover:bg-border text-muted-foreground hover:text-foreground transition-colors duration-200"
+      title="AI Chatbot"
+    >
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    </button>
+  )
+}
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
@@ -381,7 +573,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         </div>
 
         {/* Right — Icons (desktop) */}
-        <div className="hidden lg:flex items-center gap-2 ml-auto">
+        <div className="hidden lg:flex items-center gap-1.5 ml-auto">
+          {/* Search */}
           <button
             onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-muted/40 border border-border/40 text-muted-foreground hover:text-foreground hover:border-border/60 hover:bg-muted/60 transition-all"
@@ -394,9 +587,28 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <kbd className="inline-flex items-center justify-center h-5 w-5 rounded border border-border/50 bg-background/60 text-[11px] font-mono text-muted-foreground/60">/</kbd>
             <span className="text-[12px] opacity-40">to search</span>
           </button>
+
+          {/* Divider */}
+          <div className="w-px h-5 bg-border/40 mx-0.5" />
+
+          {/* Data & Monitoring */}
           <NavWallet />
-          <NavSpotify />
           <NavStatus />
+          <NavChangelog />
+
+          {/* Divider */}
+          <div className="w-px h-5 bg-border/40 mx-0.5" />
+
+          {/* Actions & Fun */}
+          <NavAIChat />
+          <NavGames />
+          <NavResume onResumeClick={onResumeClick} />
+          <NavSpotify />
+
+          {/* Divider */}
+          <div className="w-px h-5 bg-border/40 mx-0.5" />
+
+          {/* Theme */}
           <ThemeToggle onRapidClick={onSecretTrigger} />
         </div>
 
@@ -422,10 +634,13 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             )
           })}
           <div className="w-px h-5 bg-border/50 mx-1.5" />
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1">
             <NavWallet />
-            <NavSpotify />
             <NavStatus />
+            <NavChangelog />
+            <NavAIChat />
+            <NavGames />
+            <NavSpotify />
             <ThemeToggle onRapidClick={onSecretTrigger} />
           </div>
         </div>
