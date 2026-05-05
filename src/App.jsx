@@ -70,6 +70,7 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
+        <div className="section-animate"><ChangelogFeed /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><About /></div>
@@ -78,7 +79,6 @@ export default function App() {
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
-        <div className="section-animate"><ChangelogFeed /></div>
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
