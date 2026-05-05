@@ -7,7 +7,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
-import Certifications from './components/Certifications'
 import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
 import Terminal from './components/Terminal'
@@ -61,7 +60,6 @@ export default function App() {
         <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
-        <div className="section-animate"><Certifications /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><Projects /></div>
