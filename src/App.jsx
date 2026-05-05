@@ -17,6 +17,7 @@ import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
 import CommandPalette from './components/CommandPalette'
 import Changelog from './components/Changelog'
+import QRvCard from './components/QRvCard'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
@@ -88,6 +89,7 @@ export default function App() {
       <AdminDashboard />
       <CommandPalette onResumeClick={() => setResumeOpen(true)} />
       <Changelog />
+      <QRvCard />
     </div>
     </>
   )

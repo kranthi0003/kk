@@ -158,3 +158,17 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Reading Mode — strips animations, simplifies layout */
+body.reading-mode * {
+  animation: none !important;
+  transition: none !important;
+}
+body.reading-mode {
+  background-image: none !important;
+}
+body.reading-mode canvas,
+body.reading-mode iframe,
+body.reading-mode video {
+  display: none !important;
+}
