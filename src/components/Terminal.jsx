@@ -39,8 +39,9 @@ const COMMANDS = {
       colorize('  🤖 AI Shell Translator:', T.cyan),
       colorize('  Just type what you want in plain English!', T.muted),
       colorize('  e.g. "list running docker containers"', T.green),
-      colorize('  e.g. "find large files over 100mb"', T.green),
-      colorize('  e.g. "create a new git branch"', T.green),
+      colorize('', ''),
+      colorize('  🏗️ Architecture Diagrams:', T.cyan),
+      colorize('  design <system>  ', T.green), colorize('    e.g. design twitter, design uber', T.muted),
       colorize('', ''),
       colorize('  🎮 Games:', T.cyan),
       colorize('  play snake    ', T.green), colorize('    Classic snake — arrow keys', T.muted),
@@ -124,6 +125,7 @@ export default function Terminal() {
     'watch file changes', 'count lines in a file', 'rename multiple files',
     'deploy with terraform', 'check ssl certificate expiry', 'curl with headers',
     'tail logs in realtime', 'list npm global packages', 'rollback git commit',
+    'design twitter', 'design uber', 'design netflix', 'design whatsapp',
   ]
   const [prompts, setPrompts] = useState(() => ALL_PROMPTS.slice(0, 4))
 
@@ -462,6 +464,20 @@ export default function Terminal() {
       setHistory(newHistory); setInput(''); return
     }
 
+    // Architecture diagram command
+    if (cmd.startsWith('design ')) {
+      const system = cmd.slice(7).trim()
+      if (!system) {
+        newHistory.push({ type: 'output', lines: [colorize('  Usage: design <system>  (e.g. design twitter)', T.dim)] })
+        setHistory(newHistory); setInput(''); return
+      }
+      newHistory.push({ type: 'output', lines: [colorize(`  🏗️ designing ${system}...`, T.dim)] })
+      setHistory(newHistory)
+      setInput('')
+      generateArchDiagram(system, newHistory)
+      return
+    }
+
     if (SCROLL_COMMANDS[cmd]) {
       const el = document.getElementById(SCROLL_COMMANDS[cmd])
       if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -552,6 +568,79 @@ export default function Terminal() {
           colorize(`  ${command}`, command.startsWith('#') ? T.red : T.green),
           colorize('', ''),
           ...(!command.startsWith('#') ? [colorize('  💡 copy and run in your terminal', T.dim)] : []),
+          colorize('', ''),
+        ]}
+        return updated
+      })
+      rotatePrompts()
+    } catch {
+      setHistory(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { type: 'output', lines: [colorize('  ⚠️ AI unavailable right now', T.red)] }
+        return updated
+      })
+    }
+  }
+
+  const generateArchDiagram = async (system, prevHistory) => {
+    const cacheKey = `arch_${system.toLowerCase()}`
+    const cached = sessionStorage.getItem(cacheKey)
+    if (cached) {
+      setHistory(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { type: 'output', lines: cached.split('\n').map(l => colorize(l, l.includes('┌') || l.includes('│') || l.includes('└') || l.includes('─') || l.includes('►') || l.includes('▼') ? T.accent : l.includes('[') ? T.green : T.muted)) }
+        return updated
+      })
+      rotatePrompts()
+      return
+    }
+
+    const GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
+    try {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_KEY}` },
+        body: JSON.stringify({
+          model: 'llama-3.1-8b-instant',
+          messages: [
+            { role: 'system', content: `You are a system design expert. Generate a clean ASCII architecture diagram for the given system. Rules:
+- Use box-drawing characters: ┌ ┐ └ ┘ │ ─ ► ▼
+- Keep it compact: max 15 lines, max 60 chars wide
+- Show key components: clients, load balancer, API servers, databases, caches, queues
+- Use arrows ──► for data flow
+- Label each component clearly
+- Add a one-line summary at the bottom
+- Output ONLY the diagram, no explanation` },
+            { role: 'user', content: `Design: ${system}` }
+          ],
+          max_tokens: 400,
+          temperature: 0.3,
+        }),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        const isRateLimit = res.status === 429
+        const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
+        const secs = Math.ceil(parseFloat(wait) || 10)
+        setHistory(prev => {
+          const updated = [...prev]
+          updated[updated.length - 1] = { type: 'output', lines: [
+            colorize(isRateLimit ? `  ⏳ Rate limited — retry in ${secs}s` : '  ⚠️ AI unavailable', isRateLimit ? T.yellow : T.red),
+          ]}
+          return updated
+        })
+        return
+      }
+
+      const diagram = data.choices?.[0]?.message?.content?.trim() || '# unable to generate'
+      sessionStorage.setItem(cacheKey, diagram)
+
+      setHistory(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { type: 'output', lines: [
+          colorize('', ''),
+          ...diagram.split('\n').map(l => colorize(`  ${l}`, l.includes('┌') || l.includes('│') || l.includes('└') || l.includes('─') || l.includes('►') || l.includes('▼') ? T.accent : l.includes('[') ? T.green : T.fg)),
           colorize('', ''),
         ]}
         return updated
