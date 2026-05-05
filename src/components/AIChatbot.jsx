@@ -193,7 +193,7 @@ export default function AIChatbot() {
           'Authorization': `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
+          model: 'llama-3.1-8b-instant',
           messages: chatMessages,
           max_tokens: 150,
           temperature: 0.6,
