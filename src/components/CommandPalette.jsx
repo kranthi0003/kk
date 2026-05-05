@@ -28,7 +28,7 @@ const ACTIONS = [
   { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url' },
   { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
   { id: 'admin-dash', label: 'Visitor Dashboard', desc: 'See who\'s viewing (admin)', section: 'Actions', icon: '👀', action: () => {
-    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'V', ctrlKey: true, shiftKey: true, bubbles: true }))
+    window.dispatchEvent(new CustomEvent('toggle-admin-dashboard'))
   }, keywords: 'admin visitors dashboard analytics who viewing' },
 
   // Games

@@ -48,7 +48,7 @@ export default function AdminDashboard() {
   const [tick, setTick] = useState(0)
   const channelRef = useRef(null)
 
-  // Secret shortcut: Ctrl+Shift+V
+  // Secret shortcut: Ctrl+Shift+V or custom event
   useEffect(() => {
     const handleKey = (e) => {
       if (e.ctrlKey && e.shiftKey && e.key === 'V') {
@@ -56,8 +56,13 @@ export default function AdminDashboard() {
         setOpen(o => !o)
       }
     }
+    const handleCustom = () => setOpen(o => !o)
     window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
+    window.addEventListener('toggle-admin-dashboard', handleCustom)
+    return () => {
+      window.removeEventListener('keydown', handleKey)
+      window.removeEventListener('toggle-admin-dashboard', handleCustom)
+    }
   }, [])
 
   // Subscribe to presence
