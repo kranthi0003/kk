@@ -361,9 +361,9 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             </svg>
             <kbd className="text-[10px] text-muted-foreground/60">/</kbd>
           </button>
-          <NavStatus />
           <NavWallet />
           <NavSpotify />
+          <NavStatus />
           <ThemeToggle onRapidClick={onSecretTrigger} />
         </div>
 
@@ -390,18 +390,18 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           })}
           <div className="w-px h-5 bg-border/50 mx-1.5" />
           <div className="flex items-center gap-1.5">
-            <NavStatus />
             <NavWallet />
             <NavSpotify />
+            <NavStatus />
             <ThemeToggle onRapidClick={onSecretTrigger} />
           </div>
         </div>
 
         {/* Mobile — icons + hamburger */}
         <div className="flex md:hidden items-center gap-2 ml-auto">
-          <NavStatus />
           <NavWallet />
           <NavSpotify />
+          <NavStatus />
           <ThemeToggle onRapidClick={onSecretTrigger} />
           <button
             onClick={() => setMobileOpen(o => !o)}
