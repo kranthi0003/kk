@@ -22,10 +22,13 @@ export default function Guestbook() {
   const [message, setMessage] = useState('')
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
+  const [admin, setAdmin] = useState(false)
   const formRef = useRef()
 
   useEffect(() => {
     fetchEntries()
+    // Check if admin mode was previously activated this session
+    if (sessionStorage.getItem('gb_admin') === '1') setAdmin(true)
   }, [])
 
   const fetchEntries = async () => {
@@ -37,11 +40,28 @@ export default function Guestbook() {
     if (data) setEntries(data)
   }
 
+  const deleteEntry = async (id) => {
+    if (!admin) return
+    await supabase.from('guestbook').delete().eq('id', id)
+    fetchEntries()
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const n = name.trim()
     const m = message.trim()
     if (!n || !m) return
+
+    // Secret admin activation: name = "admin" and message = password
+    if (n.toLowerCase() === 'admin' && m === 'kk2026') {
+      setAdmin(true)
+      sessionStorage.setItem('gb_admin', '1')
+      setName('')
+      setMessage('')
+      setError('')
+      return
+    }
+
     if (m.length > 280) { setError('Keep it under 280 chars'); return }
 
     setSending(true)
@@ -119,6 +139,17 @@ export default function Guestbook() {
                 </div>
                 <p className="text-sm text-muted-foreground mt-0.5 break-words">{entry.message}</p>
               </div>
+              {admin && (
+                <button
+                  onClick={() => deleteEntry(entry.id)}
+                  className="p-1 rounded text-muted-foreground/30 hover:text-red-500 transition-colors flex-shrink-0"
+                  title="Delete"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
             </div>
           ))}
         </div>
