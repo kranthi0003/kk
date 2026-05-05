@@ -53,8 +53,8 @@ export default function App() {
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><Terminal /></div>
-        <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Experience /></div>
+        <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Certifications /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>
