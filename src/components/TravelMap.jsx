@@ -39,30 +39,6 @@ export default function TravelMap() {
   const [selected, setSelected] = useState(null)
   const [globeSize, setGlobeSize] = useState(500)
   const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'))
-  const [issPos, setIssPos] = useState({ lat: 40.1, lng: -141.6, alt: 423 })
-  const [issTrail, setIssTrail] = useState([])
-
-  // Fetch ISS position
-  useEffect(() => {
-    const fetchISS = () => {
-      fetch('https://api.wheretheiss.at/v1/satellites/25544')
-        .then(r => {
-          if (!r.ok) throw new Error('API error')
-          return r.json()
-        })
-        .then(data => {
-          if (data.latitude && data.longitude) {
-            const pos = { lat: data.latitude, lng: data.longitude, alt: data.altitude || 408 }
-            setIssPos(pos)
-            setIssTrail(prev => [...prev.slice(-30), pos])
-          }
-        })
-        .catch(() => {})
-    }
-    fetchISS()
-    const interval = setInterval(fetchISS, 5000)
-    return () => clearInterval(interval)
-  }, [])
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -138,12 +114,12 @@ export default function TravelMap() {
                 }
                 atmosphereColor={isDark ? '#60a5fa' : '#3b82f6'}
                 atmosphereAltitude={0.18}
-                pointsData={[...places, { ...issPos, city: 'ISS 🛰️', label: 'International Space Station (Live)', color: '#ef4444', isISS: true }]}
+                pointsData={places}
                 pointLat="lat"
                 pointLng="lng"
                 pointColor="color"
-                pointAltitude={d => d.isISS ? 0.1 : 0.06}
-                pointRadius={d => d.isISS ? 0.7 : 0.45}
+                pointAltitude={0.06}
+                pointRadius={0.45}
                 pointLabel={d => `<div style="font-family:system-ui;background:rgba(0,0,0,0.85);color:white;padding:8px 14px;border-radius:10px;font-size:13px;text-align:center;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)"><b>${d.city}</b><br/><span style="opacity:0.6;font-size:11px">${d.label}</span></div>`}
                 onPointClick={handlePointClick}
                 arcsData={arcData}
@@ -153,10 +129,10 @@ export default function TravelMap() {
                 arcDashGap={0.15}
                 arcDashAnimateTime={2500}
                 arcAltitudeAutoScale={0.35}
-                ringsData={[...places.filter(p => p.home), issPos]}
+                ringsData={places.filter(p => p.home)}
                 ringLat="lat"
                 ringLng="lng"
-                ringColor={(d) => d.home ? '#10b981' : '#ef4444'}
+                ringColor={() => '#10b981'}
                 ringMaxRadius={4}
                 ringPropagationSpeed={2}
                 ringRepeatPeriod={1200}
@@ -216,38 +192,6 @@ export default function TravelMap() {
               )}
             </div>
 
-            {/* ISS Live Tracker */}
-            <div className="rounded-2xl border border-red-500/20 bg-card/80 backdrop-blur-sm p-4 shadow-lg mt-2">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-base">🛰️</span>
-                  <span className="text-[10px] font-mono text-red-400 uppercase tracking-widest">ISS — Live</span>
-                  <span className="relative flex h-2 w-2 ml-auto">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="p-2 rounded-lg bg-muted/30">
-                    <p className="text-[9px] text-muted-foreground font-mono">LAT</p>
-                    <p className="text-xs font-mono font-semibold text-foreground">{issPos.lat.toFixed(4)}°</p>
-                  </div>
-                  <div className="p-2 rounded-lg bg-muted/30">
-                    <p className="text-[9px] text-muted-foreground font-mono">LNG</p>
-                    <p className="text-xs font-mono font-semibold text-foreground">{issPos.lng.toFixed(4)}°</p>
-                  </div>
-                </div>
-                <p className="text-[9px] text-muted-foreground/60 font-mono mt-2 text-center">
-                  Alt: {issPos.alt?.toFixed(0) || '408'} km • Speed: ~28,000 km/h
-                </p>
-                <button
-                  onClick={() => {
-                    if (globeRef.current) globeRef.current.pointOfView({ lat: issPos.lat, lng: issPos.lng, altitude: 1.5 }, 800)
-                  }}
-                  className="w-full mt-2 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono hover:bg-red-500/20 transition-all"
-                >
-                  Track ISS →
-                </button>
-              </div>
           </div>
         </div>
       </div>
