@@ -32,10 +32,10 @@ function NavSpotify() {
         <SpotifyIcon />
       </button>
       {open && (
-        <div className="absolute right-0 top-12 animate-fade-in-up rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-border/30 z-50">
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-border/30 z-50">
           <iframe
             src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0"
-            width="300"
+            width="100%"
             height="152"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -76,7 +76,7 @@ function NavWallet() {
         </svg>
       </button>
       {open && (
-        <div className="absolute right-0 top-12 animate-fade-in-up z-50">
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
           <WalletDropdown />
         </div>
       )}
@@ -109,7 +109,7 @@ function WalletDropdown() {
   const usd = data && btcPrice ? ((data.final_balance / 1e8) * btcPrice).toFixed(2) : '···'
 
   return (
-    <div className="w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+    <div className="w-full sm:w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
       <div className="p-4 border-b border-border/20 flex items-center gap-2">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
           <span className="text-accent-foreground text-[10px] font-bold">₿</span>
