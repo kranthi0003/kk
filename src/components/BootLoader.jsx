@@ -49,37 +49,34 @@ function getSystemInfo() {
 
 function buildBootSequence() {
   const s = getSystemInfo()
-  const t = (n) => `[    ${n.toFixed(6).padStart(10)}]`
 
   return [
-    { text: `${t(0)} kernel: Linux version 6.8.0 (gcc 13.2.0) #1 SMP PREEMPT_DYNAMIC`, delay: 0 },
-    { text: `${t(0.003)} kernel: Command line: BOOT_IMAGE=/vmlinuz root=UUID=kranthikiran`, delay: 150 },
-    { text: `${t(0.021)} kernel: DMI: ${s.os}`, delay: 300 },
-    { text: `${t(0.021)} kernel: Hypervisor detected: ${s.browser}`, delay: 450 },
-    { text: `${t(0.034)} kernel: CPU(s): ${s.cores || 'detecting...'} cores`, delay: 600, bright: true },
-    { text: `${t(0.034)} kernel: Memory: ${s.mem ? s.mem + ' GB' : 'available'}`, delay: 750, bright: true },
-    ...(s.webgl.vendor ? [{ text: `${t(0.041)} kernel: GPU: ${s.webgl.vendor}`, delay: 900, bright: true }] : []),
-    ...(s.webgl.renderer ? [{ text: `${t(0.041)} kernel:      ${s.webgl.renderer}`, delay: 1050 }] : []),
-    ...(s.webgl.version ? [{ text: `${t(0.042)} kernel:      ${s.webgl.version}`, delay: 1150 }] : []),
-    { text: `${t(0.058)} kernel: Display: ${s.screen.width}×${s.screen.height} @ ${window.devicePixelRatio || 1}x (${s.screen.colorDepth}-bit color)`, delay: 1300, bright: true },
-    { text: `${t(0.058)} kernel: Input: ${s.touch ? 'touchscreen' : 'pointer'} device`, delay: 1450 },
-    { text: '', delay: 1600 },
-    { text: `  * systemd[1]: Starting kranthikiran.com...`, delay: 1700, accent: true },
-    { text: `  [ OK ] Detected operating system: ${s.os}`, delay: 1900, ok: true },
-    { text: `  [ OK ] Detected browser: ${s.browser} ${s.browserVersion}`, delay: 2100, ok: true },
-    { text: `  [ OK ] Locale: ${s.lang} • Timezone: ${s.tz}`, delay: 2300, ok: true },
-    { text: `  [ OK ] Network: ${s.online}${s.effectiveType ? ' • ' + s.effectiveType.toUpperCase() : ''}${s.downlink ? ' • ' + s.downlink + ' Mbps' : ''}`, delay: 2500, ok: true },
-    { text: `  [ OK ] Cookies: ${s.cookiesEnabled ? 'enabled' : 'disabled'} • DNT: ${s.doNotTrack ? 'on' : 'off'}`, delay: 2700, ok: true },
-    { text: '', delay: 2900 },
-    { text: `  * systemd[1]: Loading site assets...`, delay: 3000, accent: true },
-    { text: `  [ OK ] Started react.service`, delay: 3200, ok: true },
-    { text: `  [ OK ] Started tailwind.service`, delay: 3350, ok: true },
-    { text: `  [ OK ] Started three-globe.service`, delay: 3500, ok: true },
-    { text: `  [ OK ] Started service-worker.service`, delay: 3650, ok: true },
-    { text: '', delay: 3800 },
-    { text: `  * systemd[1]: Reached target: portfolio ready`, delay: 3900, accent: true },
-    { text: '', delay: 4100 },
-    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 4200, bright: true },
+    // Quick system detect (fast, compact)
+    { text: `kranthi@portfolio:~$ neofetch`, delay: 0, cmd: true },
+    { text: '', delay: 200 },
+    { text: `  OS      ${s.os}`, delay: 300, bright: true },
+    { text: `  Browser ${s.browser} ${s.browserVersion}`, delay: 400 },
+    { text: `  CPU     ${s.cores || '?'} cores`, delay: 500, bright: true },
+    ...(s.mem ? [{ text: `  Memory  ${s.mem} GB`, delay: 600, bright: true }] : []),
+    ...(s.webgl.renderer ? [{ text: `  GPU     ${s.webgl.renderer}`, delay: 700 }] : []),
+    { text: `  Display ${s.screen.width}×${s.screen.height} @ ${window.devicePixelRatio || 1}x`, delay: 800 },
+    { text: `  Network ${s.online}${s.effectiveType ? ' · ' + s.effectiveType.toUpperCase() : ''}${s.downlink ? ' · ' + s.downlink + ' Mbps' : ''}`, delay: 900 },
+    { text: `  Locale  ${s.lang} · ${s.tz}`, delay: 1000 },
+    { text: '', delay: 1100 },
+    // Terminal command sequence (ddaniel style)
+    { text: `kranthi@portfolio:~$ pwd`, delay: 1200, cmd: true },
+    { text: `  /home/kranthi/portfolio`, delay: 1350 },
+    { text: '', delay: 1450 },
+    { text: `kranthi@portfolio:~$ ls`, delay: 1550, cmd: true },
+    { text: `  src/  public/  dist/  package.json  vite.config.js  tailwind.config.js`, delay: 1700, ok: true },
+    { text: '', delay: 1800 },
+    { text: `kranthi@portfolio:~$ npm run build`, delay: 1900, cmd: true },
+    { text: `  ✓ 20 modules transformed`, delay: 2100, ok: true },
+    { text: `  ✓ built in 2.1s`, delay: 2250, ok: true },
+    { text: '', delay: 2350 },
+    { text: `kranthi@portfolio:~$ ./deploy.sh`, delay: 2450, cmd: true },
+    { text: `  → deploying to kranthikiran.com...`, delay: 2600, accent: true },
+    { text: `  ✓ live`, delay: 2800, ok: true },
   ]
 }
 
@@ -111,7 +108,7 @@ export default function BootLoader({ onComplete }) {
         setPhase('loading')
         setProgress(0)
       }
-    }, 4400)
+    }, 3000)
 
     return () => {
       timers.forEach(clearTimeout)
@@ -166,6 +163,7 @@ export default function BootLoader({ onComplete }) {
           <div
             key={i}
             className={`text-xs sm:text-sm leading-relaxed ${
+              line.cmd ? 'text-foreground font-semibold' :
               line.ok ? 'text-green-500 dark:text-green-400' :
               line.accent ? 'text-accent' :
               line.bright ? 'text-foreground' :
