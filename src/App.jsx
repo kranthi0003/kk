@@ -12,6 +12,7 @@ import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
 import Terminal from './components/Terminal'
 import Connect from './components/Contact'
+import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
@@ -66,6 +67,7 @@ export default function App() {
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Connect /></div>
+        <div className="section-animate"><Guestbook /></div>
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
