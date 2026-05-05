@@ -190,6 +190,16 @@ export default function AIChatbot() {
     const newMessages = [...messages, { role: 'user', text: msg }]
     setMessages(newMessages)
     setInput('')
+
+    // Check cache first
+    const cacheKey = `chat_${msg.toLowerCase()}`
+    const cached = sessionStorage.getItem(cacheKey)
+    if (cached) {
+      typeReply(cached)
+      rotateSuggestions()
+      return
+    }
+
     setLoading(true)
 
     try {
@@ -228,6 +238,7 @@ export default function AIChatbot() {
         console.error('Groq API error:', data.error?.message)
       } else {
         const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
+        sessionStorage.setItem(cacheKey, reply)
         typeReply(reply)
         rotateSuggestions()
       }

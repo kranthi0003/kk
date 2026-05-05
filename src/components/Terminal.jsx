@@ -487,6 +487,25 @@ export default function Terminal() {
   }
 
   const translateToShell = async (query, prevHistory) => {
+    // Check cache first
+    const cacheKey = `shell_${query.toLowerCase()}`
+    const cached = sessionStorage.getItem(cacheKey)
+    if (cached) {
+      setHistory(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { type: 'output', lines: [
+          colorize('', ''),
+          colorize(`  ${cached}`, cached.startsWith('#') ? T.red : T.green),
+          colorize('', ''),
+          ...(!cached.startsWith('#') ? [colorize('  💡 copy and run in your terminal', T.dim)] : []),
+          colorize('', ''),
+        ]}
+        return updated
+      })
+      rotatePrompts()
+      return
+    }
+
     const GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
     try {
       const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -524,6 +543,7 @@ export default function Terminal() {
       }
 
       const command = data.choices?.[0]?.message?.content?.trim() || '# unable to translate'
+      if (!command.startsWith('#')) sessionStorage.setItem(cacheKey, command)
 
       setHistory(prev => {
         const updated = [...prev]
