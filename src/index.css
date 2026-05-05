@@ -4,7 +4,7 @@
 
 /* Theme CSS Variables */
 :root {
-  --color-background: #fafbfe;
+  --color-background: #f8f9fc;
   --color-foreground: #1a1a2e;
   --color-card: #ffffff;
   --color-card-foreground: #1a1a2e;
@@ -21,9 +21,11 @@
 body {
   background-color: var(--color-background);
   background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    radial-gradient(ellipse at top, rgba(37,99,235,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(168,85,247,0.03) 0%, transparent 50%),
+    linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
   background-attachment: fixed;
 }
 
