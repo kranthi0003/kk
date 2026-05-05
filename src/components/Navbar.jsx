@@ -384,13 +384,15 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         <div className="hidden lg:flex items-center gap-2 ml-auto">
           <button
             onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-muted/50 border border-border/30 text-muted-foreground hover:text-foreground hover:border-border/50 transition-all text-xs font-mono"
+            className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-muted/40 border border-border/40 text-muted-foreground hover:text-foreground hover:border-border/60 hover:bg-muted/60 transition-all w-52"
             title="Search (⌘K or /)"
           >
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-4 h-4 opacity-50 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <kbd className="text-[10px] text-muted-foreground/60">/</kbd>
+            <span className="text-[13px] flex-1 text-left opacity-40">Type</span>
+            <kbd className="inline-flex items-center justify-center h-5 w-5 rounded border border-border/50 bg-background/60 text-[11px] font-mono text-muted-foreground/60">/</kbd>
+            <span className="text-[13px] opacity-40">to search</span>
           </button>
           <NavWallet />
           <NavSpotify />
