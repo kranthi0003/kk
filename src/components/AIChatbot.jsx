@@ -122,6 +122,21 @@ export default function AIChatbot() {
   const inputRef = useRef()
   const typingRef = useRef(null)
 
+  const ALL_SUGGESTIONS = [
+    'What does Kranthi do?', 'Skills & stack', 'Projects', 'Contact info',
+    'Career journey?', 'Certifications?', 'Where has he traveled?',
+    'What is SketchGate?', 'Hobbies?', 'Current role?',
+    'Education?', 'Favorite tech?', 'Career goals?',
+    'Work at Amazon?', 'Why GitHub?', 'Bitcoin?',
+    'Fitness goals?', 'DevOps tools?', 'Work style?',
+  ]
+  const [suggestions, setSuggestions] = useState(() => ALL_SUGGESTIONS.slice(0, 3))
+
+  const rotateSuggestions = () => {
+    const shuffled = ALL_SUGGESTIONS.sort(() => Math.random() - 0.5)
+    setSuggestions(shuffled.slice(0, 3))
+  }
+
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
   }, [messages, typing])
@@ -209,6 +224,7 @@ export default function AIChatbot() {
       } else {
         const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
         typeReply(reply)
+        rotateSuggestions()
       }
     } catch {
       setLoading(false)
@@ -315,10 +331,10 @@ export default function AIChatbot() {
             )}
           </div>
 
-          {/* Quick questions — minimal pills */}
-          {messages.length <= 1 && (
-            <div className="px-4 pb-3 flex flex-wrap gap-1.5">
-              {['What does Kranthi do?', 'Skills & stack', 'Projects', 'Contact'].map(q => (
+          {/* Suggestion pills — always visible, rotate after each answer */}
+          {!loading && !typing && (
+            <div className="px-4 pb-2 flex flex-wrap gap-1.5">
+              {suggestions.map(q => (
                 <button
                   key={q}
                   onClick={() => { setInput(q); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
