@@ -73,6 +73,19 @@ const ACTIONS = [
   { id: 'p-site', label: 'Portfolio Source', desc: 'This site\'s GitHub repo', section: 'Projects', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site repo repository this website open source' },
 ]
 
+const ADMIN_PASSWORD = 'kk2026'
+
+// Admin-only actions — only visible when admin mode is active
+const ADMIN_ACTIONS = [
+  { id: 'visitor-dashboard', label: 'Visitor Dashboard', desc: 'Live geo tracking (Admin)', section: '🔒 Admin', icon: '👀', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-admin-dashboard'))
+  }, keywords: 'visitors live online users viewing count presence realtime people analytics dashboard admin geo location' },
+  { id: 'admin-guestbook', label: 'Guestbook Admin', desc: 'Delete messages (Admin)', section: '🔒 Admin', icon: '🗑️', action: () => {
+    scrollTo('guestbook')
+  }, keywords: 'guestbook admin delete remove messages moderate' },
+  { id: 'admin-logout', label: 'Logout Admin', desc: 'Exit admin mode', section: '🔒 Admin', icon: '🔓', action: 'admin-logout', keywords: 'logout admin exit lock sign out' },
+]
+
 function scrollTo(id) {
   const el = document.getElementById(id)
   if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -93,6 +106,7 @@ export default function CommandPalette({ onResumeClick }) {
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(0)
   const [copied, setCopied] = useState(null)
+  const [isAdmin, setIsAdmin] = useState(() => sessionStorage.getItem('admin_mode') === 'true')
   const inputRef = useRef()
   const listRef = useRef()
 
@@ -124,17 +138,23 @@ export default function CommandPalette({ onResumeClick }) {
     if (open) setTimeout(() => inputRef.current?.focus(), 50)
   }, [open])
 
+  const allActions = useMemo(() => {
+    return isAdmin ? [...ACTIONS, ...ADMIN_ACTIONS] : ACTIONS
+  }, [isAdmin])
+
   const filtered = useMemo(() => {
-    if (!query) return ACTIONS
+    // Check for admin password
+    if (query.toLowerCase() === ADMIN_PASSWORD) return []
+    if (!query) return allActions
     const q = query.toLowerCase()
-    return ACTIONS.filter(a =>
+    return allActions.filter(a =>
       a.label.toLowerCase().includes(q) ||
       a.desc.toLowerCase().includes(q) ||
       a.section.toLowerCase().includes(q) ||
       a.id.includes(q) ||
       (a.keywords && a.keywords.includes(q))
     )
-  }, [query])
+  }, [query, allActions])
 
   const grouped = useMemo(() => {
     const map = {}
@@ -157,6 +177,14 @@ export default function CommandPalette({ onResumeClick }) {
   }, [selected])
 
   const execute = (action) => {
+    // Handle admin logout
+    if (action.action === 'admin-logout') {
+      setIsAdmin(false)
+      sessionStorage.removeItem('admin_mode')
+      setOpen(false)
+      setQuery('')
+      return
+    }
     // Show "Copied!" feedback for copy actions
     if (action.id === 'email-info' || action.id === 'share') {
       if (typeof action.action === 'function') action.action()
@@ -176,7 +204,16 @@ export default function CommandPalette({ onResumeClick }) {
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowDown') { e.preventDefault(); setSelected(s => Math.min(s + 1, flatList.length - 1)) }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setSelected(s => Math.max(s - 1, 0)) }
-    else if (e.key === 'Enter' && flatList[selected]) { execute(flatList[selected]) }
+    else if (e.key === 'Enter') {
+      // Check for admin password
+      if (query.toLowerCase() === ADMIN_PASSWORD) {
+        setIsAdmin(true)
+        sessionStorage.setItem('admin_mode', 'true')
+        setQuery('')
+        return
+      }
+      if (flatList[selected]) execute(flatList[selected])
+    }
   }
 
   if (!open) return null
@@ -215,6 +252,11 @@ export default function CommandPalette({ onResumeClick }) {
               spellCheck={false}
             />
             <div className="flex items-center gap-1.5 flex-shrink-0">
+              {isAdmin && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-green-500/15 text-green-500 border border-green-500/20">
+                  🔓 Admin
+                </span>
+              )}
               <kbd className="hidden sm:inline-flex h-6 min-w-[24px] items-center justify-center rounded-md text-[11px] font-medium bg-black/5 dark:bg-white/10 text-muted-foreground/60 px-1.5">esc</kbd>
             </div>
           </div>
@@ -227,8 +269,17 @@ export default function CommandPalette({ onResumeClick }) {
             style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,0,0,0.15) transparent' }}>
             {flatList.length === 0 && (
               <div className="flex flex-col items-center justify-center py-12 gap-2">
-                <span className="text-3xl opacity-40">🔍</span>
-                <p className="text-sm text-muted-foreground/50">No results for "{query}"</p>
+                {query.toLowerCase() === ADMIN_PASSWORD ? (
+                  <>
+                    <span className="text-3xl">🔐</span>
+                    <p className="text-sm text-muted-foreground/50">Press <kbd className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 text-[11px] font-mono">↵</kbd> to unlock admin mode</p>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-3xl opacity-40">🔍</span>
+                    <p className="text-sm text-muted-foreground/50">No results for "{query}"</p>
+                  </>
+                )}
               </div>
             )}
             {Object.entries(grouped).map(([section, items]) => (
