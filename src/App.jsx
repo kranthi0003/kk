@@ -17,6 +17,7 @@ import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
 import CommandPalette from './components/CommandPalette'
 import Changelog from './components/Changelog'
+import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
 import AdminDashboard from './components/AdminDashboard'
@@ -77,6 +78,7 @@ export default function App() {
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
+        <div className="section-animate"><ChangelogFeed /></div>
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
