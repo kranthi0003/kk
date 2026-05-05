@@ -2,6 +2,24 @@ import React from 'react'
 
 const projects = [
   {
+    name: 'deploy-diff',
+    title: 'Visual Diff for Infra Configs',
+    desc: 'Paste two docker-compose or K8s files, see what changed — added services, removed ports, env diffs. Clean visual diff for infrastructure.',
+    tech: ['react', 'yaml-parser', 'diff-engine'],
+    status: 'wip',
+    url: null,
+    github: null,
+  },
+  {
+    name: 'cron-explain',
+    title: 'Cron Expression Translator',
+    desc: 'Paste a cron expression, get human-readable explanation, next 10 run times, timezone converter. Works offline. Better than crontab.guru.',
+    tech: ['typescript', 'cron-parser', 'offline-first'],
+    status: 'wip',
+    url: null,
+    github: null,
+  },
+  {
     name: 'stranger-chat',
     title: 'Anonymous P2P Text Chat',
     desc: 'Real-time matchmaking with random visitors. WebRTC for direct peer messaging, Supabase for presence.',
@@ -32,7 +50,7 @@ const projects = [
 
 const statusColors = {
   active: { label: '● ACTIVE', text: 'text-green-500' },
-  wip: { label: 'WIP', text: 'text-yellow-500' },
+  wip: { label: '● WIP', text: 'text-orange-500' },
   archived: { label: 'ARCHIVED', text: 'text-muted-foreground' },
 }
 
