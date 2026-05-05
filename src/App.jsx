@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Certifications from './components/Certifications'
 import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
+import UptimeMonitor from './components/UptimeMonitor'
 import Terminal from './components/Terminal'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
@@ -59,6 +60,7 @@ export default function App() {
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><TravelMap /></div>
+        <div className="section-animate"><UptimeMonitor /></div>
         <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
