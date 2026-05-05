@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import GitHubStats from './GitHubStats'
-import GitHubHeatmap from './GitHubHeatmap'
 import profile from '../../assets/profile.png'
 
 function BentoClockCard() {
@@ -18,17 +16,17 @@ function BentoClockCard() {
   const isDay = ist.getHours() >= 6 && ist.getHours() < 19
 
   return (
-    <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-violet-500/10 via-card to-card p-5 flex flex-col justify-between relative overflow-hidden">
+    <div className="rounded-2xl border border-border/20 bg-card p-5 flex flex-col justify-between">
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[10px] text-accent uppercase tracking-widest">Vizag, India</p>
-        <span className="text-lg">{isDay ? '☀️' : '🌙'}</span>
+        <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Vizag, India</p>
+        <span className="text-base">{isDay ? '☀️' : '🌙'}</span>
       </div>
-      <div className="flex-1 flex items-center justify-center">
-        <p className="font-mono text-3xl sm:text-4xl font-bold tracking-tight">
+      <div className="flex-1 flex items-center justify-center py-3">
+        <p className="font-mono text-4xl font-bold tracking-tight">
           <span className="text-foreground">{hours}</span>
-          <span className="text-accent animate-pulse">:</span>
+          <span className="text-accent/60 animate-pulse">:</span>
           <span className="text-foreground">{mins}</span>
-          <span className="text-muted-foreground/50 text-xl ml-1">{secs}</span>
+          <span className="text-muted-foreground/40 text-lg ml-1">{secs}</span>
         </p>
       </div>
       <div className="flex items-center gap-1.5">
@@ -44,140 +42,71 @@ function BentoClockCard() {
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="animate-float absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-xl" />
-        <div className="animate-float absolute top-40 right-20 w-24 h-24 bg-accent/5 rounded-lg blur-lg" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <p className="font-mono text-sm text-accent mb-2">Get to Know Me</p>
+    <section id="about" className="py-24">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <p className="font-mono text-sm text-accent mb-2">~/about</p>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">About Me</h2>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        {/* Apple-style bento grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
 
-          {/* Row 1: LinkedIn + Quote + Location */}
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg flex flex-col bg-card">
-            <div className="h-20 relative overflow-hidden flex-shrink-0">
+          {/* Profile — spans 2 cols */}
+          <div className="col-span-2 rounded-2xl border border-border/20 bg-card overflow-hidden">
+            <div className="h-16 relative overflow-hidden">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
-              <div className="absolute -bottom-8 left-5">
-                <img src={profile} alt="Kranthi Kiran" className="w-16 h-16 rounded-full object-cover border-3 border-card shadow-lg" />
+              <div className="absolute -bottom-7 left-4">
+                <img src={profile} alt="Kranthi Kiran" className="w-14 h-14 rounded-full object-cover border-2 border-card shadow-md" />
               </div>
             </div>
-            <div className="pt-10 px-5 pb-5 flex flex-col gap-0.5 flex-1">
-              <div className="flex items-center gap-2">
-                <h4 className="font-heading font-bold text-base">Kranthi Kiran</h4>
-                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+            <div className="pt-9 px-4 pb-4">
+              <div className="flex items-center gap-1.5 mb-0.5">
+                <h4 className="font-heading font-bold text-sm">Kranthi Kiran</h4>
+                <svg className="w-3.5 h-3.5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
               </div>
-              <p className="text-xs text-muted-foreground">SE-III @GitHub | Microsoft | prev - Amazon</p>
-              <p className="text-[11px] text-muted-foreground/70">Visakhapatnam, India</p>
-              <div className="flex gap-2 mt-auto">
-                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center px-3 py-1.5 rounded-full bg-blue-600 text-white font-medium text-xs hover-lift transition-all">Connect</a>
-                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center px-3 py-1.5 rounded-full border border-blue-600 text-blue-600 font-medium text-xs hover:bg-blue-600/10 transition-all">Profile</a>
+              <p className="text-[11px] text-muted-foreground mb-3">SE-III @GitHub · prev Amazon, Couchbase, Groww</p>
+              <div className="flex gap-2">
+                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-1.5 rounded-lg bg-blue-600 text-white font-medium text-[11px] hover:opacity-90 transition-all">Connect</a>
+                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-1.5 rounded-lg border border-border/40 text-foreground font-medium text-[11px] hover:bg-muted/50 transition-all">Profile</a>
               </div>
             </div>
           </div>
 
-          {/* Live Clock Card */}
+          {/* Clock */}
           <BentoClockCard />
 
-          {/* Currently Card */}
-          <div className="rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-emerald-500/10 via-card to-card p-5 flex flex-col gap-3 relative overflow-hidden">
-            <p className="font-mono text-[10px] text-accent uppercase tracking-widest">Currently</p>
-            <div className="space-y-2.5 flex-1 flex flex-col justify-center">
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center text-sm">💼</span>
-                <p className="text-xs text-foreground">Building at <span className="font-semibold text-accent">GitHub</span></p>
+          {/* Currently */}
+          <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col">
+            <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Currently</p>
+            <div className="space-y-2 flex-1 flex flex-col justify-center">
+              <div className="flex items-center gap-2">
+                <span className="text-sm">💼</span>
+                <p className="text-[11px] text-foreground">Building at <span className="font-semibold text-accent">GitHub</span></p>
               </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-purple-500/15 flex items-center justify-center text-sm">🎧</span>
-                <p className="text-xs text-foreground">Listening to <span className="font-semibold">Bollywood Hits</span></p>
+              <div className="flex items-center gap-2">
+                <span className="text-sm">🎧</span>
+                <p className="text-[11px] text-foreground">Bollywood Hits</p>
               </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center text-sm">📚</span>
-                <p className="text-xs text-foreground">Reading <span className="font-semibold">System Design</span></p>
+              <div className="flex items-center gap-2">
+                <span className="text-sm">📚</span>
+                <p className="text-[11px] text-foreground">System Design</p>
               </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-rose-500/15 flex items-center justify-center text-sm">🎮</span>
-                <p className="text-xs text-foreground">Playing <span className="font-semibold">Valorant</span></p>
+              <div className="flex items-center gap-2">
+                <span className="text-sm">🎮</span>
+                <p className="text-[11px] text-foreground">Valorant</p>
               </div>
             </div>
           </div>
 
-          {/* Row 2: Spotify (taller) + GitHub Stats */}
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card">
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="300" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl sm:h-[352px]" title="Spotify Playlist" />
+          {/* Spotify — spans 2 cols */}
+          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
           </div>
 
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card flex flex-col">
-            <div className="px-4 py-3 border-b border-border/30 flex items-center gap-2 flex-shrink-0">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-              <span className="font-semibold text-sm">GitHub</span>
-              <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="ml-auto text-[11px] text-accent hover:underline font-mono">@kranthi0003</a>
-            </div>
-            <div className="p-4 flex-1 flex flex-col justify-center overflow-hidden">
-              <GitHubStats />
-            </div>
-          </div>
-
-          {/* Row 3: Instagram + Personal card */}
-          <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card h-[350px] sm:h-[420px]">
-            <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram post" />
-          </div>
-
-          <div className="lg:col-span-2 rounded-2xl border border-border/20 shadow-lg bg-card overflow-hidden min-h-[350px] sm:h-[420px] flex flex-col">
-            <div className="px-5 pt-5 pb-3">
-              <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-4">A bit more about me</p>
-            </div>
-            <div className="px-5 flex-1 flex flex-col justify-center space-y-4">
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5">🏠</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Born & raised in Vizag</p>
-                  <p className="text-[11px] text-muted-foreground">Coastal kid who fell in love with cloud computing</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5">🚀</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">4+ years shipping at scale</p>
-                  <p className="text-[11px] text-muted-foreground">From Amazon to GitHub — building infra that serves millions</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5">🛰️</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Satellite imagery nerd</p>
-                  <p className="text-[11px] text-muted-foreground">Can stare at Earth from space for hours</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5">₿</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Bitcoin enthusiast</p>
-                  <p className="text-[11px] text-muted-foreground">HODLer since 2021 — check my wallet in the navbar ₿</p>
-                </div>
-              </div>
-            </div>
-            <div className="px-5 pb-5 mt-auto">
-              <p className="text-[10px] text-muted-foreground/50 font-mono italic">"First, solve the problem. Then, write the code."</p>
-            </div>
-          </div>
-
-          {/* GitHub Activity — full width */}
-          <div className="lg:col-span-4 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card">
-            <div className="px-4 py-3 border-b border-border/30 flex items-center gap-2">
-              <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-              <span className="font-semibold text-xs">Contribution Activity</span>
-            </div>
-            <div className="p-3">
-              <GitHubHeatmap />
-            </div>
+          {/* Instagram — spans 2 cols */}
+          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card h-[300px]">
+            <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
         </div>
