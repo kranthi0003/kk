@@ -19,6 +19,7 @@ import CommandPalette from './components/CommandPalette'
 import Changelog from './components/Changelog'
 import QRvCard from './components/QRvCard'
 import SpeedTest from './components/SpeedTest'
+import ShareCard from './components/ShareCard'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
@@ -92,6 +93,7 @@ export default function App() {
       <Changelog />
       <QRvCard />
       <SpeedTest />
+      <ShareCard />
     </div>
     </>
   )

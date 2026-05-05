@@ -642,18 +642,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             }} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
-            <IconBtn icon={<CameraIcon />} tip="Screenshot" onClick={async () => {
-              try {
-                const html2canvas = (await import('html2canvas')).default
-                const canvas = await html2canvas(document.body, { useCORS: true, scale: window.devicePixelRatio || 2, height: window.innerHeight, windowHeight: window.innerHeight })
-                const link = document.createElement('a')
-                link.download = `kranthikiran-${Date.now()}.png`
-                link.href = canvas.toDataURL('image/png', 1.0)
-                link.click()
-              } catch (e) {
-                console.error('Screenshot failed:', e)
-              }
-            }} />
+            <IconBtn icon={<CameraIcon />} tip="Share Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-share-card'))} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
               const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
