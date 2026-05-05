@@ -12,7 +12,7 @@ export default function Hero({ onResumeClick }) {
           src={satellite}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center opacity-20 dark:opacity-20"
+          className="w-full h-full object-cover object-center opacity-10 dark:opacity-20"
         />
         {/* Gradient fade at bottom edge */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />

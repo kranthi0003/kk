@@ -4,11 +4,11 @@
 
 /* Theme CSS Variables */
 :root {
-  --color-background: #ffffff;
+  --color-background: #fafbfe;
   --color-foreground: #1a1a2e;
-  --color-card: #f7f8fc;
+  --color-card: #ffffff;
   --color-card-foreground: #1a1a2e;
-  --color-muted: #eef1f8;
+  --color-muted: #f1f3f9;
   --color-muted-foreground: #64748b;
   --color-accent: #2563eb;
   --color-accent-foreground: #ffffff;
@@ -21,8 +21,8 @@
 body {
   background-color: var(--color-background);
   background-image:
-    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   background-attachment: fixed;
 }

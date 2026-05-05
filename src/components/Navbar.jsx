@@ -530,7 +530,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/80 backdrop-blur-xl shadow-lg'
+          ? 'bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/30'
           : 'bg-transparent'
       }`}
       role="navigation"
@@ -616,7 +616,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-white/10">
+      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
           {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
@@ -684,10 +684,10 @@ function IconBtn({ icon, tip, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="group relative p-2.5 rounded-lg text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-all duration-150 [&_svg]:w-5 [&_svg]:h-5"
+      className="group relative p-2.5 rounded-lg text-muted-foreground/60 hover:text-foreground hover:bg-muted/60 transition-all duration-150 [&_svg]:w-5 [&_svg]:h-5"
     >
       {icon}
-      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2.5 py-1 rounded-lg bg-foreground text-background text-[11px] font-medium whitespace-nowrap opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 shadow-lg z-50">
+      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2.5 py-1 rounded-lg bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-[11px] font-medium whitespace-nowrap opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 shadow-lg z-50">
         {tip}
       </span>
     </button>
