@@ -73,7 +73,6 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
-        <div className="section-animate"><ChangelogFeed /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><About /></div>
