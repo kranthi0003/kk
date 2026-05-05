@@ -36,19 +36,22 @@ const COMMANDS = {
     lines: [
       colorize('  Available commands:', T.accent),
       colorize('', ''),
+      colorize('  🤖 AI Shell Translator:', T.cyan),
+      colorize('  Just type what you want in plain English!', T.muted),
+      colorize('  e.g. "list running docker containers"', T.green),
+      colorize('  e.g. "find large files over 100mb"', T.green),
+      colorize('  e.g. "create a new git branch"', T.green),
+      colorize('', ''),
       colorize('  🎮 Games:', T.cyan),
       colorize('  play snake    ', T.green), colorize('    Classic snake — arrow keys', T.muted),
       colorize('  play ttt      ', T.green), colorize('    Tic-Tac-Toe vs AI', T.muted),
       colorize('  play wordle   ', T.green), colorize('    Guess 5-letter tech words', T.muted),
       colorize('  play memory   ', T.green), colorize('    Match tech icon pairs', T.muted),
       colorize('', ''),
-      colorize('  🧭 Navigation:', T.cyan),
-      colorize('  open <section>  ', T.green), colorize('    e.g. open projects, open about', T.muted),
-      colorize('', ''),
       colorize('  ⚡ Other:', T.cyan),
+      colorize('  open <section>  ', T.green), colorize('    e.g. open projects, open about', T.muted),
       colorize('  theme         ', T.green), colorize('    Toggle dark/light mode', T.muted),
-      colorize('  clear         ', T.green), colorize('    Clear terminal', T.muted),
-      colorize('  sudo hire me  ', T.yellow), colorize('    😏', T.muted),
+      colorize('  clear / sudo hire me', T.green),
       colorize('', ''),
     ],
   }),
@@ -96,8 +99,9 @@ export default function Terminal() {
     { type: 'output', lines: [
       colorize('', ''),
       colorize('  ╭──────────────────────────────────────╮', T.accent),
-      colorize('  │   Welcome to kranthi.sh  v2.0.0      │', T.fg),
-      colorize('  │   Type "help" or pick a game below   │', T.muted),
+      colorize('  │   kranthi.sh — AI Shell Translator   │', T.fg),
+      colorize('  │   Type what you want in English ✨    │', T.muted),
+      colorize('  │   or "help" for games & commands     │', T.dim),
       colorize('  ╰──────────────────────────────────────╯', T.accent),
       colorize('', ''),
     ]},
@@ -453,14 +457,61 @@ export default function Terminal() {
         if (btn) setTimeout(() => btn.click(), 300)
       }
     } else {
-      newHistory.push({ type: 'output', lines: [
-        colorize(`  command not found: ${cmd}`, T.red),
-        colorize('  type "help" for available commands', T.dim),
-      ]})
+      // AI Shell Translator — send to Groq
+      newHistory.push({ type: 'output', lines: [colorize('  ⏳ translating...', T.dim)] })
+      setHistory(newHistory)
+      setInput('')
+      translateToShell(cmd, newHistory)
+      return
     }
 
     setHistory(newHistory)
     setInput('')
+  }
+
+  const translateToShell = async (query, prevHistory) => {
+    const GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
+    try {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_KEY}` },
+        body: JSON.stringify({
+          model: 'llama-3.1-8b-instant',
+          messages: [
+            { role: 'system', content: `You are a shell command translator. Convert natural language to the exact shell command. Rules:
+- Output ONLY the command, nothing else. No explanation, no markdown, no backticks.
+- If it needs multiple commands, separate with &&
+- Support: bash, git, docker, kubectl, terraform, aws cli, npm, python, curl
+- If the input is already a valid command, output it as-is
+- If you truly can't translate it, output: # unable to translate` },
+            { role: 'user', content: query }
+          ],
+          max_tokens: 100,
+          temperature: 0.1,
+        }),
+      })
+      const data = await res.json()
+      const command = data.choices?.[0]?.message?.content?.trim() || '# unable to translate'
+
+      setHistory(prev => {
+        const updated = [...prev]
+        // Replace the "translating..." line
+        updated[updated.length - 1] = { type: 'output', lines: [
+          colorize('', ''),
+          colorize(`  ${command}`, command.startsWith('#') ? T.red : T.green),
+          colorize('', ''),
+          ...(!command.startsWith('#') ? [colorize('  💡 copy and run in your terminal', T.dim)] : []),
+          colorize('', ''),
+        ]}
+        return updated
+      })
+    } catch {
+      setHistory(prev => {
+        const updated = [...prev]
+        updated[updated.length - 1] = { type: 'output', lines: [colorize('  ⚠️ AI unavailable right now', T.red)] }
+        return updated
+      })
+    }
   }
 
   const handleKeyDown = (e) => {
@@ -510,8 +561,9 @@ export default function Terminal() {
     <section id="terminal" className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <p className="font-mono text-sm text-accent mb-2">Interactive</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">Terminal</h2>
+          <p className="font-mono text-sm text-accent mb-2">~/terminal</p>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl">AI Shell Translator</h2>
+          <p className="text-muted-foreground text-sm mt-2">Type what you want in plain English → get the shell command</p>
         </div>
 
         <div className="rounded-2xl border border-border/30 shadow-2xl overflow-hidden bg-card">
@@ -574,7 +626,7 @@ export default function Terminal() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mt-4">
-          {['play snake', 'play ttt', 'play wordle', 'play memory', 'sudo hire me'].map(cmd => (
+          {['list running containers', 'find files over 100mb', 'create git branch', 'play snake', 'help'].map(cmd => (
             <button
               key={cmd}
               onClick={() => { setInput(cmd); inputRef.current?.focus() }}
