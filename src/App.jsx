@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
 import CommandPalette from './components/CommandPalette'
+import VisitorCount from './components/VisitorCount'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
@@ -70,6 +71,7 @@ export default function App() {
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
+      <VisitorCount />
       <CommandPalette onResumeClick={() => setResumeOpen(true)} />
     </div>
     </>
