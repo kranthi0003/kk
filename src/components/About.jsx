@@ -49,10 +49,10 @@ export default function About() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">About Me</h2>
         </div>
 
-        {/* Apple-style bento grid */}
-        <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 160px 160px' }}>
+        {/* Bento grid: 4 cols, explicit row layout */}
+        <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 170px 170px' }}>
 
-          {/* Profile — 2 cols, 1 row */}
+          {/* R1: Profile (2col) + Spotify (2col) */}
           <div className="col-span-2 rounded-2xl border border-border/20 bg-card overflow-hidden flex flex-col">
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
@@ -73,10 +73,13 @@ export default function About() {
             </div>
           </div>
 
-          {/* Clock */}
+          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
+          </div>
+
+          {/* R2: Clock + Currently (left 2 cols) + Instagram (right 2 cols, spans R2+R3) */}
           <BentoClockCard />
 
-          {/* Currently */}
           <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col">
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Currently</p>
             <div className="space-y-2 flex-1 flex flex-col justify-center">
@@ -99,19 +102,11 @@ export default function About() {
             </div>
           </div>
 
-          {/* Row 2-3: Left side stacked, Right side Instagram tall */}
-          
-          {/* Spotify — 2 cols */}
-          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card" style={{ minHeight: '152px' }}>
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
-          </div>
-
-          {/* Instagram — 2 cols, spans 2 rows */}
           <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
             <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
-          {/* Bottom left: Quote + Stats side by side */}
+          {/* R3: Quote + Stats (left 2 cols), Instagram continues right */}
           <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center">
             <p className="text-[12px] text-muted-foreground italic leading-relaxed">"First, solve the problem. Then, write the code."</p>
             <p className="text-[10px] text-accent mt-2 font-mono">— John Johnson</p>
