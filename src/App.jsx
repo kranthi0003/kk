@@ -17,6 +17,7 @@ import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
 import CommandPalette from './components/CommandPalette'
 import VisitorCount from './components/VisitorCount'
+import SectionReactions from './components/SectionReactions'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
@@ -59,12 +60,12 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
-        <div className="section-animate"><Experience /></div>
-        <div className="section-animate"><TechStack /></div>
+        <div className="section-animate"><Experience /><SectionReactions section="experience" /></div>
+        <div className="section-animate"><TechStack /><SectionReactions section="skills" /></div>
         <div className="section-animate"><About /></div>
-        <div className="section-animate"><Terminal /></div>
-        <div className="section-animate"><Projects /></div>
-        <div className="section-animate"><TravelMap /></div>
+        <div className="section-animate"><Terminal /><SectionReactions section="terminal" /></div>
+        <div className="section-animate"><Projects /><SectionReactions section="projects" /></div>
+        <div className="section-animate"><TravelMap /><SectionReactions section="travel" /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
       </main>
