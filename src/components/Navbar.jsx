@@ -530,7 +530,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/30'
+          ? 'bg-background/80 backdrop-blur-xl shadow-lg'
           : 'bg-transparent'
       }`}
       role="navigation"
@@ -616,7 +616,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/15">
+      <div className="hidden lg:block bg-background/90 backdrop-blur-xl border-t border-border/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
           {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
