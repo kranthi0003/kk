@@ -28,11 +28,11 @@ export default function Hero({ onResumeClick }) {
         <div className="mb-8 animate-fade-in-up">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-primary/20 rounded-full blur-2xl animate-pulse" />
-            <div className="relative p-1 rounded-full bg-gradient-to-br from-accent via-primary to-accent">
+            <div className="relative p-1 rounded-full bg-gradient-to-br from-accent via-primary to-accent animate-float">
               <img
                 src={profile}
                 alt="Kranthi Kiran"
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl animate-float mx-auto border-4 border-background"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl mx-auto border-4 border-background"
               />
             </div>
           </div>
