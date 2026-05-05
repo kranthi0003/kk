@@ -616,31 +616,35 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block border-t border-border/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
-          <div className="flex items-center gap-1.5">
-            <NavChangelog />
-            <NavAIChat />
-            <NavGames />
-            <NavResume onResumeClick={onResumeClick} />
+      <div className="hidden lg:block bg-background/60 backdrop-blur-md border-t border-border/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-10 flex items-center">
+          {/* Action icons with labels */}
+          <div className="flex items-center gap-0.5">
+            <ActionBarItem icon={<ClockIcon />} label="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
+            <ActionBarItem icon={<ChatIcon />} label="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
+            <ActionBarItem icon={<GameIcon />} label="Games" onClick={() => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' })} />
+            <ActionBarItem icon={<ResumeIcon />} label="Resume" onClick={onResumeClick} />
+          </div>
 
-            <div className="w-px h-4 bg-border/30 mx-1" />
+          <div className="w-px h-4 bg-border/30 mx-3" />
 
+          {/* Social links */}
+          <div className="flex items-center gap-1">
             <a href="https://github.com/kranthi0003/kranthi-kiran-site" target="_blank" rel="noopener noreferrer"
-              className="p-1.5 rounded-full bg-transparent hover:bg-muted text-muted-foreground/50 hover:text-foreground transition-colors" title="Source Code">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              className="p-1.5 rounded-md hover:bg-muted/60 text-muted-foreground/40 hover:text-foreground transition-colors" title="Source Code">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
               </svg>
             </a>
             <a href="https://linkedin.com/in/akkiran003" target="_blank" rel="noopener noreferrer"
-              className="p-1.5 rounded-full bg-transparent hover:bg-muted text-muted-foreground/50 hover:text-foreground transition-colors" title="LinkedIn">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              className="p-1.5 rounded-md hover:bg-muted/60 text-muted-foreground/40 hover:text-foreground transition-colors" title="LinkedIn">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
             <a href="https://x.com/kranthikiran03" target="_blank" rel="noopener noreferrer"
-              className="p-1.5 rounded-full bg-transparent hover:bg-muted text-muted-foreground/50 hover:text-foreground transition-colors" title="X / Twitter">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              className="p-1.5 rounded-md hover:bg-muted/60 text-muted-foreground/40 hover:text-foreground transition-colors" title="X / Twitter">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -648,13 +652,12 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
           <div className="flex-1" />
 
-          {/* Right side quick info */}
-          <div className="flex items-center gap-3 text-[11px] text-muted-foreground/30 font-mono">
-            <span>React + Vite</span>
-            <span>·</span>
-            <span>Tailwind CSS</span>
-            <span>·</span>
-            <span>Supabase</span>
+          {/* Right side tech badges */}
+          <div className="flex items-center gap-2">
+            <TechBadge>React</TechBadge>
+            <TechBadge>Vite</TechBadge>
+            <TechBadge>Tailwind</TechBadge>
+            <TechBadge>Supabase</TechBadge>
           </div>
         </div>
       </div>
@@ -686,3 +689,45 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     </nav>
   )
 }
+
+// Action bar button with icon + label
+function ActionBarItem({ icon, label, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-colors"
+    >
+      {icon}
+      <span className="text-[11px] font-medium">{label}</span>
+    </button>
+  )
+}
+
+function TechBadge({ children }) {
+  return (
+    <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-muted/40 text-muted-foreground/40 border border-border/20">
+      {children}
+    </span>
+  )
+}
+
+const ClockIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+)
+const ChatIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+  </svg>
+)
+const GameIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+)
+const ResumeIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5.586a1 1 0 01.293-.707l5.414-5.414A1 1 0 0113.414 0H17a2 2 0 012 2v17a2 2 0 01-2 2z" />
+  </svg>
+)
