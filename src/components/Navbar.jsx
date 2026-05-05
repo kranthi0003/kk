@@ -193,8 +193,8 @@ function NavStatus() {
       }
     }
     // Delay first check so page fully loads
-    setTimeout(check, 2000)
-    const i = setInterval(check, 60000)
+    setTimeout(check, 1000)
+    const i = setInterval(check, 2000)
     return () => clearInterval(i)
   }, [])
 
@@ -278,7 +278,7 @@ function NavStatus() {
             {/* Footer */}
             <div className="px-4 py-2 bg-muted/10 border-t border-border/10 text-center">
               <span className="text-[9px] font-mono text-muted-foreground">
-                checked {metrics?.checkedAt ? metrics.checkedAt.toLocaleTimeString() : '...'} • auto-refreshes 60s
+                checked {metrics?.checkedAt ? metrics.checkedAt.toLocaleTimeString() : '...'} • live · 2s
               </span>
             </div>
           </div>
