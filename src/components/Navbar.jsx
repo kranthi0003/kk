@@ -32,7 +32,7 @@ function NavSpotify() {
         <SpotifyIcon />
       </button>
       {open && (
-        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-border/30 z-50">
+        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50 sm:min-w-[300px]">
           <iframe
             src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0"
             width="100%"
@@ -41,7 +41,8 @@ function NavSpotify() {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
             title="Spotify"
-            className="rounded-2xl"
+            className="rounded-2xl border border-border/30 shadow-2xl shadow-black/20"
+            style={{ minWidth: '280px' }}
           />
         </div>
       )}
