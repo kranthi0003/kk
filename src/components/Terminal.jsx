@@ -563,31 +563,33 @@ export default function Terminal() {
         <div className="text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/terminal</p>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">AI Shell Translator</h2>
-          <p className="text-muted-foreground text-sm mt-2">Type what you want in plain English → get the shell command</p>
+          <p className="text-muted-foreground text-sm mt-2">Describe what you want → get the exact command</p>
         </div>
 
         <div className="rounded-2xl border border-border/30 shadow-2xl overflow-hidden bg-card">
           {/* Title bar */}
-          <div className="flex items-center px-4 py-3 border-b border-border/20 bg-muted/50">
+          <div className="flex items-center px-4 py-2.5 border-b border-border/20 bg-muted/30">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
               <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
               <div className="w-3 h-3 rounded-full bg-[#28c840]" />
             </div>
             <div className="flex-1 text-center">
-              <span className="text-[11px] text-muted-foreground font-mono">kranthi@portfolio:~</span>
+              <span className="text-[11px] text-muted-foreground font-mono">kranthi@portfolio ~ zsh</span>
             </div>
-            <div className="w-12" />
+            <div className="flex items-center gap-2">
+              <span className="text-[9px] font-mono text-green-500">● AI</span>
+            </div>
           </div>
 
           {/* Terminal body */}
           <div
             ref={scrollRef}
-            className="p-4 sm:p-5 h-[360px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text"
+            className="p-5 h-[380px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text scroll-smooth"
             onClick={() => inputRef.current?.focus()}
           >
             {history.map((entry, i) => (
-              <div key={i}>
+              <div key={i} className="mb-1">
                 {entry.type === 'input' ? (
                   <div className="flex gap-2">
                     <span className="text-accent flex-shrink-0">❯</span>
@@ -595,7 +597,7 @@ export default function Terminal() {
                   </div>
                 ) : (
                   entry.lines.map((line, j) => (
-            <div key={j} className="whitespace-pre" style={{ color: line.color || 'var(--color-muted-foreground)' }}>{line.text}</div>
+                    <div key={j} className="whitespace-pre" style={{ color: line.color || 'var(--color-muted-foreground)' }}>{line.text}</div>
                   ))
                 )}
               </div>
@@ -609,7 +611,7 @@ export default function Terminal() {
             )}
 
             {/* Input line */}
-            <form onSubmit={handleSubmit} className="flex gap-2 items-center mt-1">
+            <form onSubmit={handleSubmit} className="flex gap-2 items-center">
               <span className="text-accent flex-shrink-0">❯</span>
               <input
                 ref={inputRef}
@@ -619,18 +621,25 @@ export default function Terminal() {
                 className="flex-1 bg-transparent text-foreground outline-none caret-accent font-mono text-[13px]"
                 spellCheck={false}
                 autoComplete="off"
-                placeholder="type a command..."
+                placeholder="describe what you need..."
               />
             </form>
           </div>
         </div>
 
+        {/* Example prompts */}
         <div className="flex flex-wrap justify-center gap-2 mt-4">
-          {['list running containers', 'find files over 100mb', 'create git branch', 'play snake', 'help'].map(cmd => (
+          {[
+            'list running containers',
+            'find files over 100mb',
+            'create a new git branch',
+            'check disk usage',
+            'play snake',
+          ].map(cmd => (
             <button
               key={cmd}
-              onClick={() => { setInput(cmd); inputRef.current?.focus() }}
-              className="px-2.5 py-1 rounded-md bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground hover:border-accent/30 transition-all"
+              onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
+              className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-foreground/20 hover:text-foreground transition-all"
             >
               {cmd}
             </button>
