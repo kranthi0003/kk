@@ -82,8 +82,8 @@ export default function Hero({ onResumeClick }) {
         </div>
       </div>
 
-      {/* Heartbeat monitor — bottom of hero */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      {/* Heartbeat monitor — bottom of hero, avoid chat button */}
+      <div className="absolute bottom-4 left-0 right-20 z-10 pointer-events-none">
         <Heartbeat />
       </div>
     </section>
