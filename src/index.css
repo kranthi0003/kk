@@ -4,11 +4,11 @@
 
 /* Theme CSS Variables */
 :root {
-  --color-background: #f8f9fc;
+  --color-background: #eef1f6;
   --color-foreground: #1a1a2e;
-  --color-card: #ffffff;
+  --color-card: #f8f9fc;
   --color-card-foreground: #1a1a2e;
-  --color-muted: #f1f3f9;
+  --color-muted: #e4e8f0;
   --color-muted-foreground: #64748b;
   --color-accent: #2563eb;
   --color-accent-foreground: #ffffff;
@@ -21,8 +21,8 @@
 body {
   background-color: var(--color-background);
   background-image:
-    radial-gradient(ellipse at top, rgba(37,99,235,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(168,85,247,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at top, rgba(37,99,235,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(168,85,247,0.05) 0%, transparent 50%),
     linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
