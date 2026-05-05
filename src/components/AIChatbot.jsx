@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || ''
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`
+const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
+const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 const SYSTEM_PROMPT = `You are an AI assistant on Kranthi Kiran's portfolio website (kranthikiran.com). Answer questions about Kranthi based on this info:
 
@@ -86,28 +86,35 @@ export default function AIChatbot() {
     setLoading(true)
 
     try {
-      const history = newMessages.map(m => ({
-        role: m.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: m.text }]
-      }))
+      const chatMessages = [
+        { role: 'system', content: SYSTEM_PROMPT },
+        ...newMessages.map(m => ({
+          role: m.role === 'assistant' ? 'assistant' : 'user',
+          content: m.text
+        }))
+      ]
 
       const res = await fetch(API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`,
+        },
         body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: history,
-          generationConfig: { maxOutputTokens: 200, temperature: 0.7 },
+          model: 'llama-3.3-70b-versatile',
+          messages: chatMessages,
+          max_tokens: 200,
+          temperature: 0.7,
         }),
       })
 
       const data = await res.json()
       if (!res.ok) {
         const errMsg = data.error?.message || `API error (${res.status})`
-        console.error('Gemini API error:', errMsg)
+        console.error('Groq API error:', errMsg)
         setMessages(prev => [...prev, { role: 'assistant', text: `⚠️ ${errMsg}` }])
       } else {
-        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't process that. Try again!"
+        const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
         setMessages(prev => [...prev, { role: 'assistant', text: reply }])
       }
     } catch {
@@ -148,7 +155,7 @@ export default function AIChatbot() {
             </div>
             <div>
               <p className="text-sm font-semibold text-foreground">Ask Kranthi</p>
-              <p className="text-[10px] text-muted-foreground">Powered by Gemini AI</p>
+              <p className="text-[10px] text-muted-foreground">Powered by Llama 3.3</p>
             </div>
             <div className="ml-auto flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
