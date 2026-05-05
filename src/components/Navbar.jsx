@@ -49,6 +49,101 @@ function NavSpotify() {
   )
 }
 
+function NavWallet() {
+  const [open, setOpen] = useState(false)
+  const ref = useRef()
+
+  useEffect(() => {
+    if (!open) return
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [open])
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className={`p-2 rounded-full transition-colors duration-200 ${
+          open ? 'bg-accent/15 text-accent' : 'bg-muted hover:bg-border text-muted-foreground hover:text-accent'
+        }`}
+        aria-label="View Bitcoin wallet"
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute right-0 top-12 animate-fade-in-up z-50">
+          <WalletDropdown />
+        </div>
+      )}
+    </div>
+  )
+}
+
+function WalletDropdown() {
+  const [data, setData] = useState(null)
+  const [btcPrice, setBtcPrice] = useState(null)
+  const [copied, setCopied] = useState(false)
+  const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
+
+  useEffect(() => {
+    const cached = sessionStorage.getItem('btc_wallet')
+    if (cached) {
+      const parsed = JSON.parse(cached)
+      if (Date.now() - parsed.ts < 300000) { setData(parsed.data); setBtcPrice(parsed.price); return }
+    }
+    Promise.all([
+      fetch(`https://blockchain.info/rawaddr/${ADDR}?limit=0&cors=true`).then(r => r.json()),
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()),
+    ]).then(([w, p]) => {
+      setData(w); setBtcPrice(p.bitcoin.usd)
+      sessionStorage.setItem('btc_wallet', JSON.stringify({ data: w, price: p.bitcoin.usd, ts: Date.now() }))
+    }).catch(() => { setData({ final_balance: 2697427, n_tx: 8 }); setBtcPrice(97000) })
+  }, [])
+
+  const btc = data ? (data.final_balance / 1e8).toFixed(8) : '···'
+  const usd = data && btcPrice ? ((data.final_balance / 1e8) * btcPrice).toFixed(2) : '···'
+
+  return (
+    <div className="w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
+      <div className="p-4 border-b border-border/20 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
+          <span className="text-accent-foreground text-[10px] font-bold">₿</span>
+        </div>
+        <span className="text-xs font-semibold">Bitcoin Wallet</span>
+        <span className="ml-auto text-[9px] font-mono text-muted-foreground">{data?.n_tx || '·'} txns</span>
+      </div>
+      <div className="p-4 text-center">
+        <p className="text-2xl font-bold font-mono">${usd}</p>
+        <p className="text-xs text-muted-foreground font-mono mt-0.5">{btc} BTC</p>
+      </div>
+      <div className="px-4 pb-3">
+        <button
+          onClick={() => { navigator.clipboard.writeText(ADDR); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
+          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all"
+        >
+          <span>{ADDR.slice(0, 8)}···{ADDR.slice(-4)}</span>
+          <span className="text-accent">{copied ? '✓' : 'copy'}</span>
+        </button>
+      </div>
+      <div className="px-4 pb-4 flex gap-2">
+        <a href={`https://mempool.space/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
+          className="flex-1 text-center py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all">
+          Activity ↗
+        </a>
+        <a href={`https://platform.arkhamintelligence.com/explorer/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
+          className="flex-1 text-center py-2 rounded-lg bg-accent text-accent-foreground text-[10px] font-mono hover:opacity-90 transition-all">
+          Arkham ↗
+        </a>
+      </div>
+    </div>
+  )
+}
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -136,6 +231,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           })}
           <div className="w-px h-5 bg-border/50 mx-2" />
           <div className="flex items-center gap-1">
+            <NavWallet />
             <NavSpotify />
             <ThemeToggle onRapidClick={onSecretTrigger} />
           </div>
@@ -143,6 +239,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-2">
+          <NavWallet />
           <NavSpotify />
           <ThemeToggle onRapidClick={onSecretTrigger} />
           <button

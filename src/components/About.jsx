@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import GitHubStats from './GitHubStats'
 import GitHubHeatmap from './GitHubHeatmap'
-import BitcoinWallet from './BitcoinWallet'
 import profile from '../../assets/profile.png'
 
 function BentoClockCard() {
@@ -124,12 +123,49 @@ export default function About() {
             </div>
           </div>
 
-          {/* Row 3: Instagram + Fun Facts */}
+          {/* Row 3: Instagram + Personal card */}
           <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card h-[350px] sm:h-[420px]">
             <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram post" />
           </div>
 
-          <BitcoinWallet />
+          <div className="lg:col-span-2 rounded-2xl border border-border/20 shadow-lg bg-card overflow-hidden min-h-[350px] sm:h-[420px] flex flex-col">
+            <div className="px-5 pt-5 pb-3">
+              <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-4">A bit more about me</p>
+            </div>
+            <div className="px-5 flex-1 flex flex-col justify-center space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5">🏠</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Born & raised in Vizag</p>
+                  <p className="text-[11px] text-muted-foreground">Coastal kid who fell in love with cloud computing</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5">🚀</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">4+ years shipping at scale</p>
+                  <p className="text-[11px] text-muted-foreground">From Amazon to GitHub — building infra that serves millions</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5">🛰️</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Satellite imagery nerd</p>
+                  <p className="text-[11px] text-muted-foreground">Can stare at Earth from space for hours</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5">₿</span>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Bitcoin enthusiast</p>
+                  <p className="text-[11px] text-muted-foreground">HODLer since 2021 — check my wallet in the navbar ₿</p>
+                </div>
+              </div>
+            </div>
+            <div className="px-5 pb-5 mt-auto">
+              <p className="text-[10px] text-muted-foreground/50 font-mono italic">"First, solve the problem. Then, write the code."</p>
+            </div>
+          </div>
 
           {/* GitHub Activity — full width */}
           <div className="lg:col-span-4 rounded-2xl overflow-hidden border border-border/30 shadow-lg bg-card">
