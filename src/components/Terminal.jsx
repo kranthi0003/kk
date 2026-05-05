@@ -6,14 +6,14 @@ const T = {
   fg: 'var(--color-foreground)',
   muted: 'var(--color-muted-foreground)',
   dim: 'color-mix(in srgb, var(--color-muted-foreground) 60%, transparent)',
-  green: T.green,
-  yellow: T.yellow,
-  cyan: T.cyan,
-  purple: T.purple,
-  red: T.red,
-  pink: T.pink,
-  blue: T.blue,
-  spotify: T.spotify,
+  green: '#10b981',
+  yellow: '#f59e0b',
+  cyan: '#06b6d4',
+  purple: '#8b5cf6',
+  red: '#ef4444',
+  pink: '#ec4899',
+  blue: '#0077b5',
+  spotify: '#1db954',
 }
 
 const colorize = (text, color) => ({ text, color })
