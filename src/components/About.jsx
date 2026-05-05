@@ -128,30 +128,38 @@ export default function About() {
             <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram post" />
           </div>
 
-          <div className="lg:col-span-2 rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-amber-500/5 via-card to-rose-500/5 p-5 sm:p-6 flex flex-col justify-between min-h-[350px] sm:h-[420px]">
-            <p className="font-mono text-xs text-accent uppercase tracking-widest">Quick bits</p>
-            <div className="space-y-4 flex-1 flex flex-col justify-center">
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20">
-                <span className="text-xl">☕</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Chai-powered engineer</p>
-                  <p className="text-[11px] text-muted-foreground">Runs on mass amounts of masala chai</p>
-                </div>
+          <div className="lg:col-span-2 rounded-2xl border border-border/30 shadow-lg bg-gradient-to-br from-orange-500/5 via-card to-amber-500/5 p-5 sm:p-6 flex flex-col justify-between min-h-[350px] sm:h-[420px]">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">₿</span>
+              <p className="font-mono text-xs text-orange-500 uppercase tracking-widest">Bitcoin</p>
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center gap-4">
+              <div className="p-3 bg-white rounded-xl shadow-inner">
+                <QRCodeSVG
+                  value="bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e"
+                  size={120}
+                  level="M"
+                  bgColor="#ffffff"
+                  fgColor="#f97316"
+                />
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20">
-                <span className="text-xl">🎮</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Recovering gamer</p>
-                  <p className="text-[11px] text-muted-foreground">Now I debug distributed systems for fun</p>
-                </div>
+              <div className="text-center">
+                <p className="text-sm font-medium text-foreground mb-1">Buy me a coffee ☕</p>
+                <p className="text-[10px] text-muted-foreground font-mono break-all max-w-[220px] leading-relaxed select-all">
+                  bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e
+                </p>
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/20">
-                <span className="text-xl">🛰️</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Satellite imagery nerd</p>
-                  <p className="text-[11px] text-muted-foreground">I can stare at Earth from space for hours</p>
-                </div>
-              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e')
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[11px] font-mono hover:bg-orange-500/20 transition-all"
+              >
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Copy address
+              </button>
             </div>
           </div>
 
