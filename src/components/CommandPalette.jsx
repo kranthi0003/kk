@@ -2,45 +2,45 @@ import React, { useState, useEffect, useRef, useMemo } from 'react'
 
 const ACTIONS = [
   // Navigate
-  { id: 'home', label: 'Go to Home', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start' },
-  { id: 'experience', label: 'Go to Experience', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs' },
-  { id: 'techstack', label: 'Go to Skills & Certs', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools' },
-  { id: 'about', label: 'Go to About', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info' },
-  { id: 'terminal', label: 'Go to Terminal', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai' },
-  { id: 'projects', label: 'Go to Projects', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects'), keywords: 'work built apps' },
-  { id: 'travel', label: 'Go to Travel Map', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel'), keywords: 'globe map cities' },
-  { id: 'connect', label: 'Go to Connect', section: 'Navigate', icon: '📬', action: () => scrollTo('connect'), keywords: 'contact email hire' },
-  { id: 'guestbook', label: 'Go to Guestbook', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook'), keywords: 'messages notes sign' },
+  { id: 'home', label: 'Home', desc: 'Go to top', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start' },
+  { id: 'experience', label: 'Experience', desc: 'Work history', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs' },
+  { id: 'techstack', label: 'Skills & Certs', desc: 'Tech stack', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools' },
+  { id: 'about', label: 'About', desc: 'Bio & info', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info' },
+  { id: 'terminal', label: 'Terminal', desc: 'AI shell', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai' },
+  { id: 'projects', label: 'Projects', desc: 'Things I built', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects'), keywords: 'work built apps' },
+  { id: 'travel', label: 'Travel Map', desc: '3D globe', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel'), keywords: 'globe map cities' },
+  { id: 'connect', label: 'Connect', desc: 'Get in touch', section: 'Navigate', icon: '📬', action: () => scrollTo('connect'), keywords: 'contact email hire' },
+  { id: 'guestbook', label: 'Guestbook', desc: 'Leave a note', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook'), keywords: 'messages notes sign' },
 
   // Quick Info
-  { id: 'who', label: 'SE-III at GitHub | Microsoft', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do' },
-  { id: 'location', label: 'Visakhapatnam (Vizag), India', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country' },
-  { id: 'email-info', label: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); alert('Email copied!') }, keywords: 'email address copy contact' },
-  { id: 'exp-years', label: '4+ years · Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked' },
+  { id: 'who', label: 'SE-III at GitHub | Microsoft', desc: 'Current role', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do' },
+  { id: 'location', label: 'Visakhapatnam, India', desc: 'Location', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country vizag' },
+  { id: 'email-info', label: 'Copy Email', desc: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); }, keywords: 'email address copy contact' },
+  { id: 'exp-years', label: '4+ Years Experience', desc: 'Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked' },
 
   // Actions
-  { id: 'theme', label: 'Toggle Dark/Light Mode', section: 'Actions', icon: '🌓', action: () => {
+  { id: 'theme', label: 'Toggle Theme', desc: 'Switch dark/light', section: 'Actions', icon: '🌓', action: () => {
     document.documentElement.classList.toggle('dark')
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
   }, keywords: 'dark light mode switch' },
-  { id: 'resume', label: 'Open Resume / CV', section: 'Actions', icon: '📄', action: 'resume', keywords: 'resume cv pdf download' },
-  { id: 'top', label: 'Scroll to Top', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning' },
-  { id: 'share', label: 'Copy Site Link', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); alert('Link copied!') }, keywords: 'share copy link url' },
-  { id: 'print', label: 'Print Page', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
+  { id: 'resume', label: 'Open Resume', desc: 'View CV / PDF', section: 'Actions', icon: '📄', action: 'resume', keywords: 'resume cv pdf download' },
+  { id: 'top', label: 'Scroll to Top', desc: 'Back to start', section: 'Actions', icon: '⬆️', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), keywords: 'top start beginning' },
+  { id: 'share', label: 'Copy Site Link', desc: 'kranthikiran.com', section: 'Actions', icon: '🔗', action: () => { navigator.clipboard.writeText('https://kranthikiran.com'); }, keywords: 'share copy link url' },
+  { id: 'print', label: 'Print Page', desc: 'Save as PDF', section: 'Actions', icon: '🖨️', action: () => window.print(), keywords: 'print save' },
 
   // Games
-  { id: 'g-snake', label: 'Play Snake 🐍', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play' },
-  { id: 'g-ttt', label: 'Play Tic-Tac-Toe ❌⭕', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play ttt'), 500) }, keywords: 'tictactoe game play' },
-  { id: 'g-wordle', label: 'Play Wordle 📝', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play wordle'), 500) }, keywords: 'wordle guess game play' },
-  { id: 'g-memory', label: 'Play Memory 🃏', section: 'Games', icon: '🎮', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play memory'), 500) }, keywords: 'memory match game play' },
+  { id: 'g-snake', label: 'Snake', desc: 'Classic snake game', section: 'Games', icon: '🐍', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play snake'), 500) }, keywords: 'snake game play' },
+  { id: 'g-ttt', label: 'Tic-Tac-Toe', desc: 'X vs O', section: 'Games', icon: '❌', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play ttt'), 500) }, keywords: 'tictactoe game play' },
+  { id: 'g-wordle', label: 'Wordle', desc: 'Guess the tech word', section: 'Games', icon: '🟩', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play wordle'), 500) }, keywords: 'wordle guess game play' },
+  { id: 'g-memory', label: 'Memory', desc: 'Match the cards', section: 'Games', icon: '🃏', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('play memory'), 500) }, keywords: 'memory match game play' },
 
   // Links
-  { id: 'github', label: 'GitHub — @kranthi0003', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'github code repos' },
-  { id: 'linkedin', label: 'LinkedIn — akkiran003', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank'), keywords: 'linkedin profile professional' },
-  { id: 'twitter', label: 'X — @kranthikiran03', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank'), keywords: 'twitter x social' },
-  { id: 'email-link', label: 'Send Email', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com'), keywords: 'email send message' },
-  { id: 'p-sketchgate', label: 'SketchGate — Rate Limiter', section: 'Links', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank'), keywords: 'sketchgate project rate limiter' },
-  { id: 'p-site', label: 'Portfolio Source Code', section: 'Links', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site' },
+  { id: 'github', label: 'GitHub', desc: '@kranthi0003', section: 'Links', icon: '🐙', action: () => window.open('https://github.com/kranthi0003', '_blank'), keywords: 'github code repos' },
+  { id: 'linkedin', label: 'LinkedIn', desc: 'akkiran003', section: 'Links', icon: '💼', action: () => window.open('https://linkedin.com/in/akkiran003', '_blank'), keywords: 'linkedin profile professional' },
+  { id: 'twitter', label: 'X / Twitter', desc: '@kranthikiran03', section: 'Links', icon: '𝕏', action: () => window.open('https://x.com/kranthikiran03', '_blank'), keywords: 'twitter x social' },
+  { id: 'email-link', label: 'Send Email', desc: 'Open mail client', section: 'Links', icon: '✉️', action: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com'), keywords: 'email send message' },
+  { id: 'p-sketchgate', label: 'SketchGate', desc: 'Rate limiter project', section: 'Links', icon: '⚡', action: () => window.open('https://github.com/kranthi0003/SketchGate', '_blank'), keywords: 'sketchgate project rate limiter' },
+  { id: 'p-site', label: 'Source Code', desc: 'This portfolio repo', section: 'Links', icon: '🌐', action: () => window.open('https://github.com/kranthi0003/kranthi-kiran-site', '_blank'), keywords: 'source code portfolio site' },
 ]
 
 function scrollTo(id) {
@@ -62,10 +62,10 @@ export default function CommandPalette({ onResumeClick }) {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(0)
+  const [copied, setCopied] = useState(null)
   const inputRef = useRef()
   const listRef = useRef()
 
-  // Open with Cmd+K / Ctrl+K / "/" key
   useEffect(() => {
     const handleKey = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -74,7 +74,6 @@ export default function CommandPalette({ onResumeClick }) {
         setQuery('')
         setSelected(0)
       }
-      // "/" key opens palette — only when not in any editable element
       if (e.key === '/' && !open) {
         const tag = e.target.tagName
         const editable = e.target.isContentEditable
@@ -100,13 +99,13 @@ export default function CommandPalette({ onResumeClick }) {
     const q = query.toLowerCase()
     return ACTIONS.filter(a =>
       a.label.toLowerCase().includes(q) ||
+      a.desc.toLowerCase().includes(q) ||
       a.section.toLowerCase().includes(q) ||
       a.id.includes(q) ||
       (a.keywords && a.keywords.includes(q))
     )
   }, [query])
 
-  // Group by section
   const grouped = useMemo(() => {
     const map = {}
     filtered.forEach(a => {
@@ -120,7 +119,6 @@ export default function CommandPalette({ onResumeClick }) {
 
   useEffect(() => { setSelected(0) }, [query])
 
-  // Scroll selected into view
   useEffect(() => {
     if (listRef.current) {
       const el = listRef.current.querySelector(`[data-idx="${selected}"]`)
@@ -129,6 +127,13 @@ export default function CommandPalette({ onResumeClick }) {
   }, [selected])
 
   const execute = (action) => {
+    // Show "Copied!" feedback for copy actions
+    if (action.id === 'email-info' || action.id === 'share') {
+      if (typeof action.action === 'function') action.action()
+      setCopied(action.id)
+      setTimeout(() => { setCopied(null); setOpen(false); setQuery('') }, 800)
+      return
+    }
     setOpen(false)
     setQuery('')
     if (action.action === 'resume') {
@@ -148,67 +153,137 @@ export default function CommandPalette({ onResumeClick }) {
 
   return (
     <>
-      {/* Backdrop */}
-      <div className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm" onClick={() => setOpen(false)} />
+      {/* Backdrop — macOS-style translucent overlay */}
+      <div
+        className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-xl transition-opacity duration-200"
+        onClick={() => setOpen(false)}
+      />
 
-      {/* Palette */}
-      <div className="fixed top-[20%] left-1/2 -translate-x-1/2 z-[101] w-[520px] max-w-[calc(100vw-2rem)] rounded-xl border border-border/40 bg-card shadow-2xl overflow-hidden animate-fade-in-up">
-        {/* Search input */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-border/20">
-          <svg className="w-4 h-4 text-muted-foreground flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            ref={inputRef}
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Search or jump to..."
-            className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/40 outline-none"
-          />
-          <kbd className="hidden sm:inline-flex px-1.5 py-0.5 rounded text-[10px] font-mono bg-muted/50 text-muted-foreground border border-border/30">ESC</kbd>
-        </div>
+      {/* Spotlight container */}
+      <div className="fixed top-[15%] left-1/2 -translate-x-1/2 z-[101] w-[680px] max-w-[calc(100vw-2rem)]"
+        style={{ animation: 'spotlight-in 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}>
 
-        {/* Results */}
-        <div ref={listRef} className="max-h-[320px] overflow-y-auto py-2">
-          {flatList.length === 0 && (
-            <p className="text-center text-sm text-muted-foreground py-8">No results found</p>
-          )}
-          {Object.entries(grouped).map(([section, items]) => (
-            <div key={section}>
-              <p className="px-4 pt-2 pb-1 text-[10px] font-mono text-muted-foreground/60 uppercase tracking-wider">{section}</p>
-              {items.map((item) => {
-                const idx = flatList.indexOf(item)
-                return (
-                  <button
-                    key={item.id}
-                    data-idx={idx}
-                    onClick={() => execute(item)}
-                    onMouseEnter={() => setSelected(idx)}
-                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                      idx === selected ? 'bg-accent/10 text-foreground' : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    <span className="text-sm w-5 text-center flex-shrink-0">{item.icon}</span>
-                    <span className="text-sm flex-1">{item.label}</span>
-                    {idx === selected && (
-                      <kbd className="text-[10px] font-mono text-muted-foreground/50">↵</kbd>
-                    )}
-                  </button>
-                )
-              })}
+        {/* Frosted glass card */}
+        <div className="rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-white/20 dark:border-white/10"
+          style={{
+            background: 'var(--spotlight-bg, rgba(255,255,255,0.82))',
+            backdropFilter: 'blur(60px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(60px) saturate(180%)',
+          }}>
+
+          {/* Search bar */}
+          <div className="flex items-center gap-4 px-5 py-4">
+            <svg className="w-6 h-6 text-muted-foreground/60 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              ref={inputRef}
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Search actions, pages, links..."
+              className="flex-1 bg-transparent text-lg font-light text-foreground placeholder:text-muted-foreground/40 outline-none"
+              spellCheck={false}
+            />
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              <kbd className="hidden sm:inline-flex h-6 min-w-[24px] items-center justify-center rounded-md text-[11px] font-medium bg-black/5 dark:bg-white/10 text-muted-foreground/60 px-1.5">esc</kbd>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Footer */}
-        <div className="px-4 py-2 border-t border-border/20 flex items-center gap-4 text-[10px] font-mono text-muted-foreground/40">
-          <span>↑↓ navigate</span>
-          <span>↵ select</span>
-          <span>esc close</span>
-          <span className="ml-auto">Press / or ⌘K</span>
+          {/* Divider */}
+          <div className="h-px bg-black/8 dark:bg-white/8" />
+
+          {/* Results */}
+          <div ref={listRef} className="max-h-[380px] overflow-y-auto overscroll-contain py-1.5"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,0,0,0.15) transparent' }}>
+            {flatList.length === 0 && (
+              <div className="flex flex-col items-center justify-center py-12 gap-2">
+                <span className="text-3xl opacity-40">🔍</span>
+                <p className="text-sm text-muted-foreground/50">No results for "{query}"</p>
+              </div>
+            )}
+            {Object.entries(grouped).map(([section, items]) => (
+              <div key={section} className="mb-1">
+                <p className="px-5 pt-3 pb-1.5 text-[11px] font-semibold text-muted-foreground/50 uppercase tracking-widest">{section}</p>
+                {items.map((item) => {
+                  const idx = flatList.indexOf(item)
+                  const isSelected = idx === selected
+                  const isCopied = copied === item.id
+                  return (
+                    <button
+                      key={item.id}
+                      data-idx={idx}
+                      onClick={() => execute(item)}
+                      onMouseEnter={() => setSelected(idx)}
+                      className={`group w-full flex items-center gap-3.5 px-4 mx-1.5 py-2.5 rounded-xl text-left transition-all duration-150 ${
+                        isSelected
+                          ? 'bg-blue-500 dark:bg-blue-500 text-white shadow-sm'
+                          : 'text-foreground hover:bg-black/4 dark:hover:bg-white/5'
+                      }`}
+                      style={{ width: 'calc(100% - 12px)' }}
+                    >
+                      {/* Icon circle */}
+                      <span className={`flex items-center justify-center w-8 h-8 rounded-lg text-base flex-shrink-0 transition-colors ${
+                        isSelected
+                          ? 'bg-white/20'
+                          : 'bg-black/5 dark:bg-white/8'
+                      }`}>
+                        {item.icon}
+                      </span>
+
+                      {/* Label + desc */}
+                      <div className="flex-1 min-w-0">
+                        <span className={`text-[14px] font-medium block truncate ${isSelected ? 'text-white' : 'text-foreground'}`}>
+                          {item.label}
+                        </span>
+                        <span className={`text-[12px] block truncate ${isSelected ? 'text-white/70' : 'text-muted-foreground/50'}`}>
+                          {item.desc}
+                        </span>
+                      </div>
+
+                      {/* Right side hints */}
+                      {isCopied ? (
+                        <span className={`text-xs font-medium ${isSelected ? 'text-white' : 'text-green-500'}`}>Copied!</span>
+                      ) : isSelected ? (
+                        <kbd className="text-[11px] font-mono text-white/50 bg-white/15 rounded-md px-1.5 py-0.5">↵</kbd>
+                      ) : null}
+                    </button>
+                  )
+                })}
+              </div>
+            ))}
+          </div>
+
+          {/* Footer bar */}
+          <div className="h-px bg-black/8 dark:bg-white/8" />
+          <div className="px-5 py-2.5 flex items-center gap-5 text-[11px] text-muted-foreground/40">
+            <span className="flex items-center gap-1">
+              <kbd className="inline-flex h-5 min-w-[20px] items-center justify-center rounded text-[10px] bg-black/5 dark:bg-white/8 px-1">↑</kbd>
+              <kbd className="inline-flex h-5 min-w-[20px] items-center justify-center rounded text-[10px] bg-black/5 dark:bg-white/8 px-1">↓</kbd>
+              <span className="ml-0.5">navigate</span>
+            </span>
+            <span className="flex items-center gap-1">
+              <kbd className="inline-flex h-5 min-w-[20px] items-center justify-center rounded text-[10px] bg-black/5 dark:bg-white/8 px-1">↵</kbd>
+              <span className="ml-0.5">open</span>
+            </span>
+            <span className="flex items-center gap-1">
+              <kbd className="inline-flex h-5 min-w-[20px] items-center justify-center rounded text-[10px] bg-black/5 dark:bg-white/8 px-1">esc</kbd>
+              <span className="ml-0.5">close</span>
+            </span>
+            <span className="ml-auto opacity-60">⌘K or /</span>
+          </div>
         </div>
       </div>
+
+      {/* Spotlight animation + dark mode override */}
+      <style>{`
+        @keyframes spotlight-in {
+          from { opacity: 0; transform: translateX(-50%) scale(0.96) translateY(-8px); }
+          to { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
+        }
+        .dark { --spotlight-bg: rgba(30, 30, 35, 0.85); }
+        :root { --spotlight-bg: rgba(255, 255, 255, 0.82); }
+      `}</style>
     </>
   )
 }
