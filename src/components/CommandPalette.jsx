@@ -52,6 +52,34 @@ const ACTIONS = [
   { id: 'changelog', label: "What's New", desc: 'Latest site changes from GitHub', section: 'Actions', icon: '📋', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-changelog'))
   }, keywords: 'changelog whats new updates changes commits git history version releases log' },
+  { id: 'qr-vcard', label: 'QR Contact Card', desc: 'Scan to save contact info', section: 'Actions', icon: '📱', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))
+  }, keywords: 'qr code vcard contact scan phone save business card networking vcf download' },
+  { id: 'share-card', label: 'Share Card', desc: 'Generate branded social media card', section: 'Actions', icon: '📸', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-share-card'))
+  }, keywords: 'share card image social media twitter linkedin og opengraph branded generate download png' },
+  { id: 'surprise-me', label: 'Surprise Me', desc: 'Random action — try your luck!', section: 'Actions', icon: '🎲', action: () => {
+    const actions = [
+      () => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }),
+      () => document.getElementById('travel')?.scrollIntoView({ behavior: 'smooth' }),
+      () => document.querySelector('[data-chatbot-btn]')?.click(),
+      () => window.dispatchEvent(new CustomEvent('toggle-changelog')),
+      () => window.dispatchEvent(new CustomEvent('toggle-qr-vcard')),
+      () => window.dispatchEvent(new CustomEvent('toggle-speed-test')),
+    ]
+    actions[Math.floor(Math.random() * actions.length)]()
+  }, keywords: 'surprise random lucky fun discover explore anything' },
+  { id: 'reading-mode', label: 'Reading Mode', desc: 'Clean document view — no distractions', section: 'Actions', icon: '📖', action: () => {
+    document.body.classList.toggle('reading-mode')
+  }, keywords: 'reading mode clean focus document print minimal distraction free simple zen' },
+  { id: 'speed-test', label: 'Speed Test', desc: 'Site performance report with grades', section: 'Actions', icon: '⚡', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-speed-test'))
+  }, keywords: 'speed test performance benchmark fcp ttfb load time fast slow grade metrics lighthouse' },
+  { id: 'hire-me', label: 'Hire Me', desc: 'Pre-filled recruiter email template', section: 'Actions', icon: '✉️', action: () => {
+    const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
+    const body = encodeURIComponent('Hi Kranthi,\n\nI came across your portfolio and I\'m impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]')
+    window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
+  }, keywords: 'hire me recruit job offer email template contact work opportunity position career' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
