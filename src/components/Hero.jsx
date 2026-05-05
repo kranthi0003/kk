@@ -2,7 +2,6 @@ import React from 'react'
 import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
-import Heartbeat from './Heartbeat'
 
 export default function Hero({ onResumeClick }) {
   return (
@@ -80,11 +79,6 @@ export default function Hero({ onResumeClick }) {
             Get in Touch
           </a>
         </div>
-      </div>
-
-      {/* Heartbeat monitor — very bottom of hero */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 pointer-events-none w-[280px] sm:w-[350px] opacity-40">
-        <Heartbeat />
       </div>
     </section>
   )

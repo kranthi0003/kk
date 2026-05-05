@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ThemeToggle'
+import Heartbeat from './Heartbeat'
 
 const SpotifyIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -232,6 +233,13 @@ function NavStatus() {
                 {isUp ? 'ONLINE' : 'OFFLINE'}
               </span>
             </div>
+
+            {/* ECG Heartbeat */}
+            {metrics && isUp && (
+              <div className="px-3 border-b border-border/10">
+                <Heartbeat />
+              </div>
+            )}
 
             {/* Metrics grid */}
             {metrics && isUp && (
