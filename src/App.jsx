@@ -15,6 +15,7 @@ import Connect from './components/Contact'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
+import CommandPalette from './components/CommandPalette'
 
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
@@ -69,6 +70,7 @@ export default function App() {
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
+      <CommandPalette onResumeClick={() => setResumeOpen(true)} />
     </div>
     </>
   )
