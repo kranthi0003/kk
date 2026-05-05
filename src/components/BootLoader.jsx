@@ -1,37 +1,82 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const BOOT_SEQUENCE = [
-  { text: '[    0.000000] Linux version 6.8.0-kranthi (gcc 13.2.0) #1 SMP PREEMPT', delay: 0, color: '#fff' },
-  { text: '[    0.000000] Command line: BOOT_IMAGE=/vmlinuz root=/dev/sda1', delay: 200, color: '#aaa' },
-  { text: '[    0.012451] BIOS-provided physical RAM map:', delay: 400, color: '#aaa' },
-  { text: '[    0.012455]  BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable', delay: 500, color: '#aaa' },
-  { text: '[    0.034221] CPU: Intel(R) Cloud Engineer @ 4.0GHz', delay: 700, color: '#fff' },
-  { text: '[    0.034225] x86/fpu: Supporting XSAVE feature', delay: 800, color: '#aaa' },
-  { text: '[    0.089102] Memory: 16384MB available', delay: 1000, color: '#fff' },
-  { text: '', delay: 1200 },
-  { text: '  * Starting system services...', delay: 1400, color: '#0f0' },
-  { text: '  [ OK ] Started networking.service', delay: 1700, color: '#0f0' },
-  { text: '  [ OK ] Started sshd.service', delay: 1900, color: '#0f0' },
-  { text: '  [ OK ] Started docker.service', delay: 2100, color: '#0f0' },
-  { text: '  [ OK ] Started kubelet.service', delay: 2300, color: '#0f0' },
-  { text: '', delay: 2500 },
-  { text: '  * Mounting drives...', delay: 2600, color: '#f90' },
-  { text: '  /dev/sda1  /github       ext4  [SE-III]          mounted', delay: 2800, color: '#aaa' },
-  { text: '  /dev/sda2  /couchbase    ext4  [SE-II]           mounted', delay: 3000, color: '#aaa' },
-  { text: '  /dev/sda3  /groww        ext4  [PSE-II]          mounted', delay: 3200, color: '#aaa' },
-  { text: '  /dev/sda4  /amazon       ext4  [Cloud Eng]       mounted', delay: 3400, color: '#aaa' },
-  { text: '', delay: 3600 },
-  { text: '  * Loading modules...', delay: 3700, color: '#f90' },
-  { text: '  [mod] python java ruby bash docker k8s terraform aws', delay: 3900, color: '#aaa' },
-  { text: '  [mod] postgresql couchbase redis prometheus grafana', delay: 4100, color: '#aaa' },
-  { text: '', delay: 4300 },
-  { text: '  * Establishing connections...', delay: 4400, color: '#f90' },
-  { text: '  [net] github.com           authenticated ✓', delay: 4600, color: '#0f0' },
-  { text: '  [net] linkedin.com         connected ✓', delay: 4800, color: '#0f0' },
-  { text: '  [net] bitcoin mainnet      wallet synced ✓', delay: 5000, color: '#0f0' },
-  { text: '', delay: 5200 },
-  { text: 'kranthi@portfolio:~$ ./start.sh', delay: 5400, color: '#fff' },
-]
+function getSystemInfo() {
+  const nav = navigator
+  const ua = nav.userAgent
+  const mem = nav.deviceMemory || '?'
+  const cores = nav.hardwareConcurrency || '?'
+  const platform = nav.platform || 'Unknown'
+  const lang = nav.language || 'en'
+  const online = nav.onLine ? 'connected' : 'offline'
+  const connection = nav.connection || {}
+  const downlink = connection.downlink ? `${connection.downlink} Mbps` : 'unknown'
+  const effectiveType = connection.effectiveType || 'unknown'
+  const screen = window.screen
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown'
+  const touch = 'ontouchstart' in window ? 'yes' : 'no'
+  const gpu = (() => {
+    try {
+      const c = document.createElement('canvas')
+      const gl = c.getContext('webgl') || c.getContext('experimental-webgl')
+      if (!gl) return 'Unknown'
+      const ext = gl.getExtension('WEBGL_debug_renderer_info')
+      return ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : 'WebGL supported'
+    } catch { return 'Unknown' }
+  })()
+
+  // Detect browser
+  let browser = 'Unknown'
+  if (ua.includes('Firefox/')) browser = 'Firefox ' + ua.split('Firefox/')[1].split(' ')[0]
+  else if (ua.includes('Edg/')) browser = 'Edge ' + ua.split('Edg/')[1].split(' ')[0]
+  else if (ua.includes('Chrome/')) browser = 'Chrome ' + ua.split('Chrome/')[1].split(' ')[0]
+  else if (ua.includes('Safari/') && !ua.includes('Chrome')) browser = 'Safari ' + (ua.split('Version/')[1]?.split(' ')[0] || '')
+
+  // Detect OS
+  let os = platform
+  if (ua.includes('Mac OS X')) os = 'macOS ' + (ua.match(/Mac OS X (\d+[._]\d+[._]?\d*)/)?.[1]?.replace(/_/g, '.') || '')
+  else if (ua.includes('Windows NT')) os = 'Windows ' + ({ '10.0': '10/11', '6.3': '8.1', '6.2': '8', '6.1': '7' }[ua.match(/Windows NT (\d+\.\d+)/)?.[1]] || '')
+  else if (ua.includes('Android')) os = 'Android ' + (ua.match(/Android (\d+\.?\d*)/)?.[1] || '')
+  else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS ' + (ua.match(/OS (\d+_\d+)/)?.[1]?.replace('_', '.') || '')
+  else if (ua.includes('Linux')) os = 'Linux'
+
+  return { browser, os, cores, mem, gpu, screen, lang, tz, online, downlink, effectiveType, touch }
+}
+
+function buildBootSequence() {
+  const sys = getSystemInfo()
+  return [
+    { text: `[    0.000000] Linux version 6.8.0-kranthi (gcc 13.2.0) #1 SMP PREEMPT`, delay: 0, color: '#fff' },
+    { text: `[    0.000000] Command line: BOOT_IMAGE=/vmlinuz root=/dev/sda1`, delay: 200, color: '#aaa' },
+    { text: `[    0.012451] BIOS-provided physical RAM map:`, delay: 400, color: '#aaa' },
+    { text: `[    0.034221] CPU: ${sys.cores} cores detected`, delay: 600, color: '#fff' },
+    { text: `[    0.034225] Memory: ${sys.mem !== '?' ? sys.mem + ' GB' : 'detected'} available`, delay: 800, color: '#fff' },
+    { text: `[    0.041102] GPU: ${sys.gpu}`, delay: 1000, color: '#fff' },
+    { text: `[    0.058330] OS: ${sys.os}`, delay: 1200, color: '#fff' },
+    { text: `[    0.058335] Browser: ${sys.browser}`, delay: 1400, color: '#fff' },
+    { text: '', delay: 1600 },
+    { text: `  * Detecting environment...`, delay: 1700, color: '#f90' },
+    { text: `  [ OK ] Display: ${sys.screen.width}×${sys.screen.height} @ ${window.devicePixelRatio || 1}x`, delay: 1900, color: '#0f0' },
+    { text: `  [ OK ] Locale: ${sys.lang} • Timezone: ${sys.tz}`, delay: 2100, color: '#0f0' },
+    { text: `  [ OK ] Network: ${sys.online} • ${sys.effectiveType} (${sys.downlink})`, delay: 2300, color: '#0f0' },
+    { text: `  [ OK ] Touch: ${sys.touch === 'yes' ? 'touchscreen detected' : 'pointer device'}`, delay: 2500, color: '#0f0' },
+    { text: '', delay: 2700 },
+    { text: `  * Starting services...`, delay: 2800, color: '#f90' },
+    { text: `  [ OK ] Started docker.service`, delay: 3000, color: '#0f0' },
+    { text: `  [ OK ] Started kubelet.service`, delay: 3200, color: '#0f0' },
+    { text: `  [ OK ] Started sshd.service`, delay: 3400, color: '#0f0' },
+    { text: '', delay: 3500 },
+    { text: `  * Mounting experience...`, delay: 3600, color: '#f90' },
+    { text: `  /dev/sda1  /github       ext4  [SE-III]          mounted`, delay: 3800, color: '#aaa' },
+    { text: `  /dev/sda2  /couchbase    ext4  [SE-II]           mounted`, delay: 4000, color: '#aaa' },
+    { text: `  /dev/sda3  /groww        ext4  [PSE-II]          mounted`, delay: 4200, color: '#aaa' },
+    { text: `  /dev/sda4  /amazon       ext4  [Cloud Eng]       mounted`, delay: 4400, color: '#aaa' },
+    { text: '', delay: 4600 },
+    { text: `  * Loading modules...`, delay: 4700, color: '#f90' },
+    { text: `  [mod] python java ruby bash docker k8s terraform aws`, delay: 4900, color: '#aaa' },
+    { text: '', delay: 5100 },
+    { text: `kranthi@portfolio:~$ ./start.sh`, delay: 5300, color: '#fff' },
+  ]
+}
 
 export default function BootLoader({ onComplete }) {
   const [lines, setLines] = useState([])
@@ -45,6 +90,8 @@ export default function BootLoader({ onComplete }) {
       onComplete()
       return
     }
+
+    const BOOT_SEQUENCE = buildBootSequence()
 
     const timers = BOOT_SEQUENCE.map((line, i) =>
       setTimeout(() => {
