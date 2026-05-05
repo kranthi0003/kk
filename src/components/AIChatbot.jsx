@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || ''
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`
 
 const SYSTEM_PROMPT = `You are an AI assistant on Kranthi Kiran's portfolio website (kranthikiran.com). Answer questions about Kranthi based on this info:
 
