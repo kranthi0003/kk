@@ -41,7 +41,6 @@ export default function BootLoader({ onComplete }) {
   const skipRef = useRef(false)
 
   useEffect(() => {
-    // Skip if already seen this session
     if (sessionStorage.getItem('boot_seen')) {
       onComplete()
       return
@@ -54,35 +53,36 @@ export default function BootLoader({ onComplete }) {
       }, line.delay)
     )
 
-    // Progress bar
-    const progTimer = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) { clearInterval(progTimer); return 100 }
-        return prev + 2
-      })
-    }, 100)
-
-    // Switch to loading bar phase
+    // After text finishes, switch to loading phase and start progress from 0
     const loadTimer = setTimeout(() => {
-      if (!skipRef.current) setPhase('loading')
-    }, 5600)
-
-    // Complete
-    const doneTimer = setTimeout(() => {
       if (!skipRef.current) {
-        setPhase('done')
-        sessionStorage.setItem('boot_seen', '1')
-        setTimeout(() => onComplete(), 600)
+        setPhase('loading')
+        setProgress(0)
       }
-    }, 6800)
+    }, 5600)
 
     return () => {
       timers.forEach(clearTimeout)
-      clearInterval(progTimer)
       clearTimeout(loadTimer)
-      clearTimeout(doneTimer)
     }
   }, [onComplete])
+
+  // Progress bar runs only during loading phase
+  useEffect(() => {
+    if (phase !== 'loading') return
+    const progTimer = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progTimer)
+          sessionStorage.setItem('boot_seen', '1')
+          setTimeout(() => onComplete(), 400)
+          return 100
+        }
+        return prev + 4
+      })
+    }, 50)
+    return () => clearInterval(progTimer)
+  }, [phase, onComplete])
 
   useEffect(() => {
     if (containerRef.current) {
@@ -104,19 +104,8 @@ export default function BootLoader({ onComplete }) {
       style={{
         background: '#2c001e',
         fontFamily: '"JetBrains Mono", "Courier New", monospace',
-        imageRendering: 'pixelated',
       }}
     >
-      {/* CRT scanline overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-10"
-        style={{
-          background: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px)',
-        }}
-      />
-      {/* CRT flicker */}
-      <div className="absolute inset-0 pointer-events-none z-10 animate-pulse opacity-[0.02] bg-white" />
-
       {/* Terminal content */}
       <div
         ref={containerRef}
