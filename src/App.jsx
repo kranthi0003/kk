@@ -10,6 +10,7 @@ import Certifications from './components/Certifications'
 import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
 import Stats from './components/Stats'
+import Terminal from './components/Terminal'
 import Connect from './components/Contact'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
@@ -59,6 +60,7 @@ export default function App() {
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Stats /></div>
+        <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><Connect /></div>
       </main>
       <Footer />
