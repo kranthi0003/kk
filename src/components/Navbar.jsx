@@ -622,14 +622,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex items-center gap-0.5">
             <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
             <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
-            <IconBtn icon={<ResumeIcon />} tip="Resume" onClick={onResumeClick} />
             <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
-          </div>
-
-          <div className="flex-1" />
-
-          {/* Right group — fun & tools */}
-          <div className="flex items-center gap-0.5">
             <IconBtn icon={<DiceIcon />} tip="Surprise Me" onClick={() => {
               const actions = [
                 () => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }),
@@ -640,6 +633,12 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               ]
               actions[Math.floor(Math.random() * actions.length)]()
             }} />
+          </div>
+
+          <div className="flex-1" />
+
+          {/* Right group — tools */}
+          <div className="flex items-center gap-0.5">
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
             <IconBtn icon={<CameraIcon />} tip="Share Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-share-card'))} />
