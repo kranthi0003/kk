@@ -689,15 +689,17 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
   )
 }
 
-// Icon-only button with native tooltip on hover
+// Icon-only button with custom tooltip on hover
 function IconBtn({ icon, tip, onClick }) {
   return (
     <button
       onClick={onClick}
-      title={tip}
-      className="relative p-2 rounded-lg text-muted-foreground/50 hover:text-foreground hover:bg-muted/50 transition-all duration-150"
+      className="group relative p-2.5 rounded-lg text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-all duration-150 [&_svg]:w-[18px] [&_svg]:h-[18px]"
     >
       {icon}
+      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2.5 py-1 rounded-lg bg-foreground text-background text-[11px] font-medium whitespace-nowrap opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 shadow-lg z-50">
+        {tip}
+      </span>
     </button>
   )
 }
