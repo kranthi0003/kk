@@ -508,11 +508,25 @@ export default function Terminal() {
         }),
       })
       const data = await res.json()
+
+      if (!res.ok) {
+        const isRateLimit = res.status === 429
+        const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
+        const secs = Math.ceil(parseFloat(wait) || 10)
+        setHistory(prev => {
+          const updated = [...prev]
+          updated[updated.length - 1] = { type: 'output', lines: [
+            colorize(isRateLimit ? `  ⏳ Rate limited — retry in ${secs}s` : '  ⚠️ AI unavailable', isRateLimit ? T.yellow : T.red),
+          ]}
+          return updated
+        })
+        return
+      }
+
       const command = data.choices?.[0]?.message?.content?.trim() || '# unable to translate'
 
       setHistory(prev => {
         const updated = [...prev]
-        // Replace the "translating..." line
         updated[updated.length - 1] = { type: 'output', lines: [
           colorize('', ''),
           colorize(`  ${command}`, command.startsWith('#') ? T.red : T.green),

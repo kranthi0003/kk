@@ -218,9 +218,14 @@ export default function AIChatbot() {
       const data = await res.json()
       setLoading(false)
       if (!res.ok) {
-        const errMsg = data.error?.message || `API error (${res.status})`
-        console.error('Groq API error:', errMsg)
-        setMessages(prev => [...prev, { role: 'assistant', text: `⚠️ ${errMsg}` }])
+        if (res.status === 429) {
+          const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
+          const secs = Math.ceil(parseFloat(wait) || 10)
+          setMessages(prev => [...prev, { role: 'assistant', text: `Whoa, too many questions! Give me ${secs}s to catch my breath 😮‍💨` }])
+        } else {
+          setMessages(prev => [...prev, { role: 'assistant', text: "Something went wrong on my end. Try again in a sec." }])
+        }
+        console.error('Groq API error:', data.error?.message)
       } else {
         const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
         typeReply(reply)
