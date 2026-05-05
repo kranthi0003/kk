@@ -106,7 +106,7 @@ export default function About() {
 
           {/* Instagram — spans 2 cols */}
           <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card h-[300px]">
-            <iframe src="https://www.instagram.com/p/DT8OLC5EkQRzmD0wvICVwpR6M6NCqBAiGZWiMU0/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
+            <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
         </div>
