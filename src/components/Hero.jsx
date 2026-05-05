@@ -67,6 +67,7 @@ export default function Hero({ onResumeClick }) {
         <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
           <button
             onClick={onResumeClick}
+            data-resume-btn
             className="px-6 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover-lift shadow-lg transition-all"
           >
             View Resume
