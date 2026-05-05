@@ -82,12 +82,8 @@ export default function Hero({ onResumeClick }) {
         </div>
       </div>
 
-      {/* Heartbeat monitor — centered bottom of hero */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none w-[300px] sm:w-[400px]">
-        <div className="flex items-center justify-center gap-2 mb-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-[9px] font-mono text-muted-foreground/50 uppercase tracking-widest">Site Heartbeat · Live</span>
-        </div>
+      {/* Heartbeat monitor — very bottom of hero */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 pointer-events-none w-[280px] sm:w-[350px] opacity-40">
         <Heartbeat />
       </div>
     </section>
