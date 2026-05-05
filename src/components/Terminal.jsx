@@ -658,7 +658,7 @@ export default function Terminal() {
   }
 
   return (
-    <section className="py-20 px-6">
+    <section id="terminal" className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">Interactive</p>

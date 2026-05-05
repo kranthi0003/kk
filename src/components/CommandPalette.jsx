@@ -11,6 +11,7 @@ const ACTIONS = [
   { id: 'projects', label: 'Go to Projects', section: 'Navigate', icon: '🚀', action: () => scrollTo('projects') },
   { id: 'travel', label: 'Go to Travel Map', section: 'Navigate', icon: '🌍', action: () => scrollTo('travel') },
   { id: 'connect', label: 'Go to Connect', section: 'Navigate', icon: '📬', action: () => scrollTo('connect') },
+  { id: 'guestbook', label: 'Go to Guestbook', section: 'Navigate', icon: '📝', action: () => scrollTo('guestbook') },
 
   // Actions
   { id: 'theme', label: 'Toggle Dark/Light Mode', section: 'Actions', icon: '🌓', action: () => {

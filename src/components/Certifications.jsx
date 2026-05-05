@@ -60,7 +60,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section className="py-20">
+    <section id="certifications" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <p className="font-mono text-sm text-accent mb-2">Verified Credentials</p>

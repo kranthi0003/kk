@@ -60,7 +60,7 @@ const categories = [
 
 export default function TechStack() {
   return (
-    <section className="py-20 px-6">
+    <section id="techstack" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <p className="font-mono text-sm text-accent mb-2">What I Work With</p>

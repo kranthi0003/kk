@@ -60,7 +60,7 @@ export default function Guestbook() {
   }
 
   return (
-    <section className="py-20 px-6">
+    <section id="guestbook" className="py-20 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/guestbook</p>
