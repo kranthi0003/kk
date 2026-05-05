@@ -17,6 +17,22 @@
   --color-primary-foreground: #ffffff;
 }
 
+/* Grid background — faint engineering paper */
+body {
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+}
+
 .dark {
   --color-background: #0a0f1a;
   --color-foreground: #e2e8f0;
