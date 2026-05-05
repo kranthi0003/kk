@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
+import BootLoader from './components/BootLoader'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
 import MatrixEasterEgg from './components/KonamiEasterEgg'
@@ -17,6 +18,7 @@ import ResumeViewer from './components/ResumeViewer'
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
+  const [booted, setBooted] = useState(() => !!sessionStorage.getItem('boot_seen'))
 
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
@@ -46,7 +48,9 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
+      {!booted && <BootLoader onComplete={() => setBooted(true)} />}
+      <div className={`min-h-screen bg-background text-foreground ${!booted ? 'hidden' : ''}`}>
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
@@ -64,5 +68,6 @@ export default function App() {
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
     </div>
+    </>
   )
 }
