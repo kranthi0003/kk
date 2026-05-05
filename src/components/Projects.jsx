@@ -2,6 +2,15 @@ import React, { useState, useCallback, useMemo } from 'react'
 
 const projects = [
   {
+    title: 'StrangerChat',
+    description: 'Omegle-style anonymous text chat — get matched with a random stranger visiting the site in real-time. Built with WebRTC for P2P messaging and Supabase Realtime for matchmaking.',
+    technologies: ['WebRTC', 'Supabase', 'React', 'Real-time', 'P2P'],
+    githubUrl: null,
+    demoUrl: null,
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
+    comingSoon: true,
+  },
+  {
     title: 'SketchGate',
     description: 'A high-availability distributed rate limiter with penalty queues, built in Go. Designed for cloud-native architectures with support for sliding window counters and adaptive throttling.',
     technologies: ['Go', 'Distributed Systems', 'Rate Limiting', 'High Availability'],
@@ -125,6 +134,11 @@ export default function Projects() {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+        {project.comingSoon && (
+          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-yellow-500/90 text-black text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
+            Coming Soon
+          </div>
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
