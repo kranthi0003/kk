@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
-const SHORT = ADDR.slice(0, 8) + '...' + ADDR.slice(-6)
+const SHORT = ADDR.slice(0, 6) + '···' + ADDR.slice(-4)
 const ARKHAM_URL = `https://platform.arkhamintelligence.com/explorer/address/${ADDR}`
 const MEMPOOL_URL = `https://mempool.space/address/${ADDR}`
 
@@ -34,10 +34,9 @@ export default function BitcoinWallet() {
     })
   }, [])
 
-  const balanceBTC = data ? (data.final_balance / 1e8).toFixed(8) : '...'
-  const balanceUSD = data && btcPrice ? ((data.final_balance / 1e8) * btcPrice).toFixed(2) : '...'
-  const txCount = data?.n_tx || '...'
-  const totalRecBTC = data ? (data.total_received / 1e8).toFixed(8) : '...'
+  const balanceBTC = data ? (data.final_balance / 1e8).toFixed(8) : '···'
+  const balanceUSD = data && btcPrice ? ((data.final_balance / 1e8) * btcPrice).toFixed(2) : '···'
+  const txCount = data?.n_tx || '···'
 
   const handleCopy = () => {
     navigator.clipboard.writeText(ADDR)
@@ -46,78 +45,75 @@ export default function BitcoinWallet() {
   }
 
   return (
-    <div className="lg:col-span-2 rounded-2xl border border-border/30 shadow-lg overflow-hidden min-h-[350px] sm:h-[420px] flex flex-col" style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.08), var(--color-card), rgba(234,179,8,0.05))' }}>
+    <div className="lg:col-span-2 rounded-2xl border border-border/20 shadow-lg overflow-hidden min-h-[350px] sm:h-[420px] flex flex-col bg-card relative">
+      {/* Phantom-style gradient glow at top */}
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-accent/10 to-transparent pointer-events-none" />
+
       {/* Header */}
-      <div className="px-5 py-3 border-b border-border/20 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
-            <span className="text-white text-xs font-bold">₿</span>
+      <div className="relative px-5 pt-5 pb-2 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg shadow-accent/20">
+            <span className="text-accent-foreground text-sm font-bold">₿</span>
           </div>
-          <span className="font-mono text-xs font-semibold">Bitcoin Wallet</span>
+          <div>
+            <p className="text-xs font-semibold text-foreground">Bitcoin</p>
+            <p className="text-[10px] text-muted-foreground font-mono">BTC · Native SegWit</p>
+          </div>
         </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1 px-2 py-1 rounded-lg bg-muted/50 hover:bg-muted text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all"
+        >
+          {copied ? '✓' : SHORT}
+        </button>
+      </div>
+
+      {/* Balance — centered, Phantom-style */}
+      <div className="relative flex-1 flex flex-col items-center justify-center px-5 -mt-2">
+        <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-2">Total Balance</p>
+        <p className="text-3xl sm:text-4xl font-bold font-mono text-foreground tracking-tight">
+          ${balanceUSD}
+        </p>
+        <p className="text-sm text-muted-foreground font-mono mt-1">
+          {balanceBTC} <span className="text-accent">BTC</span>
+        </p>
+
+        {/* Mini stat pills */}
+        <div className="flex gap-2 mt-5">
+          <div className="px-3 py-1.5 rounded-full bg-muted/50 border border-border/20">
+            <p className="text-[10px] font-mono text-muted-foreground">
+              <span className="text-foreground font-semibold">{txCount}</span> txns
+            </p>
+          </div>
+          <div className="px-3 py-1.5 rounded-full bg-muted/50 border border-border/20">
+            <p className="text-[10px] font-mono text-muted-foreground">
+              <span className="text-foreground font-semibold">9</span> UTXOs
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom actions */}
+      <div className="relative px-5 pb-5 flex gap-2">
+        <a
+          href={MEMPOOL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-muted/50 border border-border/20 text-[11px] font-mono text-muted-foreground hover:text-foreground hover:border-border/40 transition-all"
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          Activity
+        </a>
         <a
           href={ARKHAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] font-mono text-orange-500 hover:underline"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-accent text-accent-foreground text-[11px] font-mono font-medium hover:opacity-90 transition-all shadow-md shadow-accent/20"
         >
-          Arkham ↗
+          View on Arkham ↗
         </a>
-      </div>
-
-      {/* Balance */}
-      <div className="px-5 pt-5 pb-3">
-        <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mb-1">Balance</p>
-        <div className="flex items-baseline gap-2">
-          <p className="text-2xl font-bold font-mono text-foreground">{balanceBTC}</p>
-          <span className="text-xs text-orange-500 font-mono">BTC</span>
-        </div>
-        <p className="text-sm text-muted-foreground font-mono mt-0.5">
-          ≈ ${balanceUSD} <span className="text-[10px]">USD</span>
-        </p>
-      </div>
-
-      {/* Stats grid */}
-      <div className="px-5 grid grid-cols-2 gap-3 mb-4">
-        <div className="p-3 rounded-xl bg-background/50 border border-border/10">
-          <p className="text-[9px] text-muted-foreground font-mono uppercase">Transactions</p>
-          <p className="text-lg font-bold font-mono text-foreground">{txCount}</p>
-        </div>
-        <div className="p-3 rounded-xl bg-background/50 border border-border/10">
-          <p className="text-[9px] text-muted-foreground font-mono uppercase">Total Received</p>
-          <p className="text-sm font-bold font-mono text-foreground">{totalRecBTC}</p>
-        </div>
-      </div>
-
-      {/* Address + actions */}
-      <div className="px-5 pb-5 mt-auto">
-        <div className="flex items-center gap-2 p-2.5 rounded-xl bg-background/50 border border-border/10">
-          <p className="text-[11px] font-mono text-muted-foreground flex-1 truncate">{SHORT}</p>
-          <button
-            onClick={handleCopy}
-            className="text-[10px] font-mono text-orange-500 hover:text-orange-400 transition-colors flex-shrink-0"
-          >
-            {copied ? '✓ copied' : 'copy'}
-          </button>
-        </div>
-        <div className="flex gap-2 mt-3">
-          <a
-            href={MEMPOOL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[11px] font-mono hover:bg-orange-500/20 transition-all"
-          >
-            mempool.space ↗
-          </a>
-          <a
-            href={ARKHAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 rounded-lg bg-orange-500 text-white text-[11px] font-mono hover:bg-orange-600 transition-all"
-          >
-            View on Arkham ↗
-          </a>
-        </div>
       </div>
     </div>
   )
