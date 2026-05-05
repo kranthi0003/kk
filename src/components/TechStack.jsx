@@ -67,24 +67,22 @@ export default function TechStack() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl">Tech Stack</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="space-y-8">
           {categories.map((cat) => (
-            <div
-              key={cat.label}
-              className="rounded-2xl border border-border/20 bg-card/50 hover:bg-card hover:border-border/40 p-5 transition-all duration-300 group"
-            >
+            <div key={cat.label}>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-base">{cat.icon}</span>
-                <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">{cat.label}</span>
+                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{cat.label}</span>
+                <div className="flex-1 h-px bg-border/30 ml-2" />
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4">
                 {cat.items.map((tech) => (
-                  <div key={tech.name} className="flex flex-col items-center gap-1.5 group/item">
-                    <div className="w-11 h-11 rounded-lg bg-background border border-border/20 flex items-center justify-center p-2 group-hover/item:scale-110 group-hover/item:shadow-md transition-all duration-200">
-                      <img src={tech.icon} alt={tech.name} className={`w-full h-full object-contain ${tech.iconLight ? 'hidden dark:block' : ''}`} />
-                      {tech.iconLight && <img src={tech.iconLight} alt={tech.name} className="w-full h-full object-contain dark:hidden" />}
+                  <div key={tech.name} className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-card/50 hover:bg-card border border-border/10 hover:border-border/30 transition-all duration-200 group">
+                    <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+                      <img src={tech.icon} alt={tech.name} className={`w-full h-full object-contain group-hover:scale-110 transition-transform ${tech.iconLight ? 'hidden dark:block' : ''}`} />
+                      {tech.iconLight && <img src={tech.iconLight} alt={tech.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform dark:hidden" />}
                     </div>
-                    <span className="text-[10px] text-muted-foreground/70 group-hover/item:text-foreground transition-colors">{tech.name}</span>
+                    <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{tech.name}</span>
                   </div>
                 ))}
               </div>
