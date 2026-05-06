@@ -1,5 +1,93 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import profile from '../../assets/profile.png'
+
+// GitHub contribution heatmap — fetches real data from GitHub's GraphQL via a proxy
+function GitHubHeatmap() {
+  const [weeks, setWeeks] = useState([])
+  const [totalContribs, setTotalContribs] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Use GitHub's contribution calendar image as fallback via github-contributions-api
+    const cached = sessionStorage.getItem('gh_heatmap')
+    if (cached) {
+      try {
+        const data = JSON.parse(cached)
+        if (Date.now() - data.ts < 600000) {
+          setWeeks(data.weeks)
+          setTotalContribs(data.total)
+          setLoading(false)
+          return
+        }
+      } catch {}
+    }
+
+    fetch('https://github-contributions-api.jogruber.de/v4/kranthi0003?y=last')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => {
+        const contribs = data.contributions || []
+        // Group into weeks (7 days each), take last ~20 weeks to fit the card
+        const allDays = contribs.flat ? contribs : contribs
+        const weeksData = []
+        for (let i = 0; i < allDays.length; i += 7) {
+          weeksData.push(allDays.slice(i, i + 7))
+        }
+        const last20 = weeksData.slice(-22)
+        const total = data.total?.lastYear || allDays.reduce((s, d) => s + (d.count || 0), 0)
+        setWeeks(last20)
+        setTotalContribs(total)
+        sessionStorage.setItem('gh_heatmap', JSON.stringify({ ts: Date.now(), weeks: last20, total }))
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [])
+
+  const getColor = (count) => {
+    if (count === 0) return 'bg-muted/40'
+    if (count <= 2) return 'bg-green-900/40 dark:bg-green-400/20'
+    if (count <= 5) return 'bg-green-700/50 dark:bg-green-400/40'
+    if (count <= 9) return 'bg-green-600/70 dark:bg-green-400/60'
+    return 'bg-green-500 dark:bg-green-400/90'
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-4">
+        <div className="w-4 h-4 border-2 border-muted-foreground/20 border-t-muted-foreground/60 rounded-full animate-spin" />
+      </div>
+    )
+  }
+
+  if (weeks.length === 0) {
+    // Fallback: show the GitHub stats image
+    return (
+      <img
+        src="https://ghchart.rshah.org/2563eb/kranthi0003"
+        alt="GitHub Contributions"
+        className="w-full h-auto rounded opacity-80"
+      />
+    )
+  }
+
+  return (
+    <div>
+      <div className="flex gap-[3px] overflow-hidden">
+        {weeks.map((week, wi) => (
+          <div key={wi} className="flex flex-col gap-[3px]">
+            {week.map((day, di) => (
+              <div
+                key={di}
+                className={`w-[10px] h-[10px] rounded-[2px] ${getColor(day.count || 0)}`}
+                title={`${day.date || ''}: ${day.count || 0} contributions`}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      <p className="text-[10px] text-muted-foreground/50 mt-2 font-mono">{totalContribs} contributions in the last year</p>
+    </div>
+  )
+}
 
 function BentoClockCard() {
   const [time, setTime] = useState(new Date())
@@ -106,32 +194,13 @@ export default function About() {
             <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
-          {/* R3: Quote + Stats (left 2 cols), Instagram continues right */}
-          <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center">
-            <p className="text-[12px] text-muted-foreground italic leading-relaxed">"First, solve the problem. Then, write the code."</p>
-            <p className="text-[10px] text-accent mt-2 font-mono">— John Johnson</p>
-          </div>
-
-          <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center">
-            <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Quick Stats</p>
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Experience</span>
-                <span className="text-[11px] font-semibold text-foreground">4+ yrs</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Companies</span>
-                <span className="text-[11px] font-semibold text-foreground">4</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Certs</span>
-                <span className="text-[11px] font-semibold text-foreground">5</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Cities</span>
-                <span className="text-[11px] font-semibold text-foreground">10</span>
-              </div>
+          {/* R3: GitHub Contribution Heatmap (full width left 2 cols), Instagram continues right */}
+          <div className="col-span-2 rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center overflow-hidden">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">GitHub Contributions</p>
+              <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="text-[10px] text-accent hover:underline">@kranthi0003</a>
             </div>
+            <GitHubHeatmap />
           </div>
 
         </div>
