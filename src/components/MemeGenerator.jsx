@@ -3,70 +3,6 @@ import React, { useState, useEffect, useRef } from 'react'
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
 const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
-// Imgflip top 60 meme templates
-const TEMPLATES = [
-  { id: '181913649', name: 'Drake Hotline Bling' },
-  { id: '87743020', name: 'Two Buttons' },
-  { id: '112126428', name: 'Distracted Boyfriend' },
-  { id: '131087935', name: 'Running Away Balloon' },
-  { id: '124822590', name: 'Left Exit 12 Off Ramp' },
-  { id: '217743513', name: 'UNO Draw 25 Cards' },
-  { id: '93895088', name: 'Expanding Brain' },
-  { id: '438680', name: 'Batman Slapping Robin' },
-  { id: '4087833', name: 'Waiting Skeleton' },
-  { id: '61579', name: 'One Does Not Simply' },
-  { id: '101470', name: 'Ancient Aliens' },
-  { id: '61520', name: 'Futurama Fry' },
-  { id: '89370399', name: 'Roll Safe Think About It' },
-  { id: '252600902', name: 'Always Has Been' },
-  { id: '188390779', name: 'Woman Yelling At Cat' },
-  { id: '135256802', name: 'Epic Handshake' },
-  { id: '61532', name: 'The Rock Driving' },
-  { id: '180190441', name: 'Bernie Sanders Once Again Asking' },
-  { id: '161865971', name: 'Marked Safe From' },
-  { id: '119139145', name: 'Blank Nut Button' },
-  { id: '222403160', name: 'Gru Plan' },
-  { id: '247375501', name: 'Buff Doge vs Cheems' },
-  { id: '129242436', name: 'Change My Mind' },
-  { id: '91538330', name: 'X X Everywhere' },
-  { id: '61544', name: 'Success Kid' },
-  { id: '61539', name: 'First World Problems' },
-  { id: '61546', name: 'Brace Yourselves' },
-  { id: '563423', name: 'That Would Be Great' },
-  { id: '61533', name: 'Third World Skeptical Kid' },
-  { id: '61527', name: 'Y U No' },
-  { id: '61556', name: 'Grandma Finds The Internet' },
-  { id: '259237855', name: 'Laughing Leo' },
-  { id: '6235864', name: 'Finding Neverland' },
-  { id: '27813981', name: 'Hide the Pain Harold' },
-  { id: '100777631', name: 'Is This A Pigeon' },
-  { id: '155067746', name: 'Surprised Pikachu' },
-  { id: '226297822', name: 'Panik Kalm Panik' },
-  { id: '195515965', name: 'Clown Applying Makeup' },
-  { id: '196652226', name: 'Spongebob Ight Imma Head Out' },
-  { id: '97984', name: 'Disaster Girl' },
-  { id: '80707627', name: 'Sad Pablo Escobar' },
-  { id: '177682295', name: 'Trade Offer' },
-  { id: '370867422', name: 'Anakin Padme 4 Panel' },
-  { id: '316466202', name: 'Megamind No Bitches' },
-  { id: '309868304', name: 'Trade Offer 2' },
-  { id: '284929871', name: 'They Are The Same Picture' },
-  { id: '322841258', name: 'Anakin Padme Meme' },
-  { id: '123999232', name: 'The Scroll Of Truth' },
-  { id: '102156234', name: 'Mocking Spongebob' },
-  { id: '148909805', name: 'Monkey Puppet' },
-  { id: '61580', name: 'Too Damn High' },
-  { id: '134797956', name: 'American Chopper Argument' },
-  { id: '61585', name: 'Bad Luck Brian' },
-  { id: '21735', name: 'The Most Interesting Man' },
-  { id: '61516', name: 'Confession Bear' },
-  { id: '101288', name: 'Third World Success Kid' },
-  { id: '28251713', name: 'Oprah You Get A' },
-  { id: '61534', name: 'Matrix Morpheus' },
-  { id: '718432', name: 'The Prodigal Son Returns' },
-  { id: '61522', name: 'Futurama Zoidberg' },
-]
-
 const SUGGESTIONS = [
   'kubernetes', 'CSS centering', 'production bugs on Friday',
   'code reviews', 'microservices vs monolith', 'Monday standups',
@@ -83,6 +19,7 @@ export default function MemeGenerator() {
   const [memeUrl, setMemeUrl] = useState(null)
   const [caption, setCaption] = useState(null)
   const [templateName, setTemplateName] = useState('')
+  const [templates, setTemplates] = useState([])
   const canvasRef = useRef()
 
   useEffect(() => {
@@ -91,13 +28,27 @@ export default function MemeGenerator() {
     return () => window.removeEventListener('toggle-meme-gen', handler)
   }, [])
 
+  // Fetch templates from imgflip API (cached)
+  useEffect(() => {
+    if (!open || templates.length) return
+    const cached = sessionStorage.getItem('meme_templates')
+    if (cached) { setTemplates(JSON.parse(cached)); return }
+    fetch('https://api.imgflip.com/get_memes')
+      .then(r => r.json())
+      .then(data => {
+        const t = (data.data?.memes || []).slice(0, 60).map(m => ({ id: m.id, name: m.name, url: m.url }))
+        setTemplates(t)
+        sessionStorage.setItem('meme_templates', JSON.stringify(t))
+      })
+      .catch(() => {})
+  }, [open])
+
   const generate = async () => {
-    if (!topic.trim() || !API_KEY) return
+    if (!topic.trim() || !API_KEY || !templates.length) return
     setLoading(true)
     setMemeUrl(null)
 
-    // Pick a random template
-    const tmpl = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)]
+    const tmpl = templates[Math.floor(Math.random() * templates.length)]
     setTemplateName(tmpl.name)
 
     try {
@@ -194,10 +145,9 @@ export default function MemeGenerator() {
         setMemeUrl(canvas.toDataURL('image/png'))
       }
       img.onerror = () => {
-        // If CORS fails, show template without text
-        setMemeUrl(`https://i.imgflip.com/${tmpl.id}.jpg`)
+        setMemeUrl(tmpl.url)
       }
-      img.src = `https://i.imgflip.com/${tmpl.id}.jpg`
+      img.src = tmpl.url
     } catch (e) {
       console.error('Meme gen failed:', e)
     }
