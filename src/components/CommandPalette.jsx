@@ -89,6 +89,9 @@ const ACTIONS = [
   { id: 'carbon-calc', label: 'Website Carbon Calculator', desc: 'CO₂ footprint per page visit', section: 'AI Tools', icon: '🌍', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-carbon-calc'))
   }, keywords: 'carbon calculator website co2 footprint green sustainability environment eco climate emissions energy' },
+  { id: 'salary-calc', label: 'Salary Calculator', desc: 'India tax: Old vs New regime, EPF, TDS', section: 'AI Tools', icon: '💰', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-salary-calc'))
+  }, keywords: 'salary calculator tax india ctc take home pay epf deduction old new regime tds income rupee lakh crore inhand' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },

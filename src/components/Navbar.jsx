@@ -635,6 +635,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
             <IconBtn icon={<CameraIcon />} tip="Share Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-share-card'))} />
             <IconBtn icon={<LeafIcon />} tip="Carbon Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-carbon-calc'))} />
+            <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
               const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
@@ -761,6 +762,11 @@ const LeafIcon = () => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 13V7" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M9 10l3-3 3 3" />
+  </svg>
+)
+const RupeeIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 4h12M6 8h12M14 8c0 4-8 8-8 8m4-8c0 4 8 8 8 8" />
   </svg>
 )
 
