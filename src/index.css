@@ -31,49 +31,37 @@ body {
 
 .dark body {
   background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-}
-
-/* Film grain overlay — Fight Club texture */
-.dark body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
 }
 
 .dark {
-  --color-background: #0c0a09;
-  --color-foreground: #d6cfc4;
-  --color-card: #1a1714;
-  --color-card-foreground: #d6cfc4;
-  --color-muted: #292420;
-  --color-muted-foreground: #8a7e72;
-  --color-accent: #dc2626;
-  --color-accent-foreground: #fef2f2;
-  --color-border: #292420;
-  --color-primary: #d6cfc4;
-  --color-primary-foreground: #0c0a09;
+  --color-background: #0a0f1a;
+  --color-foreground: #e2e8f0;
+  --color-card: #111827;
+  --color-card-foreground: #e2e8f0;
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #60a5fa;
+  --color-accent-foreground: #0f172a;
+  --color-border: #1e293b;
+  --color-primary: #e2e8f0;
+  --color-primary-foreground: #0f172a;
 }
 
-/* Dark mode Fight Club overrides */
+/* Dark mode overrides */
 .dark {
-  --color-background: #0c0a09;
-  --color-foreground: #d6cfc4;
-  --color-card: #1a1714;
-  --color-card-foreground: #d6cfc4;
-  --color-muted: #292420;
-  --color-muted-foreground: #8a7e72;
-  --color-accent: #dc2626;
-  --color-accent-foreground: #fef2f2;
-  --color-border: #292420;
-  --color-primary: #d6cfc4;
-  --color-primary-foreground: #0c0a09;
+  --color-background: hsl(222.2 84% 4.9%);
+  --color-foreground: hsl(210 40% 98%);
+  --color-card: hsl(222.2 40% 8%);
+  --color-card-foreground: hsl(210 40% 98%);
+  --color-muted: hsl(217.2 32.6% 17.5%);
+  --color-muted-foreground: hsl(215 20.2% 65.1%);
+  --color-accent: hsl(220 70% 70%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --color-border: hsl(217.2 32.6% 17.5%);
+  --color-primary: hsl(210 40% 98%);
+  --color-primary-foreground: hsl(222.2 47.4% 11.2%);
 }
 
 /* Base styles */
@@ -86,16 +74,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Vignette overlay — dark edges like a projector */
-.dark body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
 }
 
 /* Animations */
@@ -243,4 +221,129 @@ body.reading-mode::before {
   color: var(--color-muted-foreground);
   background: var(--color-card);
   border-top: 1px solid var(--color-border);
+}
+
+/* ===== THEME MODES ===== */
+
+/* Fight Club — gritty, dark, red accent, film grain */
+html.theme-fightclub {
+  --color-background: #0c0a09;
+  --color-foreground: #d6cfc4;
+  --color-card: #1a1714;
+  --color-card-foreground: #d6cfc4;
+  --color-muted: #292420;
+  --color-muted-foreground: #8a7e72;
+  --color-accent: #dc2626;
+  --color-accent-foreground: #fef2f2;
+  --color-border: #292420;
+  --color-primary: #d6cfc4;
+  --color-primary-foreground: #0c0a09;
+}
+html.theme-fightclub body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+html.theme-fightclub body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+}
+
+/* F1 Racing — dark carbon, neon red, speed lines */
+html.theme-f1 {
+  --color-background: #0f0f0f;
+  --color-foreground: #f0f0f0;
+  --color-card: #1a1a1a;
+  --color-card-foreground: #f0f0f0;
+  --color-muted: #2a2a2a;
+  --color-muted-foreground: #888;
+  --color-accent: #e10600;
+  --color-accent-foreground: #ffffff;
+  --color-border: #2a2a2a;
+  --color-primary: #f0f0f0;
+  --color-primary-foreground: #0f0f0f;
+}
+html.theme-f1 body {
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px),
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px) !important;
+}
+
+/* Cyberpunk — neon purple/cyan on dark */
+html.theme-cyberpunk {
+  --color-background: #0a0015;
+  --color-foreground: #e0d4ff;
+  --color-card: #130025;
+  --color-card-foreground: #e0d4ff;
+  --color-muted: #1e0038;
+  --color-muted-foreground: #9f8cc8;
+  --color-accent: #00f0ff;
+  --color-accent-foreground: #0a0015;
+  --color-border: #2a0050;
+  --color-primary: #e0d4ff;
+  --color-primary-foreground: #0a0015;
+}
+html.theme-cyberpunk body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  background: linear-gradient(transparent 50%, rgba(0,0,0,0.05) 50%);
+  background-size: 100% 4px;
+  opacity: 0.3;
+}
+
+/* Vintage — sepia, warm, old paper */
+html.theme-vintage {
+  --color-background: #f5f0e8;
+  --color-foreground: #3d3428;
+  --color-card: #efe8db;
+  --color-card-foreground: #3d3428;
+  --color-muted: #e8dfd0;
+  --color-muted-foreground: #7a6d5c;
+  --color-accent: #b8860b;
+  --color-accent-foreground: #ffffff;
+  --color-border: #d4c9b8;
+  --color-primary: #3d3428;
+  --color-primary-foreground: #f5f0e8;
+}
+
+/* Ocean — deep blue, calm */
+html.theme-ocean {
+  --color-background: #0a1628;
+  --color-foreground: #c8dbe8;
+  --color-card: #0f1f35;
+  --color-card-foreground: #c8dbe8;
+  --color-muted: #162a42;
+  --color-muted-foreground: #6b8baa;
+  --color-accent: #06b6d4;
+  --color-accent-foreground: #0a1628;
+  --color-border: #162a42;
+  --color-primary: #c8dbe8;
+  --color-primary-foreground: #0a1628;
+}
+
+/* Dracula — purple-based dark theme */
+html.theme-dracula {
+  --color-background: #282a36;
+  --color-foreground: #f8f8f2;
+  --color-card: #2d303e;
+  --color-card-foreground: #f8f8f2;
+  --color-muted: #383a4a;
+  --color-muted-foreground: #9496a8;
+  --color-accent: #bd93f9;
+  --color-accent-foreground: #282a36;
+  --color-border: #44475a;
+  --color-primary: #f8f8f2;
+  --color-primary-foreground: #282a36;
 }

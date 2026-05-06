@@ -98,6 +98,9 @@ const ACTIONS = [
   { id: 'live-chat', label: 'Live Chat', desc: 'Chat with other visitors in real-time', section: 'Features', icon: '💬', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-live-chat'))
   }, keywords: 'live chat talk visitors realtime websocket message conversation community room' },
+  { id: 'theme-modes', label: 'Theme Modes', desc: 'Fight Club, F1, Cyberpunk, Vintage, Ocean, Dracula', section: 'Actions', icon: '🎨', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-theme-modes'))
+  }, keywords: 'theme mode style vibe fight club f1 racing cyberpunk vintage ocean dracula color palette skin' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
