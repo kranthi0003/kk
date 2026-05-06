@@ -1,19 +1,92 @@
 import React, { useState, useEffect } from 'react'
 import profile from '../../assets/profile.png'
 
-// GitHub contribution heatmap — uses ghchart for reliable rendering
+// GitHub-style contribution heatmap
 function GitHubHeatmap() {
-  const isDark = document.documentElement.classList.contains('dark')
-  const color = isDark ? '60a5fa' : '2563eb'
+  const [weeks, setWeeks] = useState([])
+  const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const cached = sessionStorage.getItem('gh_heatmap2')
+    if (cached) {
+      try {
+        const d = JSON.parse(cached)
+        if (Date.now() - d.ts < 600000) { setWeeks(d.weeks); setTotal(d.total); setLoading(false); return }
+      } catch {}
+    }
+
+    fetch('https://github-contributions-api.jogruber.de/v4/kranthi0003?y=last')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => {
+        const days = data.contributions || []
+        // Group into weeks of 7 (Sun-Sat columns)
+        const grouped = []
+        let week = []
+        // Pad first week so first day aligns to correct day-of-week
+        const firstDay = new Date(days[0]?.date)
+        const startPad = firstDay.getDay()
+        for (let i = 0; i < startPad; i++) week.push(null)
+        days.forEach(d => {
+          week.push(d)
+          if (week.length === 7) { grouped.push(week); week = [] }
+        })
+        if (week.length) { while (week.length < 7) week.push(null); grouped.push(week) }
+        setWeeks(grouped)
+        setTotal(data.total?.lastYear || 0)
+        sessionStorage.setItem('gh_heatmap2', JSON.stringify({ ts: Date.now(), weeks: grouped, total: data.total?.lastYear || 0 }))
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [])
+
+  if (loading) return (
+    <div className="flex items-center justify-center py-6">
+      <div className="w-4 h-4 border-2 border-muted-foreground/20 border-t-green-500 rounded-full animate-spin" />
+    </div>
+  )
+
+  const levelColors = [
+    'bg-[#161b22] dark:bg-[#161b22]',
+    'bg-[#0e4429] dark:bg-[#0e4429]',
+    'bg-[#006d32] dark:bg-[#006d32]',
+    'bg-[#26a641] dark:bg-[#26a641]',
+    'bg-[#39d353] dark:bg-[#39d353]',
+  ]
+  const levelColorsLight = [
+    'bg-[#ebedf0]',
+    'bg-[#9be9a8]',
+    'bg-[#40c463]',
+    'bg-[#30a14e]',
+    'bg-[#216e39]',
+  ]
+
+  const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  const colors = isDark ? levelColors : levelColorsLight
 
   return (
     <div>
-      <img
-        src={`https://ghchart.rshah.org/${color}/kranthi0003`}
-        alt="GitHub Contributions"
-        className="w-full h-auto rounded"
-        loading="lazy"
-      />
+      <div className="flex gap-[3px] overflow-x-auto pb-1">
+        {weeks.map((week, wi) => (
+          <div key={wi} className="flex flex-col gap-[3px] flex-shrink-0">
+            {week.map((day, di) => (
+              <div
+                key={di}
+                className={`w-[11px] h-[11px] rounded-sm ${day ? colors[day.level] || colors[0] : 'bg-transparent'}`}
+                title={day ? `${day.date}: ${day.count} contributions` : ''}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center justify-between mt-2">
+        <p className="text-[10px] text-muted-foreground/50 font-mono">{total} contributions in the last year</p>
+        <div className="flex items-center gap-1">
+          <span className="text-[9px] text-muted-foreground/40">Less</span>
+          {colors.map((c, i) => <div key={i} className={`w-[10px] h-[10px] rounded-sm ${c}`} />)}
+          <span className="text-[9px] text-muted-foreground/40">More</span>
+        </div>
+      </div>
     </div>
   )
 }
