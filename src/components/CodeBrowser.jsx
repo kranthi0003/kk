@@ -40,9 +40,14 @@ export default function CodeBrowser() {
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
+    const escHandler = (e) => { if (e.key === 'Escape' && open) setOpen(false) }
     window.addEventListener('toggle-code-browser', handler)
-    return () => window.removeEventListener('toggle-code-browser', handler)
-  }, [])
+    window.addEventListener('keydown', escHandler)
+    return () => {
+      window.removeEventListener('toggle-code-browser', handler)
+      window.removeEventListener('keydown', escHandler)
+    }
+  }, [open])
 
   // Fetch repo tree
   useEffect(() => {
@@ -195,34 +200,51 @@ export default function CodeBrowser() {
   if (!open) return null
 
   return (
-    <>
-      <div className="fixed inset-0 z-[150] bg-black/60 backdrop-blur-md" onClick={() => setOpen(false)} />
-      <div className="fixed top-[3%] left-1/2 -translate-x-1/2 z-[151] w-[1000px] max-w-[calc(100vw-2rem)] h-[90vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col"
-        style={{ background: '#1e1e2e', animation: 'code-in 0.25s cubic-bezier(0.16,1,0.3,1)' }}>
+    <div className="fixed inset-0 z-[200] flex flex-col" style={{ background: '#1e1e2e' }}>
 
-        {/* Title bar — VS Code style */}
-        <div className="flex items-center px-4 py-2.5 bg-[#181825] border-b border-white/5 flex-shrink-0">
-          <div className="flex gap-1.5 mr-4">
-            <div className="w-3 h-3 rounded-full bg-red-500/80 cursor-pointer" onClick={() => setOpen(false)} />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-          </div>
-          <div className="flex items-center gap-2 text-white/40 text-[12px]">
-            <span className="text-white/60 font-medium">{selectedFile || 'Explorer'}</span>
-            <span className="text-white/20">—</span>
-            <span>kranthi-kiran-site</span>
-          </div>
-          <div className="ml-auto flex items-center gap-2">
-            <a href={`https://github.com/${REPO}${selectedFile ? `/blob/${BRANCH}/${selectedFile}` : ''}`}
-              target="_blank" rel="noopener noreferrer"
-              className="text-[10px] text-white/30 hover:text-white/60 transition-colors px-2 py-1 rounded hover:bg-white/5">
-              Open in GitHub ↗
-            </a>
-          </div>
+      {/* Title bar — VS Code style */}
+      <div className="flex items-center px-4 py-2 bg-[#181825] border-b border-white/5 flex-shrink-0">
+        {/* Back button */}
+        <button onClick={() => setOpen(false)} className="flex items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors mr-4 px-2 py-1 rounded hover:bg-white/5">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          <span className="text-[12px]">Back to site</span>
+        </button>
+
+        <div className="flex gap-1.5 mr-3">
+          <div className="w-3 h-3 rounded-full bg-red-500/80" />
+          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+          <div className="w-3 h-3 rounded-full bg-green-500/80" />
         </div>
 
-        {/* Main body — sidebar + editor */}
-        <div className="flex flex-1 min-h-0">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-1.5 text-[12px] text-white/30 overflow-hidden">
+          <span className="text-white/50">kranthi-kiran-site</span>
+          {selectedFile && selectedFile.split('/').map((part, i, arr) => (
+            <span key={i} className="flex items-center gap-1.5">
+              <span className="text-white/15">/</span>
+              <span className={i === arr.length - 1 ? 'text-white/70' : 'text-white/40'}>{part}</span>
+            </span>
+          ))}
+        </div>
+
+        <div className="ml-auto flex items-center gap-3">
+          <a href={`https://github.com/${REPO}${selectedFile ? `/blob/${BRANCH}/${selectedFile}` : ''}`}
+            target="_blank" rel="noopener noreferrer"
+            className="text-[11px] text-white/30 hover:text-white/60 transition-colors px-2.5 py-1 rounded hover:bg-white/5 flex items-center gap-1">
+            🐙 Open in GitHub
+          </a>
+          <button onClick={() => setOpen(false)} className="text-white/30 hover:text-white/60 transition-colors p-1 rounded hover:bg-white/5">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Main body — sidebar + editor */}
+      <div className="flex flex-1 min-h-0">
           {/* File tree sidebar */}
           <div className="w-[220px] flex-shrink-0 bg-[#181825] border-r border-white/5 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.1) transparent' }}>
             <div className="px-3 py-2 text-[10px] text-white/20 uppercase tracking-widest font-semibold">Explorer</div>
@@ -275,16 +297,8 @@ export default function CodeBrowser() {
           <span>🔀 {BRANCH}</span>
           <span>📄 {tree.length} files</span>
           {selectedFile && <span>{getLang(selectedFile)}</span>}
-          <span className="ml-auto">Read Only</span>
+          <span className="ml-auto">Read Only · ESC to exit</span>
         </div>
-      </div>
-
-      <style>{`
-        @keyframes code-in {
-          from { opacity: 0; transform: translateX(-50%) scale(0.96); }
-          to { opacity: 1; transform: translateX(-50%) scale(1); }
-        }
-      `}</style>
-    </>
+    </div>
   )
 }
