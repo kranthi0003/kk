@@ -130,7 +130,6 @@ export default function CarbonCalc() {
           trees: Math.ceil(((co2Grams / 1000) * 10000 * 12) / TREES_PER_KG_CO2_YEAR),
           estimated: true,
         })
-        })
       } catch {
         setError('Could not analyze this URL. Check the format.')
       }
