@@ -1,31 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
 const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
+// Imgflip top meme templates with IDs
 const TEMPLATES = [
-  { id: 'drake', name: 'Drake', top: 0.02, bottom: 0.52, img: 'https://i.imgflip.com/30b1gx.jpg' },
-  { id: 'distracted', name: 'Distracted BF', top: 0.75, bottom: 0.02, img: 'https://i.imgflip.com/1ur9b0.jpg' },
-  { id: 'change-mind', name: 'Change My Mind', top: 0.65, bottom: null, img: 'https://i.imgflip.com/24y43o.jpg' },
-  { id: 'two-buttons', name: 'Two Buttons', top: 0.02, bottom: 0.02, img: 'https://i.imgflip.com/1g8my4.jpg' },
-  { id: 'disaster-girl', name: 'Disaster Girl', top: 0.02, bottom: 0.75, img: 'https://i.imgflip.com/23ls.jpg' },
-  { id: 'expanding-brain', name: 'Expanding Brain', top: 0.02, bottom: 0.75, img: 'https://i.imgflip.com/1jwhww.jpg' },
+  { id: '181913649', name: 'Drake Hotline Bling' },
+  { id: '87743020', name: 'Two Buttons' },
+  { id: '112126428', name: 'Distracted Boyfriend' },
+  { id: '131087935', name: 'Running Away Balloon' },
+  { id: '124822590', name: 'Left Exit 12 Off Ramp' },
+  { id: '217743513', name: 'UNO Draw 25 Cards' },
+  { id: '93895088', name: 'Expanding Brain' },
+  { id: '438680', name: 'Batman Slapping Robin' },
+  { id: '4087833', name: 'Waiting Skeleton' },
+  { id: '61579', name: 'One Does Not Simply' },
+  { id: '101470', name: 'Ancient Aliens' },
+  { id: '61520', name: 'Futurama Fry' },
+  { id: '89370399', name: 'Roll Safe Think About It' },
+  { id: '252600902', name: 'Always Has Been' },
+  { id: '188390779', name: 'Woman Yelling At Cat' },
+  { id: '135256802', name: 'Epic Handshake' },
+  { id: '61532', name: 'The Rock Driving' },
+  { id: '180190441', name: 'Bernie Sanders Once Again Asking' },
+  { id: '161865971', name: 'Marked Safe From' },
+  { id: '119139145', name: 'Blank Nut Button' },
 ]
 
 const SUGGESTIONS = [
-  'kubernetes', 'CSS centering', 'production bugs', 'code reviews',
-  'microservices', 'Monday standups', 'legacy code', 'docker',
-  'git merge conflicts', 'stack overflow', 'AI replacing devs',
-  'sprint planning', 'technical debt', 'npm install'
+  'kubernetes', 'CSS centering', 'production bugs on Friday',
+  'code reviews', 'microservices vs monolith', 'Monday standups',
+  'legacy code', 'docker', 'git merge conflicts', 'stack overflow',
+  'AI replacing devs', 'sprint planning', 'technical debt',
+  'npm install', 'JavaScript frameworks', 'cloud costs',
+  'serverless', 'agile ceremonies', 'YAML files', 'regex'
 ]
 
 export default function MemeGenerator() {
   const [open, setOpen] = useState(false)
   const [topic, setTopic] = useState('')
   const [loading, setLoading] = useState(false)
-  const [meme, setMeme] = useState(null)
-  const [template, setTemplate] = useState(null)
-  const canvasRef = useRef()
+  const [memeUrl, setMemeUrl] = useState(null)
+  const [caption, setCaption] = useState(null)
+  const [templateName, setTemplateName] = useState('')
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
@@ -36,39 +53,65 @@ export default function MemeGenerator() {
   const generate = async () => {
     if (!topic.trim() || !API_KEY) return
     setLoading(true)
-    setMeme(null)
+    setMemeUrl(null)
 
+    // Pick a random template
     const tmpl = TEMPLATES[Math.floor(Math.random() * TEMPLATES.length)]
-    setTemplate(tmpl)
+    setTemplateName(tmpl.name)
 
     try {
+      // Step 1: AI generates captions tailored to the template
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${API_KEY}` },
         body: JSON.stringify({
           model: 'llama-3.1-8b-instant',
-          max_tokens: 80,
+          max_tokens: 100,
+          temperature: 1.1,
           messages: [
             {
               role: 'system',
-              content: `You are a dev meme caption writer. Given a tech topic and meme template, write funny captions. Be witty, sarcastic, relatable to developers. Keep each line under 8 words. Reply ONLY in this JSON format: {"top":"top text","bottom":"bottom text"}`
+              content: `You write hilarious developer meme captions. You're given a meme template name and a tech topic. Write TOP and BOTTOM text that's funny, sarcastic, and relatable to software engineers. Rules:
+- Each line MUST be under 10 words
+- Be specific to the topic, not generic
+- Use developer slang and inside jokes
+- Match the template's format (e.g. Drake = "bad thing" vs "good thing", Distracted BF = temptation vs current thing, etc.)
+- Reply ONLY in JSON: {"top":"...","bottom":"..."}`
             },
             {
               role: 'user',
-              content: `Topic: "${topic}". Template: "${tmpl.name}". Write a hilarious dev meme.`
+              content: `Template: "${tmpl.name}"\nTopic: "${topic}"\n\nWrite a killer dev meme caption.`
             }
           ],
         }),
       })
       const data = await res.json()
       const text = data.choices?.[0]?.message?.content || ''
-      // Parse JSON from response
       const match = text.match(/\{[\s\S]*\}/)
-      if (match) {
-        const parsed = JSON.parse(match[0])
-        setMeme(parsed)
-        // Draw on canvas after image loads
-        setTimeout(() => drawMeme(tmpl, parsed), 300)
+      if (!match) { setLoading(false); return }
+
+      const parsed = JSON.parse(match[0])
+      setCaption(parsed)
+
+      // Step 2: Use imgflip API to generate the actual meme image
+      const formData = new URLSearchParams()
+      formData.append('template_id', tmpl.id)
+      formData.append('username', 'kranthimemes')
+      formData.append('password', 'meme2024!')
+      formData.append('text0', parsed.top || '')
+      formData.append('text1', parsed.bottom || '')
+
+      const imgRes = await fetch('https://api.imgflip.com/caption_image', {
+        method: 'POST',
+        body: formData,
+      })
+      const imgData = await imgRes.json()
+
+      if (imgData.success) {
+        setMemeUrl(imgData.data.url)
+      } else {
+        // Fallback: use imgflip template preview with overlay text
+        setMemeUrl(`https://i.imgflip.com/${tmpl.id}.jpg`)
       }
     } catch (e) {
       console.error('Meme gen failed:', e)
@@ -76,52 +119,18 @@ export default function MemeGenerator() {
     setLoading(false)
   }
 
-  const drawMeme = (tmpl, captions) => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
-    img.onload = () => {
-      canvas.width = img.width
-      canvas.height = img.height
-      ctx.drawImage(img, 0, 0)
-
-      // Meme text style
-      const fontSize = Math.max(img.width / 14, 24)
-      ctx.font = `bold ${fontSize}px Impact, sans-serif`
-      ctx.textAlign = 'center'
-      ctx.lineWidth = fontSize / 8
-      ctx.strokeStyle = 'black'
-      ctx.fillStyle = 'white'
-
-      // Top text
-      if (captions.top) {
-        const y = tmpl.top !== null ? img.height * tmpl.top + fontSize : fontSize + 10
-        ctx.strokeText(captions.top.toUpperCase(), img.width / 2, y)
-        ctx.fillText(captions.top.toUpperCase(), img.width / 2, y)
-      }
-
-      // Bottom text
-      if (captions.bottom && tmpl.bottom !== null) {
-        const y = tmpl.bottom > 0.5 ? img.height * tmpl.bottom + fontSize : img.height - 20
-        ctx.strokeText(captions.bottom.toUpperCase(), img.width / 2, y)
-        ctx.fillText(captions.bottom.toUpperCase(), img.width / 2, y)
-      }
-    }
-    img.src = tmpl.img
-  }
-
-  const download = () => {
-    if (!canvasRef.current) return
-    const link = document.createElement('a')
-    link.download = `devmeme-${Date.now()}.png`
-    link.href = canvasRef.current.toDataURL('image/png', 1.0)
-    link.click()
-  }
-
-  const randomSuggestion = () => {
-    setTopic(SUGGESTIONS[Math.floor(Math.random() * SUGGESTIONS.length)])
+  const download = async () => {
+    if (!memeUrl) return
+    try {
+      const res = await fetch(memeUrl)
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.download = `devmeme-${Date.now()}.jpg`
+      link.href = url
+      link.click()
+      URL.revokeObjectURL(url)
+    } catch {}
   }
 
   if (!open) return null
@@ -133,9 +142,9 @@ export default function MemeGenerator() {
         style={{ background: 'rgba(18,18,24,0.95)', animation: 'meme-in 0.25s cubic-bezier(0.16,1,0.3,1)' }}>
 
         {/* Header */}
-        <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+        <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between flex-shrink-0">
           <div>
-            <h2 className="text-white text-base font-semibold flex items-center gap-2">😂 AI Meme Generator</h2>
+            <h2 className="text-white text-base font-semibold">😂 AI Meme Generator</h2>
             <p className="text-[11px] text-white/30 mt-0.5">Type a tech topic → get a dev meme</p>
           </div>
           <button onClick={() => setOpen(false)} className="text-white/30 hover:text-white/60 transition-colors">
@@ -146,7 +155,7 @@ export default function MemeGenerator() {
         </div>
 
         {/* Input */}
-        <div className="px-6 py-4 border-b border-white/5">
+        <div className="px-6 py-4 border-b border-white/5 flex-shrink-0">
           <div className="flex gap-2">
             <input
               value={topic}
@@ -157,40 +166,41 @@ export default function MemeGenerator() {
             />
             <button onClick={generate} disabled={loading || !topic.trim()}
               className="px-4 py-2.5 rounded-xl bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-40">
-              {loading ? '...' : '🎲 Generate'}
+              {loading ? '...' : '🎲 Go'}
             </button>
           </div>
-          <div className="flex items-center gap-2 mt-2.5 flex-wrap">
+          <div className="flex items-center gap-1.5 mt-2.5 flex-wrap">
             <span className="text-[10px] text-white/20">Try:</span>
-            {SUGGESTIONS.slice(0, 5).map(s => (
-              <button key={s} onClick={() => { setTopic(s); }}
+            {SUGGESTIONS.sort(() => Math.random() - 0.5).slice(0, 5).map(s => (
+              <button key={s} onClick={() => setTopic(s)}
                 className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 hover:text-white/70 hover:bg-white/10 transition-colors">
                 {s}
               </button>
             ))}
-            <button onClick={randomSuggestion} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 hover:text-white/70 transition-colors">
-              🎲 random
-            </button>
           </div>
         </div>
 
         {/* Meme preview */}
         <div className="px-6 py-4 overflow-y-auto flex-1 min-h-0">
-          {!meme && !loading && (
+          {!memeUrl && !loading && (
             <div className="flex flex-col items-center justify-center py-8 gap-2">
               <span className="text-4xl">🖼️</span>
               <p className="text-sm text-white/20">Your meme will appear here</p>
+              <p className="text-[10px] text-white/10">20 templates · AI-powered captions</p>
             </div>
           )}
           {loading && (
-            <div className="flex flex-col items-center justify-center py-10 gap-3">
+            <div className="flex flex-col items-center justify-center py-8 gap-3">
               <div className="w-6 h-6 border-2 border-white/20 border-t-white/60 rounded-full animate-spin" />
               <p className="text-sm text-white/30">AI is cooking your meme...</p>
             </div>
           )}
-          {meme && template && (
+          {memeUrl && (
             <div>
-              <canvas ref={canvasRef} className="w-full max-h-[40vh] object-contain rounded-lg shadow-lg" />
+              <img src={memeUrl} alt="Generated meme" className="w-full max-h-[40vh] object-contain rounded-lg shadow-lg mx-auto" />
+              {templateName && (
+                <p className="text-[10px] text-white/20 text-center mt-2 font-mono">Template: {templateName}</p>
+              )}
               <div className="flex gap-2 mt-3">
                 <button onClick={download}
                   className="flex-1 py-2 rounded-xl bg-white/10 text-white text-xs font-medium hover:bg-white/15 transition-colors">
@@ -198,7 +208,7 @@ export default function MemeGenerator() {
                 </button>
                 <button onClick={generate}
                   className="flex-1 py-2 rounded-xl bg-white/10 text-white text-xs font-medium hover:bg-white/15 transition-colors">
-                  🔄 Regenerate
+                  🔄 New Meme
                 </button>
               </div>
             </div>
@@ -206,8 +216,8 @@ export default function MemeGenerator() {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-2.5 border-t border-white/5 text-center">
-          <span className="text-[10px] text-white/20">Powered by Groq AI + classic meme templates</span>
+        <div className="px-6 py-2.5 border-t border-white/5 text-center flex-shrink-0">
+          <span className="text-[10px] text-white/20">Powered by Groq AI + imgflip</span>
         </div>
       </div>
 
