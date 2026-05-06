@@ -95,6 +95,9 @@ const ACTIONS = [
   { id: 'code-browser', label: 'Browse Source Code', desc: 'VS Code editor with real project files', section: 'AI Tools', icon: '📂', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-code-browser'))
   }, keywords: 'code browser source vscode monaco editor files view read project repository github explore' },
+  { id: 'live-chat', label: 'Live Chat', desc: 'Chat with other visitors in real-time', section: 'Features', icon: '💬', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-live-chat'))
+  }, keywords: 'live chat talk visitors realtime websocket message conversation community room' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
