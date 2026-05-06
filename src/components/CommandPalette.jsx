@@ -92,6 +92,9 @@ const ACTIONS = [
   { id: 'salary-calc', label: 'Salary Calculator', desc: 'India tax: Old vs New regime, EPF, TDS', section: 'AI Tools', icon: '💰', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-salary-calc'))
   }, keywords: 'salary calculator tax india ctc take home pay epf deduction old new regime tds income rupee lakh crore inhand' },
+  { id: 'code-browser', label: 'Browse Source Code', desc: 'VS Code editor with real project files', section: 'AI Tools', icon: '📂', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-code-browser'))
+  }, keywords: 'code browser source vscode monaco editor files view read project repository github explore' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },

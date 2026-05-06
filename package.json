@@ -9,6 +9,7 @@
     "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "@supabase/supabase-js": "^2.105.3",
     "html2canvas": "^1.4.1",
     "qrcode.react": "^4.2.0",
