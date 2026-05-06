@@ -26,6 +26,7 @@ import CarbonCalc from './components/CarbonCalc'
 import SalaryCalc from './components/SalaryCalc'
 import CodeBrowser from './components/CodeBrowser'
 import LiveChat from './components/LiveChat'
+import AmbientMusic from './components/AmbientMusic'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
@@ -105,6 +106,7 @@ export default function App() {
       <SalaryCalc />
       <CodeBrowser />
       <LiveChat />
+      <AmbientMusic />
     </div>
     </>
   )

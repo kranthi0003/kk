@@ -31,37 +31,49 @@ body {
 
 .dark body {
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+}
+
+/* Film grain overlay — Fight Club texture */
+.dark body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
 }
 
 .dark {
-  --color-background: #0a0f1a;
-  --color-foreground: #e2e8f0;
-  --color-card: #111827;
-  --color-card-foreground: #e2e8f0;
-  --color-muted: #1e293b;
-  --color-muted-foreground: #94a3b8;
-  --color-accent: #60a5fa;
-  --color-accent-foreground: #0f172a;
-  --color-border: #1e293b;
-  --color-primary: #e2e8f0;
-  --color-primary-foreground: #0f172a;
+  --color-background: #0c0a09;
+  --color-foreground: #d6cfc4;
+  --color-card: #1a1714;
+  --color-card-foreground: #d6cfc4;
+  --color-muted: #292420;
+  --color-muted-foreground: #8a7e72;
+  --color-accent: #dc2626;
+  --color-accent-foreground: #fef2f2;
+  --color-border: #292420;
+  --color-primary: #d6cfc4;
+  --color-primary-foreground: #0c0a09;
 }
 
-/* Dark mode overrides */
+/* Dark mode Fight Club overrides */
 .dark {
-  --color-background: hsl(222.2 84% 4.9%);
-  --color-foreground: hsl(210 40% 98%);
-  --color-card: hsl(222.2 40% 8%);
-  --color-card-foreground: hsl(210 40% 98%);
-  --color-muted: hsl(217.2 32.6% 17.5%);
-  --color-muted-foreground: hsl(215 20.2% 65.1%);
-  --color-accent: hsl(220 70% 70%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
-  --color-border: hsl(217.2 32.6% 17.5%);
-  --color-primary: hsl(210 40% 98%);
-  --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-background: #0c0a09;
+  --color-foreground: #d6cfc4;
+  --color-card: #1a1714;
+  --color-card-foreground: #d6cfc4;
+  --color-muted: #292420;
+  --color-muted-foreground: #8a7e72;
+  --color-accent: #dc2626;
+  --color-accent-foreground: #fef2f2;
+  --color-border: #292420;
+  --color-primary: #d6cfc4;
+  --color-primary-foreground: #0c0a09;
 }
 
 /* Base styles */
@@ -74,6 +86,16 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Vignette overlay — dark edges like a projector */
+.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
 }
 
 /* Animations */
