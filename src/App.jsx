@@ -20,6 +20,7 @@ import Changelog from './components/Changelog'
 import QRvCard from './components/QRvCard'
 import SpeedTest from './components/SpeedTest'
 import ShareCard from './components/ShareCard'
+import MemeGenerator from './components/MemeGenerator'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
@@ -93,6 +94,7 @@ export default function App() {
       <QRvCard />
       <SpeedTest />
       <ShareCard />
+      <MemeGenerator />
     </div>
     </>
   )

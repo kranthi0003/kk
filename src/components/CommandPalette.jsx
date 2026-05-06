@@ -80,6 +80,9 @@ const ACTIONS = [
     const body = encodeURIComponent('Hi Kranthi,\n\nI came across your portfolio and I\'m impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]')
     window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
   }, keywords: 'hire me recruit job offer email template contact work opportunity position career' },
+  { id: 'meme-gen', label: 'AI Meme Generator', desc: 'Generate dev memes with AI', section: 'AI Tools', icon: '😂', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-meme-gen'))
+  }, keywords: 'meme generator ai funny joke dev developer humor image template drake' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
