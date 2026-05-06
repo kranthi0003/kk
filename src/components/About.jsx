@@ -66,13 +66,13 @@ function GitHubHeatmap() {
 
   return (
     <div>
-      <div className="flex gap-[3px] overflow-x-auto pb-1">
-        {weeks.map((week, wi) => (
+      <div className="flex gap-[3px] overflow-hidden">
+        {weeks.slice(-Math.floor((weeks.length > 26 ? 26 : weeks.length))).map((week, wi) => (
           <div key={wi} className="flex flex-col gap-[3px] flex-shrink-0">
             {week.map((day, di) => (
               <div
                 key={di}
-                className={`w-[11px] h-[11px] rounded-sm ${day ? colors[day.level] || colors[0] : 'bg-transparent'}`}
+                className={`w-[13px] h-[13px] rounded-sm ${day ? colors[day.level] || colors[0] : 'bg-transparent'}`}
                 title={day ? `${day.date}: ${day.count} contributions` : ''}
               />
             ))}
