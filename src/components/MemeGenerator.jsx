@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
 const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
-// Imgflip top meme templates with IDs
+// Imgflip top 60 meme templates
 const TEMPLATES = [
   { id: '181913649', name: 'Drake Hotline Bling' },
   { id: '87743020', name: 'Two Buttons' },
@@ -25,6 +25,46 @@ const TEMPLATES = [
   { id: '180190441', name: 'Bernie Sanders Once Again Asking' },
   { id: '161865971', name: 'Marked Safe From' },
   { id: '119139145', name: 'Blank Nut Button' },
+  { id: '222403160', name: 'Gru Plan' },
+  { id: '247375501', name: 'Buff Doge vs Cheems' },
+  { id: '129242436', name: 'Change My Mind' },
+  { id: '91538330', name: 'X X Everywhere' },
+  { id: '61544', name: 'Success Kid' },
+  { id: '61539', name: 'First World Problems' },
+  { id: '61546', name: 'Brace Yourselves' },
+  { id: '563423', name: 'That Would Be Great' },
+  { id: '61533', name: 'Third World Skeptical Kid' },
+  { id: '61527', name: 'Y U No' },
+  { id: '61556', name: 'Grandma Finds The Internet' },
+  { id: '259237855', name: 'Laughing Leo' },
+  { id: '6235864', name: 'Finding Neverland' },
+  { id: '27813981', name: 'Hide the Pain Harold' },
+  { id: '100777631', name: 'Is This A Pigeon' },
+  { id: '155067746', name: 'Surprised Pikachu' },
+  { id: '226297822', name: 'Panik Kalm Panik' },
+  { id: '195515965', name: 'Clown Applying Makeup' },
+  { id: '196652226', name: 'Spongebob Ight Imma Head Out' },
+  { id: '97984', name: 'Disaster Girl' },
+  { id: '80707627', name: 'Sad Pablo Escobar' },
+  { id: '177682295', name: 'Trade Offer' },
+  { id: '370867422', name: 'Anakin Padme 4 Panel' },
+  { id: '316466202', name: 'Megamind No Bitches' },
+  { id: '309868304', name: 'Trade Offer 2' },
+  { id: '284929871', name: 'They Are The Same Picture' },
+  { id: '322841258', name: 'Anakin Padme Meme' },
+  { id: '123999232', name: 'The Scroll Of Truth' },
+  { id: '102156234', name: 'Mocking Spongebob' },
+  { id: '148909805', name: 'Monkey Puppet' },
+  { id: '61580', name: 'Too Damn High' },
+  { id: '134797956', name: 'American Chopper Argument' },
+  { id: '61585', name: 'Bad Luck Brian' },
+  { id: '21735', name: 'The Most Interesting Man' },
+  { id: '61516', name: 'Confession Bear' },
+  { id: '101288', name: 'Third World Success Kid' },
+  { id: '28251713', name: 'Oprah You Get A' },
+  { id: '61534', name: 'Matrix Morpheus' },
+  { id: '718432', name: 'The Prodigal Son Returns' },
+  { id: '61522', name: 'Futurama Zoidberg' },
 ]
 
 const SUGGESTIONS = [
