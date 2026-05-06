@@ -50,6 +50,7 @@ export default function SalaryCalc() {
   const [section80C, setSection80C] = useState(150000)
   const [nps80CCD, setNps80CCD] = useState(50000)
   const [otherDeductions, setOtherDeductions] = useState(0)
+  const [epfOnMax, setEpfOnMax] = useState(false) // false = capped at 1800/mo, true = 12% of basic
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
@@ -61,10 +62,10 @@ export default function SalaryCalc() {
     const annual = parseFloat(ctc) * (ctc.includes('.') ? 100000 : 1)
     if (!annual || annual < 0) return null
 
-    const stdDeduction = 75000 // FY 2025-26 standard deduction
-    const epfEmployee = Math.min(annual * 0.12, 1800 * 12) // 12% of basic, capped
-    const basicPay = annual * 0.40 // typical 40% of CTC
-    const epfEmployer = Math.min(basicPay * 0.12, 1800 * 12)
+    const stdDeduction = 75000
+    const basicPay = annual * 0.40
+    const epfEmployee = epfOnMax ? basicPay * 0.12 : Math.min(basicPay * 0.12, 1800 * 12)
+    const epfEmployer = epfOnMax ? basicPay * 0.12 : Math.min(basicPay * 0.12, 1800 * 12)
     const gratuity = basicPay * 0.0481
     const professionalTax = 2400 // Karnataka/AP standard
 
@@ -115,7 +116,7 @@ export default function SalaryCalc() {
       effectiveOldRate: ((oldTax / annual) * 100).toFixed(1),
       effectiveNewRate: ((newTax / annual) * 100).toFixed(1),
     }
-  }, [ctc, includeHRA, hraExempt, section80C, nps80CCD, otherDeductions])
+  }, [ctc, includeHRA, hraExempt, section80C, nps80CCD, otherDeductions, epfOnMax])
 
   if (!open) return null
 
@@ -155,6 +156,15 @@ export default function SalaryCalc() {
                   {v}L
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* EPF toggle */}
+          <div className="flex items-center justify-between">
+            <label className="text-[11px] text-white/40">EPF Contribution Base</label>
+            <div className="flex gap-1">
+              <button onClick={() => setEpfOnMax(false)} className={`px-2.5 py-1 rounded-lg text-[10px] font-medium ${!epfOnMax ? 'bg-blue-500 text-white' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>₹1,800/mo cap</button>
+              <button onClick={() => setEpfOnMax(true)} className={`px-2.5 py-1 rounded-lg text-[10px] font-medium ${epfOnMax ? 'bg-blue-500 text-white' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>12% of Basic</button>
             </div>
           </div>
 
