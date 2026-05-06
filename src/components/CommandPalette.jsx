@@ -86,6 +86,9 @@ const ACTIONS = [
   { id: 'dev-calc', label: 'Dev Toolkit', desc: 'Unix, Base64, JWT, Hash, Regex, JSON, Color', section: 'AI Tools', icon: '🧮', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-dev-calc'))
   }, keywords: 'dev toolkit calculator unix timestamp base64 jwt decode url encode hash sha256 json format regex color convert hex rgb developer tools utilities' },
+  { id: 'carbon-calc', label: 'Website Carbon Calculator', desc: 'CO₂ footprint per page visit', section: 'AI Tools', icon: '🌍', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-carbon-calc'))
+  }, keywords: 'carbon calculator website co2 footprint green sustainability environment eco climate emissions energy' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
