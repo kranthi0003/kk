@@ -1,90 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import profile from '../../assets/profile.png'
 
-// GitHub contribution heatmap — fetches real data from GitHub's GraphQL via a proxy
+// GitHub contribution heatmap — uses ghchart for reliable rendering
 function GitHubHeatmap() {
-  const [weeks, setWeeks] = useState([])
-  const [totalContribs, setTotalContribs] = useState(0)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    // Use GitHub's contribution calendar image as fallback via github-contributions-api
-    const cached = sessionStorage.getItem('gh_heatmap')
-    if (cached) {
-      try {
-        const data = JSON.parse(cached)
-        if (Date.now() - data.ts < 600000) {
-          setWeeks(data.weeks)
-          setTotalContribs(data.total)
-          setLoading(false)
-          return
-        }
-      } catch {}
-    }
-
-    fetch('https://github-contributions-api.jogruber.de/v4/kranthi0003?y=last')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(data => {
-        const contribs = data.contributions || []
-        // Group into weeks (7 days each), take last ~20 weeks to fit the card
-        const allDays = contribs.flat ? contribs : contribs
-        const weeksData = []
-        for (let i = 0; i < allDays.length; i += 7) {
-          weeksData.push(allDays.slice(i, i + 7))
-        }
-        const last20 = weeksData.slice(-22)
-        const total = data.total?.lastYear || allDays.reduce((s, d) => s + (d.count || 0), 0)
-        setWeeks(last20)
-        setTotalContribs(total)
-        sessionStorage.setItem('gh_heatmap', JSON.stringify({ ts: Date.now(), weeks: last20, total }))
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
-
-  const getColor = (count) => {
-    if (count === 0) return 'bg-muted/40'
-    if (count <= 2) return 'bg-green-900/40 dark:bg-green-400/20'
-    if (count <= 5) return 'bg-green-700/50 dark:bg-green-400/40'
-    if (count <= 9) return 'bg-green-600/70 dark:bg-green-400/60'
-    return 'bg-green-500 dark:bg-green-400/90'
-  }
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center py-4">
-        <div className="w-4 h-4 border-2 border-muted-foreground/20 border-t-muted-foreground/60 rounded-full animate-spin" />
-      </div>
-    )
-  }
-
-  if (weeks.length === 0) {
-    // Fallback: show the GitHub stats image
-    return (
-      <img
-        src="https://ghchart.rshah.org/2563eb/kranthi0003"
-        alt="GitHub Contributions"
-        className="w-full h-auto rounded opacity-80"
-      />
-    )
-  }
+  const isDark = document.documentElement.classList.contains('dark')
+  const color = isDark ? '60a5fa' : '2563eb'
 
   return (
     <div>
-      <div className="flex gap-[3px] overflow-hidden">
-        {weeks.map((week, wi) => (
-          <div key={wi} className="flex flex-col gap-[3px]">
-            {week.map((day, di) => (
-              <div
-                key={di}
-                className={`w-[10px] h-[10px] rounded-[2px] ${getColor(day.count || 0)}`}
-                title={`${day.date || ''}: ${day.count || 0} contributions`}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-      <p className="text-[10px] text-muted-foreground/50 mt-2 font-mono">{totalContribs} contributions in the last year</p>
+      <img
+        src={`https://ghchart.rshah.org/${color}/kranthi0003`}
+        alt="GitHub Contributions"
+        className="w-full h-auto rounded"
+        loading="lazy"
+      />
     </div>
   )
 }
