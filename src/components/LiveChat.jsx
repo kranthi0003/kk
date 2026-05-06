@@ -168,7 +168,7 @@ export default function LiveChat() {
         ) : (
           <>
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2 min-h-0" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.1) transparent' }}>
+            <div className="flex-1 overflow-y-auto px-4 py-3 min-h-0" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.1) transparent' }}>
               {messages.length === 0 && (
                 <div className="flex flex-col items-center justify-center h-full gap-2 opacity-30">
                   <span className="text-2xl">💬</span>
@@ -177,24 +177,32 @@ export default function LiveChat() {
               )}
               {messages.map((msg, i) => {
                 const isMe = msg.id === visitorId.current
+                const prevMsg = messages[i - 1]
+                const sameSender = prevMsg && prevMsg.id === msg.id
+                const showName = !isMe && !sameSender
+
                 return (
-                  <div key={i} className={`flex gap-2 ${isMe ? 'flex-row-reverse' : ''}`}>
-                    {/* Avatar */}
-                    <div className="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-white"
-                      style={{ background: msg.color }}>
-                      {msg.name.charAt(0).toUpperCase()}
-                    </div>
-                    {/* Bubble */}
-                    <div className={`max-w-[70%] ${isMe ? 'items-end' : ''}`}>
-                      {!isMe && <p className="text-[10px] mb-0.5 font-medium" style={{ color: msg.color }}>{msg.name}</p>}
-                      <div className={`px-3 py-2 rounded-2xl text-[13px] leading-snug ${
-                        isMe
-                          ? 'bg-blue-500 text-white rounded-tr-sm'
-                          : 'bg-white/8 text-white/80 rounded-tl-sm'
-                      }`}>
-                        {msg.text}
+                  <div key={i} className={`flex flex-col ${isMe ? 'items-end' : 'items-start'} ${sameSender ? 'mt-0.5' : 'mt-3'}`}>
+                    {/* Name tag for others */}
+                    {showName && (
+                      <div className="flex items-center gap-1.5 mb-1 px-1">
+                        <div className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[8px] font-bold text-white"
+                          style={{ background: msg.color }}>
+                          {msg.name.charAt(0).toUpperCase()}
+                        </div>
+                        <span className="text-[11px] font-medium" style={{ color: msg.color }}>{msg.name}</span>
                       </div>
-                      <p className="text-[9px] text-white/15 mt-0.5 px-1">{timeStr(msg.ts)}</p>
+                    )}
+                    {/* Bubble */}
+                    <div className={`max-w-[75%] px-3.5 py-2 text-[13px] leading-relaxed ${
+                      isMe
+                        ? 'bg-blue-500 text-white rounded-2xl rounded-br-md'
+                        : 'bg-white/[0.06] text-white/85 rounded-2xl rounded-bl-md'
+                    }`}>
+                      <span>{msg.text}</span>
+                      <span className={`text-[9px] ml-2 inline-block align-bottom ${isMe ? 'text-white/40' : 'text-white/20'}`}>
+                        {timeStr(msg.ts)}
+                      </span>
                     </div>
                   </div>
                 )
