@@ -31,16 +31,41 @@ function getLang(name) {
 
 export default function CodeBrowser() {
   const [open, setOpen] = useState(false)
+  const [phase, setPhase] = useState('idle') // idle, booting, ready, closing
   const [tree, setTree] = useState([])
   const [expandedDirs, setExpandedDirs] = useState(new Set(['src', 'src/components']))
   const [selectedFile, setSelectedFile] = useState(null)
   const [fileContent, setFileContent] = useState('')
   const [loading, setLoading] = useState(false)
   const [treeLoading, setTreeLoading] = useState(true)
+  const [bootLines, setBootLines] = useState([])
+
+  const handleOpen = () => {
+    setOpen(true)
+    setPhase('booting')
+    setBootLines([])
+    const lines = [
+      '> Connecting to github.com...',
+      '> Fetching repository tree...',
+      '> kranthi0003/kranthi-kiran-site',
+      '> Loading Monaco editor...',
+      '> Mounting file system...',
+      '> Ready.',
+    ]
+    lines.forEach((line, i) => {
+      setTimeout(() => setBootLines(prev => [...prev, line]), i * 200)
+    })
+    setTimeout(() => setPhase('ready'), lines.length * 200 + 300)
+  }
+
+  const handleClose = () => {
+    setPhase('closing')
+    setTimeout(() => { setOpen(false); setPhase('idle') }, 400)
+  }
 
   useEffect(() => {
-    const handler = () => setOpen(o => !o)
-    const escHandler = (e) => { if (e.key === 'Escape' && open) setOpen(false) }
+    const handler = () => { if (!open) handleOpen(); else handleClose() }
+    const escHandler = (e) => { if (e.key === 'Escape' && open) handleClose() }
     window.addEventListener('toggle-code-browser', handler)
     window.addEventListener('keydown', escHandler)
     return () => {
@@ -200,12 +225,33 @@ export default function CodeBrowser() {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-[200] flex flex-col" style={{ background: '#1e1e2e' }}>
+    <div className={`fixed inset-0 z-[200] flex flex-col transition-opacity duration-300 ${phase === 'closing' ? 'opacity-0' : 'opacity-100'}`} style={{ background: '#1e1e2e' }}>
+
+      {/* Boot animation */}
+      {phase === 'booting' && (
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-[400px] max-w-[90vw]">
+            <div className="font-mono text-sm space-y-1.5">
+              {bootLines.map((line, i) => (
+                <p key={i} className={`${line.includes('Ready') ? 'text-green-400' : 'text-white/50'}`}
+                  style={{ animation: 'fade-line 0.2s ease-out' }}>
+                  {line}
+                </p>
+              ))}
+              <span className="inline-block w-2 h-4 bg-white/60 animate-pulse" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main editor — only show when ready */}
+      {phase === 'ready' && (
+        <>
 
       {/* Title bar — VS Code style */}
-      <div className="flex items-center px-4 py-2 bg-[#181825] border-b border-white/5 flex-shrink-0">
+      <div className="flex items-center px-4 py-2 bg-[#181825] border-b border-white/5 flex-shrink-0" style={{ animation: 'slide-down 0.3s ease-out' }}>
         {/* Back button */}
-        <button onClick={() => setOpen(false)} className="flex items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors mr-4 px-2 py-1 rounded hover:bg-white/5">
+        <button onClick={handleClose} className="flex items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors mr-4 px-2 py-1 rounded hover:bg-white/5">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -235,7 +281,7 @@ export default function CodeBrowser() {
             className="text-[11px] text-white/30 hover:text-white/60 transition-colors px-2.5 py-1 rounded hover:bg-white/5 flex items-center gap-1">
             🐙 Open in GitHub
           </a>
-          <button onClick={() => setOpen(false)} className="text-white/30 hover:text-white/60 transition-colors p-1 rounded hover:bg-white/5">
+          <button onClick={handleClose} className="text-white/30 hover:text-white/60 transition-colors p-1 rounded hover:bg-white/5">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -299,6 +345,14 @@ export default function CodeBrowser() {
           {selectedFile && <span>{getLang(selectedFile)}</span>}
           <span className="ml-auto">Read Only · ESC to exit</span>
         </div>
+
+        </>
+      )}
+
+      <style>{`
+        @keyframes fade-line { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-down { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+      `}</style>
     </div>
   )
 }
