@@ -215,7 +215,7 @@ export default function MemeGenerator() {
             <div className="flex flex-col items-center justify-center py-8 gap-2">
               <span className="text-4xl">🖼️</span>
               <p className="text-sm text-white/20">Your meme will appear here</p>
-              <p className="text-[10px] text-white/10">20 templates · AI-powered captions</p>
+              <p className="text-[10px] text-white/10">60 templates · AI-powered captions</p>
             </div>
           )}
           {loading && (
