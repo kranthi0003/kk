@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
 const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
@@ -83,6 +83,7 @@ export default function MemeGenerator() {
   const [memeUrl, setMemeUrl] = useState(null)
   const [caption, setCaption] = useState(null)
   const [templateName, setTemplateName] = useState('')
+  const canvasRef = useRef()
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
@@ -133,44 +134,82 @@ export default function MemeGenerator() {
       const parsed = JSON.parse(match[0])
       setCaption(parsed)
 
-      // Step 2: Use imgflip API to generate the actual meme image
-      const formData = new URLSearchParams()
-      formData.append('template_id', tmpl.id)
-      formData.append('username', 'kranthimemes')
-      formData.append('password', 'meme2024!')
-      formData.append('text0', parsed.top || '')
-      formData.append('text1', parsed.bottom || '')
+      // Render meme: load template image + draw text with canvas
+      const img = new Image()
+      img.crossOrigin = 'anonymous'
+      img.onload = () => {
+        const canvas = canvasRef.current
+        if (!canvas) return
+        const ctx = canvas.getContext('2d')
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx.drawImage(img, 0, 0)
 
-      const imgRes = await fetch('https://api.imgflip.com/caption_image', {
-        method: 'POST',
-        body: formData,
-      })
-      const imgData = await imgRes.json()
+        // Meme text style — Impact font with black stroke
+        const fontSize = Math.max(Math.min(img.width / 12, 48), 20)
+        ctx.font = `bold ${fontSize}px Impact, Arial Black, sans-serif`
+        ctx.textAlign = 'center'
+        ctx.lineWidth = fontSize / 6
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = 'white'
+        ctx.lineJoin = 'round'
 
-      if (imgData.success) {
-        setMemeUrl(imgData.data.url)
-      } else {
-        // Fallback: use imgflip template preview with overlay text
+        // Word-wrap helper
+        const wrapText = (text, maxWidth) => {
+          const words = text.split(' ')
+          const lines = []
+          let line = ''
+          words.forEach(w => {
+            const test = line ? line + ' ' + w : w
+            if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w }
+            else line = test
+          })
+          if (line) lines.push(line)
+          return lines
+        }
+
+        const maxW = img.width * 0.9
+
+        // Top text
+        if (parsed.top) {
+          const lines = wrapText(parsed.top.toUpperCase(), maxW)
+          lines.forEach((line, i) => {
+            const y = fontSize + 10 + i * (fontSize + 4)
+            ctx.strokeText(line, img.width / 2, y)
+            ctx.fillText(line, img.width / 2, y)
+          })
+        }
+
+        // Bottom text
+        if (parsed.bottom) {
+          const lines = wrapText(parsed.bottom.toUpperCase(), maxW)
+          const startY = img.height - 15 - (lines.length - 1) * (fontSize + 4)
+          lines.forEach((line, i) => {
+            const y = startY + i * (fontSize + 4)
+            ctx.strokeText(line, img.width / 2, y)
+            ctx.fillText(line, img.width / 2, y)
+          })
+        }
+
+        setMemeUrl(canvas.toDataURL('image/png'))
+      }
+      img.onerror = () => {
+        // If CORS fails, show template without text
         setMemeUrl(`https://i.imgflip.com/${tmpl.id}.jpg`)
       }
+      img.src = `https://i.imgflip.com/${tmpl.id}.jpg`
     } catch (e) {
       console.error('Meme gen failed:', e)
     }
     setLoading(false)
   }
 
-  const download = async () => {
+  const download = () => {
     if (!memeUrl) return
-    try {
-      const res = await fetch(memeUrl)
-      const blob = await res.blob()
-      const url = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.download = `devmeme-${Date.now()}.jpg`
-      link.href = url
-      link.click()
-      URL.revokeObjectURL(url)
-    } catch {}
+    const link = document.createElement('a')
+    link.download = `devmeme-${Date.now()}.png`
+    link.href = memeUrl
+    link.click()
   }
 
   if (!open) return null
@@ -257,9 +296,12 @@ export default function MemeGenerator() {
 
         {/* Footer */}
         <div className="px-6 py-2.5 border-t border-white/5 text-center flex-shrink-0">
-          <span className="text-[10px] text-white/20">Powered by Groq AI + imgflip</span>
+          <span className="text-[10px] text-white/20">Powered by Groq AI + imgflip templates</span>
         </div>
       </div>
+
+      {/* Hidden canvas for rendering */}
+      <canvas ref={canvasRef} className="hidden" />
 
       <style>{`
         @keyframes meme-in {
