@@ -53,9 +53,9 @@ export default function CodeBrowser() {
       '> Ready.',
     ]
     lines.forEach((line, i) => {
-      setTimeout(() => setBootLines(prev => [...prev, line]), i * 200)
+      setTimeout(() => setBootLines(prev => [...prev, line]), i * 400)
     })
-    setTimeout(() => setPhase('ready'), lines.length * 200 + 300)
+    setTimeout(() => setPhase('ready'), lines.length * 400 + 500)
   }
 
   const handleClose = () => {
