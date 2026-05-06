@@ -50,7 +50,8 @@ export default function SalaryCalc() {
   const [section80C, setSection80C] = useState(150000)
   const [nps80CCD, setNps80CCD] = useState(50000)
   const [otherDeductions, setOtherDeductions] = useState(0)
-  const [epfOnMax, setEpfOnMax] = useState(false) // false = capped at 1800/mo, true = 12% of basic
+  const [epfOnMax, setEpfOnMax] = useState(false)
+  const [basicPct, setBasicPct] = useState(40)
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
@@ -63,7 +64,7 @@ export default function SalaryCalc() {
     if (!annual || annual < 0) return null
 
     const stdDeduction = 75000
-    const basicPay = annual * 0.40
+    const basicPay = annual * (basicPct / 100)
     const epfEmployee = epfOnMax ? basicPay * 0.12 : Math.min(basicPay * 0.12, 1800 * 12)
     const epfEmployer = epfOnMax ? basicPay * 0.12 : Math.min(basicPay * 0.12, 1800 * 12)
     const gratuity = basicPay * 0.0481
@@ -116,7 +117,7 @@ export default function SalaryCalc() {
       effectiveOldRate: ((oldTax / annual) * 100).toFixed(1),
       effectiveNewRate: ((newTax / annual) * 100).toFixed(1),
     }
-  }, [ctc, includeHRA, hraExempt, section80C, nps80CCD, otherDeductions, epfOnMax])
+  }, [ctc, includeHRA, hraExempt, section80C, nps80CCD, otherDeductions, epfOnMax, basicPct])
 
   if (!open) return null
 
@@ -155,6 +156,16 @@ export default function SalaryCalc() {
                   className={`px-2 py-0.5 rounded text-[10px] ${ctc === (parseFloat(v)*100000).toString() ? 'bg-blue-500 text-white' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>
                   {v}L
                 </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Basic % + EPF toggle */}
+          <div className="flex items-center justify-between">
+            <label className="text-[11px] text-white/40">Basic Pay %</label>
+            <div className="flex gap-1">
+              {[30, 35, 40, 45, 50].map(p => (
+                <button key={p} onClick={() => setBasicPct(p)} className={`px-2 py-0.5 rounded text-[10px] font-medium ${basicPct === p ? 'bg-blue-500 text-white' : 'bg-white/5 text-white/40 hover:bg-white/10'}`}>{p}%</button>
               ))}
             </div>
           </div>
@@ -254,7 +265,7 @@ export default function SalaryCalc() {
               <div className="bg-white/[0.03] border border-white/5 rounded-xl p-4">
                 <p className="text-[11px] text-white/30 font-semibold uppercase tracking-wider mb-3">CTC Components</p>
                 <div className="space-y-2">
-                  <BreakdownRow label="Basic Pay (40%)" value={result.basicPay} />
+                  <BreakdownRow label={`Basic Pay (${basicPct}%)`} value={result.basicPay} />
                   <BreakdownRow label="EPF (Employer)" value={result.epfEmployer} />
                   <BreakdownRow label="Gratuity" value={result.gratuity} />
                   <BreakdownRow label="Other Allowances" value={result.annual - result.basicPay - result.epfEmployer - result.gratuity} />
