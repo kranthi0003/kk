@@ -259,20 +259,27 @@ html.theme-fightclub body::before {
 }
 /* Fight Club: random glitch flicker on headings */
 html.theme-fightclub h1, html.theme-fightclub h2 {
-  animation: fc-glitch 8s infinite;
+  animation: fc-glitch 4s infinite;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
 }
 @keyframes fc-glitch {
-  0%, 97%, 100% { text-shadow: none; transform: none; }
-  97.5% { text-shadow: -2px 0 #dc2626, 2px 0 #00f0ff; transform: skewX(-2deg); }
-  98% { text-shadow: 2px 0 #dc2626, -2px 0 #00f0ff; transform: skewX(1deg); }
-  98.5% { text-shadow: none; transform: none; }
+  0%, 94%, 100% { text-shadow: none; transform: none; }
+  95% { text-shadow: -3px 0 #dc2626, 3px 0 #00f0ff; transform: skewX(-3deg); }
+  96% { text-shadow: 3px 0 #dc2626, -3px 0 #00f0ff; transform: skewX(2deg); }
+  97% { text-shadow: -1px 0 #dc2626; transform: skewX(-1deg); }
+  98% { text-shadow: none; transform: none; }
 }
 /* Fight Club: cards have rough edges feel */
 html.theme-fightclub .rounded-2xl {
-  border-radius: 4px !important;
+  border-radius: 2px !important;
+  border-color: rgba(220,38,38,0.15) !important;
 }
 html.theme-fightclub * {
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+}
+html.theme-fightclub img {
+  filter: grayscale(30%) contrast(1.1);
 }
 
 /* F1 Racing — dark carbon, neon red, speed lines */
@@ -301,24 +308,45 @@ html.theme-f1 body::before {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
   z-index: 9997;
   pointer-events: none;
-  background: linear-gradient(180deg, #e10600, #ff6b00, #e10600);
-  animation: f1-stripe 2s linear infinite;
+  background: linear-gradient(180deg, #e10600 0%, #ff6b00 50%, #e10600 100%);
+  background-size: 100% 200px;
+  animation: f1-stripe 1s linear infinite;
 }
 @keyframes f1-stripe {
   0% { background-position: 0 0; }
   100% { background-position: 0 200px; }
 }
+/* F1: right stripe too */
+html.theme-f1 body::after {
+  content: '';
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  z-index: 9997;
+  pointer-events: none;
+  background: linear-gradient(180deg, #e10600 0%, #ff6b00 50%, #e10600 100%);
+  background-size: 100% 200px;
+  animation: f1-stripe 1s linear infinite reverse;
+}
 /* F1: sections slide in faster */
 html.theme-f1 .section-animate {
-  transition: opacity 0.2s, transform 0.2s !important;
+  transition: opacity 0.15s, transform 0.15s !important;
 }
 /* F1: hover cards tilt slightly (speed feel) */
 html.theme-f1 .rounded-2xl:hover {
-  transform: perspective(800px) rotateY(-1deg) !important;
-  transition: transform 0.2s !important;
+  transform: perspective(800px) rotateY(-2deg) scale(1.01) !important;
+  transition: transform 0.15s !important;
+  border-color: rgba(225,6,0,0.2) !important;
+}
+/* F1: headings feel fast */
+html.theme-f1 h1, html.theme-f1 h2 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
 }
 
 /* Cyberpunk — neon purple/cyan on dark */
@@ -348,20 +376,30 @@ html.theme-cyberpunk body::after {
 }
 /* Cyberpunk: neon glow on headings */
 html.theme-cyberpunk h1, html.theme-cyberpunk h2 {
-  text-shadow: 0 0 10px rgba(0,240,255,0.3), 0 0 40px rgba(0,240,255,0.1);
+  text-shadow: 0 0 10px rgba(0,240,255,0.4), 0 0 40px rgba(0,240,255,0.15), 0 0 80px rgba(0,240,255,0.05);
+  animation: cyber-flicker 5s infinite;
+}
+@keyframes cyber-flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.8; }
+  97% { opacity: 1; }
+  98% { opacity: 0.9; }
 }
 /* Cyberpunk: cards have neon border glow on hover */
+html.theme-cyberpunk .rounded-2xl {
+  transition: box-shadow 0.3s, border-color 0.3s !important;
+}
 html.theme-cyberpunk .rounded-2xl:hover {
-  box-shadow: 0 0 15px rgba(0,240,255,0.15), 0 0 30px rgba(0,240,255,0.05) !important;
-  border-color: rgba(0,240,255,0.3) !important;
+  box-shadow: 0 0 20px rgba(0,240,255,0.2), 0 0 40px rgba(0,240,255,0.08), inset 0 0 20px rgba(0,240,255,0.03) !important;
+  border-color: rgba(0,240,255,0.4) !important;
 }
 /* Cyberpunk: pulsing neon accent */
 html.theme-cyberpunk .text-accent {
-  animation: cyber-pulse 3s ease-in-out infinite;
+  animation: cyber-pulse 2s ease-in-out infinite;
 }
 @keyframes cyber-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; text-shadow: 0 0 8px rgba(0,240,255,0.5); }
+  0%, 100% { opacity: 1; text-shadow: 0 0 5px rgba(0,240,255,0.3); }
+  50% { opacity: 0.75; text-shadow: 0 0 15px rgba(0,240,255,0.6); }
 }
 /* Cyberpunk: flicker effect on borders */
 html.theme-cyberpunk body::before {
@@ -437,7 +475,9 @@ html.theme-ocean body::before {
   inset: 0;
   z-index: 9996;
   pointer-events: none;
-  background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.08) 0%, transparent 60%);
+  background: 
+    radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.05) 0%, transparent 40%);
 }
 /* Ocean: smooth floating animations (everything bobs gently) */
 html.theme-ocean .section-animate.in-view {
@@ -445,11 +485,28 @@ html.theme-ocean .section-animate.in-view {
 }
 @keyframes ocean-bob {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
 }
 /* Ocean: cards have a frosted glass feel */
 html.theme-ocean .rounded-2xl {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  border-color: rgba(6,182,212,0.1) !important;
+}
+html.theme-ocean .rounded-2xl:hover {
+  border-color: rgba(6,182,212,0.25) !important;
+  box-shadow: 0 4px 30px rgba(6,182,212,0.08) !important;
+}
+/* Ocean: headings have a wave shimmer */
+html.theme-ocean h1, html.theme-ocean h2 {
+  background: linear-gradient(90deg, #c8dbe8, #06b6d4, #c8dbe8);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ocean-shimmer 4s ease-in-out infinite;
+}
+@keyframes ocean-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* Dracula — purple-based dark theme, bat vibes */
@@ -473,14 +530,21 @@ html.theme-dracula body::before {
   inset: 0;
   z-index: 9996;
   pointer-events: none;
-  background: radial-gradient(ellipse at 20% 10%, rgba(189,147,249,0.05) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 90%, rgba(255,121,198,0.04) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 20% 10%, rgba(189,147,249,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 90%, rgba(255,121,198,0.06) 0%, transparent 50%);
 }
 /* Dracula: syntax-colored accents on headings */
-html.theme-dracula h1 { color: #bd93f9; }
-html.theme-dracula h2 { color: #8be9fd; }
-html.theme-dracula h3 { color: #50fa7b; }
+html.theme-dracula h1 { color: #bd93f9 !important; }
+html.theme-dracula h2 { color: #8be9fd !important; }
+html.theme-dracula h3 { color: #50fa7b !important; }
 /* Dracula: smooth hover glow */
 html.theme-dracula .rounded-2xl:hover {
-  box-shadow: 0 0 20px rgba(189,147,249,0.1) !important;
+  box-shadow: 0 0 25px rgba(189,147,249,0.12), 0 0 50px rgba(189,147,249,0.04) !important;
+  border-color: rgba(189,147,249,0.2) !important;
+}
+/* Dracula: gradient accent text */
+html.theme-dracula .text-accent {
+  background: linear-gradient(135deg, #bd93f9, #ff79c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
