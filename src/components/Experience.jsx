@@ -1,6 +1,5 @@
 import React from 'react'
 import awsLogo from '../../assets/aws.png'
-import growwLogo from '../../assets/groww.png'
 import couchbaseLogo from '../../assets/couchbase.png'
 import githubLogo from '../../assets/github.png'
 
@@ -27,21 +26,11 @@ const experiences = [
     description: 'Enterprise NoSQL support for Netflix, Apple & Salesforce.',
   },
   {
-    logo: growwLogo,
-    title: 'PSE – II',
-    company: 'Groww',
-    location: 'Bengaluru',
-    period: '2024 – 2025',
-    companyUrl: 'https://groww.in',
-    color: '#22c55e',
-    description: 'Platform engineering for India\'s fastest growing fintech.',
-  },
-  {
     logo: awsLogo,
     title: 'Cloud Engineer',
     company: 'Amazon',
     location: 'Hyderabad',
-    period: '2021 – 2024',
+    period: '2021 – 2025',
     companyUrl: 'https://aws.amazon.com',
     color: '#f59e0b',
     description: 'Distributed systems at scale serving millions of customers.',

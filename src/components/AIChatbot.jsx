@@ -19,17 +19,14 @@ BASICS:
 - On GitHub since: February 2019
 
 WORK EXPERIENCE (chronological):
-1. Cloud Engineer at Amazon Web Services (2021-2024, ~3 years)
+1. Cloud Engineer at Amazon Web Services (2021-2025, ~4 years)
    - Worked on distributed systems at scale serving millions of customers
    - Deep expertise in AWS cloud infrastructure
-2. PSE-II (Product Support Engineer) at Groww (2024-2025)
-   - Platform engineering for India's fastest growing fintech
-   - Worked on backend systems powering stock trading & mutual funds
-3. SE-II (Software Engineer) at Couchbase (2025-2026)
+2. SE-II (Software Engineer) at Couchbase (2025-2026)
    - Enterprise NoSQL database support
    - Worked with clients like Netflix, Apple & Salesforce
    - Earned 3 Couchbase certifications during tenure
-4. SE-III (Software Engineer 3) at GitHub / Microsoft (2026-Present)
+3. SE-III (Software Engineer 3) at GitHub / Microsoft (2026-Present)
    - Distributed systems, Git internals & platform reliability at scale
    - Working on support engineering excellence and automation
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react'
 const ACTIONS = [
   // Navigate — all site sections
   { id: 'home', label: 'Home', desc: 'Go to top / hero', section: 'Navigate', icon: '🏠', action: () => scrollTo('home'), keywords: 'top hero start landing intro welcome banner' },
-  { id: 'experience', label: 'Experience', desc: 'Work history & career', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs amazon groww couchbase github microsoft companies employment history resume timeline' },
+  { id: 'experience', label: 'Experience', desc: 'Work history & career', section: 'Navigate', icon: '💼', action: () => scrollTo('experience'), keywords: 'work career jobs amazon couchbase github microsoft companies employment history resume timeline' },
   { id: 'techstack', label: 'Skills & Certifications', desc: 'Tech stack & credentials', section: 'Navigate', icon: '🛠️', action: () => scrollTo('techstack'), keywords: 'tech stack tools skills certifications credentials certificates aws azure kubernetes docker java python react node javascript typescript go rust' },
   { id: 'about', label: 'About', desc: 'Bio, Spotify, clock, Instagram', section: 'Navigate', icon: '👤', action: () => scrollTo('about'), keywords: 'bio me info profile personal about bento grid spotify clock instagram quote stats currently' },
   { id: 'terminal', label: 'Terminal', desc: 'AI shell translator & games', section: 'Navigate', icon: '💻', action: () => scrollTo('terminal'), keywords: 'cli shell ai terminal command translate linux bash zsh powershell architecture diagram design system' },
@@ -37,7 +37,7 @@ const ACTIONS = [
   { id: 'who', label: 'SE-III at GitHub | Microsoft', desc: 'Current role', section: 'Quick Info', icon: '👋', action: () => scrollTo('home'), keywords: 'who kranthi role what does he do software engineer title position job designation' },
   { id: 'location', label: 'Visakhapatnam, India', desc: 'Location', section: 'Quick Info', icon: '📍', action: () => scrollTo('about'), keywords: 'where location city country vizag andhra pradesh india address based' },
   { id: 'email-info', label: 'Copy Email', desc: 'kranthikiranakkumahanthi@gmail.com', section: 'Quick Info', icon: '✉️', action: () => { navigator.clipboard.writeText('kranthikiranakkumahanthi@gmail.com'); }, keywords: 'email address copy contact gmail mail' },
-  { id: 'exp-years', label: '4+ Years Experience', desc: 'Amazon → Groww → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked sde swe engineer total how long' },
+  { id: 'exp-years', label: '4+ Years Experience', desc: 'Amazon → Couchbase → GitHub', section: 'Quick Info', icon: '📊', action: () => scrollTo('experience'), keywords: 'experience years companies worked sde swe engineer total how long' },
   { id: 'education', label: 'GITAM University', desc: 'B.Tech Computer Science', section: 'Quick Info', icon: '🎓', action: () => scrollTo('about'), keywords: 'education college university degree btech computer science gitam school study' },
 
   // Actions
