@@ -129,7 +129,7 @@ export default function MemeGenerator() {
   return (
     <>
       <div className="fixed inset-0 z-[150] bg-black/50 backdrop-blur-md" onClick={() => setOpen(false)} />
-      <div className="fixed top-[5%] left-1/2 -translate-x-1/2 z-[151] w-[480px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+      <div className="fixed top-[5%] left-1/2 -translate-x-1/2 z-[151] w-[480px] max-w-[calc(100vw-2rem)] max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col"
         style={{ background: 'rgba(18,18,24,0.95)', animation: 'meme-in 0.25s cubic-bezier(0.16,1,0.3,1)' }}>
 
         {/* Header */}
@@ -175,9 +175,9 @@ export default function MemeGenerator() {
         </div>
 
         {/* Meme preview */}
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 overflow-y-auto flex-1 min-h-0">
           {!meme && !loading && (
-            <div className="flex flex-col items-center justify-center py-10 gap-2">
+            <div className="flex flex-col items-center justify-center py-8 gap-2">
               <span className="text-4xl">🖼️</span>
               <p className="text-sm text-white/20">Your meme will appear here</p>
             </div>
@@ -190,7 +190,7 @@ export default function MemeGenerator() {
           )}
           {meme && template && (
             <div>
-              <canvas ref={canvasRef} className="w-full rounded-lg shadow-lg" />
+              <canvas ref={canvasRef} className="w-full max-h-[40vh] object-contain rounded-lg shadow-lg" />
               <div className="flex gap-2 mt-3">
                 <button onClick={download}
                   className="flex-1 py-2 rounded-xl bg-white/10 text-white text-xs font-medium hover:bg-white/15 transition-colors">
