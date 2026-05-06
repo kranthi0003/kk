@@ -16,6 +16,10 @@ function applyTheme(id) {
     document.documentElement.classList.add(`theme-${id}`)
     if (id !== 'vintage') document.documentElement.classList.add('dark')
     else document.documentElement.classList.remove('dark')
+  } else {
+    // Default: restore dark mode
+    document.documentElement.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
   }
   localStorage.setItem('site_theme_mode', id)
 }
@@ -30,6 +34,10 @@ if (saved !== 'default') {
   THEMES.forEach(t => document.documentElement.classList.remove(`theme-${t.id}`))
   document.documentElement.classList.add(`theme-${saved}`)
   if (saved !== 'vintage') document.documentElement.classList.add('dark')
+} else {
+  // Default theme: respect saved dark/light preference, default to dark
+  const lightPref = localStorage.getItem('theme') === 'light'
+  if (!lightPref) document.documentElement.classList.add('dark')
 }
 
 export default function ThemeModePicker() {
