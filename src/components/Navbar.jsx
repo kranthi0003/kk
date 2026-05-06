@@ -668,6 +668,32 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               )
             })}
           </div>
+          {/* Action grid */}
+          <div className="px-6 pt-2 pb-4 border-t border-border/20">
+            <p className="text-[10px] text-muted-foreground/40 uppercase tracking-wider mb-2 font-semibold">Quick Actions</p>
+            <div className="grid grid-cols-4 gap-2">
+              {[
+                { icon: '🧮', label: 'Dev Tools', action: () => window.dispatchEvent(new CustomEvent('toggle-dev-calc')) },
+                { icon: '📂', label: 'Source', action: () => window.dispatchEvent(new CustomEvent('toggle-code-browser')) },
+                { icon: '📋', label: 'Changelog', action: () => window.dispatchEvent(new CustomEvent('toggle-changelog')) },
+                { icon: '🤖', label: 'AI Chat', action: () => document.querySelector('[data-chatbot-btn]')?.click() },
+                { icon: '📱', label: 'QR Card', action: () => window.dispatchEvent(new CustomEvent('toggle-qr-vcard')) },
+                { icon: '😂', label: 'Meme Gen', action: () => window.dispatchEvent(new CustomEvent('toggle-meme-gen')) },
+                { icon: '📖', label: 'Read Mode', action: () => document.body.classList.toggle('reading-mode') },
+                { icon: '⚡', label: 'Speed', action: () => window.dispatchEvent(new CustomEvent('toggle-speed-test')) },
+                { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
+                { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
+                { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
+                { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
+              ].map(a => (
+                <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
+                  className="flex flex-col items-center gap-1 py-2.5 rounded-xl bg-muted/30 hover:bg-muted/60 transition-colors">
+                  <span className="text-lg">{a.icon}</span>
+                  <span className="text-[9px] text-muted-foreground/60 font-medium">{a.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </nav>
