@@ -5,9 +5,9 @@ import TypingText from './TypingText'
 
 export default function Hero({ onResumeClick }) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-28 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 md:pt-28 overflow-hidden">
       {/* Satellite backdrop — starts below both navbar lines */}
-      <div className="absolute inset-x-0 top-28 h-[35%] z-0 overflow-hidden">
+      <div className="absolute inset-x-0 top-24 md:top-28 h-[30%] md:h-[35%] z-0 overflow-hidden">
         <img
           src={satellite}
           alt=""
@@ -23,28 +23,28 @@ export default function Hero({ onResumeClick }) {
         <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-background to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-8 md:py-12 lg:py-20 text-center w-full">
         {/* Profile Photo — sits at the split point */}
-        <div className="mb-8 animate-fade-in-up">
+        <div className="mb-4 md:mb-6 lg:mb-8 animate-fade-in-up">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-primary/20 rounded-full blur-2xl animate-pulse" />
             <div className="relative p-1 rounded-full bg-gradient-to-br from-accent via-primary to-accent animate-float">
               <img
                 src={profile}
                 alt="Kranthi Kiran"
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover shadow-2xl mx-auto border-4 border-background"
+                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-full object-cover shadow-2xl mx-auto border-4 border-background"
               />
             </div>
           </div>
         </div>
 
-        <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-3 md:mb-4 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           Hey, I'm{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
             Kranthi
           </span>
         </h1>
-        <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl text-accent mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <h2 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl text-accent mb-4 md:mb-6 lg:mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
           <TypingText
             phrases={['Cloud Engineer', 'Infrastructure Builder', 'Distributed Systems Nerd', 'GitHub Engineer']}
             typingSpeed={120}
@@ -52,41 +52,41 @@ export default function Hero({ onResumeClick }) {
             pauseDuration={2500}
           />
         </h2>
-        <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <p className="font-body text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto mb-3 md:mb-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           I love building reliable infrastructure, taming distributed systems,
           and crafting tools that make engineering teams more productive.
         </p>
-        <div className="flex items-center justify-center gap-2 mb-8 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
+        <div className="flex items-center justify-center gap-2 mb-4 md:mb-6 lg:mb-8 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
           </span>
-          <span className="text-sm text-muted-foreground">Currently at</span>
-          <span className="font-semibold text-sm bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+          <span className="text-xs sm:text-sm text-muted-foreground">Currently at</span>
+          <span className="font-semibold text-xs sm:text-sm bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
             GitHub | Microsoft
           </span>
         </div>
-        <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <div className="flex flex-wrap gap-3 md:gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
           <button
             onClick={onResumeClick}
             data-resume-btn
-            className="px-6 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover-lift shadow-lg transition-all"
+            className="px-5 py-2.5 md:px-6 md:py-3 rounded-xl bg-accent text-accent-foreground font-semibold text-sm md:text-base hover-lift shadow-lg transition-all"
           >
             View Resume
           </button>
           <a
             href="#connect"
-            className="px-6 py-3 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all hover-lift"
+            className="px-5 py-2.5 md:px-6 md:py-3 rounded-xl border-2 border-primary text-primary font-semibold text-sm md:text-base hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all hover-lift"
           >
             Get in Touch
           </a>
         </div>
 
         {/* Code features CTA */}
-        <div className="mt-8 flex flex-wrap gap-3 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+        <div className="mt-4 md:mt-6 lg:mt-8 flex flex-wrap gap-3 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
             onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-foreground text-background font-bold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl bg-foreground text-background font-bold text-xs md:text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <span>👥</span>
             <span>Collab Editor</span>
@@ -95,13 +95,13 @@ export default function Hero({ onResumeClick }) {
           </button>
           <button
             onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
-            className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl border-2 border-foreground/20 text-foreground font-bold text-sm hover:bg-foreground/5 hover:scale-105 transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl border-2 border-foreground/20 text-foreground font-bold text-xs md:text-sm hover:bg-foreground/5 hover:scale-105 transition-all duration-300"
           >
             <span>⚔️</span>
             <span>1v1 Code Battle</span>
           </button>
         </div>
-        <p className="text-xs text-muted-foreground/40 mt-2 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>code together or race against a friend — in your browser</p>
+        <p className="text-[10px] md:text-xs text-muted-foreground/40 mt-2 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>code together or race against a friend — in your browser</p>
       </div>
     </section>
   )
