@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, lazy, Suspense, useMemo } from 'react'
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import supabase from '../../lib/supabase'
 
 const MonacoEditor = lazy(() => import('@monaco-editor/react'))
@@ -9,7 +9,7 @@ function genRoomCode() {
 
 const LANGUAGES = [
   { id: 'plaintext', name: 'Plain Text', ext: 'txt', icon: '📝', template: '' },
-  { id: 'markdown', name: 'Markdown', ext: 'md', icon: '📖', template: '# Hello\n\nstart writing markdown together...\n\n- bullet one\n- bullet two\n\n```js\nconsole.log("code blocks work too")\n```\n' },
+  { id: 'markdown', name: 'Markdown', ext: 'md', icon: '📖', template: '# Hello\n\nstart writing together...\n\n- bullet one\n- bullet two\n\n```js\nconsole.log("code blocks work")\n```\n' },
   { id: 'javascript', name: 'JavaScript', ext: 'js', icon: '🟨', template: '// collab away\nconsole.log("hello world")\n' },
   { id: 'typescript', name: 'TypeScript', ext: 'ts', icon: '🔷', template: 'const greet = (name: string): string => `hello ${name}`\nconsole.log(greet("world"))\n' },
   { id: 'python', name: 'Python', ext: 'py', icon: '🐍', template: 'print("hello world")\n' },
@@ -20,7 +20,27 @@ const LANGUAGES = [
   { id: 'shell', name: 'Shell', ext: 'sh', icon: '💻', template: '#!/bin/bash\necho "hello"\n' },
 ]
 
+const SNIPPETS = {
+  javascript: [
+    { name: 'fetch', code: "const res = await fetch('https://api.example.com/data')\nconst data = await res.json()\nconsole.log(data)" },
+    { name: 'for-each', code: "[1, 2, 3].forEach(n => console.log(n))" },
+    { name: 'debounce', code: "const debounce = (fn, ms) => {\n  let t\n  return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms) }\n}" },
+  ],
+  python: [
+    { name: 'list comp', code: "squares = [x*x for x in range(10)]\nprint(squares)" },
+    { name: 'fibonacci', code: "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a+b\n    return a" },
+  ],
+  markdown: [
+    { name: 'table', code: "| col1 | col2 |\n|------|------|\n| a    | b    |\n| c    | d    |" },
+    { name: 'task list', code: "- [ ] todo\n- [x] done" },
+  ],
+  sql: [
+    { name: 'join', code: "SELECT u.name, o.total\nFROM users u\nJOIN orders o ON o.user_id = u.id\nWHERE o.created_at > NOW() - INTERVAL '7 days';" },
+  ],
+}
+
 const COLORS = ['#60a5fa', '#f472b6', '#34d399', '#fbbf24', '#a78bfa', '#fb923c', '#22d3ee', '#f87171']
+const REACTIONS = ['🔥', '👍', '❤️', '😂', '🤯', '👀', '🚀', '✨']
 
 function getColor(name) {
   let hash = 0
@@ -28,7 +48,6 @@ function getColor(name) {
   return COLORS[Math.abs(hash) % COLORS.length]
 }
 
-// detect site theme to mirror into monaco
 function useIsDark() {
   const [dark, setDark] = useState(() => {
     if (typeof window === 'undefined') return true
@@ -56,27 +75,28 @@ function isDarkColor(rgb) {
   return (r * 299 + g * 587 + b * 114) / 1000 < 128
 }
 
-// minimal markdown → html for preview
 function renderMarkdown(md) {
   let html = md
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/```([\s\S]*?)```/g, (_, c) => `<pre><code>${c}</code></pre>`)
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/^### (.*)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.*)$/gm, '<h2>$1</h2>')
-    .replace(/^# (.*)$/gm, '<h1>$1</h1>')
+    .replace(/```([\s\S]*?)```/g, (_, c) => `<pre class="bg-muted/40 p-3 rounded-lg overflow-x-auto my-2"><code>${c}</code></pre>`)
+    .replace(/`([^`]+)`/g, '<code class="bg-muted/40 px-1 rounded">$1</code>')
+    .replace(/^### (.*)$/gm, '<h3 class="text-base font-bold mt-3 mb-1">$1</h3>')
+    .replace(/^## (.*)$/gm, '<h2 class="text-lg font-bold mt-4 mb-2">$1</h2>')
+    .replace(/^# (.*)$/gm, '<h1 class="text-xl font-bold mt-4 mb-2">$1</h1>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="text-accent underline" href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/^- \[ \] (.*)$/gm, '<li class="list-none">☐ $1</li>')
+    .replace(/^- \[x\] (.*)$/gm, '<li class="list-none">☑ $1</li>')
     .replace(/^- (.*)$/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`)
-    .replace(/\n\n/g, '</p><p>')
-  return `<p>${html}</p>`
+    .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul class="list-disc list-inside my-2">${m}</ul>`)
+    .replace(/\n\n/g, '</p><p class="my-2">')
+  return `<p class="my-2">${html}</p>`
 }
 
 export default function CollabEditor({ onBack }) {
   const [phase, setPhase] = useState('lobby')
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState(() => localStorage.getItem('collab:name') || '')
   const [roomCode, setRoomCode] = useState('')
   const [isHost, setIsHost] = useState(false)
   const [language, setLanguage] = useState('markdown')
@@ -91,8 +111,13 @@ export default function CollabEditor({ onBack }) {
   const [previewOpen, setPreviewOpen] = useState(true)
   const [fontSize, setFontSize] = useState(15)
   const [wordWrap, setWordWrap] = useState(true)
-  const [editorTheme, setEditorTheme] = useState('auto') // auto, dark, light
-  const [lastSync, setLastSync] = useState(null)
+  const [editorTheme, setEditorTheme] = useState('auto')
+  const [reactions, setReactions] = useState([]) // floating emoji
+  const [showSnippets, setShowSnippets] = useState(false)
+  const [showReactionPicker, setShowReactionPicker] = useState(false)
+  const [recentRooms, setRecentRooms] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('collab:recent') || '[]') } catch { return [] }
+  })
   const [copyStatus, setCopyStatus] = useState('')
 
   const channelRef = useRef(null)
@@ -100,7 +125,7 @@ export default function CollabEditor({ onBack }) {
   const monacoRef = useRef(null)
   const suppressSync = useRef(false)
   const chatEndRef = useRef(null)
-  const typingTimeoutRef = useRef(null)
+  const reactionIdRef = useRef(0)
 
   const siteIsDark = useIsDark()
   const monacoTheme = editorTheme === 'auto' ? (siteIsDark ? 'vs-dark' : 'vs') : (editorTheme === 'dark' ? 'vs-dark' : 'vs')
@@ -114,18 +139,30 @@ export default function CollabEditor({ onBack }) {
 
   useEffect(() => () => { if (channelRef.current) supabase.removeChannel(channelRef.current) }, [])
 
+  useEffect(() => { localStorage.setItem('collab:name', userName) }, [userName])
+
+  const rememberRoom = (code) => {
+    const next = [{ code, time: Date.now() }, ...recentRooms.filter(r => r.code !== code)].slice(0, 5)
+    setRecentRooms(next)
+    localStorage.setItem('collab:recent', JSON.stringify(next))
+  }
+
   const createRoom = () => {
     if (!userName.trim()) return
     const code = genRoomCode()
     setRoomCode(code)
     setIsHost(true)
+    rememberRoom(code)
     joinChannel(code, userName.trim())
     setPhase('editor')
   }
 
-  const joinRoom = () => {
-    if (!userName.trim() || roomCode.length < 6) return
-    joinChannel(roomCode.trim().toUpperCase(), userName.trim())
+  const joinRoom = (codeArg) => {
+    const targetCode = (codeArg || roomCode).trim().toUpperCase()
+    if (!userName.trim() || targetCode.length < 6) return
+    setRoomCode(targetCode)
+    rememberRoom(targetCode)
+    joinChannel(targetCode, userName.trim())
     setPhase('editor')
   }
 
@@ -143,7 +180,6 @@ export default function CollabEditor({ onBack }) {
         if (payload.name !== name) {
           suppressSync.current = true
           setCode(payload.code)
-          setLastSync(Date.now())
           setTimeout(() => { suppressSync.current = false }, 50)
         }
       })
@@ -164,6 +200,9 @@ export default function CollabEditor({ onBack }) {
         if (payload.name === name) return
         setTyping(prev => ({ ...prev, [payload.name]: Date.now() }))
       })
+      .on('broadcast', { event: 'reaction' }, ({ payload }) => {
+        spawnReaction(payload.emoji, payload.name, payload.color)
+      })
       .subscribe(async (status) => {
         if (status === 'SUBSCRIBED') {
           await channel.track({ name, color: getColor(name), joined_at: new Date().toISOString() })
@@ -173,7 +212,20 @@ export default function CollabEditor({ onBack }) {
     channelRef.current = channel
   }
 
-  // clear stale typing indicators
+  const spawnReaction = (emoji, name, color) => {
+    const id = ++reactionIdRef.current
+    const x = 20 + Math.random() * 60 // % across editor area
+    setReactions(prev => [...prev, { id, emoji, name, color, x }])
+    setTimeout(() => setReactions(prev => prev.filter(r => r.id !== id)), 3000)
+  }
+
+  const sendReaction = (emoji) => {
+    const color = getColor(userName)
+    spawnReaction(emoji, userName, color)
+    channelRef.current?.send({ type: 'broadcast', event: 'reaction', payload: { emoji, name: userName, color } })
+    setShowReactionPicker(false)
+  }
+
   useEffect(() => {
     const i = setInterval(() => {
       setTyping(prev => {
@@ -191,18 +243,29 @@ export default function CollabEditor({ onBack }) {
     if (!suppressSync.current && channelRef.current) {
       channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, code: newCode } })
       channelRef.current.send({ type: 'broadcast', event: 'typing', payload: { name: userName } })
-      setLastSync(Date.now())
     }
   }
 
   const handleLanguageChange = (langId) => {
     const tmpl = LANGUAGES.find(l => l.id === langId)
-    setLanguage(langId)
-    // keep current code if user has been writing; only swap to template if empty/default
     const isDefault = LANGUAGES.some(l => l.template === code)
     const newCode = isDefault && tmpl ? tmpl.template : code
+    setLanguage(langId)
     if (isDefault && tmpl) setCode(tmpl.template)
     channelRef.current?.send({ type: 'broadcast', event: 'language-change', payload: { name: userName, language: langId, code: newCode } })
+  }
+
+  const insertSnippet = (snippet) => {
+    const editor = editorRef.current
+    if (!editor) {
+      const newCode = code + (code.endsWith('\n') ? '' : '\n') + snippet.code + '\n'
+      handleCodeChange(newCode)
+    } else {
+      const sel = editor.getSelection()
+      editor.executeEdits('snippet', [{ range: sel, text: snippet.code, forceMoveMarkers: true }])
+      editor.focus()
+    }
+    setShowSnippets(false)
   }
 
   const runCode = () => {
@@ -254,9 +317,7 @@ export default function CollabEditor({ onBack }) {
     monacoRef.current = monaco
   }
 
-  const formatCode = () => {
-    editorRef.current?.getAction('editor.action.formatDocument')?.run()
-  }
+  const formatCode = () => editorRef.current?.getAction('editor.action.formatDocument')?.run()
 
   const downloadFile = () => {
     const blob = new Blob([code], { type: 'text/plain;charset=utf-8' })
@@ -270,14 +331,17 @@ export default function CollabEditor({ onBack }) {
 
   const copyCode = async () => {
     await navigator.clipboard.writeText(code)
-    setCopyStatus('copied!')
-    setTimeout(() => setCopyStatus(''), 1500)
+    flash('copied!')
   }
 
   const copyInvite = async () => {
     const url = `${window.location.origin}/#/collab?room=${roomCode}`
     await navigator.clipboard.writeText(url)
-    setCopyStatus('invite copied!')
+    flash('invite link copied!')
+  }
+
+  const flash = (msg) => {
+    setCopyStatus(msg)
     setTimeout(() => setCopyStatus(''), 1500)
   }
 
@@ -302,60 +366,112 @@ export default function CollabEditor({ onBack }) {
   const typingUsers = Object.keys(typing).filter(n => n !== userName)
   const showPreview = language === 'markdown' && previewOpen
   const showRun = language === 'javascript' || language === 'typescript'
+  const availableSnippets = SNIPPETS[language] || []
 
   // ── LOBBY ──
   if (phase === 'lobby') return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <div className="flex items-center px-6 py-4 border-b border-border/20">
+    <div className="min-h-screen bg-background text-foreground flex flex-col relative overflow-hidden">
+      {/* animated gradient blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-accent/10 blur-3xl animate-pulse" />
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-accent/5 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full bg-accent/5 blur-3xl animate-pulse" style={{ animationDelay: '3s' }} />
+      </div>
+
+      <div className="flex items-center px-6 py-4 border-b border-border/20 relative z-10">
         <button onClick={onBack} className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm transition-colors">
           ← Back to site
         </button>
         <h1 className="ml-4 text-lg font-bold flex items-center gap-2">👥 Collab Editor</h1>
+        <div className="ml-auto flex items-center gap-2">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            live
+          </div>
+        </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-6">
-        <div className="w-[520px] max-w-full space-y-6">
+      <div className="flex-1 flex items-center justify-center px-6 relative z-10">
+        <div className="w-[540px] max-w-full space-y-6">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent/10 mb-4">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent/10 mb-4 relative">
               <span className="text-4xl">👥</span>
+              {userName.trim() && (
+                <div
+                  className="absolute -bottom-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white ring-4 ring-background"
+                  style={{ background: getColor(userName) }}>
+                  {userName.charAt(0).toUpperCase()}
+                </div>
+              )}
             </div>
-            <h2 className="text-2xl font-bold">code together, write together</h2>
-            <p className="text-muted-foreground text-sm mt-1">real-time collab — code, markdown, plain text. share a link, start typing.</p>
+            <h2 className="text-3xl font-bold tracking-tight">code together, write together</h2>
+            <p className="text-muted-foreground text-sm mt-2 max-w-md mx-auto">
+              real-time pads for code, markdown and plain text. share a link, start typing, see each other live.
+            </p>
           </div>
 
-          <div>
-            <label className="text-xs text-muted-foreground uppercase tracking-wider">your name</label>
-            <input value={userName} onChange={e => setUserName(e.target.value)} maxLength={15}
-              placeholder="who's typing?"
-              className="w-full mt-1 px-4 py-3 rounded-xl bg-muted/30 border border-border/30 text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-accent/50 transition-colors" />
+          <div className="space-y-3 rounded-2xl bg-card/60 backdrop-blur border border-border/40 p-5 shadow-xl">
+            <div>
+              <label className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">your name</label>
+              <input
+                value={userName}
+                onChange={e => setUserName(e.target.value)}
+                maxLength={15}
+                placeholder="what should we call you?"
+                autoFocus
+                style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
+                className="w-full mt-1 px-4 py-3 rounded-xl bg-background border-2 border-border/40 placeholder:text-muted-foreground/50 outline-none focus:border-accent transition-colors text-base font-medium" />
+            </div>
+
+            <div className="grid grid-cols-5 gap-3">
+              <button onClick={createRoom} disabled={!userName.trim()}
+                className="col-span-2 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition disabled:opacity-30 group">
+                <span className="inline-block group-hover:scale-110 transition-transform mr-1">✨</span> new room
+              </button>
+              <input
+                value={roomCode}
+                onChange={e => setRoomCode(e.target.value.toUpperCase())}
+                maxLength={6}
+                placeholder="ROOM CODE"
+                style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
+                className="col-span-3 px-4 rounded-xl bg-background border-2 border-border/40 text-center font-mono uppercase placeholder:text-muted-foreground/40 outline-none focus:border-accent text-base font-semibold tracking-widest" />
+            </div>
+            {roomCode.length === 6 && (
+              <button onClick={() => joinRoom()} disabled={!userName.trim()}
+                className="w-full py-3 rounded-xl bg-foreground text-background font-semibold hover:opacity-90 transition disabled:opacity-30">
+                → join {roomCode}
+              </button>
+            )}
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <button onClick={createRoom} disabled={!userName.trim()}
-              className="py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition disabled:opacity-30">
-              start new room
-            </button>
-            <input value={roomCode} onChange={e => setRoomCode(e.target.value.toUpperCase())} maxLength={6}
-              placeholder="ROOM CODE"
-              className="px-4 rounded-xl bg-muted/30 border border-border/30 text-foreground text-center font-mono uppercase placeholder:text-muted-foreground/30 outline-none focus:border-accent/50" />
-          </div>
-          {roomCode.length === 6 && (
-            <button onClick={joinRoom} disabled={!userName.trim()}
-              className="w-full py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition disabled:opacity-30">
-              join room: {roomCode}
-            </button>
+          {recentRooms.length > 0 && (
+            <div>
+              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2 font-semibold">recent rooms</div>
+              <div className="flex flex-wrap gap-2">
+                {recentRooms.map(r => (
+                  <button key={r.code} onClick={() => joinRoom(r.code)} disabled={!userName.trim()}
+                    className="px-3 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/50 text-sm font-mono transition disabled:opacity-30">
+                    <span className="text-accent font-bold">{r.code}</span>
+                    <span className="text-muted-foreground text-xs ml-2">{timeAgo(r.time)}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
 
-          <div className="grid grid-cols-3 gap-2 pt-2">
+          <div className="grid grid-cols-3 gap-2">
             {[
               { i: '📝', t: 'plain text' },
-              { i: '📖', t: 'markdown + preview' },
+              { i: '📖', t: 'markdown live' },
               { i: '💻', t: '8 languages' },
               { i: '💬', t: 'live chat' },
-              { i: '▶', t: 'run JS in browser' },
-              { i: '⬇', t: 'download as file' },
+              { i: '🔥', t: 'emoji reactions' },
+              { i: '▶', t: 'run JS code' },
+              { i: '⬇', t: 'download' },
+              { i: '🧩', t: 'snippets' },
+              { i: '🎨', t: 'themed' },
             ].map((f, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-muted/20 text-xs text-muted-foreground">
+              <div key={i} className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-muted/20 text-xs text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors">
                 <span>{f.i}</span><span>{f.t}</span>
               </div>
             ))}
@@ -367,7 +483,7 @@ export default function CollabEditor({ onBack }) {
 
   // ── EDITOR ──
   return (
-    <div className="h-screen bg-background text-foreground flex flex-col overflow-hidden">
+    <div className="h-screen bg-background text-foreground flex flex-col overflow-hidden relative">
       {/* Top bar */}
       <div className="flex items-center px-3 py-2 bg-card border-b border-border/30 flex-shrink-0 gap-2 flex-wrap">
         <button onClick={onBack} className="px-2 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/30 text-sm transition-colors">
@@ -377,20 +493,37 @@ export default function CollabEditor({ onBack }) {
         <div className="w-px h-5 bg-border/30" />
 
         <button onClick={copyInvite}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-muted/30 hover:bg-muted/50 text-sm font-mono transition-colors"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-muted/30 hover:bg-muted/50 text-sm font-mono transition-colors group"
           title="copy invite link">
           <span className="text-accent font-bold">{roomCode}</span>
-          <span className="text-muted-foreground text-xs">🔗</span>
+          <span className="text-muted-foreground text-xs group-hover:scale-110 transition-transform">🔗</span>
         </button>
 
-        {/* Language */}
         <select value={language} onChange={e => handleLanguageChange(e.target.value)}
-          className="px-2 py-1 rounded-md bg-muted/30 text-foreground text-sm border border-border/30 outline-none focus:border-accent/50 cursor-pointer">
+          style={{ color: 'var(--color-foreground)' }}
+          className="px-2 py-1 rounded-md bg-muted/30 text-sm border border-border/30 outline-none focus:border-accent/50 cursor-pointer">
           {LANGUAGES.map(l => <option key={l.id} value={l.id}>{l.icon} {l.name}</option>)}
         </select>
 
-        {/* Tools */}
         <div className="flex items-center gap-0.5">
+          {availableSnippets.length > 0 && (
+            <div className="relative">
+              <button onClick={() => setShowSnippets(s => !s)} title="snippets" className={`px-2 py-1 rounded-md text-sm hover:bg-muted/30 ${showSnippets ? 'bg-accent/20 text-accent' : 'text-muted-foreground hover:text-foreground'}`}>
+                🧩
+              </button>
+              {showSnippets && (
+                <div className="absolute top-full mt-1 left-0 w-56 bg-card border border-border/40 rounded-lg shadow-2xl z-50 overflow-hidden">
+                  <div className="text-[10px] text-muted-foreground uppercase tracking-wider px-3 py-1.5 border-b border-border/20">snippets</div>
+                  {availableSnippets.map((s, i) => (
+                    <button key={i} onClick={() => insertSnippet(s)}
+                      className="w-full text-left px-3 py-2 text-sm hover:bg-muted/40 transition-colors">
+                      {s.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
           <button onClick={formatCode} title="format (⌘⇧F)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">{`{}`}</button>
           <button onClick={copyCode} title="copy all" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">📋</button>
           <button onClick={downloadFile} title="download (⌘S)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">⬇</button>
@@ -401,9 +534,9 @@ export default function CollabEditor({ onBack }) {
           <button onClick={clearEditor} title="clear all" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-red-400 hover:bg-muted/30">🗑</button>
         </div>
 
-        {/* Editor theme */}
         <select value={editorTheme} onChange={e => setEditorTheme(e.target.value)}
-          className="px-2 py-1 rounded-md bg-muted/30 text-foreground text-xs border border-border/30 outline-none cursor-pointer"
+          style={{ color: 'var(--color-foreground)' }}
+          className="px-2 py-1 rounded-md bg-muted/30 text-xs border border-border/30 outline-none cursor-pointer"
           title="editor theme">
           <option value="auto">auto</option>
           <option value="light">light</option>
@@ -413,23 +546,47 @@ export default function CollabEditor({ onBack }) {
         {language === 'markdown' && (
           <button onClick={() => setPreviewOpen(p => !p)}
             className={`px-2 py-1 rounded-md text-xs font-medium ${previewOpen ? 'bg-accent/20 text-accent' : 'bg-muted/30 text-muted-foreground hover:text-foreground'}`}>
-            {previewOpen ? '👁 preview on' : '👁 preview off'}
+            👁 preview
           </button>
         )}
 
+        {/* Reaction picker */}
+        <div className="relative">
+          <button onClick={() => setShowReactionPicker(s => !s)}
+            className={`px-2 py-1 rounded-md text-sm hover:bg-muted/30 ${showReactionPicker ? 'bg-accent/20 text-accent' : 'text-muted-foreground hover:text-foreground'}`}
+            title="send reaction">
+            😀
+          </button>
+          {showReactionPicker && (
+            <div className="absolute top-full mt-1 right-0 flex gap-1 p-1.5 bg-card border border-border/40 rounded-xl shadow-2xl z-50">
+              {REACTIONS.map(e => (
+                <button key={e} onClick={() => sendReaction(e)}
+                  className="text-xl hover:scale-125 transition-transform p-1">
+                  {e}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         <div className="flex-1" />
 
-        {/* Users */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center">
           {users.slice(0, 6).map((u, i) => (
             <div key={i}
-              className={`relative w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white ring-2 ring-background ${typing[u.name] ? 'ring-accent animate-pulse' : ''}`}
+              className={`relative w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white ring-2 ring-background ${typing[u.name] ? 'ring-accent' : ''}`}
               style={{ background: u.color, marginLeft: i > 0 ? -8 : 0 }}
               title={`${u.name}${typing[u.name] ? ' (typing...)' : ''}`}>
               {u.name.charAt(0).toUpperCase()}
+              {typing[u.name] && (
+                <span className="absolute -bottom-0.5 -right-0.5 flex gap-0.5">
+                  <span className="w-1 h-1 rounded-full bg-accent animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1 h-1 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
+                </span>
+              )}
             </div>
           ))}
-          {users.length > 6 && <span className="text-xs text-muted-foreground ml-1">+{users.length - 6}</span>}
+          {users.length > 6 && <span className="text-xs text-muted-foreground ml-2">+{users.length - 6}</span>}
         </div>
 
         {showRun && (
@@ -447,14 +604,40 @@ export default function CollabEditor({ onBack }) {
       </div>
 
       {copyStatus && (
-        <div className="absolute top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-medium z-50 shadow-lg">
+        <div className="absolute top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-medium z-50 shadow-lg animate-fade-in">
           {copyStatus}
         </div>
       )}
 
+      {/* Floating reactions */}
+      <div className="absolute inset-0 pointer-events-none z-40 overflow-hidden">
+        {reactions.map(r => (
+          <div key={r.id}
+            className="absolute bottom-12 flex flex-col items-center"
+            style={{ left: `${r.x}%`, animation: 'floatUp 3s ease-out forwards' }}>
+            <div className="text-3xl">{r.emoji}</div>
+            <div className="text-[10px] font-bold px-1.5 py-0.5 rounded mt-0.5 text-white shadow-md"
+              style={{ background: r.color }}>{r.name}</div>
+          </div>
+        ))}
+      </div>
+
+      <style>{`
+        @keyframes floatUp {
+          0% { transform: translateY(0) scale(0.5); opacity: 0; }
+          15% { transform: translateY(-30px) scale(1.2); opacity: 1; }
+          80% { opacity: 1; }
+          100% { transform: translateY(-400px) scale(1); opacity: 0; }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; transform: translate(-50%, -8px); }
+          to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .animate-fade-in { animation: fade-in 0.2s ease-out; }
+      `}</style>
+
       {/* Main area */}
-      <div className="flex flex-1 min-h-0">
-        {/* Editor + optional markdown preview */}
+      <div className="flex flex-1 min-h-0 relative">
         <div className="flex-1 flex min-w-0">
           <div className={`min-h-0 ${showPreview ? 'flex-1 border-r border-border/30' : 'flex-1'}`}>
             <Suspense fallback={<div className="flex items-center justify-center h-full"><div className="w-5 h-5 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
@@ -480,7 +663,6 @@ export default function CollabEditor({ onBack }) {
                   renderWhitespace: 'selection',
                   bracketPairColorization: { enabled: true },
                   formatOnPaste: true,
-                  formatOnType: false,
                   lineHeight: 1.6,
                 }}
               />
@@ -488,15 +670,14 @@ export default function CollabEditor({ onBack }) {
           </div>
 
           {showPreview && (
-            <div className="flex-1 overflow-y-auto px-6 py-4 bg-background prose-collab" style={{ scrollbarWidth: 'thin' }}>
-              <div className="text-xs text-muted-foreground/50 mb-3 uppercase tracking-wider">preview</div>
+            <div className="flex-1 overflow-y-auto px-6 py-4 bg-background" style={{ scrollbarWidth: 'thin' }}>
+              <div className="text-xs text-muted-foreground/50 mb-3 uppercase tracking-wider font-semibold">live preview</div>
               <div className="text-foreground leading-relaxed text-sm"
                 dangerouslySetInnerHTML={{ __html: renderMarkdown(code) }} />
             </div>
           )}
         </div>
 
-        {/* Sidebar */}
         {sidebarOpen && (
           <div className="w-[320px] flex-shrink-0 border-l border-border/30 bg-card flex flex-col">
             <div className="flex items-center border-b border-border/20 px-1 flex-shrink-0">
@@ -509,7 +690,7 @@ export default function CollabEditor({ onBack }) {
                   className={`px-3 py-2 text-xs font-medium transition-colors relative ${activeTab === t.id ? 'text-accent border-b-2 border-accent' : 'text-muted-foreground hover:text-foreground'}`}>
                   {t.label}
                   {t.badge > 0 && activeTab !== t.id && (
-                    <span className="absolute -top-0 -right-0 w-1.5 h-1.5 rounded-full bg-accent" />
+                    <span className="absolute top-1.5 right-1 w-1.5 h-1.5 rounded-full bg-accent" />
                   )}
                 </button>
               ))}
@@ -530,7 +711,12 @@ export default function CollabEditor({ onBack }) {
             {activeTab === 'chat' && (
               <div className="flex-1 flex flex-col min-h-0">
                 <div className="flex-1 overflow-y-auto px-3 py-2 space-y-2" style={{ scrollbarWidth: 'thin' }}>
-                  {chatMessages.length === 0 && <p className="text-muted-foreground/40 text-xs text-center py-6">say hi to your collaborators</p>}
+                  {chatMessages.length === 0 && (
+                    <div className="text-center py-6">
+                      <div className="text-2xl mb-2">👋</div>
+                      <p className="text-muted-foreground/50 text-xs">say hi to your collaborators</p>
+                    </div>
+                  )}
                   {chatMessages.map((msg, i) => (
                     <div key={i} className="text-xs">
                       <div className="flex items-baseline gap-2">
@@ -541,8 +727,13 @@ export default function CollabEditor({ onBack }) {
                     </div>
                   ))}
                   {typingUsers.length > 0 && (
-                    <div className="text-[11px] text-muted-foreground italic">
-                      {typingUsers.join(', ')} {typingUsers.length === 1 ? 'is' : 'are'} typing...
+                    <div className="text-[11px] text-muted-foreground italic flex items-center gap-1">
+                      <span className="flex gap-0.5">
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </span>
+                      {typingUsers.join(', ')} typing
                     </div>
                   )}
                   <div ref={chatEndRef} />
@@ -550,7 +741,8 @@ export default function CollabEditor({ onBack }) {
                 <form onSubmit={sendChat} className="flex gap-2 px-3 py-2 border-t border-border/20 flex-shrink-0">
                   <input value={chatInput} onChange={e => setChatInput(e.target.value)} maxLength={300}
                     placeholder="type a message..."
-                    className="flex-1 px-3 py-1.5 rounded-lg bg-muted/20 border border-border/20 text-foreground text-xs placeholder:text-muted-foreground/40 outline-none focus:border-accent/40" />
+                    style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
+                    className="flex-1 px-3 py-1.5 rounded-lg bg-background border border-border/30 text-xs placeholder:text-muted-foreground/40 outline-none focus:border-accent/50" />
                   <button type="submit" disabled={!chatInput.trim()}
                     className="px-3 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-semibold disabled:opacity-30">
                     send
@@ -562,9 +754,12 @@ export default function CollabEditor({ onBack }) {
             {activeTab === 'users' && (
               <div className="flex-1 overflow-y-auto px-3 py-2 space-y-2" style={{ scrollbarWidth: 'thin' }}>
                 {users.map((u, i) => (
-                  <div key={i} className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-muted/20">
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-                      style={{ background: u.color }}>{u.name.charAt(0).toUpperCase()}</div>
+                  <div key={i} className="flex items-center gap-2 px-2 py-2 rounded-lg bg-muted/20">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white relative"
+                      style={{ background: u.color }}>
+                      {u.name.charAt(0).toUpperCase()}
+                      {typing[u.name] && <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-accent ring-2 ring-card animate-pulse" />}
+                    </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-medium truncate">{u.name}{u.name === userName && <span className="text-muted-foreground text-xs ml-1">(you)</span>}</div>
                       <div className="text-[10px] text-muted-foreground">{typing[u.name] ? 'typing...' : 'idle'}</div>
@@ -578,14 +773,20 @@ export default function CollabEditor({ onBack }) {
         )}
       </div>
 
-      {/* Status bar */}
       <div className="flex items-center px-3 py-1 bg-accent text-accent-foreground text-[11px] gap-3 flex-shrink-0">
         <span>{currentLang.icon} {currentLang.name}</span>
         <span>· {code.split('\n').length} lines · {code.length} chars</span>
         <span>· 👥 {users.length}</span>
-        {lastSync && <span className="opacity-70">· synced</span>}
         <span className="ml-auto opacity-70">⌘↵ run · ⌘⇧F format · ⌘S download · ESC back</span>
       </div>
     </div>
   )
+}
+
+function timeAgo(ts) {
+  const s = Math.floor((Date.now() - ts) / 1000)
+  if (s < 60) return 'just now'
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`
+  return `${Math.floor(s / 86400)}d ago`
 }
