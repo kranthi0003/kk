@@ -81,6 +81,20 @@ export default function Hero({ onResumeClick }) {
             Get in Touch
           </a>
         </div>
+
+        {/* Code Battle CTA — prominent */}
+        <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+          <button
+            onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
+            className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-white font-bold text-sm shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:scale-105 transition-all duration-300"
+          >
+            <span className="text-lg">⚔️</span>
+            <span>Challenge a Friend — Code Battle</span>
+            <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+            <span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-white text-red-500 text-[10px] font-bold shadow-md animate-pulse">LIVE</span>
+          </button>
+          <p className="text-xs text-muted-foreground/40 mt-2">Race to solve coding challenges in real-time multiplayer</p>
+        </div>
       </div>
     </section>
   )
