@@ -100,6 +100,7 @@ const ACTIONS = [
   }, keywords: 'live chat talk visitors realtime websocket message conversation community room' },
   { id: 'code-battle', label: 'Code Battle', desc: 'Multiplayer coding challenge race', section: 'Features', icon: '⚔️', action: () => {
     window.location.hash = '#/battle'
+    window.location.reload()
   }, keywords: 'code battle multiplayer race challenge coding leetcode fight compete programming duel' },
   { id: 'theme-modes', label: 'Theme Modes', desc: 'Fight Club, F1, Cyberpunk, Vintage, Ocean, Dracula', section: 'Actions', icon: '🎨', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-theme-modes'))

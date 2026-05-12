@@ -74,7 +74,7 @@ export default function App() {
   if (route === '#/battle') {
     return (
       <Suspense fallback={<div className="min-h-screen bg-[#0f0f17] flex items-center justify-center"><div className="w-6 h-6 border-2 border-white/20 border-t-blue-400 rounded-full animate-spin" /></div>}>
-        <BattlePage onBack={() => { window.location.hash = ''; setRoute('') }} />
+        <BattlePage onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }

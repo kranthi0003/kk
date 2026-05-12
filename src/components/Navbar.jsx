@@ -641,7 +641,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
             <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
             <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
-            <IconBtn icon={<BattleIcon />} tip="Code Battle" onClick={() => { window.location.hash = '#/battle' }} />
+            <IconBtn icon={<BattleIcon />} tip="Code Battle" onClick={() => { window.location.hash = '#/battle'; window.location.reload() }} />
           </div>
 
           <div className="flex-1" />
@@ -704,7 +704,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
                 { icon: '🎨', label: 'Themes', action: () => window.dispatchEvent(new CustomEvent('toggle-theme-modes')) },
-                { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle' } },
+                { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle'; window.location.reload() } },
               ].map(a => (
                 <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
                   className="flex flex-col items-center gap-1 py-2.5 rounded-xl bg-muted/30 hover:bg-muted/60 transition-colors">
