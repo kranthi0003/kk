@@ -7,9 +7,8 @@ import TechNews from './TechNews'
 export default function Hero({ onResumeClick }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-24 md:pt-28 overflow-hidden">
-      {/* Side tech news widgets — only on wide screens */}
-      <TechNews source="hn" side="left" />
-      <TechNews source="devto" side="right" />
+      {/* Side tech news widget — only on wide screens */}
+      <TechNews side="right" />
 
       {/* Satellite backdrop — starts below both navbar lines */}
       <div className="absolute inset-x-0 top-24 md:top-28 h-[30%] md:h-[35%] z-0 overflow-hidden">
