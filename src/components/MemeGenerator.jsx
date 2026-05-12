@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-
-const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
-const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
+import { groqChat } from '../lib/groq'
 
 const SUGGESTIONS = [
   'kubernetes', 'CSS centering', 'production bugs on Friday',
@@ -44,7 +42,7 @@ export default function MemeGenerator() {
   }, [open])
 
   const generate = async () => {
-    if (!topic.trim() || !API_KEY || !templates.length) return
+    if (!topic.trim() || !templates.length) return
     setLoading(true)
     setMemeUrl(null)
 
@@ -52,32 +50,21 @@ export default function MemeGenerator() {
     setTemplateName(tmpl.name)
 
     try {
-      // Step 1: AI generates captions tailored to the template
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${API_KEY}` },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          max_tokens: 100,
-          temperature: 1.1,
-          messages: [
-            {
-              role: 'system',
-              content: `You write hilarious developer meme captions. You're given a meme template name and a tech topic. Write TOP and BOTTOM text that's funny, sarcastic, and relatable to software engineers. Rules:
+      const data = await groqChat([
+        {
+          role: 'system',
+          content: `You write hilarious developer meme captions. You're given a meme template name and a tech topic. Write TOP and BOTTOM text that's funny, sarcastic, and relatable to software engineers. Rules:
 - Each line MUST be under 10 words
 - Be specific to the topic, not generic
 - Use developer slang and inside jokes
 - Match the template's format (e.g. Drake = "bad thing" vs "good thing", Distracted BF = temptation vs current thing, etc.)
 - Reply ONLY in JSON: {"top":"...","bottom":"..."}`
-            },
-            {
-              role: 'user',
-              content: `Template: "${tmpl.name}"\nTopic: "${topic}"\n\nWrite a killer dev meme caption.`
-            }
-          ],
-        }),
-      })
-      const data = await res.json()
+        },
+        {
+          role: 'user',
+          content: `Template: "${tmpl.name}"\nTopic: "${topic}"\n\nWrite a killer dev meme caption.`
+        }
+      ], { max_tokens: 100, temperature: 1.1 })
       const text = data.choices?.[0]?.message?.content || ''
       const match = text.match(/\{[\s\S]*\}/)
       if (!match) { setLoading(false); return }

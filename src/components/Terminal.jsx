@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { groqChat } from '../lib/groq'
 
 // Use CSS var tokens instead of hardcoded hex
 const T = {
@@ -522,31 +523,20 @@ export default function Terminal() {
       return
     }
 
-    const GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
     try {
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_KEY}` },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          messages: [
-            { role: 'system', content: `You are a shell command translator. Convert natural language to the exact shell command. Rules:
+      const data = await groqChat([
+        { role: 'system', content: `You are a shell command translator. Convert natural language to the exact shell command. Rules:
 - Output ONLY the command, nothing else. No explanation, no markdown, no backticks.
 - If it needs multiple commands, separate with &&
 - Support: bash, git, docker, kubectl, terraform, aws cli, npm, python, curl
 - If the input is already a valid command, output it as-is
 - If you truly can't translate it, output: # unable to translate` },
-            { role: 'user', content: query }
-          ],
-          max_tokens: 100,
-          temperature: 0.1,
-        }),
-      })
-      const data = await res.json()
+        { role: 'user', content: query }
+      ], { max_tokens: 100, temperature: 0.1 })
 
-      if (!res.ok) {
-        const isRateLimit = res.status === 429
-        const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
+      if (data.error) {
+        const isRateLimit = data.error.message?.includes('rate')
+        const wait = data.error.message?.match(/(\d+\.?\d*)s/)?.[1]
         const secs = Math.ceil(parseFloat(wait) || 10)
         setHistory(prev => {
           const updated = [...prev]
@@ -595,15 +585,9 @@ export default function Terminal() {
       return
     }
 
-    const GROQ_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
     try {
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_KEY}` },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          messages: [
-            { role: 'system', content: `You are a system design expert. Generate a clean ASCII architecture diagram for the given system. Rules:
+      const data = await groqChat([
+        { role: 'system', content: `You are a system design expert. Generate a clean ASCII architecture diagram for the given system. Rules:
 - Use box-drawing characters: ┌ ┐ └ ┘ │ ─ ► ▼
 - Keep it compact: max 15 lines, max 60 chars wide
 - Show key components: clients, load balancer, API servers, databases, caches, queues
@@ -611,16 +595,11 @@ export default function Terminal() {
 - Label each component clearly
 - Add a one-line summary at the bottom
 - Output ONLY the diagram, no explanation` },
-            { role: 'user', content: `Design: ${system}` }
-          ],
-          max_tokens: 400,
-          temperature: 0.3,
-        }),
-      })
-      const data = await res.json()
+        { role: 'user', content: `Design: ${system}` }
+      ], { max_tokens: 150, temperature: 0.3 })
 
-      if (!res.ok) {
-        const isRateLimit = res.status === 429
+      if (data.error) {
+        const isRateLimit = data.error.message?.includes('rate')
         const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
         const secs = Math.ceil(parseFloat(wait) || 10)
         setHistory(prev => {

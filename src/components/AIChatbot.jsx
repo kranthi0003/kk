@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-
-const API_KEY = import.meta.env.VITE_GROQ_API_KEY || ''
-const API_URL = 'https://api.groq.com/openai/v1/chat/completions'
+import { groqChat } from '../lib/groq'
 
 const SYSTEM_PROMPT = `You are an AI assistant on Kranthi Kiran's portfolio website (kranthikiran.com). You speak as if you know Kranthi personally. Answer questions based on this detailed profile:
 
@@ -252,25 +250,12 @@ export default function AIChatbot() {
         }))
       ]
 
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          messages: chatMessages,
-          max_tokens: 150,
-          temperature: 0.6,
-        }),
-      })
+      const data = await groqChat(chatMessages, { max_tokens: 150, temperature: 0.6 })
 
-      const data = await res.json()
       setLoading(false)
-      if (!res.ok) {
-        if (res.status === 429) {
-          const wait = data.error?.message?.match(/(\d+\.?\d*)s/)?.[1]
+      if (data.error) {
+        if (data.error.message?.includes('rate')) {
+          const wait = data.error.message?.match(/(\d+\.?\d*)s/)?.[1]
           const secs = Math.ceil(parseFloat(wait) || 10)
           setMessages(prev => [...prev, { role: 'assistant', text: `Whoa, too many questions! Give me ${secs}s to catch my breath 😮‍💨` }])
         } else {
