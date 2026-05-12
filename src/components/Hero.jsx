@@ -89,19 +89,12 @@ export default function Hero({ onResumeClick }) {
             className="group relative inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl bg-foreground text-background font-bold text-xs md:text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <span>👥</span>
-            <span>Collab Editor</span>
+            <span>Open Collab — Code &amp; Battle</span>
             <span className="group-hover:translate-x-1 transition-transform">→</span>
             <span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[10px] font-bold shadow-md animate-pulse">LIVE</span>
           </button>
-          <button
-            onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
-            className="group inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl border-2 border-foreground/20 text-foreground font-bold text-xs md:text-sm hover:bg-foreground/5 hover:scale-105 transition-all duration-300"
-          >
-            <span>⚔️</span>
-            <span>1v1 Code Battle</span>
-          </button>
         </div>
-        <p className="text-[10px] md:text-xs text-muted-foreground/40 mt-2 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>code together or race against a friend — in your browser</p>
+        <p className="text-[10px] md:text-xs text-muted-foreground/40 mt-2 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>collaborate live, or race a friend in 1v1 battle mode — all in your browser</p>
       </div>
     </section>
   )

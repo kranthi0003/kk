@@ -740,6 +740,22 @@ export default function CollabEditor({ onBack }) {
               </div>
             </div>
           )}
+
+          {/* Battle mode entry */}
+          <div className="pt-4 mt-2 border-t border-border/30">
+            <button
+              onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
+              className="group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 hover:from-orange-500/20 hover:via-red-500/20 hover:to-pink-500/20 border border-orange-500/30 hover:border-orange-500/60 transition-all">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl group-hover:scale-110 transition-transform">⚔️</span>
+                <div className="text-left">
+                  <div className="text-sm font-bold">1v1 Code Battle</div>
+                  <div className="text-[11px] text-muted-foreground">Race a friend on coding problems</div>
+                </div>
+              </div>
+              <span className="text-muted-foreground group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
