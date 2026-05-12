@@ -124,22 +124,39 @@ function isDarkColor(rgb) {
 }
 
 function renderMarkdown(md) {
-  let html = md
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/```([\s\S]*?)```/g, (_, c) => `<pre class="bg-muted/40 p-3 rounded-lg overflow-x-auto my-2"><code>${c}</code></pre>`)
-    .replace(/`([^`]+)`/g, '<code class="bg-muted/40 px-1 rounded">$1</code>')
-    .replace(/^### (.*)$/gm, '<h3 class="text-base font-bold mt-3 mb-1">$1</h3>')
-    .replace(/^## (.*)$/gm, '<h2 class="text-lg font-bold mt-4 mb-2">$1</h2>')
-    .replace(/^# (.*)$/gm, '<h1 class="text-xl font-bold mt-4 mb-2">$1</h1>')
+  // tables first (before other line-based parsing)
+  let html = md.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+  // code blocks
+  html = html.replace(/```([\s\S]*?)```/g, (_, c) =>
+    `<pre class="bg-muted/40 p-3 rounded-lg overflow-x-auto my-3 text-xs"><code>${c}</code></pre>`)
+
+  // tables: |a|b| \n |---|---| \n |c|d|
+  html = html.replace(/((?:^\|[^\n]+\|\n?)+)/gm, (block) => {
+    const lines = block.trim().split('\n').filter(l => l.trim())
+    if (lines.length < 2 || !/^\|[\s:-]+\|/.test(lines[1])) return block
+    const headers = lines[0].split('|').slice(1, -1).map(s => s.trim())
+    const rows = lines.slice(2).map(l => l.split('|').slice(1, -1).map(s => s.trim()))
+    const thead = `<thead><tr>${headers.map(h => `<th class="px-3 py-2 text-left font-semibold border-b border-border/40 bg-muted/30">${h}</th>`).join('')}</tr></thead>`
+    const tbody = `<tbody>${rows.map((r, ri) => `<tr class="${ri % 2 ? 'bg-muted/10' : ''}">${r.map(c => `<td class="px-3 py-2 border-b border-border/20">${c}</td>`).join('')}</tr>`).join('')}</tbody>`
+    return `<div class="overflow-x-auto my-3"><table class="w-full text-xs border border-border/40 rounded-lg overflow-hidden">${thead}${tbody}</table></div>`
+  })
+
+  html = html
+    .replace(/`([^`]+)`/g, '<code class="bg-muted/40 px-1 rounded text-[0.9em]">$1</code>')
+    .replace(/^### (.*)$/gm, '<h3 class="text-base font-bold mt-4 mb-2">$1</h3>')
+    .replace(/^## (.*)$/gm, '<h2 class="text-lg font-bold mt-5 mb-2">$1</h2>')
+    .replace(/^# (.*)$/gm, '<h1 class="text-xl font-bold mt-5 mb-3">$1</h1>')
     .replace(/^> (.*)$/gm, '<blockquote class="border-l-2 border-accent pl-3 my-2 italic opacity-80">$1</blockquote>')
+    .replace(/^---+$/gm, '<hr class="border-border/30 my-4" />')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="text-accent underline" href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/^- \[ \] (.*)$/gm, '<div class="flex items-start gap-2 my-1"><input type="checkbox" disabled class="mt-1" /><span>$1</span></div>')
     .replace(/^- \[x\] (.*)$/gm, '<div class="flex items-start gap-2 my-1 opacity-60"><input type="checkbox" checked disabled class="mt-1" /><s>$1</s></div>')
-    .replace(/^\d+\. (.*)$/gm, '<li>$1</li>')
-    .replace(/^- (.*)$/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul class="list-disc list-inside my-2 space-y-1">${m}</ul>`)
+    .replace(/^\d+\. (.*)$/gm, '<li class="ml-4">$1</li>')
+    .replace(/^- (.*)$/gm, '<li class="ml-4">$1</li>')
+    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, m => `<ul class="list-disc my-2 space-y-1">${m}</ul>`)
     .replace(/\n\n/g, '</p><p class="my-2">')
   return `<p class="my-2">${html}</p>`
 }
@@ -517,18 +534,25 @@ export default function CollabEditor({ onBack }) {
     URL.revokeObjectURL(url)
   }
 
-  const downloadAll = () => {
+  const downloadAll = async () => {
+    if (files.length === 1) { downloadFile(); return }
+    const { default: JSZip } = await import('jszip')
+    const zip = new JSZip()
     files.forEach(f => {
       const lang = LANGUAGES.find(l => l.id === f.lang) || LANGUAGES[0]
-      const blob = new Blob([f.code], { type: 'text/plain;charset=utf-8' })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${f.name}.${lang.ext}`
-      a.click()
-      URL.revokeObjectURL(url)
+      zip.file(`${f.name}.${lang.ext}`, f.code)
     })
+    const blob = await zip.generateAsync({ type: 'blob' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `collab-${roomCode}.zip`
+    a.click()
+    URL.revokeObjectURL(url)
+    flash(`zipped ${files.length} files!`)
   }
+
+  const [showShareModal, setShowShareModal] = useState(false)
 
   const copyCode = async () => {
     await navigator.clipboard.writeText(code)
@@ -536,6 +560,10 @@ export default function CollabEditor({ onBack }) {
   }
 
   const copyInvite = async () => {
+    setShowShareModal(true)
+  }
+
+  const doCopyInvite = async () => {
     const url = `${window.location.origin}/#/collab?room=${roomCode}`
     await navigator.clipboard.writeText(url)
     flash('invite link copied!')
@@ -721,9 +749,9 @@ export default function CollabEditor({ onBack }) {
         </button>
 
         <select value={language} onChange={e => handleLanguageChange(e.target.value)}
-          style={{ color: 'var(--color-foreground)' }}
-          className="px-2 py-1 rounded-md bg-muted/30 text-sm border border-border/30 outline-none focus:border-accent/50 cursor-pointer">
-          {LANGUAGES.map(l => <option key={l.id} value={l.id}>{l.icon} {l.name}</option>)}
+          style={{ color: 'var(--color-foreground)', backgroundColor: 'var(--color-card)' }}
+          className="px-2 py-1 rounded-md text-sm border border-border/40 outline-none focus:border-accent/50 cursor-pointer">
+          {LANGUAGES.map(l => <option key={l.id} value={l.id} style={{ backgroundColor: 'var(--color-card)', color: 'var(--color-foreground)' }}>{l.icon} {l.name}</option>)}
         </select>
 
         <div className="flex items-center gap-0.5">
@@ -758,12 +786,12 @@ export default function CollabEditor({ onBack }) {
         </div>
 
         <select value={editorTheme} onChange={e => setEditorTheme(e.target.value)}
-          style={{ color: 'var(--color-foreground)' }}
-          className="px-2 py-1 rounded-md bg-muted/30 text-xs border border-border/30 outline-none cursor-pointer"
+          style={{ color: 'var(--color-foreground)', backgroundColor: 'var(--color-card)' }}
+          className="px-2 py-1 rounded-md text-xs border border-border/40 outline-none cursor-pointer"
           title="editor theme">
-          <option value="auto">auto</option>
-          <option value="light">light</option>
-          <option value="dark">dark</option>
+          <option value="auto" style={{ backgroundColor: 'var(--color-card)' }}>auto</option>
+          <option value="light" style={{ backgroundColor: 'var(--color-card)' }}>light</option>
+          <option value="dark" style={{ backgroundColor: 'var(--color-card)' }}>dark</option>
         </select>
 
         {language === 'markdown' && (
@@ -827,9 +855,8 @@ export default function CollabEditor({ onBack }) {
         <div className="flex items-center">
           {users.slice(0, 6).map((u, i) => (
             <div key={i}
-              className={`relative w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white ring-2 ring-background ${typing[u.name] ? 'ring-accent' : ''}`}
-              style={{ background: u.color, marginLeft: i > 0 ? -8 : 0 }}
-              title={`${u.name}${typing[u.name] ? ' (typing...)' : ''}`}>
+              className={`group relative w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white ring-2 ring-background cursor-default ${typing[u.name] ? 'ring-accent' : ''}`}
+              style={{ background: u.color, marginLeft: i > 0 ? -8 : 0, zIndex: 10 - i }}>
               {u.name.charAt(0).toUpperCase()}
               {typing[u.name] && (
                 <span className="absolute -bottom-0.5 -right-0.5 flex gap-0.5">
@@ -837,6 +864,11 @@ export default function CollabEditor({ onBack }) {
                   <span className="w-1 h-1 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
                 </span>
               )}
+              {/* custom tooltip */}
+              <div className="opacity-0 group-hover:opacity-100 pointer-events-none absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-foreground text-background text-[11px] font-medium whitespace-nowrap shadow-lg transition-opacity z-50">
+                <div className="font-bold" style={{ color: u.color }}>{u.name}{u.name === userName && ' (you)'}</div>
+                <div className="text-[10px] opacity-70">{typing[u.name] ? 'typing...' : 'online'}</div>
+              </div>
             </div>
           ))}
           {users.length > 6 && <span className="text-xs text-muted-foreground ml-2">+{users.length - 6}</span>}
@@ -909,6 +941,57 @@ export default function CollabEditor({ onBack }) {
           </div>
         ))}
       </div>
+
+      {/* Share modal */}
+      {showShareModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in" onClick={() => setShowShareModal(false)}>
+          <div className="bg-card border border-border/40 rounded-2xl p-6 max-w-md w-[90vw] shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold flex items-center gap-2">🔗 Invite to this room</h3>
+              <button onClick={() => setShowShareModal(false)} className="text-muted-foreground hover:text-foreground">✕</button>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1 font-semibold">room code</div>
+                <div className="text-3xl font-mono font-bold text-accent tracking-widest text-center py-3 bg-muted/30 rounded-xl">
+                  {roomCode}
+                </div>
+              </div>
+              <div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1 font-semibold">invite link</div>
+                <div className="flex gap-2">
+                  <input readOnly value={`${window.location.origin}/#/collab?room=${roomCode}`}
+                    style={{ color: 'var(--color-foreground)', backgroundColor: 'var(--color-background)' }}
+                    className="flex-1 px-3 py-2 rounded-lg border border-border/40 text-xs font-mono outline-none" />
+                  <button onClick={doCopyInvite}
+                    className="px-4 py-2 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:opacity-90">
+                    copy
+                  </button>
+                </div>
+              </div>
+              <div className="flex gap-2 pt-2">
+                <a href={`https://wa.me/?text=${encodeURIComponent(`join my collab room: ${window.location.origin}/#/collab?room=${roomCode}`)}`}
+                  target="_blank" rel="noopener"
+                  className="flex-1 py-2 rounded-lg bg-muted/30 hover:bg-muted/50 text-xs font-medium text-center">
+                  📱 WhatsApp
+                </a>
+                <a href={`mailto:?subject=Join my collab room&body=${encodeURIComponent(`${window.location.origin}/#/collab?room=${roomCode}`)}`}
+                  className="flex-1 py-2 rounded-lg bg-muted/30 hover:bg-muted/50 text-xs font-medium text-center">
+                  ✉ Email
+                </a>
+                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`collab with me: ${window.location.origin}/#/collab?room=${roomCode}`)}`}
+                  target="_blank" rel="noopener"
+                  className="flex-1 py-2 rounded-lg bg-muted/30 hover:bg-muted/50 text-xs font-medium text-center">
+                  🐦 Twitter
+                </a>
+              </div>
+              <div className="text-[11px] text-muted-foreground text-center pt-1">
+                anyone with this link can join and edit
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes floatUp {
