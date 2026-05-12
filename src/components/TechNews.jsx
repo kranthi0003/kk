@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 function timeAgo(ts) {
   const s = Math.floor((Date.now() - ts) / 1000)
-  if (s < 60) return `${s}s`
-  if (s < 3600) return `${Math.floor(s / 60)}m`
-  if (s < 86400) return `${Math.floor(s / 3600)}h`
-  return `${Math.floor(s / 86400)}d`
+  if (s < 60) return `${s}s ago`
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`
+  return `${Math.floor(s / 86400)}d ago`
 }
 
-async function fetchHN(limit = 6) {
+async function fetchHN(limit = 8) {
   const ids = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(r => r.json())
   const top = ids.slice(0, limit)
   const items = await Promise.all(
@@ -24,7 +24,7 @@ async function fetchHN(limit = 6) {
   }))
 }
 
-async function fetchDev(limit = 6) {
+async function fetchDev(limit = 8) {
   const list = await fetch(`https://dev.to/api/articles?per_page=${limit}&top=1`).then(r => r.json())
   return list.map(a => ({
     title: a.title,
@@ -37,12 +37,19 @@ async function fetchDev(limit = 6) {
   }))
 }
 
+function hostFromUrl(u) {
+  try { return new URL(u).hostname.replace(/^www\./, '') } catch { return '' }
+}
+
 export default function TechNews({ side = 'right' }) {
+  const [open, setOpen] = useState(false)
   const [source, setSource] = useState('hn')
   const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [err, setErr] = useState(null)
-  const [updated, setUpdated] = useState(Date.now())
+  const [updated, setUpdated] = useState(null)
+  const [loadedOnce, setLoadedOnce] = useState(false)
+  const rootRef = useRef(null)
 
   const load = async (src = source) => {
     setLoading(true)
@@ -51,6 +58,7 @@ export default function TechNews({ side = 'right' }) {
       const data = src === 'devto' ? await fetchDev(8) : await fetchHN(8)
       setItems(data)
       setUpdated(Date.now())
+      setLoadedOnce(true)
     } catch (e) {
       setErr(e.message)
     } finally {
@@ -58,12 +66,29 @@ export default function TechNews({ side = 'right' }) {
     }
   }
 
+  // Lazy load only when opened the first time, then refresh on source change while open
   useEffect(() => {
+    if (!open) return
     load(source)
     const t = setInterval(() => load(source), 5 * 60 * 1000)
     return () => clearInterval(t)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [source])
+  }, [open, source])
+
+  // Close on outside click / Esc
+  useEffect(() => {
+    if (!open) return
+    const onClick = (e) => {
+      if (rootRef.current && !rootRef.current.contains(e.target)) setOpen(false)
+    }
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
   const sources = [
     { id: 'hn', name: 'Hacker News', icon: '🟠', host: 'news.ycombinator.com' },
@@ -77,98 +102,140 @@ export default function TechNews({ side = 'right' }) {
 
   return (
     <aside
-      className={`hidden lg:flex absolute top-32 ${sideClasses} z-20 w-[260px] xl:w-[300px] flex-col animate-fade-in-up`}
+      ref={rootRef}
+      className={`hidden lg:flex absolute top-28 ${sideClasses} z-30 flex-col items-end animate-fade-in-up`}
       style={{ animationDelay: '0.6s' }}
       aria-label="Tech news"
     >
-      <div className="rounded-2xl bg-card border border-border/60 shadow-2xl overflow-hidden">
-        {/* Header with source tabs */}
-        <div className="flex items-center gap-1 px-2 py-2 border-b border-border/40 bg-background">
-          {sources.map(s => (
-            <button
-              key={s.id}
-              onClick={() => setSource(s.id)}
-              className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${
-                source === s.id
-                  ? 'bg-accent text-accent-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
-              }`}
-              title={s.name}
-            >
-              <span>{s.icon}</span>
-              <span>{s.name}</span>
-            </button>
-          ))}
-          <button
-            onClick={() => load(source)}
-            disabled={loading}
-            title="refresh"
-            className="ml-0.5 px-1.5 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 text-xs transition-transform disabled:opacity-40 hover:rotate-180 duration-500"
-          >
-            ↻
-          </button>
-        </div>
+      {/* Trigger pill */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+        aria-haspopup="true"
+        className={`group flex items-center gap-2 px-3.5 py-2 rounded-full border bg-card shadow-lg hover:shadow-xl transition-all select-none ${
+          open ? 'border-accent/60 ring-2 ring-accent/20' : 'border-border/60 hover:border-accent/40'
+        }`}
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        </span>
+        <span className="text-[12px] font-semibold tracking-wide text-foreground">Tech News</span>
+        <span className="text-[10px] font-medium text-muted-foreground hidden xl:inline">HN · DEV</span>
+        <svg
+          className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
 
-        {/* Scrollable list — fixed height shows ~3.5 cards */}
-        <div className="relative">
-          <div className="overflow-y-auto p-2 space-y-2 custom-scroll" style={{ maxHeight: '340px', scrollbarWidth: 'thin' }}>
-            {loading && items.length === 0 && (
-              [1, 2, 3].map(i => (
-                <div key={i} className="p-2.5 rounded-lg bg-muted/20 border border-border/30 space-y-1.5 animate-pulse">
-                  <div className="h-2.5 bg-muted/50 rounded w-full" />
-                  <div className="h-2.5 bg-muted/40 rounded w-4/5" />
-                  <div className="h-2 bg-muted/30 rounded w-1/3" />
-                </div>
-              ))
-            )}
-
-            {err && !loading && (
-              <div className="p-4 text-[11px] text-muted-foreground text-center">
-                couldn't load — <button onClick={() => load(source)} className="text-accent hover:underline font-semibold">retry</button>
-              </div>
-            )}
-
-            {items.map((item, i) => (
-              <a
-                key={i}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-2.5 rounded-lg bg-muted/20 hover:bg-accent/10 border border-border/30 hover:border-accent/50 transition-all group hover:shadow-md hover:-translate-y-0.5"
+      {/* Dropdown panel */}
+      {open && (
+        <div
+          className="mt-2 w-[320px] xl:w-[360px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-fade-in-up"
+          style={{ animationDelay: '0s' }}
+        >
+          {/* Header with source tabs */}
+          <div className="flex items-center gap-1 px-2 py-2 border-b border-border/50 bg-background">
+            {sources.map(s => (
+              <button
+                key={s.id}
+                onClick={() => setSource(s.id)}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg text-[12px] font-semibold transition-all ${
+                  source === s.id
+                    ? 'bg-accent text-accent-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
+                }`}
+                title={s.name}
               >
-                <div className="flex items-start gap-2">
-                  <span className="text-[10px] text-accent/70 font-mono font-bold tabular-nums mt-0.5 flex-shrink-0 w-4">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[12px] font-semibold leading-snug line-clamp-2 group-hover:text-accent transition-colors text-foreground">
-                      {item.title}
-                    </div>
-                    <div className="flex items-center gap-1.5 mt-1.5 text-[9px] text-muted-foreground flex-wrap">
-                      <span className="flex items-center gap-0.5 font-bold text-accent/80">▲ {item.score}</span>
-                      <span className="opacity-40">·</span>
-                      <span>💬 {item.comments}</span>
-                      {item.by && <><span className="opacity-40">·</span><span className="truncate max-w-[80px]">{item.by}</span></>}
-                      <span className="ml-auto whitespace-nowrap opacity-70">{timeAgo(item.time)}</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
+                <span>{s.icon}</span>
+                <span>{s.name}</span>
+              </button>
             ))}
+            <button
+              onClick={() => load(source)}
+              disabled={loading}
+              title="refresh"
+              className="ml-0.5 px-2 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 text-sm transition-transform disabled:opacity-40 hover:rotate-180 duration-500"
+            >
+              ↻
+            </button>
           </div>
-          {/* Fade hint at bottom */}
-          {items.length > 3 && (
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-card to-transparent" />
-          )}
-        </div>
 
-        <div className="px-3 py-1.5 border-t border-border/40 bg-background flex items-center justify-between text-[9px] text-muted-foreground">
-          <span>{loading ? 'updating…' : `${items.length} stories · ${timeAgo(updated)} ago`}</span>
-          <a href={`https://${current.host}`} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-medium">
-            {current.host} →
-          </a>
+          {/* Scrollable list */}
+          <div className="relative">
+            <div className="overflow-y-auto custom-scroll divide-y divide-border/40" style={{ maxHeight: '380px', scrollbarWidth: 'thin' }}>
+              {loading && items.length === 0 && (
+                [1, 2, 3, 4].map(i => (
+                  <div key={i} className="p-3.5 space-y-2 animate-pulse">
+                    <div className="h-3 bg-muted/50 rounded w-full" />
+                    <div className="h-3 bg-muted/40 rounded w-3/4" />
+                    <div className="h-2 bg-muted/30 rounded w-1/3" />
+                  </div>
+                ))
+              )}
+
+              {err && !loading && (
+                <div className="p-6 text-[12px] text-muted-foreground text-center">
+                  couldn't load — <button onClick={() => load(source)} className="text-accent hover:underline font-semibold">retry</button>
+                </div>
+              )}
+
+              {!loading && !err && items.length === 0 && loadedOnce && (
+                <div className="p-6 text-[12px] text-muted-foreground text-center">No stories right now</div>
+              )}
+
+              {items.map((item, i) => {
+                const host = hostFromUrl(item.url)
+                return (
+                  <a
+                    key={i}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-3.5 py-3 hover:bg-accent/5 transition-colors group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="text-[11px] text-muted-foreground font-mono font-semibold tabular-nums pt-0.5 flex-shrink-0 w-5">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[13.5px] font-semibold leading-[1.4] text-foreground group-hover:text-accent transition-colors">
+                          {item.title}
+                        </div>
+                        {host && (
+                          <div className="text-[10.5px] text-muted-foreground/80 mt-1 truncate">
+                            {host}
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2 mt-2 text-[10.5px] text-muted-foreground">
+                          <span className="flex items-center gap-0.5 font-semibold text-accent">▲ {item.score}</span>
+                          <span className="opacity-40">·</span>
+                          <span>💬 {item.comments}</span>
+                          {item.by && <><span className="opacity-40">·</span><span className="truncate max-w-[90px]">{item.by}</span></>}
+                          <span className="ml-auto whitespace-nowrap opacity-80">{timeAgo(item.time)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                )
+              })}
+            </div>
+            {/* Fade hint at bottom */}
+            {items.length > 3 && (
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-card to-transparent" />
+            )}
+          </div>
+
+          <div className="px-3.5 py-2 border-t border-border/50 bg-background flex items-center justify-between text-[10.5px] text-muted-foreground">
+            <span>{loading ? 'updating…' : updated ? `${items.length} stories · ${timeAgo(updated)}` : '—'}</span>
+            <a href={`https://${current.host}`} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-medium">
+              {current.host} →
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </aside>
   )
 }
