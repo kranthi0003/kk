@@ -88,12 +88,12 @@ export default function Hero({ onResumeClick }) {
             onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
             className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-foreground text-background font-bold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
-            <span className="text-lg">⚔️</span>
-            <span>Challenge a Friend — Code Battle</span>
-            <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+            <span>⚔️</span>
+            <span>1v1 Code Battle</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
             <span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[10px] font-bold shadow-md animate-pulse">LIVE</span>
           </button>
-          <p className="text-xs text-muted-foreground/40 mt-2">Race to solve coding challenges in real-time multiplayer</p>
+          <p className="text-xs text-muted-foreground/40 mt-2">think you can code faster than your friend? prove it.</p>
         </div>
       </div>
     </section>
