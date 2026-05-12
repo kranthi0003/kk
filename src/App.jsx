@@ -47,10 +47,10 @@ function MobileBanner() {
   if (!isMobile || dismissed) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-accent/90 text-accent-foreground text-center py-1.5 px-4 text-[11px] font-medium backdrop-blur-sm">
-      <span>💻 Best experienced on desktop browser</span>
+    <div className="fixed top-0 left-0 right-0 z-[999] bg-accent text-accent-foreground text-center py-2 px-4 text-xs font-medium shadow-md">
+      <span>💻 This site is best experienced on a desktop browser</span>
       <button onClick={() => { setDismissed(true); sessionStorage.setItem('mobile_banner_off', '1') }}
-        className="ml-3 opacity-60 hover:opacity-100">✕</button>
+        className="ml-3 text-accent-foreground/60 hover:text-accent-foreground font-bold">✕</button>
     </div>
   )
 }
