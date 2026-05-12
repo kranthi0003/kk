@@ -143,6 +143,7 @@ function renderMarkdown(md) {
   })
 
   html = html
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2" class="max-w-full rounded-lg my-2 border border-border/30" loading="lazy" />')
     .replace(/`([^`]+)`/g, '<code class="bg-muted/40 px-1 rounded text-[0.9em]">$1</code>')
     .replace(/^### (.*)$/gm, '<h3 class="text-base font-bold mt-4 mb-2">$1</h3>')
     .replace(/^## (.*)$/gm, '<h2 class="text-lg font-bold mt-5 mb-2">$1</h2>')
@@ -524,6 +525,24 @@ export default function CollabEditor({ onBack }) {
 
   const formatCode = () => editorRef.current?.getAction('editor.action.formatDocument')?.run()
 
+  const insertImage = () => {
+    const url = prompt('Paste image URL (or drag-drop into editor)\n\nTip: use Giphy, Imgur, Unsplash, or any direct image link')
+    if (!url || !url.trim()) return
+    const alt = prompt('Alt text (optional):', 'image') || 'image'
+    const md = `![${alt}](${url.trim()})`
+    const editor = editorRef.current
+    if (editor) {
+      const sel = editor.getSelection()
+      editor.executeEdits('img', [{ range: sel, text: md, forceMoveMarkers: true }])
+      editor.focus()
+    } else {
+      handleCodeChange(code + '\n' + md + '\n')
+    }
+    if (language !== 'markdown') {
+      flash('switch to markdown to see preview')
+    }
+  }
+
   const downloadFile = () => {
     const blob = new Blob([code], { type: 'text/plain;charset=utf-8' })
     const url = URL.createObjectURL(blob)
@@ -775,6 +794,7 @@ export default function CollabEditor({ onBack }) {
             </div>
           )}
           <button onClick={formatCode} title="format (⌘⇧F)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">{`{}`}</button>
+          <button onClick={insertImage} title="insert image" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">🖼</button>
           <button onClick={copyCode} title="copy all" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">📋</button>
           <button onClick={downloadFile} title="download active (⌘S)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">⬇</button>
           <button onClick={downloadAll} title="download all files" className="px-1.5 py-1 rounded-md text-[10px] text-muted-foreground hover:text-foreground hover:bg-muted/30">⬇all</button>
