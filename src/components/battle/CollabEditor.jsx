@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import supabase from '../../lib/supabase'
+import { groqChat } from '../../lib/groq'
 
 const MonacoEditor = lazy(() => import('@monaco-editor/react'))
 
@@ -207,6 +208,11 @@ export default function CollabEditor({ onBack }) {
   const [timerSeconds, setTimerSeconds] = useState(25 * 60)
   const [timerStartedAt, setTimerStartedAt] = useState(null)
   const [timerDuration, setTimerDuration] = useState(25 * 60)
+  // AI explain
+  const [aiBusy, setAiBusy] = useState(false)
+  const [aiResult, setAiResult] = useState('')
+  // Contribution stats: { name: charCount }
+  const [contribStats, setContribStats] = useState({})
 
   const channelRef = useRef(null)
   const editorRef = useRef(null)
@@ -315,6 +321,7 @@ export default function CollabEditor({ onBack }) {
           suppressSync.current = true
           setFiles(prev => prev.map(f => f.id === payload.fileId ? { ...f, code: payload.code } : f))
           setTimeout(() => { suppressSync.current = false }, 50)
+          if (payload.delta > 0) setContribStats(s => ({ ...s, [payload.name]: (s[payload.name] || 0) + payload.delta }))
         }
       })
       .on('broadcast', { event: 'file-sync' }, ({ payload }) => {
@@ -331,6 +338,11 @@ export default function CollabEditor({ onBack }) {
       })
       .on('broadcast', { event: 'chat-message' }, ({ payload }) => {
         setChatMessages(prev => [...prev.slice(-100), payload])
+      })
+      .on('broadcast', { event: 'ai-result' }, ({ payload }) => {
+        if (payload.name === name) return
+        setAiResult(`${payload.name} asked AI to explain "${payload.snippet}…"\n\n${payload.text}`)
+        pushActivity(`${payload.name} used AI explain`, 'ai', getColor(payload.name))
       })
       .on('broadcast', { event: 'typing' }, ({ payload }) => {
         if (payload.name === name) return
@@ -399,10 +411,13 @@ export default function CollabEditor({ onBack }) {
   }
 
   const handleCodeChange = (newCode) => {
+    const prevFile = files.find(f => f.id === activeFileId)
+    const delta = (newCode?.length || 0) - (prevFile?.code?.length || 0)
     setFiles(prev => prev.map(f => f.id === activeFileId ? { ...f, code: newCode || '' } : f))
     if (!suppressSync.current && channelRef.current) {
-      channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, fileId: activeFileId, code: newCode } })
+      channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, fileId: activeFileId, code: newCode, delta } })
       channelRef.current.send({ type: 'broadcast', event: 'typing', payload: { name: userName } })
+      if (delta > 0) setContribStats(s => ({ ...s, [userName]: (s[userName] || 0) + delta }))
     }
   }
 
@@ -526,6 +541,30 @@ export default function CollabEditor({ onBack }) {
 
   const formatCode = () => editorRef.current?.getAction('editor.action.formatDocument')?.run()
 
+  const aiExplain = async () => {
+    const editor = editorRef.current
+    const sel = editor?.getSelection()
+    const selectedText = sel && !sel.isEmpty() ? editor.getModel().getValueInRange(sel) : code
+    if (!selectedText || !selectedText.trim()) { flash('select code or type something first'); return }
+    if (selectedText.length > 4000) { flash('selection too long (max 4000 chars)'); return }
+    setAiBusy(true)
+    setAiResult('thinking…')
+    setActiveTab('ai')
+    try {
+      const data = await groqChat([
+        { role: 'system', content: `You are a senior engineer helping explain code clearly and concisely. Use simple language. If the input is not code (e.g. markdown/notes), explain what the document is about.` },
+        { role: 'user', content: `Explain this ${language} snippet in 3-5 short bullet points:\n\n\`\`\`${language}\n${selectedText}\n\`\`\`` },
+      ], { max_tokens: 350, temperature: 0.4 })
+      const text = data?.choices?.[0]?.message?.content || 'no response'
+      setAiResult(text)
+      channelRef.current?.send({ type: 'broadcast', event: 'ai-result', payload: { name: userName, text, snippet: selectedText.slice(0, 80) } })
+    } catch (e) {
+      setAiResult(`AI error: ${e.message}`)
+    } finally {
+      setAiBusy(false)
+    }
+  }
+
   const insertImage = () => {
     const url = prompt('Paste image URL (or drag-drop into editor)\n\nTip: use Giphy, Imgur, Unsplash, or any direct image link')
     if (!url || !url.trim()) return
@@ -647,8 +686,8 @@ export default function CollabEditor({ onBack }) {
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl animate-pulse" />
-        <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full bg-pink-500/5 blur-3xl animate-pulse" style={{ animationDelay: '3s' }} />
+        <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl animate-pulse" style={{ animationDelay: '3s' }} />
       </div>
 
       {/* Top bar */}
@@ -658,7 +697,7 @@ export default function CollabEditor({ onBack }) {
         </button>
         <h1 className="ml-4 text-lg font-bold flex items-center gap-2">
           <span className="text-xl">👥</span>
-          <span className="bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">Collab</span>
+          <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Collab</span>
         </h1>
         <div className="ml-auto flex items-center gap-3">
           <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">
@@ -681,7 +720,7 @@ export default function CollabEditor({ onBack }) {
               live multiplayer pads
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-foreground via-accent to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-foreground via-accent to-primary bg-clip-text text-transparent">
                 code, write, race
               </span>
               <br />
@@ -724,7 +763,7 @@ export default function CollabEditor({ onBack }) {
               onClick={() => setLobbyMode('battle')}
               className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all ${
                 lobbyMode === 'battle'
-                  ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -734,7 +773,7 @@ export default function CollabEditor({ onBack }) {
 
           {lobbyMode === 'battle' ? (
             /* Battle mode card */
-            <div className="rounded-2xl bg-gradient-to-br from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-500/30 p-6 sm:p-8 text-center backdrop-blur shadow-xl">
+            <div className="rounded-2xl bg-gradient-to-br from-accent/10 via-primary/10 to-accent/5 border border-accent/30 p-6 sm:p-8 text-center backdrop-blur shadow-xl">
               <div className="text-5xl mb-3">⚔️</div>
               <h3 className="text-2xl font-bold mb-2">1v1 Code Battle</h3>
               <p className="text-muted-foreground text-sm max-w-md mx-auto mb-5">
@@ -756,7 +795,7 @@ export default function CollabEditor({ onBack }) {
               </div>
               <button
                 onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
                 Enter Battle Arena <span>→</span>
               </button>
             </div>
@@ -902,6 +941,8 @@ export default function CollabEditor({ onBack }) {
           )}
           <button onClick={formatCode} title="format (⌘⇧F)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">{`{}`}</button>
           <button onClick={insertImage} title="insert image" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">🖼</button>
+          <button onClick={aiExplain} disabled={aiBusy} title="AI explain selection / file" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30 disabled:opacity-50">{aiBusy ? '⏳' : '🤖'}</button>
+          <button onClick={() => { setActiveTab('users'); setSidebarOpen(true) }} title="contributor stats" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">📊</button>
           <button onClick={copyCode} title="copy all" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">📋</button>
           <button onClick={downloadFile} title="download active (⌘S)" className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted/30">⬇</button>
           <button onClick={downloadAll} title="download all files" className="px-1.5 py-1 rounded-md text-[10px] text-muted-foreground hover:text-foreground hover:bg-muted/30">⬇all</button>
@@ -1084,6 +1125,17 @@ export default function CollabEditor({ onBack }) {
                   {roomCode}
                 </div>
               </div>
+              <div className="flex flex-col items-center gap-2 py-2">
+                <div className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">scan to join on mobile</div>
+                <div className="p-2 bg-white rounded-xl shadow-md">
+                  <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=0&data=${encodeURIComponent(`${window.location.origin}/#/collab?room=${roomCode}`)}`}
+                    alt={`QR code for room ${roomCode}`}
+                    width={160} height={160}
+                    className="rounded-md"
+                  />
+                </div>
+              </div>
               <div>
                 <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1 font-semibold">invite link</div>
                 <div className="flex gap-2">
@@ -1195,6 +1247,7 @@ export default function CollabEditor({ onBack }) {
             <div className="flex items-center border-b border-border/20 px-1 flex-shrink-0 overflow-x-auto">
               {[
                 { id: 'chat', label: '💬 chat', badge: chatMessages.length },
+                { id: 'ai', label: '🤖 AI', badge: aiResult ? 1 : 0 },
                 { id: 'activity', label: '⚡ activity', badge: activity.length },
                 { id: 'console', label: '› console', badge: consoleOutput.length },
                 { id: 'users', label: `👥 ${users.length}` },
@@ -1280,22 +1333,72 @@ export default function CollabEditor({ onBack }) {
               </div>
             )}
 
+            {activeTab === 'ai' && (
+              <div className="flex-1 flex flex-col min-h-0">
+                <div className="flex-1 overflow-y-auto px-3 py-3" style={{ scrollbarWidth: 'thin' }}>
+                  {!aiResult ? (
+                    <div className="text-center py-8">
+                      <div className="text-3xl mb-2">🤖</div>
+                      <p className="text-muted-foreground/70 text-xs mb-3">Select code in the editor, then click the 🤖 button (or use the prompt below) to get an AI explanation.</p>
+                      <button onClick={aiExplain} disabled={aiBusy}
+                        className="px-3 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-semibold hover:opacity-90 disabled:opacity-50">
+                        {aiBusy ? '⏳ thinking…' : '✨ explain current file'}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">
+                        <span>AI explanation</span>
+                        <button onClick={() => setAiResult('')} className="ml-auto hover:text-foreground">clear</button>
+                      </div>
+                      <div className="text-xs whitespace-pre-wrap leading-relaxed text-foreground bg-muted/20 rounded-lg p-3 border border-border/30">
+                        {aiResult}
+                      </div>
+                      <button onClick={aiExplain} disabled={aiBusy}
+                        className="w-full mt-2 px-3 py-2 rounded-lg bg-accent/10 text-accent text-xs font-semibold hover:bg-accent/20 disabled:opacity-50 border border-accent/30">
+                        {aiBusy ? '⏳ thinking…' : '🔄 re-explain'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
             {activeTab === 'users' && (
               <div className="flex-1 overflow-y-auto px-3 py-2 space-y-2" style={{ scrollbarWidth: 'thin' }}>
-                {users.map((u, i) => (
-                  <div key={i} className="flex items-center gap-2 px-2 py-2 rounded-lg bg-muted/20">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white relative"
-                      style={{ background: u.color }}>
-                      {u.name.charAt(0).toUpperCase()}
-                      {typing[u.name] && <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-accent ring-2 ring-card animate-pulse" />}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium truncate">{u.name}{u.name === userName && <span className="text-muted-foreground text-xs ml-1">(you)</span>}</div>
-                      <div className="text-[10px] text-muted-foreground">{typing[u.name] ? 'typing...' : 'idle'}</div>
-                    </div>
-                    {isHost && u.name === userName && <span className="text-[10px] text-accent">host</span>}
+                {(() => {
+                  const totalChars = Object.values(contribStats).reduce((a, b) => a + b, 0) || 1
+                  return users.map((u, i) => {
+                    const userChars = contribStats[u.name] || 0
+                    const pct = Math.round((userChars / totalChars) * 100)
+                    return (
+                      <div key={i} className="px-2 py-2 rounded-lg bg-muted/20">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white relative"
+                            style={{ background: u.color }}>
+                            {u.name.charAt(0).toUpperCase()}
+                            {typing[u.name] && <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-accent ring-2 ring-card animate-pulse" />}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-sm font-medium truncate">{u.name}{u.name === userName && <span className="text-muted-foreground text-xs ml-1">(you)</span>}</div>
+                            <div className="text-[10px] text-muted-foreground">{typing[u.name] ? 'typing...' : 'idle'} · {userChars.toLocaleString()} chars</div>
+                          </div>
+                          {isHost && u.name === userName && <span className="text-[10px] text-accent">host</span>}
+                        </div>
+                        {userChars > 0 && (
+                          <div className="mt-1.5 h-1 bg-background/50 rounded-full overflow-hidden">
+                            <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: u.color }} />
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })
+                })()}
+                {Object.keys(contribStats).length > 0 && (
+                  <div className="mt-3 pt-3 border-t border-border/30 text-[10px] text-muted-foreground text-center">
+                    {Object.values(contribStats).reduce((a, b) => a + b, 0).toLocaleString()} total chars this session
                   </div>
-                ))}
+                )}
               </div>
             )}
           </div>
