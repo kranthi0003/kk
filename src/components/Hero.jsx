@@ -23,28 +23,28 @@ export default function Hero({ onResumeClick }) {
         <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-background to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-8 md:py-12 lg:py-20 text-center w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-6 md:py-8 lg:py-12 text-center w-full">
         {/* Profile Photo — sits at the split point */}
-        <div className="mb-4 md:mb-6 lg:mb-8 animate-fade-in-up">
+        <div className="mb-3 md:mb-5 lg:mb-6 animate-fade-in-up">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-primary/20 rounded-full blur-2xl animate-pulse" />
             <div className="relative p-1 rounded-full bg-gradient-to-br from-accent via-primary to-accent animate-float">
               <img
                 src={profile}
                 alt="Kranthi Kiran"
-                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-full object-cover shadow-2xl mx-auto border-4 border-background"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 2xl:w-40 2xl:h-40 rounded-full object-cover shadow-2xl mx-auto border-4 border-background"
               />
             </div>
           </div>
         </div>
 
-        <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-3 md:mb-4 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl leading-tight mb-2 md:mb-3 lg:mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           Hey, I'm{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent animate-gradient">
             Kranthi
           </span>
         </h1>
-        <h2 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl text-accent mb-4 md:mb-6 lg:mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <h2 className="font-heading text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-3 md:mb-4 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
           <TypingText
             phrases={['Cloud Engineer', 'Infrastructure Builder', 'Distributed Systems Nerd', 'GitHub Engineer']}
             typingSpeed={120}
@@ -52,11 +52,11 @@ export default function Hero({ onResumeClick }) {
             pauseDuration={2500}
           />
         </h2>
-        <p className="font-body text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto mb-3 md:mb-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <p className="font-body text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-3 md:mb-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           I love building reliable infrastructure, taming distributed systems,
           and crafting tools that make engineering teams more productive.
         </p>
-        <div className="flex items-center justify-center gap-2 mb-4 md:mb-6 lg:mb-8 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
+        <div className="flex items-center justify-center gap-2 mb-4 md:mb-5 lg:mb-6 animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
@@ -83,7 +83,7 @@ export default function Hero({ onResumeClick }) {
         </div>
 
         {/* Code features CTA */}
-        <div className="mt-4 md:mt-6 lg:mt-8 flex flex-wrap gap-3 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+        <div className="mt-4 md:mt-5 lg:mt-6 flex flex-wrap gap-3 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
             onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
             className="group relative inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl bg-foreground text-background font-bold text-xs md:text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
