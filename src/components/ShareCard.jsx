@@ -93,9 +93,14 @@ export default function ShareCard() {
     tags.forEach(tag => {
       const w = ctx.measureText(tag).width + 20
       ctx.fillStyle = t.accent + '20'
-      ctx.beginPath()
-      ctx.roundRect(tagX, 415, w, 30, 6)
-      ctx.fill()
+      // roundRect polyfill for older browsers
+      if (ctx.roundRect) {
+        ctx.beginPath()
+        ctx.roundRect(tagX, 415, w, 30, 6)
+        ctx.fill()
+      } else {
+        ctx.fillRect(tagX, 415, w, 30)
+      }
       ctx.fillStyle = t.accent
       ctx.fillText(tag, tagX + 10, 435)
       tagX += w + 8

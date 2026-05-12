@@ -102,20 +102,46 @@ export default function VisitorTracker() {
     const channel = subscribeVisitorChannel()
     channelRef.current = channel
 
-    // Fetch geolocation then track presence
-    fetch('https://ipapi.co/json/')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(data => {
+    // Fetch geolocation with fallback + cache
+    const cachedGeo = sessionStorage.getItem('visitor_geo')
+    if (cachedGeo) {
+      try { geo = JSON.parse(cachedGeo) } catch {}
+    }
+
+    const fetchGeo = async () => {
+      if (cachedGeo) return
+      try {
+        // Primary: ipapi.co
+        const r = await fetch('https://ipapi.co/json/')
+        if (!r.ok) throw new Error()
+        const data = await r.json()
+        if (data.error) throw new Error()
         geo = {
           country: data.country_name || '—',
           city: data.city || '—',
           region: data.region || '',
           flag: countryFlag(data.country_code),
           timezone: data.timezone || '',
-          ip: data.ip || '',
         }
-      })
-      .catch(() => {})
+      } catch {
+        try {
+          // Fallback: ip-api.com (no HTTPS on free, use http)
+          const r2 = await fetch('https://freeipapi.com/api/json')
+          if (!r2.ok) throw new Error()
+          const d2 = await r2.json()
+          geo = {
+            country: d2.countryName || '—',
+            city: d2.cityName || '—',
+            region: d2.regionName || '',
+            flag: countryFlag(d2.countryCode),
+            timezone: d2.timeZone || '',
+          }
+        } catch {}
+      }
+      sessionStorage.setItem('visitor_geo', JSON.stringify(geo))
+    }
+
+    fetchGeo()
       .finally(() => {
         const trackData = () => ({
           visitor_id: VISITOR_ID,
