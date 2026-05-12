@@ -32,6 +32,29 @@ import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
 import AdminDashboard from './components/AdminDashboard'
 
+function MobileBanner() {
+  const [dismissed, setDismissed] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    if (sessionStorage.getItem('mobile_banner_off')) { setDismissed(true); return }
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  if (!isMobile || dismissed) return null
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-accent/90 text-accent-foreground text-center py-1.5 px-4 text-[11px] font-medium backdrop-blur-sm">
+      <span>💻 Best experienced on desktop browser</span>
+      <button onClick={() => { setDismissed(true); sessionStorage.setItem('mobile_banner_off', '1') }}
+        className="ml-3 opacity-60 hover:opacity-100">✕</button>
+    </div>
+  )
+}
+
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
@@ -75,6 +98,7 @@ export default function App() {
     <>
       {!booted && <BootLoader onComplete={() => setBooted(true)} />}
       <div className={`min-h-screen bg-background text-foreground transition-opacity duration-500 ${!booted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
