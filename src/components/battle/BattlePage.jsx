@@ -105,9 +105,15 @@ export default function BattlePage({ onBack }) {
 
   // ─── START BATTLE (host only) ───
   const startBattle = () => {
-    // Pick random challenge
     const ch = CHALLENGES[Math.floor(Math.random() * CHALLENGES.length)]
+    // Broadcast to opponent
     channelRef.current?.send({ type: 'broadcast', event: 'start', payload: { challengeId: ch.id } })
+    // Also start locally (broadcast doesn't echo to sender)
+    setChallenge(ch)
+    setCode(ch.template)
+    setPhase('battle')
+    startTimeRef.current = Date.now()
+    timerRef.current = setInterval(() => setTimer(Math.floor((Date.now() - startTimeRef.current) / 1000)), 100)
   }
 
   // ─── RUN TESTS ───
