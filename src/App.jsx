@@ -61,7 +61,7 @@ export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(() => !!sessionStorage.getItem('boot_seen'))
-  const [route, setRoute] = useState(window.location.hash)
+  const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
 
   // Hash-based routing
   useEffect(() => {
