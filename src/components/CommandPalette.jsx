@@ -102,6 +102,10 @@ const ACTIONS = [
     window.location.hash = '#/battle'
     window.location.reload()
   }, keywords: 'code battle multiplayer race challenge coding leetcode fight compete programming duel' },
+  { id: 'collab-editor', label: 'Collab Editor', desc: 'Code together in real-time', section: 'Features', icon: '👥', action: () => {
+    window.location.hash = '#/collab'
+    window.location.reload()
+  }, keywords: 'collab editor collaborative code together pair programming live share real-time multiplayer google docs' },
   { id: 'theme-modes', label: 'Theme Modes', desc: 'Fight Club, F1, Cyberpunk, Vintage, Ocean, Dracula', section: 'Actions', icon: '🎨', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-theme-modes'))
   }, keywords: 'theme mode style vibe fight club f1 racing cyberpunk vintage ocean dracula color palette skin' },

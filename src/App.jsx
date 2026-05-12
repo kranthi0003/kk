@@ -33,6 +33,7 @@ import VisitorTracker from './components/VisitorTracker'
 import AdminDashboard from './components/AdminDashboard'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
+const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -73,8 +74,17 @@ export default function App() {
   // Battle page route
   if (route === '#/battle') {
     return (
-      <Suspense fallback={<div className="min-h-screen bg-[#0f0f17] flex items-center justify-center"><div className="w-6 h-6 border-2 border-white/20 border-t-blue-400 rounded-full animate-spin" /></div>}>
+      <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
         <BattlePage onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Collab editor route
+  if (route.startsWith('#/collab')) {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
+        <CollabEditor onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }
