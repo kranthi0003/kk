@@ -172,6 +172,7 @@ function timeAgo(ts) {
 
 export default function CollabEditor({ onBack }) {
   const [phase, setPhase] = useState('lobby')
+  const [lobbyMode, setLobbyMode] = useState('collab')
   const [userName, setUserName] = useState(() => localStorage.getItem('collab:name') || '')
   const [roomCode, setRoomCode] = useState('')
   const [isHost, setIsHost] = useState(false)
@@ -643,118 +644,208 @@ export default function CollabEditor({ onBack }) {
   // ── LOBBY ──
   if (phase === 'lobby') return (
     <div className="min-h-screen bg-background text-foreground flex flex-col relative overflow-hidden">
+      {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-accent/10 blur-3xl animate-pulse" />
-        <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-accent/5 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl animate-pulse" />
+        <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full bg-pink-500/5 blur-3xl animate-pulse" style={{ animationDelay: '3s' }} />
       </div>
 
-      <div className="flex items-center px-6 py-4 border-b border-border/20 relative z-10">
+      {/* Top bar */}
+      <div className="flex items-center px-6 py-4 border-b border-border/20 relative z-10 backdrop-blur-sm bg-background/30">
         <button onClick={onBack} className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm transition-colors">
           ← Back to site
         </button>
-        <h1 className="ml-4 text-lg font-bold flex items-center gap-2">👥 Collab Editor</h1>
-        <div className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-          live
+        <h1 className="ml-4 text-lg font-bold flex items-center gap-2">
+          <span className="text-xl">👥</span>
+          <span className="bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">Collab</span>
+        </h1>
+        <div className="ml-auto flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            realtime
+          </div>
+          <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted/30 text-muted-foreground text-xs">
+            <span>⚡</span>
+            free · no signup
+          </div>
         </div>
       </div>
 
       <div className="flex-1 flex items-center justify-center px-6 py-8 relative z-10">
-        <div className="w-[680px] max-w-full space-y-6">
+        <div className="w-[760px] max-w-full space-y-6">
+          {/* Hero */}
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent/10 mb-4 relative">
-              <span className="text-4xl">👥</span>
-              {userName.trim() && (
-                <div className="absolute -bottom-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white ring-4 ring-background"
-                  style={{ background: getColor(userName) }}>
-                  {userName.charAt(0).toUpperCase()}
-                </div>
-              )}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              live multiplayer pads
             </div>
-            <h2 className="text-3xl font-bold tracking-tight">code together, write together</h2>
-            <p className="text-muted-foreground text-sm mt-2 max-w-md mx-auto">
-              real-time pads for code, markdown and plain text. share a link, start typing, see each other live.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-foreground via-accent to-purple-400 bg-clip-text text-transparent">
+                code, write, race
+              </span>
+              <br />
+              <span className="text-foreground">— together.</span>
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base mt-3 max-w-lg mx-auto">
+              real-time pads for code & docs, plus 1v1 coding battles. share a link, start typing, see each other live.
             </p>
-          </div>
 
-          <div className="space-y-3 rounded-2xl bg-card/60 backdrop-blur border border-border/40 p-5 shadow-xl">
-            <div>
-              <label className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">your name</label>
-              <input
-                value={userName}
-                onChange={e => setUserName(e.target.value)}
-                maxLength={15}
-                placeholder="what should we call you?"
-                autoFocus
-                style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
-                className="w-full mt-1 px-4 py-3 rounded-xl bg-background border-2 border-border/40 placeholder:text-muted-foreground/50 outline-none focus:border-accent transition-colors text-base font-medium" />
-            </div>
-
-            <div className="grid grid-cols-5 gap-3">
-              <button onClick={() => createRoom(TEMPLATES[0])} disabled={!userName.trim()}
-                className="col-span-2 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition disabled:opacity-30">
-                ✨ new room
-              </button>
-              <input
-                value={roomCode}
-                onChange={e => setRoomCode(e.target.value.toUpperCase())}
-                maxLength={6}
-                placeholder="ROOM CODE"
-                style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
-                className="col-span-3 px-4 rounded-xl bg-background border-2 border-border/40 text-center font-mono uppercase placeholder:text-muted-foreground/40 outline-none focus:border-accent text-base font-semibold tracking-widest" />
-            </div>
-            {roomCode.length === 6 && (
-              <button onClick={() => joinRoom()} disabled={!userName.trim()}
-                className="w-full py-3 rounded-xl bg-foreground text-background font-semibold hover:opacity-90 transition disabled:opacity-30">
-                → join {roomCode}
-              </button>
-            )}
-          </div>
-
-          {/* Template gallery */}
-          <div>
-            <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2 font-semibold">or start from a template</div>
-            <div className="grid grid-cols-3 gap-2">
-              {TEMPLATES.map(t => (
-                <button key={t.id} onClick={() => createRoom(t)} disabled={!userName.trim()}
-                  className="group text-left p-3 rounded-xl bg-card/60 hover:bg-card border border-border/30 hover:border-accent/60 transition disabled:opacity-30 disabled:cursor-not-allowed">
-                  <div className="text-2xl mb-1 group-hover:scale-110 transition-transform inline-block">{t.emoji}</div>
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-[11px] text-muted-foreground">{t.desc}</div>
-                </button>
+            {/* Feature pills */}
+            <div className="flex flex-wrap gap-2 justify-center mt-5">
+              {[
+                { icon: '⚡', label: 'instant rooms' },
+                { icon: '🎨', label: '10 languages' },
+                { icon: '📝', label: 'markdown + tables' },
+                { icon: '🖼', label: 'images' },
+                { icon: '⏱', label: 'pomodoro' },
+                { icon: '🎯', label: 'remote cursors' },
+              ].map(f => (
+                <div key={f.label} className="px-2.5 py-1 rounded-full bg-card/60 border border-border/30 text-[11px] font-medium text-muted-foreground flex items-center gap-1.5">
+                  <span>{f.icon}</span>{f.label}
+                </div>
               ))}
             </div>
           </div>
 
-          {recentRooms.length > 0 && (
-            <div>
-              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2 font-semibold">recent rooms</div>
-              <div className="flex flex-wrap gap-2">
-                {recentRooms.map(r => (
-                  <button key={r.code} onClick={() => joinRoom(r.code)} disabled={!userName.trim()}
-                    className="px-3 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/50 text-sm font-mono transition disabled:opacity-30">
-                    <span className="text-accent font-bold">{r.code}</span>
-                    <span className="text-muted-foreground text-xs ml-2">{timeAgo(r.time)}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Battle mode entry */}
-          <div className="pt-4 mt-2 border-t border-border/30">
+          {/* Mode tabs */}
+          <div className="flex gap-2 p-1.5 rounded-2xl bg-card/40 border border-border/30 backdrop-blur">
             <button
-              onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
-              className="group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 hover:from-orange-500/20 hover:via-red-500/20 hover:to-pink-500/20 border border-orange-500/30 hover:border-orange-500/60 transition-all">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl group-hover:scale-110 transition-transform">⚔️</span>
-                <div className="text-left">
-                  <div className="text-sm font-bold">1v1 Code Battle</div>
-                  <div className="text-[11px] text-muted-foreground">Race a friend on coding problems</div>
+              onClick={() => setLobbyMode('collab')}
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                lobbyMode !== 'battle'
+                  ? 'bg-accent text-accent-foreground shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <span>👥</span> Collaborate
+            </button>
+            <button
+              onClick={() => setLobbyMode('battle')}
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                lobbyMode === 'battle'
+                  ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <span>⚔️</span> 1v1 Battle
+            </button>
+          </div>
+
+          {lobbyMode === 'battle' ? (
+            /* Battle mode card */
+            <div className="rounded-2xl bg-gradient-to-br from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-500/30 p-6 sm:p-8 text-center backdrop-blur shadow-xl">
+              <div className="text-5xl mb-3">⚔️</div>
+              <h3 className="text-2xl font-bold mb-2">1v1 Code Battle</h3>
+              <p className="text-muted-foreground text-sm max-w-md mx-auto mb-5">
+                Race a friend on real coding problems. First correct solution wins. Live shared editor, timer, and verdict.
+              </p>
+              <div className="grid grid-cols-3 gap-3 max-w-md mx-auto mb-5 text-xs">
+                <div className="p-2 rounded-lg bg-background/40 border border-border/30">
+                  <div className="text-lg mb-0.5">🎯</div>
+                  <div className="font-semibold">Real problems</div>
+                </div>
+                <div className="p-2 rounded-lg bg-background/40 border border-border/30">
+                  <div className="text-lg mb-0.5">⏱</div>
+                  <div className="font-semibold">Live timer</div>
+                </div>
+                <div className="p-2 rounded-lg bg-background/40 border border-border/30">
+                  <div className="text-lg mb-0.5">🏆</div>
+                  <div className="font-semibold">Auto-verdict</div>
                 </div>
               </div>
-              <span className="text-muted-foreground group-hover:translate-x-1 transition-transform">→</span>
-            </button>
+              <button
+                onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+                Enter Battle Arena <span>→</span>
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Name + room card */}
+              <div className="space-y-3 rounded-2xl bg-card/60 backdrop-blur border border-border/40 p-5 shadow-xl">
+                <div className="flex items-end gap-3">
+                  <div className="flex-1">
+                    <label className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">your name</label>
+                    <input
+                      value={userName}
+                      onChange={e => setUserName(e.target.value)}
+                      maxLength={15}
+                      placeholder="what should we call you?"
+                      autoFocus
+                      style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
+                      className="w-full mt-1 px-4 py-3 rounded-xl bg-background border-2 border-border/40 placeholder:text-muted-foreground/50 outline-none focus:border-accent transition-colors text-base font-medium" />
+                  </div>
+                  {userName.trim() && (
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white shadow-lg flex-shrink-0 animate-fade-in"
+                      style={{ background: getColor(userName) }}>
+                      {userName.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-5 gap-3">
+                  <button onClick={() => createRoom(TEMPLATES[0])} disabled={!userName.trim()}
+                    className="col-span-2 py-3 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition disabled:opacity-30 shadow-md hover:shadow-lg">
+                    ✨ new room
+                  </button>
+                  <input
+                    value={roomCode}
+                    onChange={e => setRoomCode(e.target.value.toUpperCase())}
+                    maxLength={6}
+                    placeholder="ROOM CODE"
+                    style={{ color: 'var(--color-foreground)', caretColor: 'var(--color-foreground)' }}
+                    className="col-span-3 px-4 rounded-xl bg-background border-2 border-border/40 text-center font-mono uppercase placeholder:text-muted-foreground/40 outline-none focus:border-accent text-base font-semibold tracking-widest" />
+                </div>
+                {roomCode.length === 6 && (
+                  <button onClick={() => joinRoom()} disabled={!userName.trim()}
+                    className="w-full py-3 rounded-xl bg-foreground text-background font-semibold hover:opacity-90 transition disabled:opacity-30 shadow-md animate-fade-in">
+                    → join {roomCode}
+                  </button>
+                )}
+              </div>
+
+              {/* Template gallery */}
+              <div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2 font-semibold flex items-center gap-2">
+                  <span>or start from a template</span>
+                  <span className="flex-1 h-px bg-border/30" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {TEMPLATES.map(t => (
+                    <button key={t.id} onClick={() => createRoom(t)} disabled={!userName.trim()}
+                      className="group text-left p-3 rounded-xl bg-card/60 hover:bg-card border border-border/30 hover:border-accent/60 transition disabled:opacity-30 disabled:cursor-not-allowed hover:shadow-md hover:-translate-y-0.5">
+                      <div className="text-2xl mb-1 group-hover:scale-110 transition-transform inline-block">{t.emoji}</div>
+                      <div className="text-sm font-semibold">{t.name}</div>
+                      <div className="text-[11px] text-muted-foreground">{t.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {recentRooms.length > 0 && (
+                <div>
+                  <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2 font-semibold flex items-center gap-2">
+                    <span>recent rooms</span>
+                    <span className="flex-1 h-px bg-border/30" />
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {recentRooms.map(r => (
+                      <button key={r.code} onClick={() => joinRoom(r.code)} disabled={!userName.trim()}
+                        className="px-3 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/50 text-sm font-mono transition disabled:opacity-30 border border-border/30 hover:border-accent/40">
+                        <span className="text-accent font-bold">{r.code}</span>
+                        <span className="text-muted-foreground text-xs ml-2">{timeAgo(r.time)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Footer hint */}
+          <div className="text-center text-[11px] text-muted-foreground/60 pt-2">
+            built with React · Monaco · Supabase Realtime · zero signup required
           </div>
         </div>
       </div>
