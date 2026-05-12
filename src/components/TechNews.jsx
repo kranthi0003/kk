@@ -81,85 +81,89 @@ export default function TechNews({ side = 'right' }) {
       style={{ animationDelay: '0.6s' }}
       aria-label="Tech news"
     >
-      <div className="rounded-2xl bg-card/70 backdrop-blur-md border border-border/40 shadow-xl overflow-hidden">
+      <div className="rounded-2xl bg-card border border-border/60 shadow-2xl overflow-hidden">
         {/* Header with source tabs */}
-        <div className="flex items-center gap-1 px-2 py-2 border-b border-border/30 bg-background/40">
-          <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mr-1 hidden xl:block">News</div>
+        <div className="flex items-center gap-1 px-2 py-2 border-b border-border/40 bg-background">
           {sources.map(s => (
             <button
               key={s.id}
               onClick={() => setSource(s.id)}
-              className={`flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${
+              className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${
                 source === s.id
                   ? 'bg-accent text-accent-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
               }`}
               title={s.name}
             >
               <span>{s.icon}</span>
-              <span className="hidden xl:inline">{s.name}</span>
+              <span>{s.name}</span>
             </button>
           ))}
           <button
             onClick={() => load(source)}
             disabled={loading}
             title="refresh"
-            className="ml-0.5 px-1.5 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/30 text-xs transition-transform disabled:opacity-40 hover:rotate-180 duration-500"
+            className="ml-0.5 px-1.5 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 text-xs transition-transform disabled:opacity-40 hover:rotate-180 duration-500"
           >
             ↻
           </button>
         </div>
 
-        <div className="max-h-[65vh] overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
-          {loading && items.length === 0 && (
-            <div className="p-3 space-y-3">
-              {[1, 2, 3, 4, 5].map(i => (
-                <div key={i} className="space-y-1.5 animate-pulse">
-                  <div className="h-2.5 bg-muted/40 rounded w-full" />
-                  <div className="h-2.5 bg-muted/30 rounded w-4/5" />
-                  <div className="h-1.5 bg-muted/20 rounded w-1/3" />
+        {/* Scrollable list — fixed height shows ~3.5 cards */}
+        <div className="relative">
+          <div className="overflow-y-auto p-2 space-y-2 custom-scroll" style={{ maxHeight: '340px', scrollbarWidth: 'thin' }}>
+            {loading && items.length === 0 && (
+              [1, 2, 3].map(i => (
+                <div key={i} className="p-2.5 rounded-lg bg-muted/20 border border-border/30 space-y-1.5 animate-pulse">
+                  <div className="h-2.5 bg-muted/50 rounded w-full" />
+                  <div className="h-2.5 bg-muted/40 rounded w-4/5" />
+                  <div className="h-2 bg-muted/30 rounded w-1/3" />
                 </div>
-              ))}
-            </div>
-          )}
+              ))
+            )}
 
-          {err && !loading && (
-            <div className="p-4 text-[11px] text-muted-foreground text-center">
-              couldn't load — <button onClick={() => load(source)} className="text-accent hover:underline font-semibold">retry</button>
-            </div>
-          )}
-
-          {items.map((item, i) => (
-            <a
-              key={i}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-3 py-2.5 border-b border-border/20 last:border-b-0 hover:bg-accent/5 transition-colors group"
-            >
-              <div className="flex items-start gap-2">
-                <span className="text-[10px] text-muted-foreground/60 font-mono tabular-nums mt-0.5 flex-shrink-0 w-4 text-right">
-                  {i + 1}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="text-[12px] font-medium leading-snug line-clamp-3 group-hover:text-accent transition-colors">
-                    {item.title}
-                  </div>
-                  <div className="flex items-center gap-1.5 mt-1 text-[9px] text-muted-foreground flex-wrap">
-                    <span className="flex items-center gap-0.5 font-semibold">▲ {item.score}</span>
-                    <span>·</span>
-                    <span>💬 {item.comments}</span>
-                    {item.by && <><span>·</span><span className="truncate max-w-[80px]">{item.by}</span></>}
-                    <span className="ml-auto whitespace-nowrap">{timeAgo(item.time)}</span>
-                  </div>
-                </div>
+            {err && !loading && (
+              <div className="p-4 text-[11px] text-muted-foreground text-center">
+                couldn't load — <button onClick={() => load(source)} className="text-accent hover:underline font-semibold">retry</button>
               </div>
-            </a>
-          ))}
+            )}
+
+            {items.map((item, i) => (
+              <a
+                key={i}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-2.5 rounded-lg bg-muted/20 hover:bg-accent/10 border border-border/30 hover:border-accent/50 transition-all group hover:shadow-md hover:-translate-y-0.5"
+              >
+                <div className="flex items-start gap-2">
+                  <span className="text-[10px] text-accent/70 font-mono font-bold tabular-nums mt-0.5 flex-shrink-0 w-4">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[12px] font-semibold leading-snug line-clamp-2 group-hover:text-accent transition-colors text-foreground">
+                      {item.title}
+                    </div>
+                    <div className="flex items-center gap-1.5 mt-1.5 text-[9px] text-muted-foreground flex-wrap">
+                      <span className="flex items-center gap-0.5 font-bold text-accent/80">▲ {item.score}</span>
+                      <span className="opacity-40">·</span>
+                      <span>💬 {item.comments}</span>
+                      {item.by && <><span className="opacity-40">·</span><span className="truncate max-w-[80px]">{item.by}</span></>}
+                      <span className="ml-auto whitespace-nowrap opacity-70">{timeAgo(item.time)}</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          {/* Fade hint at bottom */}
+          {items.length > 3 && (
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-card to-transparent" />
+          )}
         </div>
 
-        <div className="px-3 py-1.5 border-t border-border/30 bg-background/30 flex items-center justify-between text-[9px] text-muted-foreground">
-          <span>{loading ? 'updating…' : `refreshed ${timeAgo(updated)} ago`}</span>
+        <div className="px-3 py-1.5 border-t border-border/40 bg-background flex items-center justify-between text-[9px] text-muted-foreground">
+          <span>{loading ? 'updating…' : `${items.length} stories · ${timeAgo(updated)} ago`}</span>
           <a href={`https://${current.host}`} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-medium">
             {current.host} →
           </a>
