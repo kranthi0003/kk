@@ -96,44 +96,39 @@ export default function TechNews({ side = 'right' }) {
   ]
   const current = sources.find(s => s.id === source)
 
-  const sideClasses = side === 'left'
-    ? 'left-4 xl:left-6 2xl:left-10'
-    : 'right-4 xl:right-6 2xl:right-10'
+  const sideClasses = side === 'left' ? 'left-0' : 'right-0'
 
   return (
-    <aside
-      ref={rootRef}
-      className={`hidden lg:flex absolute top-28 ${sideClasses} z-30 flex-col items-end animate-fade-in-up`}
-      style={{ animationDelay: '0.6s' }}
-      aria-label="Tech news"
-    >
-      {/* Trigger pill */}
+    <div ref={rootRef} className="relative hidden lg:inline-flex">
+      {/* Trigger pill — sits inline in the navbar action bar */}
       <button
         onClick={() => setOpen(o => !o)}
         aria-expanded={open}
         aria-haspopup="true"
-        className={`group flex items-center gap-2 px-3.5 py-2 rounded-full border bg-card shadow-lg hover:shadow-xl transition-all select-none ${
-          open ? 'border-accent/60 ring-2 ring-accent/20' : 'border-border/60 hover:border-accent/40'
+        title="Tech News"
+        className={`group flex items-center gap-1.5 h-7 px-2.5 rounded-full border text-[11px] font-semibold transition-all select-none ${
+          open
+            ? 'bg-accent/10 border-accent/60 text-foreground'
+            : 'bg-transparent border-border/60 text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-muted/40'
         }`}
       >
-        <span className="relative flex h-2 w-2">
+        <span className="relative flex h-1.5 w-1.5">
           <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
         </span>
-        <span className="text-[12px] font-semibold tracking-wide text-foreground">Tech News</span>
-        <span className="text-[10px] font-medium text-muted-foreground hidden xl:inline">HN · DEV</span>
+        <span>Tech News</span>
         <svg
-          className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
           viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
 
-      {/* Dropdown panel */}
+      {/* Dropdown panel — anchored beneath the trigger */}
       {open && (
         <div
-          className="mt-2 w-[320px] xl:w-[360px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-fade-in-up"
+          className={`absolute top-full mt-2 ${sideClasses} w-[340px] xl:w-[380px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden z-50 animate-fade-in-up`}
           style={{ animationDelay: '0s' }}
         >
           {/* Header with source tabs */}
@@ -236,6 +231,6 @@ export default function TechNews({ side = 'right' }) {
           </div>
         </div>
       )}
-    </aside>
+    </div>
   )
 }

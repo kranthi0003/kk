@@ -2,14 +2,10 @@ import React from 'react'
 import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
-import TechNews from './TechNews'
 
 export default function Hero({ onResumeClick }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-24 md:pt-28 overflow-hidden">
-      {/* Side tech news widget — only on wide screens */}
-      <TechNews side="right" />
-
       {/* Satellite backdrop — starts below both navbar lines */}
       <div className="absolute inset-x-0 top-24 md:top-28 h-[30%] md:h-[35%] z-0 overflow-hidden">
         <img

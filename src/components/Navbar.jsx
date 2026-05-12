@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Heartbeat from './Heartbeat'
+import TechNews from './TechNews'
 
 const SpotifyIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -648,6 +649,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
           {/* Right group — tools */}
           <div className="flex items-center gap-0.5">
+            <TechNews side="right" />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
             <IconBtn icon={<CameraIcon />} tip="Share Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-share-card'))} />
