@@ -64,6 +64,7 @@ export default function BattlePage({ onBack }) {
   const joinRoom = () => {
     if (!playerName.trim() || !roomCode.trim()) return
     joinChannel(roomCode.trim().toUpperCase(), playerName.trim())
+    setPhase('waiting')
   }
 
   // ─── SUPABASE CHANNEL ───
