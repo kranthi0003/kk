@@ -98,6 +98,9 @@ const ACTIONS = [
   { id: 'live-chat', label: 'Live Chat', desc: 'Chat with other visitors in real-time', section: 'Features', icon: '💬', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-live-chat'))
   }, keywords: 'live chat talk visitors realtime websocket message conversation community room' },
+  { id: 'code-battle', label: 'Code Battle', desc: 'Multiplayer coding challenge race', section: 'Features', icon: '⚔️', action: () => {
+    window.location.hash = '#/battle'
+  }, keywords: 'code battle multiplayer race challenge coding leetcode fight compete programming duel' },
   { id: 'theme-modes', label: 'Theme Modes', desc: 'Fight Club, F1, Cyberpunk, Vintage, Ocean, Dracula', section: 'Actions', icon: '🎨', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-theme-modes'))
   }, keywords: 'theme mode style vibe fight club f1 racing cyberpunk vintage ocean dracula color palette skin' },

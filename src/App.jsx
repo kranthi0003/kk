@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, lazy, Suspense } from 'react'
 import BootLoader from './components/BootLoader'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
@@ -32,6 +32,8 @@ import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
 import AdminDashboard from './components/AdminDashboard'
 
+const BattlePage = lazy(() => import('./components/battle/BattlePage'))
+
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -59,6 +61,23 @@ export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(() => !!sessionStorage.getItem('boot_seen'))
+  const [route, setRoute] = useState(window.location.hash)
+
+  // Hash-based routing
+  useEffect(() => {
+    const onHash = () => setRoute(window.location.hash)
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  // Battle page route
+  if (route === '#/battle') {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-[#0f0f17] flex items-center justify-center"><div className="w-6 h-6 border-2 border-white/20 border-t-blue-400 rounded-full animate-spin" /></div>}>
+        <BattlePage onBack={() => { window.location.hash = ''; setRoute('') }} />
+      </Suspense>
+    )
+  }
 
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
