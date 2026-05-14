@@ -19,6 +19,9 @@ const ACTIONS = [
   { id: 'crypto-dashboard', label: 'Crypto Dashboard', desc: 'Markets, sentiment, mempool, HODL, tip jar', section: 'Features', icon: '📊', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))
   }, keywords: 'crypto bitcoin ethereum markets prices fear greed mempool halving hodl tip sats lightning gas dashboard' },
+  { id: 'dev-net', label: 'Network DevTools', desc: 'API playground, DNS, service status, cron parser', section: 'Features', icon: '🛠', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-dev-net'))
+  }, keywords: 'api playground rest http fetch curl dns lookup nslookup status outage uptime cron schedule cronjob' },
   { id: 'spotify-player', label: 'Spotify Player', desc: 'Now playing / embed', section: 'Features', icon: '🎵', action: () => {
     document.querySelector('[data-spotify-btn]')?.click()
   }, keywords: 'spotify music player song playing listening audio playlist track album' },
