@@ -16,6 +16,9 @@ const ACTIONS = [
   { id: 'bitcoin-wallet', label: 'Bitcoin Wallet', desc: 'Open BTC wallet tracker', section: 'Features', icon: '₿', action: () => {
     document.querySelector('[data-wallet-btn]')?.click()
   }, keywords: 'bitcoin btc crypto wallet blockchain cryptocurrency money balance satoshi ethereum web3 finance' },
+  { id: 'crypto-dashboard', label: 'Crypto Dashboard', desc: 'Markets, sentiment, mempool, HODL, tip jar', section: 'Features', icon: '📊', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))
+  }, keywords: 'crypto bitcoin ethereum markets prices fear greed mempool halving hodl tip sats lightning gas dashboard' },
   { id: 'spotify-player', label: 'Spotify Player', desc: 'Now playing / embed', section: 'Features', icon: '🎵', action: () => {
     document.querySelector('[data-spotify-btn]')?.click()
   }, keywords: 'spotify music player song playing listening audio playlist track album' },

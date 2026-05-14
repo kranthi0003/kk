@@ -134,16 +134,22 @@ function WalletDropdown() {
           <span className="text-accent">{copied ? '✓' : 'copy'}</span>
         </button>
       </div>
-      <div className="px-4 pb-4 flex gap-2">
+      <div className="px-4 pb-3 flex gap-2">
         <a href={`https://mempool.space/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
           className="flex-1 text-center py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all">
           Activity ↗
         </a>
         <a href={`https://platform.arkhamintelligence.com/explorer/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
-          className="flex-1 text-center py-2 rounded-lg bg-accent text-accent-foreground text-[10px] font-mono hover:opacity-90 transition-all">
+          className="flex-1 text-center py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all">
           Arkham ↗
         </a>
       </div>
+      <button
+        onClick={() => window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))}
+        className="w-full px-4 py-2.5 bg-gradient-to-r from-accent to-primary text-accent-foreground text-[11px] font-semibold hover:opacity-95 transition-all flex items-center justify-center gap-1.5 border-t border-border/20"
+      >
+        📊 Open Crypto Dashboard
+      </button>
     </div>
   )
 }
