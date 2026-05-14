@@ -56,6 +56,17 @@ const certifications = [
     text: 'text-gray-400',
     verifyUrl: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48',
   },
+  {
+    name: 'GitHub Administration',
+    short: 'GH Admin',
+    issuer: 'GitHub / Microsoft',
+    icon: 'https://cdn.simpleicons.org/github/white',
+    color: 'from-gray-700 to-gray-900',
+    bg: 'bg-gray-500/5 hover:bg-gray-500/10',
+    border: 'border-gray-500/20 hover:border-gray-500/40',
+    text: 'text-gray-400',
+    verifyUrl: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e',
+  },
 ]
 
 export default function Certifications() {

@@ -25,6 +25,7 @@ const certs = [
   { name: 'Couchbase Python', tag: 'DEV', color: 'from-red-500/15 to-orange-500/10 border-red-500/20', accent: 'text-red-400', url: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65' },
   { name: 'Couchbase Architect', tag: 'ARCH', color: 'from-rose-500/20 to-red-500/10 border-rose-500/20', accent: 'text-rose-500', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
   { name: 'GitHub Foundations', tag: 'GH', color: 'from-purple-500/20 to-violet-500/10 border-purple-500/20', accent: 'text-purple-400', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
+  { name: 'GitHub Administration', tag: 'GH', color: 'from-purple-500/20 to-violet-500/10 border-purple-500/20', accent: 'text-purple-400', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
 ]
 
 export default function TechStack() {
