@@ -99,11 +99,7 @@ export default function CryptoDashboard() {
   const [wallet, setWallet] = useState(null)
   const [btcPrice, setBtcPrice] = useState(null)
   const [copied, setCopied] = useState(false)
-  // HODL
-  const [hodlAmount, setHodlAmount] = useState(100)
-  const [hodlYear, setHodlYear] = useState(2015)
-  const [hodlResult, setHodlResult] = useState(null)
-  const [hodlBusy, setHodlBusy] = useState(false)
+  // HODL removed
 
   useEffect(() => {
     const handler = () => setOpen(o => !o)
@@ -170,23 +166,9 @@ export default function CryptoDashboard() {
     } catch (e) { setWallet({ final_balance: 0, n_tx: 0 }); setBtcPrice(97000) }
   }
 
-  const runHodl = async () => {
-    setHodlBusy(true)
-    setHodlResult(null)
-    try {
-      // CoinGecko historical needs DD-MM-YYYY. Use Jan 1 of selected year.
-      const d = `01-01-${hodlYear}`
-      const r = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/history?date=${d}`)
-      const data = await r.json()
-      const past = data?.market_data?.current_price?.usd
-      const cur = btcPrice || (await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json())).bitcoin.usd
-      if (!past) throw new Error('no price')
-      const btc = hodlAmount / past
-      const nowValue = btc * cur
-      setHodlResult({ past, cur, btc, nowValue, multiplier: nowValue / hodlAmount })
-    } catch (e) { setHodlResult({ error: 'Could not fetch historical price. Try a different year.' }) }
-    setHodlBusy(false)
-  }
+  // HODL removed
+
+
 
   // Halving countdown
   const halving = useMemo(() => {
@@ -205,7 +187,6 @@ export default function CryptoDashboard() {
     { id: 'sentiment', label: 'Sentiment', icon: '🌡️' },
     { id: 'network', label: 'Network', icon: '⛓️' },
     { id: 'wallet', label: 'Wallet', icon: '₿' },
-    { id: 'hodl', label: 'HODL', icon: '💎' },
     { id: 'tip', label: 'Tip Me', icon: '⚡' },
   ]
 
@@ -412,60 +393,6 @@ export default function CryptoDashboard() {
                   </div>
                 </>
               )}
-            </div>
-          )}
-
-          {tab === 'hodl' && (
-            <div className="space-y-4">
-              <div className="text-center">
-                <p className="text-[10px] text-accent font-mono uppercase tracking-widest">💎 HODL Calculator</p>
-                <h3 className="font-heading font-bold text-base mt-1">What if you bought BTC in...</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono">amount (USD)</label>
-                  <input
-                    type="number"
-                    value={hodlAmount}
-                    onChange={(e) => setHodlAmount(Number(e.target.value) || 0)}
-                    className="w-full mt-1 px-3 py-2 rounded-lg bg-muted/30 border border-border/40 text-sm font-mono focus:outline-none focus:border-accent"
-                  />
-                </div>
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono">year</label>
-                  <select
-                    value={hodlYear}
-                    onChange={(e) => setHodlYear(Number(e.target.value))}
-                    className="w-full mt-1 px-3 py-2 rounded-lg bg-muted/30 border border-border/40 text-sm font-mono focus:outline-none focus:border-accent"
-                  >
-                    {[2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024].map(y => <option key={y} value={y}>{y}</option>)}
-                  </select>
-                </div>
-              </div>
-              <button
-                onClick={runHodl}
-                disabled={hodlBusy}
-                className="w-full py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:opacity-90 transition-all disabled:opacity-50"
-              >
-                {hodlBusy ? 'crunching…' : 'See what you missed 💸'}
-              </button>
-              {hodlResult && !hodlResult.error && (
-                <div className="p-5 rounded-xl bg-gradient-to-br from-green-500/10 via-card to-accent/10 border border-green-500/30">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono">if you held until today</p>
-                  <p className="text-3xl font-bold font-mono mt-1">${hodlResult.nowValue.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
-                  <p className="text-sm font-mono text-green-500 mt-1">
-                    {hodlResult.multiplier >= 1
-                      ? `${hodlResult.multiplier.toFixed(1)}× your money`
-                      : `${((1 - hodlResult.multiplier) * 100).toFixed(1)}% loss`}
-                  </p>
-                  <div className="mt-3 pt-3 border-t border-border/30 text-[11px] text-muted-foreground font-mono space-y-1">
-                    <p>Jan 1, {hodlYear} BTC price · ${hodlResult.past.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
-                    <p>You bought · {hodlResult.btc.toFixed(8)} BTC</p>
-                    <p>Today BTC · ${hodlResult.cur.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
-                  </div>
-                </div>
-              )}
-              {hodlResult?.error && <p className="text-xs text-red-500 text-center">{hodlResult.error}</p>}
             </div>
           )}
 
