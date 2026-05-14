@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { QRCodeSVG } from 'qrcode.react'
 
 const MailIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -75,40 +74,8 @@ export default function Connect() {
             </div>
           </div>
 
-          {/* QR vCard + Open to Opportunities */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* QR vCard */}
-            <div className="rounded-2xl border border-border/30 shadow-xl bg-card p-8 flex flex-col items-center text-center">
-              <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-4">Scan to save contact</p>
-              <div className="p-4 bg-white rounded-2xl shadow-inner mb-4">
-                <QRCodeSVG
-                  value={[
-                    'BEGIN:VCARD',
-                    'VERSION:3.0',
-                    'N:Kiran;Kranthi',
-                    'FN:Kranthi Kiran',
-                    'ORG:GitHub',
-                    'TITLE:SE-III',
-                    'TEL;TYPE=CELL:+919398857319',
-                    'EMAIL:kranthikiranakkumahanthi@gmail.com',
-                    'URL:https://kranthikiran.com',
-                    'URL:https://linkedin.com/in/akkiran003',
-                    'URL:https://github.com/kranthi0003',
-                    'END:VCARD',
-                  ].join('\n')}
-                  size={160}
-                  level="M"
-                  bgColor="#ffffff"
-                  fgColor="#1a1a2e"
-                />
-              </div>
-              <p className="text-sm font-medium text-foreground mb-1">Kranthi Kiran</p>
-              <p className="text-xs text-muted-foreground">SE-III @ GitHub | Microsoft</p>
-              <p className="text-[10px] text-muted-foreground/60 mt-2 font-mono">
-                📱 Saves name, phone, email & socials
-              </p>
-            </div>
-
+          {/* Open to Opportunities */}
+          <div>
             {/* Open to Opportunities */}
             <div className="rounded-2xl border border-border/30 shadow-xl bg-gradient-to-br from-accent/5 via-card to-primary/5 p-8 flex flex-col justify-center text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
