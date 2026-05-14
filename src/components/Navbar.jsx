@@ -656,6 +656,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex items-center gap-0.5">
             <TechNews side="right" />
             <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
+            <IconBtn icon={<CronIcon />} tip="Actions Cron Scheduler" onClick={() => window.dispatchEvent(new CustomEvent('toggle-cron-schedule'))} />
             <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
@@ -850,6 +851,12 @@ const NetIcon = () => (
 const PulseIcon = () => (
   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h4l3-9 4 18 3-9h4" />
+  </svg>
+)
+const CronIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2" />
   </svg>
 )
 

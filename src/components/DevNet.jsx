@@ -145,148 +145,6 @@ function DNSTab() {
   )
 }
 
-// ─── Cron Parser ────────────────────────────────────────────────────────────
-function parseField(s, min, max, names) {
-  // returns sorted unique array of allowed values
-  const out = new Set()
-  for (const part of s.split(',')) {
-    let p = part.trim()
-    if (!p) continue
-    let step = 1
-    if (p.includes('/')) {
-      const [a, b] = p.split('/')
-      step = parseInt(b, 10) || 1
-      p = a
-    }
-    let lo, hi
-    if (p === '*') { lo = min; hi = max }
-    else if (p.includes('-')) {
-      const [a, b] = p.split('-').map(x => names ? names.indexOf(x.toLowerCase()) === -1 ? parseInt(x, 10) : names.indexOf(x.toLowerCase()) : parseInt(x, 10))
-      lo = a; hi = b
-    } else {
-      const v = names && names.indexOf(p.toLowerCase()) !== -1 ? names.indexOf(p.toLowerCase()) : parseInt(p, 10)
-      lo = v; hi = v
-    }
-    if (isNaN(lo) || isNaN(hi) || lo < min || hi > max || lo > hi) throw new Error(`Invalid field: ${part}`)
-    for (let i = lo; i <= hi; i += step) out.add(i)
-  }
-  return [...out].sort((a, b) => a - b)
-}
-
-const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
-const DOWS = ['sun','mon','tue','wed','thu','fri','sat']
-
-function parseCron(expr) {
-  const fields = expr.trim().split(/\s+/)
-  if (fields.length !== 5) throw new Error('Cron must have 5 fields: minute hour day-of-month month day-of-week')
-  const [m, h, dom, mon, dow] = fields
-  return {
-    minute: parseField(m, 0, 59),
-    hour: parseField(h, 0, 23),
-    dom: parseField(dom, 1, 31),
-    month: parseField(mon, 1, 12, MONTHS),
-    dow: parseField(dow.replace(/7/g, '0'), 0, 6, DOWS),
-    domAny: dom.trim() === '*',
-    dowAny: dow.trim() === '*',
-  }
-}
-
-function nextRuns(expr, count = 5) {
-  const p = parseCron(expr)
-  const out = []
-  const d = new Date()
-  d.setSeconds(0, 0)
-  d.setMinutes(d.getMinutes() + 1)
-  let safety = 366 * 24 * 60
-  while (out.length < count && safety-- > 0) {
-    const mo = d.getMonth() + 1, dm = d.getDate(), dw = d.getDay(), hr = d.getHours(), mi = d.getMinutes()
-    const monthOk = p.month.includes(mo)
-    const hourOk = p.hour.includes(hr)
-    const minOk = p.minute.includes(mi)
-    const domHit = p.dom.includes(dm)
-    const dowHit = p.dow.includes(dw)
-    // standard cron: if both dom and dow are restricted, match if EITHER hits
-    const dayOk = (p.domAny && p.dowAny) ? true
-      : p.domAny ? dowHit
-      : p.dowAny ? domHit
-      : (domHit || dowHit)
-    if (monthOk && dayOk && hourOk && minOk) out.push(new Date(d))
-    d.setMinutes(d.getMinutes() + 1)
-  }
-  return out
-}
-
-function describe(expr) {
-  // tiny human-readable for common patterns
-  const map = {
-    '* * * * *': 'Every minute',
-    '0 * * * *': 'Every hour, on the hour',
-    '*/5 * * * *': 'Every 5 minutes',
-    '*/15 * * * *': 'Every 15 minutes',
-    '*/30 * * * *': 'Every 30 minutes',
-    '0 0 * * *': 'Every day at midnight',
-    '0 12 * * *': 'Every day at noon',
-    '0 9 * * 1-5': 'Weekdays at 9:00 AM',
-    '0 0 * * 0': 'Every Sunday at midnight',
-    '0 0 1 * *': 'First day of every month',
-    '0 0 1 1 *': 'New Year at midnight',
-  }
-  return map[expr.trim()] || null
-}
-
-function CronTab() {
-  const [expr, setExpr] = useState('*/15 9-17 * * 1-5')
-  const [out, setOut] = useState(null)
-  const [err, setErr] = useState('')
-
-  useEffect(() => {
-    setErr(''); setOut(null)
-    if (!expr.trim()) return
-    try {
-      const runs = nextRuns(expr, 5)
-      setOut({ desc: describe(expr), runs })
-    } catch (e) { setErr(e.message) }
-  }, [expr])
-
-  const PRESETS = [
-    ['* * * * *', 'Every minute'],
-    ['*/15 * * * *', 'Every 15 min'],
-    ['0 * * * *', 'Hourly'],
-    ['0 9 * * 1-5', 'Weekdays 9am'],
-    ['0 0 * * 0', 'Sunday midnight'],
-    ['0 0 1 * *', 'Monthly'],
-  ]
-
-  return (
-    <div className="space-y-3">
-      <input value={expr} onChange={e => setExpr(e.target.value)} placeholder="*/15 9-17 * * 1-5" className="w-full px-3 py-2 text-sm rounded bg-muted border border-border font-mono" />
-      <div className="flex flex-wrap gap-1">
-        {PRESETS.map(([v, l]) => (
-          <button key={v} onClick={() => setExpr(v)} className="px-2 py-1 text-[10px] rounded bg-muted/60 hover:bg-muted border border-border">{l}</button>
-        ))}
-      </div>
-      {err && <div className="text-xs text-red-500 font-mono">⚠ {err}</div>}
-      {out && (
-        <>
-          {out.desc && <div className="text-xs text-foreground/70"><span className="text-[10px] uppercase tracking-wider text-foreground/40 mr-2">Means</span>{out.desc}</div>}
-          <div>
-            <div className="text-[10px] uppercase tracking-wider text-foreground/50 mb-1.5">Next 5 runs (your local time)</div>
-            <div className="space-y-1">
-              {out.runs.map((d, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs font-mono">
-                  <span className="text-foreground/40 w-4">{i + 1}.</span>
-                  <span>{d.toLocaleString()}</span>
-                  <span className="text-foreground/40 text-[10px] ml-auto">{d.toLocaleDateString(undefined, { weekday: 'short' })}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
-      <div className="text-[10px] text-foreground/40">5-field cron: <span className="font-mono">minute hour day-of-month month day-of-week</span></div>
-    </div>
-  )
-}
 
 // ─── Modal shell ────────────────────────────────────────────────────────────
 export default function DevNet() {
@@ -312,7 +170,7 @@ export default function DevNet() {
   const tabs = [
     { id: 'api', label: 'API', icon: '⚡' },
     { id: 'dns', label: 'DNS', icon: '🌐' },
-    { id: 'cron', label: 'Cron', icon: '⏱' },
+
   ]
 
   return (
@@ -335,7 +193,7 @@ export default function DevNet() {
         <div className="flex-1 overflow-y-auto p-5">
           {tab === 'api' && <APITab />}
           {tab === 'dns' && <DNSTab />}
-          {tab === 'cron' && <CronTab />}
+
         </div>
       </div>
     </div>

@@ -19,9 +19,12 @@ const ACTIONS = [
   { id: 'crypto-dashboard', label: 'Crypto Dashboard', desc: 'Markets, sentiment, mempool, HODL, tip jar', section: 'Features', icon: '📊', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))
   }, keywords: 'crypto bitcoin ethereum markets prices fear greed mempool halving hodl tip sats lightning gas dashboard' },
-  { id: 'dev-net', label: 'Network DevTools', desc: 'API playground, DNS, cron parser', section: 'Features', icon: '🛠', action: () => {
+  { id: 'dev-net', label: 'Network DevTools', desc: 'API playground and DNS inspector', section: 'Features', icon: '🛠', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-dev-net'))
-  }, keywords: 'api playground rest http fetch curl dns lookup nslookup cron schedule cronjob' },
+  }, keywords: 'api playground rest http fetch curl dns lookup nslookup network' },
+  { id: 'cron-schedule', label: 'Actions Cron Scheduler', desc: 'Build & preview GitHub Actions cron schedules', section: 'Features', icon: '⏱', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-cron-schedule'))
+  }, keywords: 'cron schedule cronjob actions workflow yaml utc next runs github' },
   { id: 'service-status', label: 'Service Status', desc: 'Live status of GitHub, npm, Cloudflare and more', section: 'Features', icon: '🟢', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-service-status'))
   }, keywords: 'status outage uptime github npm cloudflare vercel netlify openai stripe anthropic incident' },
