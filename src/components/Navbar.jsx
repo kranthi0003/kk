@@ -647,8 +647,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
             <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
             <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
-            <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
-            <IconBtn icon={<BattleIcon />} tip="Code Battle" onClick={() => { window.location.hash = '#/battle'; window.location.reload() }} />
           </div>
 
           <div className="flex-1" />
@@ -657,16 +655,12 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex items-center gap-0.5">
             <TechNews side="right" />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
-            <IconBtn icon={<SpeedIcon />} tip="Speed Test" onClick={() => window.dispatchEvent(new CustomEvent('toggle-speed-test'))} />
-            <IconBtn icon={<CameraIcon />} tip="Share Card" onClick={() => window.dispatchEvent(new CustomEvent('toggle-share-card'))} />
-            <IconBtn icon={<LeafIcon />} tip="Carbon Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-carbon-calc'))} />
             <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
               const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
               window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
             }} />
-            <IconBtn icon={<LiveChatIcon />} tip="Live Chat" onClick={() => window.dispatchEvent(new CustomEvent('toggle-live-chat'))} />
           </div>
         </div>
       </div>
