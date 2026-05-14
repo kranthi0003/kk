@@ -34,7 +34,7 @@ import AdminDashboard from './components/AdminDashboard'
 import CryptoDashboard from './components/CryptoDashboard'
 import DevNet from './components/DevNet'
 import ServiceStatus from './components/ServiceStatus'
-import CronSchedule from './components/CronSchedule'
+import CronSchedule from './components/ActionsTools'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))

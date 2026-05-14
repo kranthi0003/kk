@@ -22,9 +22,9 @@ const ACTIONS = [
   { id: 'dev-net', label: 'Network DevTools', desc: 'API playground and DNS inspector', section: 'Features', icon: '🛠', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-dev-net'))
   }, keywords: 'api playground rest http fetch curl dns lookup nslookup network' },
-  { id: 'cron-schedule', label: 'Actions Cron Scheduler', desc: 'Build & preview GitHub Actions cron schedules', section: 'Features', icon: '⏱', action: () => {
-    window.dispatchEvent(new CustomEvent('toggle-cron-schedule'))
-  }, keywords: 'cron schedule cronjob actions workflow yaml utc next runs github' },
+  { id: 'actions-tools', label: 'Actions', desc: 'GitHub Actions tools (cron scheduler, more coming)', section: 'Features', icon: '⚙', action: () => {
+    window.dispatchEvent(new CustomEvent('toggle-actions-tools'))
+  }, keywords: 'actions github cron schedule cronjob workflow yaml utc next runs ci cd' },
   { id: 'service-status', label: 'Service Status', desc: 'Live status of GitHub, npm, Cloudflare and more', section: 'Features', icon: '🟢', action: () => {
     window.dispatchEvent(new CustomEvent('toggle-service-status'))
   }, keywords: 'status outage uptime github npm cloudflare vercel netlify openai stripe anthropic incident' },

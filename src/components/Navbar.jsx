@@ -656,7 +656,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex items-center gap-0.5">
             <TechNews side="right" />
             <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
-            <IconBtn icon={<CronIcon />} tip="Actions Cron Scheduler" onClick={() => window.dispatchEvent(new CustomEvent('toggle-cron-schedule'))} />
+            <IconBtn icon={<CronIcon />} tip="Actions" onClick={() => window.dispatchEvent(new CustomEvent('toggle-actions-tools'))} />
             <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
