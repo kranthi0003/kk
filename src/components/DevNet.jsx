@@ -145,67 +145,6 @@ function DNSTab() {
   )
 }
 
-// ─── Service Status Hub ─────────────────────────────────────────────────────
-const SERVICES = [
-  { id: 'github',     name: 'GitHub',     url: 'https://www.githubstatus.com/api/v2/status.json',     site: 'https://www.githubstatus.com' },
-  { id: 'npm',        name: 'npm',        url: 'https://status.npmjs.org/api/v2/status.json',         site: 'https://status.npmjs.org' },
-  { id: 'cloudflare', name: 'Cloudflare', url: 'https://www.cloudflarestatus.com/api/v2/status.json', site: 'https://www.cloudflarestatus.com' },
-  { id: 'vercel',     name: 'Vercel',     url: 'https://www.vercel-status.com/api/v2/status.json',    site: 'https://www.vercel-status.com' },
-  { id: 'netlify',    name: 'Netlify',    url: 'https://www.netlifystatus.com/api/v2/status.json',    site: 'https://www.netlifystatus.com' },
-  { id: 'openai',     name: 'OpenAI',     url: 'https://status.openai.com/api/v2/status.json',        site: 'https://status.openai.com' },
-  { id: 'stripe',     name: 'Stripe',     url: 'https://status.stripe.com/api/v2/status.json',        site: 'https://status.stripe.com' },
-  { id: 'anthropic',  name: 'Anthropic',  url: 'https://status.anthropic.com/api/v2/status.json',     site: 'https://status.anthropic.com' },
-]
-
-const INDICATOR = {
-  none: { label: 'Operational', color: 'bg-green-500' },
-  minor: { label: 'Minor issue', color: 'bg-yellow-500' },
-  major: { label: 'Major issue', color: 'bg-orange-500' },
-  critical: { label: 'Outage', color: 'bg-red-500' },
-}
-
-function StatusTab() {
-  const [data, setData] = useState({})
-  const [busy, setBusy] = useState(false)
-
-  async function refresh() {
-    setBusy(true)
-    const next = {}
-    await Promise.all(SERVICES.map(async s => {
-      try {
-        const r = await fetch(s.url)
-        const j = await r.json()
-        next[s.id] = { indicator: j.status?.indicator || 'unknown', description: j.status?.description || 'Unknown' }
-      } catch { next[s.id] = { indicator: 'unknown', description: 'Fetch failed' } }
-    }))
-    setData(next); setBusy(false)
-  }
-
-  useEffect(() => { refresh() }, [])
-
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between">
-        <div className="text-[10px] uppercase tracking-wider text-foreground/50">Live status across {SERVICES.length} services</div>
-        <button onClick={refresh} disabled={busy} className="text-[10px] text-foreground/60 hover:text-foreground disabled:opacity-50">{busy ? 'Refreshing...' : '↻ Refresh'}</button>
-      </div>
-      <div className="grid grid-cols-2 gap-2">
-        {SERVICES.map(s => {
-          const d = data[s.id]
-          const ind = INDICATOR[d?.indicator] || { label: d?.description || 'Loading...', color: 'bg-foreground/20' }
-          return (
-            <a key={s.id} href={s.site} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 hover:bg-muted/60 transition-colors p-2.5">
-              <span className={cls('inline-block w-2 h-2 rounded-full flex-shrink-0', ind.color, d?.indicator === 'none' ? '' : d?.indicator ? 'animate-pulse' : '')} />
-              <span className="text-xs font-medium flex-1">{s.name}</span>
-              <span className="text-[10px] text-foreground/60">{d ? ind.label : '...'}</span>
-            </a>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
 // ─── Cron Parser ────────────────────────────────────────────────────────────
 function parseField(s, min, max, names) {
   // returns sorted unique array of allowed values
@@ -373,7 +312,6 @@ export default function DevNet() {
   const tabs = [
     { id: 'api', label: 'API', icon: '⚡' },
     { id: 'dns', label: 'DNS', icon: '🌐' },
-    { id: 'status', label: 'Status', icon: '🟢' },
     { id: 'cron', label: 'Cron', icon: '⏱' },
   ]
 
@@ -397,7 +335,6 @@ export default function DevNet() {
         <div className="flex-1 overflow-y-auto p-5">
           {tab === 'api' && <APITab />}
           {tab === 'dns' && <DNSTab />}
-          {tab === 'status' && <StatusTab />}
           {tab === 'cron' && <CronTab />}
         </div>
       </div>

@@ -656,6 +656,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex items-center gap-0.5">
             <TechNews side="right" />
             <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
+            <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
@@ -844,6 +845,11 @@ const NetIcon = () => (
   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 010 18M12 3a14 14 0 000 18" />
+  </svg>
+)
+const PulseIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h4l3-9 4 18 3-9h4" />
   </svg>
 )
 
