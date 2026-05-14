@@ -647,6 +647,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
             <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
             <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
+            <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
           </div>
 
           <div className="flex-1" />
