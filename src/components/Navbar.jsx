@@ -591,6 +591,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <kbd className="inline-flex items-center justify-center h-5 w-5 rounded border border-border/50 bg-background/60 text-[11px] font-mono text-muted-foreground/60">/</kbd>
             <span className="text-[12px] opacity-40">to search</span>
           </button>
+          <ToolsDropdown />
+          <TechNews side="right" />
           <NavWallet />
           <NavSpotify />
           <NavStatus />
@@ -617,32 +619,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               )}
             </svg>
           </button>
-        </div>
-      </div>
-
-      {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
-        <div className="relative h-9">
-          <div className="flex items-center gap-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
-          <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
-          <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
-          <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
-          <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
-          <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
-          <TechNews side="right" />
-          <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
-          <IconBtn icon={<CronIcon />} tip="Actions" onClick={() => window.dispatchEvent(new CustomEvent('toggle-actions-tools'))} />
-          <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
-          <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
-          <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
-          <IconBtn icon={<FlameIcon />} tip="Transformation HQ" onClick={() => window.dispatchEvent(new CustomEvent('toggle-transformation-hq'))} />
-          <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
-            const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
-            const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
-            window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
-          }} />
-          </div>
         </div>
       </div>
 
@@ -702,6 +678,94 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     </nav>
   )
 }
+
+// Tools dropdown — consolidates all action-bar features into a single grid menu
+function ToolsDropdown() {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onKey)
+    return () => { document.removeEventListener('mousedown', onDoc); document.removeEventListener('keydown', onKey) }
+  }, [open])
+
+  const items = [
+    { icon: <CalcIcon />,   label: 'Dev Toolkit',       evt: 'toggle-dev-calc' },
+    { icon: <CodeIcon />,   label: 'Source Code',       evt: 'toggle-code-browser' },
+    { icon: <ClockIcon />,  label: 'Changelog',         evt: 'toggle-changelog' },
+    { icon: <ChatIcon />,   label: 'AI Chat',           onClick: () => document.querySelector('[data-chatbot-btn]')?.click() },
+    { icon: <QRIcon />,     label: 'QR vCard',          evt: 'toggle-qr-vcard' },
+    { icon: <MemeIcon />,   label: 'Meme Generator',    evt: 'toggle-meme-gen' },
+    { icon: <NetIcon />,    label: 'Network DevTools',  evt: 'toggle-dev-net' },
+    { icon: <CronIcon />,   label: 'Actions',           evt: 'toggle-actions-tools' },
+    { icon: <PulseIcon />,  label: 'Service Status',    evt: 'toggle-service-status' },
+    { icon: <ReadIcon />,   label: 'Reading Mode',      onClick: () => document.body.classList.toggle('reading-mode') },
+    { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
+    { icon: <FlameIcon />,  label: 'Transformation HQ', evt: 'toggle-transformation-hq' },
+    { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
+      const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
+      const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
+      window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
+    }},
+  ]
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+        title="Tools"
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-all ${
+          open
+            ? 'bg-accent/10 border-accent/60 text-foreground'
+            : 'bg-muted/40 border-border/40 text-muted-foreground hover:text-foreground hover:border-border/60 hover:bg-muted/60'
+        }`}
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span className="text-[12px] font-semibold">Tools</span>
+        <svg className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute top-full right-0 mt-2 w-[320px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden z-50 animate-fade-in-up">
+          <div className="px-3 py-2 border-b border-border/40">
+            <p className="text-[10px] uppercase tracking-wider font-semibold text-muted-foreground/60">Tools &amp; Features</p>
+          </div>
+          <div className="grid grid-cols-3 gap-1 p-2">
+            {items.map((it, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setOpen(false)
+                  if (it.onClick) it.onClick()
+                  else if (it.evt) window.dispatchEvent(new CustomEvent(it.evt))
+                }}
+                className="flex flex-col items-center gap-1.5 px-2 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all [&_svg]:w-5 [&_svg]:h-5"
+                title={it.label}
+              >
+                {it.icon}
+                <span className="text-[10px] font-medium text-center leading-tight">{it.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const NewsDotIcon = () => (
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <circle cx="12" cy="12" r="3" fill="currentColor" />
+    <circle cx="12" cy="12" r="9" />
+  </svg>
+)
 
 // Icon-only button with custom tooltip on hover
 function IconBtn({ icon, tip, onClick }) {
