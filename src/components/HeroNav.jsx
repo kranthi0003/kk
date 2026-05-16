@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // ============================================================
 // HeroNav — minimal nav overlay rendered on top of the Workspace
@@ -19,10 +19,21 @@ function go(href, e) {
   window.location.reload()
 }
 
+function fmtIST(d) {
+  const ist = new Date(d.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+  return ist.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })
+}
+
 export default function HeroNav() {
+  const [time, setTime] = useState(() => fmtIST(new Date()))
+  useEffect(() => {
+    const id = setInterval(() => setTime(fmtIST(new Date())), 1000 * 30)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <div className="fixed top-0 inset-x-0 z-[80] pointer-events-none">
-      <div className="flex items-center justify-between px-6 sm:px-10 pt-5">
+      <div className="flex items-center justify-between px-6 sm:px-10 pt-5 gap-4">
         <a
           href="#/"
           onClick={(e) => go('#/', e)}
@@ -30,6 +41,9 @@ export default function HeroNav() {
         >
           KRANTHI · COM
         </a>
+        <div className="pointer-events-none hidden sm:flex font-mono text-[11px] tracking-widest text-white/55">
+          (&nbsp;HYD&nbsp;)&nbsp;&nbsp;{time}
+        </div>
         <nav className="pointer-events-auto flex items-center gap-1 px-2 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/10">
           {LINKS.map((l) => (
             <a
@@ -46,3 +60,4 @@ export default function HeroNav() {
     </div>
   )
 }
+
