@@ -142,7 +142,7 @@ export default function TravelMap() {
 
           {/* Sidebar */}
           <div className="w-full lg:w-[260px] flex flex-col gap-2 flex-shrink-0">
-            <div className="rounded-2xl border border-border/30 bg-card/80 backdrop-blur-sm p-4 shadow-lg">
+            <div className="bg-card p-4 pr-tint-violet">
               <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 {places.length} locations • 2 countries

@@ -325,7 +325,7 @@ body:has(.pr-backdrop-base)::before { display: none; }
    regardless of the original bg utility. Tint defaults to violet (chart-1);
    override via .pr-tint-magenta / .pr-tint-coral on the same element. */
 .bg-card,
-[class*="bg-card\\/"],
+[class*="bg-card/"],
 .dark .bg-white\/3,
 .dark .bg-white\/5,
 .dark .bg-white\/10,
@@ -345,7 +345,7 @@ body:has(.pr-backdrop-base)::before { display: none; }
 .dark .bg-black\/70,
 .dark .bg-black\/80,
 .dark .bg-black\/20,
-.dark [class*="bg-background\\/"],
+.dark [class*="bg-background/"],
 .pr-card {
   background-color: var(--color-card) !important;
   background-image:

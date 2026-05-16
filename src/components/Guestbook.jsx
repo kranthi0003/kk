@@ -89,7 +89,7 @@ export default function Guestbook() {
         </div>
 
         {/* Form */}
-        <form ref={formRef} onSubmit={handleSubmit} className="rounded-xl border border-border/30 bg-card p-4 mb-6">
+        <form ref={formRef} onSubmit={handleSubmit} className="bg-card p-4 mb-6 pr-tint-violet">
           <div className="flex gap-3 mb-3">
             <input
               type="text"
@@ -127,8 +127,10 @@ export default function Guestbook() {
           {entries.length === 0 && (
             <p className="text-center text-muted-foreground text-sm py-8">No messages yet. Be the first!</p>
           )}
-          {entries.map((entry, i) => (
-            <div key={entry.id} className="flex items-start gap-3 rounded-lg border border-border/20 bg-card/50 px-4 py-3">
+          {entries.map((entry, i) => {
+            const tints = ['pr-tint-violet', 'pr-tint-magenta', 'pr-tint-coral']
+            return (
+            <div key={entry.id} className={`flex items-start gap-3 bg-card px-4 py-3 ${tints[i % 3]}`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0 ${COLORS[i % COLORS.length]}`}>
                 {getInitials(entry.name)}
               </div>
@@ -151,7 +153,8 @@ export default function Guestbook() {
                 </button>
               )}
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
