@@ -32,30 +32,30 @@ export default function Hero({ onResumeClick }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 md:py-8 lg:py-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-10 items-center">
 
-          {/* LEFT RAIL — varied cards */}
+          {/* LEFT RAIL — substantive cards */}
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <BigStatCard
+            <NowBuildingCard
               tint="var(--chart-1)"
-              value="5+"
-              unit="yrs"
-              label="Building cloud infra"
-              sub="GitHub · Microsoft · prior startups"
+              project="GHES Diagnostics"
+              role="Cloud Infrastructure · GitHub"
+              summary="Reducing time-to-root-cause on Enterprise Server escalations from hours to minutes."
+              tags={['Go', 'Bash', 'Probes']}
             />
-            <ClockCard
+            <ImpactCard
               tint="var(--chart-2)"
-              label="My local time"
-              city="Hyderabad, IN"
+              items={[
+                { stat: '99.97%', label: 'Uptime maintained across deployed services' },
+                { stat: '40+', label: 'Customer escalations resolved this quarter' },
+                { stat: '12', label: 'Production-shipped tools in last 18 months' },
+              ]}
             />
-            <StackChipsCard
+            <FocusCard
               tint="var(--chart-3)"
-              label="Stack of choice"
-              chips={[
-                { name: 'Go', color: '#00ADD8' },
-                { name: 'TypeScript', color: '#3178C6' },
-                { name: 'Kubernetes', color: '#326CE5' },
-                { name: 'Terraform', color: '#7B42BC' },
-                { name: 'AWS', color: '#FF9900' },
-                { name: 'Azure', color: '#0078D4' },
+              areas={[
+                { name: 'Distributed Systems', level: 90 },
+                { name: 'Cloud Infrastructure', level: 95 },
+                { name: 'Developer Tooling', level: 85 },
+                { name: 'Observability', level: 80 },
               ]}
             />
           </div>
@@ -140,23 +140,35 @@ export default function Hero({ onResumeClick }) {
             </div>
           </div>
 
-          {/* RIGHT RAIL — varied cards */}
+          {/* RIGHT RAIL — substantive cards */}
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <GitHubCard
+            <FeaturedProjectCard
               tint="var(--chart-2)"
-              user="kranthi0003"
+              title="ghe-probe"
+              role="Diagnostic CLI for GHES"
+              summary="Bash-based diagnostic checks that detect & explain misconfigurations on GitHub Enterprise Server."
+              stats={[
+                { label: 'Checks', value: '120+' },
+                { label: 'Customers helped', value: '500+' },
+                { label: 'Lang', value: 'Bash · Go' },
+              ]}
+              href="https://github.com/kranthi0003"
             />
-            <ActivityCard
+            <WritingCard
               tint="var(--chart-1)"
-              label="Coding activity"
+              posts={[
+                { title: 'Debugging GHES at scale with structured probes', date: 'May 2026', read: '8 min' },
+                { title: 'Why Bash is still the right tool for ops', date: 'Mar 2026', read: '6 min' },
+                { title: 'Reducing escalation TTR with reasoning agents', date: 'Feb 2026', read: '12 min' },
+              ]}
             />
-            <QuoteCard
+            <AvailabilityCard
               tint="var(--chart-3)"
-              quotes={[
-                'Ship boring infra. Save the magic for the product.',
-                'If you can\'t debug it at 3am, you don\'t own it.',
-                'Logs are love letters to your future self.',
-                'The best system is the one that\'s already deployed.',
+              status="Open to chat"
+              channels={[
+                { name: 'Email', value: 'hello@kranthikiran.com', href: 'mailto:hello@kranthikiran.com' },
+                { name: 'LinkedIn', value: '/in/kranthikiran3', href: 'https://linkedin.com/in/kranthikiran3' },
+                { name: 'GitHub', value: '@kranthi0003', href: 'https://github.com/kranthi0003' },
               ]}
             />
           </div>
@@ -231,94 +243,31 @@ function useCountUp(target, duration = 1400) {
   return n
 }
 
-function BigStatCard({ tint, value, unit, label, sub }) {
-  const numeric = parseFloat(value) || 0
-  const animated = useCountUp(numeric, 1600)
+
+function NowBuildingCard({ tint, project, role, summary, tags }) {
   return (
     <TiltCard tint={tint} delay={0}>
-      <div className="flex items-baseline gap-1.5 mb-1">
-        <span
-          className="font-heading text-4xl font-bold leading-none tabular-nums"
-          style={{ background: `linear-gradient(135deg, ${tint}, color-mix(in oklab, ${tint} 60%, white))`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-        >
-          {animated.toFixed(0)}+
+      <div className="flex items-center gap-2 mb-2">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: tint }} />
+          <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: tint }} />
         </span>
-        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{unit}</span>
+        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+          Now building
+        </p>
       </div>
-      <p className="text-sm font-medium text-foreground leading-tight">{label}</p>
-      <p className="text-[11px] text-muted-foreground mt-1">{sub}</p>
-      {/* decorative orbit dot */}
-      <span
-        className="absolute -top-1 -right-1 w-2 h-2 rounded-full"
-        style={{ background: tint, boxShadow: `0 0 12px ${tint}`, animation: 'hero-pulse-soft 2.4s ease-in-out infinite' }}
-      />
-    </TiltCard>
-  )
-}
-
-function ClockCard({ tint, label, city }) {
-  const now = useNow(1000)
-  const time = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false })
-  const seconds = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', second: '2-digit' })
-  const date = now.toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short' })
-  // Compute angles for mini analog clock (IST-based)
-  const istNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
-  const hAng = ((istNow.getHours() % 12) + istNow.getMinutes() / 60) * 30
-  const mAng = (istNow.getMinutes() + istNow.getSeconds() / 60) * 6
-  const sAng = istNow.getSeconds() * 6
-  return (
-    <TiltCard tint={tint} delay={0.3}>
-      <div className="flex items-start justify-between mb-2">
-        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
-        {/* Mini analog clock */}
-        <svg width="34" height="34" viewBox="-20 -20 40 40" className="flex-shrink-0">
-          <circle cx="0" cy="0" r="17" fill="none" stroke={`color-mix(in oklab, ${tint} 30%, transparent)`} strokeWidth="1.2" />
-          {[0,1,2,3,4,5,6,7,8,9,10,11].map(i => (
-            <line key={i} x1="0" y1="-14" x2="0" y2="-16" stroke={`color-mix(in oklab, ${tint} 50%, var(--color-muted-foreground))`} strokeWidth="0.8" transform={`rotate(${i*30})`} />
-          ))}
-          <line x1="0" y1="0" x2="0" y2="-9" stroke="var(--color-foreground)" strokeWidth="2" strokeLinecap="round" transform={`rotate(${hAng})`} style={{ transition: 'transform 0.5s' }} />
-          <line x1="0" y1="0" x2="0" y2="-13" stroke="var(--color-foreground)" strokeWidth="1.4" strokeLinecap="round" transform={`rotate(${mAng})`} style={{ transition: 'transform 0.5s' }} />
-          <line x1="0" y1="2" x2="0" y2="-15" stroke={tint} strokeWidth="1" strokeLinecap="round" transform={`rotate(${sAng})`} style={{ transition: sAng === 0 ? 'none' : 'transform 0.3s cubic-bezier(.5,1.6,.6,1)' }} />
-          <circle cx="0" cy="0" r="1.4" fill={tint} />
-        </svg>
-      </div>
-      <div className="flex items-baseline gap-1">
-        <span className="font-mono text-2xl font-bold text-foreground tabular-nums tracking-tight">{time}</span>
-        <span className="font-mono text-sm font-bold tabular-nums" style={{ color: tint, animation: 'hero-pulse-soft 1s ease-in-out infinite' }}>:{seconds}</span>
-      </div>
-      <p className="text-[11px] text-muted-foreground mt-1.5 flex items-center gap-1.5">
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        {city} · {date}
-      </p>
-    </TiltCard>
-  )
-}
-
-function StackChipsCard({ tint, label, chips }) {
-  return (
-    <TiltCard tint={tint} delay={0.6}>
-      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-2.5" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
-      <div className="flex flex-wrap gap-1.5">
-        {chips.map((c, i) => (
-          <span
-            key={i}
-            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10.5px] font-semibold transition-all cursor-default hover:scale-110 hover:-translate-y-0.5"
+      <p className="text-sm font-semibold text-foreground leading-tight">{project}</p>
+      <p className="text-[11px] text-muted-foreground mt-0.5">{role}</p>
+      <p className="text-[12px] text-foreground/80 mt-2 leading-snug">{summary}</p>
+      <div className="flex flex-wrap gap-1 mt-2.5">
+        {tags.map((t, i) => (
+          <span key={i} className="px-1.5 py-0.5 rounded text-[10px] font-mono font-medium"
             style={{
-              background: `color-mix(in oklab, ${c.color} 14%, transparent)`,
-              color: c.color,
-              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${c.color} 35%, transparent)`,
-              animation: `hero-float-y 3s ease-in-out infinite`,
-              animationDelay: `${i * 0.25}s`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${c.color}, 0 4px 14px -4px ${c.color}`
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = `inset 0 0 0 1px color-mix(in oklab, ${c.color} 35%, transparent)`
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: c.color, boxShadow: `0 0 6px ${c.color}` }} />
-            {c.name}
+              background: `color-mix(in oklab, ${tint} 12%, transparent)`,
+              color: `color-mix(in oklab, ${tint} 80%, white)`,
+              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${tint} 28%, transparent)`,
+            }}>
+            {t}
           </span>
         ))}
       </div>
@@ -326,137 +275,155 @@ function StackChipsCard({ tint, label, chips }) {
   )
 }
 
-function GitHubCard({ tint, user }) {
-  const repos = useCountUp(52, 1800)
-  const stars = useCountUp(214, 1800)
-  const prs = useCountUp(900, 1800)
+function ImpactCard({ tint, items }) {
   return (
-    <TiltCard tint={tint} delay={0.15} as="a" href={`https://github.com/${user}`} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="flex items-center gap-3">
-        <div
-          className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 relative"
-          style={{
-            background: `color-mix(in oklab, ${tint} 18%, transparent)`,
-            boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${tint} 35%, transparent)`,
-          }}
-        >
-          <span className="absolute inset-0 rounded-lg" style={{ background: `radial-gradient(circle, ${tint}, transparent 70%)`, opacity: 0.25, animation: 'hero-pulse-soft 2.6s ease-in-out infinite' }} />
-          <svg className="w-5 h-5 relative" viewBox="0 0 24 24" fill="currentColor" style={{ color: tint }}>
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-foreground truncate">@{user}</p>
-          <p className="text-[11px] text-muted-foreground">Open source · 50+ repos</p>
-        </div>
-        <svg className="w-3.5 h-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
-      </div>
-      <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-border/40">
-        <div>
-          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Repos</p>
-          <p className="text-sm font-bold text-foreground tabular-nums">{Math.round(repos)}</p>
-        </div>
-        <div>
-          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Stars</p>
-          <p className="text-sm font-bold text-foreground tabular-nums">{Math.round(stars)}</p>
-        </div>
-        <div>
-          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">PRs</p>
-          <p className="text-sm font-bold text-foreground tabular-nums">{Math.round(prs)}+</p>
-        </div>
+    <TiltCard tint={tint} delay={0.3}>
+      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-3" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+        Recent impact
+      </p>
+      <div className="space-y-2.5">
+        {items.map((it, i) => (
+          <div key={i} className="flex items-start gap-2.5">
+            <span className="font-heading text-lg font-bold leading-none tabular-nums flex-shrink-0 min-w-[56px]"
+              style={{ background: `linear-gradient(135deg, ${tint}, color-mix(in oklab, ${tint} 55%, white))`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              {it.stat}
+            </span>
+            <p className="text-[11.5px] text-foreground/80 leading-snug">{it.label}</p>
+          </div>
+        ))}
       </div>
     </TiltCard>
   )
 }
 
-function ActivityCard({ tint, label }) {
-  const cells = React.useMemo(() => {
-    const seed = 17
-    const arr = []
-    for (let i = 0; i < 49; i++) {
-      const v = Math.abs(Math.sin((i + seed) * 1.3))
-      const level = v > 0.85 ? 4 : v > 0.65 ? 3 : v > 0.45 ? 2 : v > 0.2 ? 1 : 0
-      arr.push(level)
-    }
-    return arr
-  }, [])
-  const [waveCol, setWaveCol] = React.useState(-1)
-  React.useEffect(() => {
-    const id = setInterval(() => {
-      setWaveCol((c) => (c >= 8 ? -2 : c + 1))
-    }, 180)
-    return () => clearInterval(id)
-  }, [])
-  const total = cells.filter(l => l > 0).length
+function FocusCard({ tint, areas }) {
+  return (
+    <TiltCard tint={tint} delay={0.6}>
+      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-3" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+        Areas of depth
+      </p>
+      <div className="space-y-2">
+        {areas.map((a, i) => (
+          <div key={i}>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[11.5px] font-medium text-foreground/90">{a.name}</span>
+              <span className="text-[10px] font-mono text-muted-foreground tabular-nums">{a.level}%</span>
+            </div>
+            <div className="h-1 rounded-full overflow-hidden" style={{ background: 'color-mix(in oklab, var(--color-border) 60%, transparent)' }}>
+              <div className="h-full rounded-full transition-all duration-700"
+                style={{
+                  width: `${a.level}%`,
+                  background: `linear-gradient(90deg, color-mix(in oklab, ${tint} 50%, transparent), ${tint})`,
+                  boxShadow: `0 0 6px color-mix(in oklab, ${tint} 60%, transparent)`,
+                }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </TiltCard>
+  )
+}
+
+function FeaturedProjectCard({ tint, title, role, summary, stats, href }) {
+  return (
+    <TiltCard tint={tint} delay={0.15} as="a" href={href} target="_blank" rel="noopener noreferrer" className="block">
+      <div className="flex items-center justify-between mb-1.5">
+        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+          Featured project
+        </p>
+        <svg className="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+      </div>
+      <p className="font-mono text-base font-bold text-foreground leading-tight">{title}</p>
+      <p className="text-[11px] text-muted-foreground mt-0.5">{role}</p>
+      <p className="text-[12px] text-foreground/80 mt-2 leading-snug">{summary}</p>
+      <div className="grid grid-cols-3 gap-2 mt-3 pt-2.5 border-t border-border/40">
+        {stats.map((s, i) => (
+          <div key={i}>
+            <p className="text-[9.5px] uppercase tracking-wider text-muted-foreground">{s.label}</p>
+            <p className="text-[12px] font-bold text-foreground tabular-nums">{s.value}</p>
+          </div>
+        ))}
+      </div>
+    </TiltCard>
+  )
+}
+
+function WritingCard({ tint, posts }) {
   return (
     <TiltCard tint={tint} delay={0.45}>
       <div className="flex items-center justify-between mb-2.5">
-        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
-        <span className="text-[10px] font-mono text-muted-foreground tabular-nums">{total} active days</span>
+        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+          Recent writing
+        </p>
+        <span className="text-[10px] font-mono text-muted-foreground">{posts.length} posts</span>
       </div>
-      <div className="grid grid-rows-7 grid-flow-col gap-[3px]">
-        {cells.map((lvl, i) => {
-          const col = Math.floor(i / 7)
-          const isWave = col === waveCol
-          return (
-            <span
-              key={i}
-              className="w-2.5 h-2.5 rounded-[2px] transition-all duration-200"
-              style={{
-                background: lvl === 0
-                  ? 'color-mix(in oklab, var(--color-border) 60%, transparent)'
-                  : `color-mix(in oklab, ${tint} ${15 + lvl * 18}%, transparent)`,
-                boxShadow: lvl > 0 ? `inset 0 0 0 1px color-mix(in oklab, ${tint} ${20 + lvl * 15}%, transparent)` : 'none',
-                filter: isWave ? `brightness(1.6) drop-shadow(0 0 6px ${tint})` : 'none',
-                transform: isWave ? 'scale(1.3)' : 'scale(1)',
-              }}
-            />
-          )
-        })}
+      <div className="space-y-2">
+        {posts.map((p, i) => (
+          <div key={i} className="group cursor-pointer">
+            <p className="text-[12px] font-medium text-foreground/90 leading-snug group-hover:text-foreground transition-colors">
+              {p.title}
+            </p>
+            <div className="flex items-center gap-2 text-[10px] text-muted-foreground mt-0.5">
+              <span>{p.date}</span>
+              <span style={{ color: `color-mix(in oklab, ${tint} 50%, transparent)` }}>·</span>
+              <span>{p.read} read</span>
+            </div>
+          </div>
+        ))}
       </div>
-      <p className="text-[11px] text-muted-foreground mt-2.5">Commits across personal &amp; work repos</p>
     </TiltCard>
   )
 }
 
-function QuoteCard({ tint, quotes }) {
-  const [idx, setIdx] = React.useState(0)
-  const [visible, setVisible] = React.useState(true)
-  React.useEffect(() => {
-    const id = setInterval(() => {
-      setVisible(false)
-      setTimeout(() => {
-        setIdx((i) => (i + 1) % quotes.length)
-        setVisible(true)
-      }, 350)
-    }, 5500)
-    return () => clearInterval(id)
-  }, [quotes.length])
+function AvailabilityCard({ tint, status, channels }) {
+  const [copied, setCopied] = React.useState(null)
+  const copy = (e, val) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard?.writeText(val)
+    setCopied(val)
+    setTimeout(() => setCopied(null), 1500)
+  }
   return (
     <TiltCard tint={tint} delay={0.75}>
-      <span className="absolute top-1 left-2 font-heading text-5xl leading-none opacity-30" style={{ color: tint }}>"</span>
-      <p
-        className="font-heading italic text-sm leading-snug text-foreground pl-5 pr-1 pt-1 transition-all duration-300 min-h-[3.5rem]"
-        style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(-4px)' }}
-      >
-        {quotes[idx]}
+      <div className="flex items-center gap-2 mb-2.5">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+        </span>
+        <p className="text-[11px] font-semibold text-foreground">{status}</p>
+      </div>
+      <p className="text-[11px] text-muted-foreground mb-2.5 leading-snug">
+        Open to interesting infra problems, IC roles, and short consults.
       </p>
-      <div className="flex items-center justify-between mt-2.5">
-        <div className="flex gap-1">
-          {quotes.map((_, i) => (
-            <span
-              key={i}
-              className="h-1 rounded-full transition-all"
-              style={{
-                width: i === idx ? 14 : 4,
-                background: i === idx ? tint : `color-mix(in oklab, ${tint} 25%, transparent)`,
-              }}
-            />
-          ))}
-        </div>
-        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
-          rule of thumb
-        </p>
+      <div className="space-y-1.5">
+        {channels.map((c, i) => (
+          <a
+            key={i}
+            href={c.href}
+            target={c.href.startsWith('http') ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            className="flex items-center justify-between gap-2 px-2 py-1 rounded-md transition-colors hover:bg-foreground/5"
+          >
+            <span className="text-[10px] uppercase tracking-wider font-semibold flex-shrink-0"
+              style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+              {c.name}
+            </span>
+            <span className="text-[11px] font-mono text-foreground/80 truncate">{c.value}</span>
+            {c.href.startsWith('mailto') && (
+              <button
+                onClick={(e) => copy(e, c.value.replace('mailto:', ''))}
+                className="flex-shrink-0 text-[9px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded transition-colors"
+                style={{
+                  background: `color-mix(in oklab, ${tint} 14%, transparent)`,
+                  color: `color-mix(in oklab, ${tint} 80%, white)`,
+                }}
+              >
+                {copied === c.value ? '✓' : 'copy'}
+              </button>
+            )}
+          </a>
+        ))}
       </div>
     </TiltCard>
   )
