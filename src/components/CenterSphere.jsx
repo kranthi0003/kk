@@ -9,12 +9,12 @@ import React, { useState } from 'react'
 const PROFILE_URL = new URL('../../assets/profile.png', import.meta.url).href
 
 // 4 ring sections matching steven.com's single-label structure.
-// Extras live inside each sub-page (Workspace + Tech inside Work, etc.)
+// Sizes tuned so the label fits INSIDE each band's width.
 const RINGS = [
-  { id: 'work',       ro: 208, ri: 162, label: 'WORK',       href: '#/projects',   hue: 270, size: 28 },
-  { id: 'experience', ro: 160, ri: 120, label: 'EXPERIENCE', href: '#/experience', hue: 220, size: 22 },
-  { id: 'connect',    ro: 118, ri: 86,  label: 'CONNECT',    href: '#/connect',    hue: 180, size: 18 },
-  { id: 'about',      ro: 84,  ri: 62,  label: 'ABOUT',      href: '#/about',      hue: 320, size: 13 },
+  { id: 'work',       ro: 210, ri: 168, label: 'WORK',       href: '#/projects',   hue: 270, size: 16 },
+  { id: 'experience', ro: 166, ri: 130, label: 'EXPERIENCE', href: '#/experience', hue: 220, size: 13 },
+  { id: 'connect',    ro: 128, ri: 96,  label: 'CONNECT',    href: '#/connect',    hue: 180, size: 11 },
+  { id: 'about',      ro: 94,  ri: 66,  label: 'ABOUT',      href: '#/about',      hue: 320, size: 9 },
 ]
 
 export default function CenterSphere() {
@@ -26,7 +26,21 @@ export default function CenterSphere() {
   }
 
   return (
-    <svg viewBox="-220 -220 440 440" className="absolute inset-0 w-full h-full select-none">
+    <div
+      className="absolute inset-0"
+      style={{
+        perspective: '1400px',
+        perspectiveOrigin: '50% 40%',
+      }}
+    >
+      <svg
+        viewBox="-220 -220 440 440"
+        className="absolute inset-0 w-full h-full select-none"
+        style={{
+          transform: 'rotateX(22deg) rotateZ(-2deg)',
+          transformStyle: 'preserve-3d',
+        }}
+      >
       <defs>
         {/* Outer rim base */}
         <radialGradient id="rim-base" cx="50%" cy="30%" r="80%">
@@ -78,7 +92,8 @@ export default function CenterSphere() {
 
         {/* Ring band shapes (annulus via even-odd) and arc paths for text */}
         {RINGS.map((r) => {
-          const midR = (r.ro + r.ri) / 2 - r.size * 0.35 // text radius (slightly inward)
+          // Text path radius = exact center of band → text vertically centered in band
+          const midR = (r.ro + r.ri) / 2
           return (
             <g key={`def-${r.id}`}>
               <path
@@ -128,16 +143,17 @@ export default function CenterSphere() {
             <circle cx="0" cy="0" r={r.ri} fill="none" stroke="rgba(0,0,0,0.7)" strokeWidth="1.5" />
             <circle cx="0" cy="0" r={r.ri - 1} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
 
-            {/* Section label — curved over top of band */}
+            {/* Section label — curved along band centerline (inside the band) */}
             <text
               fontFamily="Bricolage Grotesque, sans-serif"
               fontSize={r.size}
               fontWeight="800"
-              letterSpacing={r.size > 16 ? 4 : 2.5}
-              fill={isHot ? '#fff' : 'rgba(255,255,255,0.86)'}
+              letterSpacing={3}
+              fill={isHot ? '#fff' : 'rgba(255,255,255,0.92)'}
+              dominantBaseline="central"
               style={{
                 pointerEvents: 'none',
-                filter: isHot ? `drop-shadow(0 0 12px hsla(${r.hue}, 90%, 70%, 0.8))` : 'drop-shadow(0 1px 2px rgba(0,0,0,0.9))',
+                filter: isHot ? `drop-shadow(0 0 12px hsla(${r.hue}, 90%, 70%, 0.9))` : 'drop-shadow(0 1px 2px rgba(0,0,0,0.95))',
                 transition: 'fill 200ms',
               }}
             >
@@ -180,6 +196,7 @@ export default function CenterSphere() {
         <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" />
       </g>
     </svg>
+    </div>
   )
 }
 
