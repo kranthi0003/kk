@@ -1,6 +1,7 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, Html, Float, RoundedBox } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
 
 // ============================================================
@@ -26,12 +27,12 @@ const HOTSPOTS = [
 export default function Workspace({ onBack }) {
   const [hovered, setHovered] = useState(null)
   const [hint, setHint] = useState('Drag to look around · scroll to zoom')
+  const [isDay, setIsDay] = useState(false)
 
   const nav = (id) => {
     if (id === 'fitness')  { window.location.hash = '#/transformation'; window.location.reload(); return }
     if (id === 'stranger') { window.location.hash = '#/stranger'; window.location.reload(); return }
     if (id === 'terminal') { window.location.hash = ''; window.location.reload(); setTimeout(() => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }), 100); return }
-    // Default: navigate back home + scroll to section
     window.location.hash = ''
     sessionStorage.setItem('scrollTo', id)
     window.location.reload()
@@ -67,7 +68,19 @@ export default function Workspace({ onBack }) {
             </h1>
             <p className="text-[10.5px] text-muted-foreground hidden sm:block tracking-wide">Click anything that glows · drag to look around</p>
           </div>
-          <div className="w-20 sm:w-28 flex-shrink-0" />
+          <button
+            onClick={() => setIsDay(d => !d)}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-[11px] font-semibold transition-all"
+            style={{
+              background: isDay ? 'color-mix(in oklab, oklch(75% 0.18 60) 18%, transparent)' : 'color-mix(in oklab, var(--chart-1) 12%, transparent)',
+              color: 'var(--color-foreground)',
+              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${isDay ? 'oklch(75% 0.18 60)' : 'var(--chart-1)'} 40%, transparent)`,
+            }}
+            title={isDay ? 'Switch to night' : 'Switch to day'}
+          >
+            <span>{isDay ? '☀️' : '🌙'}</span>
+            <span className="hidden sm:inline">{isDay ? 'Day' : 'Night'}</span>
+          </button>
         </div>
       </div>
 
@@ -80,12 +93,16 @@ export default function Workspace({ onBack }) {
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
-          <color attach="background" args={['#0a0612']} />
-          <fog attach="fog" args={['#0a0612', 8, 18]} />
+          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
+          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
 
           <Suspense fallback={null}>
-            <Scene onHover={setHovered} onClick={nav} hovered={hovered} />
-            <Environment preset="city" environmentIntensity={0.25} />
+            <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} />
+            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+            <EffectComposer disableNormalPass>
+              <Bloom intensity={0.8} luminanceThreshold={0.5} luminanceSmoothing={0.4} mipmapBlur />
+              <Vignette eskil={false} offset={0.15} darkness={0.7} />
+            </EffectComposer>
           </Suspense>
 
           <OrbitControls
@@ -133,39 +150,59 @@ export default function Workspace({ onBack }) {
 }
 
 // ─── Scene ───────────────────────────────────────────────────────────
-function Scene({ onHover, onClick, hovered }) {
+function Scene({ onHover, onClick, hovered, isDay }) {
   return (
     <group>
       {/* Lighting */}
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[5, 8, 3]} intensity={0.8} castShadow shadow-mapSize={[2048, 2048]}>
+      <ambientLight intensity={isDay ? 0.6 : 0.35} />
+      <directionalLight
+        position={[5, 8, 3]}
+        intensity={isDay ? 1.2 : 0.45}
+        color={isDay ? '#fff4e0' : '#c4b5fd'}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+      >
         <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5]} />
       </directionalLight>
-      <pointLight position={[-3, 2, -1]} intensity={0.4} color={VIOLET} />
-      <pointLight position={[2, 1.5, 2]} intensity={0.3} color={MAGENTA} />
+      {!isDay && (
+        <>
+          <pointLight position={[-3, 2, -1]} intensity={0.5} color={VIOLET} />
+          <pointLight position={[2, 1.5, 2]} intensity={0.35} color={MAGENTA} />
+        </>
+      )}
+      {/* Desk lamp warm glow (always-on) */}
+      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.25 : 0.9} color="#ffb066" distance={3} decay={2} />
 
       {/* Floor */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[14, 14]} />
-        <meshStandardMaterial color="#15101e" roughness={0.95} metalness={0.05} />
+        <meshStandardMaterial color={isDay ? '#2a223a' : '#15101e'} roughness={0.95} metalness={0.05} />
       </mesh>
       <ContactShadows position={[0, 0.001, 0]} opacity={0.5} scale={10} blur={2.5} far={4} />
 
-      {/* Back wall */}
-      <mesh position={[0, 2, -2.6]}>
-        <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color="#1a1326" roughness={0.85} />
-      </mesh>
-      <mesh position={[-2.6, 2, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color="#180f24" roughness={0.85} />
+      {/* Rug under desk */}
+      <mesh position={[0, 0.005, 0.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[3.5, 2.2]} />
+        <meshStandardMaterial color="#3a1f4a" roughness={1} />
       </mesh>
 
-      {/* Desk */}
+      {/* Back wall + side wall */}
+      <mesh position={[0, 2, -2.6]} receiveShadow>
+        <planeGeometry args={[8, 5]} />
+        <meshStandardMaterial color={isDay ? '#26203a' : '#1a1326'} roughness={0.85} />
+      </mesh>
+      <mesh position={[-2.6, 2, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
+        <planeGeometry args={[8, 5]} />
+        <meshStandardMaterial color={isDay ? '#221b34' : '#180f24'} roughness={0.85} />
+      </mesh>
+
+      {/* === WINDOW on the side wall === */}
+      <Window position={[-2.58, 2.1, -1.0]} isDay={isDay} />
+
+      {/* === DESK === */}
       <RoundedBox args={[3.2, 0.12, 1.6]} radius={0.04} position={[0, 0.7, 0]} castShadow receiveShadow>
         <meshStandardMaterial color="#2a1d3f" roughness={0.4} metalness={0.2} />
       </RoundedBox>
-      {/* Desk legs */}
       {[[-1.45, 0.35, -0.7], [1.45, 0.35, -0.7], [-1.45, 0.35, 0.7], [1.45, 0.35, 0.7]].map((p, i) => (
         <mesh key={i} position={p} castShadow>
           <boxGeometry args={[0.08, 0.7, 0.08]} />
@@ -173,222 +210,729 @@ function Scene({ onHover, onClick, hovered }) {
         </mesh>
       ))}
 
-      {/* === ITEMS === */}
+      {/* === CHAIR === */}
+      <Chair position={[0.0, 0, 1.7]} />
 
-      {/* Laptop — projects */}
-      <Hotspot id="projects" position={[-0.6, 0.76, 0.1]} rotation={[0, 0.4, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          {/* base */}
-          <RoundedBox args={[1.1, 0.04, 0.75]} radius={0.02}>
-            <meshStandardMaterial color="#1c1530" metalness={0.7} roughness={0.3} />
-          </RoundedBox>
-          {/* screen */}
-          <group position={[0, 0.39, -0.35]} rotation={[-0.35, 0, 0]}>
-            <RoundedBox args={[1.1, 0.74, 0.03]} radius={0.02}>
-              <meshStandardMaterial color="#0c0814" metalness={0.6} roughness={0.4} />
-            </RoundedBox>
-            <mesh position={[0, 0, 0.018]}>
-              <planeGeometry args={[1.04, 0.66]} />
-              <meshStandardMaterial color={VIOLET} emissive={VIOLET} emissiveIntensity={0.65} toneMapped={false} />
-            </mesh>
-            {/* Fake code lines on screen */}
-            {[0.22, 0.13, 0.04, -0.05, -0.14, -0.23].map((y, i) => (
-              <mesh key={i} position={[-0.32 + (i % 2) * 0.05, y, 0.02]}>
-                <planeGeometry args={[0.4 - (i % 3) * 0.06, 0.018]} />
-                <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#c4b5fd'} toneMapped={false} />
-              </mesh>
-            ))}
-          </group>
-        </group>
+      {/* === MONITOR on stand — also routes to projects === */}
+      <Hotspot id="projects" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Monitor />
       </Hotspot>
 
-      {/* Coffee mug — about */}
-      <Hotspot id="about" position={[0.85, 0.91, 0.35]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          <mesh castShadow>
-            <cylinderGeometry args={[0.13, 0.11, 0.22, 24]} />
-            <meshStandardMaterial color="#1c1530" roughness={0.5} />
-          </mesh>
-          {/* coffee surface */}
-          <mesh position={[0, 0.105, 0]}>
-            <cylinderGeometry args={[0.12, 0.12, 0.01, 24]} />
-            <meshStandardMaterial color="#3a2818" emissive="#231410" emissiveIntensity={0.15} />
-          </mesh>
-          {/* handle */}
-          <mesh position={[0.15, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-            <torusGeometry args={[0.06, 0.018, 8, 16, Math.PI]} />
-            <meshStandardMaterial color="#1c1530" roughness={0.5} />
-          </mesh>
-          {/* steam */}
-          <Float speed={2} floatIntensity={0.5}>
-            <mesh position={[0, 0.4, 0]}>
-              <sphereGeometry args={[0.04, 8, 8]} />
-              <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
-            </mesh>
-          </Float>
-        </group>
+      {/* === LAPTOP (also projects) === */}
+      <Hotspot id="projects" position={[-1.05, 0.76, 0.25]} rotation={[0, 0.35, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Laptop />
       </Hotspot>
 
-      {/* Mechanical keyboard — terminal */}
-      <Hotspot id="terminal" position={[0.4, 0.78, 0.5]} rotation={[0, -0.1, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          <RoundedBox args={[1.0, 0.06, 0.36]} radius={0.015}>
-            <meshStandardMaterial color="#0e0a1a" metalness={0.4} roughness={0.5} />
-          </RoundedBox>
-          {/* keys grid */}
-          {Array.from({ length: 5 }).map((_, row) =>
-            Array.from({ length: 14 }).map((_, col) => (
-              <mesh key={`${row}-${col}`} position={[-0.43 + col * 0.066, 0.04, -0.13 + row * 0.06]} castShadow>
-                <boxGeometry args={[0.054, 0.03, 0.05]} />
-                <meshStandardMaterial color="#1f152e" roughness={0.6} />
-              </mesh>
-            ))
-          )}
-          {/* glow under keyboard */}
-          <mesh position={[0, -0.04, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[1.05, 0.42]} />
-            <meshBasicMaterial color={VIOLET} transparent opacity={0.2} />
-          </mesh>
-        </group>
+      {/* === MECHANICAL KEYBOARD === */}
+      <Hotspot id="terminal" position={[-0.05, 0.78, 0.45]} rotation={[0, 0, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Keyboard />
       </Hotspot>
 
-      {/* Phone — contact */}
-      <Hotspot id="connect" position={[1.25, 0.78, -0.3]} rotation={[0, -0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          <RoundedBox args={[0.3, 0.02, 0.62]} radius={0.035}>
-            <meshStandardMaterial color="#1c1530" metalness={0.7} roughness={0.3} />
-          </RoundedBox>
-          {/* screen */}
-          <mesh position={[0, 0.011, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[0.26, 0.55]} />
-            <meshStandardMaterial color={MAGENTA} emissive={MAGENTA} emissiveIntensity={0.5} toneMapped={false} />
-          </mesh>
-          {/* camera dot */}
-          <mesh position={[0, 0.012, -0.26]}>
-            <circleGeometry args={[0.012, 16]} />
-            <meshBasicMaterial color="#000" />
-          </mesh>
-        </group>
+      {/* === MOUSE === */}
+      <mesh position={[0.75, 0.79, 0.45]} castShadow>
+        <RoundedBox args={[0.12, 0.04, 0.18]} radius={0.02}>
+          <meshStandardMaterial color="#0e0a1a" metalness={0.5} roughness={0.4} />
+        </RoundedBox>
+      </mesh>
+
+      {/* === DESK LAMP === */}
+      <DeskLamp position={[1.3, 0.77, -0.5]} isDay={isDay} />
+
+      {/* === COFFEE MUG === */}
+      <Hotspot id="about" position={[0.95, 0.91, 0.4]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <CoffeeMug />
       </Hotspot>
 
-      {/* Whiteboard — tech stack */}
-      <Hotspot id="tech" position={[-1.3, 1.9, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          <RoundedBox args={[1.4, 0.9, 0.04]} radius={0.02}>
-            <meshStandardMaterial color="#f4f1e8" roughness={0.8} />
-          </RoundedBox>
-          {/* fake diagram lines */}
-          {[
-            [-0.4, 0.2, 0.5, 0.2],
-            [-0.4, 0, 0.2, 0],
-            [-0.2, 0.1, -0.2, -0.1],
-            [0.1, -0.2, 0.5, -0.2],
-          ].map((line, i) => (
-            <mesh key={i} position={[(line[0]+line[2])/2, (line[1]+line[3])/2, 0.025]}>
-              <planeGeometry args={[Math.hypot(line[2]-line[0], line[3]-line[1]), 0.012]} />
-              <meshBasicMaterial color="#7c3aed" toneMapped={false} />
-            </mesh>
-          ))}
-          {/* boxes */}
-          {[[-0.4, 0.2], [0.5, 0.2], [-0.2, -0.1], [0.5, -0.2]].map((p, i) => (
-            <mesh key={i} position={[p[0], p[1], 0.025]}>
-              <planeGeometry args={[0.14, 0.08]} />
-              <meshBasicMaterial color={i % 2 === 0 ? VIOLET : MAGENTA} toneMapped={false} />
-            </mesh>
-          ))}
-        </group>
+      {/* === PHONE === */}
+      <Hotspot id="connect" position={[1.05, 0.78, -0.05]} rotation={[0, -0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Phone />
       </Hotspot>
 
-      {/* Travel poster — travel */}
-      <Hotspot id="travel" position={[1.4, 1.85, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          <RoundedBox args={[0.9, 1.2, 0.04]} radius={0.02}>
-            <meshStandardMaterial color="#1c1530" />
-          </RoundedBox>
-          {/* "map" — a glowing globe outline */}
-          <mesh position={[0, 0.1, 0.025]}>
-            <ringGeometry args={[0.22, 0.25, 32]} />
-            <meshBasicMaterial color={CORAL} toneMapped={false} />
-          </mesh>
-          <mesh position={[0, 0.1, 0.026]}>
-            <circleGeometry args={[0.22, 32]} />
-            <meshBasicMaterial color="#1c1530" />
-          </mesh>
-          {/* "pins" */}
-          {[[-0.1, 0.15], [0.05, 0.05], [0.12, 0.18], [-0.05, 0.02]].map((p, i) => (
-            <mesh key={i} position={[p[0], p[1], 0.03]}>
-              <circleGeometry args={[0.014, 12]} />
-              <meshBasicMaterial color={CORAL} toneMapped={false} />
-            </mesh>
-          ))}
-          {/* poster text mock */}
-          {[-0.35, -0.42, -0.49].map((y, i) => (
-            <mesh key={i} position={[0, y, 0.025]}>
-              <planeGeometry args={[0.6 - i * 0.1, 0.02]} />
-              <meshBasicMaterial color="#c4b5fd" />
-            </mesh>
-          ))}
-        </group>
+      {/* === NOTEBOOK & PEN === */}
+      <Notebook position={[-1.05, 0.78, -0.5]} />
+
+      {/* === STACK OF BOOKS === */}
+      <BookStack position={[-1.4, 0.78, -0.4]} />
+
+      {/* === SLEEPING CAT === */}
+      <Cat position={[0.6, 0.78, -0.55]} />
+
+      {/* === PICTURE FRAME on back wall (about → click frame too) === */}
+      <Hotspot id="about" position={[-1.6, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <PictureFrame />
       </Hotspot>
 
-      {/* Dumbbell — fitness */}
-      <Hotspot id="fitness" position={[-1.3, 0.78, 0.5]} rotation={[0, 0.3, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group rotation={[0, 0, Math.PI / 2]}>
-          <mesh castShadow>
-            <cylinderGeometry args={[0.025, 0.025, 0.6, 12]} />
-            <meshStandardMaterial color="#3a2a55" metalness={0.8} roughness={0.2} />
-          </mesh>
-          {[-0.3, 0.3].map((y, i) => (
-            <mesh key={i} position={[0, y, 0]} castShadow>
-              <cylinderGeometry args={[0.11, 0.11, 0.16, 16]} />
-              <meshStandardMaterial color="#1a1326" metalness={0.4} roughness={0.5} />
-            </mesh>
-          ))}
-        </group>
+      {/* === WHITEBOARD === */}
+      <Hotspot id="tech" position={[0.2, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Whiteboard />
       </Hotspot>
 
-      {/* Headphones — stranger chat */}
-      <Hotspot id="stranger" position={[-1.0, 0.85, -0.45]} rotation={[0, 0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <group>
-          {/* band */}
-          <mesh castShadow>
-            <torusGeometry args={[0.18, 0.025, 12, 24, Math.PI]} />
-            <meshStandardMaterial color="#1c1530" metalness={0.5} roughness={0.4} />
-          </mesh>
-          {/* cups */}
-          {[-0.18, 0.18].map((x, i) => (
-            <mesh key={i} position={[x, -0.04, 0]} castShadow>
-              <cylinderGeometry args={[0.08, 0.08, 0.07, 18]} />
-              <meshStandardMaterial color="#0e0a1a" metalness={0.6} roughness={0.3} />
-            </mesh>
-          ))}
-          {/* glowing earcup */}
-          <mesh position={[0.18, -0.04, 0.04]}>
-            <ringGeometry args={[0.04, 0.06, 24]} />
-            <meshBasicMaterial color={MAGENTA} toneMapped={false} />
-          </mesh>
-        </group>
+      {/* === TRAVEL POSTER === */}
+      <Hotspot id="travel" position={[1.7, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <TravelPoster />
       </Hotspot>
 
-      {/* Plant — decoration */}
-      <group position={[1.6, 0.76, -0.85]}>
-        <mesh castShadow>
-          <cylinderGeometry args={[0.12, 0.1, 0.16, 16]} />
-          <meshStandardMaterial color="#3a2a55" roughness={0.7} />
+      {/* === DUMBBELL (fitness) on the floor === */}
+      <Hotspot id="fitness" position={[-1.7, 0.18, 1.4]} rotation={[0, 0.3, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Dumbbell />
+      </Hotspot>
+
+      {/* === HEADPHONES on desk (stranger chat) === */}
+      <Hotspot id="stranger" position={[-0.6, 0.84, -0.65]} rotation={[0, 0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Headphones />
+      </Hotspot>
+
+      {/* === PLANT on floor === */}
+      <Plant position={[2.0, 0, -1.7]} />
+
+      {/* === SHELF on back wall with mini items === */}
+      <Shelf position={[2.0, 2.3, -2.55]} />
+
+      {/* === CLOCK on wall === */}
+      <Clock position={[2.0, 3.1, -2.55]} />
+
+      {/* === STICKY NOTES on monitor === */}
+      <StickyNotes position={[0.85, 1.4, -0.5]} />
+
+      {/* === FLOATING PARTICLES === */}
+      {!isDay && <Particles count={50} />}
+    </group>
+  )
+}
+
+// ─── Window with day/night sky ──────────────────────────────────────
+function Window({ position, isDay }) {
+  return (
+    <group position={position} rotation={[0, Math.PI / 2, 0]}>
+      {/* Frame */}
+      <RoundedBox args={[2.0, 1.6, 0.08]} radius={0.02}>
+        <meshStandardMaterial color="#1a1326" />
+      </RoundedBox>
+      {/* Cross frame */}
+      <mesh position={[0, 0, 0.04]}>
+        <boxGeometry args={[0.04, 1.5, 0.02]} />
+        <meshStandardMaterial color="#0c0712" />
+      </mesh>
+      <mesh position={[0, 0, 0.04]}>
+        <boxGeometry args={[1.9, 0.04, 0.02]} />
+        <meshStandardMaterial color="#0c0712" />
+      </mesh>
+      {/* Sky behind */}
+      <mesh position={[0, 0, -0.04]}>
+        <planeGeometry args={[1.9, 1.5]} />
+        <meshBasicMaterial color={isDay ? '#ffd089' : '#1a0a40'} toneMapped={false} />
+      </mesh>
+      {/* Sun / moon */}
+      <mesh position={[0.4, 0.3, -0.03]}>
+        <circleGeometry args={[0.18, 32]} />
+        <meshBasicMaterial color={isDay ? '#fff4b0' : '#e0d8ff'} toneMapped={false} />
+      </mesh>
+      {/* "Stars" at night */}
+      {!isDay && Array.from({ length: 12 }).map((_, i) => {
+        const x = (Math.random() - 0.5) * 1.8
+        const y = (Math.random() - 0.5) * 1.4
+        return (
+          <mesh key={i} position={[x, y, -0.03]}>
+            <circleGeometry args={[0.008, 8]} />
+            <meshBasicMaterial color="#ffffff" toneMapped={false} />
+          </mesh>
+        )
+      })}
+      {/* City silhouette at bottom */}
+      <mesh position={[0, -0.6, -0.02]}>
+        <planeGeometry args={[1.9, 0.4]} />
+        <meshBasicMaterial color="#0a0612" toneMapped={false} />
+      </mesh>
+      {/* Tiny lit windows in silhouette */}
+      {Array.from({ length: 14 }).map((_, i) => (
+        <mesh key={i} position={[-0.9 + i * 0.14, -0.55 + (i % 3) * 0.05, -0.015]}>
+          <planeGeometry args={[0.025, 0.04]} />
+          <meshBasicMaterial color={isDay ? '#3a2a55' : '#ffd16a'} toneMapped={false} />
         </mesh>
-        {Array.from({ length: 6 }).map((_, i) => {
-          const a = (i / 6) * Math.PI * 2
-          return (
-            <mesh key={i} position={[Math.cos(a) * 0.08, 0.25, Math.sin(a) * 0.08]} rotation={[0, a, 0.4]}>
-              <coneGeometry args={[0.04, 0.32, 6]} />
-              <meshStandardMaterial color="#22c55e" />
-            </mesh>
-          )
-        })}
-      </group>
+      ))}
+    </group>
+  )
+}
 
-      {/* Floating particles */}
-      <Particles count={40} />
+// ─── Monitor on a stand with scrolling code ─────────────────────────
+function Monitor() {
+  const linesRef = useRef()
+  useFrame((state) => {
+    if (linesRef.current) {
+      linesRef.current.position.y = -((state.clock.elapsedTime * 0.15) % 1) * 0.8 + 0.4
+    }
+  })
+  return (
+    <group>
+      {/* Stand */}
+      <mesh position={[0, -0.45, 0]} castShadow>
+        <cylinderGeometry args={[0.18, 0.22, 0.04, 16]} />
+        <meshStandardMaterial color="#1a1326" metalness={0.5} roughness={0.4} />
+      </mesh>
+      <mesh position={[0, -0.2, 0]} castShadow>
+        <boxGeometry args={[0.06, 0.5, 0.06]} />
+        <meshStandardMaterial color="#1a1326" metalness={0.5} roughness={0.4} />
+      </mesh>
+      {/* Bezel */}
+      <RoundedBox args={[1.6, 0.95, 0.06]} radius={0.02}>
+        <meshStandardMaterial color="#0c0814" metalness={0.7} roughness={0.3} />
+      </RoundedBox>
+      {/* Screen */}
+      <mesh position={[0, 0, 0.035]}>
+        <planeGeometry args={[1.52, 0.87]} />
+        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+      </mesh>
+      {/* Code lines (scroll) */}
+      <group position={[-0.62, 0, 0.04]} ref={linesRef}>
+        {Array.from({ length: 14 }).map((_, i) => (
+          <mesh key={i} position={[0.1 + (i % 3) * 0.05, 0.4 - i * 0.07, 0]}>
+            <planeGeometry args={[0.5 - (i % 4) * 0.08, 0.022]} />
+            <meshBasicMaterial color={i % 4 === 0 ? MAGENTA : i % 4 === 1 ? CORAL : '#c4b5fd'} toneMapped={false} />
+          </mesh>
+        ))}
+      </group>
+      {/* Logo at bottom */}
+      <mesh position={[0, -0.55, 0]}>
+        <planeGeometry args={[0.06, 0.06]} />
+        <meshBasicMaterial color="#c4b5fd" toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Laptop ─────────────────────────────────────────────────────────
+function Laptop() {
+  return (
+    <group>
+      <RoundedBox args={[1.0, 0.04, 0.7]} radius={0.02}>
+        <meshStandardMaterial color="#1c1530" metalness={0.7} roughness={0.3} />
+      </RoundedBox>
+      {/* Trackpad */}
+      <mesh position={[0, 0.025, 0.2]}>
+        <planeGeometry args={[0.42, 0.22]} />
+        <meshStandardMaterial color="#0c0712" metalness={0.4} roughness={0.5} />
+      </mesh>
+      {/* Mini keys */}
+      {Array.from({ length: 5 }).map((_, row) =>
+        Array.from({ length: 12 }).map((_, col) => (
+          <mesh key={`${row}-${col}`} position={[-0.42 + col * 0.07, 0.024, -0.22 + row * 0.05]}>
+            <boxGeometry args={[0.055, 0.005, 0.04]} />
+            <meshStandardMaterial color="#1a1326" />
+          </mesh>
+        ))
+      )}
+      {/* Screen */}
+      <group position={[0, 0.36, -0.32]} rotation={[-0.35, 0, 0]}>
+        <RoundedBox args={[1.0, 0.7, 0.03]} radius={0.02}>
+          <meshStandardMaterial color="#0c0814" metalness={0.6} roughness={0.4} />
+        </RoundedBox>
+        <mesh position={[0, 0, 0.018]}>
+          <planeGeometry args={[0.94, 0.62]} />
+          <meshBasicMaterial color={VIOLET} toneMapped={false} />
+        </mesh>
+        {[0.22, 0.13, 0.04, -0.05, -0.14, -0.23].map((y, i) => (
+          <mesh key={i} position={[-0.28 + (i % 2) * 0.05, y, 0.02]}>
+            <planeGeometry args={[0.38 - (i % 3) * 0.06, 0.018]} />
+            <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#c4b5fd'} toneMapped={false} />
+          </mesh>
+        ))}
+      </group>
+    </group>
+  )
+}
+
+// ─── Keyboard ──────────────────────────────────────────────────────
+function Keyboard() {
+  return (
+    <group>
+      <RoundedBox args={[1.0, 0.06, 0.36]} radius={0.015}>
+        <meshStandardMaterial color="#0e0a1a" metalness={0.4} roughness={0.5} />
+      </RoundedBox>
+      {Array.from({ length: 5 }).map((_, row) =>
+        Array.from({ length: 14 }).map((_, col) => (
+          <mesh key={`${row}-${col}`} position={[-0.43 + col * 0.066, 0.04, -0.13 + row * 0.06]} castShadow>
+            <boxGeometry args={[0.054, 0.03, 0.05]} />
+            <meshStandardMaterial color="#1f152e" roughness={0.6} />
+          </mesh>
+        ))
+      )}
+      <mesh position={[0, -0.04, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[1.05, 0.42]} />
+        <meshBasicMaterial color={VIOLET} transparent opacity={0.25} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Coffee mug ────────────────────────────────────────────────────
+function CoffeeMug() {
+  return (
+    <group>
+      <mesh castShadow>
+        <cylinderGeometry args={[0.13, 0.11, 0.22, 24]} />
+        <meshStandardMaterial color="#1c1530" roughness={0.5} />
+      </mesh>
+      <mesh position={[0, 0.105, 0]}>
+        <cylinderGeometry args={[0.12, 0.12, 0.01, 24]} />
+        <meshStandardMaterial color="#3a2818" emissive="#231410" emissiveIntensity={0.15} />
+      </mesh>
+      <mesh position={[0.15, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <torusGeometry args={[0.06, 0.018, 8, 16, Math.PI]} />
+        <meshStandardMaterial color="#1c1530" roughness={0.5} />
+      </mesh>
+      <Float speed={2} floatIntensity={0.5}>
+        <mesh position={[0, 0.4, 0]}>
+          <sphereGeometry args={[0.04, 8, 8]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+        </mesh>
+      </Float>
+    </group>
+  )
+}
+
+// ─── Phone ─────────────────────────────────────────────────────────
+function Phone() {
+  return (
+    <group>
+      <RoundedBox args={[0.3, 0.02, 0.62]} radius={0.035}>
+        <meshStandardMaterial color="#1c1530" metalness={0.7} roughness={0.3} />
+      </RoundedBox>
+      <mesh position={[0, 0.011, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.26, 0.55]} />
+        <meshBasicMaterial color={MAGENTA} toneMapped={false} />
+      </mesh>
+      <mesh position={[0, 0.012, -0.26]}>
+        <circleGeometry args={[0.012, 16]} />
+        <meshBasicMaterial color="#000" />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Desk lamp ─────────────────────────────────────────────────────
+function DeskLamp({ position, isDay }) {
+  return (
+    <group position={position}>
+      {/* Base */}
+      <mesh castShadow>
+        <cylinderGeometry args={[0.14, 0.16, 0.04, 18]} />
+        <meshStandardMaterial color="#1a1326" metalness={0.6} roughness={0.4} />
+      </mesh>
+      {/* Arm */}
+      <mesh position={[0, 0.35, 0]} rotation={[0, 0, 0.2]} castShadow>
+        <cylinderGeometry args={[0.02, 0.02, 0.7, 12]} />
+        <meshStandardMaterial color="#1a1326" metalness={0.6} roughness={0.4} />
+      </mesh>
+      {/* Joint */}
+      <mesh position={[0.14, 0.7, 0]} castShadow>
+        <sphereGeometry args={[0.04, 12, 12]} />
+        <meshStandardMaterial color="#0c0712" metalness={0.7} roughness={0.3} />
+      </mesh>
+      {/* Head */}
+      <mesh position={[0.4, 0.6, 0]} rotation={[0, 0, -0.6]} castShadow>
+        <coneGeometry args={[0.16, 0.22, 18, 1, true]} />
+        <meshStandardMaterial color="#2a1d3f" metalness={0.5} roughness={0.4} side={THREE.DoubleSide} />
+      </mesh>
+      {/* Bulb glow */}
+      <mesh position={[0.4, 0.55, 0]}>
+        <sphereGeometry args={[0.08, 16, 16]} />
+        <meshBasicMaterial color={isDay ? '#fff4b0' : '#ffd16a'} toneMapped={false} />
+      </mesh>
+      {/* Light cone visualization */}
+      <mesh position={[0.5, 0.2, 0]} rotation={[0, 0, -0.6]}>
+        <coneGeometry args={[0.5, 0.8, 16, 1, true]} />
+        <meshBasicMaterial color="#ffd16a" transparent opacity={isDay ? 0.06 : 0.18} toneMapped={false} side={THREE.DoubleSide} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Notebook + pen ────────────────────────────────────────────────
+function Notebook({ position }) {
+  return (
+    <group position={position} rotation={[0, 0.2, 0]}>
+      <RoundedBox args={[0.38, 0.025, 0.5]} radius={0.01} castShadow>
+        <meshStandardMaterial color="#3a2a55" roughness={0.7} />
+      </RoundedBox>
+      <mesh position={[-0.15, 0.014, 0]}>
+        <planeGeometry args={[0.02, 0.48]} />
+        <meshBasicMaterial color="#ec4899" toneMapped={false} />
+      </mesh>
+      {/* Pen */}
+      <mesh position={[0.18, 0.025, 0.1]} rotation={[0, 0.3, Math.PI / 2]} castShadow>
+        <cylinderGeometry args={[0.008, 0.008, 0.3, 8]} />
+        <meshStandardMaterial color={VIOLET} metalness={0.5} roughness={0.3} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Book stack ─────────────────────────────────────────────────────
+function BookStack({ position }) {
+  const books = [
+    { w: 0.4, d: 0.28, h: 0.04, color: '#8B5CF6' },
+    { w: 0.36, d: 0.26, h: 0.045, color: '#EC4899' },
+    { w: 0.38, d: 0.27, h: 0.04, color: '#F59E0B' },
+    { w: 0.34, d: 0.25, h: 0.05, color: '#10B981' },
+  ]
+  let y = 0
+  return (
+    <group position={position} rotation={[0, -0.1, 0]}>
+      {books.map((b, i) => {
+        const item = (
+          <RoundedBox key={i} args={[b.w, b.h, b.d]} radius={0.005} position={[0, y, 0]} castShadow>
+            <meshStandardMaterial color={b.color} roughness={0.7} />
+          </RoundedBox>
+        )
+        y += b.h
+        return item
+      })}
+    </group>
+  )
+}
+
+// ─── Sleeping cat ───────────────────────────────────────────────────
+function Cat({ position }) {
+  const breathRef = useRef()
+  useFrame((state) => {
+    if (breathRef.current) {
+      breathRef.current.scale.y = 1 + Math.sin(state.clock.elapsedTime * 1.5) * 0.04
+    }
+  })
+  return (
+    <group position={position} rotation={[0, -0.3, 0]}>
+      {/* Body */}
+      <group ref={breathRef}>
+        <mesh castShadow>
+          <sphereGeometry args={[0.15, 16, 12]} />
+          <meshStandardMaterial color="#1a1326" roughness={0.9} />
+        </mesh>
+        <mesh position={[0, 0, 0.15]} scale={[1, 0.9, 1.4]} castShadow>
+          <sphereGeometry args={[0.13, 16, 12]} />
+          <meshStandardMaterial color="#1a1326" roughness={0.9} />
+        </mesh>
+      </group>
+      {/* Head */}
+      <mesh position={[-0.18, 0.05, 0.05]} castShadow>
+        <sphereGeometry args={[0.1, 16, 12]} />
+        <meshStandardMaterial color="#1a1326" roughness={0.9} />
+      </mesh>
+      {/* Ears */}
+      <mesh position={[-0.24, 0.13, 0]} rotation={[0, 0, 0.3]} castShadow>
+        <coneGeometry args={[0.04, 0.08, 6]} />
+        <meshStandardMaterial color="#1a1326" />
+      </mesh>
+      <mesh position={[-0.13, 0.13, 0]} rotation={[0, 0, -0.3]} castShadow>
+        <coneGeometry args={[0.04, 0.08, 6]} />
+        <meshStandardMaterial color="#1a1326" />
+      </mesh>
+      {/* Tail wrapped */}
+      <mesh position={[0.18, 0, -0.05]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <torusGeometry args={[0.08, 0.025, 8, 16, Math.PI]} />
+        <meshStandardMaterial color="#1a1326" />
+      </mesh>
+      {/* "ZZZ" floating */}
+      <Float speed={1.5} floatIntensity={0.6}>
+        <mesh position={[-0.05, 0.3, 0.1]}>
+          <planeGeometry args={[0.05, 0.06]} />
+          <meshBasicMaterial color="#c4b5fd" transparent opacity={0.7} toneMapped={false} />
+        </mesh>
+      </Float>
+    </group>
+  )
+}
+
+// ─── Picture frame ─────────────────────────────────────────────────
+function PictureFrame() {
+  return (
+    <group>
+      <RoundedBox args={[0.8, 0.6, 0.04]} radius={0.015}>
+        <meshStandardMaterial color="#3a2a55" />
+      </RoundedBox>
+      {/* Inner mat */}
+      <mesh position={[0, 0, 0.025]}>
+        <planeGeometry args={[0.7, 0.5]} />
+        <meshBasicMaterial color="#0c0814" />
+      </mesh>
+      {/* "Photo" — gradient placeholder */}
+      <mesh position={[0, 0, 0.026]}>
+        <planeGeometry args={[0.6, 0.4]} />
+        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+      </mesh>
+      <mesh position={[-0.15, 0.05, 0.027]}>
+        <circleGeometry args={[0.08, 24]} />
+        <meshBasicMaterial color="#fdbae0" toneMapped={false} />
+      </mesh>
+      <mesh position={[0.1, -0.08, 0.027]}>
+        <planeGeometry args={[0.3, 0.15]} />
+        <meshBasicMaterial color={MAGENTA} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Whiteboard ────────────────────────────────────────────────────
+function Whiteboard() {
+  return (
+    <group>
+      <RoundedBox args={[1.4, 0.9, 0.04]} radius={0.02}>
+        <meshStandardMaterial color="#f4f1e8" roughness={0.8} />
+      </RoundedBox>
+      {[
+        [-0.4, 0.2, 0.5, 0.2],
+        [-0.4, 0, 0.2, 0],
+        [-0.2, 0.1, -0.2, -0.1],
+        [0.1, -0.2, 0.5, -0.2],
+      ].map((line, i) => (
+        <mesh key={i} position={[(line[0]+line[2])/2, (line[1]+line[3])/2, 0.025]}>
+          <planeGeometry args={[Math.hypot(line[2]-line[0], line[3]-line[1]), 0.012]} />
+          <meshBasicMaterial color="#7c3aed" toneMapped={false} />
+        </mesh>
+      ))}
+      {[[-0.4, 0.2], [0.5, 0.2], [-0.2, -0.1], [0.5, -0.2]].map((p, i) => (
+        <mesh key={i} position={[p[0], p[1], 0.025]}>
+          <planeGeometry args={[0.14, 0.08]} />
+          <meshBasicMaterial color={i % 2 === 0 ? VIOLET : MAGENTA} toneMapped={false} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+// ─── Travel poster ─────────────────────────────────────────────────
+function TravelPoster() {
+  return (
+    <group>
+      <RoundedBox args={[0.9, 1.2, 0.04]} radius={0.02}>
+        <meshStandardMaterial color="#1c1530" />
+      </RoundedBox>
+      <mesh position={[0, 0.1, 0.025]}>
+        <ringGeometry args={[0.22, 0.25, 32]} />
+        <meshBasicMaterial color={CORAL} toneMapped={false} />
+      </mesh>
+      <mesh position={[0, 0.1, 0.026]}>
+        <circleGeometry args={[0.22, 32]} />
+        <meshBasicMaterial color="#1c1530" />
+      </mesh>
+      {[[-0.1, 0.15], [0.05, 0.05], [0.12, 0.18], [-0.05, 0.02]].map((p, i) => (
+        <mesh key={i} position={[p[0], p[1], 0.03]}>
+          <circleGeometry args={[0.014, 12]} />
+          <meshBasicMaterial color={CORAL} toneMapped={false} />
+        </mesh>
+      ))}
+      {[-0.35, -0.42, -0.49].map((y, i) => (
+        <mesh key={i} position={[0, y, 0.025]}>
+          <planeGeometry args={[0.6 - i * 0.1, 0.02]} />
+          <meshBasicMaterial color="#c4b5fd" />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+// ─── Dumbbell ──────────────────────────────────────────────────────
+function Dumbbell() {
+  return (
+    <group rotation={[0, 0, Math.PI / 2]}>
+      <mesh castShadow>
+        <cylinderGeometry args={[0.03, 0.03, 0.7, 12]} />
+        <meshStandardMaterial color="#3a2a55" metalness={0.8} roughness={0.2} />
+      </mesh>
+      {[-0.35, 0.35].map((y, i) => (
+        <mesh key={i} position={[0, y, 0]} castShadow>
+          <cylinderGeometry args={[0.13, 0.13, 0.18, 16]} />
+          <meshStandardMaterial color="#1a1326" metalness={0.4} roughness={0.5} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+// ─── Headphones ────────────────────────────────────────────────────
+function Headphones() {
+  return (
+    <group>
+      <mesh castShadow>
+        <torusGeometry args={[0.18, 0.025, 12, 24, Math.PI]} />
+        <meshStandardMaterial color="#1c1530" metalness={0.5} roughness={0.4} />
+      </mesh>
+      {[-0.18, 0.18].map((x, i) => (
+        <mesh key={i} position={[x, -0.04, 0]} castShadow>
+          <cylinderGeometry args={[0.08, 0.08, 0.07, 18]} />
+          <meshStandardMaterial color="#0e0a1a" metalness={0.6} roughness={0.3} />
+        </mesh>
+      ))}
+      <mesh position={[0.18, -0.04, 0.04]}>
+        <ringGeometry args={[0.04, 0.06, 24]} />
+        <meshBasicMaterial color={MAGENTA} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Chair ─────────────────────────────────────────────────────────
+function Chair({ position }) {
+  return (
+    <group position={position} rotation={[0, Math.PI, 0]}>
+      {/* Seat */}
+      <RoundedBox args={[0.7, 0.08, 0.65]} radius={0.02} position={[0, 0.5, 0]} castShadow>
+        <meshStandardMaterial color="#1a1326" roughness={0.7} />
+      </RoundedBox>
+      {/* Back */}
+      <RoundedBox args={[0.7, 0.9, 0.08]} radius={0.04} position={[0, 0.9, 0.3]} castShadow>
+        <meshStandardMaterial color="#1a1326" roughness={0.7} />
+      </RoundedBox>
+      {/* Pillar */}
+      <mesh position={[0, 0.25, 0]} castShadow>
+        <cylinderGeometry args={[0.04, 0.04, 0.5, 12]} />
+        <meshStandardMaterial color="#0c0712" metalness={0.6} />
+      </mesh>
+      {/* 5-star base */}
+      {Array.from({ length: 5 }).map((_, i) => {
+        const a = (i / 5) * Math.PI * 2
+        return (
+          <mesh key={i} position={[Math.cos(a) * 0.18, 0.02, Math.sin(a) * 0.18]} rotation={[0, -a, 0]} castShadow>
+            <boxGeometry args={[0.36, 0.04, 0.06]} />
+            <meshStandardMaterial color="#0c0712" metalness={0.6} />
+          </mesh>
+        )
+      })}
+      {/* Wheels */}
+      {Array.from({ length: 5 }).map((_, i) => {
+        const a = (i / 5) * Math.PI * 2
+        return (
+          <mesh key={i} position={[Math.cos(a) * 0.34, 0.025, Math.sin(a) * 0.34]} castShadow>
+            <sphereGeometry args={[0.04, 12, 12]} />
+            <meshStandardMaterial color="#0c0712" />
+          </mesh>
+        )
+      })}
+    </group>
+  )
+}
+
+// ─── Plant ─────────────────────────────────────────────────────────
+function Plant({ position }) {
+  return (
+    <group position={position}>
+      <mesh castShadow>
+        <cylinderGeometry args={[0.18, 0.14, 0.28, 16]} />
+        <meshStandardMaterial color="#3a2a55" roughness={0.7} />
+      </mesh>
+      {Array.from({ length: 8 }).map((_, i) => {
+        const a = (i / 8) * Math.PI * 2
+        return (
+          <mesh key={i} position={[Math.cos(a) * 0.1, 0.45, Math.sin(a) * 0.1]} rotation={[0, a, 0.4]} castShadow>
+            <coneGeometry args={[0.06, 0.45, 6]} />
+            <meshStandardMaterial color="#22c55e" />
+          </mesh>
+        )
+      })}
+    </group>
+  )
+}
+
+// ─── Shelf on wall ──────────────────────────────────────────────────
+function Shelf({ position }) {
+  return (
+    <group position={position}>
+      <mesh castShadow>
+        <boxGeometry args={[1.0, 0.04, 0.2]} />
+        <meshStandardMaterial color="#2a1d3f" roughness={0.6} />
+      </mesh>
+      {/* Mini items on shelf */}
+      <mesh position={[-0.35, 0.1, 0]} castShadow>
+        <boxGeometry args={[0.05, 0.16, 0.04]} />
+        <meshStandardMaterial color="#8B5CF6" />
+      </mesh>
+      <mesh position={[-0.27, 0.09, 0]} castShadow>
+        <boxGeometry args={[0.04, 0.14, 0.04]} />
+        <meshStandardMaterial color="#EC4899" />
+      </mesh>
+      <mesh position={[-0.2, 0.1, 0]} castShadow>
+        <boxGeometry args={[0.05, 0.16, 0.04]} />
+        <meshStandardMaterial color="#F59E0B" />
+      </mesh>
+      {/* A trophy */}
+      <mesh position={[0.1, 0.1, 0]} castShadow>
+        <cylinderGeometry args={[0.04, 0.06, 0.12, 12]} />
+        <meshStandardMaterial color="#fbbf24" metalness={0.7} roughness={0.3} />
+      </mesh>
+      <mesh position={[0.1, 0.04, 0]} castShadow>
+        <boxGeometry args={[0.08, 0.04, 0.06]} />
+        <meshStandardMaterial color="#1a1326" />
+      </mesh>
+      {/* A small cube */}
+      <mesh position={[0.35, 0.08, 0]} castShadow rotation={[0, 0.3, 0]}>
+        <boxGeometry args={[0.12, 0.12, 0.12]} />
+        <meshStandardMaterial color="#10B981" />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Wall clock with live time ──────────────────────────────────────
+function Clock({ position }) {
+  const minRef = useRef()
+  const hrRef  = useRef()
+  useFrame(() => {
+    const now = new Date()
+    const m = now.getMinutes() + now.getSeconds() / 60
+    const h = (now.getHours() % 12) + m / 60
+    if (minRef.current) minRef.current.rotation.z = -(m / 60) * Math.PI * 2
+    if (hrRef.current)  hrRef.current.rotation.z = -(h / 12) * Math.PI * 2
+  })
+  return (
+    <group position={position}>
+      <mesh castShadow>
+        <cylinderGeometry args={[0.18, 0.18, 0.04, 32]} />
+        <meshStandardMaterial color="#1a1326" metalness={0.5} roughness={0.4} />
+      </mesh>
+      <mesh position={[0, 0, 0.022]} rotation={[Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.16, 32]} />
+        <meshBasicMaterial color="#f4f1e8" />
+      </mesh>
+      {/* hour ticks */}
+      {Array.from({ length: 12 }).map((_, i) => {
+        const a = (i / 12) * Math.PI * 2
+        return (
+          <mesh key={i} position={[Math.cos(a) * 0.13, Math.sin(a) * 0.13, 0.025]}>
+            <planeGeometry args={[0.01, 0.02]} />
+            <meshBasicMaterial color="#1a1326" />
+          </mesh>
+        )
+      })}
+      {/* Hour hand */}
+      <mesh ref={hrRef} position={[0, 0, 0.026]}>
+        <planeGeometry args={[0.012, 0.16]} />
+        <meshBasicMaterial color="#1a1326" />
+      </mesh>
+      {/* Minute hand */}
+      <mesh ref={minRef} position={[0, 0, 0.027]}>
+        <planeGeometry args={[0.008, 0.22]} />
+        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+      </mesh>
+      {/* Center pin */}
+      <mesh position={[0, 0, 0.028]}>
+        <circleGeometry args={[0.012, 16]} />
+        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
+// ─── Sticky notes ───────────────────────────────────────────────────
+function StickyNotes({ position }) {
+  return (
+    <group position={position}>
+      <mesh rotation={[0, 0, 0.1]} castShadow>
+        <planeGeometry args={[0.18, 0.18]} />
+        <meshBasicMaterial color="#fde047" toneMapped={false} />
+      </mesh>
+      <mesh position={[-0.05, -0.13, 0.001]} rotation={[0, 0, -0.15]} castShadow>
+        <planeGeometry args={[0.15, 0.15]} />
+        <meshBasicMaterial color="#f97316" toneMapped={false} />
+      </mesh>
     </group>
   )
 }
