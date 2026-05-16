@@ -36,17 +36,17 @@ export default function Hero({ onResumeClick }) {
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <NowBuildingCard
               tint="var(--chart-1)"
-              project="GHES Diagnostics"
+              project="Developer Experience Tooling"
               role="Cloud Infrastructure · GitHub"
-              summary="Reducing time-to-root-cause on Enterprise Server escalations from hours to minutes."
-              tags={['Go', 'Bash', 'Probes']}
+              summary="Internal tools and platform work that help engineering teams ship faster and operate with confidence."
+              tags={['Go', 'TypeScript', 'K8s']}
             />
             <ImpactCard
               tint="var(--chart-2)"
               items={[
-                { stat: '99.97%', label: 'Uptime maintained across deployed services' },
-                { stat: '40+', label: 'Customer escalations resolved this quarter' },
-                { stat: '12', label: 'Production-shipped tools in last 18 months' },
+                { stat: '99.9%', label: 'Reliability across services I own and operate' },
+                { stat: '6+ yrs', label: 'Production cloud infrastructure experience' },
+                { stat: '50+', label: 'Open-source contributions across repos' },
               ]}
             />
             <FocusCard
@@ -144,22 +144,22 @@ export default function Hero({ onResumeClick }) {
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <FeaturedProjectCard
               tint="var(--chart-2)"
-              title="ghe-probe"
-              role="Diagnostic CLI for GHES"
-              summary="Bash-based diagnostic checks that detect & explain misconfigurations on GitHub Enterprise Server."
+              title="kranthikiran.com"
+              role="This site · Built in public"
+              summary="A live playground portfolio with collab editor, AI terminal, dev toolkit, and more — built end-to-end."
               stats={[
-                { label: 'Checks', value: '120+' },
-                { label: 'Customers helped', value: '500+' },
-                { label: 'Lang', value: 'Bash · Go' },
+                { label: 'Stack', value: 'React · Vite' },
+                { label: 'Features', value: '12+' },
+                { label: 'Source', value: 'Open' },
               ]}
-              href="https://github.com/kranthi0003"
+              href="https://github.com/kranthi0003/kranthi-kiran-site"
             />
             <WritingCard
               tint="var(--chart-1)"
               posts={[
-                { title: 'Debugging GHES at scale with structured probes', date: 'May 2026', read: '8 min' },
+                { title: 'Designing for operability: lessons from production', date: 'May 2026', read: '8 min' },
                 { title: 'Why Bash is still the right tool for ops', date: 'Mar 2026', read: '6 min' },
-                { title: 'Reducing escalation TTR with reasoning agents', date: 'Feb 2026', read: '12 min' },
+                { title: 'Building developer tools people actually use', date: 'Feb 2026', read: '10 min' },
               ]}
             />
             <AvailabilityCard
