@@ -36,6 +36,9 @@ import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
 
 import WorkspaceSection from './components/WorkspaceSection'
+import Preloader from './components/Preloader'
+import CursorFollower from './components/CursorFollower'
+import SmoothScroll from './components/SmoothScroll'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
@@ -193,6 +196,9 @@ export default function App() {
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
       <div className="min-h-screen text-foreground [--header-height:68px]">
+      <Preloader />
+      <SmoothScroll />
+      <CursorFollower />
       <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
