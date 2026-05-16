@@ -106,7 +106,7 @@ function BentoClockCard() {
   const isDay = ist.getHours() >= 6 && ist.getHours() < 19
 
   return (
-    <div className="rounded-lg border border-border/60 bg-card/40 p-5 flex flex-col justify-between">
+    <div className="bg-card p-5 flex flex-col justify-between pr-tint-violet">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Vizag, India</p>
         <span className="text-base">{isDay ? '☀️' : '🌙'}</span>
@@ -148,7 +148,7 @@ export default function About() {
         <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 170px 170px' }}>
 
           {/* R1: Profile (2col) + Spotify (2col) */}
-          <div className="col-span-2 rounded-lg border border-border/60 bg-card/40 overflow-hidden flex flex-col">
+          <div className="col-span-2 bg-card overflow-hidden flex flex-col pr-tint-magenta">
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
               <div className="absolute -bottom-7 left-4">
@@ -168,14 +168,14 @@ export default function About() {
             </div>
           </div>
 
-          <div className="col-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
+          <div className="col-span-2 overflow-hidden bg-card pr-tint-coral">
             <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
           </div>
 
           {/* R2: Clock + Currently (left 2 cols) + Instagram (right 2 cols, spans R2+R3) */}
           <BentoClockCard />
 
-          <div className="rounded-lg border border-border/60 bg-card/40 p-4 flex flex-col">
+          <div className="bg-card p-4 flex flex-col pr-tint-violet">
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Currently</p>
             <div className="space-y-2 flex-1 flex flex-col justify-center">
               <div className="flex items-center gap-2">
@@ -197,12 +197,12 @@ export default function About() {
             </div>
           </div>
 
-          <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden border border-border/20 bg-card">
+          <div className="col-span-2 row-span-2 overflow-hidden bg-card pr-tint-magenta">
             <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
           </div>
 
           {/* R3: GitHub Contribution Heatmap (full width left 2 cols), Instagram continues right */}
-          <div className="col-span-2 rounded-lg border border-border/60 bg-card/40 p-4 flex flex-col justify-center overflow-hidden">
+          <div className="col-span-2 bg-card p-4 flex flex-col pr-tint-violet justify-center overflow-hidden">
             <div className="flex items-center justify-between mb-2">
               <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">GitHub Contributions</p>
               <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="text-[10px] text-accent hover:underline">@kranthi0003</a>

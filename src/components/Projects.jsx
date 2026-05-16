@@ -69,12 +69,13 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {projects.map((p) => {
+          {projects.map((p, i) => {
             const s = statusColors[p.status]
+            const tints = ['pr-tint-violet', 'pr-tint-magenta', 'pr-tint-coral']
             return (
               <div
                 key={p.name}
-                className="group relative rounded-lg border border-border/60 bg-card/40 backdrop-blur hover:border-accent/40 transition-colors overflow-hidden"
+                className={`group relative bg-card hover:border-accent/40 transition-colors overflow-hidden ${tints[i % 3]}`}
               >
                 <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
                 {/* Title bar */}

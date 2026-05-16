@@ -35,15 +35,19 @@ export default function Stats() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-lg border border-border/60 overflow-hidden bg-border/40">
-          {stats.map((stat) => (
-            <div key={stat.label} className="bg-card/40 backdrop-blur p-6 text-center">
-              <p className="font-heading text-3xl sm:text-4xl tracking-tight text-foreground" style={{ fontWeight: 600 }}>
-                {stat.value}
-              </p>
-              <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {stats.map((stat, i) => {
+            const tints = ['pr-tint-violet', 'pr-tint-magenta', 'pr-tint-coral', 'pr-tint-violet']
+            const numColors = ['oklch(78% 0.22 285)', 'oklch(78% 0.27 320)', 'oklch(78% 0.20 25)', 'oklch(78% 0.22 285)']
+            return (
+              <div key={stat.label} className={`bg-card p-6 text-center ${tints[i % 4]}`}>
+                <p className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 600, color: numColors[i % 4] }}>
+                  {stat.value}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

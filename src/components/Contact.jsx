@@ -53,13 +53,13 @@ export default function Connect() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
-          {socials.map((social) => (
+          {socials.map((social, i) => (
             <a
               key={social.name}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 p-5 rounded-lg border border-border/60 bg-card/40 backdrop-blur hover:border-accent/40 hover:bg-card/60 transition-colors overflow-hidden"
+              className={`group relative flex items-center gap-4 p-5 bg-card hover:border-accent/40 transition-colors overflow-hidden ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral'][i % 3]}`}
             >
               <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
               <span className="text-muted-foreground group-hover:text-accent transition-colors">{social.icon}</span>
@@ -72,7 +72,7 @@ export default function Connect() {
           ))}
         </div>
 
-        <div className="rounded-lg border border-border/60 bg-card/40 backdrop-blur p-8 text-center">
+        <div className="bg-card p-8 text-center pr-tint-violet">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 mb-4">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
