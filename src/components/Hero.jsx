@@ -87,7 +87,7 @@ export default function Hero({ onResumeClick }) {
 
         <div className="mt-7 flex flex-wrap gap-2 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
-            onClick={() => window.dispatchEvent(new CustomEvent('toggle-ai-clone'))}
+            onClick={() => document.querySelector('[data-chatbot-btn]')?.click()}
             className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[12px] font-medium text-foreground transition-all"
             style={{
               background: 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 22%, transparent), color-mix(in oklab, var(--chart-2) 22%, transparent))',

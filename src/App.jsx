@@ -14,7 +14,6 @@ import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
-import AIClone from './components/AIClone'
 import CodeBrowser from './components/CodeBrowser'
 import Changelog from './components/Changelog'
 import QRvCard from './components/QRvCard'
@@ -226,7 +225,6 @@ export default function App() {
       <SalaryCalc />
       <CodeBrowser />
       <LiveChat />
-      <AIClone />
       <CryptoDashboard />
       <DevNet />
       <ServiceStatus />

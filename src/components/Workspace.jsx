@@ -195,7 +195,7 @@ export default function Workspace({ onBack, embedded = false }) {
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { label: '🤖 Chat with AI me', go: () => { setChatOpen(false); window.dispatchEvent(new CustomEvent('toggle-ai-clone')) } },
+                  { label: '🤖 Chat with AI me', go: () => { setChatOpen(false); document.querySelector('[data-chatbot-btn]')?.click() } },
                   { label: '📖 About', go: () => { setChatOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '💼 Experience', go: () => { setChatOpen(false); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '✉️  Email', go: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com', '_blank') },
