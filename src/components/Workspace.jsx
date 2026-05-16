@@ -1491,39 +1491,39 @@ function NPC() {
     switch (activity.id) {
       case "sleep":
         if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 0.6) * 0.015
-        armLRef.current.rotation.x = -0.05
-        armRRef.current.rotation.x = -0.05
+        armLRef.current.rotation.x = 0.05
+        armRRef.current.rotation.x = 0.05
         headRef.current.rotation.x = 0
         headRef.current.rotation.y = 0
         break
       case "work":
       case "coffee":
         // Typing — arms forward & slightly down
-        armLRef.current.rotation.x = -1.55 + Math.sin(t * 9) * 0.05
-        armRRef.current.rotation.x = -1.55 + Math.sin(t * 9 + 1.2) * 0.05
+        armLRef.current.rotation.x = 1.55 + Math.sin(t * 9) * 0.05
+        armRRef.current.rotation.x = 1.55 + Math.sin(t * 9 + 1.2) * 0.05
         headRef.current.rotation.x = 0.18 + Math.sin(t * 0.5) * 0.04
         headRef.current.rotation.y = Math.sin(t * 0.3) * 0.08
         break
       case "lunch":
-        armLRef.current.rotation.x = -0.5
-        armRRef.current.rotation.x = -2.4 - Math.abs(Math.sin(t * 0.7)) * 0.3
+        armLRef.current.rotation.x = 0.5
+        armRRef.current.rotation.x = 2.4 + Math.abs(Math.sin(t * 0.7)) * 0.3
         headRef.current.rotation.x = 0.1 + Math.sin(t * 0.7) * 0.08
         break
       case "gym":
         const lift = Math.abs(Math.sin(t * 2.5))
-        armLRef.current.rotation.x = -2.7 - lift * 0.4
-        armRRef.current.rotation.x = -2.7 - lift * 0.4
+        armLRef.current.rotation.x = 2.7 + lift * 0.4
+        armRRef.current.rotation.x = 2.7 + lift * 0.4
         headRef.current.rotation.x = -0.05
         if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 5) * 0.02
         break
       case "ps5":
-        armLRef.current.rotation.x = -1.95 + Math.sin(t * 6) * 0.03
-        armRRef.current.rotation.x = -1.95 + Math.sin(t * 6 + 0.5) * 0.03
+        armLRef.current.rotation.x = 1.95 + Math.sin(t * 6) * 0.03
+        armRRef.current.rotation.x = 1.95 + Math.sin(t * 6 + 0.5) * 0.03
         headRef.current.rotation.x = 0.15
         break
       default:
-        armLRef.current.rotation.x = -0.3
-        armRRef.current.rotation.x = -0.3
+        armLRef.current.rotation.x = 0.3
+        armRRef.current.rotation.x = 0.3
         headRef.current.rotation.x = 0
     }
   })
