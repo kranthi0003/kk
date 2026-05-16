@@ -66,8 +66,8 @@ export default function HeroV2({ onResumeClick }) {
       </div>
 
       {/* Central ring system */}
-      <div className="flex-1 flex items-center justify-center relative">
-        <div className="relative" style={{ width: 'min(78vmin, 720px)', height: 'min(78vmin, 720px)' }}>
+      <div className="flex-1 flex items-center justify-center relative px-6">
+        <div className="relative" style={{ width: 'min(62vmin, 560px)', height: 'min(62vmin, 560px)' }}>
 
           {/* Outer ring track */}
           <svg viewBox="-200 -200 400 400" className="absolute inset-0 w-full h-full">
@@ -77,9 +77,6 @@ export default function HeroV2({ onResumeClick }) {
                 <stop offset="60%" stopColor="#0e0820" />
                 <stop offset="100%" stopColor="#050208" />
               </radialGradient>
-              {/* arcs for curved text */}
-              <path id="arc-outer" d="M -180 0 a 180 180 0 1 1 360 0 a 180 180 0 1 1 -360 0" fill="none" />
-              <path id="arc-mid" d="M -130 0 a 130 130 0 1 1 260 0 a 130 130 0 1 1 -260 0" fill="none" />
             </defs>
 
             {/* Outer dark gradient disc */}
@@ -91,16 +88,30 @@ export default function HeroV2({ onResumeClick }) {
             <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
             <circle cx="0" cy="0" r="80"  fill="none" stroke="rgba(167,139,250,0.18)" strokeWidth="1" />
 
-            {/* Outer ring labels — rotates slowly */}
+            {/* Outer ring labels — each tangent to circle, never upside down */}
             <g style={{ transform: `rotate(${angle}deg)`, transformOrigin: 'center', transformBox: 'fill-box' }}>
-              {RING_ITEMS.map((it) => (
-                <text key={it.id} fontFamily="ui-monospace, monospace" fontSize="9" fontWeight="600"
-                  letterSpacing="3" fill={hovered === it.id ? '#fff' : 'rgba(255,255,255,0.7)'}>
-                  <textPath href="#arc-outer" startOffset={`${(it.angle / 360) * 100}%`}>
+              {RING_ITEMS.map((it) => {
+                // Position at angle; rotate text along tangent (perpendicular to radius)
+                // To keep text upright on the bottom half, flip it 180°
+                const a = it.angle - 90 // -90 so 0 = top
+                const onBottomHalf = a > 0 && a < 180
+                const textRotation = onBottomHalf ? a + 90 + 180 : a + 90
+                return (
+                  <text
+                    key={it.id}
+                    fontFamily="Orbitron, monospace"
+                    fontSize="11"
+                    fontWeight="700"
+                    letterSpacing="3"
+                    fill={hovered === it.id ? '#fff' : 'rgba(255,255,255,0.75)'}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    transform={`rotate(${a}) translate(0 -180) rotate(${onBottomHalf ? 180 : 0})`}
+                  >
                     {it.label}
-                  </textPath>
-                </text>
-              ))}
+                  </text>
+                )
+              })}
             </g>
 
             {/* Mid track ticks rotating opposite */}
@@ -119,7 +130,7 @@ export default function HeroV2({ onResumeClick }) {
               })}
             </g>
 
-            {/* Subtle arrows around ring (steven.com signature) */}
+            {/* Subtle indicator marks */}
             <g opacity="0.5">
               <path d="M 0 -175 L -4 -168 L 4 -168 Z" fill="rgba(255,255,255,0.4)" />
               <path d="M 0 175 L -4 168 L 4 168 Z" fill="rgba(255,255,255,0.4)" />
@@ -166,13 +177,13 @@ export default function HeroV2({ onResumeClick }) {
       </div>
 
       {/* Bottom-left: tagline + 'About Us' style link */}
-      <div className="absolute bottom-8 left-6 sm:left-10 max-w-md z-20">
-        <h1 className="font-heading text-[32px] sm:text-[44px] leading-[1.02] font-bold tracking-tight text-white uppercase">
+      <div className="absolute bottom-8 left-6 sm:left-10 max-w-sm z-20">
+        <h1 className="font-heading text-[26px] sm:text-[34px] leading-[1.05] font-bold tracking-tight text-white uppercase">
           The cloud engineer<br />building at GitHub.
         </h1>
         <button
           onClick={onResumeClick}
-          className="mt-6 inline-flex items-center gap-2 group"
+          className="mt-5 inline-flex items-center gap-2 group"
         >
           <span className="font-mono text-[11px] tracking-widest text-white/70 group-hover:text-white transition-colors">
             About me
