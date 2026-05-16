@@ -564,7 +564,9 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {!isDay && <Particles count={50} />}
 
       {/* === NPC (sitting "me") + Player + interaction hotzones === */}
-      <NPC position={[0.0, 0, 1.7]} visible={true} />
+      <Hotspot id="about" position={[0.0, 0, 1.7]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <NPC visible={true} />
+      </Hotspot>
       {gameMode && <Player onNear={onNear} hotspots={HOTSPOTS} />}
     </group>
   )
