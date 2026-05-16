@@ -16,7 +16,7 @@ export default function WorkspaceSection() {
             A peek into my <span className="text-gradient-violet">space</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Click <span className="text-foreground font-medium">me</span> in the chair, the <span className="text-foreground font-medium">cork board</span>, the <span className="text-foreground font-medium">dumbbell</span>, or the <span className="text-foreground font-medium">headphones</span>. Hit <kbd className="px-1 py-px rounded bg-foreground/10 text-foreground text-[10.5px] font-mono">▶ Play</kbd> to walk around.
+            Click <span className="text-foreground font-medium">me</span>, the <span className="text-foreground font-medium">cork board</span>, dumbbell, headphones — or the <span className="text-foreground font-medium">monitor</span> to <span className="text-gradient-violet font-semibold">dive inception-style</span> into a room within the room.
           </p>
         </div>
 

@@ -36,6 +36,29 @@ export default function Workspace({ onBack, embedded = false }) {
     try { return JSON.parse(localStorage.getItem('ws:secrets') || '[]') } catch { return [] }
   })
   const [showStickyForm, setShowStickyForm] = useState(false)
+  const [level, setLevel] = useState(0) // 0 = real, 1 = dream, 2 = deeper dream, 3 = limbo
+  const [diving, setDiving] = useState(false) // transition flag (flash)
+
+  const dive = (direction = 'down') => {
+    if (diving) return
+    setDiving(true)
+    setTimeout(() => {
+      setLevel((l) => {
+        if (direction === 'down') return Math.min(3, l + 1)
+        return Math.max(0, l - 1)
+      })
+      setTimeout(() => setDiving(false), 600)
+    }, 350)
+  }
+
+  const wakeUp = () => {
+    if (level === 0 || diving) return
+    setDiving(true)
+    setTimeout(() => {
+      setLevel(0)
+      setTimeout(() => setDiving(false), 800)
+    }, 350)
+  }
 
   const markSecret = (id) => {
     if (secretFound.includes(id)) return
@@ -45,12 +68,11 @@ export default function Workspace({ onBack, embedded = false }) {
   }
 
   const nav = (id) => {
-    // Interactions are now self-contained — no more routing to other sections
+    if (id === 'dive')       { dive('down'); return }
     if (id === 'about')      { setChatOpen(true); return }
     if (id === 'guestbook')  { setShowStickyForm(true); return }
     if (id === 'fitness')    { window.location.hash = '#/transformation'; window.location.reload(); return }
     if (id === 'stranger')   { window.location.hash = '#/stranger'; window.location.reload(); return }
-    // Secrets
     if (id === 'secret-konami') { markSecret('konami'); window.dispatchEvent(new CustomEvent('trigger-matrix')); return }
     if (id === 'secret-drawer') { markSecret('drawer'); window.open('https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M', '_blank'); return }
     if (id === 'secret-trophy') { markSecret('trophy'); alert('🏆 Achievement: Explored the entire workspace!') }
@@ -64,13 +86,17 @@ export default function Workspace({ onBack, embedded = false }) {
       } else {
         setHint('WASD or arrows to move · E to interact')
       }
+    } else if (hovered === 'dive') {
+      setHint('🌀 Click monitor to dive deeper · inception')
     } else if (hovered) {
       const item = HOTSPOTS.find(h => h.id === hovered)
       setHint(item ? `→ ${item.label}` : '')
+    } else if (level > 0) {
+      setHint(`Level ${level}/3 · click monitor to dive again · Esc to wake up`)
     } else {
       setHint('Drag to look · click items · or hit PLAY')
     }
-  }, [hovered, near, gameMode])
+  }, [hovered, near, gameMode, level])
 
   // Keyboard E to interact in game mode
   useEffect(() => {
@@ -88,11 +114,15 @@ export default function Workspace({ onBack, embedded = false }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [gameMode, near])
 
-  // Konami code easter egg
+  // Konami code easter egg + ESC to wake up from inception
   useEffect(() => {
     const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
     let idx = 0
     const onKey = (e) => {
+      if (e.key === 'Escape' && level > 0) {
+        wakeUp()
+        return
+      }
       const k = e.key.length === 1 ? e.key.toLowerCase() : e.key
       if (k === sequence[idx].toLowerCase() || k === sequence[idx]) {
         idx++
@@ -107,7 +137,7 @@ export default function Workspace({ onBack, embedded = false }) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [level])
 
   // Embedded mode: no top bar, fills parent, includes floating Play/Day buttons
   if (embedded) {
@@ -123,7 +153,7 @@ export default function Workspace({ onBack, embedded = false }) {
           <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
           <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
           <Suspense fallback={null}>
-            <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} />
+            <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} level={level} />
             <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
           </Suspense>
           <OrbitControls
@@ -185,6 +215,40 @@ export default function Workspace({ onBack, embedded = false }) {
             </div>
           </div>
         )}
+
+        {/* === INCEPTION level indicator + wake-up button === */}
+        {level > 0 && (
+          <div className="absolute top-3 right-3 z-30 flex items-center gap-2 pointer-events-auto">
+            <div className="px-2.5 py-1 rounded-full text-[10.5px] font-mono backdrop-blur-xl"
+              style={{ background: 'color-mix(in oklab, var(--chart-1) 25%, var(--color-card))', color: 'white', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 60%, transparent)' }}>
+              {level === 1 && '💭 Dream · L1'}
+              {level === 2 && '🌀 Deeper · L2'}
+              {level === 3 && '🕳 Limbo · L3'}
+            </div>
+            <button onClick={wakeUp}
+              className="px-2.5 py-1 rounded-full text-[10.5px] font-semibold backdrop-blur-xl transition-all"
+              style={{ background: 'linear-gradient(135deg, oklch(70% 0.22 30), oklch(65% 0.25 60))', color: 'white', boxShadow: '0 0 16px -4px oklch(70% 0.22 30)' }}>
+              ⬆ Wake up
+            </button>
+          </div>
+        )}
+
+        {/* Inception dive flash overlay */}
+        {diving && (
+          <div className="absolute inset-0 z-40 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(167,139,250,0.8) 0%, rgba(0,0,0,0.95) 70%)',
+              animation: 'inception-flash 0.95s ease-out',
+            }}
+          />
+        )}
+        <style>{`
+          @keyframes inception-flash {
+            0%   { opacity: 0; transform: scale(0.3); }
+            40%  { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(2); }
+          }
+        `}</style>
       </div>
     )
   }
@@ -377,9 +441,15 @@ export default function Workspace({ onBack, embedded = false }) {
 }
 
 // ─── Scene ───────────────────────────────────────────────────────────
-function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
+function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear, level = 0 }) {
+  // Each dive level: shrink + rotate the whole scene to evoke "inside a screen"
+  const groupScale = level === 0 ? 1 : level === 1 ? 0.72 : level === 2 ? 0.5 : 0.32
+  const groupRot = level * 0.06
+  // Visual themes per dream level
+  const themeOverride = level === 2 ? 'neon' : level === 3 ? 'limbo' : null
+
   return (
-    <group>
+    <group scale={groupScale} rotation={[0, groupRot, 0]}>
       <SoftShadows size={20} samples={10} focus={0.7} />
 
       {/* Lighting — cinematic 3-point + accent */}
@@ -477,8 +547,8 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
         <NPC />
       </Hotspot>
 
-      {/* === MONITOR on stand — also routes to projects === */}
-      <Hotspot id="projects" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === MONITOR === click to dive deeper (inception) === */}
+      <Hotspot id="dive" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <Monitor />
       </Hotspot>
 
