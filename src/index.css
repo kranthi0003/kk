@@ -263,7 +263,7 @@ h2 { letter-spacing: -0.03em; }
 /* Top-center violet wash + ambient mid-area glow */
 .dark .pr-backdrop-glow::after {
   background:
-    radial-gradient(ellipse 100% 50% at 50% -5%, oklch(35% 0.22 290 / 0.90), transparent 60%),
+    radial-gradient(ellipse 80% 28% at 50% -8%, oklch(35% 0.22 290 / 0.65), transparent 60%),
     radial-gradient(ellipse 50% 40% at 90% 50%, oklch(45% 0.24 320 / 0.40), transparent 60%);
 }
 .pr-backdrop-noise {
