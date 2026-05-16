@@ -15,7 +15,9 @@ const TABS = [
   { id: 'supps',    icon: '💊', label: 'Supps' },
   { id: 'recovery', icon: '🌙', label: 'Recovery' },
   { id: 'tracker',  icon: '📊', label: 'Tracker' },
+  { id: 'photos',   icon: '📸', label: 'Photos' },
   { id: 'roadmap',  icon: '🗺️', label: 'Roadmap' },
+  { id: 'settings', icon: '⚙️', label: 'Settings' },
 ]
 
 // ------- storage helpers --------------------------------------------------
@@ -238,7 +240,9 @@ export default function TransformationHQ({ onBack }) {
         {tab === 'supps'    && <SuppsTab />}
         {tab === 'recovery' && <RecoveryTab />}
         {tab === 'tracker'  && <TrackerTab />}
+        {tab === 'photos'   && <PhotosTab />}
         {tab === 'roadmap'  && <RoadmapTab />}
+        {tab === 'settings' && <SettingsTab />}
       </div>
 
       <div className="border-t border-border/30 py-4 text-center">
@@ -259,52 +263,281 @@ function TodayTab() {
   const update = (k, v) => { const next = { ...log, [k]: v }; setLog(next); lsSet(`log:${todayKey()}`, next) }
 
   const checks = [
-    { key: 'morn',   label: `Morning: ${plan.morn}` },
-    { key: 'eve',    label: `Evening: ${plan.eve}` },
-    { key: 'water',  label: 'Hit 3L+ water' },
-    { key: 'prot',   label: 'Hit protein target (150g+)' },
-    { key: 'steps',  label: '8–10k steps' },
-    { key: 'sleep',  label: 'Sleep by 11pm' },
+    { key: 'morn',   icon: '🌅', label: `Morning · ${plan.morn}` },
+    { key: 'eve',    icon: '🌙', label: `Evening · ${plan.eve}` },
+    { key: 'water',  icon: '💧', label: 'Hit 3L+ water' },
+    { key: 'prot',   icon: '🥩', label: 'Hit protein target (150g+)' },
+    { key: 'steps',  icon: '👟', label: '8–10k steps' },
+    { key: 'sleep',  icon: '😴', label: 'Sleep by 11pm' },
   ]
   const done = checks.filter(c => log[c.key]).length
   const pct = Math.round((done / checks.length) * 100)
 
+  // Journey day counter
+  const startDate = lsGet('settings:startDate', todayKey())
+  const dayN = Math.max(1, Math.floor((new Date(todayKey()) - new Date(startDate)) / 86400000) + 1)
+
+  // Streak (≥4 checks counts as active)
+  const streak = useMemo(() => {
+    let s = 0
+    for (let i = 0; i < 365; i++) {
+      const d = new Date(); d.setDate(d.getDate() - i)
+      const k = d.toISOString().slice(0,10)
+      const ll = lsGet(`log:${k}`, {})
+      const dn = ['morn','eve','water','prot','steps','sleep'].filter(x => ll[x]).length
+      if (dn >= 4) s++; else if (i > 0) break
+    }
+    return s
+  }, [log])
+
+  // Mood/Energy/Sleep sliders
+  const setSlider = (k, v) => update(k, v)
+
   return (
-    <div className="space-y-5">
-      <div className="bg-card pr-tint-magenta p-5">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-semibold text-foreground">Today · {day} · {plan.focus}</h3>
-          <span className="text-xs font-mono text-muted-foreground">{done}/{checks.length} · {pct}%</span>
+    <div className="space-y-4">
+      {/* Hero header — journey day + ring + streak */}
+      <div className="bg-card pr-tint-violet p-5">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-4">
+            <ProgressRing value={pct} size={80} stroke={6} />
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-violet-300/70">Day {dayN} of the journey</div>
+              <div className="text-xl font-heading font-semibold text-foreground mt-0.5">{day} · {plan.focus}</div>
+              <div className="flex items-center gap-3 mt-1.5 text-[11px]">
+                <span className="flex items-center gap-1 text-amber-400 font-semibold">
+                  🔥 {streak} day streak
+                </span>
+                <span className="text-muted-foreground">{done}/{checks.length} done today</span>
+              </div>
+            </div>
+          </div>
+          <QuickActions log={log} plan={plan} />
         </div>
-        <div className="h-1.5 bg-foreground/10 rounded-full overflow-hidden mb-4">
-          <div className="h-full bg-gradient-to-r from-violet-500 to-pink-500 transition-all" style={{ width: `${pct}%` }} />
-        </div>
-        <p className="text-[11px] text-muted-foreground mb-4">{plan.notes}</p>
-        <div className="space-y-1.5">
+        <p className="text-[11px] text-muted-foreground mt-4 italic">{plan.notes}</p>
+      </div>
+
+      {/* Today's checklist */}
+      <div className="bg-card pr-tint-magenta p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3 flex items-center gap-1.5">✅ Today's check-ins</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {checks.map(c => (
-            <label key={c.key} className="flex items-center gap-2.5 cursor-pointer group">
+            <label key={c.key}
+              className={`flex items-center gap-2.5 px-2.5 py-2 rounded-lg cursor-pointer transition-all ${
+                log[c.key] ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-background/40 border border-border/30 hover:border-violet-500/40'
+              }`}>
               <input type="checkbox" checked={!!log[c.key]} onChange={e => update(c.key, e.target.checked)}
                 className="w-4 h-4 rounded accent-violet-500" />
-              <span className={`text-xs ${log[c.key] ? 'line-through text-muted-foreground/50' : 'text-foreground'}`}>{c.label}</span>
+              <span className="text-base">{c.icon}</span>
+              <span className={`text-xs flex-1 ${log[c.key] ? 'line-through text-muted-foreground/60' : 'text-foreground'}`}>{c.label}</span>
             </label>
           ))}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {/* Mood / Energy / Sleep sliders */}
+      <div className="bg-card pr-tint-coral p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3 flex items-center gap-1.5">🧠 How are you feeling?</h4>
+        <div className="space-y-3">
+          {[
+            { key: 'energy',  label: 'Energy',    emoji: '⚡', max: 10 },
+            { key: 'mood',    label: 'Mood',      emoji: '😊', max: 10 },
+            { key: 'sleepQ',  label: 'Sleep quality (last night)', emoji: '🌙', max: 10 },
+          ].map(s => (
+            <div key={s.key} className="flex items-center gap-3">
+              <span className="text-lg w-6 text-center">{s.emoji}</span>
+              <span className="text-[11px] font-medium text-foreground w-36 truncate">{s.label}</span>
+              <input
+                type="range" min="0" max={s.max}
+                value={log[s.key] ?? 0}
+                onChange={e => setSlider(s.key, parseInt(e.target.value, 10))}
+                className="flex-1 accent-orange-400"
+              />
+              <span className="font-mono text-xs text-foreground tabular-nums w-10 text-right">{log[s.key] ?? 0}/{s.max}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom row — MVP day + reminder */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="bg-card pr-tint-violet p-4">
-          <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">⚡ Energy low? Minimum viable day</h4>
+          <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">⚡ Low energy? Minimum viable day</h4>
           <ul className="space-y-1 text-[11px] text-muted-foreground">
             {MVP_DAY.map((m,i) => <li key={i} className="flex gap-1.5"><span className="text-violet-400">·</span>{m}</li>)}
           </ul>
         </div>
         <div className="bg-card pr-tint-coral p-4">
           <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">💡 Reminder of the day</h4>
-          <p className="text-[11px] text-muted-foreground leading-relaxed">{REMINDERS[new Date().getDate() % REMINDERS.length]}</p>
+          <p className="text-[11px] text-muted-foreground leading-relaxed italic">"{REMINDERS[new Date().getDate() % REMINDERS.length]}"</p>
         </div>
       </div>
     </div>
   )
+}
+
+// ─── Progress ring (SVG donut) ──────────────────────────────────────
+function ProgressRing({ value, size = 80, stroke = 6 }) {
+  const r = (size - stroke) / 2
+  const c = 2 * Math.PI * r
+  const off = c - (value / 100) * c
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} />
+      <circle
+        cx={size/2} cy={size/2} r={r} fill="none"
+        stroke="url(#prog-grad)" strokeWidth={stroke} strokeLinecap="round"
+        strokeDasharray={c} strokeDashoffset={off}
+        transform={`rotate(-90 ${size/2} ${size/2})`}
+        style={{ transition: 'stroke-dashoffset 0.6s ease' }}
+      />
+      <defs>
+        <linearGradient id="prog-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a78bfa" />
+          <stop offset="100%" stopColor="#ec4899" />
+        </linearGradient>
+      </defs>
+      <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" className="font-heading" style={{ fill: 'currentColor', fontSize: size * 0.26, fontWeight: 700 }}>{value}%</text>
+    </svg>
+  )
+}
+
+// ─── Quick actions row ──────────────────────────────────────────────
+function QuickActions({ log, plan }) {
+  const [toast, setToast] = useState('')
+  const showToast = (m) => { setToast(m); setTimeout(() => setToast(''), 2500) }
+
+  // WhatsApp self-message
+  const whatsapp = () => {
+    const phone = lsGet('settings:phone', '')
+    if (!phone) { showToast('Add your phone in Settings first'); return }
+    const text = encodeURIComponent(buildDailyMessage(plan))
+    window.open(`https://wa.me/${phone.replace(/\D/g, '')}?text=${text}`, '_blank')
+  }
+
+  // Browser notification — daily reminder demo
+  const notify = async () => {
+    if (!('Notification' in window)) { showToast('Notifications not supported'); return }
+    let perm = Notification.permission
+    if (perm === 'default') perm = await Notification.requestPermission()
+    if (perm !== 'granted') { showToast('Notifications denied'); return }
+    new Notification('Transformation HQ', {
+      body: `Today is ${plan.focus}. Morning: ${plan.morn.split(' ').slice(0,4).join(' ')}…`,
+      icon: '/favicon.svg',
+    })
+    showToast('Notification sent · I\'ll nudge you while this tab is open')
+    // Schedule recurring reminders while tab is open
+    scheduleReminders(plan)
+  }
+
+  // ntfy.sh push to phone
+  const ntfyPush = async () => {
+    const topic = lsGet('settings:ntfyTopic', '')
+    if (!topic) { showToast('Add ntfy topic in Settings first'); return }
+    try {
+      await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}`, {
+        method: 'POST',
+        body: buildDailyMessage(plan),
+        headers: {
+          'Title': `🔥 ${plan.focus} · ${new Date().toLocaleDateString('en-IN')}`,
+          'Priority': '4',
+          'Tags': 'muscle,fire',
+        },
+      })
+      showToast('Pushed to your phone via ntfy.sh ✓')
+    } catch (e) {
+      showToast('ntfy push failed: ' + e.message)
+    }
+  }
+
+  // ICS calendar export
+  const exportICS = () => {
+    const ics = buildWeekICS(WEEKLY_PLAN)
+    const blob = new Blob([ics], { type: 'text/calendar' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'transformation-week.ics'
+    a.click()
+    URL.revokeObjectURL(url)
+    showToast('Calendar exported · open file to add events')
+  }
+
+  const Btn = ({ onClick, icon, label }) => (
+    <button onClick={onClick}
+      className="flex flex-col items-center gap-1 px-2.5 py-2 rounded-lg bg-background/50 border border-border/40 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all min-w-[64px]">
+      <span className="text-lg leading-none">{icon}</span>
+      <span className="text-[9.5px] font-medium text-muted-foreground">{label}</span>
+    </button>
+  )
+
+  return (
+    <div className="relative">
+      <div className="flex gap-2 flex-wrap">
+        <Btn onClick={whatsapp}  icon="💬" label="WhatsApp" />
+        <Btn onClick={ntfyPush}  icon="📲" label="Push" />
+        <Btn onClick={notify}    icon="🔔" label="Notify" />
+        <Btn onClick={exportICS} icon="📅" label="Calendar" />
+      </div>
+      {toast && (
+        <div className="absolute top-full right-0 mt-2 px-3 py-1.5 rounded-md bg-foreground text-background text-[11px] font-medium whitespace-nowrap z-10">
+          {toast}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Build a clean daily message for WhatsApp/ntfy
+function buildDailyMessage(plan) {
+  return [
+    `🔥 Day plan — ${new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'short' })}`,
+    `Focus: ${plan.focus}`,
+    `🌅 ${plan.morn}`,
+    `🌙 ${plan.eve}`,
+    `Notes: ${plan.notes}`,
+    '',
+    'Check-ins: 💧 3L water · 🥩 150g protein · 👟 8k steps · 😴 sleep by 11',
+  ].join('\n')
+}
+
+// Build .ics calendar for the week's workouts
+function buildWeekICS(weekPlan) {
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Transformation HQ//EN']
+  const today = new Date()
+  const dow = today.getDay() // 0=Sun..6=Sat
+  const dayIdx = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }
+  weekPlan.forEach((p, i) => {
+    const target = new Date(today)
+    target.setDate(today.getDate() + ((dayIdx[p.day] - dow + 7) % 7))
+    const ymd = target.toISOString().slice(0, 10).replace(/-/g, '')
+    // Morning event 07:00–07:45
+    lines.push('BEGIN:VEVENT', `UID:thq-morn-${ymd}@kranthikiran.com`, `DTSTART:${ymd}T013000Z`, `DTEND:${ymd}T021500Z`, `SUMMARY:🌅 ${p.morn}`, `DESCRIPTION:${p.focus} · ${p.notes}`, 'END:VEVENT')
+    // Evening event 19:15–20:00
+    lines.push('BEGIN:VEVENT', `UID:thq-eve-${ymd}@kranthikiran.com`, `DTSTART:${ymd}T134500Z`, `DTEND:${ymd}T143000Z`, `SUMMARY:🌙 ${p.eve}`, `DESCRIPTION:${p.focus} · ${p.notes}`, 'END:VEVENT')
+  })
+  lines.push('END:VCALENDAR')
+  return lines.join('\r\n')
+}
+
+// Schedule local notifications at fixed times while tab open
+function scheduleReminders(plan) {
+  if (!('Notification' in window) || Notification.permission !== 'granted') return
+  const times = lsGet('settings:reminderTimes', ['07:00', '13:00', '19:00', '21:30'])
+  // Clear any previous timers we set
+  const existing = window.__thqTimers || []
+  existing.forEach(t => clearTimeout(t))
+  window.__thqTimers = []
+  times.forEach((t) => {
+    const [h, m] = t.split(':').map(Number)
+    const when = new Date()
+    when.setHours(h, m, 0, 0)
+    if (when < new Date()) when.setDate(when.getDate() + 1)
+    const ms = when - new Date()
+    const id = setTimeout(() => {
+      new Notification('Transformation HQ — check in', { body: `${plan.focus} · ${t}`, icon: '/favicon.svg' })
+    }, ms)
+    window.__thqTimers.push(id)
+  })
 }
 
 const REMINDERS = [
@@ -778,6 +1011,231 @@ function RoadmapTab() {
       <div className="bg-card pr-tint-violet p-4 text-center">
         <p className="text-xs text-foreground font-medium">The plan is the asset. Consistency × time = transformation.</p>
         <p className="text-[10px] text-muted-foreground mt-1">2027-12-31 Kranthi is built every single day.</p>
+      </div>
+    </div>
+  )
+}
+
+// ============================================================
+// PHOTOS TAB — Weekly progress photos
+// ============================================================
+function PhotosTab() {
+  const [photos, setPhotos] = useState(() => lsGet('photos', []))
+  const fileRef = React.useRef(null)
+  const [busy, setBusy] = useState(false)
+
+  const upload = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    if (file.size > 2_000_000) {
+      alert('Image too large. Please use a photo under 2MB (resize on your phone first).')
+      return
+    }
+    setBusy(true)
+    try {
+      // Compress to ~800px wide, JPEG quality 0.7
+      const dataUrl = await compressImage(file, 800, 0.7)
+      const entry = { date: todayKey(), data: dataUrl, t: Date.now() }
+      const next = [entry, ...photos].slice(0, 60)
+      setPhotos(next); lsSet('photos', next)
+    } finally {
+      setBusy(false)
+      if (fileRef.current) fileRef.current.value = ''
+    }
+  }
+
+  const remove = (idx) => {
+    if (!confirm('Delete this photo?')) return
+    const next = photos.filter((_, i) => i !== idx)
+    setPhotos(next); lsSet('photos', next)
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-card pr-tint-violet p-4">
+        <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+          <div>
+            <h4 className="text-xs font-semibold text-foreground">📸 Progress photos</h4>
+            <p className="text-[10.5px] text-muted-foreground mt-0.5">Take a weekly photo (Sunday morning, same spot, same light, same outfit). Stored locally only.</p>
+          </div>
+          <label className="px-3 py-1.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-[11px] text-foreground hover:bg-violet-500/30 transition-colors cursor-pointer">
+            {busy ? 'Compressing…' : '＋ Add photo'}
+            <input ref={fileRef} type="file" accept="image/*" capture="environment" onChange={upload} className="hidden" disabled={busy} />
+          </label>
+        </div>
+
+        {photos.length === 0 ? (
+          <p className="text-[11px] text-muted-foreground text-center py-8">
+            No photos yet. Take your first one — this is your <b>before</b>. You\'ll thank yourself in 6 months.
+          </p>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 mt-3">
+            {photos.map((p, i) => (
+              <div key={p.t} className="relative group aspect-[3/4] rounded-lg overflow-hidden border border-border/40">
+                <img src={p.data} alt={p.date} className="w-full h-full object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-1.5 text-[10px] text-white font-mono">
+                  {p.date}
+                  {i === photos.length - 1 && <span className="ml-1 px-1 rounded bg-violet-500/60 text-[8px] uppercase">start</span>}
+                </div>
+                <button onClick={() => remove(i)}
+                  className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/60 text-white/80 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">×</button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {photos.length >= 2 && (
+        <div className="bg-card pr-tint-magenta p-4">
+          <h4 className="text-xs font-semibold text-foreground mb-2">Before / now comparison</h4>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border/40">
+              <img src={photos[photos.length - 1].data} alt="before" className="w-full h-full object-cover" />
+              <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] text-white font-mono">BEFORE · {photos[photos.length - 1].date}</div>
+            </div>
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border/40">
+              <img src={photos[0].data} alt="now" className="w-full h-full object-cover" />
+              <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-emerald-500/70 text-[9px] text-white font-mono">NOW · {photos[0].date}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="bg-card pr-tint-coral p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-1.5">Why photos > scale</h4>
+        <p className="text-[11px] text-muted-foreground">Body recomp invisible on the scale shows up clearly in photos. The mirror lies (you see yourself daily). The camera does not. <b>Same pose, same lighting, every Sunday.</b></p>
+      </div>
+    </div>
+  )
+}
+
+async function compressImage(file, maxW = 800, quality = 0.7) {
+  return new Promise((resolve) => {
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const img = new Image()
+      img.onload = () => {
+        const scale = Math.min(1, maxW / img.width)
+        const canvas = document.createElement('canvas')
+        canvas.width = img.width * scale
+        canvas.height = img.height * scale
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+        resolve(canvas.toDataURL('image/jpeg', quality))
+      }
+      img.src = e.target.result
+    }
+    reader.readAsDataURL(file)
+  })
+}
+
+// ============================================================
+// SETTINGS TAB — Phone, ntfy topic, reminders, journey start, export
+// ============================================================
+function SettingsTab() {
+  const [phone, setPhone] = useState(() => lsGet('settings:phone', ''))
+  const [ntfy, setNtfy]   = useState(() => lsGet('settings:ntfyTopic', ''))
+  const [start, setStart] = useState(() => lsGet('settings:startDate', todayKey()))
+  const [times, setTimes] = useState(() => lsGet('settings:reminderTimes', ['07:00', '13:00', '19:00', '21:30']))
+  const [saved, setSaved] = useState('')
+
+  const save = () => {
+    lsSet('settings:phone', phone)
+    lsSet('settings:ntfyTopic', ntfy)
+    lsSet('settings:startDate', start)
+    lsSet('settings:reminderTimes', times)
+    setSaved('Saved ✓')
+    setTimeout(() => setSaved(''), 1800)
+  }
+
+  const exportData = () => {
+    const data = {}
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i)
+      if (k?.startsWith('thq:')) data[k] = localStorage.getItem(k)
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url; a.download = `transformation-hq-backup-${todayKey()}.json`
+    a.click(); URL.revokeObjectURL(url)
+  }
+
+  const importData = (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+      try {
+        const obj = JSON.parse(reader.result)
+        Object.entries(obj).forEach(([k, v]) => localStorage.setItem(k, v))
+        alert('Imported. Reloading…')
+        location.reload()
+      } catch (err) { alert('Invalid file: ' + err.message) }
+    }
+    reader.readAsText(file)
+  }
+
+  const resetAll = () => {
+    if (!confirm('Wipe ALL Transformation HQ data? This cannot be undone.')) return
+    if (!confirm('Are you sure? Last warning.')) return
+    Object.keys(localStorage).filter(k => k.startsWith('thq:')).forEach(k => localStorage.removeItem(k))
+    location.reload()
+  }
+
+  return (
+    <div className="space-y-4 max-w-2xl">
+      <div className="bg-card pr-tint-violet p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3">📱 WhatsApp self-message</h4>
+        <p className="text-[11px] text-muted-foreground mb-2">Your phone number with country code. Tapping the WhatsApp quick-action will draft a daily message to you.</p>
+        <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+91 9876543210"
+          className="w-full bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-violet-500/60" />
+      </div>
+
+      <div className="bg-card pr-tint-magenta p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3">📲 ntfy.sh push topic</h4>
+        <p className="text-[11px] text-muted-foreground mb-2">
+          Free push notifications to your phone. Pick a unique topic name (random characters work best),
+          install the <a href="https://ntfy.sh" target="_blank" rel="noopener" className="text-violet-400 underline">ntfy app</a>, subscribe to your topic.
+          The Push quick-action will deliver to that topic instantly.
+        </p>
+        <input type="text" value={ntfy} onChange={e => setNtfy(e.target.value)} placeholder="e.g. kranthi-thq-x7p2q"
+          className="w-full bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs font-mono outline-none focus:border-pink-500/60" />
+      </div>
+
+      <div className="bg-card pr-tint-coral p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3">🔔 Local reminder times</h4>
+        <p className="text-[11px] text-muted-foreground mb-2">When the Notify quick-action runs, it will also fire reminders at these times today (while the tab is open).</p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {times.map((t, i) => (
+            <input key={i} type="time" value={t}
+              onChange={e => { const copy = [...times]; copy[i] = e.target.value; setTimes(copy) }}
+              className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] font-mono outline-none focus:border-orange-500/60" />
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-card pr-tint-violet p-4">
+        <h4 className="text-xs font-semibold text-foreground mb-3">🚩 Journey start date</h4>
+        <p className="text-[11px] text-muted-foreground mb-2">The Day-N counter on Today counts from this date.</p>
+        <input type="date" value={start} onChange={e => setStart(e.target.value)}
+          className="bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-violet-500/60" />
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        <button onClick={save} className="px-4 py-2 rounded-md bg-violet-500/30 border border-violet-500/50 text-[12px] font-semibold text-foreground hover:bg-violet-500/40 transition-colors">
+          {saved || 'Save settings'}
+        </button>
+        <button onClick={exportData} className="px-4 py-2 rounded-md bg-background border border-border/50 text-[12px] text-foreground hover:bg-foreground/5 transition-colors">
+          ⬇ Export backup
+        </button>
+        <label className="px-4 py-2 rounded-md bg-background border border-border/50 text-[12px] text-foreground hover:bg-foreground/5 transition-colors cursor-pointer">
+          ⬆ Import backup
+          <input type="file" accept="application/json" onChange={importData} className="hidden" />
+        </label>
+        <button onClick={resetAll} className="ml-auto px-4 py-2 rounded-md bg-red-500/10 border border-red-500/30 text-[12px] text-red-400 hover:bg-red-500/20 transition-colors">
+          🗑 Reset all data
+        </button>
       </div>
     </div>
   )
