@@ -5,7 +5,7 @@ import TypingText from './TypingText'
 
 export default function Hero({ onResumeClick }) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 md:pt-28 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
       {/* Satellite backdrop — subtle band */}
       <div className="absolute inset-x-0 top-24 md:top-28 h-[28%] md:h-[32%] z-0 overflow-hidden pointer-events-none">
         <img
