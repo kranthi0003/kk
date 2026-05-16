@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Outfit', 'sans-serif'],
-        body: ['Albert Sans', 'sans-serif'],
+        heading: ['Instrument Sans', 'Outfit', 'sans-serif'],
+        body: ['Instrument Sans', 'Albert Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {

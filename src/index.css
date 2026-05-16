@@ -2,66 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme CSS Variables */
+/* Theme CSS Variables — Provisionr-inspired violet/midnight palette */
 :root {
-  --color-background: #eef1f6;
-  --color-foreground: #1a1a2e;
-  --color-card: #f8f9fc;
-  --color-card-foreground: #1a1a2e;
-  --color-muted: #e4e8f0;
-  --color-muted-foreground: #64748b;
-  --color-accent: #2563eb;
+  --color-background: #f7f6fb;
+  --color-foreground: #1c1530;
+  --color-card: #ffffff;
+  --color-card-foreground: #1c1530;
+  --color-muted: #ece9f4;
+  --color-muted-foreground: #6b6485;
+  --color-accent: #7c3aed;
   --color-accent-foreground: #ffffff;
-  --color-border: #e2e8f0;
-  --color-primary: #1a1a2e;
+  --color-border: #e3dff0;
+  --color-primary: #1c1530;
   --color-primary-foreground: #ffffff;
 }
 
-/* Grid background — faint engineering paper */
+/* Light mode backdrop: subtle violet wash + noise */
 body {
   background-color: var(--color-background);
   background-image:
-    radial-gradient(ellipse at top, rgba(37,99,235,0.07) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(168,85,247,0.05) 0%, transparent 50%),
-    linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,58,237,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(217,70,239,0.06), transparent 60%);
   background-attachment: fixed;
+}
+
+/* Noise grain overlay — tiny SVG, no asset to host */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Dark mode — deep midnight + violet→magenta radial glows */
+.dark {
+  --color-background: #0a0814;
+  --color-foreground: #e8e4f5;
+  --color-card: #14101f;
+  --color-card-foreground: #e8e4f5;
+  --color-muted: #1c1730;
+  --color-muted-foreground: #9991b8;
+  --color-accent: #a78bfa;
+  --color-accent-foreground: #0a0814;
+  --color-border: #221c38;
+  --color-primary: #e8e4f5;
+  --color-primary-foreground: #0a0814;
 }
 
 .dark body {
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(91,33,182,0.45), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(157,23,77,0.30), transparent 60%);
 }
 
-.dark {
-  --color-background: #0a0f1a;
-  --color-foreground: #e2e8f0;
-  --color-card: #111827;
-  --color-card-foreground: #e2e8f0;
-  --color-muted: #1e293b;
-  --color-muted-foreground: #94a3b8;
-  --color-accent: #60a5fa;
-  --color-accent-foreground: #0f172a;
-  --color-border: #1e293b;
-  --color-primary: #e2e8f0;
-  --color-primary-foreground: #0f172a;
-}
-
-/* Dark mode overrides */
-.dark {
-  --color-background: hsl(222.2 84% 4.9%);
-  --color-foreground: hsl(210 40% 98%);
-  --color-card: hsl(222.2 40% 8%);
-  --color-card-foreground: hsl(210 40% 98%);
-  --color-muted: hsl(217.2 32.6% 17.5%);
-  --color-muted-foreground: hsl(215 20.2% 65.1%);
-  --color-accent: hsl(220 70% 70%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
-  --color-border: hsl(217.2 32.6% 17.5%);
-  --color-primary: hsl(210 40% 98%);
-  --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+.dark body::before {
+  opacity: 0.6;
+  mix-blend-mode: overlay;
 }
 
 /* Base styles */
