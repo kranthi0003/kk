@@ -26,7 +26,7 @@ import CarbonCalc from './components/CarbonCalc'
 import SalaryCalc from './components/SalaryCalc'
 import CodeBrowser from './components/CodeBrowser'
 import LiveChat from './components/LiveChat'
-import ThemeModePicker from './components/ThemeModePicker'
+import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
@@ -67,6 +67,14 @@ export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(() => !!sessionStorage.getItem('boot_seen'))
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
+
+  // One-time cleanup: remove any leftover alternate-theme classes from
+  // prior versions of the site that supported Fight Club / F1 / etc.
+  useEffect(() => {
+    const stale = ['theme-fightclub', 'theme-f1', 'theme-cyberpunk', 'theme-vintage', 'theme-ocean', 'theme-dracula']
+    stale.forEach(c => document.documentElement.classList.remove(c))
+    try { localStorage.removeItem('site_theme_mode') } catch {}
+  }, [])
 
   // Hash-based routing
   useEffect(() => {
@@ -167,7 +175,6 @@ export default function App() {
       <SalaryCalc />
       <CodeBrowser />
       <LiveChat />
-      <ThemeModePicker />
       <CryptoDashboard />
       <DevNet />
       <ServiceStatus />

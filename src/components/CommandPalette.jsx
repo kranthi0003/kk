@@ -118,9 +118,6 @@ const ACTIONS = [
     window.location.hash = '#/collab'
     window.location.reload()
   }, keywords: 'collab editor collaborative code together pair programming live share real-time multiplayer google docs' },
-  { id: 'theme-modes', label: 'Theme Modes', desc: 'Fight Club, F1, Cyberpunk, Vintage, Ocean, Dracula', section: 'Actions', icon: '🎨', action: () => {
-    window.dispatchEvent(new CustomEvent('toggle-theme-modes'))
-  }, keywords: 'theme mode style vibe fight club f1 racing cyberpunk vintage ocean dracula color palette skin' },
 
   // Terminal AI features
   { id: 'shell-translate', label: 'Shell Translator', desc: 'English → shell commands', section: 'AI Tools', icon: '🔄', action: () => { scrollTo('terminal'); setTimeout(() => typeInTerminal('list all docker containers'), 500) }, keywords: 'shell translate command english natural language linux bash terminal ai convert' },
