@@ -42,6 +42,7 @@ import Preloader from './components/Preloader'
 import CursorFollower from './components/CursorFollower'
 import SmoothScroll from './components/SmoothScroll'
 import HeroNav from './components/HeroNav'
+import WorldStage from './components/world/WorldStage'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
@@ -265,9 +266,7 @@ export default function App() {
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <main>
         <div className="relative w-full h-screen">
-          <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
-            <Workspace embedded />
-          </Suspense>
+          <WorldStage />
           <HeroNav />
         </div>
       </main>
