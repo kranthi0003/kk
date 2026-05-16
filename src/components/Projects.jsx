@@ -56,21 +56,27 @@ const statusColors = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-muted/30">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="font-mono text-sm text-accent mb-2">~/projects</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">What I've Built</h2>
+    <section id="projects" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Projects</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
+            What I've built
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
+            A handful of tools, experiments, and things I keep meaning to ship.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {projects.map((p) => {
             const s = statusColors[p.status]
             return (
               <div
                 key={p.name}
-                className="rounded-xl border border-border/30 bg-card hover:border-border/60 transition-all duration-200 overflow-hidden"
+                className="group relative rounded-lg border border-border/60 bg-card/40 backdrop-blur hover:border-accent/40 transition-colors overflow-hidden"
               >
+                <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
                 {/* Title bar */}
                 <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border/20 bg-muted/30">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />

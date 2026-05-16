@@ -21,33 +21,27 @@ export default function Stats() {
     const tomorrow = new Date(now)
     tomorrow.setDate(tomorrow.getDate() + 1)
     tomorrow.setHours(0, 0, 0, 0)
-    const timeout = setTimeout(() => {
-      setWorkingDays(calculateWorkingDays())
-    }, tomorrow - now)
+    const timeout = setTimeout(() => setWorkingDays(calculateWorkingDays()), tomorrow - now)
     return () => clearTimeout(timeout)
   }, [])
 
   const stats = [
-    { label: 'Days in Tech', value: workingDays.toLocaleString(), icon: '💼' },
-    { label: 'Companies', value: '4', icon: '🏢' },
-    { label: 'Enterprise Clients', value: '100+', icon: '🤝' },
-    { label: 'Certifications', value: '4', icon: '🏆' },
+    { label: 'Days in tech', value: workingDays.toLocaleString() },
+    { label: 'Companies', value: '4' },
+    { label: 'Enterprise clients', value: '100+' },
+    { label: 'Certifications', value: '6' },
   ]
 
   return (
-    <section className="py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="py-16 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-lg border border-border/60 overflow-hidden bg-border/40">
           {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="card-3d bg-card rounded-2xl p-6 border border-border/30 shadow-lg text-center"
-            >
-              <span className="text-3xl mb-3 block">{stat.icon}</span>
-              <p className="font-heading font-bold text-3xl sm:text-4xl bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+            <div key={stat.label} className="bg-card/40 backdrop-blur p-6 text-center">
+              <p className="font-heading text-3xl sm:text-4xl tracking-tight text-foreground" style={{ fontWeight: 600 }}>
                 {stat.value}
               </p>
-              <p className="text-sm text-muted-foreground mt-2 font-medium">{stat.label}</p>
+              <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
             </div>
           ))}
         </div>

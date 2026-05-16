@@ -106,7 +106,7 @@ function BentoClockCard() {
   const isDay = ist.getHours() >= 6 && ist.getHours() < 19
 
   return (
-    <div className="rounded-2xl border border-border/20 bg-card p-5 flex flex-col justify-between">
+    <div className="rounded-lg border border-border/60 bg-card/40 p-5 flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Vizag, India</p>
         <span className="text-base">{isDay ? '☀️' : '🌙'}</span>
@@ -134,16 +134,21 @@ export default function About() {
   return (
     <section id="about" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="font-mono text-sm text-accent mb-2">~/about</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">About Me</h2>
+        <div className="text-center mb-12">
+          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">About</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
+            A bit about me
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
+            What I'm shipping, listening to, and where I am right now.
+          </p>
         </div>
 
         {/* Bento grid: 4 cols, explicit row layout */}
         <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 170px 170px' }}>
 
           {/* R1: Profile (2col) + Spotify (2col) */}
-          <div className="col-span-2 rounded-2xl border border-border/20 bg-card overflow-hidden flex flex-col">
+          <div className="col-span-2 rounded-lg border border-border/60 bg-card/40 overflow-hidden flex flex-col">
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
               <div className="absolute -bottom-7 left-4">
@@ -170,7 +175,7 @@ export default function About() {
           {/* R2: Clock + Currently (left 2 cols) + Instagram (right 2 cols, spans R2+R3) */}
           <BentoClockCard />
 
-          <div className="rounded-2xl border border-border/20 bg-card p-4 flex flex-col">
+          <div className="rounded-lg border border-border/60 bg-card/40 p-4 flex flex-col">
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Currently</p>
             <div className="space-y-2 flex-1 flex flex-col justify-center">
               <div className="flex items-center gap-2">
@@ -197,7 +202,7 @@ export default function About() {
           </div>
 
           {/* R3: GitHub Contribution Heatmap (full width left 2 cols), Instagram continues right */}
-          <div className="col-span-2 rounded-2xl border border-border/20 bg-card p-4 flex flex-col justify-center overflow-hidden">
+          <div className="col-span-2 rounded-lg border border-border/60 bg-card/40 p-4 flex flex-col justify-center overflow-hidden">
             <div className="flex items-center justify-between mb-2">
               <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">GitHub Contributions</p>
               <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="text-[10px] text-accent hover:underline">@kranthi0003</a>

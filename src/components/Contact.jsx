@@ -40,64 +40,58 @@ const socials = [
 
 export default function Connect() {
   return (
-    <section id="connect" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="space-y-8">
-          {/* Connect card */}
-          <div className="card-3d shadow-xl rounded-2xl animate-float" style={{ animationDelay: '0.2s' }}>
-            <div className="p-8">
-              <p className="font-mono text-sm text-accent mb-2">Let's Connect</p>
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-6">Connect With Me</h2>
-            </div>
-            <div className="px-8 pb-8">
-              <p className="text-muted-foreground mb-6">
-                Always open to meeting new people — whether you want to talk tech, collaborate on something cool,
-                or just wanna say hi. Hit me up on any of the platforms below.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {socials.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-6 rounded-2xl border border-border/50 bg-card hover:bg-muted/50 transition-all duration-300 hover-lift"
-                  >
-                    <span className={social.color}>{social.icon}</span>
-                    <div>
-                      <h4 className="font-medium">{social.name}</h4>
-                      <p className="text-sm text-muted-foreground">{social.handle}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+    <section id="connect" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Connect</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
+            Let's build something
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
+            Always open to chat about cloud infra, distributed systems, or developer tooling.
+          </p>
+        </div>
 
-          {/* Open to Opportunities */}
-          <div>
-            {/* Open to Opportunities */}
-            <div className="rounded-2xl border border-border/30 shadow-xl bg-gradient-to-br from-accent/5 via-card to-primary/5 p-8 flex flex-col justify-center text-center">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
-                </span>
-                <span className="text-green-500 font-mono text-xs font-bold uppercase tracking-wider">Open to Opportunities</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-4 p-5 rounded-lg border border-border/60 bg-card/40 backdrop-blur hover:border-accent/40 hover:bg-card/60 transition-colors overflow-hidden"
+            >
+              <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
+              <span className="text-muted-foreground group-hover:text-accent transition-colors">{social.icon}</span>
+              <div className="min-w-0 flex-1">
+                <h4 className="font-medium text-sm">{social.name}</h4>
+                <p className="text-xs text-muted-foreground truncate">{social.handle}</p>
               </div>
-              <h3 className="font-heading text-xl font-bold mb-3">Let's build something together</h3>
-              <p className="text-sm text-muted-foreground mb-6">
-                Interested in cloud infrastructure, distributed systems, and developer tooling.
-                Always happy to chat about new challenges.
-              </p>
-              <a
-                href="mailto:kranthikiranakkumahanthi@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium text-sm hover-lift shadow-lg transition-all mx-auto"
-              >
-                <MailIcon /> Say Hello
-              </a>
-            </div>
+              <span className="text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all text-xs">→</span>
+            </a>
+          ))}
+        </div>
+
+        <div className="rounded-lg border border-border/60 bg-card/40 backdrop-blur p-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 mb-4">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="text-emerald-500 text-[11px] font-medium uppercase tracking-wider">Open to opportunities</span>
           </div>
+          <h3 className="font-heading text-xl md:text-2xl tracking-tight mb-2" style={{ fontWeight: 600 }}>
+            Interested in cloud infrastructure &amp; distributed systems
+          </h3>
+          <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+            Always happy to chat about new challenges, side projects, or weird infra problems.
+          </p>
+          <a
+            href="mailto:kranthikiranakkumahanthi@gmail.com"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-accent text-accent-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+          >
+            <MailIcon /> Say hello
+          </a>
         </div>
       </div>
     </section>

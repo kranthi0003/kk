@@ -41,9 +41,14 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="font-mono text-sm text-accent mb-2">Where I've Shipped</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">Experience</h2>
+        <div className="text-center mb-12">
+          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Where I've shipped</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
+            Experience
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
+            Five years of building infra at companies you've heard of.
+          </p>
         </div>
 
         {/* Desktop: horizontal linked list */}
@@ -55,7 +60,7 @@ export default function Experience() {
                 href={exp.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative flex-1 max-w-[260px] rounded-2xl border border-border/20 bg-card/50 hover:bg-card hover:border-border/40 hover:shadow-lg transition-all duration-300 p-6 flex flex-col group"
+                className="relative flex-1 max-w-[260px] rounded-lg border border-border/60 bg-card/40 hover:bg-card hover:border-border/40 hover:shadow-lg transition-all duration-300 p-6 flex flex-col group"
               >
                 {/* Current badge */}
                 {exp.current && (
@@ -69,7 +74,7 @@ export default function Experience() {
                 )}
 
                 {/* Logo */}
-                <div className="w-12 h-12 rounded-xl bg-background border border-border/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-md bg-background border border-border/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <img src={exp.logo} alt={exp.company} className="w-7 h-7 object-contain" />
                 </div>
 
@@ -114,7 +119,7 @@ export default function Experience() {
                 href={exp.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-full max-w-sm rounded-2xl border border-border/20 bg-card/50 hover:bg-card p-5 flex items-start gap-4 transition-all"
+                className="relative w-full max-w-sm rounded-lg border border-border/60 bg-card/40 hover:bg-card p-5 flex items-start gap-4 transition-all"
               >
                 {exp.current && (
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
@@ -125,7 +130,7 @@ export default function Experience() {
                     <span className="text-[9px] font-mono text-green-500 font-bold">CURRENT</span>
                   </div>
                 )}
-                <div className="w-11 h-11 rounded-xl bg-background border border-border/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-md bg-background border border-border/50 flex items-center justify-center flex-shrink-0">
                   <img src={exp.logo} alt={exp.company} className="w-6 h-6 object-contain" />
                 </div>
                 <div className="flex-1 min-w-0">
