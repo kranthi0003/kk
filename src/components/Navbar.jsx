@@ -622,8 +622,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Line 2 — Action bar (desktop only) */}
       <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
-        <div className="h-9 px-4" style={{ textAlign: 'center', whiteSpace: 'nowrap', lineHeight: '36px' }}>
-          <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+        <div className="relative h-9">
+          <div className="flex items-center gap-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
           <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
           <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
@@ -642,7 +642,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
             window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
           }} />
-          </span>
+          </div>
         </div>
       </div>
 
