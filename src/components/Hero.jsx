@@ -87,6 +87,21 @@ export default function Hero({ onResumeClick }) {
 
         <div className="mt-7 flex flex-wrap gap-2 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
+            onClick={() => window.dispatchEvent(new CustomEvent('toggle-ai-clone'))}
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[12px] font-medium text-foreground transition-all"
+            style={{
+              background: 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 22%, transparent), color-mix(in oklab, var(--chart-2) 22%, transparent))',
+              boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 45%, transparent), 0 0 20px -6px color-mix(in oklab, var(--chart-1) 55%, transparent)',
+            }}
+          >
+            <span className="px-1 py-px rounded text-[8.5px] font-bold uppercase tracking-wider"
+              style={{ background: 'color-mix(in oklab, var(--chart-1) 50%, transparent)', color: 'oklch(96% 0.04 290)' }}>
+              AI
+            </span>
+            Chat with AI Kranthi
+            <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
+          </button>
+          <button
             onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
             className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
           >

@@ -195,10 +195,10 @@ export default function Workspace({ onBack, embedded = false }) {
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {[
+                  { label: '🤖 Chat with AI me', go: () => { setChatOpen(false); window.dispatchEvent(new CustomEvent('toggle-ai-clone')) } },
                   { label: '📖 About', go: () => { setChatOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '💼 Experience', go: () => { setChatOpen(false); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '✉️  Email', go: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com', '_blank') },
-                  { label: '🔍 LinkedIn', go: () => window.open('https://linkedin.com/in/kranthikiran3', '_blank') },
                 ].map((c, i) => (
                   <button key={i} onClick={c.go} className="px-3 py-2 rounded-md text-[12px] font-medium text-foreground text-left transition-all"
                     style={{ background: 'color-mix(in oklab, var(--chart-1) 10%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 28%, transparent)' }}>
