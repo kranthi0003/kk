@@ -23,7 +23,6 @@ export default function ThemeToggle({ onRapidClick }) {
   }, [dark])
 
   const handleClick = () => {
-    // Track 5 rapid clicks for easter egg
     const now = Date.now()
     clickTimesRef.current = [...clickTimesRef.current.filter(t => now - t < 2000), now]
     if (clickTimesRef.current.length >= 5) {
@@ -33,13 +32,11 @@ export default function ThemeToggle({ onRapidClick }) {
 
     const next = !dark
 
-    // Browsers without View Transitions: just flip
     if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setDark(next)
       return
     }
 
-    // Compute origin of the circular reveal from the button center
     const rect = btnRef.current?.getBoundingClientRect()
     const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2
     const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2
@@ -49,7 +46,6 @@ export default function ThemeToggle({ onRapidClick }) {
     )
 
     const transition = document.startViewTransition(() => {
-      // Synchronously flip class AND React state so the snapshot is consistent
       document.documentElement.classList.toggle('dark', next)
       setDark(next)
     })
@@ -63,12 +59,12 @@ export default function ThemeToggle({ onRapidClick }) {
           ]
         },
         {
-          duration: 600,
+          duration: 650,
           easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-          pseudoElement: next ? '::view-transition-new(root)' : '::view-transition-new(root)'
+          pseudoElement: '::view-transition-new(root)'
         }
       )
-    })
+    }).catch(() => {})
   }
 
   return (

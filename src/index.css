@@ -250,14 +250,14 @@ h2 { letter-spacing: -0.03em; }
 /* Big saturated glow blooming up from BOTTOM-RIGHT corner */
 .dark .pr-backdrop-glow::before {
   background:
-    radial-gradient(ellipse 70% 60% at 100% 110%, oklch(45% 0.22 320 / 0.55), transparent 55%),
-    radial-gradient(ellipse 60% 55% at 0% 110%, oklch(35% 0.18 290 / 0.50), transparent 55%);
+    radial-gradient(ellipse 80% 70% at 100% 110%, oklch(50% 0.28 320 / 0.85), transparent 55%),
+    radial-gradient(ellipse 70% 65% at 0% 110%, oklch(40% 0.22 290 / 0.75), transparent 55%);
 }
 /* Top-center violet wash + ambient mid-area glow */
 .dark .pr-backdrop-glow::after {
   background:
-    radial-gradient(ellipse 90% 45% at 50% -10%, oklch(30% 0.15 290 / 0.70), transparent 60%),
-    radial-gradient(ellipse 40% 30% at 85% 50%, oklch(40% 0.18 320 / 0.25), transparent 60%);
+    radial-gradient(ellipse 100% 50% at 50% -5%, oklch(35% 0.22 290 / 0.90), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 50%, oklch(45% 0.24 320 / 0.40), transparent 60%);
 }
 .pr-backdrop-noise {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -327,32 +327,52 @@ body:has(.pr-backdrop-base)::before { display: none; }
 /* Section headings inside <section> tags — slightly more refined */
 section h2.font-heading { font-weight: 600; }
 
-/* === View Transition for theme toggle (circular reveal) === */
+/* === View Transition for theme toggle (circular reveal) ===
+   Always have NEW on top with clip-path expanding to reveal. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-::view-transition-old(root) {
-  z-index: 1;
-}
-::view-transition-new(root) {
-  z-index: 9999;
-}
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 9999; }
 
 /* Gradient text helper for emphasis (provisionr's signature multi-color phrase) */
 .text-gradient-violet {
   background-image: linear-gradient(90deg,
-    oklch(70% 0.22 285),
-    oklch(70% 0.25 320),
-    oklch(70% 0.22 25));
+    oklch(72% 0.22 285),
+    oklch(72% 0.27 320),
+    oklch(72% 0.22 25));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+/* === Neutralize hardcoded white/black borders in dark mode so cards
+       inherit the provisionr subtle border, not glaring white === */
+.dark .border-white\/5,
+.dark .border-white\/10,
+.dark .border-white\/20,
+.dark .border-white\/15,
+.dark .border-white\/25,
+.dark .border-zinc-800,
+.dark .border-zinc-700,
+.dark .border-gray-800,
+.dark .border-gray-700 {
+  border-color: var(--color-border) !important;
+}
+
+/* Same for white/black backgrounds used as glass-cards */
+.dark .bg-white\/5,
+.dark .bg-white\/10,
+.dark .bg-white\/3 {
+  background-color: var(--color-card) !important;
+}
+
+/* Light mode: soften the same to a barely-there gray */
+.border-white\/5,
+.border-white\/10,
+.border-white\/20 {
+  border-color: var(--color-border);
+}
+

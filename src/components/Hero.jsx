@@ -51,7 +51,7 @@ export default function Hero({ onResumeClick }) {
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-4 animate-fade-in-up"
           style={{ animationDelay: '0.2s', fontWeight: 600 }}
         >
-          Hey, I'm <span className="text-accent">Kranthi</span>
+          Hey, I'm <span className="text-gradient-violet">Kranthi</span>
         </h1>
 
         {/* Role — clean accent text */}
