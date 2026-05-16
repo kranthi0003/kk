@@ -13,14 +13,15 @@ const MAGENTA = '#ec4899'
 const CORAL = '#f97316'
 
 const HOTSPOTS = [
-  { id: 'projects',  label: 'Open projects',     hint: 'walk to the laptop',     pos: [-1.05, 0, 0.25] },
-  { id: 'about',     label: 'About me',          hint: 'talk to me at the desk', pos: [0.6, 0, 1.2] },
-  { id: 'tech',      label: 'Tech stack',        hint: 'walk to the whiteboard', pos: [0.2, 0, -2.0] },
-  { id: 'travel',    label: 'Where I\'ve been',  hint: 'walk to the poster',     pos: [1.7, 0, -2.0] },
-  { id: 'connect',   label: 'Contact',           hint: 'pick up the phone',      pos: [1.05, 0, -0.05] },
-  { id: 'terminal',  label: 'Terminal',          hint: 'use the keyboard',       pos: [-0.05, 0, 0.45] },
-  { id: 'fitness',   label: 'Transformation HQ', hint: 'pick up the dumbbell',   pos: [-1.7, 0, 1.4] },
-  { id: 'stranger',  label: 'Stranger chat',     hint: 'wear the headphones',    pos: [-0.6, 0, -0.65] },
+  { id: 'about',     label: 'Talk to me',         hint: 'NPC sitting in chair', pos: [0.6, 0, 1.2] },
+  { id: 'guestbook', label: 'Drop a sticky note', hint: 'on the back wall',     pos: [0.0, 0, -1.8] },
+  { id: 'fitness',   label: 'Transformation HQ',  hint: 'pick up the dumbbell', pos: [-1.7, 0, 1.4] },
+  { id: 'stranger',  label: 'Stranger chat',      hint: 'wear the headphones',  pos: [-0.6, 0, -0.65] },
+  // Live items (not navigable — info only)
+  { id: 'projects',  label: 'Live GitHub feed',   hint: 'the monitor',          pos: [-0.05, 0, -0.5] },
+  { id: 'clock',     label: 'Live IST clock',     hint: 'on the wall',          pos: [2.0, 0, -2.0] },
+  // Secrets (hidden — only id-tagged once found)
+  { id: 'secret-trophy',  label: '🏆 trophy',     hint: 'examine the shelf',    pos: [2.0, 0, -2.3] },
 ]
 
 export default function Workspace({ onBack, embedded = false }) {
@@ -31,14 +32,28 @@ export default function Workspace({ onBack, embedded = false }) {
   const [near, setNear] = useState(null)
   const [chatOpen, setChatOpen] = useState(false)
 
+  const [secretFound, setSecretFound] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('ws:secrets') || '[]') } catch { return [] }
+  })
+  const [showStickyForm, setShowStickyForm] = useState(false)
+
+  const markSecret = (id) => {
+    if (secretFound.includes(id)) return
+    const next = [...secretFound, id]
+    setSecretFound(next)
+    localStorage.setItem('ws:secrets', JSON.stringify(next))
+  }
+
   const nav = (id) => {
-    if (id === 'fitness')  { window.location.hash = '#/transformation'; window.location.reload(); return }
-    if (id === 'stranger') { window.location.hash = '#/stranger'; window.location.reload(); return }
-    if (id === 'terminal') { window.location.hash = ''; window.location.reload(); setTimeout(() => document.getElementById('terminal')?.scrollIntoView({ behavior: 'smooth' }), 100); return }
-    if (id === 'about' && gameMode) { setChatOpen(true); return }
-    window.location.hash = ''
-    sessionStorage.setItem('scrollTo', id)
-    window.location.reload()
+    // Interactions are now self-contained — no more routing to other sections
+    if (id === 'about')      { setChatOpen(true); return }
+    if (id === 'guestbook')  { setShowStickyForm(true); return }
+    if (id === 'fitness')    { window.location.hash = '#/transformation'; window.location.reload(); return }
+    if (id === 'stranger')   { window.location.hash = '#/stranger'; window.location.reload(); return }
+    // Secrets
+    if (id === 'secret-konami') { markSecret('konami'); window.dispatchEvent(new CustomEvent('trigger-matrix')); return }
+    if (id === 'secret-drawer') { markSecret('drawer'); window.open('https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M', '_blank'); return }
+    if (id === 'secret-trophy') { markSecret('trophy'); alert('🏆 Achievement: Explored the entire workspace!') }
   }
 
   useEffect(() => {
@@ -72,6 +87,27 @@ export default function Workspace({ onBack, embedded = false }) {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [gameMode, near])
+
+  // Konami code easter egg
+  useEffect(() => {
+    const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
+    let idx = 0
+    const onKey = (e) => {
+      const k = e.key.length === 1 ? e.key.toLowerCase() : e.key
+      if (k === sequence[idx].toLowerCase() || k === sequence[idx]) {
+        idx++
+        if (idx >= sequence.length) {
+          idx = 0
+          markSecret('konami')
+          window.dispatchEvent(new CustomEvent('trigger-matrix'))
+        }
+      } else {
+        idx = 0
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   // Embedded mode: no top bar, fills parent, includes floating Play/Day buttons
   if (embedded) {
@@ -170,6 +206,21 @@ export default function Workspace({ onBack, embedded = false }) {
                   </button>
                 ))}
               </div>
+            </div>
+          </div>
+        )}
+
+        {showStickyForm && (
+          <StickyNoteForm
+            onClose={() => setShowStickyForm(false)}
+          />
+        )}
+
+        {secretFound.length > 0 && (
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 pointer-events-none">
+            <div className="px-2.5 py-1 rounded-full text-[10.5px] font-mono"
+              style={{ background: 'color-mix(in oklab, oklch(75% 0.18 60) 20%, var(--color-card))', color: 'oklch(75% 0.18 60)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, oklch(75% 0.18 60) 45%, transparent)' }}>
+              🏆 {secretFound.length}/3 secrets found
             </div>
           </div>
         )}
@@ -433,15 +484,15 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
         <Monitor />
       </Hotspot>
 
-      {/* === LAPTOP (also projects) === */}
-      <Hotspot id="projects" position={[-1.05, 0.76, 0.25]} rotation={[0, 0.35, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === LAPTOP — decorative (monitor is the live one) === */}
+      <group position={[-1.05, 0.76, 0.25]} rotation={[0, 0.35, 0]}>
         <Laptop />
-      </Hotspot>
+      </group>
 
-      {/* === MECHANICAL KEYBOARD === */}
-      <Hotspot id="terminal" position={[-0.05, 0.78, 0.45]} rotation={[0, 0, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === MECHANICAL KEYBOARD — decorative === */}
+      <group position={[-0.05, 0.78, 0.45]}>
         <Keyboard />
-      </Hotspot>
+      </group>
 
       {/* === MOUSE === */}
       <mesh position={[0.75, 0.79, 0.45]} castShadow>
@@ -453,15 +504,15 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === DESK LAMP === */}
       <DeskLamp position={[1.3, 0.77, -0.5]} isDay={isDay} />
 
-      {/* === COFFEE MUG === */}
-      <Hotspot id="about" position={[0.95, 0.91, 0.4]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <CoffeeMug />
-      </Hotspot>
-
-      {/* === PHONE === */}
-      <Hotspot id="connect" position={[1.05, 0.78, -0.05]} rotation={[0, -0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === PHONE — decorative === */}
+      <group position={[1.05, 0.78, -0.05]} rotation={[0, -0.5, 0]}>
         <Phone />
-      </Hotspot>
+      </group>
+
+      {/* === COFFEE MUG — decorative === */}
+      <group position={[0.95, 0.91, 0.4]}>
+        <CoffeeMug />
+      </group>
 
       {/* === NOTEBOOK & PEN === */}
       <Notebook position={[-1.05, 0.78, -0.5]} />
@@ -472,20 +523,20 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === SLEEPING CAT === */}
       <Cat position={[0.6, 0.78, -0.55]} />
 
-      {/* === PICTURE FRAME on back wall (about → click frame too) === */}
-      <Hotspot id="about" position={[-1.6, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === PICTURE FRAME — decorative === */}
+      <group position={[-1.6, 2.0, -2.55]}>
         <PictureFrame />
+      </group>
+
+      {/* === GUESTBOOK WALL (replaces whiteboard) === */}
+      <Hotspot id="guestbook" position={[0.2, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <GuestbookWall />
       </Hotspot>
 
-      {/* === WHITEBOARD === */}
-      <Hotspot id="tech" position={[0.2, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <Whiteboard />
-      </Hotspot>
-
-      {/* === TRAVEL POSTER === */}
-      <Hotspot id="travel" position={[1.7, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === TRAVEL POSTER — decorative === */}
+      <group position={[1.7, 2.0, -2.55]}>
         <TravelPoster />
-      </Hotspot>
+      </group>
 
       {/* === DUMBBELL (fitness) on the floor === */}
       <Hotspot id="fitness" position={[-1.7, 0.18, 1.4]} rotation={[0, 0.3, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
@@ -501,7 +552,7 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       <Plant position={[2.0, 0, -1.7]} />
 
       {/* === SHELF on back wall with mini items === */}
-      <Shelf position={[2.0, 2.3, -2.55]} />
+      <Shelf position={[2.0, 2.3, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered} />
 
       {/* === CLOCK on wall === */}
       <Clock position={[2.0, 3.1, -2.55]} />
@@ -573,14 +624,42 @@ function Window({ position, isDay }) {
   )
 }
 
-// ─── Monitor on a stand with scrolling code ─────────────────────────
+// ─── Monitor — fetches real GitHub commits from kranthi0003 ─────────
 function Monitor() {
   const linesRef = useRef()
+  const [commits, setCommits] = React.useState([])
+
+  React.useEffect(() => {
+    let cancelled = false
+    fetch('https://api.github.com/users/kranthi0003/events/public?per_page=30')
+      .then(r => r.ok ? r.json() : [])
+      .then(events => {
+        if (cancelled) return
+        const msgs = []
+        events.forEach(ev => {
+          if (ev.type === 'PushEvent' && ev.payload?.commits) {
+            ev.payload.commits.slice(0, 3).forEach(c => {
+              msgs.push({ msg: c.message.split('\n')[0].slice(0, 50), repo: ev.repo.name.split('/').pop() })
+            })
+          } else if (ev.type === 'PullRequestEvent' && ev.payload?.pull_request) {
+            msgs.push({ msg: `PR: ${ev.payload.pull_request.title.slice(0, 45)}`, repo: ev.repo.name.split('/').pop() })
+          } else if (ev.type === 'CreateEvent') {
+            msgs.push({ msg: `+ ${ev.payload.ref_type}`, repo: ev.repo.name.split('/').pop() })
+          }
+        })
+        setCommits(msgs.slice(0, 18))
+      })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
+
   useFrame((state) => {
     if (linesRef.current) {
-      linesRef.current.position.y = -((state.clock.elapsedTime * 0.15) % 1) * 0.8 + 0.4
+      const total = Math.max(1, commits.length)
+      linesRef.current.position.y = -((state.clock.elapsedTime * 0.08) % 1) * (total * 0.05) + 0.4
     }
   })
+
   return (
     <group>
       {/* Stand */}
@@ -599,21 +678,42 @@ function Monitor() {
       {/* Screen */}
       <mesh position={[0, 0, 0.035]}>
         <planeGeometry args={[1.52, 0.87]} />
-        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+        <meshBasicMaterial color="#1a0d3a" toneMapped={false} />
       </mesh>
-      {/* Code lines (scroll) */}
-      <group position={[-0.62, 0, 0.04]} ref={linesRef}>
-        {Array.from({ length: 14 }).map((_, i) => (
-          <mesh key={i} position={[0.1 + (i % 3) * 0.05, 0.4 - i * 0.07, 0]}>
-            <planeGeometry args={[0.5 - (i % 4) * 0.08, 0.022]} />
-            <meshBasicMaterial color={i % 4 === 0 ? MAGENTA : i % 4 === 1 ? CORAL : '#c4b5fd'} toneMapped={false} />
-          </mesh>
+      {/* Title bar */}
+      <mesh position={[0, 0.38, 0.04]}>
+        <planeGeometry args={[1.52, 0.12]} />
+        <meshBasicMaterial color="#0c0712" toneMapped={false} />
+      </mesh>
+      <Html position={[-0.7, 0.38, 0.05]} transform occlude scale={0.04} rotation={[0, 0, 0]}>
+        <div style={{ color: '#a78bfa', fontFamily: 'ui-monospace, monospace', fontSize: 18, fontWeight: 600, whiteSpace: 'nowrap' }}>
+          ● github.com/kranthi0003 — live
+        </div>
+      </Html>
+      {/* Scrolling commits */}
+      <group position={[-0.7, 0, 0.045]} ref={linesRef}>
+        {commits.map((c, i) => (
+          <Html key={i} position={[0, 0.3 - i * 0.06, 0]} transform occlude scale={0.03} rotation={[0, 0, 0]}>
+            <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 16, whiteSpace: 'nowrap', display: 'flex', gap: 8 }}>
+              <span style={{ color: '#ec4899' }}>$</span>
+              <span style={{ color: '#94a3b8' }}>{c.repo}</span>
+              <span style={{ color: '#e2e8f0' }}>{c.msg}</span>
+            </div>
+          </Html>
         ))}
+        {commits.length === 0 && (
+          [0.22, 0.13, 0.04, -0.05, -0.14, -0.23].map((y, i) => (
+            <mesh key={i} position={[0, y, 0]}>
+              <planeGeometry args={[0.5 - (i % 3) * 0.08, 0.022]} />
+              <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#c4b5fd'} toneMapped={false} />
+            </mesh>
+          ))
+        )}
       </group>
-      {/* Logo at bottom */}
-      <mesh position={[0, -0.55, 0]}>
-        <planeGeometry args={[0.06, 0.06]} />
-        <meshBasicMaterial color="#c4b5fd" toneMapped={false} />
+      {/* Status dot bottom */}
+      <mesh position={[0, -0.4, 0.04]}>
+        <circleGeometry args={[0.012, 16]} />
+        <meshBasicMaterial color="#22c55e" toneMapped={false} />
       </mesh>
     </group>
   )
@@ -1052,14 +1152,13 @@ function Plant({ position }) {
 }
 
 // ─── Shelf on wall ──────────────────────────────────────────────────
-function Shelf({ position }) {
+function Shelf({ position, onHover, onClick, hovered }) {
   return (
     <group position={position}>
       <mesh castShadow>
         <boxGeometry args={[1.0, 0.04, 0.2]} />
         <meshStandardMaterial color="#2a1d3f" roughness={0.6} />
       </mesh>
-      {/* Mini items on shelf */}
       <mesh position={[-0.35, 0.1, 0]} castShadow>
         <boxGeometry args={[0.05, 0.16, 0.04]} />
         <meshStandardMaterial color="#8B5CF6" />
@@ -1072,16 +1171,17 @@ function Shelf({ position }) {
         <boxGeometry args={[0.05, 0.16, 0.04]} />
         <meshStandardMaterial color="#F59E0B" />
       </mesh>
-      {/* A trophy */}
-      <mesh position={[0.1, 0.1, 0]} castShadow>
-        <cylinderGeometry args={[0.04, 0.06, 0.12, 12]} />
-        <meshStandardMaterial color="#fbbf24" metalness={0.7} roughness={0.3} />
-      </mesh>
-      <mesh position={[0.1, 0.04, 0]} castShadow>
-        <boxGeometry args={[0.08, 0.04, 0.06]} />
-        <meshStandardMaterial color="#1a1326" />
-      </mesh>
-      {/* A small cube */}
+      {/* Secret trophy — clickable */}
+      <Hotspot id="secret-trophy" position={[0.1, 0.08, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <mesh castShadow>
+          <cylinderGeometry args={[0.04, 0.06, 0.12, 12]} />
+          <meshStandardMaterial color="#fbbf24" metalness={0.7} roughness={0.3} emissive="#fbbf24" emissiveIntensity={0.2} />
+        </mesh>
+        <mesh position={[0, -0.06, 0]} castShadow>
+          <boxGeometry args={[0.08, 0.04, 0.06]} />
+          <meshStandardMaterial color="#1a1326" />
+        </mesh>
+      </Hotspot>
       <mesh position={[0.35, 0.08, 0]} castShadow rotation={[0, 0.3, 0]}>
         <boxGeometry args={[0.12, 0.12, 0.12]} />
         <meshStandardMaterial color="#10B981" />
@@ -1455,5 +1555,171 @@ function NPC({ position }) {
         }}>Kranthi · click to talk</div>
       </Html>
     </group>
+  )
+}
+
+// ─── GuestbookWall — fetches notes from Supabase, displays as sticky notes ─
+function GuestbookWall() {
+  const [notes, setNotes] = React.useState([])
+  React.useEffect(() => {
+    // Lazy import supabase to avoid circular
+    import('../lib/supabase').then(({ default: supabase }) => {
+      supabase.from('guestbook')
+        .select('id,name,message,created_at')
+        .order('created_at', { ascending: false })
+        .limit(15)
+        .then(({ data }) => {
+          if (data) setNotes(data)
+        })
+      // Subscribe to inserts for live updates
+      const ch = supabase.channel('workspace-guestbook')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
+          setNotes(n => [payload.new, ...n].slice(0, 15))
+        })
+        .subscribe()
+      return () => { supabase.removeChannel(ch) }
+    })
+  }, [])
+
+  const colors = ['#fde047', '#f97316', '#ec4899', '#a78bfa', '#22c55e', '#3b82f6']
+  // 5x3 grid layout
+  const positions = []
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 5; col++) {
+      positions.push([-0.55 + col * 0.28, 0.32 - row * 0.32, 0])
+    }
+  }
+
+  return (
+    <group>
+      {/* Corkboard backing */}
+      <RoundedBox args={[1.6, 1.1, 0.04]} radius={0.02}>
+        <meshStandardMaterial color="#3a2a18" roughness={0.95} />
+      </RoundedBox>
+      {/* Title strip */}
+      <mesh position={[0, 0.62, 0.025]}>
+        <planeGeometry args={[1.5, 0.1]} />
+        <meshBasicMaterial color="#1a1326" />
+      </mesh>
+      <Html position={[0, 0.62, 0.03]} transform occlude scale={0.05}>
+        <div style={{ color: '#fde047', fontFamily: 'ui-monospace, monospace', fontSize: 14, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, whiteSpace: 'nowrap' }}>
+          📌 Guestbook · drop a note
+        </div>
+      </Html>
+      {/* Sticky notes */}
+      {notes.slice(0, 15).map((n, i) => {
+        if (!positions[i]) return null
+        const [x, y, z] = positions[i]
+        const rot = ((i * 13) % 7 - 3) * 0.05 // small varied tilt
+        const color = colors[i % colors.length]
+        return (
+          <group key={n.id || i} position={[x, y, z + 0.025]} rotation={[0, 0, rot]}>
+            <mesh castShadow>
+              <planeGeometry args={[0.24, 0.24]} />
+              <meshBasicMaterial color={color} toneMapped={false} />
+            </mesh>
+            {/* pin */}
+            <mesh position={[0, 0.1, 0.005]}>
+              <circleGeometry args={[0.012, 12]} />
+              <meshBasicMaterial color="#ef4444" toneMapped={false} />
+            </mesh>
+            <Html position={[0, 0, 0.005]} transform occlude scale={0.025} center>
+              <div style={{ width: 200, padding: 8, color: '#1a1326', fontFamily: 'ui-rounded, system-ui', fontSize: 14, lineHeight: 1.2, textAlign: 'center' }}>
+                <div style={{ fontWeight: 700, fontSize: 10, marginBottom: 2 }}>— {n.name?.slice(0, 14) || 'anon'}</div>
+                <div style={{ fontSize: 11 }}>{(n.message || '').slice(0, 80)}</div>
+              </div>
+            </Html>
+          </group>
+        )
+      })}
+      {/* Empty state */}
+      {notes.length === 0 && (
+        <Html position={[0, 0, 0.03]} transform occlude scale={0.04} center>
+          <div style={{ color: '#94a3b8', fontFamily: 'ui-monospace, monospace', fontSize: 13, fontStyle: 'italic' }}>
+            no notes yet — be the first 👋
+          </div>
+        </Html>
+      )}
+    </group>
+  )
+}
+
+// ─── Sticky note form (overlay) ──────────────────────────────────────
+function StickyNoteForm({ onClose }) {
+  const [name, setName]       = React.useState(() => localStorage.getItem('ws:name') || '')
+  const [message, setMessage] = React.useState('')
+  const [submitting, setSubmitting] = React.useState(false)
+  const [done, setDone]       = React.useState(false)
+  const [error, setError]     = React.useState('')
+
+  const submit = async () => {
+    const n = name.trim().slice(0, 24)
+    const m = message.trim().slice(0, 80)
+    if (!m) { setError('Write something first'); return }
+    setSubmitting(true)
+    setError('')
+    try {
+      const { default: supabase } = await import('../lib/supabase')
+      const { error: err } = await supabase.from('guestbook').insert({ name: n || 'anon', message: m })
+      if (err) throw err
+      localStorage.setItem('ws:name', n)
+      setDone(true)
+      setTimeout(onClose, 1500)
+    } catch (e) {
+      setError(e.message || 'Failed to post')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center px-4 z-50" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="relative max-w-md w-full bg-card pr-tint-magenta p-5 animate-fade-in-up" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start gap-3 mb-3">
+          <div className="text-2xl">📌</div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-foreground">Drop a sticky note</p>
+            <p className="text-[11px] text-muted-foreground">Goes up on the cork board for everyone</p>
+          </div>
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground text-lg leading-none">×</button>
+        </div>
+
+        {done ? (
+          <div className="py-4 text-center">
+            <div className="text-3xl mb-2">✓</div>
+            <p className="text-sm font-semibold text-foreground">Posted to the wall!</p>
+            <p className="text-[11px] text-muted-foreground mt-1">Look at the cork board</p>
+          </div>
+        ) : (
+          <>
+            <input
+              type="text" placeholder="Your name (or leave blank for anon)" maxLength={24}
+              value={name} onChange={e => setName(e.target.value)}
+              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-xs outline-none focus:border-violet-500/60 mb-2"
+            />
+            <textarea
+              placeholder="Hello from… / Loved the site / Drop a thought…" maxLength={80} rows={3}
+              value={message} onChange={e => setMessage(e.target.value)}
+              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-violet-500/60 resize-none mb-2"
+            />
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] text-muted-foreground">{message.length}/80</span>
+              {error && <span className="text-[10px] text-red-400">{error}</span>}
+            </div>
+            <button
+              onClick={submit} disabled={submitting || !message.trim()}
+              className="w-full py-2 rounded-md text-sm font-semibold transition-all disabled:opacity-40"
+              style={{
+                background: 'linear-gradient(135deg, oklch(60% 0.22 290), oklch(60% 0.25 320))',
+                color: 'white',
+                boxShadow: '0 4px 20px -4px color-mix(in oklab, var(--chart-1) 60%, transparent)',
+              }}>
+              {submitting ? 'Pinning…' : 'Pin to wall'}
+            </button>
+          </>
+        )}
+      </div>
+    </div>
   )
 }

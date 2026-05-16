@@ -10,13 +10,13 @@ export default function WorkspaceSection() {
         <div className="text-center mb-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3"
              style={{ color: 'color-mix(in oklab, var(--chart-1) 75%, var(--color-muted-foreground))' }}>
-            Interactive
+            Interactive · live
           </p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            Step into my <span className="text-gradient-violet">workspace</span>
+            A peek into my <span className="text-gradient-violet">space</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            A 3D room with everything I'm working on. Click items to open sections, or hit <kbd className="px-1 py-px rounded bg-foreground/10 text-foreground text-[10.5px] font-mono">Play</kbd> for game mode (WASD + E).
+            Real-time GitHub feed on the monitor · live clock · drop a sticky note on the wall · hidden easter eggs. Hit <kbd className="px-1 py-px rounded bg-foreground/10 text-foreground text-[10.5px] font-mono">Play</kbd> to walk around (WASD).
           </p>
         </div>
 
