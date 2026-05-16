@@ -67,7 +67,7 @@ export default function Changelog() {
     setLoading(true)
     setError(null)
 
-    fetch(`https://api.github.com/repos/${REPO}/commits?per_page=30&sha=main`)
+    fetch(`https://api.github.com/repos/${REPO}/commits?per_page=100&sha=main`)
       .then(r => {
         if (!r.ok) throw new Error(`GitHub API ${r.status}`)
         return r.json()
@@ -85,7 +85,8 @@ export default function Changelog() {
 
   if (!open) return null
 
-  const grouped = groupByDate(commits)
+  const newCommits = commits.filter(c => getCommitTag(c.commit.message.split('\n')[0]).label === 'New')
+  const grouped = groupByDate(newCommits)
 
   return (
     <>
