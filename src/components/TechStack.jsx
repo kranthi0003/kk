@@ -22,7 +22,7 @@ export default function TechStack() {
       <div className="max-w-5xl mx-auto">
         {/* Section header — provisionr style: small eyebrow + large quiet heading */}
         <div className="text-center mb-12">
-          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Stack</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3" style={{ color: 'oklch(75% 0.22 285)' }}>Stack</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             Tools I build with
           </h2>
@@ -36,14 +36,14 @@ export default function TechStack() {
           {skillGroups.map(group => (
             <div
               key={group.title}
-              className="group relative rounded-lg border border-border/60 bg-card/40 backdrop-blur p-5 hover:border-accent/40 transition-colors"
+              className="group relative rounded-lg bg-card border border-border p-5 hover:border-accent/40 transition-colors"
             >
               {/* Hover gradient line at top — provisionr signature */}
               <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
               <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.18em] mb-3">{group.title}</p>
               <div className="flex flex-wrap gap-1.5">
                 {group.items.map(s => (
-                  <span key={s} className="px-2 py-1 rounded-md text-[11px] font-medium bg-muted/40 text-foreground/85 border border-border/40">
+                  <span key={s} className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[oklch(15%_0.015_285)] text-foreground/90 border border-border/80 hover:border-accent/50 hover:text-accent transition-colors">
                     {s}
                   </span>
                 ))}
@@ -54,7 +54,7 @@ export default function TechStack() {
 
         {/* Certs — clean rounded-md cards, no rainbow */}
         <div className="text-center mb-5">
-          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em]">Certifications</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: 'oklch(75% 0.22 285)' }}>Certifications</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
           {certs.map(c => (
@@ -63,7 +63,7 @@ export default function TechStack() {
               href={c.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-3 py-2.5 rounded-md border border-border/60 bg-card/40 backdrop-blur hover:border-accent/40 hover:bg-card/60 transition-colors"
+              className="group flex items-center gap-3 px-3 py-2.5 rounded-md border border-border bg-card hover:border-accent/50 transition-colors"
             >
               <span className="w-9 h-9 rounded-md bg-accent/10 border border-accent/30 flex items-center justify-center text-[10px] font-bold text-accent flex-shrink-0">
                 {c.tag}
