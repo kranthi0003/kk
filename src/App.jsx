@@ -24,6 +24,7 @@ import MemeGenerator from './components/MemeGenerator'
 import DevCalc from './components/DevCalc'
 import CarbonCalc from './components/CarbonCalc'
 import SalaryCalc from './components/SalaryCalc'
+import TransformationHQ from './components/TransformationHQ'
 import CodeBrowser from './components/CodeBrowser'
 import LiveChat from './components/LiveChat'
 import ThemeToggle from './components/ThemeToggle'
@@ -173,6 +174,7 @@ export default function App() {
       <DevCalc />
       <CarbonCalc />
       <SalaryCalc />
+      <TransformationHQ />
       <CodeBrowser />
       <LiveChat />
       <CryptoDashboard />

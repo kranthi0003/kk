@@ -643,6 +643,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
             <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
             <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
+            <IconBtn icon={<FlameIcon />} tip="Transformation HQ" onClick={() => window.dispatchEvent(new CustomEvent('toggle-transformation-hq'))} />
             <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
               const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
               const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
@@ -690,6 +691,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
                 { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
                 { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
+                { icon: '🔥', label: 'Fitness', action: () => window.dispatchEvent(new CustomEvent('toggle-transformation-hq')) },
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle'; window.location.reload() } },
@@ -817,6 +819,12 @@ const LeafIcon = () => (
 const RupeeIcon = () => (
   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M6 4h12M6 8h12M14 8c0 4-8 8-8 8m4-8c0 4 8 8 8 8" />
+  </svg>
+)
+const FlameIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
   </svg>
 )
 const LiveChatIcon = () => (
