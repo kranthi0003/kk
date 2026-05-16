@@ -3,6 +3,15 @@ import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
+function useNow(intervalMs = 1000) {
+  const [now, setNow] = React.useState(() => new Date())
+  React.useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), intervalMs)
+    return () => clearInterval(id)
+  }, [intervalMs])
+  return now
+}
+
 export default function Hero({ onResumeClick }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
@@ -23,25 +32,31 @@ export default function Hero({ onResumeClick }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 md:py-8 lg:py-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-10 items-center">
 
-          {/* LEFT RAIL — stat chips, hidden on small screens */}
+          {/* LEFT RAIL — varied cards */}
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <SideCard
+            <BigStatCard
               tint="var(--chart-1)"
-              label="Currently"
-              value="GitHub · Microsoft"
-              sub="Cloud Infrastructure"
+              value="5+"
+              unit="yrs"
+              label="Building cloud infra"
+              sub="GitHub · Microsoft · prior startups"
             />
-            <SideCard
+            <ClockCard
               tint="var(--chart-2)"
-              label="Based in"
-              value="Hyderabad, India"
-              sub="UTC+05:30"
+              label="My local time"
+              city="Hyderabad, IN"
             />
-            <SideCard
+            <StackChipsCard
               tint="var(--chart-3)"
-              label="Stack"
-              value="Go · TypeScript · K8s"
-              sub="+ Terraform, AWS, Azure"
+              label="Stack of choice"
+              chips={[
+                { name: 'Go', color: '#00ADD8' },
+                { name: 'TypeScript', color: '#3178C6' },
+                { name: 'Kubernetes', color: '#326CE5' },
+                { name: 'Terraform', color: '#7B42BC' },
+                { name: 'AWS', color: '#FF9900' },
+                { name: 'Azure', color: '#0078D4' },
+              ]}
             />
           </div>
 
@@ -125,27 +140,19 @@ export default function Hero({ onResumeClick }) {
             </div>
           </div>
 
-          {/* RIGHT RAIL — quick links, hidden on small screens */}
+          {/* RIGHT RAIL — varied cards */}
           <div className="hidden lg:flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <SideCard
+            <GitHubCard
               tint="var(--chart-2)"
-              label="Open Source"
-              value="github.com/kranthi0003"
-              sub="50+ public repos"
-              href="https://github.com/kranthi0003"
+              user="kranthi0003"
             />
-            <SideCard
+            <ActivityCard
               tint="var(--chart-1)"
-              label="Writing"
-              value="LinkedIn · Articles"
-              sub="Cloud + DevEx notes"
-              href="https://linkedin.com/in/kranthikiran3"
+              label="Coding activity"
             />
-            <SideCard
+            <QuoteCard
               tint="var(--chart-3)"
-              label="Now"
-              value="Building this site"
-              sub="React · Tailwind · Vite"
+              quote="Ship boring infra. Save the magic for the product."
             />
           </div>
 
@@ -155,34 +162,151 @@ export default function Hero({ onResumeClick }) {
   )
 }
 
-function SideCard({ tint, label, value, sub, href }) {
-  const inner = (
-    <div
-      className="rounded-xl p-3 transition-all group"
-      style={{
-        background: 'var(--color-card)',
-        backgroundImage: `radial-gradient(ellipse 100% 60% at 50% 0%, color-mix(in oklab, ${tint} 14%, transparent) 0%, transparent 70%)`,
-        boxShadow: `inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 0 0 1px color-mix(in oklab, ${tint} 22%, var(--color-border)), 0 4px 14px -4px color-mix(in oklab, ${tint} 25%, transparent)`,
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-2px)'
-        e.currentTarget.style.boxShadow = `inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 0 0 1px color-mix(in oklab, ${tint} 45%, var(--color-border)), 0 10px 24px -6px color-mix(in oklab, ${tint} 40%, transparent)`
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)'
-        e.currentTarget.style.boxShadow = `inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 0 0 1px color-mix(in oklab, ${tint} 22%, var(--color-border)), 0 4px 14px -4px color-mix(in oklab, ${tint} 25%, transparent)`
-      }}
-    >
-      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-1" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
-        {label}
-      </p>
-      <p className="text-sm font-semibold text-foreground leading-tight">{value}</p>
-      <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
+function cardShell(tint) {
+  return {
+    background: 'var(--color-card)',
+    backgroundImage: `radial-gradient(ellipse 100% 60% at 50% 0%, color-mix(in oklab, ${tint} 14%, transparent) 0%, transparent 70%)`,
+    boxShadow: `inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 0 0 1px color-mix(in oklab, ${tint} 22%, var(--color-border)), 0 4px 14px -4px color-mix(in oklab, ${tint} 25%, transparent)`,
+  }
+}
+
+function BigStatCard({ tint, value, unit, label, sub }) {
+  return (
+    <div className="rounded-xl p-4" style={cardShell(tint)}>
+      <div className="flex items-baseline gap-1.5 mb-1">
+        <span className="font-heading text-4xl font-bold leading-none" style={{ background: `linear-gradient(135deg, ${tint}, color-mix(in oklab, ${tint} 60%, white))`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          {value}
+        </span>
+        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{unit}</span>
+      </div>
+      <p className="text-sm font-medium text-foreground leading-tight">{label}</p>
+      <p className="text-[11px] text-muted-foreground mt-1">{sub}</p>
     </div>
   )
-  return href ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="block">{inner}</a>
-  ) : (
-    inner
+}
+
+function ClockCard({ tint, label, city }) {
+  const now = useNow(1000)
+  const time = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+  const date = now.toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: 'numeric', month: 'short' })
+  return (
+    <div className="rounded-xl p-4" style={cardShell(tint)}>
+      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-2" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
+      <div className="flex items-baseline gap-2">
+        <span className="font-mono text-2xl font-bold text-foreground tabular-nums tracking-tight">{time}</span>
+        <span className="text-[10px] font-mono text-muted-foreground">IST</span>
+      </div>
+      <p className="text-[11px] text-muted-foreground mt-1.5 flex items-center gap-1.5">
+        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        {city} · {date}
+      </p>
+    </div>
+  )
+}
+
+function StackChipsCard({ tint, label, chips }) {
+  return (
+    <div className="rounded-xl p-4" style={cardShell(tint)}>
+      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold mb-2.5" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {chips.map((c, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10.5px] font-semibold"
+            style={{
+              background: `color-mix(in oklab, ${c.color} 14%, transparent)`,
+              color: c.color,
+              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${c.color} 35%, transparent)`,
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: c.color }} />
+            {c.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function GitHubCard({ tint, user }) {
+  return (
+    <a href={`https://github.com/${user}`} target="_blank" rel="noopener noreferrer" className="block rounded-xl p-4 transition-transform hover:-translate-y-0.5" style={cardShell(tint)}>
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `color-mix(in oklab, ${tint} 18%, transparent)`, boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${tint} 35%, transparent)` }}>
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" style={{ color: tint }}>
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </div>
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-foreground truncate">@{user}</p>
+          <p className="text-[11px] text-muted-foreground">50+ repos · 200+ stars</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-border/40">
+        <div>
+          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Repos</p>
+          <p className="text-sm font-bold text-foreground">52</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Stars</p>
+          <p className="text-sm font-bold text-foreground">214</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-wider text-muted-foreground">PRs</p>
+          <p className="text-sm font-bold text-foreground">900+</p>
+        </div>
+      </div>
+    </a>
+  )
+}
+
+function ActivityCard({ tint, label }) {
+  // Generate a stable pseudo-random 7-week heatmap (5 levels)
+  const cells = React.useMemo(() => {
+    const seed = 17
+    const arr = []
+    for (let i = 0; i < 49; i++) {
+      const v = Math.abs(Math.sin((i + seed) * 1.3)) // 0..1
+      const level = v > 0.85 ? 4 : v > 0.65 ? 3 : v > 0.45 ? 2 : v > 0.2 ? 1 : 0
+      arr.push(level)
+    }
+    return arr
+  }, [])
+  return (
+    <div className="rounded-xl p-4" style={cardShell(tint)}>
+      <div className="flex items-center justify-between mb-2.5">
+        <p className="text-[10px] uppercase tracking-[0.12em] font-semibold" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>{label}</p>
+        <span className="text-[10px] font-mono text-muted-foreground">last 7w</span>
+      </div>
+      <div className="grid grid-rows-7 grid-flow-col gap-[3px]">
+        {cells.map((lvl, i) => (
+          <span
+            key={i}
+            className="w-2.5 h-2.5 rounded-[2px]"
+            style={{
+              background: lvl === 0
+                ? 'color-mix(in oklab, var(--color-border) 60%, transparent)'
+                : `color-mix(in oklab, ${tint} ${15 + lvl * 18}%, transparent)`,
+              boxShadow: lvl > 0 ? `inset 0 0 0 1px color-mix(in oklab, ${tint} ${20 + lvl * 15}%, transparent)` : 'none',
+            }}
+          />
+        ))}
+      </div>
+      <p className="text-[11px] text-muted-foreground mt-2.5">Commits across personal &amp; work repos</p>
+    </div>
+  )
+}
+
+function QuoteCard({ tint, quote }) {
+  return (
+    <div className="rounded-xl p-4 relative" style={cardShell(tint)}>
+      <span className="absolute top-1.5 left-2 font-heading text-4xl leading-none opacity-30" style={{ color: tint }}>"</span>
+      <p className="font-heading italic text-sm leading-snug text-foreground pl-5 pr-1 pt-1">
+        {quote}
+      </p>
+      <p className="text-[10px] uppercase tracking-[0.12em] font-semibold text-right mt-2.5" style={{ color: `color-mix(in oklab, ${tint} 70%, var(--color-muted-foreground))` }}>
+        — my engineering rule
+      </p>
+    </div>
   )
 }
