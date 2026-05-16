@@ -547,11 +547,17 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center">
         {/* Left — Logo */}
         <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0 mr-auto">
-          <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-accent-foreground font-heading font-bold text-sm">
-            KK
+          <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-sm overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, oklch(55% 0.22 285), oklch(55% 0.27 320))',
+              color: 'white',
+              boxShadow: '0 4px 12px -2px color-mix(in oklab, var(--chart-1) 50%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.2)',
+            }}
+          >
+            <span className="relative z-10">KK</span>
             <span className="absolute -top-1.5 -right-2 px-1 py-0 rounded text-[7px] font-bold uppercase tracking-wider bg-yellow-500 text-black leading-tight">β</span>
           </div>
-          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline">
+          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-gradient-violet transition-colors">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
           </span>
         </a>
@@ -565,11 +571,14 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 key={link.href}
                 href={link.href}
                 data-active={isActive ? 'true' : 'false'}
-                className={`nav-link-gradient relative px-3 py-1.5 rounded-md font-body text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                className={`nav-link-gradient relative px-3 py-1.5 rounded-md font-body text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   isActive
                     ? 'text-foreground'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
+                style={isActive ? {
+                  background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)',
+                } : undefined}
               >
                 {link.label}
               </a>
@@ -706,41 +715,71 @@ function ToolsDropdown() {
         onClick={() => setOpen(o => !o)}
         aria-expanded={open}
         title="Tools"
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-all ${
-          open
-            ? 'bg-accent/10 border-accent/60 text-foreground'
-            : 'bg-muted/40 border-border/40 text-muted-foreground hover:text-foreground hover:border-border/60 hover:bg-muted/60'
-        }`}
+        className="group flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-[12px] font-semibold transition-all"
+        style={{
+          background: open
+            ? 'color-mix(in oklab, var(--chart-1) 12%, transparent)'
+            : 'color-mix(in oklab, var(--chart-1) 4%, transparent)',
+          borderColor: open
+            ? 'color-mix(in oklab, var(--chart-1) 60%, transparent)'
+            : 'color-mix(in oklab, var(--chart-1) 22%, transparent)',
+          color: open ? 'var(--color-foreground)' : 'var(--color-muted-foreground)',
+        }}
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        <span className="text-[12px] font-semibold">Tools</span>
+        <span>Tools</span>
         <svg className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
       {open && (
-        <div className="absolute top-full right-0 mt-2 w-[320px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden z-50 animate-fade-in-up">
-          <div className="px-3 py-2 border-b border-border/40">
-            <p className="text-[10px] uppercase tracking-wider font-semibold text-muted-foreground/60">Tools &amp; Features</p>
+        <div
+          className="absolute top-full right-0 mt-2 w-[340px] rounded-2xl overflow-hidden z-50 animate-fade-in-up"
+          style={{
+            background: 'var(--color-card)',
+            backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in oklab, var(--chart-1) 14%, transparent) 0%, transparent 60%)',
+            boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 0 0 1px var(--color-border), 0 24px 60px -10px rgba(0,0,0,0.6), 0 8px 24px -4px color-mix(in oklab, var(--chart-1) 30%, transparent)',
+          }}
+        >
+          <div className="px-4 py-2.5 border-b border-border/40">
+            <p className="text-[10px] uppercase tracking-[0.12em] font-semibold"
+               style={{ color: 'color-mix(in oklab, var(--chart-1) 70%, var(--color-muted-foreground))' }}>
+              Tools &amp; Features
+            </p>
           </div>
-          <div className="grid grid-cols-3 gap-1 p-2">
-            {items.map((it, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  setOpen(false)
-                  if (it.onClick) it.onClick()
-                  else if (it.evt) window.dispatchEvent(new CustomEvent(it.evt))
-                }}
-                className="flex flex-col items-center gap-1.5 px-2 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all [&_svg]:w-5 [&_svg]:h-5"
-                title={it.label}
-              >
-                {it.icon}
-                <span className="text-[10px] font-medium text-center leading-tight">{it.label}</span>
-              </button>
-            ))}
+          <div className="grid grid-cols-3 gap-1 p-2.5">
+            {items.map((it, i) => {
+              const tints = ['var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)']
+              const tint = tints[i % 3]
+              return (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setOpen(false)
+                    if (it.onClick) it.onClick()
+                    else if (it.evt) window.dispatchEvent(new CustomEvent(it.evt))
+                  }}
+                  className="group flex flex-col items-center gap-1.5 px-2 py-3 rounded-xl transition-all [&_svg]:w-5 [&_svg]:h-5"
+                  style={{
+                    color: 'var(--color-muted-foreground)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = `color-mix(in oklab, ${tint} 12%, transparent)`
+                    e.currentTarget.style.color = 'var(--color-foreground)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent'
+                    e.currentTarget.style.color = 'var(--color-muted-foreground)'
+                  }}
+                  title={it.label}
+                >
+                  <span style={{ color: tint }}>{it.icon}</span>
+                  <span className="text-[10px] font-medium text-center leading-tight">{it.label}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
       )}

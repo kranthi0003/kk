@@ -106,15 +106,20 @@ export default function TechNews({ side = 'right' }) {
         aria-expanded={open}
         aria-haspopup="true"
         title="Tech News"
-        className={`group flex items-center gap-1.5 h-7 px-2.5 rounded-full border text-[11px] font-semibold transition-all select-none ${
-          open
-            ? 'bg-accent/10 border-accent/60 text-foreground'
-            : 'bg-transparent border-border/60 text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-muted/40'
-        }`}
+        className="group flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-[12px] font-semibold transition-all select-none"
+        style={{
+          background: open
+            ? 'color-mix(in oklab, var(--chart-2) 12%, transparent)'
+            : 'color-mix(in oklab, var(--chart-2) 4%, transparent)',
+          borderColor: open
+            ? 'color-mix(in oklab, var(--chart-2) 60%, transparent)'
+            : 'color-mix(in oklab, var(--chart-2) 22%, transparent)',
+          color: open ? 'var(--color-foreground)' : 'var(--color-muted-foreground)',
+        }}
       >
         <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+          <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: 'var(--chart-2)' }} />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: 'var(--chart-2)' }} />
         </span>
         <span>Tech News</span>
         <svg
