@@ -537,7 +537,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/85 dark:bg-[oklch(6%_0.02_290)]/90 backdrop-blur-xl shadow-lg border-b border-black/5 dark:border-white/10'
+          ? 'thq-nav-surface backdrop-blur-xl shadow-lg border-b border-black/5 dark:border-white/10'
           : 'bg-transparent'
       }`}
       role="navigation"
@@ -621,7 +621,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block bg-white/90 dark:bg-[oklch(5%_0.02_290)]/95 backdrop-blur-xl border-t border-black/5 dark:border-t-white/10 border-b border-b-black/10 dark:border-b-white/10">
+      <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-t border-black/5 dark:border-t-white/10 border-b border-b-black/10 dark:border-b-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
           {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
@@ -655,7 +655,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[oklch(5%_0.02_290)]/95 backdrop-blur-xl border-b border-border">
+        <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)

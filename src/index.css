@@ -361,6 +361,13 @@ body:has(.pr-backdrop-base)::before { display: none; }
 .pr-tint-magenta { --pr-tint: color-mix(in oklab, var(--chart-2) 14%, transparent); }
 .pr-tint-coral   { --pr-tint: color-mix(in oklab, var(--chart-3) 14%, transparent); }
 
+/* Nav surface classes — distinct from body/card so the nav bars are visible
+   without triggering the universal card-depth treatment. */
+.thq-nav-surface   { background-color: rgba(255,255,255,0.85); }
+.thq-nav-surface-2 { background-color: rgba(255,255,255,0.92); }
+.dark .thq-nav-surface   { background-color: oklch(7% 0.02 290 / 0.88); }
+.dark .thq-nav-surface-2 { background-color: oklch(5% 0.02 290 / 0.95); }
+
 /* Normalize rounded utilities to provisionr's 10px baseline */
 .rounded-lg { border-radius: var(--radius) !important; }
 .rounded-md { border-radius: calc(var(--radius) - 2px) !important; }
