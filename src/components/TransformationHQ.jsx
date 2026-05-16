@@ -434,14 +434,16 @@ function QuickActions({ log, plan }) {
     const topic = lsGet('settings:ntfyTopic', '')
     if (!topic) { showToast('Add ntfy topic in Settings first'); return }
     try {
-      await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}`, {
+      await fetch('https://ntfy.sh/', {
         method: 'POST',
-        body: buildDailyMessage(plan),
-        headers: {
-          'Title': `🔥 ${plan.focus} · ${new Date().toLocaleDateString('en-IN')}`,
-          'Priority': '4',
-          'Tags': 'muscle,fire',
-        },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topic,
+          title: `Today: ${plan.focus}`,
+          message: buildDailyMessage(plan),
+          priority: 4,
+          tags: ['muscle', 'fire'],
+        }),
       })
       showToast('Pushed to your phone via ntfy.sh ✓')
     } catch (e) {
