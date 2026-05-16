@@ -12,6 +12,62 @@ const VIOLET = '#a78bfa'
 const MAGENTA = '#ec4899'
 const CORAL = '#f97316'
 
+// ─── INCEPTION level themes — past → now → future → limbo ────────────
+const LEVELS = [
+  {
+    id: 0,
+    title: 'Reality',
+    place: 'Hyderabad · May 2026',
+    caption: 'The cloud engineer at his desk. Right now.',
+    wakeLabel: '⬆ Wake up',
+    bgNight: '#0a0612', bgDay: '#1a1830',
+    wallA: '#19142a', wallB: '#161028',
+    floor: '#13101c', rug: '#2d1838',
+    accent: '#8b5cf6', accent2: '#ec4899',
+    npcShirt: '#7c3aed',
+    monitorContent: 'code',
+  },
+  {
+    id: 1,
+    title: 'Past Dream',
+    place: 'Vizag dorm · 2020',
+    caption: 'Cramming for AWS exam · running tomcat on a 5-year-old ThinkPad.',
+    wakeLabel: '⬆ Wake to 2026',
+    bgNight: '#1f1a12', bgDay: '#3a2c1a',
+    wallA: '#2a1f15', wallB: '#231a12',
+    floor: '#1c140a', rug: '#3a2818',
+    accent: '#f97316', accent2: '#fbbf24',
+    npcShirt: '#fb923c',
+    monitorContent: 'aws',
+  },
+  {
+    id: 2,
+    title: 'Aspiration',
+    place: 'Neo-Tokyo · 2030',
+    caption: 'Staff engineer at scale · holo-desk · AI pair-coder humming beside.',
+    wakeLabel: '⬆ Snap out of it',
+    bgNight: '#0a0820', bgDay: '#1a1830',
+    wallA: '#0e0830', wallB: '#0c0728',
+    floor: '#080418', rug: '#1a0a3a',
+    accent: '#22d3ee', accent2: '#a855f7',
+    npcShirt: '#0891b2',
+    monitorContent: 'holo',
+  },
+  {
+    id: 3,
+    title: 'Limbo',
+    place: 'The source code',
+    caption: 'No floor, no walls — just floating braces, drifting commits, and you.',
+    wakeLabel: '⬆ Escape the source',
+    bgNight: '#000000', bgDay: '#000000',
+    wallA: '#000000', wallB: '#000000',
+    floor: '#000000', rug: '#000000',
+    accent: '#10b981', accent2: '#a78bfa',
+    npcShirt: '#0f172a',
+    monitorContent: 'glitch',
+  },
+]
+
 const HOTSPOTS = [
   { id: 'about',     label: 'Talk to me',         hint: 'NPC sitting in chair', pos: [0.6, 0, 1.2] },
   { id: 'guestbook', label: 'Drop a sticky note', hint: 'on the back wall',     pos: [0.0, 0, -1.8] },
@@ -150,8 +206,8 @@ export default function Workspace({ onBack, embedded = false }) {
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
-          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
-          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
+          <color attach="background" args={[isDay ? LEVELS[level].bgDay : LEVELS[level].bgNight]} />
+          <fog attach="fog" args={[isDay ? LEVELS[level].bgDay : LEVELS[level].bgNight, 8, 18]} />
           <Suspense fallback={null}>
             <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} level={level} />
             <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
@@ -218,19 +274,32 @@ export default function Workspace({ onBack, embedded = false }) {
 
         {/* === INCEPTION level indicator + wake-up button === */}
         {level > 0 && (
-          <div className="absolute top-3 right-3 z-30 flex items-center gap-2 pointer-events-auto">
-            <div className="px-2.5 py-1 rounded-full text-[10.5px] font-mono backdrop-blur-xl"
-              style={{ background: 'color-mix(in oklab, var(--chart-1) 25%, var(--color-card))', color: 'white', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 60%, transparent)' }}>
-              {level === 1 && '💭 Dream · L1'}
-              {level === 2 && '🌀 Deeper · L2'}
-              {level === 3 && '🕳 Limbo · L3'}
+          <>
+            <div className="absolute top-3 right-3 z-30 flex items-center gap-2 pointer-events-auto">
+              <div className="px-2.5 py-1 rounded-full text-[10.5px] font-mono backdrop-blur-xl"
+                style={{ background: `color-mix(in oklab, ${LEVELS[level].accent} 25%, var(--color-card))`, color: 'white', boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${LEVELS[level].accent} 60%, transparent)` }}>
+                L{level} · {LEVELS[level].title}
+              </div>
+              <button onClick={wakeUp}
+                className="px-2.5 py-1 rounded-full text-[10.5px] font-semibold backdrop-blur-xl transition-all"
+                style={{ background: `linear-gradient(135deg, ${LEVELS[level].accent}, ${LEVELS[level].accent2})`, color: 'white', boxShadow: `0 0 16px -4px ${LEVELS[level].accent}` }}>
+                {LEVELS[level].wakeLabel}
+              </button>
             </div>
-            <button onClick={wakeUp}
-              className="px-2.5 py-1 rounded-full text-[10.5px] font-semibold backdrop-blur-xl transition-all"
-              style={{ background: 'linear-gradient(135deg, oklch(70% 0.22 30), oklch(65% 0.25 60))', color: 'white', boxShadow: '0 0 16px -4px oklch(70% 0.22 30)' }}>
-              ⬆ Wake up
-            </button>
-          </div>
+            {/* Story caption banner (bottom left) */}
+            <div className="absolute bottom-12 left-3 max-w-[260px] pointer-events-none animate-fade-in-up">
+              <div className="px-3 py-2 rounded-xl backdrop-blur-xl"
+                style={{ background: 'color-mix(in oklab, var(--color-card) 75%, transparent)', boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${LEVELS[level].accent} 35%, transparent)` }}>
+                <p className="text-[9.5px] uppercase tracking-[0.12em] font-bold mb-0.5"
+                  style={{ color: LEVELS[level].accent }}>
+                  {LEVELS[level].place}
+                </p>
+                <p className="text-[11.5px] text-foreground/90 leading-snug italic">
+                  "{LEVELS[level].caption}"
+                </p>
+              </div>
+            </div>
+          </>
         )}
 
         {/* Inception dive flash overlay */}
@@ -317,8 +386,8 @@ export default function Workspace({ onBack, embedded = false }) {
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
-          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
-          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
+          <color attach="background" args={[isDay ? LEVELS[level].bgDay : LEVELS[level].bgNight]} />
+          <fog attach="fog" args={[isDay ? LEVELS[level].bgDay : LEVELS[level].bgNight, 8, 18]} />
 
           <Suspense fallback={null}>
             <Scene
@@ -481,43 +550,46 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear, level = 0 }
       {/* Desk lamp warm pool */}
       <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.2} color="#ffb066" distance={3.5} decay={2} castShadow shadow-mapSize={[512, 512]} />
 
-      {/* Floor — dark wood with subtle sheen */}
+      {level === 3 && <LimboScene accent={LEVELS[3].accent} accent2={LEVELS[3].accent2} />}
+      {level < 3 && (<>
+
+      {/* Floor — themed by level */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[14, 14]} />
         <meshPhysicalMaterial
-          color={isDay ? '#2a2335' : '#13101c'}
+          color={isDay ? LEVELS[level].floor : LEVELS[level].floor}
           roughness={0.7} metalness={0.0}
           clearcoat={0.3} clearcoatRoughness={0.8}
         />
       </mesh>
       <ContactShadows position={[0, 0.002, 0]} opacity={0.65} scale={10} blur={3.2} far={4} resolution={1024} />
 
-      {/* Rug under desk — striped pattern */}
+      {/* Rug under desk */}
       <mesh position={[0, 0.005, 0.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[3.5, 2.2]} />
-        <meshStandardMaterial color="#2d1838" roughness={1} />
+        <meshStandardMaterial color={LEVELS[level].rug} roughness={1} />
       </mesh>
-      {/* Rug border stripe */}
+      {/* Rug border */}
       <mesh position={[0, 0.007, 0.4]} rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[1.75, 1.78, 32, 1]} />
-        <meshBasicMaterial color="#5a2a6a" toneMapped={false} />
+        <meshBasicMaterial color={LEVELS[level].accent} toneMapped={false} />
       </mesh>
-      {/* Floor glow line behind desk (LED-strip vibe, dark mode only) */}
+      {/* Floor accent strip (back wall LED) */}
       {!isDay && (
         <mesh position={[0, 0.01, -2.45]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[5, 0.06]} />
-          <meshBasicMaterial color="#a78bfa" toneMapped={false} transparent opacity={0.7} />
+          <meshBasicMaterial color={LEVELS[level].accent} toneMapped={false} transparent opacity={0.7} />
         </mesh>
       )}
 
-      {/* Back wall + side wall — slight texture */}
+      {/* Back + side walls */}
       <mesh position={[0, 2, -2.6]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#2a2538' : '#19142a'} roughness={0.92} />
+        <meshStandardMaterial color={LEVELS[level].wallA} roughness={0.92} />
       </mesh>
       <mesh position={[-2.6, 2, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#252035' : '#161028'} roughness={0.92} />
+        <meshStandardMaterial color={LEVELS[level].wallB} roughness={0.92} />
       </mesh>
 
       {/* === WINDOW on the side wall === */}
@@ -542,10 +614,14 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear, level = 0 }
       {/* === CHAIR === */}
       <Chair position={[0.0, 0, 0.9]} />
 
+      </>)}
+
       {/* === NPC sitting on the chair === */}
       <Hotspot id="about" position={[0.0, 0, 0.9]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <NPC />
+        <NPC level={level} />
       </Hotspot>
+
+      {level < 3 && (<>
 
       {/* === MONITOR === click to dive deeper (inception) === */}
       <Hotspot id="dive" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
@@ -630,6 +706,8 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear, level = 0 }
 
       {/* === FLOATING PARTICLES === */}
       {!isDay && <Particles count={50} />}
+
+      </>)}
 
       {gameMode && <Player onNear={onNear} hotspots={HOTSPOTS} />}
     </group>
@@ -1543,7 +1621,7 @@ function Player({ onNear, hotspots }) {
 }
 
 // ─── NPC: Stylized boy character — IST-hour driven activity ──────────
-function NPC() {
+function NPC({ level = 0 }) {
   const headRef = useRef()
   const armLRef = useRef()
   const armRRef = useRef()
@@ -1602,7 +1680,7 @@ function NPC() {
   const SKIN = "#c2895f"
   const SKIN_SHADE = "#9a6840"
   const HAIR = "#0f0708"
-  const SHIRT = "#7c3aed"      // violet tee
+  const SHIRT = LEVELS[level]?.npcShirt || "#7c3aed"      // violet tee, themed by dream level
   const SHIRT_DARK = "#5b21b6"
   const PANTS = "#1e293b"      // dark jeans
   const SHOES = "#0f1218"
@@ -2077,5 +2155,72 @@ function StickyNoteForm({ onClose }) {
         )}
       </div>
     </div>
+  )
+}
+
+// ─── Limbo — void with floating glowing braces/commits ──────────────
+function LimboScene({ accent, accent2 }) {
+  const groupRef = useRef()
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.05
+    }
+  })
+  // Pre-compute 40 positions
+  const items = React.useMemo(() => {
+    const arr = []
+    for (let i = 0; i < 40; i++) {
+      arr.push({
+        pos: [
+          (Math.random() - 0.5) * 8,
+          Math.random() * 4 - 0.5,
+          (Math.random() - 0.5) * 6,
+        ],
+        sym: ['{', '}', '<', '>', ';', '/', '*', '+', '=', '$', '@', '?'][i % 12],
+        scale: 0.3 + Math.random() * 0.4,
+        speed: 0.5 + Math.random() * 0.8,
+      })
+    }
+    return arr
+  }, [])
+
+  return (
+    <group ref={groupRef}>
+      {/* Star particles for void feel */}
+      {Array.from({ length: 80 }).map((_, i) => {
+        const x = (Math.random() - 0.5) * 14
+        const y = (Math.random() - 0.5) * 8
+        const z = (Math.random() - 0.5) * 14
+        return (
+          <mesh key={`s${i}`} position={[x, y, z]}>
+            <sphereGeometry args={[0.015, 6, 6]} />
+            <meshBasicMaterial color="white" toneMapped={false} />
+          </mesh>
+        )
+      })}
+      {/* Floating symbols */}
+      {items.map((it, i) => (
+        <Float key={i} speed={it.speed} floatIntensity={1.5} rotationIntensity={0.3}>
+          <group position={it.pos} scale={it.scale}>
+            <Html center distanceFactor={5}>
+              <div style={{
+                fontFamily: 'ui-monospace, monospace',
+                fontSize: 32,
+                fontWeight: 700,
+                color: i % 2 === 0 ? accent : accent2,
+                textShadow: `0 0 10px ${i % 2 === 0 ? accent : accent2}`,
+                whiteSpace: 'nowrap',
+              }}>{it.sym}</div>
+            </Html>
+          </group>
+        </Float>
+      ))}
+      {/* Center glowing orb */}
+      <mesh position={[0, 0.5, 0]}>
+        <sphereGeometry args={[0.3, 32, 32]} />
+        <meshBasicMaterial color={accent} toneMapped={false} transparent opacity={0.3} />
+      </mesh>
+      <pointLight position={[0, 0.5, 0]} intensity={2} color={accent} distance={6} decay={1.5} />
+    </group>
   )
 }
