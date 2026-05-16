@@ -72,12 +72,13 @@ export default function Workspace({ onBack }) {
       </div>
 
       {/* Scene */}
-      <div className="flex-1 relative">
+      <div className="flex-1 relative" style={{ minHeight: 'calc(100vh - 65px)' }}>
         <Canvas
           shadows
-          camera={{ position: [3.5, 2.6, 4.5], fov: 38 }}
+          camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
           gl={{ antialias: true, alpha: true }}
           dpr={[1, 2]}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
           <color attach="background" args={['#0a0612']} />
           <fog attach="fog" args={['#0a0612', 8, 18]} />
@@ -88,10 +89,11 @@ export default function Workspace({ onBack }) {
           </Suspense>
 
           <OrbitControls
+            target={[0, 0.9, 0]}
             enablePan={false}
-            minDistance={4}
-            maxDistance={9}
-            minPolarAngle={Math.PI / 6}
+            minDistance={3.5}
+            maxDistance={8}
+            minPolarAngle={Math.PI / 5}
             maxPolarAngle={Math.PI / 2.2}
             autoRotate
             autoRotateSpeed={0.4}
