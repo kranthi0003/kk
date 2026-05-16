@@ -521,6 +521,22 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear, level = 0 }
     <group scale={groupScale} rotation={[0, groupRot, 0]}>
       <SoftShadows size={20} samples={10} focus={0.7} />
 
+      {/* IBL environment — adds realistic reflections to metals/glass.
+          Switches preset by time of day. background={false} keeps the
+          existing scene backdrop while still lighting materials. */}
+      <Environment preset={isDay ? 'sunset' : 'city'} background={false} />
+
+      {/* Soft grounded contact shadow under the whole scene */}
+      <ContactShadows
+        position={[0, 0.005, 0]}
+        opacity={isDay ? 0.55 : 0.7}
+        scale={14}
+        blur={2.4}
+        far={4.5}
+        resolution={1024}
+        color="#000"
+      />
+
       {/* Lighting — cinematic 3-point + accent */}
       <hemisphereLight args={[isDay ? '#fff0d8' : '#9a7dd8', isDay ? '#5a4a65' : '#2a1f38', isDay ? 0.7 : 0.55]} />
       <ambientLight intensity={isDay ? 0.5 : 0.4} />
