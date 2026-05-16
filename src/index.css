@@ -674,3 +674,14 @@ body:has(.pr-backdrop-base)::before { display: none; }
 @media (min-width: 1280px) {
   main > section, main > div > section { /* no-op safeguard */ }
 }
+
+/* Global polish for any element using bg-card — adds subtle blur so
+   modals and cards across the site uniformly adopt the provisionr
+   glassy-bordered look. */
+.bg-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Section headings inside <section> tags — slightly more refined */
+section h2.font-heading { font-weight: 600; }
