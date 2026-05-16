@@ -1,7 +1,6 @@
-import React, { useEffect, useState, Suspense, lazy } from 'react'
+import React, { useEffect, useState } from 'react'
 import MiniThemeToggle from './MiniThemeToggle'
-
-const CenterSphere = lazy(() => import('./CenterSphere'))
+import CenterSphere from './CenterSphere'
 
 // ============================================================
 // HERO V2 — steven.com-style single hero with central rotating
@@ -76,10 +75,8 @@ export default function HeroV2({ onResumeClick }) {
       <div className="flex-1 flex items-center justify-center relative px-6">
         <div className="relative" style={{ width: 'min(72vmin, 640px)', height: 'min(72vmin, 640px)' }}>
 
-          {/* 3D Sphere takes full container */}
-          <Suspense fallback={null}>
-            <CenterSphere />
-          </Suspense>
+          {/* SVG aperture lens — concentric rings with curved text + center bubble */}
+          <CenterSphere />
 
           {/* HTML labels positioned around the sphere — outside the canvas */}
           {RING_ITEMS.map((it) => {
