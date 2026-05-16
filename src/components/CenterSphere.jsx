@@ -1,207 +1,212 @@
-import React, { useState } from 'react'
+import React, { useMemo, useRef, useState, Suspense } from 'react'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { Text } from '@react-three/drei'
+import * as THREE from 'three'
 
 // ============================================================
-// CenterSphere — steven.com-style ring sections
-// Each ring is a thick beveled band with ONE bold curved label.
-// Clicking a ring navigates to that section.
+// CenterSphere — WebGL 3D aperture lens like steven.com
+// Stacked extruded ring annuli (each ring = its own section).
+// Camera tilted with perspective so you see the depth/layers.
+// Profile photo mapped to center sphere.
 // ============================================================
 
 const PROFILE_URL = new URL('../../assets/profile.png', import.meta.url).href
 
-// 4 ring sections matching steven.com's single-label structure.
-// Sizes tuned so the label fits INSIDE each band's width.
+// Each ring: outer/inner radius, extrude depth (height), color, label, route
 const RINGS = [
-  { id: 'work',       ro: 210, ri: 168, label: 'WORK',       href: '#/projects',   hue: 270, size: 16 },
-  { id: 'experience', ro: 166, ri: 130, label: 'EXPERIENCE', href: '#/experience', hue: 220, size: 13 },
-  { id: 'connect',    ro: 128, ri: 96,  label: 'CONNECT',    href: '#/connect',    hue: 180, size: 11 },
-  { id: 'about',      ro: 94,  ri: 66,  label: 'ABOUT',      href: '#/about',      hue: 320, size: 9 },
+  { id: 'work',       ro: 2.7, ri: 2.15, depth: 0.42, label: 'WORK',       href: '#/projects',   color: '#a78bfa' },
+  { id: 'experience', ro: 2.1, ri: 1.62, depth: 0.36, label: 'EXPERIENCE', href: '#/experience', color: '#60a5fa' },
+  { id: 'connect',    ro: 1.58, ri: 1.18, depth: 0.30, label: 'CONNECT',   href: '#/connect',    color: '#22d3ee' },
+  { id: 'about',      ro: 1.14, ri: 0.82, depth: 0.24, label: 'ABOUT',     href: '#/about',      color: '#f0abfc' },
 ]
 
-export default function CenterSphere() {
-  const [hover, setHover] = useState(null)
+function navigate(href) {
+  window.location.hash = href.slice(1)
+  window.location.reload()
+}
 
-  const nav = (href) => {
-    window.location.hash = href.slice(1)
-    window.location.reload()
-  }
+// ---------- Annulus (ring band) geometry via ExtrudeGeometry ----------
+function useRingGeometry(ro, ri, depth) {
+  return useMemo(() => {
+    const shape = new THREE.Shape()
+    shape.absarc(0, 0, ro, 0, Math.PI * 2, false)
+    const hole = new THREE.Path()
+    hole.absarc(0, 0, ri, 0, Math.PI * 2, true)
+    shape.holes.push(hole)
+    const geom = new THREE.ExtrudeGeometry(shape, {
+      depth,
+      bevelEnabled: true,
+      bevelThickness: 0.05,
+      bevelSize: 0.04,
+      bevelSegments: 6,
+      curveSegments: 96,
+    })
+    geom.translate(0, 0, -depth / 2) // center on Z axis
+    return geom
+  }, [ro, ri, depth])
+}
+
+function Ring({ ring, isHot, setHot }) {
+  const geom = useRingGeometry(ring.ro, ring.ri, ring.depth)
+  const mat = useMemo(() => {
+    return new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color('#0d0820'),
+      metalness: 0.4,
+      roughness: 0.55,
+      clearcoat: 0.6,
+      clearcoatRoughness: 0.35,
+      emissive: new THREE.Color(ring.color),
+      emissiveIntensity: 0.04,
+    })
+  }, [ring.color])
+
+  // Pulse emissive on hover
+  useFrame(() => {
+    mat.emissiveIntensity = THREE.MathUtils.lerp(
+      mat.emissiveIntensity,
+      isHot ? 0.45 : 0.04,
+      0.12
+    )
+  })
+
+  // Text radius — centered on top face of ring band
+  const labelR = (ring.ro + ring.ri) / 2
+  const topZ = ring.depth / 2 + 0.001
+
+  // Convert label into per-character meshes laid along an arc on top of ring
+  const chars = ring.label.split('')
+  const totalArc = (ring.label.length * 0.13) // angular span per char
+  const startAngle = Math.PI / 2 + totalArc / 2 // top of ring, centered
+  const fontSize = ring.id === 'work' ? 0.22 : ring.id === 'experience' ? 0.18 : ring.id === 'connect' ? 0.15 : 0.12
 
   return (
-    <div
-      className="absolute inset-0"
-      style={{
-        perspective: '1400px',
-        perspectiveOrigin: '50% 40%',
-      }}
+    <group
+      onPointerOver={(e) => { e.stopPropagation(); setHot(ring.id); document.body.style.cursor = 'pointer' }}
+      onPointerOut={() => { setHot(null); document.body.style.cursor = '' }}
+      onClick={() => navigate(ring.href)}
     >
-      <svg
-        viewBox="-220 -220 440 440"
-        className="absolute inset-0 w-full h-full select-none"
-        style={{
-          transform: 'rotateX(22deg) rotateZ(-2deg)',
-          transformStyle: 'preserve-3d',
-        }}
-      >
-      <defs>
-        {/* Outer rim base */}
-        <radialGradient id="rim-base" cx="50%" cy="30%" r="80%">
-          <stop offset="0%" stopColor="#2a1f3a" />
-          <stop offset="60%" stopColor="#0f0a1c" />
-          <stop offset="100%" stopColor="#020108" />
-        </radialGradient>
-
-        {/* Per-ring fills — subtle hue tints, dark base */}
-        {RINGS.map((r) => (
-          <radialGradient key={`rg-${r.id}`} id={`ring-${r.id}`} cx="50%" cy="35%" r="70%">
-            <stop offset="0%" stopColor={`hsl(${r.hue} 30% 22%)`} />
-            <stop offset="60%" stopColor={`hsl(${r.hue} 28% 11%)`} />
-            <stop offset="100%" stopColor="#050208" />
-          </radialGradient>
-        ))}
-
-        {/* Hover variants — brighter */}
-        {RINGS.map((r) => (
-          <radialGradient key={`rh-${r.id}`} id={`ring-${r.id}-hot`} cx="50%" cy="30%" r="70%">
-            <stop offset="0%" stopColor={`hsl(${r.hue} 70% 50%)`} />
-            <stop offset="55%" stopColor={`hsl(${r.hue} 55% 22%)`} />
-            <stop offset="100%" stopColor="#0a0612" />
-          </radialGradient>
-        ))}
-
-        {/* Glassy top highlight + bottom shadow for bevel */}
-        <linearGradient id="bevel-top" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
-          <stop offset="35%" stopColor="rgba(255,255,255,0.04)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0)" />
-        </linearGradient>
-        <linearGradient id="bevel-bot" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="55%" stopColor="rgba(0,0,0,0.25)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.7)" />
-        </linearGradient>
-
-        {/* Center bubble */}
-        <radialGradient id="bubble" cx="35%" cy="30%" r="85%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.5)" />
-          <stop offset="22%" stopColor="rgba(255,255,255,0.1)" />
-          <stop offset="60%" stopColor="rgba(167,139,250,0.06)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
-        </radialGradient>
-        <clipPath id="profile-clip">
-          <circle cx="0" cy="0" r="48" />
-        </clipPath>
-
-        {/* Ring band shapes (annulus via even-odd) and arc paths for text */}
-        {RINGS.map((r) => {
-          // Text path radius = exact center of band → text vertically centered in band
-          const midR = (r.ro + r.ri) / 2
-          return (
-            <g key={`def-${r.id}`}>
-              <path
-                id={`band-${r.id}`}
-                fillRule="evenodd"
-                d={annulusPath(r.ro, r.ri)}
-              />
-              {/* Top arc for label — start at left, sweep over top to right */}
-              <path
-                id={`arc-${r.id}`}
-                d={`M ${-midR} 0 a ${midR} ${midR} 0 1 1 ${midR * 2} 0`}
-                fill="none"
-              />
-            </g>
-          )
-        })}
-      </defs>
-
-      {/* Outer rim — full disc behind everything for depth */}
-      <circle cx="0" cy="0" r="216" fill="url(#rim-base)" />
-      <circle cx="0" cy="0" r="216" fill="url(#bevel-top)" />
-      <circle cx="0" cy="0" r="216" fill="url(#bevel-bot)" />
-      <circle cx="0" cy="0" r="216" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
-
-      {/* Ring bands — each is its own clickable section */}
-      {RINGS.map((r) => {
-        const isHot = hover === r.id
+      <mesh geometry={geom} material={mat} castShadow receiveShadow />
+      {/* Inner rim highlight ring */}
+      <mesh position={[0, 0, topZ + 0.001]}>
+        <ringGeometry args={[ring.ri, ring.ri + 0.015, 96]} />
+        <meshBasicMaterial color={ring.color} transparent opacity={isHot ? 0.9 : 0.35} />
+      </mesh>
+      {/* Per-character labels on top face */}
+      {chars.map((ch, i) => {
+        const a = startAngle - (i / Math.max(1, chars.length - 1)) * totalArc
+        const x = Math.cos(a) * labelR
+        const y = Math.sin(a) * labelR
         return (
-          <g
-            key={r.id}
-            onMouseEnter={() => setHover(r.id)}
-            onMouseLeave={() => setHover(null)}
-            onClick={() => nav(r.href)}
-            style={{ cursor: 'pointer' }}
+          <Text
+            key={i}
+            position={[x, y, topZ + 0.01]}
+            rotation={[0, 0, a - Math.PI / 2]}
+            fontSize={fontSize}
+            color={isHot ? '#ffffff' : '#e9e1ff'}
+            anchorX="center"
+            anchorY="middle"
+            font="https://fonts.gstatic.com/s/bricolagegrotesque/v8/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PgNGfFa5C1zh.woff"
+            outlineColor="#000"
+            outlineWidth={0.01}
           >
-            {/* Band fill (annulus) */}
-            <use href={`#band-${r.id}`} fill={isHot ? `url(#ring-${r.id}-hot)` : `url(#ring-${r.id})`} />
-            {/* Bevel top highlight clipped to band */}
-            <use href={`#band-${r.id}`} fill="url(#bevel-top)" />
-            {/* Bevel bottom shadow clipped to band */}
-            <use href={`#band-${r.id}`} fill="url(#bevel-bot)" />
-            {/* Outer edge highlight */}
-            <circle cx="0" cy="0" r={r.ro} fill="none"
-              stroke={isHot ? `hsla(${r.hue}, 90%, 75%, 0.7)` : 'rgba(255,255,255,0.09)'}
-              strokeWidth={isHot ? 1.2 : 0.8} />
-            {/* Inner edge recess */}
-            <circle cx="0" cy="0" r={r.ri} fill="none" stroke="rgba(0,0,0,0.7)" strokeWidth="1.5" />
-            <circle cx="0" cy="0" r={r.ri - 1} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-
-            {/* Section label — curved along band centerline (inside the band) */}
-            <text
-              fontFamily="Bricolage Grotesque, sans-serif"
-              fontSize={r.size}
-              fontWeight="800"
-              letterSpacing={3}
-              fill={isHot ? '#fff' : 'rgba(255,255,255,0.92)'}
-              dominantBaseline="central"
-              style={{
-                pointerEvents: 'none',
-                filter: isHot ? `drop-shadow(0 0 12px hsla(${r.hue}, 90%, 70%, 0.9))` : 'drop-shadow(0 1px 2px rgba(0,0,0,0.95))',
-                transition: 'fill 200ms',
-              }}
-            >
-              <textPath href={`#arc-${r.id}`} startOffset="50%" textAnchor="middle">
-                {r.label}
-              </textPath>
-            </text>
-          </g>
+            {ch}
+          </Text>
         )
       })}
-
-      {/* Tiny index ticks on outer rim */}
-      {[0, 90, 180, 270].map((deg) => {
-        const rad = (deg - 90) * Math.PI / 180
-        const x = Math.cos(rad) * 212
-        const y = Math.sin(rad) * 212
-        return (
-          <g key={deg} transform={`translate(${x} ${y}) rotate(${deg})`} style={{ pointerEvents: 'none' }}>
-            <path d="M -3.5 0 L 3.5 0 L 0 -4.5 Z" fill="rgba(255,255,255,0.45)" />
-          </g>
-        )
-      })}
-
-      {/* Center bubble — profile photo (decorative, ABOUT ring handles click) */}
-      <g style={{ pointerEvents: 'none' }}>
-        <circle cx="0" cy="0" r="52" fill="rgba(0,0,0,0.95)" />
-        <g clipPath="url(#profile-clip)">
-          <image
-            href={PROFILE_URL}
-            x="-52" y="-52" width="104" height="104"
-            preserveAspectRatio="xMidYMid slice"
-            style={{ filter: 'saturate(1.05) contrast(1.05)' }}
-          />
-        </g>
-        <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth="3" />
-        <circle cx="0" cy="0" r="48" fill="url(#bubble)" />
-        <ellipse cx="-16" cy="-22" rx="14" ry="7" fill="white" opacity="0.28" transform="rotate(-28 -16 -22)" />
-        <ellipse cx="-9" cy="-15" rx="4.5" ry="2.2" fill="white" opacity="0.65" />
-        <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(167,139,250,0.45)" strokeWidth="1.2" />
-        <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" />
-      </g>
-    </svg>
-    </div>
+    </group>
   )
 }
 
-// Annulus path for ring band (outer circle CW + inner circle CCW, even-odd fill)
-function annulusPath(ro, ri) {
-  return `M ${-ro} 0 a ${ro} ${ro} 0 1 1 ${ro * 2} 0 a ${ro} ${ro} 0 1 1 ${-ro * 2} 0 ` +
-         `M ${-ri} 0 a ${ri} ${ri} 0 1 0 ${ri * 2} 0 a ${ri} ${ri} 0 1 0 ${-ri * 2} 0 Z`
+function CenterOrb() {
+  const tex = useLoader(THREE.TextureLoader, PROFILE_URL)
+  useMemo(() => {
+    tex.colorSpace = THREE.SRGBColorSpace
+    tex.anisotropy = 8
+  }, [tex])
+  return (
+    <group>
+      {/* Sphere with photo */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.62, 64, 64]} />
+        <meshStandardMaterial map={tex} roughness={0.4} metalness={0.0} />
+      </mesh>
+      {/* Glass overlay sphere — thin glossy shell */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.64, 64, 64]} />
+        <meshPhysicalMaterial
+          transparent
+          opacity={0.25}
+          roughness={0.15}
+          metalness={0.0}
+          clearcoat={1.0}
+          clearcoatRoughness={0.05}
+          transmission={0.6}
+          ior={1.4}
+          thickness={0.3}
+          color="#c4b8ff"
+        />
+      </mesh>
+      {/* Edge accent ring */}
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.66, 0.012, 32, 96]} />
+        <meshStandardMaterial color="#a78bfa" emissive="#a78bfa" emissiveIntensity={0.4} />
+      </mesh>
+    </group>
+  )
+}
+
+function Scene() {
+  const group = useRef()
+  const [hot, setHot] = useState(null)
+
+  // Gentle idle rotation
+  useFrame((state) => {
+    if (group.current) {
+      const t = state.clock.elapsedTime
+      group.current.rotation.z = Math.sin(t * 0.15) * 0.04
+    }
+  })
+
+  return (
+    <>
+      {/* Lights */}
+      <ambientLight intensity={0.35} />
+      <directionalLight position={[3, 6, 5]} intensity={1.4} color="#fff" castShadow />
+      <directionalLight position={[-4, -2, 3]} intensity={0.45} color="#a78bfa" />
+      <pointLight position={[0, 0, 3]} intensity={0.6} color="#fff" />
+
+      <group ref={group} rotation={[-Math.PI / 2.6, 0, 0]}>
+        {/* Floor rim — large faint disc behind rings */}
+        <mesh position={[0, 0, -0.25]}>
+          <ringGeometry args={[2.78, 2.95, 96]} />
+          <meshBasicMaterial color="#1a1530" />
+        </mesh>
+
+        {/* Stacked rings */}
+        {RINGS.map((r) => (
+          <Ring key={r.id} ring={r} isHot={hot === r.id} setHot={setHot} />
+        ))}
+
+        {/* Center sphere with profile */}
+        <CenterOrb />
+      </group>
+    </>
+  )
+}
+
+export default function CenterSphere() {
+  return (
+    <div className="absolute inset-0">
+      <Canvas
+        camera={{ position: [0, 0, 7.5], fov: 32 }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true }}
+        style={{ background: 'transparent' }}
+      >
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
+    </div>
+  )
 }
