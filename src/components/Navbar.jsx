@@ -622,34 +622,25 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Line 2 — Action bar (desktop only) */}
       <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
-          {/* Left group — core actions */}
-          <div className="flex items-center gap-0.5">
-            <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
-            <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
-            <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
-            <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
-            <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
-            <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
-          </div>
-
-          <div className="flex-1" />
-
-          {/* Right group — tools */}
-          <div className="flex items-center gap-0.5">
-            <TechNews side="right" />
-            <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
-            <IconBtn icon={<CronIcon />} tip="Actions" onClick={() => window.dispatchEvent(new CustomEvent('toggle-actions-tools'))} />
-            <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
-            <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
-            <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
-            <IconBtn icon={<FlameIcon />} tip="Transformation HQ" onClick={() => window.dispatchEvent(new CustomEvent('toggle-transformation-hq'))} />
-            <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
-              const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
-              const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
-              window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
-            }} />
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-center gap-0.5">
+          <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
+          <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
+          <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
+          <IconBtn icon={<ChatIcon />} tip="AI Chat" onClick={() => document.querySelector('[data-chatbot-btn]')?.click()} />
+          <IconBtn icon={<QRIcon />} tip="QR vCard" onClick={() => window.dispatchEvent(new CustomEvent('toggle-qr-vcard'))} />
+          <IconBtn icon={<MemeIcon />} tip="AI Meme Generator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-meme-gen'))} />
+          <TechNews side="right" />
+          <IconBtn icon={<NetIcon />} tip="Network DevTools" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-net'))} />
+          <IconBtn icon={<CronIcon />} tip="Actions" onClick={() => window.dispatchEvent(new CustomEvent('toggle-actions-tools'))} />
+          <IconBtn icon={<PulseIcon />} tip="Service Status" onClick={() => window.dispatchEvent(new CustomEvent('toggle-service-status'))} />
+          <IconBtn icon={<ReadIcon />} tip="Reading Mode" onClick={() => document.body.classList.toggle('reading-mode')} />
+          <IconBtn icon={<RupeeIcon />} tip="Salary Calculator" onClick={() => window.dispatchEvent(new CustomEvent('toggle-salary-calc'))} />
+          <IconBtn icon={<FlameIcon />} tip="Transformation HQ" onClick={() => window.dispatchEvent(new CustomEvent('toggle-transformation-hq'))} />
+          <IconBtn icon={<MailIcon />} tip="Hire Me" onClick={() => {
+            const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
+            const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
+            window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
+          }} />
         </div>
       </div>
 
