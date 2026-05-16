@@ -622,7 +622,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Line 2 — Action bar (desktop only) */}
       <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-center gap-0.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-center">
+          <div className="inline-flex items-center gap-0.5">
           <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
           <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
           <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
@@ -641,6 +642,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
             window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
           }} />
+          </div>
         </div>
       </div>
 
