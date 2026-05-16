@@ -390,6 +390,37 @@ nav button.rounded-full.bg-muted\/60:hover {
 .rounded-md { border-radius: calc(var(--radius) - 2px) !important; }
 .rounded-xl { border-radius: calc(var(--radius) + 4px) !important; }
 
+/* Hero side-rail card animations */
+@keyframes hero-float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes hero-shimmer-sweep {
+  0% { opacity: 0; transform: translateX(-100%); }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateX(120%); }
+}
+@keyframes hero-pulse-soft {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+.hero-card-tilt {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.hero-card-shimmer {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  border-radius: inherit;
+}
+.hero-card-shimmer::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  animation: hero-shimmer-sweep 4s ease-in-out infinite;
+  animation-delay: var(--shimmer-delay, 0s);
+}
+
 /* Section headings inside <section> tags — slightly more refined */
 section h2.font-heading { font-weight: 600; }
 
