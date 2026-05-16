@@ -8,9 +8,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Instrument Sans', 'Inter', 'sans-serif'],
-        body: ['Instrument Sans', 'Inter', 'sans-serif'],
+        heading: ['Orbitron', 'Inter', 'sans-serif'],
+        body: ['Space Grotesk', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        retro: ['VT323', 'monospace'],
       },
       borderRadius: {
         DEFAULT: '0.625rem',

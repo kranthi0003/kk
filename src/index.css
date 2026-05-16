@@ -43,7 +43,7 @@
 /* Base */
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif);
+  font-family: var(--font-body, 'Space Grotesk', system-ui, sans-serif);
   background-color: var(--color-background);
   color: var(--color-foreground);
   letter-spacing: -0.0025em;
