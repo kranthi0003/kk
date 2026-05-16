@@ -18,19 +18,19 @@
   --color-primary-foreground: oklch(100% 0 0);
 }
 
-/* Dark — matches provisionr's #07070e backdrop + same vibrant chart violet */
+/* Dark — provisionr: near-black bg, near-black cards, subtle border */
 .dark {
-  --color-background: oklch(8% 0.02 290);
+  --color-background: oklch(6% 0.012 285);
   --color-foreground: oklch(98% 0 0);
-  --color-card: oklch(11% 0.018 290);
+  --color-card: oklch(3% 0 0);
   --color-card-foreground: oklch(98% 0 0);
-  --color-muted: oklch(16% 0.02 290);
-  --color-muted-foreground: oklch(65% 0.015 290);
+  --color-muted: oklch(12% 0.012 285);
+  --color-muted-foreground: oklch(62% 0.012 285);
   --color-accent: oklch(72% 0.20 285);
-  --color-accent-foreground: oklch(8% 0.02 290);
-  --color-border: oklch(20% 0.015 290);
+  --color-accent-foreground: oklch(6% 0.012 285);
+  --color-border: oklch(18% 0.01 285);
   --color-primary: oklch(98% 0 0);
-  --color-primary-foreground: oklch(8% 0.02 290);
+  --color-primary-foreground: oklch(6% 0.012 285);
 }
 
 /* Base */
@@ -242,16 +242,22 @@ h2 { letter-spacing: -0.03em; }
 .pr-backdrop-base { position: fixed; inset: 0; z-index: -3; pointer-events: none;
   background-color: var(--color-background); }
 /* Provisionr only shows glow in dark mode — light is clean */
-.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; display: none; }
+.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; display: none; overflow: hidden; }
 .dark .pr-backdrop-glow { display: block; }
 .pr-backdrop-glow::before, .pr-backdrop-glow::after {
   content: ''; position: absolute; inset: 0;
 }
+/* Big saturated glow blooming up from BOTTOM-RIGHT corner */
 .dark .pr-backdrop-glow::before {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, #221844, transparent 60%);
+  background:
+    radial-gradient(ellipse 70% 60% at 100% 110%, oklch(45% 0.22 320 / 0.55), transparent 55%),
+    radial-gradient(ellipse 60% 55% at 0% 110%, oklch(35% 0.18 290 / 0.50), transparent 55%);
 }
+/* Top-center violet wash + ambient mid-area glow */
 .dark .pr-backdrop-glow::after {
-  background: radial-gradient(ellipse 60% 40% at 100% 100%, #15021a, transparent 60%);
+  background:
+    radial-gradient(ellipse 90% 45% at 50% -10%, oklch(30% 0.15 290 / 0.70), transparent 60%),
+    radial-gradient(ellipse 40% 30% at 85% 50%, oklch(40% 0.18 320 / 0.25), transparent 60%);
 }
 .pr-backdrop-noise {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -320,3 +326,33 @@ body:has(.pr-backdrop-base)::before { display: none; }
 
 /* Section headings inside <section> tags — slightly more refined */
 section h2.font-heading { font-weight: 600; }
+
+/* === View Transition for theme toggle (circular reveal) === */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* Gradient text helper for emphasis (provisionr's signature multi-color phrase) */
+.text-gradient-violet {
+  background-image: linear-gradient(90deg,
+    oklch(70% 0.22 285),
+    oklch(70% 0.25 320),
+    oklch(70% 0.22 25));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
