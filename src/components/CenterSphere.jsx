@@ -1,23 +1,22 @@
 import React, { useMemo, useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
-import { Text } from '@react-three/drei'
+import { Text, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 // ============================================================
-// CenterSphere — WebGL 3D aperture lens like steven.com
-// Stacked extruded ring annuli (each ring = its own section).
-// Camera tilted with perspective so you see the depth/layers.
-// Profile photo mapped to center sphere.
+// CenterSphere — WebGL 3D aperture lens
+// Stacked dark ring annuli with section labels engraved on top.
+// Center sphere displays profile photo (no refraction distortion).
 // ============================================================
 
 const PROFILE_URL = new URL('../../assets/profile.png', import.meta.url).href
 
-// Each ring: outer/inner radius, extrude depth (height), color, label, route
+// outer→inner; each ring is dark with a subtle hue tint (no glowing emissive)
 const RINGS = [
-  { id: 'work',       ro: 2.7, ri: 2.15, depth: 0.42, label: 'WORK',       href: '#/projects',   color: '#a78bfa' },
-  { id: 'experience', ro: 2.1, ri: 1.62, depth: 0.36, label: 'EXPERIENCE', href: '#/experience', color: '#60a5fa' },
-  { id: 'connect',    ro: 1.58, ri: 1.18, depth: 0.30, label: 'CONNECT',   href: '#/connect',    color: '#22d3ee' },
-  { id: 'about',      ro: 1.14, ri: 0.82, depth: 0.24, label: 'ABOUT',     href: '#/about',      color: '#f0abfc' },
+  { id: 'work',       ro: 2.7, ri: 2.15, depth: 0.42, label: 'WORK',       href: '#/projects',   accent: '#a78bfa' },
+  { id: 'experience', ro: 2.1, ri: 1.62, depth: 0.36, label: 'EXPERIENCE', href: '#/experience', accent: '#60a5fa' },
+  { id: 'connect',    ro: 1.58, ri: 1.18, depth: 0.30, label: 'CONNECT',   href: '#/connect',    accent: '#22d3ee' },
+  { id: 'about',      ro: 1.14, ri: 0.82, depth: 0.24, label: 'ABOUT',     href: '#/about',      accent: '#f0abfc' },
 ]
 
 function navigate(href) {
@@ -25,7 +24,6 @@ function navigate(href) {
   window.location.reload()
 }
 
-// ---------- Annulus (ring band) geometry via ExtrudeGeometry ----------
 function useRingGeometry(ro, ri, depth) {
   return useMemo(() => {
     const shape = new THREE.Shape()
@@ -36,77 +34,81 @@ function useRingGeometry(ro, ri, depth) {
     const geom = new THREE.ExtrudeGeometry(shape, {
       depth,
       bevelEnabled: true,
-      bevelThickness: 0.05,
-      bevelSize: 0.04,
-      bevelSegments: 6,
+      bevelThickness: 0.04,
+      bevelSize: 0.03,
+      bevelSegments: 5,
       curveSegments: 96,
     })
-    geom.translate(0, 0, -depth / 2) // center on Z axis
+    geom.translate(0, 0, -depth / 2)
     return geom
   }, [ro, ri, depth])
 }
 
 function Ring({ ring, isHot, setHot }) {
   const geom = useRingGeometry(ring.ro, ring.ri, ring.depth)
-  const mat = useMemo(() => {
-    return new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#0d0820'),
-      metalness: 0.4,
-      roughness: 0.55,
-      clearcoat: 0.6,
-      clearcoatRoughness: 0.35,
-      emissive: new THREE.Color(ring.color),
-      emissiveIntensity: 0.04,
-    })
-  }, [ring.color])
+  const matRef = useRef()
 
-  // Pulse emissive on hover
   useFrame(() => {
-    mat.emissiveIntensity = THREE.MathUtils.lerp(
-      mat.emissiveIntensity,
-      isHot ? 0.45 : 0.04,
-      0.12
-    )
+    if (!matRef.current) return
+    // Subtle accent tint that brightens on hover
+    const target = isHot ? 0.18 : 0.0
+    matRef.current.emissiveIntensity = THREE.MathUtils.lerp(matRef.current.emissiveIntensity || 0, target, 0.12)
   })
 
-  // Text radius — centered on top face of ring band
   const labelR = (ring.ro + ring.ri) / 2
-  const topZ = ring.depth / 2 + 0.001
-
-  // Convert label into per-character meshes laid along an arc on top of ring
+  const topZ = ring.depth / 2 + 0.005
   const chars = ring.label.split('')
-  const totalArc = (ring.label.length * 0.13) // angular span per char
-  const startAngle = Math.PI / 2 + totalArc / 2 // top of ring, centered
-  const fontSize = ring.id === 'work' ? 0.22 : ring.id === 'experience' ? 0.18 : ring.id === 'connect' ? 0.15 : 0.12
+  const arcPerChar = 0.14
+  const totalArc = (chars.length - 1) * arcPerChar
+  const startAngle = Math.PI / 2 + totalArc / 2
+  const fontSize = ring.id === 'work' ? 0.26 : ring.id === 'experience' ? 0.20 : ring.id === 'connect' ? 0.16 : 0.12
 
   return (
     <group
       onPointerOver={(e) => { e.stopPropagation(); setHot(ring.id); document.body.style.cursor = 'pointer' }}
       onPointerOut={() => { setHot(null); document.body.style.cursor = '' }}
-      onClick={() => navigate(ring.href)}
+      onClick={(e) => { e.stopPropagation(); navigate(ring.href) }}
     >
-      <mesh geometry={geom} material={mat} castShadow receiveShadow />
-      {/* Inner rim highlight ring */}
-      <mesh position={[0, 0, topZ + 0.001]}>
-        <ringGeometry args={[ring.ri, ring.ri + 0.015, 96]} />
-        <meshBasicMaterial color={ring.color} transparent opacity={isHot ? 0.9 : 0.35} />
+      <mesh geometry={geom} castShadow receiveShadow>
+        <meshPhysicalMaterial
+          ref={matRef}
+          color="#15101f"
+          metalness={0.5}
+          roughness={0.45}
+          clearcoat={0.7}
+          clearcoatRoughness={0.25}
+          emissive={ring.accent}
+          emissiveIntensity={0}
+        />
       </mesh>
-      {/* Per-character labels on top face */}
+
+      {/* Inner rim highlight ring on top face */}
+      <mesh position={[0, 0, topZ]}>
+        <ringGeometry args={[ring.ri, ring.ri + 0.012, 96]} />
+        <meshBasicMaterial color={ring.accent} transparent opacity={isHot ? 0.9 : 0.25} />
+      </mesh>
+      {/* Outer rim highlight on top face */}
+      <mesh position={[0, 0, topZ]}>
+        <ringGeometry args={[ring.ro - 0.012, ring.ro, 96]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.12} />
+      </mesh>
+
       {chars.map((ch, i) => {
-        const a = startAngle - (i / Math.max(1, chars.length - 1)) * totalArc
+        const a = startAngle - i * arcPerChar
         const x = Math.cos(a) * labelR
         const y = Math.sin(a) * labelR
         return (
           <Text
             key={i}
-            position={[x, y, topZ + 0.01]}
+            position={[x, y, topZ + 0.012]}
             rotation={[0, 0, a - Math.PI / 2]}
             fontSize={fontSize}
-            color={isHot ? '#ffffff' : '#e9e1ff'}
+            color={isHot ? '#ffffff' : '#f5efff'}
             anchorX="center"
             anchorY="middle"
             outlineColor="#000"
-            outlineWidth={0.01}
+            outlineWidth={0.012}
+            outlineOpacity={0.8}
           >
             {ch}
           </Text>
@@ -124,31 +126,15 @@ function CenterOrb() {
   }, [tex])
   return (
     <group>
-      {/* Sphere with photo */}
+      {/* Photo sphere — plain material, no refraction distortion */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[0.62, 64, 64]} />
-        <meshStandardMaterial map={tex} roughness={0.4} metalness={0.0} />
+        <meshStandardMaterial map={tex} roughness={0.45} metalness={0.0} />
       </mesh>
-      {/* Glass overlay sphere — thin glossy shell */}
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[0.64, 64, 64]} />
-        <meshPhysicalMaterial
-          transparent
-          opacity={0.25}
-          roughness={0.15}
-          metalness={0.0}
-          clearcoat={1.0}
-          clearcoatRoughness={0.05}
-          transmission={0.6}
-          ior={1.4}
-          thickness={0.3}
-          color="#c4b8ff"
-        />
-      </mesh>
-      {/* Edge accent ring */}
+      {/* Edge accent torus */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[0.66, 0.012, 32, 96]} />
-        <meshStandardMaterial color="#a78bfa" emissive="#a78bfa" emissiveIntensity={0.4} />
+        <torusGeometry args={[0.64, 0.012, 32, 96]} />
+        <meshStandardMaterial color="#a78bfa" emissive="#a78bfa" emissiveIntensity={0.5} />
       </mesh>
     </group>
   )
@@ -158,38 +144,25 @@ function Scene() {
   const group = useRef()
   const [hot, setHot] = useState(null)
 
-  // Gentle idle Y rotation (kept under group so it stays visible)
   useFrame((state) => {
     if (group.current) {
       const t = state.clock.elapsedTime
-      group.current.rotation.y = Math.sin(t * 0.15) * 0.06
+      group.current.rotation.y = Math.sin(t * 0.15) * 0.05
     }
   })
 
   return (
     <>
-      {/* Lights */}
-      <ambientLight intensity={0.45} />
-      <directionalLight position={[3, 6, 5]} intensity={1.4} color="#fff" castShadow />
-      <directionalLight position={[-4, -2, 3]} intensity={0.45} color="#a78bfa" />
-      <pointLight position={[0, 0, 3]} intensity={0.6} color="#fff" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[3, 6, 5]} intensity={1.2} color="#fff" />
+      <directionalLight position={[-4, -2, 3]} intensity={0.3} color="#a78bfa" />
+      <pointLight position={[0, 0, 3]} intensity={0.5} color="#fff" />
 
-      {/* Group rotated so rings sit in the XY plane and we look at them
-          from above at a modest tilt — moderate angle (~28°) so depth is
-          visible but ring faces stay clearly readable. */}
-      <group ref={group} rotation={[-0.5, 0, 0]}>
-        {/* Floor rim — large faint disc behind rings */}
-        <mesh position={[0, 0, -0.25]}>
-          <ringGeometry args={[2.78, 2.95, 96]} />
-          <meshBasicMaterial color="#1a1530" />
-        </mesh>
-
-        {/* Stacked rings */}
+      {/* Tilt the lens back ~22° so depth is visible */}
+      <group ref={group} rotation={[-0.38, 0, 0]}>
         {RINGS.map((r) => (
           <Ring key={r.id} ring={r} isHot={hot === r.id} setHot={setHot} />
         ))}
-
-        {/* Center sphere with profile */}
         <CenterOrb />
       </group>
     </>
