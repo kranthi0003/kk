@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import profile from '../../assets/profile.png'
+import ThemeToggle from './ThemeToggle'
 
 // ============================================================
 // HERO V2 — steven.com-style single hero with central rotating
@@ -207,6 +208,11 @@ export default function HeroV2({ onResumeClick }) {
           style={{ opacity: hovered ? 1 : 0.5 }}>
           {hovered ? `→ ${RING_ITEMS.find(i => i.id === hovered)?.label}` : 'HOVER THE DIAL'}
         </p>
+      </div>
+
+      {/* Bottom-right: theme toggle */}
+      <div className="absolute bottom-8 right-6 sm:right-10 z-20">
+        <ThemeToggle />
       </div>
     </section>
   )
