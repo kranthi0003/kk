@@ -135,6 +135,9 @@ body {
   transform: translateY(0);
 }
 
+/* Hide global floating UI on the minimal hero */
+body.is-hero [data-chatbot-btn] { display: none !important; }
+
 /* Reading Mode — clean, focused document layout */
 body.reading-mode {
   background-image: none !important;

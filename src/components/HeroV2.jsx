@@ -22,6 +22,11 @@ export default function HeroV2({ onResumeClick }) {
   const [angle, setAngle] = useState(0)
 
   useEffect(() => {
+    document.body.classList.add('is-hero')
+    return () => document.body.classList.remove('is-hero')
+  }, [])
+
+  useEffect(() => {
     const id = setInterval(() => setTime(fmt(new Date())), 1000 * 30)
     return () => clearInterval(id)
   }, [])
@@ -196,9 +201,10 @@ export default function HeroV2({ onResumeClick }) {
         </button>
       </div>
 
-      {/* Bottom-right: scroll/hover hint */}
-      <div className="absolute bottom-8 right-6 sm:right-10 z-20">
-        <p className="font-mono text-[10px] tracking-widest text-white/40">
+      {/* Hover hint — top right under MENU */}
+      <div className="absolute top-16 right-6 sm:right-10 z-20 pointer-events-none">
+        <p className="font-mono text-[10px] tracking-widest text-white/40 text-right transition-opacity"
+          style={{ opacity: hovered ? 1 : 0.5 }}>
           {hovered ? `→ ${RING_ITEMS.find(i => i.id === hovered)?.label}` : 'HOVER THE DIAL'}
         </p>
       </div>

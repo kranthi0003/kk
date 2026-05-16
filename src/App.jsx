@@ -228,9 +228,9 @@ export default function App() {
         <HeroV2 onResumeClick={() => { window.location.hash = '#/about'; window.location.reload() }} />
       </main>
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
+      {/* AIChatbot kept mounted but its float button is hidden on hero via body class */}
       <AIChatbot />
       <VisitorTracker />
-      <VisitorCount />
       <AdminDashboard />
       <Changelog />
       <QRvCard />
