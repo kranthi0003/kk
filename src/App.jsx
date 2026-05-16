@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback, lazy, Suspense } from 'react'
-import BootLoader from './components/BootLoader'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
 import MatrixEasterEgg from './components/KonamiEasterEgg'
@@ -66,7 +65,7 @@ function MobileBanner() {
 export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
-  const [booted, setBooted] = useState(() => !!sessionStorage.getItem('boot_seen'))
+  const [booted, setBooted] = useState(true)
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
 
   // One-time cleanup: remove any leftover alternate-theme classes from
@@ -138,12 +137,12 @@ export default function App() {
 
   return (
     <>
-      {!booted && <BootLoader onComplete={() => setBooted(true)} />}
+      
       {/* Provisionr-style 3-layer fixed backdrop */}
       <div className="pr-backdrop-base" aria-hidden="true" />
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
-      <div className={`min-h-screen text-foreground transition-opacity duration-500 [--header-height:68px] ${!booted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
