@@ -345,7 +345,6 @@ body:has(.pr-backdrop-base)::before { display: none; }
 .dark .bg-black\/70,
 .dark .bg-black\/80,
 .dark .bg-black\/20,
-.dark [class*="bg-background/"],
 .pr-card {
   background-color: var(--color-card) !important;
   background-image:
