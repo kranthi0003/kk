@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Orbitron', 'Inter', 'sans-serif'],
+        heading: ['Bricolage Grotesque', 'Inter', 'sans-serif'],
         body: ['Space Grotesk', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         retro: ['VT323', 'monospace'],

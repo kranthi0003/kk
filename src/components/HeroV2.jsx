@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react'
-import ThemeToggle from './ThemeToggle'
+import MiniThemeToggle from './MiniThemeToggle'
 
 const CenterSphere = lazy(() => import('./CenterSphere'))
 
@@ -141,9 +141,9 @@ export default function HeroV2({ onResumeClick }) {
         </p>
       </div>
 
-      {/* Bottom-right: theme toggle */}
+      {/* Bottom-right: theme toggle (steven.com slide-pill) */}
       <div className="absolute bottom-8 right-6 sm:right-10 z-20">
-        <ThemeToggle />
+        <MiniThemeToggle />
       </div>
     </section>
   )
