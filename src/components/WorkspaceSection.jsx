@@ -39,31 +39,6 @@ export default function WorkspaceSection() {
             <Workspace embedded />
           </Suspense>
         </div>
-
-        {/* Quick-access chips below canvas — for users who can't/won't 3D */}
-        <div className="mt-5 flex flex-wrap gap-2 justify-center">
-          <span className="text-[10.5px] text-muted-foreground mr-1 self-center">Or jump straight to:</span>
-          {[
-            { id: 'projects', label: 'Projects', icon: '💻' },
-            { id: 'experience', label: 'Experience', icon: '💼' },
-            { id: 'tech', label: 'Tech stack', icon: '⚙️' },
-            { id: 'travel', label: 'Travel', icon: '🗺' },
-            { id: 'connect', label: 'Contact', icon: '✉️' },
-          ].map(c => (
-            <button
-              key={c.id}
-              onClick={() => document.getElementById(c.id)?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-muted-foreground hover:text-foreground transition-colors"
-              style={{
-                background: 'color-mix(in oklab, var(--chart-1) 6%, transparent)',
-                boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 18%, transparent)',
-              }}
-            >
-              <span>{c.icon}</span>
-              {c.label}
-            </button>
-          ))}
-        </div>
       </div>
     </section>
   )
