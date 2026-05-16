@@ -544,7 +544,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       aria-label="Main navigation"
       ref={navRef}
     >
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center">
         {/* Left — Logo */}
         <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0 mr-auto">
           <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-sm overflow-hidden"
