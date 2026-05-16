@@ -113,31 +113,6 @@ export default function Workspace({ onBack, embedded = false }) {
   if (embedded) {
     return (
       <div className="relative w-full h-full">
-        {/* Floating controls top-right */}
-        <div className="absolute top-3 right-3 z-20 flex gap-2">
-          <button
-            onClick={() => setGameMode(g => !g)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-semibold transition-all"
-            style={{
-              background: gameMode
-                ? 'linear-gradient(135deg, oklch(70% 0.22 145), oklch(65% 0.22 165))'
-                : 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 32%, transparent), color-mix(in oklab, var(--chart-2) 32%, transparent))',
-              color: 'white',
-              boxShadow: gameMode ? '0 0 16px -4px oklch(70% 0.22 145)' : '0 0 16px -4px color-mix(in oklab, var(--chart-1) 60%, transparent)',
-            }}>
-            {gameMode ? '⏸ Exit' : '▶ Play'}
-          </button>
-          <button
-            onClick={() => setIsDay(d => !d)}
-            className="flex items-center justify-center w-9 px-2 py-1.5 rounded-md text-[11px] font-semibold transition-all"
-            style={{
-              background: isDay ? 'color-mix(in oklab, oklch(75% 0.18 60) 18%, transparent)' : 'color-mix(in oklab, var(--chart-1) 12%, transparent)',
-              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${isDay ? 'oklch(75% 0.18 60)' : 'var(--chart-1)'} 40%, transparent)`,
-            }}>
-            {isDay ? '☀️' : '🌙'}
-          </button>
-        </div>
-
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
@@ -165,18 +140,6 @@ export default function Workspace({ onBack, embedded = false }) {
             {hint}
           </div>
         </div>
-
-        {gameMode && (
-          <div className="absolute top-3 left-3 pointer-events-none">
-            <div className="px-3 py-2 rounded-xl backdrop-blur-xl"
-              style={{ background: 'color-mix(in oklab, var(--color-card) 80%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 30%, transparent)' }}>
-              <div className="space-y-0.5 text-[10px] text-muted-foreground font-mono">
-                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">W A S D</kbd> move</p>
-                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">E</kbd> interact · <kbd className="px-1 rounded bg-foreground/10 text-foreground">Esc</kbd> exit</p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {chatOpen && (
           <div className="absolute inset-0 flex items-end justify-center pb-6 px-4 pointer-events-none z-50">
@@ -211,9 +174,7 @@ export default function Workspace({ onBack, embedded = false }) {
         )}
 
         {showStickyForm && (
-          <StickyNoteForm
-            onClose={() => setShowStickyForm(false)}
-          />
+          <StickyNoteForm onClose={() => setShowStickyForm(false)} />
         )}
 
         {secretFound.length > 0 && (
@@ -421,12 +382,13 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
     <group>
       <SoftShadows size={20} samples={10} focus={0.7} />
 
-      {/* Lighting — soft area + accent */}
+      {/* Lighting — cinematic 3-point + accent */}
       <hemisphereLight args={[isDay ? '#fff0d8' : '#9a7dd8', isDay ? '#5a4a65' : '#2a1f38', isDay ? 0.7 : 0.55]} />
       <ambientLight intensity={isDay ? 0.5 : 0.4} />
+      {/* Key light */}
       <directionalLight
         position={[5, 7, 3]}
-        intensity={isDay ? 1.6 : 0.85}
+        intensity={isDay ? 1.6 : 0.9}
         color={isDay ? '#ffe6c0' : '#d4c5fc'}
         castShadow
         shadow-mapSize={[2048, 2048]}
@@ -435,12 +397,18 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       >
         <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5, 0.1, 20]} />
       </directionalLight>
+      {/* Rim / kick light from behind for separation */}
+      <directionalLight position={[-3, 4, -4]} intensity={isDay ? 0.3 : 0.5} color={isDay ? '#ff9a6f' : '#ec4899'} />
+      {/* Accent point lights */}
       {!isDay && (
         <>
           <pointLight position={[-3, 2, -1]} intensity={0.6} color="#8b5cf6" distance={6} decay={2} />
           <pointLight position={[2, 1.5, 2]} intensity={0.4} color="#ec4899" distance={6} decay={2} />
+          {/* Monitor screen bleed onto desk */}
+          <pointLight position={[-0.05, 1.05, -0.3]} intensity={0.7} color="#a78bfa" distance={2.5} decay={2} />
         </>
       )}
+      {/* Desk lamp warm pool */}
       <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.2} color="#ffb066" distance={3.5} decay={2} castShadow shadow-mapSize={[512, 512]} />
 
       {/* Floor — dark wood with subtle sheen */}
@@ -454,11 +422,23 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       </mesh>
       <ContactShadows position={[0, 0.002, 0]} opacity={0.65} scale={10} blur={3.2} far={4} resolution={1024} />
 
-      {/* Rug under desk */}
+      {/* Rug under desk — striped pattern */}
       <mesh position={[0, 0.005, 0.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[3.5, 2.2]} />
         <meshStandardMaterial color="#2d1838" roughness={1} />
       </mesh>
+      {/* Rug border stripe */}
+      <mesh position={[0, 0.007, 0.4]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.75, 1.78, 32, 1]} />
+        <meshBasicMaterial color="#5a2a6a" toneMapped={false} />
+      </mesh>
+      {/* Floor glow line behind desk (LED-strip vibe, dark mode only) */}
+      {!isDay && (
+        <mesh position={[0, 0.01, -2.45]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[5, 0.06]} />
+          <meshBasicMaterial color="#a78bfa" toneMapped={false} transparent opacity={0.7} />
+        </mesh>
+      )}
 
       {/* Back wall + side wall — slight texture */}
       <mesh position={[0, 2, -2.6]} receiveShadow>
