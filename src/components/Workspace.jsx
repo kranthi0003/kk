@@ -1,7 +1,6 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, Html, Float, RoundedBox } from '@react-three/drei'
-import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
 
 // ============================================================
@@ -99,10 +98,6 @@ export default function Workspace({ onBack }) {
           <Suspense fallback={null}>
             <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} />
             <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
-            <EffectComposer disableNormalPass>
-              <Bloom intensity={0.8} luminanceThreshold={0.5} luminanceSmoothing={0.4} mipmapBlur />
-              <Vignette eskil={false} offset={0.15} darkness={0.7} />
-            </EffectComposer>
           </Suspense>
 
           <OrbitControls
