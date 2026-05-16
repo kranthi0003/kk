@@ -1,6 +1,8 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, AccumulativeShadows, RandomizedLight, Html, Float, RoundedBox, SoftShadows } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette, ChromaticAberration } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
 import * as THREE from 'three'
 
 // ============================================================
@@ -218,6 +220,20 @@ export default function Workspace({ onBack, embedded = false }) {
             minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 2.2}
             autoRotate={!gameMode} autoRotateSpeed={0.4}
           />
+          <EffectComposer multisampling={2} disableNormalPass>
+            <Bloom
+              intensity={isDay ? 0.35 : 0.85}
+              luminanceThreshold={0.55}
+              luminanceSmoothing={0.25}
+              mipmapBlur
+              radius={0.78}
+            />
+            <ChromaticAberration
+              blendFunction={BlendFunction.NORMAL}
+              offset={[0.0006, 0.0009]}
+            />
+            <Vignette eskil={false} offset={0.15} darkness={isDay ? 0.45 : 0.65} />
+          </EffectComposer>
         </Canvas>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
@@ -408,6 +424,20 @@ export default function Workspace({ onBack, embedded = false }) {
             autoRotate={!gameMode}
             autoRotateSpeed={0.4}
           />
+          <EffectComposer multisampling={2} disableNormalPass>
+            <Bloom
+              intensity={isDay ? 0.35 : 0.85}
+              luminanceThreshold={0.55}
+              luminanceSmoothing={0.25}
+              mipmapBlur
+              radius={0.78}
+            />
+            <ChromaticAberration
+              blendFunction={BlendFunction.NORMAL}
+              offset={[0.0006, 0.0009]}
+            />
+            <Vignette eskil={false} offset={0.15} darkness={isDay ? 0.45 : 0.65} />
+          </EffectComposer>
         </Canvas>
 
         {/* Hint pill */}
