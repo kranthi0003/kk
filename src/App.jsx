@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
 import MatrixEasterEgg from './components/KonamiEasterEgg'
 import Hero from './components/Hero'
-import IllustratedHero from './components/IllustratedHero'
 import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
@@ -149,7 +148,7 @@ export default function App() {
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
-        <IllustratedHero />
+        <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><About /></div>
