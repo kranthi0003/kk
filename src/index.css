@@ -16,6 +16,10 @@
   --color-border: oklch(88% 0.008 290);
   --color-primary: oklch(15% 0.02 290);
   --color-primary-foreground: oklch(100% 0 0);
+  /* Chart accents — provisionr's signature 3-color palette */
+  --chart-1: oklch(58% 0.20 285);   /* violet */
+  --chart-2: oklch(65% 0.25 320);   /* magenta */
+  --chart-3: oklch(70% 0.18 25);    /* coral */
 }
 
 /* Dark — provisionr: cards are TRUE BLACK, bg is slightly lighter dark-violet */
@@ -31,6 +35,9 @@
   --color-border: oklch(22% 0.012 285);
   --color-primary: oklch(98% 0 0);
   --color-primary-foreground: oklch(6% 0.012 285);
+  --chart-1: oklch(70% 0.22 285);
+  --chart-2: oklch(72% 0.27 320);
+  --chart-3: oklch(75% 0.20 25);
 }
 
 /* Base */
@@ -313,30 +320,42 @@ body:has(.pr-backdrop-base)::before { display: none; }
   main > section, main > div > section { /* no-op safeguard */ }
 }
 
-/* Provisionr cards: TRUE BLACK with subtle inner top-glow + lit-from-above feel
-   Applied to anything using bg-card (incl /40, /50, /80 alpha variants) */
+/* === UNIVERSAL provisionr card depth ===
+   Apply lit-from-above inner glow + drop shadow to every card-like surface
+   regardless of the original bg utility. Tint defaults to violet (chart-1);
+   override via .pr-tint-magenta / .pr-tint-coral on the same element. */
 .bg-card,
-[class*="bg-card\\/"] {
+[class*="bg-card\\/"],
+.dark .bg-white\/5,
+.dark .bg-white\/10,
+.dark .bg-white\/3,
+.dark .bg-white\/15,
+.dark .bg-zinc-900,
+.dark .bg-zinc-800,
+.dark .bg-gray-900,
+.dark .bg-gray-800,
+.dark .bg-black\/40,
+.dark .bg-black\/50,
+.dark .bg-black\/60,
+.pr-card {
   background-color: var(--color-card) !important;
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(45% 0.15 290 / 0.10), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.035) 0%, transparent 35%) !important;
+    radial-gradient(ellipse 80% 60% at 50% 0%, var(--pr-tint, var(--chart-1)) 0%, transparent 60%) !important;
+  background-blend-mode: screen;
   box-shadow:
     inset 0 1px 0 0 rgba(255,255,255,0.06),
+    inset 0 0 0 1px var(--color-border),
     0 1px 2px 0 rgba(0,0,0,0.4) !important;
   border-radius: var(--radius);
+  position: relative;
 }
-
-/* Same depth for any element styled with subtle white-tint card pattern */
-.dark .bg-white\/5,
-.dark .bg-white\/10 {
-  background-color: var(--color-card) !important;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(45% 0.15 290 / 0.10), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.035) 0%, transparent 35%) !important;
-  box-shadow:
-    inset 0 1px 0 0 rgba(255,255,255,0.06),
-    0 1px 2px 0 rgba(0,0,0,0.4) !important;
+/* Tint overrides — set the variable used by the radial gradient */
+.pr-tint-violet  { --pr-tint: color-mix(in oklab, var(--chart-1) 14%, transparent); }
+.pr-tint-magenta { --pr-tint: color-mix(in oklab, var(--chart-2) 14%, transparent); }
+.pr-tint-coral   { --pr-tint: color-mix(in oklab, var(--chart-3) 14%, transparent); }
+/* Default tint when none specified — soft violet */
+.bg-card, [class*="bg-card\\/"], .pr-card {
+  --pr-tint: color-mix(in oklab, var(--chart-1) 10%, transparent);
 }
 
 /* Normalize rounded utilities to provisionr's 10px baseline */

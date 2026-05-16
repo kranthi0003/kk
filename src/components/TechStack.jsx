@@ -33,23 +33,25 @@ export default function TechStack() {
 
         {/* Integration grid — provisionr-style cards with hover gradient line */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
-          {skillGroups.map(group => (
-            <div
-              key={group.title}
-              className="group relative rounded-lg bg-card border border-border p-5 hover:border-accent/40 transition-colors"
-            >
-              {/* Hover gradient line at top — provisionr signature */}
-              <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
-              <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.18em] mb-3">{group.title}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {group.items.map(s => (
-                  <span key={s} className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[oklch(15%_0.015_285)] text-foreground/90 border border-border/80 hover:border-accent/50 hover:text-accent transition-colors">
-                    {s}
-                  </span>
-                ))}
+          {skillGroups.map((group, i) => {
+            const tints = ['pr-tint-violet', 'pr-tint-magenta', 'pr-tint-coral', 'pr-tint-violet']
+            const eyebrowColors = ['oklch(75% 0.22 285)', 'oklch(72% 0.27 320)', 'oklch(75% 0.20 25)', 'oklch(75% 0.22 285)']
+            return (
+              <div
+                key={group.title}
+                className={`group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] mb-3" style={{ color: eyebrowColors[i % 4] }}>{group.title}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.items.map(s => (
+                    <span key={s} className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[oklch(15%_0.015_285)] text-foreground/90 border border-border/80 hover:border-accent/50 hover:text-accent transition-colors">
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Certs — clean rounded-md cards, no rainbow */}
@@ -57,24 +59,31 @@ export default function TechStack() {
           <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: 'oklch(75% 0.22 285)' }}>Certifications</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {certs.map(c => (
-            <a
-              key={c.name}
-              href={c.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-3 py-2.5 rounded-md border border-border bg-card hover:border-accent/50 transition-colors"
-            >
-              <span className="w-9 h-9 rounded-md bg-accent/10 border border-accent/30 flex items-center justify-center text-[10px] font-bold text-accent flex-shrink-0">
-                {c.tag}
-              </span>
-              <div className="flex flex-col min-w-0 flex-1">
-                <span className="text-xs font-semibold text-foreground leading-tight truncate">{c.name}</span>
-                <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">Verified ✓</span>
-              </div>
-              <span className="text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all text-xs">→</span>
-            </a>
-          ))}
+          {certs.map((c, i) => {
+            const tints = ['pr-tint-violet', 'pr-tint-magenta', 'pr-tint-coral']
+            const tagColors = ['oklch(75% 0.22 285)', 'oklch(72% 0.27 320)', 'oklch(75% 0.20 25)']
+            const tint = tints[i % 3]
+            const tagColor = tagColors[i % 3]
+            return (
+              <a
+                key={c.name}
+                href={c.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
+              >
+                <span className="w-9 h-9 rounded-md flex items-center justify-center text-[10px] font-bold flex-shrink-0"
+                  style={{ background: `color-mix(in oklab, ${tagColor} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${tagColor} 35%, transparent)`, color: tagColor }}>
+                  {c.tag}
+                </span>
+                <div className="flex flex-col min-w-0 flex-1">
+                  <span className="text-xs font-semibold text-foreground leading-tight truncate">{c.name}</span>
+                  <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">Verified ✓</span>
+                </div>
+                <span className="text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all text-xs">→</span>
+              </a>
+            )
+          })}
         </div>
       </div>
     </section>
