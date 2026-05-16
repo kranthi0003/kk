@@ -38,6 +38,7 @@ import CronSchedule from './components/ActionsTools'
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
 const StrangerChat = lazy(() => import('./components/StrangerChat'))
+const Workspace = lazy(() => import('./components/Workspace'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -75,6 +76,17 @@ export default function App() {
     stale.forEach(c => document.documentElement.classList.remove(c))
     try { localStorage.removeItem('site_theme_mode') } catch {}
   }, [])
+
+  // Handle deferred scroll target (e.g. from 3D Workspace back-to-section nav)
+  useEffect(() => {
+    const target = sessionStorage.getItem('scrollTo')
+    if (target && !route) {
+      sessionStorage.removeItem('scrollTo')
+      setTimeout(() => {
+        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
+      }, 300)
+    }
+  }, [route])
 
   // Hash-based routing
   useEffect(() => {
@@ -120,6 +132,18 @@ export default function App() {
         <div className="pr-backdrop-noise" aria-hidden="true" />
         <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
           <StrangerChat onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        </Suspense>
+      </>
+    )
+  }
+
+  // 3D Workspace page route
+  if (route.startsWith('#/workspace')) {
+    return (
+      <>
+        <div className="pr-backdrop-glow" aria-hidden="true" />
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
+          <Workspace onBack={() => { window.location.hash = ''; window.location.reload() }} />
         </Suspense>
       </>
     )

@@ -87,6 +87,29 @@ export default function Hero({ onResumeClick }) {
 
         <div className="mt-7 flex flex-wrap gap-2 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
+            onClick={() => { window.location.hash = '#/workspace'; window.location.reload() }}
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[12px] font-medium text-foreground transition-all"
+            style={{
+              background: 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 18%, transparent), color-mix(in oklab, var(--chart-2) 18%, transparent))',
+              boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 45%, transparent), 0 0 24px -6px color-mix(in oklab, var(--chart-1) 55%, transparent)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 32%, transparent), color-mix(in oklab, var(--chart-2) 32%, transparent))'
+              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 70%, transparent), 0 4px 28px -4px color-mix(in oklab, var(--chart-1) 70%, transparent)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 18%, transparent), color-mix(in oklab, var(--chart-2) 18%, transparent))'
+              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 45%, transparent), 0 0 24px -6px color-mix(in oklab, var(--chart-1) 55%, transparent)'
+            }}
+          >
+            <span className="px-1 py-px rounded text-[8.5px] font-bold uppercase tracking-wider"
+              style={{ background: 'color-mix(in oklab, var(--chart-1) 50%, transparent)', color: 'oklch(96% 0.04 290)' }}>
+              3D
+            </span>
+            Enter my workspace
+            <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
+          </button>
+          <button
             onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
             className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
           >

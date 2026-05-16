@@ -1133,7 +1133,7 @@ function PhotosTab() {
       )}
 
       <div className="bg-card pr-tint-coral p-4">
-        <h4 className="text-xs font-semibold text-foreground mb-1.5">Why photos > scale</h4>
+        <h4 className="text-xs font-semibold text-foreground mb-1.5">Why photos &gt; scale</h4>
         <p className="text-[11px] text-muted-foreground">Body recomp invisible on the scale shows up clearly in photos. The mirror lies (you see yourself daily). The camera does not. <b>Same pose, same lighting, every Sunday.</b></p>
       </div>
     </div>
