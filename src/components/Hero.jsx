@@ -89,20 +89,6 @@ export default function Hero({ onResumeClick }) {
           </a>
         </div>
 
-        {/* Stat strip — provisionr signature */}
-        <div className="mt-12 grid grid-cols-3 gap-3 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          {[
-            { value: '5+', label: 'Years building infra', tint: 'pr-tint-violet', color: 'oklch(78% 0.22 285)' },
-            { value: '100+', label: 'Services & tools shipped', tint: 'pr-tint-magenta', color: 'oklch(78% 0.27 320)' },
-            { value: '24/7', label: 'On-call rotation veteran', tint: 'pr-tint-coral', color: 'oklch(78% 0.20 25)' },
-          ].map(s => (
-            <div key={s.label} className={`bg-card px-4 py-4 ${s.tint}`}>
-              <div className="text-2xl md:text-3xl font-heading font-semibold tracking-tight" style={{ color: s.color }}>{s.value}</div>
-              <div className="text-[11px] md:text-xs text-muted-foreground mt-0.5">{s.label}</div>
-            </div>
-          ))}
-        </div>
-
         {/* Collab CTA — toned down */}
         <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
