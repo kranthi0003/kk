@@ -3,6 +3,8 @@ import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
 import MatrixEasterEgg from './components/KonamiEasterEgg'
 import Hero from './components/Hero'
+import HeroV2 from './components/HeroV2'
+import SubPage from './components/SubPage'
 import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
@@ -154,6 +156,29 @@ export default function App() {
     )
   }
 
+  // === SUB-PAGE ROUTES === each ring slice of HeroV2 routes here ===
+  if (route.startsWith('#/projects')) {
+    return <SubPage eyebrow="Selected work" title="Projects" accent="#ec4899"><Projects /></SubPage>
+  }
+  if (route.startsWith('#/experience')) {
+    return <SubPage eyebrow="Career arc" title="Experience" accent="#a78bfa"><Experience /></SubPage>
+  }
+  if (route.startsWith('#/travel')) {
+    return <SubPage eyebrow="Where I've been" title="Travel" accent="#f97316"><TravelMap /></SubPage>
+  }
+  if (route.startsWith('#/connect')) {
+    return <SubPage eyebrow="Reach out" title="Connect" accent="#22d3ee"><Connect /></SubPage>
+  }
+  if (route.startsWith('#/tech')) {
+    return <SubPage eyebrow="What I build with" title="Tech Stack" accent="#a78bfa"><TechStack /></SubPage>
+  }
+  if (route.startsWith('#/guestbook')) {
+    return <SubPage eyebrow="Visitors" title="Guestbook" accent="#fbbf24"><Guestbook /></SubPage>
+  }
+  if (route.startsWith('#/about')) {
+    return <SubPage eyebrow="Who I am" title="About" accent="#a78bfa"><About /><Terminal /></SubPage>
+  }
+
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
   }, [matrixActive])
@@ -199,23 +224,10 @@ export default function App() {
       <Preloader />
       <SmoothScroll />
       <CursorFollower />
-      <MobileBanner />
-      <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
-      <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
-        <Hero onResumeClick={() => setResumeOpen(true)} />
-        <div className="section-animate"><WorkspaceSection /></div>
-        <div className="section-animate"><Experience /></div>
-        <div className="section-animate"><TechStack /></div>
-        <div className="section-animate"><About /></div>
-        <div className="section-animate"><Terminal /></div>
-        <div className="section-animate"><Projects /></div>
-        <div className="section-animate"><TravelMap /></div>
-        <div className="section-animate"><Connect /></div>
-        <div className="section-animate"><Guestbook /></div>
+        <HeroV2 onResumeClick={() => { window.location.hash = '#/about'; window.location.reload() }} />
       </main>
-      <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
       <VisitorTracker />
