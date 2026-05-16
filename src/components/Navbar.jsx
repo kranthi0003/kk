@@ -622,8 +622,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Line 2 — Action bar (desktop only) */}
       <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-center">
-          <div className="inline-flex items-center gap-0.5">
+        <div className="h-9 flex items-center justify-center px-4">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', width: 'fit-content' }}>
           <IconBtn icon={<CalcIcon />} tip="Dev Toolkit" onClick={() => window.dispatchEvent(new CustomEvent('toggle-dev-calc'))} />
           <IconBtn icon={<CodeIcon />} tip="Source Code" onClick={() => window.dispatchEvent(new CustomEvent('toggle-code-browser'))} />
           <IconBtn icon={<ClockIcon />} tip="Changelog" onClick={() => window.dispatchEvent(new CustomEvent('toggle-changelog'))} />
