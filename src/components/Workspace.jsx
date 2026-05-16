@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, AccumulativeShadows, RandomizedLight, Html, Float, RoundedBox, SoftShadows, useGLTF, useAnimations } from '@react-three/drei'
 import * as THREE from 'three'
 
-const CHARACTER_URL = import.meta.env.BASE_URL + 'models/character.glb'
+const CHARACTER_URL = import.meta.env.BASE_URL + 'models/character.glb?v=3'
 // Preload so the avatar is ready when scene mounts
 useGLTF.preload(CHARACTER_URL)
 
@@ -1489,14 +1489,14 @@ function NPC() {
   }, [])
 
   // Map activity → animation clip name
-  // Xbot has: idle, walk, run (Mixamo skeleton, can attach more anims later)
+  // Soldier has: Idle, Walk, Run
   const animMap = {
-    sleep:  'idle',
-    coffee: 'idle',
-    work:   'idle',
-    lunch:  'idle',
-    gym:    'idle',
-    ps5:    'idle',
+    sleep:  'Idle',
+    coffee: 'Idle',
+    work:   'Idle',
+    lunch:  'Idle',
+    gym:    'Idle',
+    ps5:    'Idle',
   }
   React.useEffect(() => {
     const wanted = animMap[activity.id] || "Idle"
@@ -1515,15 +1515,14 @@ function NPC() {
     })
   }, [scene])
 
-  // Position: Xbot is ~1.5m standing. Scale 0.7 → ~1.05m for a sitting/standing avatar that fits the chair area.
-  // Always stand facing the camera/desk; activity is communicated by the floating pill + props.
+  // Soldier model is ~1.9m tall. Scale 0.55 → ~1m fits the room nicely.
   return (
     <group>
       <group
         ref={group}
         position={[0, 0, 0.1]}
         rotation={[0, Math.PI, 0]}
-        scale={0.7}
+        scale={0.55}
       >
         <primitive object={scene} />
       </group>
