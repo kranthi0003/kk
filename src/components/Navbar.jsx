@@ -657,7 +657,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
                 { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
                 { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
-                { icon: '🔥', label: 'Fitness', action: () => window.dispatchEvent(new CustomEvent('toggle-transformation-hq')) },
+                { icon: '🔥', label: 'Fitness', action: () => { window.location.hash = '#/transformation'; window.location.reload() } },
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle'; window.location.reload() } },
@@ -701,7 +701,7 @@ function ToolsDropdown() {
     { icon: <PulseIcon />,  label: 'Service Status',    evt: 'toggle-service-status' },
     { icon: <ReadIcon />,   label: 'Reading Mode',      onClick: () => document.body.classList.toggle('reading-mode') },
     { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
-    { icon: <FlameIcon />,  label: 'Transformation HQ', evt: 'toggle-transformation-hq' },
+    { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation'; window.location.reload() } },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)

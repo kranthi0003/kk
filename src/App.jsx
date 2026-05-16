@@ -100,6 +100,13 @@ export default function App() {
     )
   }
 
+  // Transformation HQ page route
+  if (route.startsWith('#/transformation')) {
+    return (
+      <TransformationHQ onBack={() => { window.location.hash = ''; window.location.reload() }} />
+    )
+  }
+
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
   }, [matrixActive])
@@ -171,7 +178,6 @@ export default function App() {
       <DevCalc />
       <CarbonCalc />
       <SalaryCalc />
-      <TransformationHQ />
       <CodeBrowser />
       <LiveChat />
       <CryptoDashboard />

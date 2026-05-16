@@ -174,42 +174,47 @@ const MVP_DAY = [
 // ============================================================
 // COMPONENT
 // ============================================================
-export default function TransformationHQ() {
-  const [open, setOpen] = useState(false)
-  const [tab, setTab] = useState('today')
+// ============================================================
+// COMPONENT — Full-page version
+// ============================================================
+export default function TransformationHQ({ onBack }) {
+  const [tab, setTab] = useState(() => {
+    const fromHash = window.location.hash.split('?')[1]?.split('=')?.[1]
+    return TABS.find(t => t.id === fromHash)?.id || 'today'
+  })
 
+  // Sync tab to hash so it's bookmarkable + persists on refresh
   useEffect(() => {
-    const h = () => setOpen(o => !o)
-    window.addEventListener('toggle-transformation-hq', h)
-    return () => window.removeEventListener('toggle-transformation-hq', h)
-  }, [])
-
-  if (!open) return null
+    const base = '#/transformation'
+    const newHash = `${base}?tab=${tab}`
+    if (window.location.hash !== newHash) {
+      window.history.replaceState(null, '', newHash)
+    }
+  }, [tab])
 
   return (
-    <>
-      <div className="fixed inset-0 z-[150] bg-black/60 backdrop-blur-md" onClick={() => setOpen(false)} />
-      <div
-        className="fixed top-[3%] left-1/2 -translate-x-1/2 z-[151] w-[820px] max-w-[calc(100vw-1.5rem)] h-[94vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-card pr-tint-violet"
-        style={{ animation: 'thq-in 0.28s cubic-bezier(0.16,1,0.3,1)' }}
-      >
-        {/* Header */}
-        <div className="px-6 py-4 border-b border-border/40 flex items-center justify-between flex-shrink-0">
-          <div>
-            <h2 className="text-foreground text-base font-semibold flex items-center gap-2">
-              <span>🔥</span> Transformation HQ
-            </h2>
-            <p className="text-[11px] text-muted-foreground mt-0.5">Personal fitness OS · best shape by end of 2027</p>
-          </div>
-          <button onClick={() => setOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+    <div className="min-h-screen bg-background">
+      {/* Top bar */}
+      <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-xl border-b border-border/40">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+          <button
+            onClick={onBack || (() => { window.location.hash = ''; window.location.reload() })}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            Back
           </button>
+          <div className="text-center flex-1 min-w-0">
+            <h1 className="text-foreground text-base sm:text-lg font-semibold flex items-center justify-center gap-2">
+              <span>🔥</span> Transformation HQ
+            </h1>
+            <p className="text-[11px] text-muted-foreground hidden sm:block">Personal fitness OS · best shape by end of 2027</p>
+          </div>
+          <div className="w-12 flex-shrink-0" />
         </div>
 
         {/* Tabs */}
-        <div className="px-3 py-2 border-b border-border/30 flex-shrink-0 overflow-x-auto">
+        <div className="max-w-6xl mx-auto px-3 pb-2 overflow-x-auto">
           <div className="flex gap-1">
             {TABS.map(t => (
               <button key={t.id} onClick={() => setTab(t.id)}
@@ -221,32 +226,25 @@ export default function TransformationHQ() {
             ))}
           </div>
         </div>
-
-        {/* Body */}
-        <div className="px-6 py-5 overflow-y-auto flex-1 min-h-0">
-          {tab === 'today'    && <TodayTab />}
-          {tab === 'schedule' && <ScheduleTab />}
-          {tab === 'training' && <TrainingTab />}
-          {tab === 'cardio'   && <CardioTab />}
-          {tab === 'diet'     && <DietTab />}
-          {tab === 'supps'    && <SuppsTab />}
-          {tab === 'recovery' && <RecoveryTab />}
-          {tab === 'tracker'  && <TrackerTab />}
-          {tab === 'roadmap'  && <RoadmapTab />}
-        </div>
-
-        <div className="px-6 py-2 border-t border-border/30 text-center flex-shrink-0">
-          <span className="text-[10px] text-muted-foreground/60">All data stored locally · no cloud · no judgment</span>
-        </div>
       </div>
 
-      <style>{`
-        @keyframes thq-in {
-          from { opacity: 0; transform: translateX(-50%) scale(0.96) translateY(-8px); }
-          to   { opacity: 1; transform: translateX(-50%) scale(1)    translateY(0); }
-        }
-      `}</style>
-    </>
+      {/* Body */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 pb-16">
+        {tab === 'today'    && <TodayTab />}
+        {tab === 'schedule' && <ScheduleTab />}
+        {tab === 'training' && <TrainingTab />}
+        {tab === 'cardio'   && <CardioTab />}
+        {tab === 'diet'     && <DietTab />}
+        {tab === 'supps'    && <SuppsTab />}
+        {tab === 'recovery' && <RecoveryTab />}
+        {tab === 'tracker'  && <TrackerTab />}
+        {tab === 'roadmap'  && <RoadmapTab />}
+      </div>
+
+      <div className="border-t border-border/30 py-4 text-center">
+        <span className="text-[10px] text-muted-foreground/60">All data stored locally · no cloud · no judgment</span>
+      </div>
+    </div>
   )
 }
 
@@ -582,7 +580,129 @@ function TrackerTab() {
 
       <div className="bg-card pr-tint-coral p-4">
         <h4 className="text-xs font-semibold text-foreground mb-1.5">Pro tip</h4>
-        <p className="text-[11px] text-muted-foreground">Weigh + measure waist every Sunday 7am, fasted, post-bathroom. Plot the 4-week moving average — that\'s the truth. Day-to-day noise is meaningless.</p>
+        <p className="text-[11px] text-muted-foreground">Weigh + measure waist every Sunday 7am, fasted, post-bathroom. Plot the 4-week moving average — that's the truth. Day-to-day noise is meaningless.</p>
+      </div>
+
+      <WorkoutLogger />
+      <DailyHistory />
+    </div>
+  )
+}
+
+// ─── Workout PR logger ───────────────────────────────────────────────
+function WorkoutLogger() {
+  const [lifts, setLifts] = useState(() => lsGet('lifts', []))
+  const [ex, setEx] = useState('DB Bench Press')
+  const [w, setW] = useState('')
+  const [r, setR] = useState('')
+
+  const exerciseList = useMemo(() => {
+    const all = []
+    Object.values(TRAINING_SPLIT).forEach(s => s.exercises.forEach(e => all.push(e.name)))
+    return Array.from(new Set(all))
+  }, [])
+
+  const log = () => {
+    const weight = parseFloat(w), reps = parseInt(r, 10)
+    if (!weight || !reps) return
+    const next = [{ date: todayKey(), ex, w: weight, r: reps, t: Date.now() }, ...lifts].slice(0, 200)
+    setLifts(next); lsSet('lifts', next); setW(''); setR('')
+  }
+
+  // Compute PRs per exercise (heaviest weight × reps, also estimated 1RM)
+  const prs = useMemo(() => {
+    const m = {}
+    for (const l of lifts) {
+      const est1rm = l.w * (1 + l.r / 30)
+      if (!m[l.ex] || est1rm > m[l.ex].est1rm) m[l.ex] = { ...l, est1rm }
+    }
+    return Object.values(m).sort((a, b) => b.est1rm - a.est1rm)
+  }, [lifts])
+
+  return (
+    <div className="bg-card pr-tint-violet p-4">
+      <h4 className="text-xs font-semibold text-foreground mb-2">Workout log · personal records</h4>
+      <div className="grid grid-cols-[1fr_70px_60px_auto] gap-2 mb-3">
+        <select value={ex} onChange={e => setEx(e.target.value)}
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60">
+          {exerciseList.map(n => <option key={n} value={n}>{n}</option>)}
+        </select>
+        <input type="number" step="0.5" value={w} onChange={e => setW(e.target.value)} placeholder="kg"
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60" />
+        <input type="number" value={r} onChange={e => setR(e.target.value)} placeholder="reps"
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60" />
+        <button onClick={log} className="px-3 py-1.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-[11px] text-foreground hover:bg-violet-500/30 transition-colors">Log</button>
+      </div>
+
+      {prs.length > 0 && (
+        <div className="mb-3">
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1.5">Top PRs (est. 1RM)</div>
+          <div className="space-y-1">
+            {prs.slice(0, 5).map((p, i) => (
+              <div key={i} className="flex items-center justify-between text-[11px] py-1 px-2 rounded-md bg-background/40">
+                <span className="font-medium text-foreground truncate flex-1 mr-2">{p.ex}</span>
+                <span className="font-mono text-muted-foreground tabular-nums">{p.w}kg × {p.r}</span>
+                <span className="font-mono text-violet-400 tabular-nums ml-2 w-12 text-right">{p.est1rm.toFixed(0)}kg</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {lifts.length > 0 && (
+        <details>
+          <summary className="text-[10px] uppercase tracking-wider text-muted-foreground cursor-pointer hover:text-foreground">Recent sessions ({lifts.length})</summary>
+          <div className="mt-2 max-h-40 overflow-y-auto space-y-0.5">
+            {lifts.slice(0, 30).map((l, i) => (
+              <div key={i} className="flex items-center justify-between text-[10.5px] py-0.5 px-1 text-muted-foreground">
+                <span className="font-mono">{l.date}</span>
+                <span className="flex-1 truncate mx-2 text-foreground/80">{l.ex}</span>
+                <span className="font-mono tabular-nums">{l.w}kg × {l.r}</span>
+              </div>
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  )
+}
+
+// ─── Daily history (last 30 days at a glance) ─────────────────────────
+function DailyHistory() {
+  const days = useMemo(() => {
+    const arr = []
+    for (let i = 0; i < 30; i++) {
+      const d = new Date(); d.setDate(d.getDate() - i)
+      const k = d.toISOString().slice(0, 10)
+      const log = lsGet(`log:${k}`, {})
+      const done = ['morn', 'eve', 'water', 'prot', 'steps', 'sleep'].filter(x => log[x]).length
+      arr.push({ date: k, done, total: 6, day: d.toLocaleDateString('en-US', { weekday: 'short' }) })
+    }
+    return arr.reverse()
+  }, [])
+  const totalCompletions = days.reduce((a, b) => a + b.done, 0)
+  return (
+    <div className="bg-card pr-tint-magenta p-4">
+      <h4 className="text-xs font-semibold text-foreground mb-2">Last 30 days</h4>
+      <div className="grid grid-cols-15 gap-1 mb-3" style={{ gridTemplateColumns: 'repeat(30, 1fr)' }}>
+        {days.map((d, i) => (
+          <div
+            key={i}
+            title={`${d.date} · ${d.done}/${d.total} checks`}
+            className="aspect-square rounded-[3px]"
+            style={{
+              background: d.done === 0
+                ? 'color-mix(in oklab, var(--color-border) 50%, transparent)'
+                : `color-mix(in oklab, var(--chart-2) ${20 + (d.done / d.total) * 60}%, transparent)`,
+              boxShadow: d.done > 0 ? 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 40%, transparent)' : 'none',
+            }}
+          />
+        ))}
+      </div>
+      <div className="flex items-center justify-between text-[10.5px] text-muted-foreground">
+        <span>30d ago</span>
+        <span><span className="text-foreground font-semibold">{totalCompletions}</span> check-ins logged</span>
+        <span>today</span>
       </div>
     </div>
   )
