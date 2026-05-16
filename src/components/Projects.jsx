@@ -22,11 +22,11 @@ const projects = [
   {
     name: 'stranger-chat',
     title: 'Anonymous P2P Text Chat',
-    desc: 'Real-time matchmaking with random visitors. WebRTC for direct peer messaging, Supabase for presence.',
+    desc: 'Real-time matchmaking with random visitors. WebRTC for direct peer messaging, Supabase Realtime for signaling.',
     tech: ['webrtc', 'supabase', 'react', 'p2p'],
-    status: 'wip',
-    url: null,
-    github: null,
+    status: 'active',
+    url: '/#/stranger',
+    github: 'https://github.com/kranthi0003/kranthi-kiran-site/blob/main/src/components/StrangerChat.jsx',
   },
   {
     name: 'sketchgate',

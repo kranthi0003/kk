@@ -37,6 +37,7 @@ import CronSchedule from './components/ActionsTools'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
+const StrangerChat = lazy(() => import('./components/StrangerChat'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -107,6 +108,19 @@ export default function App() {
         <div className="pr-backdrop-glow" aria-hidden="true" />
         <div className="pr-backdrop-noise" aria-hidden="true" />
         <TransformationHQ onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </>
+    )
+  }
+
+  // Stranger chat page route
+  if (route.startsWith('#/stranger')) {
+    return (
+      <>
+        <div className="pr-backdrop-glow" aria-hidden="true" />
+        <div className="pr-backdrop-noise" aria-hidden="true" />
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
+          <StrangerChat onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        </Suspense>
       </>
     )
   }
