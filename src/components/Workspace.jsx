@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, ContactShadows, Html, Float, RoundedBox } from '@react-three/drei'
+import { OrbitControls, Environment, ContactShadows, AccumulativeShadows, RandomizedLight, Html, Float, RoundedBox, SoftShadows } from '@react-three/drei'
 import * as THREE from 'three'
 
 // ============================================================
@@ -141,7 +141,7 @@ export default function Workspace({ onBack, embedded = false }) {
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, outputColorSpace: THREE.SRGBColorSpace }}
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
@@ -149,7 +149,7 @@ export default function Workspace({ onBack, embedded = false }) {
           <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
           <Suspense fallback={null}>
             <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} />
-            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+            <Environment preset={isDay ? 'apartment' : 'night'} environmentIntensity={isDay ? 0.7 : 0.35} background={false} />
           </Suspense>
           <OrbitControls
             target={[0, 0.9, 0]} enablePan={false} enabled={!gameMode}
@@ -288,7 +288,7 @@ export default function Workspace({ onBack, embedded = false }) {
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, outputColorSpace: THREE.SRGBColorSpace }}
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
@@ -300,7 +300,7 @@ export default function Workspace({ onBack, embedded = false }) {
               onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay}
               gameMode={gameMode} onNear={setNear}
             />
-            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+            <Environment preset={isDay ? 'apartment' : 'night'} environmentIntensity={isDay ? 0.7 : 0.35} background={false} />
           </Suspense>
 
           <OrbitControls
@@ -419,60 +419,73 @@ export default function Workspace({ onBack, embedded = false }) {
 function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
   return (
     <group>
-      {/* Lighting */}
-      <ambientLight intensity={isDay ? 0.6 : 0.35} />
+      <SoftShadows size={28} samples={12} focus={0.6} />
+
+      {/* Lighting — soft area + accent */}
+      <hemisphereLight args={[isDay ? '#e9d8c8' : '#5a3a8a', isDay ? '#4a3a55' : '#1a0f22', isDay ? 0.55 : 0.35]} />
+      <ambientLight intensity={isDay ? 0.25 : 0.18} />
       <directionalLight
-        position={[5, 8, 3]}
-        intensity={isDay ? 1.2 : 0.45}
-        color={isDay ? '#fff4e0' : '#c4b5fd'}
+        position={[5, 7, 3]}
+        intensity={isDay ? 1.4 : 0.5}
+        color={isDay ? '#ffe6c0' : '#c4b5fd'}
         castShadow
         shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0002}
+        shadow-radius={6}
       >
-        <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5]} />
+        <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5, 0.1, 20]} />
       </directionalLight>
       {!isDay && (
         <>
-          <pointLight position={[-3, 2, -1]} intensity={0.5} color={VIOLET} />
-          <pointLight position={[2, 1.5, 2]} intensity={0.35} color={MAGENTA} />
+          <pointLight position={[-3, 2, -1]} intensity={0.45} color="#8b5cf6" distance={6} decay={2} />
+          <pointLight position={[2, 1.5, 2]} intensity={0.3} color="#ec4899" distance={6} decay={2} />
         </>
       )}
-      {/* Desk lamp warm glow (always-on) */}
-      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.25 : 0.9} color="#ffb066" distance={3} decay={2} />
+      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.0} color="#ffb066" distance={3.5} decay={2} castShadow shadow-mapSize={[512, 512]} />
 
-      {/* Floor */}
+      {/* Floor — dark wood with subtle sheen */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[14, 14]} />
-        <meshStandardMaterial color={isDay ? '#2a223a' : '#15101e'} roughness={0.95} metalness={0.05} />
+        <meshPhysicalMaterial
+          color={isDay ? '#2a2335' : '#13101c'}
+          roughness={0.7} metalness={0.0}
+          clearcoat={0.3} clearcoatRoughness={0.8}
+        />
       </mesh>
-      <ContactShadows position={[0, 0.001, 0]} opacity={0.5} scale={10} blur={2.5} far={4} />
+      <ContactShadows position={[0, 0.002, 0]} opacity={0.65} scale={10} blur={3.2} far={4} resolution={1024} />
 
       {/* Rug under desk */}
       <mesh position={[0, 0.005, 0.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[3.5, 2.2]} />
-        <meshStandardMaterial color="#3a1f4a" roughness={1} />
+        <meshStandardMaterial color="#2d1838" roughness={1} />
       </mesh>
 
-      {/* Back wall + side wall */}
+      {/* Back wall + side wall — slight texture */}
       <mesh position={[0, 2, -2.6]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#26203a' : '#1a1326'} roughness={0.85} />
+        <meshStandardMaterial color={isDay ? '#2a2538' : '#19142a'} roughness={0.92} />
       </mesh>
       <mesh position={[-2.6, 2, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#221b34' : '#180f24'} roughness={0.85} />
+        <meshStandardMaterial color={isDay ? '#252035' : '#161028'} roughness={0.92} />
       </mesh>
 
       {/* === WINDOW on the side wall === */}
       <Window position={[-2.58, 2.1, -1.0]} isDay={isDay} />
 
-      {/* === DESK === */}
+      {/* === DESK === walnut PBR */}
       <RoundedBox args={[3.2, 0.12, 1.6]} radius={0.04} position={[0, 0.7, 0]} castShadow receiveShadow>
-        <meshStandardMaterial color="#2a1d3f" roughness={0.4} metalness={0.2} />
+        <meshPhysicalMaterial
+          color="#2a1a14"
+          roughness={0.55} metalness={0.05}
+          clearcoat={0.4} clearcoatRoughness={0.45}
+          sheen={0.3} sheenColor="#5a3a2a"
+        />
       </RoundedBox>
       {[[-1.45, 0.35, -0.7], [1.45, 0.35, -0.7], [-1.45, 0.35, 0.7], [1.45, 0.35, 0.7]].map((p, i) => (
         <mesh key={i} position={p} castShadow>
           <boxGeometry args={[0.08, 0.7, 0.08]} />
-          <meshStandardMaterial color="#0c0712" metalness={0.4} roughness={0.5} />
+          <meshStandardMaterial color="#0a0610" metalness={0.7} roughness={0.35} />
         </mesh>
       ))}
 
