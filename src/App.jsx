@@ -103,7 +103,11 @@ export default function App() {
   // Transformation HQ page route
   if (route.startsWith('#/transformation')) {
     return (
-      <TransformationHQ onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      <>
+        <div className="pr-backdrop-glow" aria-hidden="true" />
+        <div className="pr-backdrop-noise" aria-hidden="true" />
+        <TransformationHQ onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </>
     )
   }
 

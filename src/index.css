@@ -390,6 +390,10 @@ nav button.rounded-full.bg-muted\/60:hover {
 .rounded-md { border-radius: calc(var(--radius) - 2px) !important; }
 .rounded-xl { border-radius: calc(var(--radius) + 4px) !important; }
 
+/* Hide scrollbar while keeping scroll behavior */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
 /* Section headings inside <section> tags — slightly more refined */
 section h2.font-heading { font-weight: 600; }
 

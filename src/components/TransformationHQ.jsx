@@ -196,36 +196,58 @@ export default function TransformationHQ({ onBack }) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Top bar */}
-      <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-xl border-b border-border/40">
+      {/* Top bar — nav surface with violet glow */}
+      <div className="sticky top-0 z-30 thq-nav-surface backdrop-blur-xl border-b"
+        style={{ borderBottomColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
           <button
             onClick={onBack || (() => { window.location.hash = ''; window.location.reload() })}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm group"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-            Back
+            <span className="w-7 h-7 rounded-lg flex items-center justify-center transition-colors"
+              style={{
+                background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)',
+                boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 22%, transparent)',
+              }}>
+              <svg className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </span>
+            <span className="hidden sm:inline">Back to site</span>
           </button>
           <div className="text-center flex-1 min-w-0">
-            <h1 className="text-foreground text-base sm:text-lg font-semibold flex items-center justify-center gap-2">
-              <span>🔥</span> Transformation HQ
+            <h1 className="font-heading text-foreground text-base sm:text-lg font-semibold flex items-center justify-center gap-2 tracking-tight">
+              <span className="text-lg">🔥</span>
+              <span>Transformation <span className="text-gradient-violet">HQ</span></span>
             </h1>
-            <p className="text-[11px] text-muted-foreground hidden sm:block">Personal fitness OS · best shape by end of 2027</p>
+            <p className="text-[10.5px] text-muted-foreground hidden sm:block tracking-wide">Personal fitness OS · best shape by end of 2027</p>
           </div>
-          <div className="w-12 flex-shrink-0" />
+          <div className="w-20 sm:w-28 flex-shrink-0" />
         </div>
 
-        {/* Tabs */}
-        <div className="max-w-6xl mx-auto px-3 pb-2 overflow-x-auto">
-          <div className="flex gap-1">
-            {TABS.map(t => (
-              <button key={t.id} onClick={() => setTab(t.id)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium whitespace-nowrap transition-all ${
-                  tab === t.id ? 'bg-foreground/10 text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-foreground/5'
-                }`}>
-                <span>{t.icon}</span>{t.label}
-              </button>
-            ))}
+        {/* Tabs — pill-style segmented */}
+        <div className="max-w-6xl mx-auto px-3 pb-2 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-0.5 min-w-fit">
+            {TABS.map(t => {
+              const active = tab === t.id
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setTab(t.id)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-medium whitespace-nowrap transition-all"
+                  style={active ? {
+                    background: 'color-mix(in oklab, var(--chart-1) 16%, transparent)',
+                    color: 'var(--color-foreground)',
+                    boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 38%, transparent), 0 2px 8px -2px color-mix(in oklab, var(--chart-1) 35%, transparent)',
+                  } : {
+                    color: 'var(--color-muted-foreground)',
+                  }}
+                  onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-foreground)' }}
+                  onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-muted-foreground)' }}
+                >
+                  <span>{t.icon}</span>
+                  <span>{t.label}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -246,7 +268,7 @@ export default function TransformationHQ({ onBack }) {
       </div>
 
       <div className="border-t border-border/30 py-4 text-center">
-        <span className="text-[10px] text-muted-foreground/60">All data stored locally · no cloud · no judgment</span>
+        <span className="text-[10px] text-muted-foreground/60 font-mono">All data stored locally · no cloud · no judgment</span>
       </div>
     </div>
   )
@@ -296,24 +318,31 @@ function TodayTab() {
   return (
     <div className="space-y-4">
       {/* Hero header — journey day + ring + streak */}
-      <div className="bg-card pr-tint-violet p-5">
-        <div className="flex items-center justify-between flex-wrap gap-4">
-          <div className="flex items-center gap-4">
-            <ProgressRing value={pct} size={80} stroke={6} />
+      <div className="bg-card pr-tint-violet p-5 md:p-6">
+        <div className="flex items-center justify-between flex-wrap gap-5">
+          <div className="flex items-center gap-5">
+            <ProgressRing value={pct} size={92} stroke={7} />
             <div>
-              <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-violet-300/70">Day {dayN} of the journey</div>
-              <div className="text-xl font-heading font-semibold text-foreground mt-0.5">{day} · {plan.focus}</div>
-              <div className="flex items-center gap-3 mt-1.5 text-[11px]">
-                <span className="flex items-center gap-1 text-amber-400 font-semibold">
-                  🔥 {streak} day streak
+              <div className="text-[10px] uppercase tracking-[0.16em] font-semibold" style={{ color: 'color-mix(in oklab, var(--chart-1) 70%, var(--color-muted-foreground))' }}>
+                Day {dayN} of the journey
+              </div>
+              <div className="font-heading text-2xl md:text-3xl font-semibold text-foreground mt-1 tracking-tight">
+                {day} · <span className="text-gradient-violet">{plan.focus}</span>
+              </div>
+              <div className="flex items-center gap-4 mt-2 text-[11px]">
+                <span className="flex items-center gap-1.5 font-semibold" style={{ color: 'oklch(75% 0.18 60)' }}>
+                  <span className="text-base">🔥</span> {streak} day streak
                 </span>
-                <span className="text-muted-foreground">{done}/{checks.length} done today</span>
+                <span className="text-muted-foreground tabular-nums">{done}/{checks.length} done today · {pct}%</span>
               </div>
             </div>
           </div>
           <QuickActions log={log} plan={plan} />
         </div>
-        <p className="text-[11px] text-muted-foreground mt-4 italic">{plan.notes}</p>
+        <p className="text-[11.5px] text-muted-foreground/90 mt-4 italic pl-1 border-l-2 pl-3"
+          style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 40%, transparent)' }}>
+          {plan.notes}
+        </p>
       </div>
 
       {/* Today's checklist */}
