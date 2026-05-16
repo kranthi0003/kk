@@ -1,7 +1,11 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, ContactShadows, AccumulativeShadows, RandomizedLight, Html, Float, RoundedBox, SoftShadows } from '@react-three/drei'
+import { OrbitControls, Environment, ContactShadows, AccumulativeShadows, RandomizedLight, Html, Float, RoundedBox, SoftShadows, useGLTF, useAnimations } from '@react-three/drei'
 import * as THREE from 'three'
+
+const CHARACTER_URL = import.meta.env.BASE_URL + 'models/character.glb'
+// Preload so the avatar is ready when scene mounts
+useGLTF.preload(CHARACTER_URL)
 
 // ============================================================
 // WORKSPACE — A 3D interactive desk scene
@@ -1471,292 +1475,68 @@ function Player({ onNear, hotspots }) {
   )
 }
 
-// ─── NPC "Me" — looks like Kranthi, activity changes by IST hour ─────
+// ─── NPC "Me" — GLB avatar, activity changes by IST hour ─────────────
 function NPC() {
-  const headRef = useRef()
-  const armLRef = useRef()
-  const armRRef = useRef()
-  const bodyRef = useRef()
+  const group = useRef()
+  const { scene, animations } = useGLTF(CHARACTER_URL)
+  const { actions, names } = useAnimations(animations, group)
 
-  // Activity by IST hour
   const [activity, setActivity] = React.useState(() => getActivity())
   React.useEffect(() => {
     const id = setInterval(() => setActivity(getActivity()), 60_000)
     return () => clearInterval(id)
   }, [])
 
-  useFrame((state) => {
-    const t = state.clock.elapsedTime
-    if (!headRef.current || !armLRef.current || !armRRef.current) return
+  // Map activity → animation clip name
+  const animMap = {
+    sleep:  "Death",       // lying-down pose
+    coffee: "Wave",
+    work:   "Sitting",
+    lunch:  "Yes",          // head nod ~ eating
+    gym:    "Punch",        // arm punches ~ lifting
+    ps5:    "Sitting",
+  }
+  React.useEffect(() => {
+    const wanted = animMap[activity.id] || "Idle"
+    const clip = actions[wanted] || actions[names[0]]
+    Object.values(actions).forEach(a => a?.fadeOut(0.3))
+    clip?.reset().fadeIn(0.3).play()
+  }, [activity.id, actions, names.join()])
 
-    switch (activity.id) {
-      case 'sleep':
-        // Slow breathing
-        if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 0.6) * 0.02
-        armLRef.current.rotation.x = -0.1
-        armRRef.current.rotation.x = -0.1
-        headRef.current.rotation.x = 0
-        headRef.current.rotation.y = 0
-        break
-      case 'work':
-      case 'coffee':
-        // Typing — arms forward and down toward keyboard
-        armLRef.current.rotation.x = -1.4 + Math.sin(t * 8) * 0.06
-        armRRef.current.rotation.x = -1.4 + Math.sin(t * 8 + 1.2) * 0.06
-        headRef.current.rotation.x = 0.2 + Math.sin(t * 0.5) * 0.05
-        headRef.current.rotation.y = Math.sin(t * 0.3) * 0.1
-        break
-      case 'lunch':
-        // Right arm to mouth periodically
-        armLRef.current.rotation.x = -0.6
-        armRRef.current.rotation.x = -2.0 - Math.abs(Math.sin(t * 0.7)) * 0.4
-        headRef.current.rotation.x = 0.15 + Math.sin(t * 0.7) * 0.1
-        break
-      case 'gym':
-        // Lifting motion (standing)
-        const lift = Math.abs(Math.sin(t * 2.5))
-        armLRef.current.rotation.x = -2.4 - lift * 0.5
-        armRRef.current.rotation.x = -2.4 - lift * 0.5
-        headRef.current.rotation.x = -0.05
-        if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 5) * 0.025
-        break
-      case 'ps5':
-        // Hands together holding controller
-        armLRef.current.rotation.x = -1.7 + Math.sin(t * 6) * 0.04
-        armRRef.current.rotation.x = -1.7 + Math.sin(t * 6 + 0.5) * 0.04
-        headRef.current.rotation.x = 0.18
-        headRef.current.rotation.y = Math.sin(t * 0.3) * 0.05
-        break
-      default:
-        armLRef.current.rotation.x = -0.4
-        armRRef.current.rotation.x = -0.4
-        headRef.current.rotation.x = 0
-    }
-  })
+  // Apply shadows + tinted material to the GLB once
+  React.useEffect(() => {
+    scene.traverse((o) => {
+      if (o.isMesh) {
+        o.castShadow = true
+        o.receiveShadow = true
+      }
+    })
+  }, [scene])
 
-  // Colors approximating Kranthi
-  const SKIN = '#b07a52'
-  const SKIN_DARK = '#8a5a3a'
-  const HAIR = '#0d0708'
-  const SHIRT = '#1a1326'
-  const PANTS = '#0c0712'
-
-  const sitting = activity.id !== 'gym' && activity.id !== 'sleep'
-  const sleeping = activity.id === 'sleep'
-
-  // Body anchor — when sitting, hips on chair seat (y=0.58)
-  // When standing (gym), feet on floor
-  // When sleeping, lying flat (rotated)
-  const anchorY = sleeping ? 0.4 : (sitting ? 0.58 : 0)
-  const bodyRotX = sleeping ? -Math.PI / 2.2 : 0
-  const bodyOffsetZ = sleeping ? 0.2 : 0
-
+  // Sitting / standing pose offset:
+  // Robot is ~1.8 units tall; scale 0.45 → ~0.8 unit
+  // Place on chair seat: y=0.54
+  const sitting = activity.id !== "gym" && activity.id !== "sleep"
+  const yOff = sitting ? 0.05 : (activity.id === "sleep" ? 0.1 : 0)
   return (
     <group>
-      <group ref={bodyRef} position={[0, anchorY, bodyOffsetZ]} rotation={[bodyRotX, 0, 0]}>
-        {/* Hips/Pelvis */}
-        <RoundedBox args={[0.34, 0.16, 0.26]} radius={0.06} position={[0, 0.08, 0]} castShadow>
-          <meshStandardMaterial color={PANTS} roughness={0.7} />
-        </RoundedBox>
-
-        {/* Torso */}
-        <group position={[0, 0.35, 0]}>
-          <RoundedBox args={[0.38, 0.42, 0.24]} radius={0.07} castShadow>
-            <meshStandardMaterial color={SHIRT} roughness={0.7} />
-          </RoundedBox>
-          {/* T-shirt logo accent dot */}
-          <mesh position={[0, 0, 0.13]}>
-            <circleGeometry args={[0.025, 16]} />
-            <meshBasicMaterial color="#a78bfa" toneMapped={false} />
-          </mesh>
-        </group>
-
-        {/* Neck */}
-        <mesh position={[0, 0.6, 0]} castShadow>
-          <cylinderGeometry args={[0.05, 0.06, 0.08, 12]} />
-          <meshStandardMaterial color={SKIN_DARK} roughness={0.7} />
-        </mesh>
-
-        {/* === HEAD (animated) === */}
-        <group ref={headRef} position={[0, 0.75, 0]}>
-          {/* Face sphere */}
-          <mesh castShadow>
-            <sphereGeometry args={[0.15, 24, 18]} />
-            <meshStandardMaterial color={SKIN} roughness={0.55} />
-          </mesh>
-          {/* Hair cap */}
-          <mesh position={[0, 0.03, -0.01]} castShadow>
-            <sphereGeometry args={[0.165, 24, 18, 0, Math.PI * 2, 0, Math.PI / 1.8]} />
-            <meshStandardMaterial color={HAIR} roughness={0.85} />
-          </mesh>
-          {/* Hair side fade — slight darker temple bumps */}
-          <mesh position={[-0.13, -0.02, 0.02]} castShadow>
-            <sphereGeometry args={[0.04, 12, 8]} />
-            <meshStandardMaterial color={HAIR} roughness={0.85} />
-          </mesh>
-          <mesh position={[0.13, -0.02, 0.02]} castShadow>
-            <sphereGeometry args={[0.04, 12, 8]} />
-            <meshStandardMaterial color={HAIR} roughness={0.85} />
-          </mesh>
-          {/* Ears */}
-          <mesh position={[-0.145, -0.005, 0]}>
-            <sphereGeometry args={[0.028, 12, 8]} />
-            <meshStandardMaterial color={SKIN} />
-          </mesh>
-          <mesh position={[0.145, -0.005, 0]}>
-            <sphereGeometry args={[0.028, 12, 8]} />
-            <meshStandardMaterial color={SKIN} />
-          </mesh>
-          {/* Face faces -z (toward desk/camera depending on context) */}
-          {/* Eyebrows */}
-          <mesh position={[-0.055, 0.04, -0.13]} rotation={[0, 0, -0.1]}>
-            <boxGeometry args={[0.04, 0.008, 0.005]} />
-            <meshStandardMaterial color={HAIR} />
-          </mesh>
-          <mesh position={[0.055, 0.04, -0.13]} rotation={[0, 0, 0.1]}>
-            <boxGeometry args={[0.04, 0.008, 0.005]} />
-            <meshStandardMaterial color={HAIR} />
-          </mesh>
-          {/* Eyes */}
-          <mesh position={[-0.05, 0.01, -0.137]}>
-            <sphereGeometry args={[0.016, 12, 8]} />
-            <meshStandardMaterial color={sleeping ? SKIN_DARK : '#1a0e0a'} />
-          </mesh>
-          <mesh position={[0.05, 0.01, -0.137]}>
-            <sphereGeometry args={[0.016, 12, 8]} />
-            <meshStandardMaterial color={sleeping ? SKIN_DARK : '#1a0e0a'} />
-          </mesh>
-          {/* Glasses */}
-          {!sleeping && activity.id !== 'gym' && (
-            <>
-              <mesh position={[-0.05, 0.01, -0.143]} rotation={[0, Math.PI, 0]}>
-                <ringGeometry args={[0.025, 0.032, 18]} />
-                <meshBasicMaterial color="#2a1d3f" />
-              </mesh>
-              <mesh position={[0.05, 0.01, -0.143]} rotation={[0, Math.PI, 0]}>
-                <ringGeometry args={[0.025, 0.032, 18]} />
-                <meshBasicMaterial color="#2a1d3f" />
-              </mesh>
-              <mesh position={[0, 0.01, -0.143]}>
-                <boxGeometry args={[0.02, 0.004, 0.004]} />
-                <meshStandardMaterial color="#2a1d3f" />
-              </mesh>
-            </>
-          )}
-          {/* Nose */}
-          <mesh position={[0, -0.015, -0.145]} castShadow>
-            <sphereGeometry args={[0.022, 12, 8]} />
-            <meshStandardMaterial color={SKIN} roughness={0.6} />
-          </mesh>
-          {/* Mouth */}
-          <mesh position={[0, -0.07, -0.137]}>
-            <boxGeometry args={[0.04, 0.007, 0.005]} />
-            <meshStandardMaterial color="#6a3a30" />
-          </mesh>
-          {/* Beard stubble */}
-          <mesh position={[0, -0.06, -0.07]} rotation={[Math.PI, 0, 0]} castShadow>
-            <sphereGeometry args={[0.11, 16, 10, 0, Math.PI * 2, 0, Math.PI * 0.35]} />
-            <meshStandardMaterial color="#3a221a" roughness={0.95} transparent opacity={0.55} />
-          </mesh>
-        </group>
-
-        {/* === ARMS === Shoulder pivots, arm hangs down by default */}
-        <group ref={armLRef} position={[-0.22, 0.5, 0]}>
-          {/* Upper arm + forearm in a single segment */}
-          <RoundedBox args={[0.08, 0.4, 0.1]} radius={0.04} position={[0, -0.2, 0]} castShadow>
-            <meshStandardMaterial color={SHIRT} />
-          </RoundedBox>
-          {/* Hand at end */}
-          <mesh position={[0, -0.42, 0]} castShadow>
-            <sphereGeometry args={[0.045, 12, 8]} />
-            <meshStandardMaterial color={SKIN} />
-          </mesh>
-        </group>
-        <group ref={armRRef} position={[0.22, 0.5, 0]}>
-          <RoundedBox args={[0.08, 0.4, 0.1]} radius={0.04} position={[0, -0.2, 0]} castShadow>
-            <meshStandardMaterial color={SHIRT} />
-          </RoundedBox>
-          <mesh position={[0, -0.42, 0]} castShadow>
-            <sphereGeometry args={[0.045, 12, 8]} />
-            <meshStandardMaterial color={SKIN} />
-          </mesh>
-        </group>
-
-        {/* === LEGS === */}
-        {sitting && (
-          <>
-            {/* Sitting: thighs forward then shins down */}
-            <group position={[-0.09, 0.05, 0]}>
-              <RoundedBox args={[0.11, 0.1, 0.36]} radius={0.04} position={[0, 0, -0.18]} castShadow>
-                <meshStandardMaterial color={PANTS} />
-              </RoundedBox>
-              {/* Shin */}
-              <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.04} position={[0, -0.25, -0.35]} castShadow>
-                <meshStandardMaterial color={PANTS} />
-              </RoundedBox>
-              {/* Shoe */}
-              <RoundedBox args={[0.12, 0.06, 0.18]} radius={0.02} position={[0, -0.47, -0.4]} castShadow>
-                <meshStandardMaterial color="#1a1326" />
-              </RoundedBox>
-            </group>
-            <group position={[0.09, 0.05, 0]}>
-              <RoundedBox args={[0.11, 0.1, 0.36]} radius={0.04} position={[0, 0, -0.18]} castShadow>
-                <meshStandardMaterial color={PANTS} />
-              </RoundedBox>
-              <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.04} position={[0, -0.25, -0.35]} castShadow>
-                <meshStandardMaterial color={PANTS} />
-              </RoundedBox>
-              <RoundedBox args={[0.12, 0.06, 0.18]} radius={0.02} position={[0, -0.47, -0.4]} castShadow>
-                <meshStandardMaterial color="#1a1326" />
-              </RoundedBox>
-            </group>
-          </>
-        )}
-        {activity.id === 'gym' && (
-          <>
-            {/* Standing legs */}
-            <RoundedBox args={[0.11, 0.45, 0.12]} radius={0.04} position={[-0.09, -0.22, 0]} castShadow>
-              <meshStandardMaterial color={PANTS} />
-            </RoundedBox>
-            <RoundedBox args={[0.11, 0.45, 0.12]} radius={0.04} position={[0.09, -0.22, 0]} castShadow>
-              <meshStandardMaterial color={PANTS} />
-            </RoundedBox>
-            <RoundedBox args={[0.13, 0.06, 0.2]} radius={0.02} position={[-0.09, -0.48, 0.04]} castShadow>
-              <meshStandardMaterial color="#1a1326" />
-            </RoundedBox>
-            <RoundedBox args={[0.13, 0.06, 0.2]} radius={0.02} position={[0.09, -0.48, 0.04]} castShadow>
-              <meshStandardMaterial color="#1a1326" />
-            </RoundedBox>
-          </>
-        )}
-        {sleeping && (
-          <>
-            {/* Sleep legs — straight out (relative to rotated body) */}
-            <RoundedBox args={[0.11, 0.7, 0.12]} radius={0.04} position={[-0.09, -0.35, 0]} castShadow>
-              <meshStandardMaterial color={PANTS} />
-            </RoundedBox>
-            <RoundedBox args={[0.11, 0.7, 0.12]} radius={0.04} position={[0.09, -0.35, 0]} castShadow>
-              <meshStandardMaterial color={PANTS} />
-            </RoundedBox>
-          </>
-        )}
+      <group
+        ref={group}
+        position={[0, yOff, sitting ? -0.05 : 0]}
+        rotation={[0, Math.PI, 0]}
+        scale={0.45}
+      >
+        <primitive object={scene} />
       </group>
 
-      {/* Activity-specific props (world space) */}
-      {sleeping && (
-        <Float speed={1.2} floatIntensity={0.5}>
-          <Html position={[0.25, 0.8, 0.1]} center distanceFactor={6}>
-            <div style={{ fontSize: 18, color: '#c4b5fd', opacity: 0.8 }}>💤</div>
-          </Html>
-        </Float>
-      )}
-      {activity.id === 'lunch' && (
+      {/* Activity props */}
+      {activity.id === "lunch" && (
         <mesh position={[0, 0.82, -0.45]} castShadow>
           <boxGeometry args={[0.25, 0.04, 0.18]} />
           <meshStandardMaterial color="#fbbf24" />
         </mesh>
       )}
-      {activity.id === 'gym' && (
+      {activity.id === "gym" && (
         <group position={[0, 1.4, 0]} rotation={[0, 0, Math.PI / 2]}>
           <mesh castShadow>
             <cylinderGeometry args={[0.025, 0.025, 0.5, 12]} />
@@ -1770,27 +1550,27 @@ function NPC() {
           ))}
         </group>
       )}
-      {activity.id === 'ps5' && (
+      {activity.id === "ps5" && (
         <mesh position={[0, 0.85, -0.3]} rotation={[0.3, 0, 0]} castShadow>
           <boxGeometry args={[0.18, 0.04, 0.08]} />
           <meshStandardMaterial color="#0c0712" metalness={0.6} />
         </mesh>
       )}
 
-      {/* Activity status pill above head */}
-      <Html position={[0, sleeping ? 0.9 : (activity.id === 'gym' ? 1.7 : 1.55), 0]} center distanceFactor={6}>
+      {/* Status pill */}
+      <Html position={[0, activity.id === "sleep" ? 0.7 : (activity.id === "gym" ? 1.85 : 1.55), 0]} center distanceFactor={6}>
         <div style={{
-          padding: '3px 10px',
+          padding: "3px 10px",
           borderRadius: 10,
           background: activity.color,
-          color: 'white',
+          color: "white",
           fontSize: 11,
           fontWeight: 600,
-          whiteSpace: 'nowrap',
-          fontFamily: 'system-ui',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
-          display: 'flex',
-          alignItems: 'center',
+          whiteSpace: "nowrap",
+          fontFamily: "system-ui",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
+          display: "flex",
+          alignItems: "center",
           gap: 5,
         }}>
           <span>{activity.icon}</span>
