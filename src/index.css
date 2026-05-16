@@ -2,78 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme CSS Variables — Provisionr-inspired violet/midnight palette */
+/* === Provisionr.io exact design tokens (oklch) === */
 :root {
-  --color-background: #f7f6fb;
-  --color-foreground: #1c1530;
-  --color-card: #ffffff;
-  --color-card-foreground: #1c1530;
-  --color-muted: #ece9f4;
-  --color-muted-foreground: #6b6485;
-  --color-accent: #7c3aed;
-  --color-accent-foreground: #ffffff;
-  --color-border: #e3dff0;
-  --color-primary: #1c1530;
-  --color-primary-foreground: #ffffff;
+  --radius: 0.625rem;
+  --color-background: oklch(96% 0.01 320);
+  --color-foreground: oklch(15% 0.02 290);
+  --color-card: oklch(98% 0.005 320);
+  --color-card-foreground: oklch(15% 0.02 290);
+  --color-muted: oklch(94% 0.012 320);
+  --color-muted-foreground: oklch(48% 0.025 290);
+  --color-accent: oklch(58% 0.20 285);
+  --color-accent-foreground: oklch(100% 0 0);
+  --color-border: oklch(88% 0.008 290);
+  --color-primary: oklch(15% 0.02 290);
+  --color-primary-foreground: oklch(100% 0 0);
 }
 
-/* Light mode backdrop: subtle violet wash + noise */
-body {
-  background-color: var(--color-background);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,58,237,0.10), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(217,70,239,0.06), transparent 60%);
-  background-attachment: fixed;
-}
-
-/* Noise grain overlay — tiny SVG, no asset to host */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-}
-
-/* Dark mode — deep midnight + violet→magenta radial glows */
+/* Dark — matches provisionr's #07070e backdrop + same vibrant chart violet */
 .dark {
-  --color-background: #0a0814;
-  --color-foreground: #e8e4f5;
-  --color-card: #14101f;
-  --color-card-foreground: #e8e4f5;
-  --color-muted: #1c1730;
-  --color-muted-foreground: #9991b8;
-  --color-accent: #a78bfa;
-  --color-accent-foreground: #0a0814;
-  --color-border: #221c38;
-  --color-primary: #e8e4f5;
-  --color-primary-foreground: #0a0814;
+  --color-background: oklch(8% 0.02 290);
+  --color-foreground: oklch(98% 0 0);
+  --color-card: oklch(11% 0.018 290);
+  --color-card-foreground: oklch(98% 0 0);
+  --color-muted: oklch(16% 0.02 290);
+  --color-muted-foreground: oklch(65% 0.015 290);
+  --color-accent: oklch(72% 0.20 285);
+  --color-accent-foreground: oklch(8% 0.02 290);
+  --color-border: oklch(20% 0.015 290);
+  --color-primary: oklch(98% 0 0);
+  --color-primary-foreground: oklch(8% 0.02 290);
 }
 
-.dark body {
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(91,33,182,0.45), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(157,23,77,0.30), transparent 60%);
-}
-
-.dark body::before {
-  opacity: 0.6;
-  mix-blend-mode: overlay;
-}
-
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-}
-
+/* Base */
+html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif);
   background-color: var(--color-background);
   color: var(--color-foreground);
+  letter-spacing: -0.0025em;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -241,8 +207,7 @@ h1, h2, h3, h4, h5 {
 h1 { letter-spacing: -0.035em; }
 h2 { letter-spacing: -0.03em; }
 
-/* Body: slight tracking adjustment for Instrument Sans */
-body { letter-spacing: -0.005em; }
+/* Body tracking is set in :root body above to -0.0025em (provisionr value) */
 
 /* Soften ALL elevated shadows globally — provisionr uses borders, not big shadows */
 .shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
@@ -276,25 +241,17 @@ body { letter-spacing: -0.005em; }
 /* Backdrop layers — three fixed planes like provisionr.io */
 .pr-backdrop-base { position: fixed; inset: 0; z-index: -3; pointer-events: none;
   background-color: var(--color-background); }
-.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+/* Provisionr only shows glow in dark mode — light is clean */
+.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; display: none; }
+.dark .pr-backdrop-glow { display: block; }
 .pr-backdrop-glow::before, .pr-backdrop-glow::after {
   content: ''; position: absolute; inset: 0;
 }
-.pr-backdrop-glow::before {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%,
-    color-mix(in oklab, var(--color-accent) 14%, transparent), transparent 60%);
-}
-.pr-backdrop-glow::after {
-  background: radial-gradient(ellipse 60% 40% at 100% 100%,
-    color-mix(in oklab, oklch(0.55 0.22 320) 12%, transparent), transparent 60%);
-}
 .dark .pr-backdrop-glow::before {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%,
-    rgba(91,33,182,0.55), transparent 60%);
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, #221844, transparent 60%);
 }
 .dark .pr-backdrop-glow::after {
-  background: radial-gradient(ellipse 60% 40% at 100% 100%,
-    rgba(157,23,77,0.38), transparent 60%);
+  background: radial-gradient(ellipse 60% 40% at 100% 100%, #15021a, transparent 60%);
 }
 .pr-backdrop-noise {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -350,13 +307,16 @@ body:has(.pr-backdrop-base)::before { display: none; }
   main > section, main > div > section { /* no-op safeguard */ }
 }
 
-/* Global polish for any element using bg-card — adds subtle blur so
-   modals and cards across the site uniformly adopt the provisionr
-   glassy-bordered look. */
+/* Provisionr cards are opaque with thin borders — NO backdrop blur */
 .bg-card {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: var(--color-card) !important;
+  border-radius: var(--radius);
 }
+
+/* Normalize rounded utilities to provisionr's 10px baseline */
+.rounded-lg { border-radius: var(--radius) !important; }
+.rounded-md { border-radius: calc(var(--radius) - 2px) !important; }
+.rounded-xl { border-radius: calc(var(--radius) + 4px) !important; }
 
 /* Section headings inside <section> tags — slightly more refined */
 section h2.font-heading { font-weight: 600; }

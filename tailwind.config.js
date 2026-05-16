@@ -8,9 +8,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Instrument Sans', 'Outfit', 'sans-serif'],
-        body: ['Instrument Sans', 'Albert Sans', 'sans-serif'],
+        heading: ['Instrument Sans', 'Inter', 'sans-serif'],
+        body: ['Instrument Sans', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+      },
+      borderRadius: {
+        DEFAULT: '0.625rem',
+        md: 'calc(0.625rem - 2px)',
+        lg: '0.625rem',
+        xl: 'calc(0.625rem + 4px)',
       },
       colors: {
         background: 'var(--color-background)',
