@@ -563,16 +563,14 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 py-1.5 rounded-lg font-body text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                data-active={isActive ? 'true' : 'false'}
+                className={`nav-link-gradient relative px-3 py-1.5 rounded-md font-body text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-accent'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    ? 'text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {link.label}
-                {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" />
-                )}
               </a>
             )
           })}

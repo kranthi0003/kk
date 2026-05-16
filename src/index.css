@@ -549,3 +549,128 @@ html.theme-dracula .text-accent {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* =====================================================================
+   Provisionr-inspired design layer (applies to default light + dark only)
+   Alternate themes (.theme-fightclub, .theme-f1, etc.) override below.
+   ===================================================================== */
+
+/* Selection: violet wash */
+::selection { background: color-mix(in oklab, var(--color-accent) 40%, transparent); color: var(--color-foreground); }
+
+/* Headings: tighter tracking, weight 600 (Instrument Sans signature) */
+h1, h2, h3, h4, h5 {
+  letter-spacing: -0.022em;
+  font-weight: 600;
+}
+h1 { letter-spacing: -0.035em; }
+h2 { letter-spacing: -0.03em; }
+
+/* Body: slight tracking adjustment for Instrument Sans */
+body { letter-spacing: -0.005em; }
+
+/* Soften ALL elevated shadows globally — provisionr uses borders, not big shadows */
+.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--color-foreground) 4%, transparent) inset,
+    0 8px 32px -16px rgba(0,0,0,0.35) !important;
+}
+.dark .shadow, .dark .shadow-sm, .dark .shadow-md, .dark .shadow-lg, .dark .shadow-xl, .dark .shadow-2xl {
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.04) inset,
+    0 12px 40px -20px rgba(0,0,0,0.6) !important;
+}
+
+/* Nav-link signature: subtle violet gradient underline on hover */
+.nav-link-gradient { position: relative; }
+.nav-link-gradient::after {
+  content: '';
+  position: absolute;
+  left: 10px; right: 10px; bottom: 2px;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent,
+    color-mix(in oklab, var(--color-accent) 80%, transparent),
+    transparent);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.nav-link-gradient:hover::after,
+.nav-link-gradient[data-active="true"]::after { opacity: 1; }
+
+/* Backdrop layers — three fixed planes like provisionr.io */
+.pr-backdrop-base { position: fixed; inset: 0; z-index: -3; pointer-events: none;
+  background-color: var(--color-background); }
+.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+.pr-backdrop-glow::before, .pr-backdrop-glow::after {
+  content: ''; position: absolute; inset: 0;
+}
+.pr-backdrop-glow::before {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%,
+    color-mix(in oklab, var(--color-accent) 14%, transparent), transparent 60%);
+}
+.pr-backdrop-glow::after {
+  background: radial-gradient(ellipse 60% 40% at 100% 100%,
+    color-mix(in oklab, oklch(0.55 0.22 320) 12%, transparent), transparent 60%);
+}
+.dark .pr-backdrop-glow::before {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%,
+    rgba(91,33,182,0.55), transparent 60%);
+}
+.dark .pr-backdrop-glow::after {
+  background: radial-gradient(ellipse 60% 40% at 100% 100%,
+    rgba(157,23,77,0.38), transparent 60%);
+}
+.pr-backdrop-noise {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0.45; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+.dark .pr-backdrop-noise { opacity: 0.7; }
+
+/* When the new backdrop layers are present, hide the body-level fallback */
+body:has(.pr-backdrop-base) { background-image: none !important; }
+body:has(.pr-backdrop-base)::before { display: none; }
+
+/* Scrollbar: thin, accent-tinted */
+* { scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--color-accent) 30%, transparent) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--color-accent) 35%, transparent); border-radius: 4px; }
+*::-webkit-scrollbar-thumb:hover { background: color-mix(in oklab, var(--color-accent) 55%, transparent); }
+
+/* Focus-visible ring: violet, like shadcn */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 40%, transparent);
+  border-radius: 6px;
+}
+
+/* Polished theme-toggle button (used by new ThemeToggle) */
+.pr-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.25rem; height: 2.25rem;
+  border-radius: 0.5rem;
+  color: var(--color-foreground);
+  transition: background-color .2s ease, color .2s ease;
+  cursor: pointer;
+}
+.pr-toggle:hover { background-color: color-mix(in oklab, var(--color-accent) 12%, transparent); color: var(--color-accent); }
+.pr-toggle svg { width: 1.05rem; height: 1.05rem; }
+
+/* Card surface enhancement — gentle border + soft glassy bg.
+   Targets only elements that explicitly opt in via .pr-surface so we
+   don't double-up on cards that already have borders. */
+.pr-surface {
+  background-color: color-mix(in oklab, var(--color-card) 75%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-border) 70%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+}
+
+/* Container max-width matching provisionr (1200px content) */
+@media (min-width: 1280px) {
+  main > section, main > div > section { /* no-op safeguard */ }
+}

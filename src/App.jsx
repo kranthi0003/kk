@@ -130,7 +130,11 @@ export default function App() {
   return (
     <>
       {!booted && <BootLoader onComplete={() => setBooted(true)} />}
-      <div className={`min-h-screen bg-background text-foreground transition-opacity duration-500 ${!booted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      {/* Provisionr-style 3-layer fixed backdrop */}
+      <div className="pr-backdrop-base" aria-hidden="true" />
+      <div className="pr-backdrop-glow" aria-hidden="true" />
+      <div className="pr-backdrop-noise" aria-hidden="true" />
+      <div className={`min-h-screen text-foreground transition-opacity duration-500 [--header-height:68px] ${!booted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
