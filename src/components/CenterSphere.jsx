@@ -105,7 +105,6 @@ function Ring({ ring, isHot, setHot }) {
             color={isHot ? '#ffffff' : '#e9e1ff'}
             anchorX="center"
             anchorY="middle"
-            font="https://fonts.gstatic.com/s/bricolagegrotesque/v8/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PgNGfFa5C1zh.woff"
             outlineColor="#000"
             outlineWidth={0.01}
           >
@@ -159,23 +158,26 @@ function Scene() {
   const group = useRef()
   const [hot, setHot] = useState(null)
 
-  // Gentle idle rotation
+  // Gentle idle Y rotation (kept under group so it stays visible)
   useFrame((state) => {
     if (group.current) {
       const t = state.clock.elapsedTime
-      group.current.rotation.z = Math.sin(t * 0.15) * 0.04
+      group.current.rotation.y = Math.sin(t * 0.15) * 0.06
     }
   })
 
   return (
     <>
       {/* Lights */}
-      <ambientLight intensity={0.35} />
+      <ambientLight intensity={0.45} />
       <directionalLight position={[3, 6, 5]} intensity={1.4} color="#fff" castShadow />
       <directionalLight position={[-4, -2, 3]} intensity={0.45} color="#a78bfa" />
       <pointLight position={[0, 0, 3]} intensity={0.6} color="#fff" />
 
-      <group ref={group} rotation={[-Math.PI / 2.6, 0, 0]}>
+      {/* Group rotated so rings sit in the XY plane and we look at them
+          from above at a modest tilt — moderate angle (~28°) so depth is
+          visible but ring faces stay clearly readable. */}
+      <group ref={group} rotation={[-0.5, 0, 0]}>
         {/* Floor rim — large faint disc behind rings */}
         <mesh position={[0, 0, -0.25]}>
           <ringGeometry args={[2.78, 2.95, 96]} />
