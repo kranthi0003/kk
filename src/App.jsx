@@ -14,7 +14,7 @@ import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
-import CommandPalette from './components/CommandPalette'
+import CodeBrowser from './components/CodeBrowser'
 import Changelog from './components/Changelog'
 import QRvCard from './components/QRvCard'
 import SpeedTest from './components/SpeedTest'
@@ -24,7 +24,6 @@ import DevCalc from './components/DevCalc'
 import CarbonCalc from './components/CarbonCalc'
 import SalaryCalc from './components/SalaryCalc'
 import TransformationHQ from './components/TransformationHQ'
-import CodeBrowser from './components/CodeBrowser'
 import LiveChat from './components/LiveChat'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
@@ -164,7 +163,6 @@ export default function App() {
       <VisitorTracker />
       <VisitorCount />
       <AdminDashboard />
-      <CommandPalette onResumeClick={() => setResumeOpen(true)} />
       <Changelog />
       <QRvCard />
       <SpeedTest />
