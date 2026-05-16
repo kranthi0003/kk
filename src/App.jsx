@@ -41,6 +41,7 @@ import WorkspaceSection from './components/WorkspaceSection'
 import Preloader from './components/Preloader'
 import CursorFollower from './components/CursorFollower'
 import SmoothScroll from './components/SmoothScroll'
+import HeroNav from './components/HeroNav'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
@@ -263,7 +264,12 @@ export default function App() {
       <SmoothScroll />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <main>
-        <HeroV2 onResumeClick={() => { window.location.hash = '#/about'; window.location.reload() }} />
+        <div className="relative w-full h-screen">
+          <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
+            <Workspace embedded />
+          </Suspense>
+          <HeroNav />
+        </div>
       </main>
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       {/* AIChatbot kept mounted but its float button is hidden on hero via body class */}
