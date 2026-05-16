@@ -35,6 +35,8 @@ import DevNet from './components/DevNet'
 import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
 
+import WorkspaceSection from './components/WorkspaceSection'
+
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
 const StrangerChat = lazy(() => import('./components/StrangerChat'))
@@ -197,6 +199,7 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
+        <div className="section-animate"><WorkspaceSection /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><About /></div>

@@ -23,13 +23,13 @@ const HOTSPOTS = [
   { id: 'stranger',  label: 'Stranger chat',     hint: 'wear the headphones',    pos: [-0.6, 0, -0.65] },
 ]
 
-export default function Workspace({ onBack }) {
+export default function Workspace({ onBack, embedded = false }) {
   const [hovered, setHovered] = useState(null)
-  const [hint, setHint] = useState('Click PLAY to enter the room')
+  const [hint, setHint] = useState(embedded ? 'Drag to look · click items · or Play for game mode' : 'Click PLAY to enter the room')
   const [isDay, setIsDay] = useState(false)
-  const [gameMode, setGameMode] = useState(false) // false = orbit/click, true = WASD walk
-  const [near, setNear] = useState(null)          // hotspot id player is near
-  const [chatOpen, setChatOpen] = useState(false) // "me" NPC dialog
+  const [gameMode, setGameMode] = useState(false)
+  const [near, setNear] = useState(null)
+  const [chatOpen, setChatOpen] = useState(false)
 
   const nav = (id) => {
     if (id === 'fitness')  { window.location.hash = '#/transformation'; window.location.reload(); return }
@@ -72,6 +72,110 @@ export default function Workspace({ onBack }) {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [gameMode, near])
+
+  // Embedded mode: no top bar, fills parent, includes floating Play/Day buttons
+  if (embedded) {
+    return (
+      <div className="relative w-full h-full">
+        {/* Floating controls top-right */}
+        <div className="absolute top-3 right-3 z-20 flex gap-2">
+          <button
+            onClick={() => setGameMode(g => !g)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-semibold transition-all"
+            style={{
+              background: gameMode
+                ? 'linear-gradient(135deg, oklch(70% 0.22 145), oklch(65% 0.22 165))'
+                : 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 32%, transparent), color-mix(in oklab, var(--chart-2) 32%, transparent))',
+              color: 'white',
+              boxShadow: gameMode ? '0 0 16px -4px oklch(70% 0.22 145)' : '0 0 16px -4px color-mix(in oklab, var(--chart-1) 60%, transparent)',
+            }}>
+            {gameMode ? '⏸ Exit' : '▶ Play'}
+          </button>
+          <button
+            onClick={() => setIsDay(d => !d)}
+            className="flex items-center justify-center w-9 px-2 py-1.5 rounded-md text-[11px] font-semibold transition-all"
+            style={{
+              background: isDay ? 'color-mix(in oklab, oklch(75% 0.18 60) 18%, transparent)' : 'color-mix(in oklab, var(--chart-1) 12%, transparent)',
+              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${isDay ? 'oklch(75% 0.18 60)' : 'var(--chart-1)'} 40%, transparent)`,
+            }}>
+            {isDay ? '☀️' : '🌙'}
+          </button>
+        </div>
+
+        <Canvas
+          shadows
+          camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
+          gl={{ antialias: true, alpha: true }}
+          dpr={[1, 2]}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+        >
+          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
+          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
+          <Suspense fallback={null}>
+            <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} />
+            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+          </Suspense>
+          <OrbitControls
+            target={[0, 0.9, 0]} enablePan={false} enabled={!gameMode}
+            minDistance={3.5} maxDistance={8}
+            minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 2.2}
+            autoRotate={!gameMode} autoRotateSpeed={0.4}
+          />
+        </Canvas>
+
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
+          <div className="px-3 py-1 rounded-full backdrop-blur-xl text-[11px] font-mono text-foreground/90"
+            style={{ background: 'color-mix(in oklab, var(--color-card) 70%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 28%, transparent)' }}>
+            {hint}
+          </div>
+        </div>
+
+        {gameMode && (
+          <div className="absolute top-3 left-3 pointer-events-none">
+            <div className="px-3 py-2 rounded-xl backdrop-blur-xl"
+              style={{ background: 'color-mix(in oklab, var(--color-card) 80%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 30%, transparent)' }}>
+              <div className="space-y-0.5 text-[10px] text-muted-foreground font-mono">
+                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">W A S D</kbd> move</p>
+                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">E</kbd> interact · <kbd className="px-1 rounded bg-foreground/10 text-foreground">Esc</kbd> exit</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {chatOpen && (
+          <div className="absolute inset-0 flex items-end justify-center pb-6 px-4 pointer-events-none z-50">
+            <div className="max-w-lg w-full pointer-events-auto bg-card pr-tint-violet p-4 animate-fade-in-up" style={{ backdropFilter: 'blur(8px)' }}>
+              <div className="flex items-start gap-3 mb-2">
+                <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-bold"
+                  style={{ background: 'linear-gradient(135deg, oklch(60% 0.22 290), oklch(60% 0.25 320))', color: 'white' }}>K</div>
+                <div className="flex-1">
+                  <p className="text-[11px] font-semibold text-foreground">Kranthi</p>
+                  <p className="text-[10px] text-muted-foreground">at his desk</p>
+                </div>
+                <button onClick={() => setChatOpen(false)} className="text-muted-foreground hover:text-foreground text-lg leading-none">×</button>
+              </div>
+              <p className="text-[12.5px] text-foreground/90 leading-relaxed mb-3">
+                Hey 👋 thanks for stopping by. I'm a cloud engineer building infra and developer tooling at GitHub/Microsoft. Click an option:
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: '📖 About', go: () => { setChatOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) } },
+                  { label: '💼 Experience', go: () => { setChatOpen(false); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }) } },
+                  { label: '✉️  Email', go: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com', '_blank') },
+                  { label: '🔍 LinkedIn', go: () => window.open('https://linkedin.com/in/kranthikiran3', '_blank') },
+                ].map((c, i) => (
+                  <button key={i} onClick={c.go} className="px-3 py-2 rounded-md text-[12px] font-medium text-foreground text-left transition-all"
+                    style={{ background: 'color-mix(in oklab, var(--chart-1) 10%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 28%, transparent)' }}>
+                    {c.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
