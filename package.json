@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "postbuild": "cp dist/index.html dist/404.html",
+    "build:model": "node scripts/build-aperture.mjs"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
