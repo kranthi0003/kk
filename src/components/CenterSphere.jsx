@@ -57,24 +57,20 @@ function LensAssembly() {
 
   useFrame((state) => {
     const t = state.clock.elapsedTime
-    // Slowly drift the whole assembly
     if (groupRef.current) {
-      groupRef.current.rotation.y = Math.sin(t * 0.15) * 0.05
-      groupRef.current.rotation.x = Math.sin(t * 0.1) * 0.03
+      groupRef.current.rotation.y = Math.sin(t * 0.15) * 0.03
+      groupRef.current.rotation.x = Math.sin(t * 0.1) * 0.02
     }
-    // Outer ring rotates slowly
-    if (ring1Ref.current) ring1Ref.current.rotation.z = t * 0.05
-    if (ring2Ref.current) ring2Ref.current.rotation.z = -t * 0.08
-    if (tickRingRef.current) tickRingRef.current.rotation.z = t * 0.2
-    // Bubble float
-    if (bubbleRef.current) bubbleRef.current.position.y = Math.sin(t * 0.6) * 0.02
+    if (ring1Ref.current) ring1Ref.current.rotation.z = t * 0.03
+    if (ring2Ref.current) ring2Ref.current.rotation.z = -t * 0.05
+    if (tickRingRef.current) tickRingRef.current.rotation.z = t * 0.12
   })
 
   return (
     <group ref={groupRef}>
       {/* Outer ring — beveled metal */}
       <group ref={ring1Ref}>
-        <mesh castShadow>
+        <mesh>
           <torusGeometry args={[1.55, 0.15, 32, 96]} />
           <meshPhysicalMaterial
             color="#0f0a18"
@@ -84,7 +80,6 @@ function LensAssembly() {
             clearcoatRoughness={0.05}
           />
         </mesh>
-        {/* Inner bevel — slightly inset second torus for depth */}
         <mesh>
           <torusGeometry args={[1.42, 0.06, 24, 96]} />
           <meshPhysicalMaterial
@@ -97,9 +92,9 @@ function LensAssembly() {
         </mesh>
       </group>
 
-      {/* Mid ring — slightly smaller, opposite rotation */}
+      {/* Mid ring */}
       <group ref={ring2Ref}>
-        <mesh castShadow>
+        <mesh>
           <torusGeometry args={[1.15, 0.09, 24, 80]} />
           <meshPhysicalMaterial
             color="#0a0612"
@@ -108,14 +103,13 @@ function LensAssembly() {
             clearcoat={1}
           />
         </mesh>
-        {/* Highlight ring */}
         <mesh>
           <torusGeometry args={[1.06, 0.025, 16, 64]} />
           <meshBasicMaterial color="#a78bfa" toneMapped={false} transparent opacity={0.6} />
         </mesh>
       </group>
 
-      {/* Tick marks ring — 60 small radial marks */}
+      {/* Tick marks ring */}
       <group ref={tickRingRef}>
         {Array.from({ length: 60 }).map((_, i) => {
           const a = (i / 60) * Math.PI * 2
@@ -135,38 +129,24 @@ function LensAssembly() {
         })}
       </group>
 
-      {/* Center glass bubble */}
-      <group ref={bubbleRef}>
-        {/* Glass sphere */}
-        <mesh>
-          <sphereGeometry args={[0.78, 64, 48]} />
-          <meshPhysicalMaterial
-            color="#ffffff"
-            roughness={0.05}
-            metalness={0}
-            transmission={1}
-            thickness={1.5}
-            ior={1.4}
-            clearcoat={1}
-            clearcoatRoughness={0}
-            attenuationColor="#a78bfa"
-            attenuationDistance={2}
-          />
+      {/* Center: Profile photo on a flat disc (no glass distortion) */}
+      <group ref={bubbleRef} position={[0, 0, 0.1]}>
+        {/* Dark backing disc */}
+        <mesh position={[0, 0, -0.05]}>
+          <circleGeometry args={[0.82, 64]} />
+          <meshStandardMaterial color="#0a0612" />
         </mesh>
-
-        {/* Profile photo on a sphere inside the bubble */}
-        <ProfileOrb />
-
-        {/* Inner glow */}
-        <mesh>
-          <sphereGeometry args={[0.75, 32, 24]} />
-          <meshBasicMaterial color="#a78bfa" transparent opacity={0.05} toneMapped={false} />
+        {/* Profile image */}
+        <ProfileDisc />
+        {/* Subtle convex highlight overlay (top-left) */}
+        <mesh position={[-0.2, 0.25, 0.05]}>
+          <circleGeometry args={[0.18, 32]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.12} toneMapped={false} />
         </mesh>
-
-        {/* Front specular highlight cap (fake glass reflection) */}
-        <mesh position={[-0.25, 0.3, 0.55]}>
-          <circleGeometry args={[0.12, 24]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.4} toneMapped={false} />
+        {/* Edge highlight ring */}
+        <mesh position={[0, 0, 0.001]}>
+          <ringGeometry args={[0.78, 0.81, 64]} />
+          <meshBasicMaterial color="#a78bfa" transparent opacity={0.4} toneMapped={false} />
         </mesh>
       </group>
 
@@ -179,7 +159,7 @@ function LensAssembly() {
   )
 }
 
-function ProfileOrb() {
+function ProfileDisc() {
   const texture = useLoader(THREE.TextureLoader, PROFILE_URL)
   React.useEffect(() => {
     texture.colorSpace = THREE.SRGBColorSpace
@@ -188,12 +168,8 @@ function ProfileOrb() {
 
   return (
     <mesh>
-      <sphereGeometry args={[0.55, 64, 48]} />
-      <meshStandardMaterial
-        map={texture}
-        roughness={0.7}
-        metalness={0}
-      />
+      <circleGeometry args={[0.78, 64]} />
+      <meshBasicMaterial map={texture} toneMapped={false} />
     </mesh>
   )
 }
