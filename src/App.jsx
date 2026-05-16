@@ -223,7 +223,6 @@ export default function App() {
       <div className="min-h-screen text-foreground [--header-height:68px]">
       <Preloader />
       <SmoothScroll />
-      <CursorFollower />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <main>
         <HeroV2 onResumeClick={() => { window.location.hash = '#/about'; window.location.reload() }} />

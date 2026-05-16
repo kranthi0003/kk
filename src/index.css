@@ -135,12 +135,6 @@ body {
   transform: translateY(0);
 }
 
-/* Hide native cursor on hover-capable devices when CursorFollower is mounted */
-@media (hover: hover) and (pointer: fine) {
-  body { cursor: none; }
-  a, button, input, textarea, select, [role="button"], canvas { cursor: none; }
-}
-
 /* Reading Mode — clean, focused document layout */
 body.reading-mode {
   background-image: none !important;
