@@ -1,13 +1,18 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import supabase from '../lib/supabase'
+import { groqChat } from '../lib/groq'
 
 // ============================================================
 // STRANGER CHAT — Anonymous P2P text chat
 // - Supabase Realtime for signaling (presence + broadcast)
 // - WebRTC DataChannel for actual messages (no relay)
+// - AI fallback (Groq) when no humans are around
+// - Invite link to summon a friend directly
+// - Browser notification when match found in background
 // ============================================================
 
 const LOBBY_CHANNEL = 'stranger-chat:lobby'
+const NO_PEER_TIMEOUT_MS = 15000 // show AI fallback / invite options after this
 const ICE_SERVERS = [
   { urls: 'stun:stun.l.google.com:19302' },
   { urls: 'stun:stun1.l.google.com:19302' },
@@ -16,11 +21,12 @@ const ICE_SERVERS = [
 
 // Connection states
 const PHASE = {
-  WELCOME:   'welcome',    // initial screen w/ disclaimer
-  SEARCHING: 'searching',  // looking for a partner
-  CONNECTING:'connecting', // peer found, negotiating
-  CHATTING:  'chatting',   // DataChannel open
-  ENDED:     'ended',      // peer disconnected
+  WELCOME:   'welcome',
+  SEARCHING: 'searching',
+  CONNECTING:'connecting',
+  CHATTING:  'chatting',
+  AI_CHAT:   'ai_chat',
+  ENDED:     'ended',
 }
 
 export default function StrangerChat({ onBack }) {
@@ -29,6 +35,8 @@ export default function StrangerChat({ onBack }) {
   const [draft, setDraft]       = useState('')
   const [peerTyping, setPeerTyping] = useState(false)
   const [onlineCount, setOnlineCount] = useState(0)
+  const [searchedFor, setSearchedFor] = useState(0)
+  const [aiThinking, setAiThinking] = useState(false)
 
   const myIdRef         = useRef(crypto.randomUUID())
   const peerIdRef       = useRef(null)
@@ -38,11 +46,13 @@ export default function StrangerChat({ onBack }) {
   const messagesEndRef  = useRef(null)
   const typingTimerRef  = useRef(null)
   const negotiatingRef  = useRef(false)
+  const searchTimerRef  = useRef(null)
+  const inviteRef       = useRef(null)
 
   // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, peerTyping])
+  }, [messages, peerTyping, aiThinking])
 
   // ─── Teardown helper ─────────────────────────────────────────────
   const teardown = useCallback(() => {
@@ -52,10 +62,12 @@ export default function StrangerChat({ onBack }) {
       supabase.removeChannel(channelRef.current)
       channelRef.current = null
     }
+    if (searchTimerRef.current) { clearInterval(searchTimerRef.current); searchTimerRef.current = null }
     pcRef.current = null
     dcRef.current = null
     peerIdRef.current = null
     negotiatingRef.current = false
+    setSearchedFor(0)
   }, [])
 
   useEffect(() => () => teardown(), [teardown])
@@ -140,6 +152,18 @@ export default function StrangerChat({ onBack }) {
     setMessages([])
     setPeerTyping(false)
     setPhase(PHASE.SEARCHING)
+    setSearchedFor(0)
+
+    // Search-duration counter
+    const t0 = Date.now()
+    searchTimerRef.current = setInterval(() => {
+      setSearchedFor(Math.floor((Date.now() - t0) / 1000))
+    }, 1000)
+
+    // Request browser notification permission (silent — only used if hidden)
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission().catch(() => {})
+    }
 
     const ch = supabase.channel(LOBBY_CHANNEL, {
       config: { presence: { key: myIdRef.current }, broadcast: { self: false } },
@@ -148,7 +172,6 @@ export default function StrangerChat({ onBack }) {
 
     ch.on('presence', { event: 'sync' }, () => {
       const state = ch.presenceState()
-      // Only look at peers also in 'looking' state and not me, not already paired
       const looking = Object.entries(state)
         .filter(([id, list]) => id !== myIdRef.current && list.some(p => p.status === 'looking'))
         .map(([id]) => id)
@@ -158,23 +181,28 @@ export default function StrangerChat({ onBack }) {
       if (peerIdRef.current || negotiatingRef.current) return
       if (looking.length === 0) return
 
-      // Deterministic pairing: lower UUID is initiator
       const partner = looking.sort()[0]
       const amInitiator = myIdRef.current < partner
-      // Mark as paired in presence so others skip me
       ch.track({ status: 'paired', with: partner })
+
+      // Ping notification if tab not visible
+      if ('Notification' in window && Notification.permission === 'granted' && document.hidden) {
+        new Notification('Stranger Chat', { body: 'Found someone! Tap to come back.', icon: '/favicon.svg' })
+      }
+
       if (amInitiator) setupPeer(true, partner)
-      // Responder waits for the offer
     })
 
     ch.on('broadcast', { event: 'sig' }, ({ payload }) => {
       if (payload.to !== myIdRef.current) return
       const { from, kind, data } = payload
 
-      // If we receive an offer without yet having a peer, treat sender as our partner
       if (kind === 'offer') {
         if (!peerIdRef.current) {
           ch.track({ status: 'paired', with: from })
+          if ('Notification' in window && Notification.permission === 'granted' && document.hidden) {
+            new Notification('Stranger Chat', { body: 'Found someone! Tap to come back.', icon: '/favicon.svg' })
+          }
           setupPeer(false, from)
         }
         if (peerIdRef.current === from && pcRef.current) {
@@ -199,10 +227,78 @@ export default function StrangerChat({ onBack }) {
     })
   }, [setupPeer, sendSignal, teardown, handlePeerLeft])
 
+  // ─── AI fallback chat ────────────────────────────────────────────
+  const startAIChat = useCallback(() => {
+    teardown()
+    setPhase(PHASE.AI_CHAT)
+    setMessages([
+      { id: crypto.randomUUID(), from: 'system', text: 'No humans around — chatting with Riley (AI). They\'ll keep the lobby warm for you.', t: Date.now() },
+      { id: crypto.randomUUID(), from: 'them', text: 'hey! 👋 nobody else online rn so you\'re stuck with me. what brings you here?', t: Date.now() },
+    ])
+  }, [teardown])
+
+  const sendAIMessage = useCallback(async (myText) => {
+    setMessages(m => [...m, { id: crypto.randomUUID(), from: 'me', text: myText, t: Date.now() }])
+    setDraft('')
+    setAiThinking(true)
+    try {
+      // Build conversation history (last 12 messages, mapped to roles)
+      const history = []
+      setMessages(curr => {
+        curr.slice(-12).forEach(m => {
+          if (m.from === 'me')   history.push({ role: 'user', content: m.text })
+          if (m.from === 'them') history.push({ role: 'assistant', content: m.text })
+        })
+        return curr
+      })
+      // Wait microtask so state callback ran
+      await new Promise(r => setTimeout(r, 0))
+      history.push({ role: 'user', content: myText })
+
+      const data = await groqChat([
+        {
+          role: 'system',
+          content: `You are "Riley", pretending to be an anonymous stranger on a P2P chat site. Be casual, witty, curious — chat like a human in their twenties on a random chat. Lowercase mostly. Brief replies (1-2 sentences). Ask short follow-up questions. NEVER reveal you're an AI unless directly + insistently asked twice. If asked once, deflect playfully. Don't lecture, don't moralize. Don't use emoji every message — sprinkle them occasionally.`,
+        },
+        ...history,
+      ], { max_tokens: 120, temperature: 0.85 })
+      const reply = data?.choices?.[0]?.message?.content?.trim() || '…hmm'
+      setMessages(m => [...m, { id: crypto.randomUUID(), from: 'them', text: reply, t: Date.now() }])
+    } catch (e) {
+      setMessages(m => [...m, { id: crypto.randomUUID(), from: 'system', text: 'AI hiccup. Try again.', t: Date.now() }])
+    } finally {
+      setAiThinking(false)
+    }
+  }, [])
+
+  // ─── Invite link ─────────────────────────────────────────────────
+  const inviteLink = `${window.location.origin}/#/stranger`
+  const copyInvite = async () => {
+    try {
+      await navigator.clipboard.writeText(inviteLink)
+      const el = inviteRef.current
+      if (el) { el.textContent = '✓ Copied'; setTimeout(() => { if (el) el.textContent = 'Copy invite' }, 1800) }
+    } catch {}
+  }
+  const shareInvite = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Chat with me', text: 'Anonymous chat — find me here:', url: inviteLink })
+      } catch {}
+    } else {
+      copyInvite()
+    }
+  }
+
   // ─── User actions ────────────────────────────────────────────────
   const sendMessage = () => {
     const text = draft.trim()
-    if (!text || !dcRef.current || dcRef.current.readyState !== 'open') return
+    if (!text) return
+    if (phase === PHASE.AI_CHAT) {
+      sendAIMessage(text)
+      return
+    }
+    if (!dcRef.current || dcRef.current.readyState !== 'open') return
     dcRef.current.send(JSON.stringify({ type: 'msg', text }))
     setMessages(m => [...m, { id: crypto.randomUUID(), from: 'me', text, t: Date.now() }])
     setDraft('')
@@ -271,18 +367,27 @@ export default function StrangerChat({ onBack }) {
         )}
 
         {phase === PHASE.SEARCHING && (
-          <SearchingScreen onCancel={stop} />
+          <SearchingScreen
+            onCancel={stop}
+            seconds={searchedFor}
+            showFallback={searchedFor >= NO_PEER_TIMEOUT_MS / 1000}
+            onAIChat={startAIChat}
+            onCopyInvite={copyInvite}
+            onShareInvite={shareInvite}
+            inviteRef={inviteRef}
+            inviteLink={inviteLink}
+          />
         )}
 
         {phase === PHASE.CONNECTING && (
           <ConnectingScreen onCancel={stop} />
         )}
 
-        {(phase === PHASE.CHATTING || phase === PHASE.ENDED) && (
+        {(phase === PHASE.CHATTING || phase === PHASE.AI_CHAT || phase === PHASE.ENDED) && (
           <>
             <div className="flex-1 overflow-y-auto bg-card pr-tint-violet p-4 space-y-2">
               {messages.map(m => <MessageBubble key={m.id} msg={m} />)}
-              {peerTyping && <TypingIndicator />}
+              {(peerTyping || aiThinking) && <TypingIndicator />}
               <div ref={messagesEndRef} />
             </div>
 
@@ -294,13 +399,13 @@ export default function StrangerChat({ onBack }) {
                   value={draft}
                   onChange={handleInputChange}
                   onKeyDown={(e) => { if (e.key === 'Enter') sendMessage() }}
-                  disabled={phase !== PHASE.CHATTING}
-                  placeholder={phase === PHASE.CHATTING ? 'Type a message…' : 'Stranger disconnected — hit Next'}
+                  disabled={phase === PHASE.ENDED}
+                  placeholder={phase === PHASE.ENDED ? 'Stranger disconnected — hit Find new' : 'Type a message…'}
                   className="flex-1 bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-violet-500/60 disabled:opacity-50"
                   maxLength={500}
                 />
-                {phase === PHASE.CHATTING ? (
-                  <button onClick={sendMessage} disabled={!draft.trim()}
+                {phase !== PHASE.ENDED ? (
+                  <button onClick={sendMessage} disabled={!draft.trim() || aiThinking}
                     className="px-4 py-2 rounded-md text-sm font-semibold transition-all disabled:opacity-40"
                     style={{
                       background: 'color-mix(in oklab, var(--chart-1) 22%, transparent)',
@@ -323,11 +428,17 @@ export default function StrangerChat({ onBack }) {
               </div>
               <div className="flex justify-between items-center mt-2 px-1">
                 <p className="text-[10px] text-muted-foreground">
-                  {phase === PHASE.CHATTING ? '🔒 Messages are direct peer-to-peer · not stored' : 'Press Find new to match with someone else'}
+                  {phase === PHASE.AI_CHAT
+                    ? '🤖 Chatting with Riley — AI fill-in while no humans are around'
+                    : phase === PHASE.CHATTING
+                      ? '🔒 Messages are direct peer-to-peer · not stored'
+                      : 'Press Find new to match with someone else'}
                 </p>
-                {phase === PHASE.CHATTING && (
+                {(phase === PHASE.CHATTING || phase === PHASE.AI_CHAT) && (
                   <div className="flex gap-1.5">
-                    <button onClick={next} className="text-[11px] text-muted-foreground hover:text-foreground transition-colors px-2 py-0.5">Next →</button>
+                    <button onClick={next} className="text-[11px] text-muted-foreground hover:text-foreground transition-colors px-2 py-0.5">
+                      {phase === PHASE.AI_CHAT ? 'Find a real human →' : 'Next →'}
+                    </button>
                     <button onClick={stop} className="text-[11px] text-red-400 hover:text-red-300 transition-colors px-2 py-0.5">End</button>
                   </div>
                 )}
@@ -352,6 +463,7 @@ function StatusPill({ phase }) {
     [PHASE.SEARCHING]:  { color: 'oklch(75% 0.18 60)', text: 'Searching' },
     [PHASE.CONNECTING]: { color: 'oklch(70% 0.18 280)', text: 'Connecting' },
     [PHASE.CHATTING]:   { color: 'oklch(70% 0.20 145)', text: 'Connected' },
+    [PHASE.AI_CHAT]:    { color: 'oklch(70% 0.22 320)', text: 'AI chat' },
     [PHASE.ENDED]:      { color: 'oklch(65% 0.22 25)', text: 'Ended' },
   }
   const cur = map[phase]
@@ -409,7 +521,7 @@ function WelcomeScreen({ onStart }) {
   )
 }
 
-function SearchingScreen({ onCancel }) {
+function SearchingScreen({ onCancel, seconds, showFallback, onAIChat, onCopyInvite, onShareInvite, inviteRef, inviteLink }) {
   return (
     <div className="flex-1 flex items-center justify-center">
       <div className="bg-card pr-tint-magenta p-8 max-w-md w-full text-center">
@@ -420,9 +532,81 @@ function SearchingScreen({ onCancel }) {
             <span className="absolute inset-0 flex items-center justify-center text-2xl">🔍</span>
           </div>
         </div>
-        <h2 className="font-heading text-xl font-semibold tracking-tight mb-2">Looking for a stranger…</h2>
-        <p className="text-sm text-muted-foreground mb-5">First person to join after you is your match. Usually takes a few seconds.</p>
-        <button onClick={onCancel} className="text-xs text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
+        <h2 className="font-heading text-xl font-semibold tracking-tight mb-1">Looking for a stranger…</h2>
+        <p className="text-[11px] font-mono text-muted-foreground mb-4 tabular-nums">{seconds}s · still hunting</p>
+
+        {!showFallback ? (
+          <>
+            <p className="text-sm text-muted-foreground mb-5">First person to join after you is your match.</p>
+            <button onClick={onCancel} className="text-xs text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
+          </>
+        ) : (
+          <div className="space-y-4 text-left">
+            <p className="text-xs text-muted-foreground text-center mb-4">
+              Nobody around yet 😶 — this site is a bit quiet. Try one of these:
+            </p>
+
+            {/* Option 1 — AI fallback */}
+            <button
+              onClick={onAIChat}
+              className="w-full p-3 rounded-lg flex items-start gap-3 text-left transition-all group"
+              style={{
+                background: 'color-mix(in oklab, var(--chart-1) 12%, transparent)',
+                boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 35%, transparent)',
+              }}
+            >
+              <div className="text-2xl flex-shrink-0 mt-0.5">🤖</div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] font-semibold text-foreground">Chat with Riley</p>
+                <p className="text-[11px] text-muted-foreground leading-snug">An AI stand-in while no humans are around. Keeps the lobby open so real strangers can still join.</p>
+              </div>
+              <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform mt-1">→</span>
+            </button>
+
+            {/* Option 2 — Invite */}
+            <div className="p-3 rounded-lg"
+              style={{
+                background: 'color-mix(in oklab, var(--chart-2) 10%, transparent)',
+                boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 28%, transparent)',
+              }}>
+              <div className="flex items-start gap-3 mb-2.5">
+                <div className="text-2xl flex-shrink-0 mt-0.5">📨</div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[13px] font-semibold text-foreground">Invite a friend</p>
+                  <p className="text-[11px] text-muted-foreground leading-snug">Text them this link. First one to open it pairs with you.</p>
+                </div>
+              </div>
+              <div className="flex gap-1.5">
+                <input readOnly value={inviteLink}
+                  onClick={(e) => e.target.select()}
+                  className="flex-1 bg-background border border-border/40 rounded-md px-2 py-1.5 text-[10.5px] font-mono outline-none" />
+                <button onClick={onCopyInvite} ref={inviteRef}
+                  className="px-2.5 py-1.5 rounded-md text-[11px] font-semibold flex-shrink-0 transition-colors"
+                  style={{ background: 'color-mix(in oklab, var(--chart-2) 20%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 40%, transparent)' }}>
+                  Copy invite
+                </button>
+                {typeof navigator !== 'undefined' && navigator.share && (
+                  <button onClick={onShareInvite}
+                    className="px-2.5 py-1.5 rounded-md text-[11px] font-semibold flex-shrink-0 transition-colors"
+                    style={{ background: 'color-mix(in oklab, var(--chart-2) 12%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 30%, transparent)' }}>
+                    Share
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Option 3 — Stay in background */}
+            <div className="text-center text-[11px] text-muted-foreground/80 pt-1">
+              <span className="inline-flex items-center gap-1.5">
+                🔔 Or just leave this tab open — you'll get a notification when someone joins.
+              </span>
+            </div>
+
+            <div className="text-center pt-1">
+              <button onClick={onCancel} className="text-[11px] text-muted-foreground hover:text-foreground transition-colors">Cancel search</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
