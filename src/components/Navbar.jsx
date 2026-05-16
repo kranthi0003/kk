@@ -621,7 +621,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       </div>
 
       {/* Line 2 — Action bar (desktop only) */}
-      <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-t border-black/5 dark:border-t-white/10 border-b border-b-black/10 dark:border-b-white/10">
+      <div className="hidden lg:block thq-nav-surface-2 backdrop-blur-xl border-b border-b-black/10 dark:border-b-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center">
           {/* Left group — core actions */}
           <div className="flex items-center gap-0.5">
