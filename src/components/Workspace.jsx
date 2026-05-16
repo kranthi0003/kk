@@ -141,7 +141,7 @@ export default function Workspace({ onBack, embedded = false }) {
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, outputColorSpace: THREE.SRGBColorSpace }}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.3, outputColorSpace: THREE.SRGBColorSpace }}
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
@@ -149,7 +149,7 @@ export default function Workspace({ onBack, embedded = false }) {
           <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
           <Suspense fallback={null}>
             <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} />
-            <Environment preset={isDay ? 'apartment' : 'night'} environmentIntensity={isDay ? 0.7 : 0.35} background={false} />
+            <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
           </Suspense>
           <OrbitControls
             target={[0, 0.9, 0]} enablePan={false} enabled={!gameMode}
@@ -288,7 +288,7 @@ export default function Workspace({ onBack, embedded = false }) {
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1, outputColorSpace: THREE.SRGBColorSpace }}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.3, outputColorSpace: THREE.SRGBColorSpace }}
           dpr={[1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
@@ -300,7 +300,7 @@ export default function Workspace({ onBack, embedded = false }) {
               onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay}
               gameMode={gameMode} onNear={setNear}
             />
-            <Environment preset={isDay ? 'apartment' : 'night'} environmentIntensity={isDay ? 0.7 : 0.35} background={false} />
+            <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
           </Suspense>
 
           <OrbitControls
@@ -419,15 +419,15 @@ export default function Workspace({ onBack, embedded = false }) {
 function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
   return (
     <group>
-      <SoftShadows size={28} samples={12} focus={0.6} />
+      <SoftShadows size={20} samples={10} focus={0.7} />
 
       {/* Lighting — soft area + accent */}
-      <hemisphereLight args={[isDay ? '#e9d8c8' : '#5a3a8a', isDay ? '#4a3a55' : '#1a0f22', isDay ? 0.55 : 0.35]} />
-      <ambientLight intensity={isDay ? 0.25 : 0.18} />
+      <hemisphereLight args={[isDay ? '#fff0d8' : '#9a7dd8', isDay ? '#5a4a65' : '#2a1f38', isDay ? 0.7 : 0.55]} />
+      <ambientLight intensity={isDay ? 0.5 : 0.4} />
       <directionalLight
         position={[5, 7, 3]}
-        intensity={isDay ? 1.4 : 0.5}
-        color={isDay ? '#ffe6c0' : '#c4b5fd'}
+        intensity={isDay ? 1.6 : 0.85}
+        color={isDay ? '#ffe6c0' : '#d4c5fc'}
         castShadow
         shadow-mapSize={[2048, 2048]}
         shadow-bias={-0.0002}
@@ -437,11 +437,11 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       </directionalLight>
       {!isDay && (
         <>
-          <pointLight position={[-3, 2, -1]} intensity={0.45} color="#8b5cf6" distance={6} decay={2} />
-          <pointLight position={[2, 1.5, 2]} intensity={0.3} color="#ec4899" distance={6} decay={2} />
+          <pointLight position={[-3, 2, -1]} intensity={0.6} color="#8b5cf6" distance={6} decay={2} />
+          <pointLight position={[2, 1.5, 2]} intensity={0.4} color="#ec4899" distance={6} decay={2} />
         </>
       )}
-      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.0} color="#ffb066" distance={3.5} decay={2} castShadow shadow-mapSize={[512, 512]} />
+      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.2} color="#ffb066" distance={3.5} decay={2} castShadow shadow-mapSize={[512, 512]} />
 
       {/* Floor — dark wood with subtle sheen */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
