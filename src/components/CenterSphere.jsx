@@ -1,99 +1,147 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // ============================================================
-// CenterSphere — steven.com-style stacked aperture lens
-// Concentric recessed rings with curving text labels in each
-// Center bubble shows profile photo with glass highlight
+// CenterSphere — steven.com-style ring sections
+// Each ring is a thick beveled band with ONE bold curved label.
+// Clicking a ring navigates to that section.
 // ============================================================
 
 const PROFILE_URL = new URL('../../assets/profile.png', import.meta.url).href
 
+// 4 ring sections, outermost → innermost. Each is its own clickable nav.
+// Thick bands (~46px wide) like steven.com.
 const RINGS = [
-  { id: 'outer',  ro: 200, ri: 168, label: '  KRANTHI · KIRAN  ·  CLOUD ENGINEER  ·  BUILDING AT GITHUB  ·  KRANTHI · KIRAN  ·  CLOUD ENGINEER  ·  BUILDING AT GITHUB  ·' },
-  { id: 'second', ro: 166, ri: 138, label: '  GITHUB  ·  COUCHBASE  ·  AMAZON  ·  GITHUB  ·  COUCHBASE  ·  AMAZON  ·  GITHUB  ·  COUCHBASE  ·  AMAZON  ·' },
-  { id: 'third',  ro: 136, ri: 108, label: '  GO  ·  KUBERNETES  ·  TERRAFORM  ·  TYPESCRIPT  ·  AWS  ·  GO  ·  KUBERNETES  ·  TERRAFORM  ·  TYPESCRIPT  ·  AWS  ·' },
-  { id: 'inner',  ro: 106, ri: 82,  label: '  DISTRIBUTED SYSTEMS  ·  PLATFORM  ·  TOOLING  ·  DISTRIBUTED SYSTEMS  ·  PLATFORM  ·  TOOLING  ·' },
+  { id: 'workspace',  ro: 208, ri: 162, label: 'WORKSPACE  ·  EXPLORE  ·  WORKSPACE  ·  EXPLORE',  href: '#/workspace',  hue: 270, size: 22 },
+  { id: 'projects',   ro: 160, ri: 120, label: 'PROJECTS  ·  BUILDS  ·  PROJECTS  ·  BUILDS',       href: '#/projects',   hue: 220, size: 20 },
+  { id: 'experience', ro: 118, ri: 86,  label: 'EXPERIENCE  ·  JOURNEY  ·  EXPERIENCE',             href: '#/experience', hue: 180, size: 16 },
+  { id: 'connect',    ro: 84,  ri: 62,  label: 'CONNECT  ·  WRITE  ·  CONNECT  ·  WRITE',           href: '#/connect',    hue: 320, size: 12 },
 ]
 
 export default function CenterSphere() {
+  const [hover, setHover] = useState(null)
+
+  const nav = (href) => {
+    window.location.hash = href.slice(1)
+    window.location.reload()
+  }
+
   return (
-    <svg viewBox="-220 -220 440 440" className="absolute inset-0 w-full h-full">
+    <svg viewBox="-220 -220 440 440" className="absolute inset-0 w-full h-full select-none">
       <defs>
-        <radialGradient id="rim-grad" cx="50%" cy="30%" r="70%">
+        {/* Outer rim base */}
+        <radialGradient id="rim-base" cx="50%" cy="30%" r="80%">
           <stop offset="0%" stopColor="#2a1f3a" />
-          <stop offset="60%" stopColor="#100a1a" />
+          <stop offset="60%" stopColor="#0f0a1c" />
           <stop offset="100%" stopColor="#020108" />
         </radialGradient>
-        <radialGradient id="recess-1" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1c1530" />
-          <stop offset="100%" stopColor="#0a0612" />
-        </radialGradient>
-        <radialGradient id="recess-2" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#16102a" />
-          <stop offset="100%" stopColor="#070310" />
-        </radialGradient>
-        <radialGradient id="recess-3" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#100c20" />
-          <stop offset="100%" stopColor="#050208" />
-        </radialGradient>
-        <radialGradient id="bubble" cx="35%" cy="30%" r="80%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.45)" />
-          <stop offset="20%" stopColor="rgba(255,255,255,0.12)" />
-          <stop offset="60%" stopColor="rgba(167,139,250,0.08)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
-        </radialGradient>
-        <linearGradient id="top-hl" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
-          <stop offset="40%" stopColor="rgba(255,255,255,0.03)" />
+
+        {/* Per-ring fills — subtle hue tints, dark base */}
+        {RINGS.map((r) => (
+          <radialGradient key={`rg-${r.id}`} id={`ring-${r.id}`} cx="50%" cy="35%" r="70%">
+            <stop offset="0%" stopColor={`hsl(${r.hue} 30% 22%)`} />
+            <stop offset="60%" stopColor={`hsl(${r.hue} 28% 11%)`} />
+            <stop offset="100%" stopColor="#050208" />
+          </radialGradient>
+        ))}
+
+        {/* Hover variants — brighter */}
+        {RINGS.map((r) => (
+          <radialGradient key={`rh-${r.id}`} id={`ring-${r.id}-hot`} cx="50%" cy="30%" r="70%">
+            <stop offset="0%" stopColor={`hsl(${r.hue} 70% 50%)`} />
+            <stop offset="55%" stopColor={`hsl(${r.hue} 55% 22%)`} />
+            <stop offset="100%" stopColor="#0a0612" />
+          </radialGradient>
+        ))}
+
+        {/* Glassy top highlight + bottom shadow for bevel */}
+        <linearGradient id="bevel-top" x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
+          <stop offset="35%" stopColor="rgba(255,255,255,0.04)" />
           <stop offset="100%" stopColor="rgba(0,0,0,0)" />
         </linearGradient>
-        <linearGradient id="bot-shadow" x1="50%" y1="0%" x2="50%" y2="100%">
+        <linearGradient id="bevel-bot" x1="50%" y1="0%" x2="50%" y2="100%">
           <stop offset="0%" stopColor="rgba(0,0,0,0)" />
-          <stop offset="60%" stopColor="rgba(0,0,0,0.18)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0.55)" />
+          <stop offset="55%" stopColor="rgba(0,0,0,0.25)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0.7)" />
         </linearGradient>
+
+        {/* Center bubble */}
+        <radialGradient id="bubble" cx="35%" cy="30%" r="85%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.5)" />
+          <stop offset="22%" stopColor="rgba(255,255,255,0.1)" />
+          <stop offset="60%" stopColor="rgba(167,139,250,0.06)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
+        </radialGradient>
         <clipPath id="profile-clip">
-          <circle cx="0" cy="0" r="72" />
+          <circle cx="0" cy="0" r="56" />
         </clipPath>
+
+        {/* Ring band shapes (annulus via even-odd) and arc paths for text */}
         {RINGS.map((r) => {
-          const midR = (r.ro + r.ri) / 2
+          const midR = (r.ro + r.ri) / 2 - r.size * 0.35 // text radius (slightly inward)
           return (
-            <path
-              key={r.id}
-              id={`arc-${r.id}`}
-              d={`M ${-midR} 0 a ${midR} ${midR} 0 1 1 ${midR * 2} 0 a ${midR} ${midR} 0 1 1 ${-midR * 2} 0`}
-              fill="none"
-            />
+            <g key={`def-${r.id}`}>
+              <path
+                id={`band-${r.id}`}
+                fillRule="evenodd"
+                d={annulusPath(r.ro, r.ri)}
+              />
+              {/* Top arc for label — start at left, sweep over top to right */}
+              <path
+                id={`arc-${r.id}`}
+                d={`M ${-midR} 0 a ${midR} ${midR} 0 1 1 ${midR * 2} 0`}
+                fill="none"
+              />
+            </g>
           )
         })}
       </defs>
 
-      {/* Outer rim disc */}
-      <circle cx="0" cy="0" r="208" fill="url(#rim-grad)" />
-      <circle cx="0" cy="0" r="208" fill="url(#top-hl)" />
-      <circle cx="0" cy="0" r="208" fill="url(#bot-shadow)" />
-      <circle cx="0" cy="0" r="208" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+      {/* Outer rim — full disc behind everything for depth */}
+      <circle cx="0" cy="0" r="216" fill="url(#rim-base)" />
+      <circle cx="0" cy="0" r="216" fill="url(#bevel-top)" />
+      <circle cx="0" cy="0" r="216" fill="url(#bevel-bot)" />
+      <circle cx="0" cy="0" r="216" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
 
-      {/* Concentric ring layers */}
-      {RINGS.map((r, i) => {
-        const fill = i === 0 ? 'url(#recess-1)' : i === 1 ? 'url(#recess-2)' : 'url(#recess-3)'
+      {/* Ring bands — each is its own clickable section */}
+      {RINGS.map((r) => {
+        const isHot = hover === r.id
         return (
-          <g key={r.id}>
-            <circle cx="0" cy="0" r={r.ro} fill={fill} />
-            <circle cx="0" cy="0" r={r.ro} fill="url(#top-hl)" />
-            <circle cx="0" cy="0" r={r.ro} fill="url(#bot-shadow)" />
-            <circle cx="0" cy="0" r={r.ro} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.7" />
-            <circle cx="0" cy="0" r={r.ri} fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="2" />
+          <g
+            key={r.id}
+            onMouseEnter={() => setHover(r.id)}
+            onMouseLeave={() => setHover(null)}
+            onClick={() => nav(r.href)}
+            style={{ cursor: 'pointer' }}
+          >
+            {/* Band fill (annulus) */}
+            <use href={`#band-${r.id}`} fill={isHot ? `url(#ring-${r.id}-hot)` : `url(#ring-${r.id})`} />
+            {/* Bevel top highlight clipped to band */}
+            <use href={`#band-${r.id}`} fill="url(#bevel-top)" />
+            {/* Bevel bottom shadow clipped to band */}
+            <use href={`#band-${r.id}`} fill="url(#bevel-bot)" />
+            {/* Outer edge highlight */}
+            <circle cx="0" cy="0" r={r.ro} fill="none"
+              stroke={isHot ? `hsla(${r.hue}, 90%, 75%, 0.7)` : 'rgba(255,255,255,0.09)'}
+              strokeWidth={isHot ? 1.2 : 0.8} />
+            {/* Inner edge recess */}
+            <circle cx="0" cy="0" r={r.ri} fill="none" stroke="rgba(0,0,0,0.7)" strokeWidth="1.5" />
             <circle cx="0" cy="0" r={r.ri - 1} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
 
+            {/* Section label — curved over top of band */}
             <text
               fontFamily="Bricolage Grotesque, sans-serif"
-              fontSize={i === 0 ? 12 : i === 1 ? 11 : i === 2 ? 10 : 9}
-              fontWeight="700"
-              fill="rgba(255,255,255,0.78)"
-              letterSpacing={i === 3 ? 1.5 : 2.5}
+              fontSize={r.size}
+              fontWeight="800"
+              letterSpacing={r.size > 16 ? 4 : 2.5}
+              fill={isHot ? '#fff' : 'rgba(255,255,255,0.86)'}
+              style={{
+                pointerEvents: 'none',
+                filter: isHot ? `drop-shadow(0 0 12px hsla(${r.hue}, 90%, 70%, 0.8))` : 'drop-shadow(0 1px 2px rgba(0,0,0,0.9))',
+                transition: 'fill 200ms',
+              }}
             >
-              <textPath href={`#arc-${r.id}`} startOffset="0">
+              <textPath href={`#arc-${r.id}`} startOffset="50%" textAnchor="middle">
                 {r.label}
               </textPath>
             </text>
@@ -101,42 +149,50 @@ export default function CenterSphere() {
         )
       })}
 
-      {/* Tiny direction arrows around outermost ring */}
+      {/* Tiny index ticks on outer rim */}
       {[0, 90, 180, 270].map((deg) => {
         const rad = (deg - 90) * Math.PI / 180
-        const x = Math.cos(rad) * 188
-        const y = Math.sin(rad) * 188
+        const x = Math.cos(rad) * 212
+        const y = Math.sin(rad) * 212
         return (
-          <g key={deg} transform={`translate(${x} ${y}) rotate(${deg})`}>
-            <path d="M -4 0 L 4 0 L 0 -5 Z" fill="rgba(255,255,255,0.4)" />
+          <g key={deg} transform={`translate(${x} ${y}) rotate(${deg})`} style={{ pointerEvents: 'none' }}>
+            <path d="M -3.5 0 L 3.5 0 L 0 -4.5 Z" fill="rgba(255,255,255,0.45)" />
           </g>
         )
       })}
 
-      {/* Center bubble — profile photo with glass effect */}
-      <g>
-        {/* Recess shadow */}
-        <circle cx="0" cy="0" r="78" fill="rgba(0,0,0,0.9)" />
-        {/* Profile photo */}
+      {/* Center bubble — profile photo, clickable → About */}
+      <g
+        onMouseEnter={() => setHover('center')}
+        onMouseLeave={() => setHover(null)}
+        onClick={() => nav('#/about')}
+        style={{ cursor: 'pointer' }}
+      >
+        <circle cx="0" cy="0" r="60" fill="rgba(0,0,0,0.95)" />
         <g clipPath="url(#profile-clip)">
           <image
             href={PROFILE_URL}
-            x="-80" y="-80" width="160" height="160"
+            x="-62" y="-62" width="124" height="124"
             preserveAspectRatio="xMidYMid slice"
-            style={{ filter: 'saturate(1.05) contrast(1.05)' }}
+            style={{ filter: hover === 'center' ? 'saturate(1.2) contrast(1.1) brightness(1.1)' : 'saturate(1.05) contrast(1.05)', transition: 'filter 250ms' }}
           />
         </g>
-        {/* Inner dark vignette */}
-        <circle cx="0" cy="0" r="72" fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth="5" />
-        {/* Glass overlay */}
-        <circle cx="0" cy="0" r="72" fill="url(#bubble)" />
-        {/* Specular highlight */}
-        <ellipse cx="-22" cy="-32" rx="20" ry="11" fill="white" opacity="0.32" transform="rotate(-30 -22 -32)" />
-        <ellipse cx="-12" cy="-22" rx="6" ry="3" fill="white" opacity="0.7" />
-        {/* Edge highlight ring */}
-        <circle cx="0" cy="0" r="72" fill="none" stroke="rgba(167,139,250,0.5)" strokeWidth="1.5" />
-        <circle cx="0" cy="0" r="74" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" />
+        <circle cx="0" cy="0" r="56" fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth="4" />
+        <circle cx="0" cy="0" r="56" fill="url(#bubble)" style={{ pointerEvents: 'none' }} />
+        <ellipse cx="-18" cy="-26" rx="16" ry="8" fill="white" opacity="0.3" transform="rotate(-28 -18 -26)" style={{ pointerEvents: 'none' }} />
+        <ellipse cx="-10" cy="-18" rx="5" ry="2.5" fill="white" opacity="0.7" style={{ pointerEvents: 'none' }} />
+        <circle cx="0" cy="0" r="56" fill="none"
+          stroke={hover === 'center' ? 'rgba(167,139,250,0.95)' : 'rgba(167,139,250,0.5)'}
+          strokeWidth={hover === 'center' ? 2 : 1.5}
+          style={{ transition: 'stroke 200ms' }} />
+        <circle cx="0" cy="0" r="58" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" style={{ pointerEvents: 'none' }} />
       </g>
     </svg>
   )
+}
+
+// Annulus path for ring band (outer circle CW + inner circle CCW, even-odd fill)
+function annulusPath(ro, ri) {
+  return `M ${-ro} 0 a ${ro} ${ro} 0 1 1 ${ro * 2} 0 a ${ro} ${ro} 0 1 1 ${-ro * 2} 0 ` +
+         `M ${-ri} 0 a ${ri} ${ri} 0 1 0 ${ri * 2} 0 a ${ri} ${ri} 0 1 0 ${-ri * 2} 0 Z`
 }

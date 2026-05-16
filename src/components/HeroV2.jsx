@@ -7,20 +7,15 @@ import CenterSphere from './CenterSphere'
 // ring + sub-route navigation. No scroll. Each ring slice routes.
 // ============================================================
 
-const RING_ITEMS = [
-  { id: 'workspace',  label: 'WORKSPACE',  angle: 0,    href: '#/workspace' },
-  { id: 'projects',   label: 'PROJECTS',   angle: 51,   href: '#/projects' },
-  { id: 'experience', label: 'EXPERIENCE', angle: 102,  href: '#/experience' },
-  { id: 'travel',     label: 'TRAVEL',     angle: 153,  href: '#/travel' },
-  { id: 'connect',    label: 'CONNECT',    angle: 204,  href: '#/connect' },
-  { id: 'tech',       label: 'TECH STACK', angle: 255,  href: '#/tech' },
-  { id: 'guestbook',  label: 'GUESTBOOK',  angle: 306,  href: '#/guestbook' },
+// Side links — small chip nav for sections not on the rings (Travel/Tech/Guestbook)
+const SIDE_LINKS = [
+  { id: 'travel',     label: 'TRAVEL',     href: '#/travel' },
+  { id: 'tech',       label: 'TECH STACK', href: '#/tech' },
+  { id: 'guestbook',  label: 'GUESTBOOK',  href: '#/guestbook' },
 ]
 
 export default function HeroV2({ onResumeClick }) {
   const [time, setTime] = useState(() => fmt(new Date()))
-  const [hovered, setHovered] = useState(null)
-  const [angle, setAngle] = useState(0)
 
   useEffect(() => {
     document.body.classList.add('is-hero')
@@ -30,16 +25,6 @@ export default function HeroV2({ onResumeClick }) {
   useEffect(() => {
     const id = setInterval(() => setTime(fmt(new Date())), 1000 * 30)
     return () => clearInterval(id)
-  }, [])
-
-  useEffect(() => {
-    let raf
-    const tick = () => {
-      setAngle((a) => (a + 0.05) % 360)
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
   }, [])
 
   const nav = (href) => {
@@ -75,39 +60,23 @@ export default function HeroV2({ onResumeClick }) {
       <div className="flex-1 flex items-center justify-center relative px-6">
         <div className="relative" style={{ width: 'min(72vmin, 640px)', height: 'min(72vmin, 640px)' }}>
 
-          {/* SVG aperture lens — concentric rings with curved text + center bubble */}
+          {/* SVG aperture lens — concentric clickable ring sections */}
           <CenterSphere />
-
-          {/* HTML labels positioned around the sphere — outside the canvas */}
-          {RING_ITEMS.map((it) => {
-            const liveAngle = (it.angle + angle) % 360
-            const rad = (liveAngle - 90) * Math.PI / 180
-            const r = 50 // % from center → outside the lens
-            const x = 50 + Math.cos(rad) * r
-            const y = 50 + Math.sin(rad) * r
-            return (
-              <button
-                key={it.id}
-                onMouseEnter={() => setHovered(it.id)}
-                onMouseLeave={() => setHovered(null)}
-                onClick={() => nav(it.href)}
-                className="absolute -translate-x-1/2 -translate-y-1/2 font-heading font-bold text-[10px] sm:text-[11px] tracking-[3px] transition-all whitespace-nowrap px-3 py-1.5 rounded-full"
-                style={{
-                  left: `${x}%`,
-                  top: `${y}%`,
-                  color: hovered === it.id ? '#fff' : 'rgba(255,255,255,0.85)',
-                  background: hovered === it.id ? 'rgba(167,139,250,0.18)' : 'transparent',
-                  boxShadow: hovered === it.id ? 'inset 0 0 0 1px rgba(167,139,250,0.55), 0 0 24px -8px rgba(167,139,250,0.7)' : 'none',
-                  textShadow: '0 1px 8px rgba(0,0,0,0.8)',
-                  transform: `translate(-50%, -50%)`,
-                }}
-                title={it.label}
-              >
-                {it.label}
-              </button>
-            )
-          })}
         </div>
+      </div>
+
+      {/* Side links — sections that don't fit on the rings */}
+      <div className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3">
+        {SIDE_LINKS.map((it) => (
+          <button
+            key={it.id}
+            onClick={() => nav(it.href)}
+            className="font-mono text-[10px] tracking-[3px] text-white/60 hover:text-white transition-colors text-left group"
+          >
+            <span className="inline-block w-4 border-t border-white/30 group-hover:border-white/80 mr-2 align-middle transition-colors" />
+            {it.label}
+          </button>
+        ))}
       </div>
 
       {/* Bottom-left: tagline + 'About Us' style link */}
@@ -130,11 +99,10 @@ export default function HeroV2({ onResumeClick }) {
         </button>
       </div>
 
-      {/* Hover hint — top right under MENU */}
+      {/* Hint — top right under MENU */}
       <div className="absolute top-16 right-6 sm:right-10 z-20 pointer-events-none">
-        <p className="font-mono text-[10px] tracking-widest text-white/40 text-right transition-opacity"
-          style={{ opacity: hovered ? 1 : 0.5 }}>
-          {hovered ? `→ ${RING_ITEMS.find(i => i.id === hovered)?.label}` : 'HOVER THE DIAL'}
+        <p className="font-mono text-[10px] tracking-widest text-white/40 text-right">
+          HOVER A RING · CLICK TO ENTER
         </p>
       </div>
 
