@@ -473,8 +473,13 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
         </mesh>
       ))}
 
-      {/* === CHAIR === closer to desk, backrest facing camera */}
-      <Chair position={[0.0, 0, 0.9]} />
+      {/* === CHAIR === */}
+      <Chair position={[0.6, 0, 1.0]} />
+
+      {/* === NPC standing in the room === */}
+      <Hotspot id="about" position={[-0.6, 0, 1.2]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <NPC />
+      </Hotspot>
 
       {/* === MONITOR on stand — also routes to projects === */}
       <Hotspot id="projects" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
@@ -560,10 +565,6 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === FLOATING PARTICLES === */}
       {!isDay && <Particles count={50} />}
 
-      {/* === NPC sitting on chair === faces the desk (-z) */}
-      <Hotspot id="about" position={[0.0, 0, 0.9]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <NPC />
-      </Hotspot>
       {gameMode && <Player onNear={onNear} hotspots={HOTSPOTS} />}
     </group>
   )
@@ -1488,13 +1489,14 @@ function NPC() {
   }, [])
 
   // Map activity → animation clip name
+  // Xbot has: idle, walk, run (Mixamo skeleton, can attach more anims later)
   const animMap = {
-    sleep:  "Death",       // lying-down pose
-    coffee: "Wave",
-    work:   "Sitting",
-    lunch:  "Yes",          // head nod ~ eating
-    gym:    "Punch",        // arm punches ~ lifting
-    ps5:    "Sitting",
+    sleep:  'idle',
+    coffee: 'idle',
+    work:   'idle',
+    lunch:  'idle',
+    gym:    'idle',
+    ps5:    'idle',
   }
   React.useEffect(() => {
     const wanted = animMap[activity.id] || "Idle"
@@ -1513,18 +1515,15 @@ function NPC() {
     })
   }, [scene])
 
-  // Sitting / standing pose offset:
-  // Robot is ~1.8 units tall; scale 0.45 → ~0.8 unit
-  // Place on chair seat: y=0.54
-  const sitting = activity.id !== "gym" && activity.id !== "sleep"
-  const yOff = sitting ? 0.05 : (activity.id === "sleep" ? 0.1 : 0)
+  // Position: Xbot is ~1.5m standing. Scale 0.7 → ~1.05m for a sitting/standing avatar that fits the chair area.
+  // Always stand facing the camera/desk; activity is communicated by the floating pill + props.
   return (
     <group>
       <group
         ref={group}
-        position={[0, yOff, sitting ? -0.05 : 0]}
+        position={[0, 0, 0.1]}
         rotation={[0, Math.PI, 0]}
-        scale={0.45}
+        scale={0.7}
       >
         <primitive object={scene} />
       </group>
