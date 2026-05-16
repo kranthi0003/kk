@@ -354,7 +354,6 @@ body:has(.pr-backdrop-base)::before { display: none; }
     inset 0 0 0 1px var(--color-border),
     0 1px 2px 0 rgba(0,0,0,0.4) !important;
   border-radius: var(--radius);
-  position: relative;
 }
 /* Tint overrides — set the variable used by the radial gradient */
 .pr-tint-violet  { --pr-tint: color-mix(in oklab, var(--chart-1) 14%, transparent); }
