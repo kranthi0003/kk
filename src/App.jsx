@@ -156,27 +156,65 @@ export default function App() {
     )
   }
 
-  // === SUB-PAGE ROUTES === each ring slice of HeroV2 routes here ===
+  // === SUB-PAGE ROUTES === 4 main sections, extras bundled inside ===
   if (route.startsWith('#/projects')) {
-    return <SubPage eyebrow="Selected work" title="Projects" accent="#ec4899"><Projects /></SubPage>
+    return (
+      <SubPage eyebrow="Selected work" title="Work" accent="#a78bfa">
+        <Projects />
+        <div className="mt-20 pt-16 border-t border-white/10">
+          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-4">Tech stack</p>
+          <TechStack />
+        </div>
+        <div className="mt-20 pt-16 border-t border-white/10">
+          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-4">3D Workspace</p>
+          <a href="#/workspace" onClick={(e) => { e.preventDefault(); window.location.hash = '#/workspace'; window.location.reload() }}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/15 hover:bg-white/10 transition-colors text-sm">
+            Enter the 3D workspace
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </SubPage>
+    )
   }
   if (route.startsWith('#/experience')) {
-    return <SubPage eyebrow="Career arc" title="Experience" accent="#a78bfa"><Experience /></SubPage>
-  }
-  if (route.startsWith('#/travel')) {
-    return <SubPage eyebrow="Where I've been" title="Travel" accent="#f97316"><TravelMap /></SubPage>
+    return (
+      <SubPage eyebrow="Career arc" title="Experience" accent="#60a5fa">
+        <Experience />
+        <div className="mt-20 pt-16 border-t border-white/10">
+          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-4">Travel</p>
+          <TravelMap />
+        </div>
+      </SubPage>
+    )
   }
   if (route.startsWith('#/connect')) {
-    return <SubPage eyebrow="Reach out" title="Connect" accent="#22d3ee"><Connect /></SubPage>
+    return (
+      <SubPage eyebrow="Reach out" title="Connect" accent="#22d3ee">
+        <Connect />
+        <div className="mt-20 pt-16 border-t border-white/10">
+          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-4">Guestbook</p>
+          <Guestbook />
+        </div>
+      </SubPage>
+    )
+  }
+  if (route.startsWith('#/about')) {
+    return (
+      <SubPage eyebrow="Who I am" title="About" accent="#f0abfc">
+        <About />
+        <Terminal />
+      </SubPage>
+    )
+  }
+  // Direct-link fallbacks (kept for back-compat, not prominent in nav)
+  if (route.startsWith('#/travel')) {
+    return <SubPage eyebrow="Where I've been" title="Travel" accent="#f97316"><TravelMap /></SubPage>
   }
   if (route.startsWith('#/tech')) {
     return <SubPage eyebrow="What I build with" title="Tech Stack" accent="#a78bfa"><TechStack /></SubPage>
   }
   if (route.startsWith('#/guestbook')) {
     return <SubPage eyebrow="Visitors" title="Guestbook" accent="#fbbf24"><Guestbook /></SubPage>
-  }
-  if (route.startsWith('#/about')) {
-    return <SubPage eyebrow="Who I am" title="About" accent="#a78bfa"><About /><Terminal /></SubPage>
   }
 
   const handleSecretTrigger = useCallback(() => {

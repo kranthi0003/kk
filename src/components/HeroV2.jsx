@@ -7,12 +7,8 @@ import CenterSphere from './CenterSphere'
 // ring + sub-route navigation. No scroll. Each ring slice routes.
 // ============================================================
 
-// Side links — small chip nav for sections not on the rings (Travel/Tech/Guestbook)
-const SIDE_LINKS = [
-  { id: 'travel',     label: 'TRAVEL',     href: '#/travel' },
-  { id: 'tech',       label: 'TECH STACK', href: '#/tech' },
-  { id: 'guestbook',  label: 'GUESTBOOK',  href: '#/guestbook' },
-]
+// All extras live inside the 4 sub-pages now (Workspace/Tech inside Work,
+// Travel inside Experience, Guestbook inside Connect, Resume inside About).
 
 export default function HeroV2({ onResumeClick }) {
   const [time, setTime] = useState(() => fmt(new Date()))
@@ -63,20 +59,6 @@ export default function HeroV2({ onResumeClick }) {
           {/* SVG aperture lens — concentric clickable ring sections */}
           <CenterSphere />
         </div>
-      </div>
-
-      {/* Side links — sections that don't fit on the rings */}
-      <div className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3">
-        {SIDE_LINKS.map((it) => (
-          <button
-            key={it.id}
-            onClick={() => nav(it.href)}
-            className="font-mono text-[10px] tracking-[3px] text-white/60 hover:text-white transition-colors text-left group"
-          >
-            <span className="inline-block w-4 border-t border-white/30 group-hover:border-white/80 mr-2 align-middle transition-colors" />
-            {it.label}
-          </button>
-        ))}
       </div>
 
       {/* Bottom-left: tagline + 'About Us' style link */}

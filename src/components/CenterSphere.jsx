@@ -8,13 +8,13 @@ import React, { useState } from 'react'
 
 const PROFILE_URL = new URL('../../assets/profile.png', import.meta.url).href
 
-// 4 ring sections, outermost → innermost. Each is its own clickable nav.
-// Thick bands (~46px wide) like steven.com.
+// 4 ring sections matching steven.com's single-label structure.
+// Extras live inside each sub-page (Workspace + Tech inside Work, etc.)
 const RINGS = [
-  { id: 'workspace',  ro: 208, ri: 162, label: 'WORKSPACE  ·  EXPLORE  ·  WORKSPACE  ·  EXPLORE',  href: '#/workspace',  hue: 270, size: 22 },
-  { id: 'projects',   ro: 160, ri: 120, label: 'PROJECTS  ·  BUILDS  ·  PROJECTS  ·  BUILDS',       href: '#/projects',   hue: 220, size: 20 },
-  { id: 'experience', ro: 118, ri: 86,  label: 'EXPERIENCE  ·  JOURNEY  ·  EXPERIENCE',             href: '#/experience', hue: 180, size: 16 },
-  { id: 'connect',    ro: 84,  ri: 62,  label: 'CONNECT  ·  WRITE  ·  CONNECT  ·  WRITE',           href: '#/connect',    hue: 320, size: 12 },
+  { id: 'work',       ro: 208, ri: 162, label: 'WORK',       href: '#/projects',   hue: 270, size: 28 },
+  { id: 'experience', ro: 160, ri: 120, label: 'EXPERIENCE', href: '#/experience', hue: 220, size: 22 },
+  { id: 'connect',    ro: 118, ri: 86,  label: 'CONNECT',    href: '#/connect',    hue: 180, size: 18 },
+  { id: 'about',      ro: 84,  ri: 62,  label: 'ABOUT',      href: '#/about',      hue: 320, size: 13 },
 ]
 
 export default function CenterSphere() {
@@ -73,7 +73,7 @@ export default function CenterSphere() {
           <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
         </radialGradient>
         <clipPath id="profile-clip">
-          <circle cx="0" cy="0" r="56" />
+          <circle cx="0" cy="0" r="48" />
         </clipPath>
 
         {/* Ring band shapes (annulus via even-odd) and arc paths for text */}
@@ -161,31 +161,23 @@ export default function CenterSphere() {
         )
       })}
 
-      {/* Center bubble — profile photo, clickable → About */}
-      <g
-        onMouseEnter={() => setHover('center')}
-        onMouseLeave={() => setHover(null)}
-        onClick={() => nav('#/about')}
-        style={{ cursor: 'pointer' }}
-      >
-        <circle cx="0" cy="0" r="60" fill="rgba(0,0,0,0.95)" />
+      {/* Center bubble — profile photo (decorative, ABOUT ring handles click) */}
+      <g style={{ pointerEvents: 'none' }}>
+        <circle cx="0" cy="0" r="52" fill="rgba(0,0,0,0.95)" />
         <g clipPath="url(#profile-clip)">
           <image
             href={PROFILE_URL}
-            x="-62" y="-62" width="124" height="124"
+            x="-52" y="-52" width="104" height="104"
             preserveAspectRatio="xMidYMid slice"
-            style={{ filter: hover === 'center' ? 'saturate(1.2) contrast(1.1) brightness(1.1)' : 'saturate(1.05) contrast(1.05)', transition: 'filter 250ms' }}
+            style={{ filter: 'saturate(1.05) contrast(1.05)' }}
           />
         </g>
-        <circle cx="0" cy="0" r="56" fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth="4" />
-        <circle cx="0" cy="0" r="56" fill="url(#bubble)" style={{ pointerEvents: 'none' }} />
-        <ellipse cx="-18" cy="-26" rx="16" ry="8" fill="white" opacity="0.3" transform="rotate(-28 -18 -26)" style={{ pointerEvents: 'none' }} />
-        <ellipse cx="-10" cy="-18" rx="5" ry="2.5" fill="white" opacity="0.7" style={{ pointerEvents: 'none' }} />
-        <circle cx="0" cy="0" r="56" fill="none"
-          stroke={hover === 'center' ? 'rgba(167,139,250,0.95)' : 'rgba(167,139,250,0.5)'}
-          strokeWidth={hover === 'center' ? 2 : 1.5}
-          style={{ transition: 'stroke 200ms' }} />
-        <circle cx="0" cy="0" r="58" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" style={{ pointerEvents: 'none' }} />
+        <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(0,0,0,0.45)" strokeWidth="3" />
+        <circle cx="0" cy="0" r="48" fill="url(#bubble)" />
+        <ellipse cx="-16" cy="-22" rx="14" ry="7" fill="white" opacity="0.28" transform="rotate(-28 -16 -22)" />
+        <ellipse cx="-9" cy="-15" rx="4.5" ry="2.2" fill="white" opacity="0.65" />
+        <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(167,139,250,0.45)" strokeWidth="1.2" />
+        <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="1" />
       </g>
     </svg>
   )
