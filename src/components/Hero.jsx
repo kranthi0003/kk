@@ -85,39 +85,39 @@ export default function Hero({ onResumeClick }) {
           </a>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-2 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+        <div className="mt-7 flex flex-wrap gap-2 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <button
             onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border/70 bg-card/40 backdrop-blur text-sm font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
             </span>
-            Open Collab — code &amp; battle live
+            Collab — code &amp; battle
             <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
           </button>
           <button
             onClick={() => { window.location.hash = '#/stranger'; window.location.reload() }}
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-foreground transition-all"
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[12px] font-medium text-foreground transition-all"
             style={{
               background: 'color-mix(in oklab, var(--chart-2) 12%, transparent)',
-              boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 35%, transparent), 0 0 24px -6px color-mix(in oklab, var(--chart-2) 45%, transparent)',
+              boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 35%, transparent), 0 0 18px -6px color-mix(in oklab, var(--chart-2) 45%, transparent)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'color-mix(in oklab, var(--chart-2) 22%, transparent)'
-              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 55%, transparent), 0 4px 32px -4px color-mix(in oklab, var(--chart-2) 60%, transparent)'
+              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 55%, transparent), 0 4px 24px -4px color-mix(in oklab, var(--chart-2) 60%, transparent)'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'color-mix(in oklab, var(--chart-2) 12%, transparent)'
-              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 35%, transparent), 0 0 24px -6px color-mix(in oklab, var(--chart-2) 45%, transparent)'
+              e.currentTarget.style.boxShadow = 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 35%, transparent), 0 0 18px -6px color-mix(in oklab, var(--chart-2) 45%, transparent)'
             }}
           >
-            <span className="px-1.5 py-0.5 rounded text-[9.5px] font-bold uppercase tracking-wider"
+            <span className="px-1 py-px rounded text-[8.5px] font-bold uppercase tracking-wider"
               style={{ background: 'color-mix(in oklab, var(--chart-2) 35%, transparent)', color: 'oklch(95% 0.05 320)' }}>
               New
             </span>
-            <span>💬 Stranger Chat — talk to a random visitor</span>
+            Stranger Chat
             <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
           </button>
         </div>
