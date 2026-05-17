@@ -779,8 +779,29 @@ export default function SpaceExplorer() {
 
   const handleExplore = useCallback((sectionId) => {
     audio.click()
-    const routeMap = { about: '#about', workspace: '#/workspace', experience: '#experience', tech: '#tech', projects: '#projects', travel: '#travel', connect: '#connect', guestbook: '#guestbook' }
-    window.location.hash = routeMap[sectionId] || `#${sectionId}`
+    // Sub-page routes go via hash
+    if (sectionId === 'workspace') {
+      window.location.hash = '#/workspace'
+      window.location.reload()
+      return
+    }
+    // Section anchors on the main page: stash target in sessionStorage,
+    // clear hash so App.jsx picks it up after reload (matches existing
+    // deferred-scroll pattern in App.jsx:84)
+    const sectionMap = {
+      about: 'about',
+      experience: 'experience',
+      tech: 'techstack',
+      projects: 'projects',
+      travel: 'travel',
+      connect: 'connect',
+      guestbook: 'guestbook',
+    }
+    const target = sectionMap[sectionId]
+    if (target) {
+      sessionStorage.setItem('scrollTo', target)
+    }
+    window.location.hash = ''
     window.location.reload()
   }, [])
 
