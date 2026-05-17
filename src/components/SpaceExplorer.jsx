@@ -34,7 +34,9 @@ const PLANETS = [
     id: 'experience', name: 'Earth', section: 'Experia',
     orbit: 28, eccentricity: 0.017, inclination: 0.0,
     size: 1.6, speed: 0.10, tilt: 0.41,
-    texture: 'earth.jpg', clouds: 'earth_clouds.jpg', color: '#60a5fa', atmosphere: '#3b82f6',
+    texture: 'earth.jpg', clouds: 'earth_clouds.jpg',
+    bump: 'earth_bump.jpg', specular: 'earth_spec.jpg', night: 'earth_night.jpg',
+    color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
     desc: 'Our home — professional experience timeline and career journey.',
     detail: 'Diameter: 12,742 km · Orbital period: 365 days',
@@ -43,7 +45,8 @@ const PLANETS = [
     id: 'tech', name: 'Mars', section: 'Techyon',
     orbit: 36, eccentricity: 0.093, inclination: 0.032,
     size: 1.3, speed: 0.08, tilt: 0.44,
-    texture: 'mars.jpg', color: '#e85d3f', atmosphere: '#fb923c',
+    texture: 'mars.jpg', bump: 'mars_bump.jpg',
+    color: '#e85d3f', atmosphere: '#fb923c',
     moons: 2, ring: null,
     desc: 'The red planet — tech stack, tools, languages, frameworks.',
     detail: 'Diameter: 6,779 km · Orbital period: 687 days',
@@ -313,6 +316,9 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
   const planetTex = useLoader(THREE.TextureLoader, TEX(planet.texture))
   const cloudsTex = planet.clouds ? useLoader(THREE.TextureLoader, TEX(planet.clouds)) : null
   const ringTex = planet.ring?.texture ? useLoader(THREE.TextureLoader, TEX(planet.ring.texture)) : null
+  const bumpTex = planet.bump ? useLoader(THREE.TextureLoader, TEX(planet.bump)) : null
+  const specTex = planet.specular ? useLoader(THREE.TextureLoader, TEX(planet.specular)) : null
+  const nightTex = planet.night ? useLoader(THREE.TextureLoader, TEX(planet.night)) : null
 
   // Orbit parameters (memoized)
   const orbit = useMemo(() => {
@@ -359,7 +365,31 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
           onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
         >
           <sphereGeometry args={[planet.size, 64, 64]} />
-          <meshStandardMaterial map={planetTex} roughness={0.85} metalness={0.05} />
+          {specTex ? (
+            /* Earth: phong with specular for ocean reflectivity + bump + night-side city lights */
+            <meshPhongMaterial
+              map={planetTex}
+              bumpMap={bumpTex}
+              bumpScale={0.05}
+              specularMap={specTex}
+              specular={new THREE.Color('#222222')}
+              shininess={20}
+              emissiveMap={nightTex}
+              emissive={new THREE.Color('#ffd27f')}
+              emissiveIntensity={1.2}
+            />
+          ) : bumpTex ? (
+            /* Mars/Moon: bump-mapped surface relief */
+            <meshStandardMaterial
+              map={planetTex}
+              bumpMap={bumpTex}
+              bumpScale={0.04}
+              roughness={0.95}
+              metalness={0.0}
+            />
+          ) : (
+            <meshStandardMaterial map={planetTex} roughness={0.85} metalness={0.05} />
+          )}
         </mesh>
 
         {/* Cloud layer (Earth) */}
@@ -423,13 +453,14 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
   )
 }
 
-// ─── Moon (uses moon texture) ────────────────────────────────
+// ─── Moon (uses moon texture + bump) ─────────────────────────
 function MoonObj({ parentSize, index }) {
   const ref = useRef()
   const moonOrbit = parentSize * 2.5 + index * 1.4
   const moonSpeed = 0.4 + index * 0.2
   const angleRef = useRef(index * 2.1)
   const tex = useLoader(THREE.TextureLoader, TEX('moon.jpg'))
+  const bump = useLoader(THREE.TextureLoader, TEX('moon_bump.jpg'))
 
   useFrame((_, delta) => {
     if (!ref.current) return
@@ -445,7 +476,7 @@ function MoonObj({ parentSize, index }) {
   return (
     <mesh ref={ref}>
       <sphereGeometry args={[0.22 + index * 0.05, 24, 24]} />
-      <meshStandardMaterial map={tex} roughness={0.95} />
+      <meshStandardMaterial map={tex} bumpMap={bump} bumpScale={0.02} roughness={0.95} />
     </mesh>
   )
 }
@@ -537,51 +568,11 @@ function InfoDrawer({ planet, onClose, onExplore }) {
   )
 }
 
-// ─── Background nebula (gradient sphere + dust particles) ────
+// ─── Milky Way skybox + cosmic dust ──────────────────────────
 function Nebula() {
   const dustRef = useRef()
-  const nebulaTex = useMemo(() => {
-    const canvas = document.createElement('canvas')
-    canvas.width = 1024
-    canvas.height = 512
-    const ctx = canvas.getContext('2d')
-    // Base deep space
-    ctx.fillStyle = '#020008'
-    ctx.fillRect(0, 0, 1024, 512)
-    // Add nebula blobs
-    const colors = [
-      ['#3b1d6a', 0.25], ['#1e3a5f', 0.2], ['#5b1f3d', 0.18],
-      ['#1d4a3a', 0.12], ['#4a1d5b', 0.15], ['#1d2a5b', 0.2],
-    ]
-    for (let i = 0; i < 60; i++) {
-      const [col, baseAlpha] = colors[Math.floor(Math.random() * colors.length)]
-      const x = Math.random() * 1024
-      const y = Math.random() * 512
-      const r = 80 + Math.random() * 200
-      const grad = ctx.createRadialGradient(x, y, 0, x, y, r)
-      grad.addColorStop(0, `${col}${Math.floor(baseAlpha * 255).toString(16).padStart(2, '0')}`)
-      grad.addColorStop(1, '#02000800')
-      ctx.fillStyle = grad
-      ctx.fillRect(x - r, y - r, r * 2, r * 2)
-    }
-    // Add tiny stars
-    ctx.fillStyle = '#ffffff'
-    for (let i = 0; i < 800; i++) {
-      const x = Math.random() * 1024
-      const y = Math.random() * 512
-      const r = Math.random() * 1.2
-      ctx.globalAlpha = Math.random() * 0.8 + 0.2
-      ctx.beginPath()
-      ctx.arc(x, y, r, 0, Math.PI * 2)
-      ctx.fill()
-    }
-    ctx.globalAlpha = 1
-    const tex = new THREE.CanvasTexture(canvas)
-    tex.mapping = THREE.EquirectangularReflectionMapping
-    return tex
-  }, [])
+  const milkyway = useLoader(THREE.TextureLoader, TEX('milkyway.jpg'))
 
-  // Cosmic dust particles
   const dustPositions = useMemo(() => {
     const arr = new Float32Array(2000 * 3)
     for (let i = 0; i < 2000; i++) {
@@ -601,10 +592,10 @@ function Nebula() {
 
   return (
     <>
-      {/* Skybox */}
-      <mesh>
+      {/* Real Milky Way skybox from solarsystemscope.com */}
+      <mesh rotation-y={Math.PI * 0.3}>
         <sphereGeometry args={[450, 64, 64]} />
-        <meshBasicMaterial map={nebulaTex} side={THREE.BackSide} depthWrite={false} />
+        <meshBasicMaterial map={milkyway} side={THREE.BackSide} depthWrite={false} />
       </mesh>
 
       {/* Cosmic dust */}
@@ -612,9 +603,44 @@ function Nebula() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[dustPositions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.6} color="#ffffff" transparent opacity={0.4} sizeAttenuation depthWrite={false} />
+        <pointsMaterial size={0.6} color="#ffffff" transparent opacity={0.5} sizeAttenuation depthWrite={false} />
       </points>
     </>
+  )
+}
+
+// ─── Asteroid Belt (between Mars and Jupiter) ────────────────
+function AsteroidBelt() {
+  const ref = useRef()
+  const { positions, scales } = useMemo(() => {
+    const count = 1500
+    const pos = new Float32Array(count * 3)
+    const sc = new Float32Array(count)
+    const innerR = 41
+    const outerR = 47
+    for (let i = 0; i < count; i++) {
+      const r = innerR + Math.random() * (outerR - innerR)
+      const theta = Math.random() * Math.PI * 2
+      const y = (Math.random() - 0.5) * 1.2
+      pos[i * 3] = Math.cos(theta) * r
+      pos[i * 3 + 1] = y
+      pos[i * 3 + 2] = Math.sin(theta) * r
+      sc[i] = 0.05 + Math.random() * 0.15
+    }
+    return { positions: pos, scales: sc }
+  }, [])
+
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.015
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <pointsMaterial size={0.18} color="#8b7355" transparent opacity={0.7} sizeAttenuation depthWrite={false} />
+    </points>
   )
 }
 
@@ -632,6 +658,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <Nebula />
       <Stars radius={250} depth={100} count={12000} factor={4} saturation={0.2} fade speed={0.4} />
       <Sun />
+      <AsteroidBelt />
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
       ))}
