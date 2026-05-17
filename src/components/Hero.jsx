@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import profile from '../../assets/profile.png'
 import satellite from '../../assets/satellite-collage.png'
 import TypingText from './TypingText'
 
+const SpaceBackground = lazy(() => import('./SpaceBackground'))
+
 export default function Hero({ onResumeClick }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+      {/* 3D Solar System background — full-bleed behind hero */}
+      <Suspense fallback={null}>
+        <div className="absolute inset-0 z-0">
+          <SpaceBackground />
+        </div>
+      </Suspense>
+
       {/* Satellite backdrop — subtle band */}
-      <div className="absolute inset-x-0 top-14 md:top-14 h-[28%] md:h-[32%] z-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-x-0 top-14 md:top-14 h-[28%] md:h-[32%] z-[1] overflow-hidden pointer-events-none opacity-30">
         <img
           src={satellite}
           alt=""
