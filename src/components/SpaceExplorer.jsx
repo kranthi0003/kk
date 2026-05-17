@@ -713,39 +713,50 @@ function CameraController({ targetId, planetPositions, controlsRef }) {
   const tmpLook = useRef(new THREE.Vector3())
   const prevTargetId = useRef(null)
   const wasFollowing = useRef(false)
+  const isReturning = useRef(false) // one-shot return-to-overview animation
 
   useFrame(() => {
     if (!controlsRef.current) return
 
-    // Detect transition
     const justChanged = prevTargetId.current !== targetId
-    prevTargetId.current = targetId
+    if (justChanged) {
+      // Transition detected
+      if (!targetId) {
+        // Just deselected — start a one-shot return-to-overview animation
+        isReturning.current = true
+      }
+      wasFollowing.current = false
+      prevTargetId.current = targetId
+    }
 
     if (targetId) {
+      // Following a planet — track its current position every frame
       const pos = planetPositions.current[targetId]
       if (!pos) return
 
-      // Camera offset relative to planet (so we orbit it nicely)
       const planetSize = (PLANETS.find(p => p.id === targetId)?.size || 1.5)
       const offsetDist = planetSize * 6 + 4
       tmpTarget.current.set(pos.x + offsetDist * 0.6, planetSize * 2.5, pos.z + offsetDist)
       tmpLook.current.set(pos.x, pos.y, pos.z)
 
-      // Smooth follow — lerp every frame so camera tracks the moving planet
       const lerpRate = wasFollowing.current ? 0.08 : 0.045
       camera.position.lerp(tmpTarget.current, lerpRate)
       controlsRef.current.target.lerp(tmpLook.current, lerpRate)
       controlsRef.current.update()
 
-      // Once close, treat as "following"
       if (camera.position.distanceTo(tmpTarget.current) < 2) wasFollowing.current = true
-    } else {
-      // Back to overview
-      if (justChanged) wasFollowing.current = false
-      camera.position.lerp(overviewPos, 0.035)
-      controlsRef.current.target.lerp(overviewLook, 0.035)
+    } else if (isReturning.current) {
+      // One-shot fly back to overview (only after deselect)
+      camera.position.lerp(overviewPos, 0.04)
+      controlsRef.current.target.lerp(overviewLook, 0.04)
       controlsRef.current.update()
+
+      // Stop animating once we're close enough — user is now free to roam
+      if (camera.position.distanceTo(overviewPos) < 1.5) {
+        isReturning.current = false
+      }
     }
+    // Otherwise: do nothing — let OrbitControls handle the user's input freely
   })
 
   return null
@@ -993,16 +1004,17 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
         enablePan
         enableZoom
         enableRotate
-        minDistance={4}
-        maxDistance={200}
-        minPolarAngle={0.1}
-        maxPolarAngle={Math.PI / 2}
-        autoRotate={!selected}
-        autoRotateSpeed={0.08}
-        dampingFactor={0.06}
+        minDistance={2}
+        maxDistance={400}
+        /* No polar restriction — full 360° vertical (can fly under the system) */
+        autoRotate={false}
+        dampingFactor={0.08}
         enableDamping
-        zoomSpeed={0.8}
-        rotateSpeed={0.5}
+        zoomSpeed={0.6}
+        rotateSpeed={0.6}
+        panSpeed={0.8}
+        /* Smooth zoom-to-cursor */
+        zoomToCursor
       />
     </>
   )
