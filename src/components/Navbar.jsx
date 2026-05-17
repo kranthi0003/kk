@@ -497,6 +497,7 @@ const navLinks = [
   { label: 'Projects', href: '#projects' },
   { label: 'Travel', href: '#travel' },
   { label: 'Connect', href: '#connect' },
+  { label: '🚀 Space', href: '#/space' },
 ]
 
 export default function Navbar({ onSecretTrigger, onResumeClick }) {
