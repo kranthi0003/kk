@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect, useMemo } from 'react'
-import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
-import { OrbitControls, Stars, Line, shaderMaterial } from '@react-three/drei'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { OrbitControls, Html, Stars } from '@react-three/drei'
 import * as THREE from 'three'
 
 /* ══════════════════════════════════════════════════════════════
@@ -69,54 +69,6 @@ const PLANETS = [
   },
 ]
 
-// ─── Custom sun glow shader ──────────────────────────────────
-const SunGlowMaterial = shaderMaterial(
-  { time: 0, color: new THREE.Color('#ff8800') },
-  /* vertex */ `
-    varying vec3 vNormal;
-    varying vec3 vPosition;
-    void main() {
-      vNormal = normalize(normalMatrix * normal);
-      vPosition = position;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  /* fragment */ `
-    uniform float time;
-    uniform vec3 color;
-    varying vec3 vNormal;
-    varying vec3 vPosition;
-    void main() {
-      float intensity = pow(0.65 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.5);
-      float pulse = 1.0 + sin(time * 0.8) * 0.15;
-      gl_FragColor = vec4(color, intensity * 0.6 * pulse);
-    }
-  `
-)
-extend({ SunGlowMaterial })
-
-// ─── Atmosphere shader ───────────────────────────────────────
-const AtmosphereMaterial = shaderMaterial(
-  { color: new THREE.Color('#4488ff'), intensity: 1.0 },
-  /* vertex */ `
-    varying vec3 vNormal;
-    void main() {
-      vNormal = normalize(normalMatrix * normal);
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  /* fragment */ `
-    uniform vec3 color;
-    uniform float intensity;
-    varying vec3 vNormal;
-    void main() {
-      float rim = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.0);
-      gl_FragColor = vec4(color, rim * intensity * 0.7);
-    }
-  `
-)
-extend({ AtmosphereMaterial })
-
 // ─── Procedural planet texture ───────────────────────────────
 function usePlanetTexture(surface, color, size) {
   return useMemo(() => {
@@ -152,15 +104,21 @@ function usePlanetTexture(surface, color, size) {
 // ─── Sun ─────────────────────────────────────────────────────
 function Sun() {
   const meshRef = useRef()
-  const glowRef = useRef()
-  const glowRef2 = useRef()
+  const coronaRef = useRef()
+  const outerRef = useRef()
   const raysRef = useRef()
 
   useFrame((state) => {
     const t = state.clock.elapsedTime
     if (meshRef.current) meshRef.current.rotation.y = t * 0.05
-    if (glowRef.current) glowRef.current.material.uniforms.time.value = t
-    if (glowRef2.current) glowRef2.current.material.uniforms.time.value = t
+    if (coronaRef.current) {
+      const pulse = 1 + Math.sin(t * 0.5) * 0.06
+      coronaRef.current.scale.setScalar(pulse)
+    }
+    if (outerRef.current) {
+      const pulse2 = 1 + Math.sin(t * 0.3) * 0.04
+      outerRef.current.scale.setScalar(pulse2)
+    }
     if (raysRef.current) {
       raysRef.current.rotation.z = t * 0.02
       raysRef.current.scale.setScalar(1 + Math.sin(t * 0.3) * 0.08)
@@ -175,24 +133,30 @@ function Sun() {
         <meshBasicMaterial color="#fff5d0" toneMapped={false} />
       </mesh>
 
-      {/* Inner glow */}
-      <mesh ref={glowRef} scale={1.3}>
-        <sphereGeometry args={[4, 32, 32]} />
-        <sunGlowMaterial transparent side={THREE.BackSide} depthWrite={false} color="#ffaa00" />
+      {/* Inner corona */}
+      <mesh ref={coronaRef}>
+        <sphereGeometry args={[5, 32, 32]} />
+        <meshBasicMaterial color="#ffaa00" transparent opacity={0.25} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
+
+      {/* Mid glow */}
+      <mesh>
+        <sphereGeometry args={[6.5, 32, 32]} />
+        <meshBasicMaterial color="#ff8800" transparent opacity={0.1} side={THREE.BackSide} depthWrite={false} />
       </mesh>
 
       {/* Outer glow */}
-      <mesh ref={glowRef2} scale={2.2}>
-        <sphereGeometry args={[4, 32, 32]} />
-        <sunGlowMaterial transparent side={THREE.BackSide} depthWrite={false} color="#ff6600" />
+      <mesh ref={outerRef}>
+        <sphereGeometry args={[9, 24, 24]} />
+        <meshBasicMaterial color="#ff6600" transparent opacity={0.04} side={THREE.BackSide} depthWrite={false} />
       </mesh>
 
-      {/* God rays - sprite planes */}
+      {/* God rays */}
       <group ref={raysRef}>
         {[0, 60, 120].map((angle, i) => (
           <mesh key={i} rotation-z={THREE.MathUtils.degToRad(angle)}>
-            <planeGeometry args={[0.5, 22]} />
-            <meshBasicMaterial color="#ffcc44" transparent opacity={0.03} side={THREE.DoubleSide} depthWrite={false} />
+            <planeGeometry args={[0.4, 20]} />
+            <meshBasicMaterial color="#ffcc44" transparent opacity={0.025} side={THREE.DoubleSide} depthWrite={false} />
           </mesh>
         ))}
       </group>
@@ -203,26 +167,19 @@ function Sun() {
   )
 }
 
-// ─── Orbit path (dashed line like NASA Eyes) ─────────────────
+// ─── Orbit path ──────────────────────────────────────────────
 function OrbitPath({ radius, highlighted }) {
-  const points = useMemo(() => {
-    const pts = []
-    const segments = 128
-    for (let i = 0; i <= segments; i++) {
-      const angle = (i / segments) * Math.PI * 2
-      pts.push(new THREE.Vector3(Math.cos(angle) * radius, 0, Math.sin(angle) * radius))
-    }
-    return pts
-  }, [radius])
-
   return (
-    <Line
-      points={points}
-      color={highlighted ? '#ffffff' : '#334155'}
-      lineWidth={highlighted ? 1.2 : 0.5}
-      transparent
-      opacity={highlighted ? 0.5 : 0.15}
-    />
+    <mesh rotation-x={Math.PI / 2}>
+      <ringGeometry args={[radius - 0.04, radius + 0.04, 180]} />
+      <meshBasicMaterial
+        color={highlighted ? '#ffffff' : '#334155'}
+        transparent
+        opacity={highlighted ? 0.3 : 0.08}
+        side={THREE.DoubleSide}
+        depthWrite={false}
+      />
+    </mesh>
   )
 }
 
@@ -266,14 +223,14 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
       </mesh>
 
       {/* Atmosphere halo */}
-      <mesh scale={1.15}>
+      <mesh scale={1.18}>
         <sphereGeometry args={[planet.size, 32, 32]} />
-        <atmosphereMaterial
+        <meshBasicMaterial
+          color={planet.atmosphere}
           transparent
+          opacity={isActive ? 0.18 : 0.07}
           side={THREE.BackSide}
           depthWrite={false}
-          color={planet.atmosphere}
-          intensity={isActive ? 1.5 : 0.6}
         />
       </mesh>
 
@@ -303,6 +260,21 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
       {Array.from({ length: planet.moons }, (_, i) => (
         <MoonObj key={i} parentSize={planet.size} index={i} color={planet.color} />
       ))}
+
+      {/* Label */}
+      <Html
+        position={[0, planet.size + 1.8, 0]}
+        center
+        distanceFactor={80}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.45, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[10px] font-medium tracking-[0.15em] drop-shadow-lg" style={{ color: planet.color }}>
+            {planet.label}
+          </span>
+          <div className="w-[1px] h-2" style={{ background: `${planet.color}40` }} />
+        </div>
+      </Html>
     </group>
   )
 }
@@ -341,8 +313,7 @@ function CameraController({ target, controlsRef }) {
 
   useEffect(() => {
     if (target) {
-      const offset = new THREE.Vector3(target.x + 8, 6, target.z + 12)
-      targetPos.current.copy(offset)
+      targetPos.current.set(target.x + 8, 6, target.z + 12)
       targetLookAt.current.set(target.x, 0, target.z)
       isFlying.current = true
     } else {
@@ -356,8 +327,7 @@ function CameraController({ target, controlsRef }) {
     if (!isFlying.current || !controlsRef.current) return
 
     camera.position.lerp(targetPos.current, 0.035)
-    const currentTarget = controlsRef.current.target
-    currentTarget.lerp(targetLookAt.current, 0.035)
+    controlsRef.current.target.lerp(targetLookAt.current, 0.035)
     controlsRef.current.update()
 
     if (camera.position.distanceTo(targetPos.current) < 0.5) {
@@ -373,7 +343,6 @@ function LoadingScreen({ progress }) {
   return (
     <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center font-mono">
       <div className="flex flex-col items-center gap-6">
-        {/* NASA-style logo area */}
         <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center">
           <div className="w-3 h-3 rounded-full bg-amber-400 animate-pulse" />
         </div>
@@ -413,11 +382,9 @@ function InfoDrawer({ planet, onClose, onExplore }) {
     >
       <div className="mx-auto max-w-3xl">
         <div className="bg-black/85 backdrop-blur-2xl border border-white/8 rounded-t-2xl overflow-hidden">
-          {/* Accent line */}
           <div className="h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${planet.color}, transparent)` }} />
 
           <div className="p-6 flex items-start gap-6">
-            {/* Planet icon */}
             <div
               className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center"
               style={{
@@ -428,7 +395,6 @@ function InfoDrawer({ planet, onClose, onExplore }) {
               <div className="w-8 h-8 rounded-full" style={{ background: `radial-gradient(circle at 40% 35%, ${planet.color}, ${planet.surface})` }} />
             </div>
 
-            {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-1">
                 <h2 className="text-lg font-semibold text-white/90">{planet.label}</h2>
@@ -440,7 +406,6 @@ function InfoDrawer({ planet, onClose, onExplore }) {
               <div className="text-[10px] font-mono text-white/20 tracking-wider">{planet.detail}</div>
             </div>
 
-            {/* Actions */}
             <div className="flex flex-col gap-2 flex-shrink-0">
               <button
                 onClick={() => onExplore(planet.id)}
@@ -467,58 +432,11 @@ function InfoDrawer({ planet, onClose, onExplore }) {
   )
 }
 
-// ─── Planet label overlay (screen-space, like NASA) ──────────
-function PlanetLabels({ planets, selected, hovered, onSelect, planetPositions }) {
-  const { camera, size } = useThree()
-  const labelsRef = useRef({})
-
-  useFrame(() => {
-    if (!planetPositions.current) return
-    PLANETS.forEach(p => {
-      const pos = planetPositions.current[p.id]
-      if (!pos || !labelsRef.current[p.id]) return
-      const vec = new THREE.Vector3(pos.x, pos.y + p.size + 1.5, pos.z)
-      vec.project(camera)
-      const x = (vec.x * 0.5 + 0.5) * size.width
-      const y = -(vec.y * 0.5 - 0.5) * size.height
-      const el = labelsRef.current[p.id]
-      const dist = camera.position.distanceTo(new THREE.Vector3(pos.x, pos.y, pos.z))
-      const visible = vec.z < 1 && dist < 120
-      el.style.transform = `translate(-50%, -100%) translate(${x}px, ${y}px)`
-      el.style.opacity = visible ? (selected === p.id || hovered === p.id ? '1' : '0.5') : '0'
-    })
-  })
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-20" style={{ overflow: 'hidden' }}>
-      {PLANETS.map(p => (
-        <div
-          key={p.id}
-          ref={el => { if (el) labelsRef.current[p.id] = el }}
-          className="absolute top-0 left-0 pointer-events-auto cursor-pointer transition-opacity duration-300"
-          onClick={() => onSelect(p)}
-          style={{ opacity: 0 }}
-        >
-          <div className="flex flex-col items-center gap-0.5">
-            <span
-              className="text-[10px] font-medium tracking-[0.15em] drop-shadow-lg"
-              style={{ color: p.color }}
-            >
-              {p.label}
-            </span>
-            <div className="w-[1px] h-3" style={{ background: `${p.color}40` }} />
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-// ─── Scene wrapper (for label access to Three context) ───────
+// ─── Scene (all 3D content inside Canvas) ────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   const cameraTarget = useMemo(() => {
     if (!selected) return null
-    const pos = planetPositions.current?.[selected.id]
+    const pos = planetPositions.current[selected.id]
     return pos || null
   }, [selected, planetPositions])
 
@@ -544,14 +462,6 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
           planetPositions={planetPositions}
         />
       ))}
-
-      <PlanetLabels
-        planets={PLANETS}
-        selected={selected?.id}
-        hovered={hovered}
-        onSelect={onSelect}
-        planetPositions={planetPositions}
-      />
 
       <CameraController target={cameraTarget} controlsRef={controlsRef} />
 
@@ -611,7 +521,6 @@ function NavStrip({ planets, selected, onSelect }) {
     <div className="fixed bottom-0 left-0 right-0 z-20 pointer-events-none">
       <div className="flex justify-center pb-4 px-4 pointer-events-auto">
         <div className="flex items-center gap-[2px] p-1 rounded-xl bg-black/50 backdrop-blur-xl border border-white/5">
-          {/* Sun button */}
           <button
             onClick={() => onSelect(null)}
             className={`flex flex-col items-center gap-0.5 px-3 py-2 rounded-lg transition-all ${!selected ? 'bg-amber-500/10' : 'hover:bg-white/5'}`}
