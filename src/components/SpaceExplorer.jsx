@@ -167,7 +167,19 @@ PLANETS.forEach((p, i) => {
   p.orbitRotation = (i * 0.7 + i * i * 0.13) % (Math.PI * 2)
 })
 
-// ─── Web Audio: ambient theme + UI sounds ────────────────────
+// Per-planet musical pitch (in Hz). Inner planets = higher, outer = lower
+const PLANET_NOTES = {
+  mercury: 880,    // A5 — quick & bright
+  venus: 698.5,    // F5 — warm
+  earth: 587.3,    // D5 — home note
+  mars: 523.3,     // C5 — red & strong
+  jupiter: 392,    // G4 — massive
+  saturn: 329.6,   // E4 — graceful
+  uranus: 261.6,   // C4 — cold
+  neptune: 196,    // G3 — deep & distant
+}
+
+// ─── Web Audio: rich ambient theme + UI sound palette ────────
 class SpaceAudio {
   constructor() {
     this.ctx = null
@@ -175,6 +187,8 @@ class SpaceAudio {
     this.musicNodes = []
     this.muted = false
     this.started = false
+    this.sparkleTimer = null
+    this.MASTER_VOL = 0.85 // overall volume (was 0.5)
   }
 
   init() {
@@ -184,7 +198,14 @@ class SpaceAudio {
     this.ctx = new AC()
     this.master = this.ctx.createGain()
     this.master.gain.value = 0.0
-    this.master.connect(this.ctx.destination)
+    // Gentle compressor for headroom
+    const comp = this.ctx.createDynamicsCompressor()
+    comp.threshold.value = -18
+    comp.knee.value = 12
+    comp.ratio.value = 3
+    comp.attack.value = 0.01
+    comp.release.value = 0.2
+    this.master.connect(comp).connect(this.ctx.destination)
   }
 
   startTheme() {
@@ -192,34 +213,33 @@ class SpaceAudio {
     this.started = true
     const now = this.ctx.currentTime
 
-    // Deep space drone — two detuned oscillators through filter
-    const droneFreqs = [55, 82.4, 110, 165] // A1, E2, A2, E3
+    // ─── Deep space drone — richer harmonic stack ───────────
+    const droneFreqs = [55, 82.4, 110, 138.6, 165, 220] // A1, E2, A2, C#3, E3, A3 (A minor 7 voicing)
     droneFreqs.forEach((f, i) => {
       const osc = this.ctx.createOscillator()
       const gain = this.ctx.createGain()
       const filter = this.ctx.createBiquadFilter()
-      osc.type = i % 2 === 0 ? 'sine' : 'triangle'
+      osc.type = ['sine', 'triangle', 'sine'][i % 3]
       osc.frequency.value = f
       osc.detune.value = (Math.random() - 0.5) * 8
       filter.type = 'lowpass'
-      filter.frequency.value = 800
+      filter.frequency.value = 700 + i * 80
       filter.Q.value = 2
       gain.gain.value = 0
       osc.connect(filter).connect(gain).connect(this.master)
       osc.start(now)
-      // Slow fade in
-      gain.gain.exponentialRampToValueAtTime(0.04 + i * 0.01, now + 4 + i)
+      gain.gain.exponentialRampToValueAtTime(0.07 + i * 0.008, now + 4 + i * 0.4)
       // LFO modulation
       const lfo = this.ctx.createOscillator()
       const lfoGain = this.ctx.createGain()
-      lfo.frequency.value = 0.05 + i * 0.03
-      lfoGain.gain.value = 3
+      lfo.frequency.value = 0.05 + i * 0.025
+      lfoGain.gain.value = 3 + i * 0.5
       lfo.connect(lfoGain).connect(osc.frequency)
       lfo.start(now)
       this.musicNodes.push(osc, lfo, gain)
     })
 
-    // Slow shimmer — high pad
+    // ─── Shimmer pad with filter sweep ──────────────────────
     const shimmerOsc = this.ctx.createOscillator()
     const shimmerGain = this.ctx.createGain()
     const shimmerFilter = this.ctx.createBiquadFilter()
@@ -231,8 +251,7 @@ class SpaceAudio {
     shimmerGain.gain.value = 0
     shimmerOsc.connect(shimmerFilter).connect(shimmerGain).connect(this.master)
     shimmerOsc.start(now)
-    shimmerGain.gain.exponentialRampToValueAtTime(0.008, now + 6)
-    // Slow filter sweep
+    shimmerGain.gain.exponentialRampToValueAtTime(0.015, now + 6)
     const sweepLfo = this.ctx.createOscillator()
     const sweepGain = this.ctx.createGain()
     sweepLfo.frequency.value = 0.04
@@ -241,60 +260,193 @@ class SpaceAudio {
     sweepLfo.start(now)
     this.musicNodes.push(shimmerOsc, sweepLfo, shimmerGain)
 
+    // ─── Solar wind — filtered noise bed ────────────────────
+    const windBuf = this.ctx.createBuffer(1, this.ctx.sampleRate * 4, this.ctx.sampleRate)
+    const wd = windBuf.getChannelData(0)
+    for (let i = 0; i < wd.length; i++) wd[i] = (Math.random() * 2 - 1) * 0.4
+    const wind = this.ctx.createBufferSource()
+    wind.buffer = windBuf
+    wind.loop = true
+    const windFilter = this.ctx.createBiquadFilter()
+    windFilter.type = 'bandpass'
+    windFilter.frequency.value = 600
+    windFilter.Q.value = 1.5
+    const windGain = this.ctx.createGain()
+    windGain.gain.value = 0
+    wind.connect(windFilter).connect(windGain).connect(this.master)
+    wind.start(now)
+    windGain.gain.exponentialRampToValueAtTime(0.025, now + 8)
+    // Slow wind modulation
+    const windLfo = this.ctx.createOscillator()
+    const windLfoGain = this.ctx.createGain()
+    windLfo.frequency.value = 0.08
+    windLfoGain.gain.value = 200
+    windLfo.connect(windLfoGain).connect(windFilter.frequency)
+    windLfo.start(now)
+    this.musicNodes.push(wind, windLfo, windGain)
+
     // Fade master in
-    this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.5, now + 3)
+    this.master.gain.linearRampToValueAtTime(this.muted ? 0 : this.MASTER_VOL, now + 3)
+
+    // Ambient sparkles every 4-10s
+    this._scheduleSparkle()
   }
 
+  _scheduleSparkle() {
+    if (this.sparkleTimer) clearTimeout(this.sparkleTimer)
+    const next = 4000 + Math.random() * 6000
+    this.sparkleTimer = setTimeout(() => {
+      this.sparkle()
+      this._scheduleSparkle()
+    }, next)
+  }
+
+  // ─── Random pentatonic sparkle (ambient twinkle) ───────────
+  sparkle() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    // Pentatonic scale notes (A minor)
+    const notes = [880, 988, 1175, 1319, 1568, 1760, 1975, 2349]
+    const f = notes[Math.floor(Math.random() * notes.length)]
+    const osc = this.ctx.createOscillator()
+    const gain = this.ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.value = f
+    gain.gain.setValueAtTime(0, now)
+    gain.gain.linearRampToValueAtTime(0.06, now + 0.05)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5)
+    osc.connect(gain).connect(this.master)
+    osc.start(now)
+    osc.stop(now + 1.6)
+  }
+
+  // ─── Soft UI click ─────────────────────────────────────────
   click() {
     if (!this.ctx || this.muted) return
     const now = this.ctx.currentTime
     const osc = this.ctx.createOscillator()
     const gain = this.ctx.createGain()
     osc.type = 'sine'
-    osc.frequency.setValueAtTime(1200, now)
-    osc.frequency.exponentialRampToValueAtTime(400, now + 0.08)
-    gain.gain.setValueAtTime(0.15, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1)
+    osc.frequency.setValueAtTime(1400, now)
+    osc.frequency.exponentialRampToValueAtTime(500, now + 0.08)
+    gain.gain.setValueAtTime(0.25, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12)
     osc.connect(gain).connect(this.ctx.destination)
     osc.start(now)
-    osc.stop(now + 0.12)
+    osc.stop(now + 0.14)
   }
 
+  // ─── Hover blip ────────────────────────────────────────────
   hover() {
     if (!this.ctx || this.muted) return
     const now = this.ctx.currentTime
     const osc = this.ctx.createOscillator()
     const gain = this.ctx.createGain()
     osc.type = 'sine'
-    osc.frequency.value = 800
-    gain.gain.setValueAtTime(0.04, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05)
+    osc.frequency.value = 1000
+    gain.gain.setValueAtTime(0.08, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06)
     osc.connect(gain).connect(this.ctx.destination)
     osc.start(now)
-    osc.stop(now + 0.06)
+    osc.stop(now + 0.07)
   }
 
+  // ─── Whoosh on planet select (filtered noise burst) ────────
   whoosh() {
     if (!this.ctx || this.muted) return
     const now = this.ctx.currentTime
-    // White noise burst through bandpass
-    const bufferSize = this.ctx.sampleRate * 0.6
+    const bufferSize = this.ctx.sampleRate * 0.8
     const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate)
     const data = buffer.getChannelData(0)
-    for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.8
+    for (let i = 0; i < bufferSize; i++) {
+      const env = 1 - i / bufferSize
+      data[i] = (Math.random() * 2 - 1) * env
+    }
     const noise = this.ctx.createBufferSource()
     noise.buffer = buffer
     const filter = this.ctx.createBiquadFilter()
     filter.type = 'bandpass'
-    filter.frequency.setValueAtTime(200, now)
-    filter.frequency.exponentialRampToValueAtTime(2000, now + 0.5)
-    filter.Q.value = 5
+    filter.frequency.setValueAtTime(150, now)
+    filter.frequency.exponentialRampToValueAtTime(2500, now + 0.6)
+    filter.Q.value = 6
     const gain = this.ctx.createGain()
-    gain.gain.setValueAtTime(0.15, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
+    gain.gain.setValueAtTime(0.3, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7)
     noise.connect(filter).connect(gain).connect(this.ctx.destination)
     noise.start(now)
-    noise.stop(now + 0.5)
+    noise.stop(now + 0.7)
+  }
+
+  // ─── Planet selection chime — pitched per planet ───────────
+  planetChime(planetId) {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    const baseFreq = PLANET_NOTES[planetId] || 440
+
+    // Two-note arpeggio: root + perfect fifth
+    const notes = [baseFreq, baseFreq * 1.5]
+    notes.forEach((f, i) => {
+      const start = now + i * 0.12
+      const osc = this.ctx.createOscillator()
+      const osc2 = this.ctx.createOscillator() // harmonic
+      const gain = this.ctx.createGain()
+      const filter = this.ctx.createBiquadFilter()
+      osc.type = 'sine'
+      osc2.type = 'triangle'
+      osc.frequency.value = f
+      osc2.frequency.value = f * 2
+      filter.type = 'lowpass'
+      filter.frequency.value = 3000
+      gain.gain.setValueAtTime(0, start)
+      gain.gain.linearRampToValueAtTime(0.18, start + 0.02)
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 1.2)
+      osc.connect(filter)
+      osc2.connect(filter)
+      filter.connect(gain).connect(this.ctx.destination)
+      osc.start(start)
+      osc2.start(start)
+      osc.stop(start + 1.3)
+      osc2.stop(start + 1.3)
+    })
+  }
+
+  // ─── Fact reveal — soft "ping" ─────────────────────────────
+  ping() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    const osc = this.ctx.createOscillator()
+    const osc2 = this.ctx.createOscillator()
+    const gain = this.ctx.createGain()
+    osc.type = 'sine'
+    osc2.type = 'sine'
+    osc.frequency.value = 1760
+    osc2.frequency.value = 2637 // perfect fifth
+    gain.gain.setValueAtTime(0, now)
+    gain.gain.linearRampToValueAtTime(0.15, now + 0.01)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
+    osc.connect(gain)
+    osc2.connect(gain)
+    gain.connect(this.ctx.destination)
+    osc.start(now)
+    osc2.start(now)
+    osc.stop(now + 0.55)
+    osc2.stop(now + 0.55)
+  }
+
+  // ─── Close drawer — descending sweep ───────────────────────
+  close() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    const osc = this.ctx.createOscillator()
+    const gain = this.ctx.createGain()
+    osc.type = 'triangle'
+    osc.frequency.setValueAtTime(600, now)
+    osc.frequency.exponentialRampToValueAtTime(200, now + 0.15)
+    gain.gain.setValueAtTime(0.18, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2)
+    osc.connect(gain).connect(this.ctx.destination)
+    osc.start(now)
+    osc.stop(now + 0.22)
   }
 
   setMuted(muted) {
@@ -302,7 +454,7 @@ class SpaceAudio {
     if (this.master) {
       const now = this.ctx.currentTime
       this.master.gain.cancelScheduledValues(now)
-      this.master.gain.linearRampToValueAtTime(muted ? 0 : 0.5, now + 0.3)
+      this.master.gain.linearRampToValueAtTime(muted ? 0 : this.MASTER_VOL, now + 0.3)
     }
   }
 }
@@ -953,7 +1105,13 @@ export default function SpaceExplorer() {
   }, [audioStarted])
 
   const handleSelect = useCallback((planet) => {
-    audio.whoosh()
+    if (planet) {
+      audio.whoosh()
+      // Stagger the chime so it plays after the whoosh starts
+      setTimeout(() => audio.planetChime(planet.id), 150)
+    } else {
+      audio.close()
+    }
     setSelected(prev => { if (!planet) return null; return prev?.id === planet.id ? null : planet })
   }, [])
 
@@ -993,7 +1151,7 @@ export default function SpaceExplorer() {
 
       <TopBar onHome={handleHome} muted={muted} onToggleMute={toggleMute} audioStarted={audioStarted} />
       {ready && <NavStrip planets={PLANETS} selected={selected} onSelect={handleSelect} />}
-      <InfoDrawer planet={selected} onClose={() => { audio.click(); setSelected(null) }} onPlay={() => audio.click()} />
+      <InfoDrawer planet={selected} onClose={() => { audio.close(); setSelected(null) }} onPlay={() => audio.ping()} />
 
       {ready && !selected && (
         <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
