@@ -10,82 +10,154 @@ import * as THREE from 'three'
 
 const TEX = (name) => `${import.meta.env.BASE_URL || '/'}textures/planets/${name}`
 
-// Real planet eccentricities (rounded for visual appeal — not 1:1 to NASA)
+// Real planet data with NASA facts
 const PLANETS = [
   {
-    id: 'about', name: 'Mercury', section: 'Kranthi',
-    orbit: 14, eccentricity: 0.21, inclination: 0.12, // most eccentric in solar system
+    id: 'mercury', name: 'Mercury',
+    orbit: 14, eccentricity: 0.21, inclination: 0.12,
     size: 1.2, speed: 0.16, tilt: 0.03,
     texture: 'mercury.jpg', color: '#a8a29e', atmosphere: null,
     moons: 0, ring: null,
-    desc: 'Closest to the sun — personal info, bio, and everything about Kranthi.',
-    detail: 'Diameter: 4,879 km · Orbital period: 88 days · Eccentricity: 0.205',
+    tagline: 'Swift messenger of the gods',
+    facts: [
+      'Smallest planet in our solar system — only slightly larger than Earth\'s Moon',
+      'A year on Mercury (one orbit) takes just 88 Earth days',
+      'A single day on Mercury (one rotation) takes 59 Earth days',
+      'Temperatures swing from -180°C at night to 430°C during the day',
+      'Has no atmosphere to retain heat or burn up incoming meteoroids',
+      'Surface is covered in craters, very similar to our Moon',
+      'Most eccentric orbit of all the planets (e = 0.205)',
+    ],
+    stats: { diameter: '4,879 km', day: '59 Earth days', year: '88 Earth days', moons: 0, distance: '57.9M km from Sun' },
   },
   {
-    id: 'workspace', name: 'Venus', section: 'Station Alpha',
+    id: 'venus', name: 'Venus',
     orbit: 20, eccentricity: 0.007, inclination: 0.06,
     size: 1.5, speed: 0.12, tilt: 0.04,
     texture: 'venus.jpg', color: '#e9d8a6', atmosphere: '#fde68a',
     moons: 0, ring: null,
-    desc: 'Veiled in clouds — the interactive 3D desk workspace.',
-    detail: 'Diameter: 12,104 km · Orbital period: 225 days',
+    tagline: 'Earth\'s scorching twin',
+    facts: [
+      'Hottest planet in our solar system at 465°C, despite being farther than Mercury',
+      'Atmosphere is 96% CO₂, with crushing pressure 92× that of Earth',
+      'Rotates BACKWARDS compared to most planets (retrograde rotation)',
+      'A day on Venus is longer than its year — 243 vs 225 Earth days',
+      'Shrouded in thick sulfuric acid clouds that reflect sunlight',
+      'Often called Earth\'s "sister planet" because of similar size',
+      'Brightest natural object in our night sky after the Moon',
+    ],
+    stats: { diameter: '12,104 km', day: '243 Earth days', year: '225 Earth days', moons: 0, distance: '108.2M km from Sun' },
   },
   {
-    id: 'experience', name: 'Earth', section: 'Experia',
+    id: 'earth', name: 'Earth',
     orbit: 28, eccentricity: 0.017, inclination: 0.0,
     size: 1.6, speed: 0.10, tilt: 0.41,
     texture: 'earth.jpg', clouds: 'earth_clouds.jpg',
     bump: 'earth_bump.jpg', specular: 'earth_spec.jpg', night: 'earth_night.jpg',
     color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
-    desc: 'Our home — professional experience timeline and career journey.',
-    detail: 'Diameter: 12,742 km · Orbital period: 365 days',
+    tagline: 'The pale blue dot',
+    facts: [
+      'Only known planet with life — over 8.7 million species',
+      '71% of Earth\'s surface is covered by water (oceans, lakes, ice)',
+      'Atmosphere is 78% nitrogen and 21% oxygen — perfect for life',
+      'Has a single natural satellite, the Moon, which stabilizes our axis',
+      'Magnetic field protects us from harmful solar radiation',
+      'Earth\'s core temperature rivals the surface of the Sun (~6000°C)',
+      'Spins at 1,670 km/h at the equator — you don\'t feel it because everything moves with you',
+    ],
+    stats: { diameter: '12,742 km', day: '24 hours', year: '365.25 days', moons: 1, distance: '149.6M km from Sun' },
   },
   {
-    id: 'tech', name: 'Mars', section: 'Techyon',
+    id: 'mars', name: 'Mars',
     orbit: 36, eccentricity: 0.093, inclination: 0.032,
     size: 1.3, speed: 0.08, tilt: 0.44,
     texture: 'mars.jpg', bump: 'mars_bump.jpg',
     color: '#e85d3f', atmosphere: '#fb923c',
     moons: 2, ring: null,
-    desc: 'The red planet — tech stack, tools, languages, frameworks.',
-    detail: 'Diameter: 6,779 km · Orbital period: 687 days',
+    tagline: 'The red planet',
+    facts: [
+      'Home to Olympus Mons — the largest volcano in the solar system (3× height of Everest)',
+      'Hosts the deepest canyon known: Valles Marineris is 4,000 km long, 7 km deep',
+      'Red color comes from iron oxide (rust) on its surface',
+      'Has two tiny moons: Phobos and Deimos (both possibly captured asteroids)',
+      'Days are similar to Earth: 24 hours 37 minutes',
+      'Polar ice caps made of water and frozen CO₂ (dry ice)',
+      'NASA\'s Perseverance and Curiosity rovers are still exploring it',
+    ],
+    stats: { diameter: '6,779 km', day: '24h 37m', year: '687 Earth days', moons: 2, distance: '227.9M km from Sun' },
   },
   {
-    id: 'projects', name: 'Jupiter', section: 'Projectis',
+    id: 'jupiter', name: 'Jupiter',
     orbit: 50, eccentricity: 0.048, inclination: 0.022,
     size: 3.5, speed: 0.045, tilt: 0.05,
     texture: 'jupiter.jpg', color: '#fcd34d', atmosphere: '#f59e0b',
     moons: 4, ring: null,
-    desc: 'The largest — portfolio of projects built and contributed to.',
-    detail: 'Diameter: 139,820 km · Orbital period: 12 years',
+    tagline: 'King of the planets',
+    facts: [
+      'Largest planet in our solar system — could fit 1,300 Earths inside',
+      'The Great Red Spot is a storm that\'s been raging for at least 350 years',
+      'Has 95 known moons — including Ganymede, the largest moon in the solar system',
+      'Spins so fast that one day lasts just under 10 hours',
+      'Acts as our solar system\'s "vacuum cleaner" — its gravity deflects asteroids',
+      'Made mostly of hydrogen and helium, like a tiny star that failed to ignite',
+      'Has a faint ring system, only discovered in 1979',
+    ],
+    stats: { diameter: '139,820 km', day: '9h 55m', year: '11.9 Earth years', moons: 95, distance: '778.5M km from Sun' },
   },
   {
-    id: 'travel', name: 'Saturn', section: 'Wanderer',
+    id: 'saturn', name: 'Saturn',
     orbit: 65, eccentricity: 0.056, inclination: 0.043,
     size: 3.0, speed: 0.030, tilt: 0.47,
     texture: 'saturn.jpg', color: '#fde68a', atmosphere: '#facc15',
     moons: 3, ring: { texture: 'saturn_ring.png', inner: 1.5, outer: 2.6 },
-    desc: 'The ringed wanderer — travel map and adventures around the world.',
-    detail: 'Diameter: 116,460 km · Orbital period: 29 years',
+    tagline: 'The ringed jewel',
+    facts: [
+      'Famous for its stunning ring system made of ice and rock particles',
+      'Rings extend 280,000 km wide but are only 10 meters thick in places',
+      'Has 146 known moons — including Titan, larger than Mercury',
+      'Density so low it would float in water (if you found a big enough bathtub)',
+      'Has hexagonal storms at its north pole — a 30,000 km wide jet stream',
+      'Winds can reach 1,800 km/h, nine times faster than Earth hurricanes',
+      'Titan has lakes of liquid methane and a thick nitrogen atmosphere',
+    ],
+    stats: { diameter: '116,460 km', day: '10h 33m', year: '29.5 Earth years', moons: 146, distance: '1.43B km from Sun' },
   },
   {
-    id: 'connect', name: 'Uranus', section: 'Signalis',
+    id: 'uranus', name: 'Uranus',
     orbit: 80, eccentricity: 0.046, inclination: 0.013,
     size: 2.0, speed: 0.020, tilt: 1.71,
     texture: 'uranus.jpg', color: '#a5f3fc', atmosphere: '#67e8f9',
     moons: 1, ring: { color: '#a5f3fc', inner: 1.4, outer: 1.55 },
-    desc: 'The tilted one — get in touch, contact form and social links.',
-    detail: 'Diameter: 50,724 km · Orbital period: 84 years',
+    tagline: 'The sideways planet',
+    facts: [
+      'Rotates on its side — axial tilt is 98° (essentially rolling around the Sun)',
+      'Each pole experiences 42 years of continuous sunlight, then 42 years of darkness',
+      'Coldest planetary atmosphere in the solar system: -224°C',
+      'Has 13 faint rings made of dark dust and ice',
+      'Blue-green color from methane in the atmosphere absorbing red light',
+      'Discovered in 1781 by William Herschel — the first planet found with a telescope',
+      'Has 27 known moons, all named after Shakespeare and Pope characters',
+    ],
+    stats: { diameter: '50,724 km', day: '17h 14m', year: '84 Earth years', moons: 27, distance: '2.87B km from Sun' },
   },
   {
-    id: 'guestbook', name: 'Neptune', section: 'Beacon Prime',
+    id: 'neptune', name: 'Neptune',
     orbit: 95, eccentricity: 0.009, inclination: 0.030,
     size: 1.9, speed: 0.012, tilt: 0.49,
     texture: 'neptune.jpg', color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
-    desc: 'The farthest blue — leave a message in the guestbook.',
-    detail: 'Diameter: 49,244 km · Orbital period: 165 years',
+    tagline: 'The windy ice giant',
+    facts: [
+      'Farthest planet from the Sun — at 4.5 billion km away',
+      'Has the fastest winds in the solar system: up to 2,100 km/h (supersonic)',
+      'Discovered by mathematics before observation — predicted by gravity equations in 1846',
+      'Takes 165 Earth years to orbit the Sun once',
+      'Deep blue color from methane absorbing red wavelengths',
+      'Has 14 moons — Triton orbits backwards and may be a captured Kuiper Belt object',
+      'Only one spacecraft has ever visited: Voyager 2 in 1989',
+    ],
+    stats: { diameter: '49,244 km', day: '16h 6m', year: '165 Earth years', moons: 14, distance: '4.5B km from Sun' },
   },
 ]
 
@@ -445,7 +517,6 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
           <span className="text-[11px] font-medium tracking-[0.15em] drop-shadow-lg" style={{ color: planet.color }}>
             {planet.name}
           </span>
-          <span className="text-[7px] font-mono tracking-[0.3em] text-white/40">{planet.section.toUpperCase()}</span>
           <div className="w-[1px] h-2" style={{ background: `${planet.color}40` }} />
         </div>
       </Html>
@@ -529,37 +600,124 @@ function LoadingScreen({ progress }) {
   )
 }
 
-// ─── Info drawer ─────────────────────────────────────────────
-function InfoDrawer({ planet, onClose, onExplore }) {
+// ─── Info drawer (planet facts explorer) ─────────────────────
+function InfoDrawer({ planet, onClose, onPlay }) {
   const [visible, setVisible] = useState(false)
+  const [factIndex, setFactIndex] = useState(0)
+
   useEffect(() => {
-    if (planet) requestAnimationFrame(() => setVisible(true))
-    else setVisible(false)
+    if (planet) {
+      requestAnimationFrame(() => setVisible(true))
+      setFactIndex(0)
+    } else {
+      setVisible(false)
+    }
   }, [planet])
+
   if (!planet) return null
 
+  const nextFact = () => {
+    onPlay?.()
+    setFactIndex(i => (i + 1) % planet.facts.length)
+  }
+
+  const stats = planet.stats || {}
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-auto transition-all duration-500 ease-out" style={{ transform: visible ? 'translateY(0)' : 'translateY(100%)' }}>
+    <div
+      className="fixed bottom-0 left-0 right-0 z-40 pointer-events-auto transition-all duration-500 ease-out"
+      style={{ transform: visible ? 'translateY(0)' : 'translateY(100%)' }}
+    >
       <div className="mx-auto max-w-3xl">
-        <div className="bg-black/85 backdrop-blur-2xl border border-white/8 rounded-t-2xl overflow-hidden">
+        <div className="bg-black/85 backdrop-blur-2xl border border-white/10 rounded-t-2xl overflow-hidden">
+          {/* Accent line */}
           <div className="h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${planet.color}, transparent)` }} />
-          <div className="p-6 flex items-start gap-6">
-            <div className="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background: `radial-gradient(circle at 35% 35%, ${planet.color}40, ${planet.color}10)`, boxShadow: `0 0 30px ${planet.color}20` }}>
-              <div className="w-8 h-8 rounded-full" style={{ background: `radial-gradient(circle at 40% 35%, ${planet.color}, ${planet.color}80)` }} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-1">
-                <h2 className="text-lg font-semibold text-white/90">{planet.name}</h2>
-                <span className="text-[9px] font-mono tracking-[0.3em] px-2 py-0.5 rounded-full bg-white/5 text-white/40 border border-white/5">{planet.section.toUpperCase()}</span>
+
+          <div className="p-6">
+            {/* Header */}
+            <div className="flex items-start gap-5 mb-5">
+              <div
+                className="w-14 h-14 rounded-full flex-shrink-0"
+                style={{
+                  background: `radial-gradient(circle at 35% 35%, ${planet.color}, ${planet.color}40)`,
+                  boxShadow: `0 0 25px ${planet.color}40`,
+                }}
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <h2 className="text-2xl font-semibold text-white/95 tracking-tight">{planet.name}</h2>
+                  <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
+                </div>
               </div>
-              <p className="text-sm text-white/40 mb-2 leading-relaxed">{planet.desc}</p>
-              <div className="text-[10px] font-mono text-white/20 tracking-wider">{planet.detail}</div>
-            </div>
-            <div className="flex flex-col gap-2 flex-shrink-0">
-              <button onClick={() => onExplore(planet.id)} className="px-5 py-2 rounded-lg text-xs font-medium tracking-wider transition-all hover:scale-105" style={{ background: `linear-gradient(135deg, ${planet.color}30, ${planet.color}10)`, border: `1px solid ${planet.color}30`, color: planet.color }}>
-                EXPLORE →
+              <button
+                onClick={onClose}
+                className="text-white/30 hover:text-white/70 transition-colors text-lg"
+                title="Close"
+              >
+                ✕
               </button>
-              <button onClick={onClose} className="px-5 py-2 rounded-lg text-xs text-white/30 hover:text-white/60 hover:bg-white/5 transition-all">CLOSE</button>
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-5">
+              {[
+                { k: 'Diameter', v: stats.diameter },
+                { k: 'Day', v: stats.day },
+                { k: 'Year', v: stats.year },
+                { k: 'Moons', v: stats.moons },
+                { k: 'From Sun', v: stats.distance },
+              ].map(s => (
+                <div key={s.k} className="bg-white/5 rounded-lg px-3 py-2 border border-white/5">
+                  <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mb-1">{s.k.toUpperCase()}</div>
+                  <div className="text-[11px] font-medium text-white/80 leading-tight">{s.v}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Fact card */}
+            <div
+              className="rounded-xl p-4 mb-4 border transition-all"
+              style={{
+                background: `linear-gradient(135deg, ${planet.color}15, transparent)`,
+                borderColor: `${planet.color}20`,
+              }}
+            >
+              <div className="flex items-start gap-3">
+                <div className="text-[8px] font-mono tracking-[0.3em] mt-0.5 flex-shrink-0" style={{ color: planet.color }}>
+                  FACT {String(factIndex + 1).padStart(2, '0')}/{String(planet.facts.length).padStart(2, '0')}
+                </div>
+              </div>
+              <p className="text-sm text-white/85 leading-relaxed mt-2 font-light">
+                {planet.facts[factIndex]}
+              </p>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={nextFact}
+                className="flex-1 py-2.5 rounded-lg text-xs font-medium tracking-wider transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                style={{
+                  background: `linear-gradient(135deg, ${planet.color}30, ${planet.color}10)`,
+                  border: `1px solid ${planet.color}40`,
+                  color: planet.color,
+                }}
+              >
+                NEXT FACT
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a
+                href={`https://science.nasa.gov/${planet.name.toLowerCase()}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onPlay}
+                className="px-4 py-2.5 rounded-lg text-xs text-white/40 hover:text-white/80 hover:bg-white/5 border border-white/10 transition-all"
+                title="Learn more on NASA.gov"
+              >
+                NASA ↗
+              </a>
             </div>
           </div>
         </div>
@@ -777,34 +935,6 @@ export default function SpaceExplorer() {
     setHovered(id)
   }, [hovered])
 
-  const handleExplore = useCallback((sectionId) => {
-    audio.click()
-    // Sub-page routes go via hash
-    if (sectionId === 'workspace') {
-      window.location.hash = '#/workspace'
-      window.location.reload()
-      return
-    }
-    // Section anchors on the main page: stash target in sessionStorage,
-    // clear hash so App.jsx picks it up after reload (matches existing
-    // deferred-scroll pattern in App.jsx:84)
-    const sectionMap = {
-      about: 'about',
-      experience: 'experience',
-      tech: 'techstack',
-      projects: 'projects',
-      travel: 'travel',
-      connect: 'connect',
-      guestbook: 'guestbook',
-    }
-    const target = sectionMap[sectionId]
-    if (target) {
-      sessionStorage.setItem('scrollTo', target)
-    }
-    window.location.hash = ''
-    window.location.reload()
-  }, [])
-
   const handleHome = useCallback(() => {
     audio.click()
     window.location.hash = ''
@@ -836,7 +966,7 @@ export default function SpaceExplorer() {
 
       <TopBar onHome={handleHome} muted={muted} onToggleMute={toggleMute} audioStarted={audioStarted} />
       {ready && <NavStrip planets={PLANETS} selected={selected} onSelect={handleSelect} />}
-      <InfoDrawer planet={selected} onClose={() => { audio.click(); setSelected(null) }} onExplore={handleExplore} />
+      <InfoDrawer planet={selected} onClose={() => { audio.click(); setSelected(null) }} onPlay={() => audio.click()} />
 
       {ready && !selected && (
         <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
