@@ -150,11 +150,13 @@ function AsteroidBelt() {
 function CinematicCamera() {
   useFrame(({ camera, clock }) => {
     const t = clock.elapsedTime * 0.03
-    // Slow orbital drift
-    camera.position.x = Math.cos(t) * 75
+    // Slow orbital drift — keep system positioned on the RIGHT of the screen
+    // by offsetting camera target left of origin
+    camera.position.x = Math.cos(t) * 75 - 25
     camera.position.z = Math.sin(t) * 75 + 25
-    camera.position.y = 35 + Math.sin(t * 0.7) * 8
-    camera.lookAt(0, 0, 0)
+    camera.position.y = 30 + Math.sin(t * 0.7) * 6
+    // Look at point shifted right of origin → system renders on right
+    camera.lookAt(20, 0, 0)
   })
   return null
 }
