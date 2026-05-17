@@ -10,18 +10,21 @@ import * as THREE from 'three'
 
 const TEX = (name) => `${import.meta.env.BASE_URL || '/'}textures/planets/${name}`
 
+// Real planet eccentricities (rounded for visual appeal — not 1:1 to NASA)
 const PLANETS = [
   {
     id: 'about', name: 'Mercury', section: 'Kranthi',
-    orbit: 14, size: 1.2, speed: 0.16, tilt: 0.03,
+    orbit: 14, eccentricity: 0.21, inclination: 0.12, // most eccentric in solar system
+    size: 1.2, speed: 0.16, tilt: 0.03,
     texture: 'mercury.jpg', color: '#a8a29e', atmosphere: null,
     moons: 0, ring: null,
     desc: 'Closest to the sun — personal info, bio, and everything about Kranthi.',
-    detail: 'Diameter: 4,879 km · Orbital period: 88 days',
+    detail: 'Diameter: 4,879 km · Orbital period: 88 days · Eccentricity: 0.205',
   },
   {
     id: 'workspace', name: 'Venus', section: 'Station Alpha',
-    orbit: 20, size: 1.5, speed: 0.12, tilt: 0.04,
+    orbit: 20, eccentricity: 0.007, inclination: 0.06,
+    size: 1.5, speed: 0.12, tilt: 0.04,
     texture: 'venus.jpg', color: '#e9d8a6', atmosphere: '#fde68a',
     moons: 0, ring: null,
     desc: 'Veiled in clouds — the interactive 3D desk workspace.',
@@ -29,7 +32,8 @@ const PLANETS = [
   },
   {
     id: 'experience', name: 'Earth', section: 'Experia',
-    orbit: 28, size: 1.6, speed: 0.10, tilt: 0.41,
+    orbit: 28, eccentricity: 0.017, inclination: 0.0,
+    size: 1.6, speed: 0.10, tilt: 0.41,
     texture: 'earth.jpg', clouds: 'earth_clouds.jpg', color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
     desc: 'Our home — professional experience timeline and career journey.',
@@ -37,7 +41,8 @@ const PLANETS = [
   },
   {
     id: 'tech', name: 'Mars', section: 'Techyon',
-    orbit: 36, size: 1.3, speed: 0.08, tilt: 0.44,
+    orbit: 36, eccentricity: 0.093, inclination: 0.032,
+    size: 1.3, speed: 0.08, tilt: 0.44,
     texture: 'mars.jpg', color: '#e85d3f', atmosphere: '#fb923c',
     moons: 2, ring: null,
     desc: 'The red planet — tech stack, tools, languages, frameworks.',
@@ -45,7 +50,8 @@ const PLANETS = [
   },
   {
     id: 'projects', name: 'Jupiter', section: 'Projectis',
-    orbit: 50, size: 3.5, speed: 0.045, tilt: 0.05,
+    orbit: 50, eccentricity: 0.048, inclination: 0.022,
+    size: 3.5, speed: 0.045, tilt: 0.05,
     texture: 'jupiter.jpg', color: '#fcd34d', atmosphere: '#f59e0b',
     moons: 4, ring: null,
     desc: 'The largest — portfolio of projects built and contributed to.',
@@ -53,7 +59,8 @@ const PLANETS = [
   },
   {
     id: 'travel', name: 'Saturn', section: 'Wanderer',
-    orbit: 65, size: 3.0, speed: 0.030, tilt: 0.47,
+    orbit: 65, eccentricity: 0.056, inclination: 0.043,
+    size: 3.0, speed: 0.030, tilt: 0.47,
     texture: 'saturn.jpg', color: '#fde68a', atmosphere: '#facc15',
     moons: 3, ring: { texture: 'saturn_ring.png', inner: 1.5, outer: 2.6 },
     desc: 'The ringed wanderer — travel map and adventures around the world.',
@@ -61,7 +68,8 @@ const PLANETS = [
   },
   {
     id: 'connect', name: 'Uranus', section: 'Signalis',
-    orbit: 80, size: 2.0, speed: 0.020, tilt: 1.71,
+    orbit: 80, eccentricity: 0.046, inclination: 0.013,
+    size: 2.0, speed: 0.020, tilt: 1.71,
     texture: 'uranus.jpg', color: '#a5f3fc', atmosphere: '#67e8f9',
     moons: 1, ring: { color: '#a5f3fc', inner: 1.4, outer: 1.55 },
     desc: 'The tilted one — get in touch, contact form and social links.',
@@ -69,13 +77,162 @@ const PLANETS = [
   },
   {
     id: 'guestbook', name: 'Neptune', section: 'Beacon Prime',
-    orbit: 95, size: 1.9, speed: 0.012, tilt: 0.49,
+    orbit: 95, eccentricity: 0.009, inclination: 0.030,
+    size: 1.9, speed: 0.012, tilt: 0.49,
     texture: 'neptune.jpg', color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
     desc: 'The farthest blue — leave a message in the guestbook.',
     detail: 'Diameter: 49,244 km · Orbital period: 165 years',
   },
 ]
+
+// Inject deterministic orbital rotation (longitude of ascending node) per planet
+PLANETS.forEach((p, i) => {
+  // Spread orbit rotations to make starting positions feel natural & non-aligned
+  p.orbitRotation = (i * 0.7 + i * i * 0.13) % (Math.PI * 2)
+})
+
+// ─── Web Audio: ambient theme + UI sounds ────────────────────
+class SpaceAudio {
+  constructor() {
+    this.ctx = null
+    this.master = null
+    this.musicNodes = []
+    this.muted = false
+    this.started = false
+  }
+
+  init() {
+    if (this.ctx) return
+    const AC = window.AudioContext || window.webkitAudioContext
+    if (!AC) return
+    this.ctx = new AC()
+    this.master = this.ctx.createGain()
+    this.master.gain.value = 0.0
+    this.master.connect(this.ctx.destination)
+  }
+
+  startTheme() {
+    if (!this.ctx || this.started) return
+    this.started = true
+    const now = this.ctx.currentTime
+
+    // Deep space drone — two detuned oscillators through filter
+    const droneFreqs = [55, 82.4, 110, 165] // A1, E2, A2, E3
+    droneFreqs.forEach((f, i) => {
+      const osc = this.ctx.createOscillator()
+      const gain = this.ctx.createGain()
+      const filter = this.ctx.createBiquadFilter()
+      osc.type = i % 2 === 0 ? 'sine' : 'triangle'
+      osc.frequency.value = f
+      osc.detune.value = (Math.random() - 0.5) * 8
+      filter.type = 'lowpass'
+      filter.frequency.value = 800
+      filter.Q.value = 2
+      gain.gain.value = 0
+      osc.connect(filter).connect(gain).connect(this.master)
+      osc.start(now)
+      // Slow fade in
+      gain.gain.exponentialRampToValueAtTime(0.04 + i * 0.01, now + 4 + i)
+      // LFO modulation
+      const lfo = this.ctx.createOscillator()
+      const lfoGain = this.ctx.createGain()
+      lfo.frequency.value = 0.05 + i * 0.03
+      lfoGain.gain.value = 3
+      lfo.connect(lfoGain).connect(osc.frequency)
+      lfo.start(now)
+      this.musicNodes.push(osc, lfo, gain)
+    })
+
+    // Slow shimmer — high pad
+    const shimmerOsc = this.ctx.createOscillator()
+    const shimmerGain = this.ctx.createGain()
+    const shimmerFilter = this.ctx.createBiquadFilter()
+    shimmerOsc.type = 'sawtooth'
+    shimmerOsc.frequency.value = 880
+    shimmerFilter.type = 'lowpass'
+    shimmerFilter.frequency.value = 1200
+    shimmerFilter.Q.value = 8
+    shimmerGain.gain.value = 0
+    shimmerOsc.connect(shimmerFilter).connect(shimmerGain).connect(this.master)
+    shimmerOsc.start(now)
+    shimmerGain.gain.exponentialRampToValueAtTime(0.008, now + 6)
+    // Slow filter sweep
+    const sweepLfo = this.ctx.createOscillator()
+    const sweepGain = this.ctx.createGain()
+    sweepLfo.frequency.value = 0.04
+    sweepGain.gain.value = 800
+    sweepLfo.connect(sweepGain).connect(shimmerFilter.frequency)
+    sweepLfo.start(now)
+    this.musicNodes.push(shimmerOsc, sweepLfo, shimmerGain)
+
+    // Fade master in
+    this.master.gain.linearRampToValueAtTime(this.muted ? 0 : 0.5, now + 3)
+  }
+
+  click() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    const osc = this.ctx.createOscillator()
+    const gain = this.ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.setValueAtTime(1200, now)
+    osc.frequency.exponentialRampToValueAtTime(400, now + 0.08)
+    gain.gain.setValueAtTime(0.15, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1)
+    osc.connect(gain).connect(this.ctx.destination)
+    osc.start(now)
+    osc.stop(now + 0.12)
+  }
+
+  hover() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    const osc = this.ctx.createOscillator()
+    const gain = this.ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.value = 800
+    gain.gain.setValueAtTime(0.04, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05)
+    osc.connect(gain).connect(this.ctx.destination)
+    osc.start(now)
+    osc.stop(now + 0.06)
+  }
+
+  whoosh() {
+    if (!this.ctx || this.muted) return
+    const now = this.ctx.currentTime
+    // White noise burst through bandpass
+    const bufferSize = this.ctx.sampleRate * 0.6
+    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate)
+    const data = buffer.getChannelData(0)
+    for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.8
+    const noise = this.ctx.createBufferSource()
+    noise.buffer = buffer
+    const filter = this.ctx.createBiquadFilter()
+    filter.type = 'bandpass'
+    filter.frequency.setValueAtTime(200, now)
+    filter.frequency.exponentialRampToValueAtTime(2000, now + 0.5)
+    filter.Q.value = 5
+    const gain = this.ctx.createGain()
+    gain.gain.setValueAtTime(0.15, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
+    noise.connect(filter).connect(gain).connect(this.ctx.destination)
+    noise.start(now)
+    noise.stop(now + 0.5)
+  }
+
+  setMuted(muted) {
+    this.muted = muted
+    if (this.master) {
+      const now = this.ctx.currentTime
+      this.master.gain.cancelScheduledValues(now)
+      this.master.gain.linearRampToValueAtTime(muted ? 0 : 0.5, now + 0.3)
+    }
+  }
+}
+
+const audio = new SpaceAudio()
 
 // ─── Sun (real texture) ─────────────────────────────────────
 function Sun() {
@@ -115,17 +272,37 @@ function Sun() {
   )
 }
 
-// ─── Orbit path ──────────────────────────────────────────────
-function OrbitPath({ radius, highlighted }) {
+// ─── Orbit path (elliptical, with longitude rotation + inclination tilt) ──────
+function OrbitPath({ planet, highlighted }) {
+  const points = useMemo(() => {
+    const segments = 256
+    const a = planet.orbit // semi-major axis
+    const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity) // semi-minor
+    const pts = []
+    for (let i = 0; i <= segments; i++) {
+      const angle = (i / segments) * Math.PI * 2
+      pts.push(new THREE.Vector3(Math.cos(angle) * a, 0, Math.sin(angle) * b))
+    }
+    return pts
+  }, [planet.orbit, planet.eccentricity])
+
+  const geometry = useMemo(() => {
+    const g = new THREE.BufferGeometry().setFromPoints(points)
+    return g
+  }, [points])
+
   return (
-    <mesh rotation-x={Math.PI / 2}>
-      <ringGeometry args={[radius - 0.04, radius + 0.04, 180]} />
-      <meshBasicMaterial color={highlighted ? '#ffffff' : '#475569'} transparent opacity={highlighted ? 0.4 : 0.1} side={THREE.DoubleSide} depthWrite={false} />
-    </mesh>
+    <line geometry={geometry} rotation={[planet.inclination, planet.orbitRotation || 0, 0]}>
+      <lineBasicMaterial
+        color={highlighted ? '#ffffff' : '#475569'}
+        transparent
+        opacity={highlighted ? 0.5 : 0.18}
+      />
+    </line>
   )
 }
 
-// ─── Planet ──────────────────────────────────────────────────
+// ─── Planet (elliptical Kepler orbit with inclination) ───────
 function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions }) {
   const groupRef = useRef()
   const meshRef = useRef()
@@ -137,15 +314,38 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
   const cloudsTex = planet.clouds ? useLoader(THREE.TextureLoader, TEX(planet.clouds)) : null
   const ringTex = planet.ring?.texture ? useLoader(THREE.TextureLoader, TEX(planet.ring.texture)) : null
 
+  // Orbit parameters (memoized)
+  const orbit = useMemo(() => {
+    const a = planet.orbit
+    const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity)
+    const cosRot = Math.cos(planet.orbitRotation || 0)
+    const sinRot = Math.sin(planet.orbitRotation || 0)
+    const cosInc = Math.cos(planet.inclination)
+    const sinInc = Math.sin(planet.inclination)
+    return { a, b, cosRot, sinRot, cosInc, sinInc }
+  }, [planet.orbit, planet.eccentricity, planet.inclination, planet.orbitRotation])
+
   useFrame((_, delta) => {
     if (!groupRef.current) return
     angleRef.current += planet.speed * delta
-    const x = Math.cos(angleRef.current) * planet.orbit
-    const z = Math.sin(angleRef.current) * planet.orbit
-    groupRef.current.position.set(x, 0, z)
+
+    // Elliptical orbit in local plane
+    const lx = Math.cos(angleRef.current) * orbit.a
+    const lz = Math.sin(angleRef.current) * orbit.b
+
+    // Rotate orbit around Y
+    const rx = lx * orbit.cosRot - lz * orbit.sinRot
+    const rz = lx * orbit.sinRot + lz * orbit.cosRot
+
+    // Apply orbital inclination (tilt around X axis of orbit plane)
+    const x = rx
+    const y = rz * orbit.sinInc
+    const z = rz * orbit.cosInc
+
+    groupRef.current.position.set(x, y, z)
     if (meshRef.current) meshRef.current.rotation.y += 0.008
     if (cloudsRef.current) cloudsRef.current.rotation.y += 0.012
-    if (planetPositions) planetPositions.current[planet.id] = { x, y: 0, z }
+    if (planetPositions) planetPositions.current[planet.id] = { x, y, z }
   })
 
   return (
@@ -337,6 +537,87 @@ function InfoDrawer({ planet, onClose, onExplore }) {
   )
 }
 
+// ─── Background nebula (gradient sphere + dust particles) ────
+function Nebula() {
+  const dustRef = useRef()
+  const nebulaTex = useMemo(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 1024
+    canvas.height = 512
+    const ctx = canvas.getContext('2d')
+    // Base deep space
+    ctx.fillStyle = '#020008'
+    ctx.fillRect(0, 0, 1024, 512)
+    // Add nebula blobs
+    const colors = [
+      ['#3b1d6a', 0.25], ['#1e3a5f', 0.2], ['#5b1f3d', 0.18],
+      ['#1d4a3a', 0.12], ['#4a1d5b', 0.15], ['#1d2a5b', 0.2],
+    ]
+    for (let i = 0; i < 60; i++) {
+      const [col, baseAlpha] = colors[Math.floor(Math.random() * colors.length)]
+      const x = Math.random() * 1024
+      const y = Math.random() * 512
+      const r = 80 + Math.random() * 200
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, r)
+      grad.addColorStop(0, `${col}${Math.floor(baseAlpha * 255).toString(16).padStart(2, '0')}`)
+      grad.addColorStop(1, '#02000800')
+      ctx.fillStyle = grad
+      ctx.fillRect(x - r, y - r, r * 2, r * 2)
+    }
+    // Add tiny stars
+    ctx.fillStyle = '#ffffff'
+    for (let i = 0; i < 800; i++) {
+      const x = Math.random() * 1024
+      const y = Math.random() * 512
+      const r = Math.random() * 1.2
+      ctx.globalAlpha = Math.random() * 0.8 + 0.2
+      ctx.beginPath()
+      ctx.arc(x, y, r, 0, Math.PI * 2)
+      ctx.fill()
+    }
+    ctx.globalAlpha = 1
+    const tex = new THREE.CanvasTexture(canvas)
+    tex.mapping = THREE.EquirectangularReflectionMapping
+    return tex
+  }, [])
+
+  // Cosmic dust particles
+  const dustPositions = useMemo(() => {
+    const arr = new Float32Array(2000 * 3)
+    for (let i = 0; i < 2000; i++) {
+      const r = 150 + Math.random() * 200
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.5
+      arr[i * 3 + 2] = r * Math.cos(phi)
+    }
+    return arr
+  }, [])
+
+  useFrame((_, delta) => {
+    if (dustRef.current) dustRef.current.rotation.y += delta * 0.005
+  })
+
+  return (
+    <>
+      {/* Skybox */}
+      <mesh>
+        <sphereGeometry args={[450, 64, 64]} />
+        <meshBasicMaterial map={nebulaTex} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
+
+      {/* Cosmic dust */}
+      <points ref={dustRef}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[dustPositions, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.6} color="#ffffff" transparent opacity={0.4} sizeAttenuation depthWrite={false} />
+      </points>
+    </>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   const cameraTarget = useMemo(() => {
@@ -346,12 +627,13 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
 
   return (
     <>
-      <color attach="background" args={['#020008']} />
-      <ambientLight intensity={0.06} />
-      <Stars radius={300} depth={150} count={8000} factor={3} saturation={0} fade speed={0.3} />
+      <color attach="background" args={['#000003']} />
+      <ambientLight intensity={0.08} />
+      <Nebula />
+      <Stars radius={250} depth={100} count={12000} factor={4} saturation={0.2} fade speed={0.4} />
       <Sun />
       {PLANETS.map(p => (
-        <OrbitPath key={`orbit-${p.id}`} radius={p.orbit} highlighted={selected?.id === p.id || hovered === p.id} />
+        <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
       ))}
       {PLANETS.map(p => (
         <Planet key={p.id} planet={p} onSelect={onSelect} selected={selected?.id} hovered={hovered} onHover={onHover} planetPositions={planetPositions} />
@@ -363,7 +645,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
 }
 
 // ─── Top bar ─────────────────────────────────────────────────
-function TopBar({ onHome }) {
+function TopBar({ onHome, muted, onToggleMute, audioStarted }) {
   return (
     <div className="fixed top-0 left-0 right-0 z-30 pointer-events-none">
       <div className="flex items-center justify-between px-5 py-3">
@@ -373,8 +655,24 @@ function TopBar({ onHome }) {
           </svg>
           <span className="text-[10px] font-medium tracking-[0.15em] text-white/40 group-hover:text-white/70 transition-colors">HOME</span>
         </button>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pointer-events-auto">
           <div className="text-[10px] font-mono tracking-[0.4em] text-white/15 hidden sm:block">KRANTHI'S UNIVERSE</div>
+          <button
+            onClick={onToggleMute}
+            disabled={!audioStarted}
+            className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${audioStarted ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white/2 border-white/5 opacity-30 cursor-not-allowed'}`}
+            title={muted ? 'Unmute' : 'Mute'}
+          >
+            {muted || !audioStarted ? (
+              <svg className="w-3.5 h-3.5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zM17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+              </svg>
+            ) : (
+              <svg className="w-3.5 h-3.5 text-emerald-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              </svg>
+            )}
+          </button>
           <div className="w-2 h-2 rounded-full bg-emerald-400/60 animate-pulse" title="Live" />
         </div>
       </div>
@@ -414,6 +712,8 @@ export default function SpaceExplorer() {
   const [hovered, setHovered] = useState(null)
   const [ready, setReady] = useState(false)
   const [loadProgress, setLoadProgress] = useState(0)
+  const [muted, setMuted] = useState(false)
+  const [audioStarted, setAudioStarted] = useState(false)
   const controlsRef = useRef()
   const planetPositions = useRef({})
 
@@ -424,17 +724,52 @@ export default function SpaceExplorer() {
     return () => clearInterval(interval)
   }, [])
 
+  // Initialize audio on first user interaction (browsers require user gesture)
+  useEffect(() => {
+    const startAudio = () => {
+      if (audioStarted) return
+      audio.init()
+      audio.startTheme()
+      setAudioStarted(true)
+    }
+    window.addEventListener('click', startAudio, { once: true })
+    window.addEventListener('keydown', startAudio, { once: true })
+    return () => {
+      window.removeEventListener('click', startAudio)
+      window.removeEventListener('keydown', startAudio)
+    }
+  }, [audioStarted])
+
   const handleSelect = useCallback((planet) => {
+    audio.whoosh()
     setSelected(prev => { if (!planet) return null; return prev?.id === planet.id ? null : planet })
   }, [])
 
+  const handleHover = useCallback((id) => {
+    if (id && id !== hovered) audio.hover()
+    setHovered(id)
+  }, [hovered])
+
   const handleExplore = useCallback((sectionId) => {
+    audio.click()
     const routeMap = { about: '#about', workspace: '#/workspace', experience: '#experience', tech: '#tech', projects: '#projects', travel: '#travel', connect: '#connect', guestbook: '#guestbook' }
     window.location.hash = routeMap[sectionId] || `#${sectionId}`
     window.location.reload()
   }, [])
 
-  const handleHome = useCallback(() => { window.location.hash = ''; window.location.reload() }, [])
+  const handleHome = useCallback(() => {
+    audio.click()
+    window.location.hash = ''
+    window.location.reload()
+  }, [])
+
+  const toggleMute = useCallback(() => {
+    setMuted(m => {
+      const next = !m
+      audio.setMuted(next)
+      return next
+    })
+  }, [])
 
   return (
     <div className="fixed inset-0 bg-black text-white select-none">
@@ -447,17 +782,25 @@ export default function SpaceExplorer() {
         gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
       >
         <React.Suspense fallback={null}>
-          <Scene selected={selected} hovered={hovered} onSelect={handleSelect} onHover={setHovered} planetPositions={planetPositions} controlsRef={controlsRef} />
+          <Scene selected={selected} hovered={hovered} onSelect={handleSelect} onHover={handleHover} planetPositions={planetPositions} controlsRef={controlsRef} />
         </React.Suspense>
       </Canvas>
 
-      <TopBar onHome={handleHome} />
+      <TopBar onHome={handleHome} muted={muted} onToggleMute={toggleMute} audioStarted={audioStarted} />
       {ready && <NavStrip planets={PLANETS} selected={selected} onSelect={handleSelect} />}
-      <InfoDrawer planet={selected} onClose={() => setSelected(null)} onExplore={handleExplore} />
+      <InfoDrawer planet={selected} onClose={() => { audio.click(); setSelected(null) }} onExplore={handleExplore} />
 
       {ready && !selected && (
         <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
           <div className="text-[9px] font-mono tracking-[0.4em] text-white/15 animate-pulse">SELECT A PLANET TO EXPLORE</div>
+        </div>
+      )}
+
+      {ready && !audioStarted && (
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+          <div className="px-4 py-2 rounded-full bg-black/60 backdrop-blur-xl border border-amber-500/20 text-[10px] font-mono tracking-[0.3em] text-amber-300/60 animate-pulse">
+            🔊 CLICK TO ENABLE AUDIO
+          </div>
         </div>
       )}
     </div>
