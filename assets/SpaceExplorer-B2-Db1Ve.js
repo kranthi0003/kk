@@ -1,4 +1,4 @@
-import{r,j as e}from"./index-DdJQ2MHu.js";import{b as z,C as D,a as I,H as L}from"./Html-CCKox1KC.js";import{C as P,aM as O,a2 as B,aN as R}from"./extends-D4CF6q2p.js";const v=8e3,E=400,A=2e3,F=`
+import{r,j as e}from"./index-u8Ir3Gni.js";import{b as z,C as D,a as I,H as L}from"./Html-CuffSKNz.js";import{C as P,aM as O,a2 as B,aN as R}from"./extends-D4CF6q2p.js";const v=8e3,E=400,A=2e3,F=`
   attribute float size;
   attribute float brightness;
   uniform float uSpeed;
