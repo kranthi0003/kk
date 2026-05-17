@@ -1,6 +1,8 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, ContactShadows, Html, Float, RoundedBox } from '@react-three/drei'
+import { OrbitControls, Environment, Html, Float, RoundedBox, SoftShadows, useGLTF, useAnimations } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette, ChromaticAberration } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
 import * as THREE from 'three'
 
 // ============================================================
@@ -12,25 +14,62 @@ const VIOLET = '#a78bfa'
 const MAGENTA = '#ec4899'
 const CORAL = '#f97316'
 
+// ─── Theme constants (was a 4-level inception system; flattened to one) ──
+const THEME = {
+  title: 'Reality',
+  place: 'Hyderabad · May 2026',
+  caption: 'The cloud engineer at his desk. Right now.',
+  bgNight: '#08040f', bgDay: '#1a1830',
+  wallA: '#110d22', wallB: '#0e0a1e',
+  floor: '#0c0814',
+  accent: '#8b5cf6', accent2: '#ec4899',
+  npcShirt: '#7c3aed',
+  monitorContent: 'code',
+}
+
 const HOTSPOTS = [
-  { id: 'about',     label: 'Talk to me',         hint: 'NPC sitting in chair', pos: [0.6, 0, 1.2] },
-  { id: 'guestbook', label: 'Drop a sticky note', hint: 'on the back wall',     pos: [0.0, 0, -1.8] },
-  { id: 'fitness',   label: 'Transformation HQ',  hint: 'pick up the dumbbell', pos: [-1.7, 0, 1.4] },
-  { id: 'stranger',  label: 'Stranger chat',      hint: 'wear the headphones',  pos: [-0.6, 0, -0.65] },
-  // Live items (not navigable — info only)
-  { id: 'projects',  label: 'Live GitHub feed',   hint: 'the monitor',          pos: [-0.05, 0, -0.5] },
-  { id: 'clock',     label: 'Live IST clock',     hint: 'on the wall',          pos: [2.0, 0, -2.0] },
-  // Secrets (hidden — only id-tagged once found)
+  // Site routes — clickable scene objects map to sub-pages
+  { id: 'projects',   label: 'My work',           hint: 'click the monitor',    pos: [-0.05, 0, -0.5] },
+  { id: 'experience', label: 'Experience',        hint: 'open the notebook',    pos: [-1.05, 0, -0.4] },
+  { id: 'connect',    label: 'Connect with me',   hint: 'pick up the phone',    pos: [1.05, 0, -0.05] },
+  { id: 'tech',       label: 'Tech stack',        hint: 'check the book stack', pos: [-1.4, 0, -0.4] },
+  { id: 'travel',     label: 'Places I\'ve been', hint: 'the travel poster',    pos: [1.7, 0, -2.5] },
+  { id: 'photos',     label: 'About me',          hint: 'the picture frame',    pos: [-1.6, 0, -2.5] },
+  // In-scene interactions (no route change)
+  { id: 'about',      label: 'Say hi',             hint: 'NPC in chair',         pos: [0.6, 0, 1.2] },
+  { id: 'guestbook',  label: 'Drop a sticky note', hint: 'on the back wall',     pos: [0.0, 0, -1.8] },
+  { id: 'fitness',    label: 'Transformation HQ',  hint: 'pick up the dumbbell', pos: [-1.7, 0, 1.4] },
+  { id: 'stranger',   label: 'Stranger chat',      hint: 'wear the headphones',  pos: [-0.6, 0, -0.65] },
+  // Info-only
+  { id: 'clock',      label: 'Live IST clock',     hint: 'on the wall',          pos: [2.0, 0, -2.0] },
+  // Secrets (hidden)
   { id: 'secret-trophy',  label: '🏆 trophy',     hint: 'examine the shelf',    pos: [2.0, 0, -2.3] },
 ]
 
 export default function Workspace({ onBack, embedded = false }) {
   const [hovered, setHovered] = useState(null)
   const [hint, setHint] = useState(embedded ? 'Drag to look · click items · or Play for game mode' : 'Click PLAY to enter the room')
-  const [isDay, setIsDay] = useState(false)
+  const [isDay, setIsDay] = useState(() => {
+    const now = new Date()
+    const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+    const h = ist.getHours()
+    return h >= 6 && h < 18
+  })
+
+  // Re-evaluate day/night every 5 min (covers sunrise/sunset transitions)
+  useEffect(() => {
+    const tick = () => {
+      const ist = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+      const h = ist.getHours()
+      setIsDay(h >= 6 && h < 18)
+    }
+    const id = setInterval(tick, 5 * 60 * 1000)
+    return () => clearInterval(id)
+  }, [])
   const [gameMode, setGameMode] = useState(false)
   const [near, setNear] = useState(null)
   const [chatOpen, setChatOpen] = useState(false)
+  const controlsRef = useRef()
 
   const [secretFound, setSecretFound] = useState(() => {
     try { return JSON.parse(localStorage.getItem('ws:secrets') || '[]') } catch { return [] }
@@ -45,12 +84,19 @@ export default function Workspace({ onBack, embedded = false }) {
   }
 
   const nav = (id) => {
-    // Interactions are now self-contained — no more routing to other sections
+    // Site sub-page routes
+    if (id === 'projects')   { window.location.hash = '#/projects';   window.location.reload(); return }
+    if (id === 'experience') { window.location.hash = '#/experience'; window.location.reload(); return }
+    if (id === 'connect')    { window.location.hash = '#/connect';    window.location.reload(); return }
+    if (id === 'tech')       { window.location.hash = '#/tech';       window.location.reload(); return }
+    if (id === 'travel')     { window.location.hash = '#/travel';     window.location.reload(); return }
+    if (id === 'photos')     { window.location.hash = '#/about';      window.location.reload(); return }
+    if (id === 'fitness')    { window.location.hash = '#/transformation'; window.location.reload(); return }
+    if (id === 'stranger')   { window.location.hash = '#/stranger';   window.location.reload(); return }
+    // In-scene interactions
     if (id === 'about')      { setChatOpen(true); return }
     if (id === 'guestbook')  { setShowStickyForm(true); return }
-    if (id === 'fitness')    { window.location.hash = '#/transformation'; window.location.reload(); return }
-    if (id === 'stranger')   { window.location.hash = '#/stranger'; window.location.reload(); return }
-    // Secrets
+    // Easter eggs
     if (id === 'secret-konami') { markSecret('konami'); window.dispatchEvent(new CustomEvent('trigger-matrix')); return }
     if (id === 'secret-drawer') { markSecret('drawer'); window.open('https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M', '_blank'); return }
     if (id === 'secret-trophy') { markSecret('trophy'); alert('🏆 Achievement: Explored the entire workspace!') }
@@ -113,50 +159,40 @@ export default function Workspace({ onBack, embedded = false }) {
   if (embedded) {
     return (
       <div className="relative w-full h-full">
-        {/* Floating controls top-right */}
-        <div className="absolute top-3 right-3 z-20 flex gap-2">
-          <button
-            onClick={() => setGameMode(g => !g)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-semibold transition-all"
-            style={{
-              background: gameMode
-                ? 'linear-gradient(135deg, oklch(70% 0.22 145), oklch(65% 0.22 165))'
-                : 'linear-gradient(135deg, color-mix(in oklab, var(--chart-1) 32%, transparent), color-mix(in oklab, var(--chart-2) 32%, transparent))',
-              color: 'white',
-              boxShadow: gameMode ? '0 0 16px -4px oklch(70% 0.22 145)' : '0 0 16px -4px color-mix(in oklab, var(--chart-1) 60%, transparent)',
-            }}>
-            {gameMode ? '⏸ Exit' : '▶ Play'}
-          </button>
-          <button
-            onClick={() => setIsDay(d => !d)}
-            className="flex items-center justify-center w-9 px-2 py-1.5 rounded-md text-[11px] font-semibold transition-all"
-            style={{
-              background: isDay ? 'color-mix(in oklab, oklch(75% 0.18 60) 18%, transparent)' : 'color-mix(in oklab, var(--chart-1) 12%, transparent)',
-              boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${isDay ? 'oklch(75% 0.18 60)' : 'var(--chart-1)'} 40%, transparent)`,
-            }}>
-            {isDay ? '☀️' : '🌙'}
-          </button>
-        </div>
-
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
-          dpr={[1, 2]}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.3, outputColorSpace: THREE.SRGBColorSpace }}
+          dpr={window.innerWidth < 768 ? 1 : [1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
-          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
-          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
+          <color attach="background" args={[isDay ? THEME.bgDay : THEME.bgNight]} />
+          <fog attach="fog" args={[isDay ? THEME.bgDay : THEME.bgNight, 8, 18]} />
           <Suspense fallback={null}>
             <Scene onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay} gameMode={gameMode} onNear={setNear} />
-            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+            <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
           </Suspense>
           <OrbitControls
+            ref={controlsRef}
             target={[0, 0.9, 0]} enablePan={false} enabled={!gameMode}
             minDistance={3.5} maxDistance={8}
             minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 2.2}
             autoRotate={!gameMode} autoRotateSpeed={0.4}
           />
+          <EffectComposer multisampling={2} disableNormalPass>
+            <Bloom
+              intensity={isDay ? 0.4 : 1.2}
+              luminanceThreshold={0.4}
+              luminanceSmoothing={0.3}
+              mipmapBlur
+              radius={0.85}
+            />
+            <ChromaticAberration
+              blendFunction={BlendFunction.NORMAL}
+              offset={[0.0006, 0.0009]}
+            />
+            <Vignette eskil={false} offset={0.15} darkness={isDay ? 0.45 : 0.65} />
+          </EffectComposer>
         </Canvas>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
@@ -165,18 +201,6 @@ export default function Workspace({ onBack, embedded = false }) {
             {hint}
           </div>
         </div>
-
-        {gameMode && (
-          <div className="absolute top-3 left-3 pointer-events-none">
-            <div className="px-3 py-2 rounded-xl backdrop-blur-xl"
-              style={{ background: 'color-mix(in oklab, var(--color-card) 80%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 30%, transparent)' }}>
-              <div className="space-y-0.5 text-[10px] text-muted-foreground font-mono">
-                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">W A S D</kbd> move</p>
-                <p><kbd className="px-1 rounded bg-foreground/10 text-foreground">E</kbd> interact · <kbd className="px-1 rounded bg-foreground/10 text-foreground">Esc</kbd> exit</p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {chatOpen && (
           <div className="absolute inset-0 flex items-end justify-center pb-6 px-4 pointer-events-none z-50">
@@ -195,10 +219,10 @@ export default function Workspace({ onBack, embedded = false }) {
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {[
+                  { label: '🤖 Chat with AI me', go: () => { setChatOpen(false); document.querySelector('[data-chatbot-btn]')?.click() } },
                   { label: '📖 About', go: () => { setChatOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '💼 Experience', go: () => { setChatOpen(false); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }) } },
                   { label: '✉️  Email', go: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com', '_blank') },
-                  { label: '🔍 LinkedIn', go: () => window.open('https://linkedin.com/in/kranthikiran3', '_blank') },
                 ].map((c, i) => (
                   <button key={i} onClick={c.go} className="px-3 py-2 rounded-md text-[12px] font-medium text-foreground text-left transition-all"
                     style={{ background: 'color-mix(in oklab, var(--chart-1) 10%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 28%, transparent)' }}>
@@ -211,9 +235,7 @@ export default function Workspace({ onBack, embedded = false }) {
         )}
 
         {showStickyForm && (
-          <StickyNoteForm
-            onClose={() => setShowStickyForm(false)}
-          />
+          <StickyNoteForm onClose={() => setShowStickyForm(false)} />
         )}
 
         {secretFound.length > 0 && (
@@ -288,22 +310,23 @@ export default function Workspace({ onBack, embedded = false }) {
         <Canvas
           shadows
           camera={{ position: [3.2, 2.2, 4.0], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
-          dpr={[1, 2]}
+          gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.3, outputColorSpace: THREE.SRGBColorSpace }}
+          dpr={window.innerWidth < 768 ? 1 : [1, 2]}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
-          <color attach="background" args={[isDay ? '#1a1830' : '#0a0612']} />
-          <fog attach="fog" args={[isDay ? '#1a1830' : '#0a0612', 8, 18]} />
+          <color attach="background" args={[isDay ? THEME.bgDay : THEME.bgNight]} />
+          <fog attach="fog" args={[isDay ? THEME.bgDay : THEME.bgNight, 8, 18]} />
 
           <Suspense fallback={null}>
             <Scene
               onHover={setHovered} onClick={nav} hovered={hovered} isDay={isDay}
               gameMode={gameMode} onNear={setNear}
             />
-            <Environment preset={isDay ? 'sunset' : 'city'} environmentIntensity={isDay ? 0.5 : 0.25} />
+            <Environment preset={isDay ? 'apartment' : 'city'} environmentIntensity={isDay ? 1.0 : 0.8} background={false} />
           </Suspense>
 
           <OrbitControls
+            ref={controlsRef}
             target={[0, 0.9, 0]}
             enablePan={false}
             enabled={!gameMode}
@@ -314,6 +337,20 @@ export default function Workspace({ onBack, embedded = false }) {
             autoRotate={!gameMode}
             autoRotateSpeed={0.4}
           />
+          <EffectComposer multisampling={2} disableNormalPass>
+            <Bloom
+              intensity={isDay ? 0.4 : 1.2}
+              luminanceThreshold={0.4}
+              luminanceSmoothing={0.3}
+              mipmapBlur
+              radius={0.85}
+            />
+            <ChromaticAberration
+              blendFunction={BlendFunction.NORMAL}
+              offset={[0.0006, 0.0009]}
+            />
+            <Vignette eskil={false} offset={0.15} darkness={isDay ? 0.45 : 0.65} />
+          </EffectComposer>
         </Canvas>
 
         {/* Hint pill */}
@@ -419,133 +456,209 @@ export default function Workspace({ onBack, embedded = false }) {
 function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
   return (
     <group>
-      {/* Lighting */}
-      <ambientLight intensity={isDay ? 0.6 : 0.35} />
+      <SoftShadows size={20} samples={10} focus={0.7} />
+
+      {/* IBL environment — adds realistic reflections to metals/glass.
+          Switches preset by time of day. background={false} keeps the
+          existing scene backdrop while still lighting materials. */}
+      <Environment preset={isDay ? 'sunset' : 'city'} background={false} />
+
+      {/* Lighting — vibrant gamer-style with strong color accents */}
+      <hemisphereLight args={[isDay ? '#fff0d8' : '#b88dff', isDay ? '#5a4a65' : '#1a0f2e', isDay ? 0.7 : 0.65]} />
+      <ambientLight intensity={isDay ? 0.5 : 0.35} />
+      {/* Key light */}
       <directionalLight
-        position={[5, 8, 3]}
-        intensity={isDay ? 1.2 : 0.45}
-        color={isDay ? '#fff4e0' : '#c4b5fd'}
+        position={[5, 7, 3]}
+        intensity={isDay ? 1.6 : 0.8}
+        color={isDay ? '#ffe6c0' : '#c4b5ff'}
         castShadow
         shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0002}
+        shadow-radius={6}
       >
-        <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5]} />
+        <orthographicCamera attach="shadow-camera" args={[-5, 5, 5, -5, 0.1, 20]} />
       </directionalLight>
+      {/* Rim / kick light from behind for separation */}
+      <directionalLight position={[-3, 4, -4]} intensity={isDay ? 0.3 : 0.6} color={isDay ? '#ff9a6f' : '#ff3e9d'} />
+      {/* Accent point lights — always on for gamer vibe */}
+      <pointLight position={[-3, 1.5, -1]} intensity={isDay ? 0.3 : 0.9} color="#8b5cf6" distance={7} decay={2} />
+      <pointLight position={[2.5, 1.5, 2]} intensity={isDay ? 0.2 : 0.7} color="#ec4899" distance={7} decay={2} />
+      <pointLight position={[0, 0.2, 3]} intensity={isDay ? 0.15 : 0.5} color="#06b6d4" distance={6} decay={2} />
       {!isDay && (
         <>
-          <pointLight position={[-3, 2, -1]} intensity={0.5} color={VIOLET} />
-          <pointLight position={[2, 1.5, 2]} intensity={0.35} color={MAGENTA} />
+          {/* Monitor screen bleed onto desk */}
+          <pointLight position={[-0.05, 1.05, -0.3]} intensity={1.0} color="#a78bfa" distance={3} decay={2} />
+          {/* Back wall wash — purple */}
+          <pointLight position={[0, 2.5, -2.4]} intensity={0.6} color="#7c3aed" distance={5} decay={2} />
+          {/* Side wall wash — magenta */}
+          <pointLight position={[-2.4, 2, -0.5]} intensity={0.4} color="#ec4899" distance={5} decay={2} />
         </>
       )}
-      {/* Desk lamp warm glow (always-on) */}
-      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.25 : 0.9} color="#ffb066" distance={3} decay={2} />
+      {/* Desk lamp warm pool — no shadow to avoid flicker */}
+      <pointLight position={[1.3, 1.5, -0.4]} intensity={isDay ? 0.3 : 1.2} color="#ffb066" distance={3.5} decay={2} />
 
-      {/* Floor */}
+      {/* Floor — plain matte surface */}
       <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[14, 14]} />
-        <meshStandardMaterial color={isDay ? '#2a223a' : '#15101e'} roughness={0.95} metalness={0.05} />
-      </mesh>
-      <ContactShadows position={[0, 0.001, 0]} opacity={0.5} scale={10} blur={2.5} far={4} />
-
-      {/* Rug under desk */}
-      <mesh position={[0, 0.005, 0.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[3.5, 2.2]} />
-        <meshStandardMaterial color="#3a1f4a" roughness={1} />
+        <meshStandardMaterial
+          color={THEME.floor}
+          roughness={0.95}
+          metalness={0.0}
+        />
       </mesh>
 
-      {/* Back wall + side wall */}
+      {/* Back + side walls */}
       <mesh position={[0, 2, -2.6]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#26203a' : '#1a1326'} roughness={0.85} />
+        <meshStandardMaterial color={THEME.wallA} roughness={0.92} />
       </mesh>
       <mesh position={[-2.6, 2, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[8, 5]} />
-        <meshStandardMaterial color={isDay ? '#221b34' : '#180f24'} roughness={0.85} />
+        <meshStandardMaterial color={THEME.wallB} roughness={0.92} />
       </mesh>
 
       {/* === WINDOW on the side wall === */}
       <Window position={[-2.58, 2.1, -1.0]} isDay={isDay} />
 
-      {/* === DESK === */}
+      {/* === DESK === walnut PBR */}
       <RoundedBox args={[3.2, 0.12, 1.6]} radius={0.04} position={[0, 0.7, 0]} castShadow receiveShadow>
-        <meshStandardMaterial color="#2a1d3f" roughness={0.4} metalness={0.2} />
+        <meshPhysicalMaterial
+          color="#2a1a14"
+          roughness={0.55} metalness={0.05}
+          clearcoat={0.4} clearcoatRoughness={0.45}
+          sheen={0.3} sheenColor="#5a3a2a"
+        />
       </RoundedBox>
       {[[-1.45, 0.35, -0.7], [1.45, 0.35, -0.7], [-1.45, 0.35, 0.7], [1.45, 0.35, 0.7]].map((p, i) => (
         <mesh key={i} position={p} castShadow>
           <boxGeometry args={[0.08, 0.7, 0.08]} />
-          <meshStandardMaterial color="#0c0712" metalness={0.4} roughness={0.5} />
+          <meshStandardMaterial color="#0a0610" metalness={0.7} roughness={0.35} />
         </mesh>
       ))}
 
-      {/* === CHAIR === */}
-      <Chair position={[0.0, 0, 1.7]} />
+      {/* === LED STRIP — under desk edges, gamer accent glow === */}
+      <mesh position={[0, 0.65, 0.79]}>
+        <boxGeometry args={[3.0, 0.02, 0.02]} />
+        <meshBasicMaterial color="#8b5cf6" />
+      </mesh>
+      <pointLight position={[0, 0.5, 0.8]} intensity={isDay ? 0.2 : 0.8} color="#8b5cf6" distance={2.5} decay={2} />
+      <mesh position={[0, 0.65, -0.79]}>
+        <boxGeometry args={[3.0, 0.02, 0.02]} />
+        <meshBasicMaterial color="#ec4899" />
+      </mesh>
+      <pointLight position={[0, 0.5, -0.8]} intensity={isDay ? 0.1 : 0.5} color="#ec4899" distance={2} decay={2} />
+      <mesh position={[-1.59, 0.65, 0]}>
+        <boxGeometry args={[0.02, 0.02, 1.5]} />
+        <meshBasicMaterial color="#06b6d4" />
+      </mesh>
+      <mesh position={[1.59, 0.65, 0]}>
+        <boxGeometry args={[0.02, 0.02, 1.5]} />
+        <meshBasicMaterial color="#06b6d4" />
+      </mesh>
 
-      {/* === MONITOR on stand — also routes to projects === */}
-      <Hotspot id="projects" position={[-0.05, 1.05, -0.5]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === NEON WALL ACCENTS === */}
+      <mesh position={[-2.2, 2.2, -2.58]}>
+        <boxGeometry args={[0.03, 1.8, 0.03]} />
+        <meshBasicMaterial color="#8b5cf6" />
+      </mesh>
+      <pointLight position={[-2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#8b5cf6" distance={3} decay={2} />
+      <mesh position={[2.2, 2.2, -2.58]}>
+        <boxGeometry args={[0.03, 1.8, 0.03]} />
+        <meshBasicMaterial color="#ec4899" />
+      </mesh>
+      <pointLight position={[2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#ec4899" distance={3} decay={2} />
+      <mesh position={[-2.58, 3.2, -1.0]}>
+        <boxGeometry args={[0.03, 0.03, 2.4]} />
+        <meshBasicMaterial color="#06b6d4" />
+      </mesh>
+      <pointLight position={[-2.5, 3.2, -1.0]} intensity={isDay ? 0.05 : 0.3} color="#06b6d4" distance={3} decay={2} />
+
+      {/* === CHAIR === */}
+      <Chair position={[0.0, 0, 0.9]} />
+
+      {/* === NPC sitting on the chair === */}
+      <Hotspot id="about" position={[0.0, 0, 0.9]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <NPC />
+      </Hotspot>
+
+      {/* === MONITOR === click → Work / Projects (centered, back row) */}
+      <Hotspot id="projects" position={[0.0, 1.05, -0.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <Monitor />
       </Hotspot>
 
-      {/* === LAPTOP — decorative (monitor is the live one) === */}
-      <group position={[-1.05, 0.76, 0.25]} rotation={[0, 0.35, 0]}>
-        <Laptop />
+      {/* === DESK LAMP === back-right corner, out of the way === */}
+      <DeskLamp position={[1.35, 0.77, -0.55]} isDay={isDay} />
+
+      {/* === COFFEE MUG — decorative, back-left corner === */}
+      <group position={[-1.35, 0.91, -0.5]}>
+        <CoffeeMug />
       </group>
 
-      {/* === MECHANICAL KEYBOARD — decorative === */}
-      <group position={[-0.05, 0.78, 0.45]}>
+      {/* === OCTOCAT — GitHub mascot, front-right of desk (visible) === */}
+      <group position={[0.75, 0.79, 0.2]}>
+        <Octocat />
+      </group>
+
+      {/* === SLEEPING CAT — decorative, back row behind monitor === */}
+      <Cat position={[0.75, 0.78, -0.5]} />
+
+      {/* === MIDDLE ROW (z ≈ 0): keyboard + mouse === */}
+      <group position={[0.0, 0.78, 0.15]}>
         <Keyboard />
       </group>
-
-      {/* === MOUSE === */}
-      <mesh position={[0.75, 0.79, 0.45]} castShadow>
+      <mesh position={[0.55, 0.79, 0.15]} castShadow>
         <RoundedBox args={[0.12, 0.04, 0.18]} radius={0.02}>
           <meshStandardMaterial color="#0e0a1a" metalness={0.5} roughness={0.4} />
         </RoundedBox>
       </mesh>
 
-      {/* === DESK LAMP === */}
-      <DeskLamp position={[1.3, 0.77, -0.5]} isDay={isDay} />
+      {/* === LAPTOP — decorative, far left middle row === */}
+      <group position={[-1.05, 0.76, 0.1]} rotation={[0, 0.4, 0]}>
+        <Laptop />
+      </group>
 
-      {/* === PHONE — decorative === */}
-      <group position={[1.05, 0.78, -0.05]} rotation={[0, -0.5, 0]}>
+      {/* === FRONT ROW (z ≈ 0.45-0.55): clickable items spread out === */}
+
+      {/* Notebook → Experience (far left front) */}
+      <Hotspot id="experience" position={[-1.15, 0.78, 0.5]} rotation={[0, 0.3, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Notebook position={[0, 0, 0]} />
+      </Hotspot>
+
+      {/* Books → Tech Stack (mid-left front) */}
+      <Hotspot id="tech" position={[-0.6, 0.78, 0.5]} rotation={[0, -0.1, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <BookStack position={[0, 0, 0]} />
+      </Hotspot>
+
+      {/* Headphones → Stranger chat (right of keyboard) */}
+      <Hotspot id="stranger" position={[1.0, 0.84, 0.4]} rotation={[0, -0.4, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
+        <Headphones />
+      </Hotspot>
+
+      {/* Phone → Connect (far right front) */}
+      <Hotspot id="connect" position={[1.3, 0.78, 0.5]} rotation={[0, -0.6, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <Phone />
-      </group>
+      </Hotspot>
 
-      {/* === COFFEE MUG — decorative === */}
-      <group position={[0.95, 0.91, 0.4]}>
-        <CoffeeMug />
-      </group>
+      {/* === WALL ITEMS === back wall === */}
 
-      {/* === NOTEBOOK & PEN === */}
-      <Notebook position={[-1.05, 0.78, -0.5]} />
-
-      {/* === STACK OF BOOKS === */}
-      <BookStack position={[-1.4, 0.78, -0.4]} />
-
-      {/* === SLEEPING CAT === */}
-      <Cat position={[0.6, 0.78, -0.55]} />
-
-      {/* === PICTURE FRAME — decorative === */}
-      <group position={[-1.6, 2.0, -2.55]}>
+      {/* === PICTURE FRAME === click → About === */}
+      <Hotspot id="photos" position={[-1.7, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <PictureFrame />
-      </group>
+      </Hotspot>
 
-      {/* === GUESTBOOK WALL (replaces whiteboard) === */}
-      <Hotspot id="guestbook" position={[0.2, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
+      {/* === GUESTBOOK WALL === */}
+      <Hotspot id="guestbook" position={[0.0, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <GuestbookWall />
       </Hotspot>
 
-      {/* === TRAVEL POSTER — decorative === */}
-      <group position={[1.7, 2.0, -2.55]}>
+      {/* === TRAVEL POSTER === click → Travel === */}
+      <Hotspot id="travel" position={[1.7, 2.0, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <TravelPoster />
-      </group>
+      </Hotspot>
 
       {/* === DUMBBELL (fitness) on the floor === */}
       <Hotspot id="fitness" position={[-1.7, 0.18, 1.4]} rotation={[0, 0.3, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
         <Dumbbell />
-      </Hotspot>
-
-      {/* === HEADPHONES on desk (stranger chat) === */}
-      <Hotspot id="stranger" position={[-0.6, 0.84, -0.65]} rotation={[0, 0.5, 0]} onHover={onHover} onClick={onClick} hovered={hovered}>
-        <Headphones />
       </Hotspot>
 
       {/* === PLANT on floor === */}
@@ -554,72 +667,85 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === SHELF on back wall with mini items === */}
       <Shelf position={[2.0, 2.3, -2.55]} onHover={onHover} onClick={onClick} hovered={hovered} />
 
-      {/* === CLOCK on wall === */}
-      <Clock position={[2.0, 3.1, -2.55]} />
+      {/* === WALL CLOCK — back wall, between Guestbook and Travel poster === */}
+      <Clock position={[0.85, 2.85, -2.55]} />
 
       {/* === STICKY NOTES on monitor === */}
       <StickyNotes position={[0.85, 1.4, -0.5]} />
 
       {/* === FLOATING PARTICLES === */}
-      {!isDay && <Particles count={50} />}
 
-      {/* === NPC (sitting "me") + Player + interaction hotzones === */}
-      <NPC position={[0.0, 0, 1.7]} visible={true} />
       {gameMode && <Player onNear={onNear} hotspots={HOTSPOTS} />}
     </group>
   )
 }
 
-// ─── Window with day/night sky ──────────────────────────────────────
+// ─── Window with day/night sky + 2×2 social link board ──────────────
 function Window({ position, isDay }) {
+  const PANELS = [
+    { label: 'GitHub', color: '#6e40c9', emoji: '🐙', url: 'https://github.com/kranthi0003', sub: '@kranthi0003' },
+    { label: 'LinkedIn', color: '#0a66c2', emoji: '💼', url: 'https://linkedin.com/in/akkiran003', sub: '/in/akkiran003' },
+    { label: 'Instagram', color: '#e1306c', emoji: '📸', url: 'https://instagram.com/kranthi.kiran', sub: '@kranthi.kiran' },
+    { label: 'X · Twitter', color: '#ffffff', emoji: '𝕏', url: 'https://x.com/kranthikiran03', sub: '@kranthikiran03' },
+  ]
+  const handleClick = (p) => {
+    if (p.url) window.open(p.url, '_blank', 'noopener')
+  }
   return (
     <group position={position} rotation={[0, Math.PI / 2, 0]}>
-      {/* Frame */}
+      {/* Outer frame */}
       <RoundedBox args={[2.0, 1.6, 0.08]} radius={0.02}>
         <meshStandardMaterial color="#1a1326" />
       </RoundedBox>
-      {/* Cross frame */}
-      <mesh position={[0, 0, 0.04]}>
-        <boxGeometry args={[0.04, 1.5, 0.02]} />
+      {/* Cross frame dividers */}
+      <mesh position={[0, 0, 0.05]}>
+        <boxGeometry args={[0.05, 1.5, 0.02]} />
         <meshStandardMaterial color="#0c0712" />
       </mesh>
-      <mesh position={[0, 0, 0.04]}>
-        <boxGeometry args={[1.9, 0.04, 0.02]} />
+      <mesh position={[0, 0, 0.05]}>
+        <boxGeometry args={[1.9, 0.05, 0.02]} />
         <meshStandardMaterial color="#0c0712" />
       </mesh>
-      {/* Sky behind */}
-      <mesh position={[0, 0, -0.04]}>
-        <planeGeometry args={[1.9, 1.5]} />
-        <meshBasicMaterial color={isDay ? '#ffd089' : '#1a0a40'} toneMapped={false} />
-      </mesh>
-      {/* Sun / moon */}
-      <mesh position={[0.4, 0.3, -0.03]}>
-        <circleGeometry args={[0.18, 32]} />
-        <meshBasicMaterial color={isDay ? '#fff4b0' : '#e0d8ff'} toneMapped={false} />
-      </mesh>
-      {/* "Stars" at night */}
-      {!isDay && Array.from({ length: 12 }).map((_, i) => {
-        const x = (Math.random() - 0.5) * 1.8
-        const y = (Math.random() - 0.5) * 1.4
+      {/* 2×2 social link panels */}
+      {PANELS.map((p, i) => {
+        const col = i % 2
+        const row = Math.floor(i / 2)
+        const px = -0.47 + col * 0.94
+        const py = 0.38 - row * 0.76
         return (
-          <mesh key={i} position={[x, y, -0.03]}>
-            <circleGeometry args={[0.008, 8]} />
-            <meshBasicMaterial color="#ffffff" toneMapped={false} />
-          </mesh>
+          <group key={i} position={[px, py, 0.045]}
+            onClick={(e) => { e.stopPropagation(); handleClick(p) }}
+            onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer' }}
+            onPointerOut={() => { document.body.style.cursor = 'default' }}
+          >
+            {/* Panel background */}
+            <mesh>
+              <planeGeometry args={[0.88, 0.68]} />
+              <meshBasicMaterial color={p.color} transparent opacity={0.3} toneMapped={false} />
+            </mesh>
+            {/* Clickable hit area */}
+            <mesh visible={false}>
+              <planeGeometry args={[0.88, 0.68]} />
+              <meshBasicMaterial />
+            </mesh>
+            {/* Text overlay */}
+            <Html position={[0, 0, 0.01]} center transform occlude scale={0.06}
+              style={{ pointerEvents: 'none', whiteSpace: 'nowrap', userSelect: 'none' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '28px', marginBottom: '4px' }}>{p.emoji}</div>
+                <div style={{ fontSize: '14px', fontWeight: 900, color: 'white', letterSpacing: '0.12em', textTransform: 'uppercase', textShadow: '0 2px 8px rgba(0,0,0,1)' }}>
+                  {p.label}
+                </div>
+                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', marginTop: '4px', fontFamily: 'monospace', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}>
+                  {p.sub}
+                </div>
+              </div>
+            </Html>
+            {/* Glow */}
+            <pointLight position={[0, 0, 0.25]} intensity={isDay ? 0.15 : 0.4} color={p.color} distance={2} decay={2} />
+          </group>
         )
       })}
-      {/* City silhouette at bottom */}
-      <mesh position={[0, -0.6, -0.02]}>
-        <planeGeometry args={[1.9, 0.4]} />
-        <meshBasicMaterial color="#0a0612" toneMapped={false} />
-      </mesh>
-      {/* Tiny lit windows in silhouette */}
-      {Array.from({ length: 14 }).map((_, i) => (
-        <mesh key={i} position={[-0.9 + i * 0.14, -0.55 + (i % 3) * 0.05, -0.015]}>
-          <planeGeometry args={[0.025, 0.04]} />
-          <meshBasicMaterial color={isDay ? '#3a2a55' : '#ffd16a'} toneMapped={false} />
-        </mesh>
-      ))}
     </group>
   )
 }
@@ -990,6 +1116,71 @@ function PictureFrame() {
   )
 }
 
+// ─── Octocat (GitHub mascot) — purple, 6 little tentacles + cat face ──
+function Octocat() {
+  const ref = useRef()
+  useFrame((state) => {
+    if (ref.current) {
+      const t = state.clock.elapsedTime
+      ref.current.position.y = 0.06 + Math.abs(Math.sin(t * 1.2)) * 0.015
+      ref.current.rotation.y = Math.sin(t * 0.5) * 0.15
+    }
+  })
+  const PURPLE = '#7e57c2'
+  return (
+    <group ref={ref}>
+      {/* Body */}
+      <mesh castShadow>
+        <sphereGeometry args={[0.085, 24, 18]} />
+        <meshStandardMaterial color={PURPLE} roughness={0.45} metalness={0.05} />
+      </mesh>
+      {/* Cat ears */}
+      <mesh position={[-0.045, 0.07, 0.04]} rotation={[0.3, 0, -0.4]} castShadow>
+        <coneGeometry args={[0.022, 0.05, 8]} />
+        <meshStandardMaterial color={PURPLE} roughness={0.5} />
+      </mesh>
+      <mesh position={[0.045, 0.07, 0.04]} rotation={[0.3, 0, 0.4]} castShadow>
+        <coneGeometry args={[0.022, 0.05, 8]} />
+        <meshStandardMaterial color={PURPLE} roughness={0.5} />
+      </mesh>
+      {/* Eyes */}
+      <mesh position={[-0.025, 0.02, 0.08]}>
+        <sphereGeometry args={[0.012, 10, 8]} />
+        <meshBasicMaterial color="#fff" />
+      </mesh>
+      <mesh position={[0.025, 0.02, 0.08]}>
+        <sphereGeometry args={[0.012, 10, 8]} />
+        <meshBasicMaterial color="#fff" />
+      </mesh>
+      <mesh position={[-0.025, 0.02, 0.088]}>
+        <sphereGeometry args={[0.006, 8, 6]} />
+        <meshBasicMaterial color="#0a0612" />
+      </mesh>
+      <mesh position={[0.025, 0.02, 0.088]}>
+        <sphereGeometry args={[0.006, 8, 6]} />
+        <meshBasicMaterial color="#0a0612" />
+      </mesh>
+      {/* Smile */}
+      <mesh position={[0, -0.02, 0.084]} rotation={[0, 0, 0]}>
+        <torusGeometry args={[0.015, 0.0025, 6, 8, Math.PI]} />
+        <meshBasicMaterial color="#0a0612" />
+      </mesh>
+      {/* 6 tentacles around the bottom */}
+      {Array.from({ length: 6 }).map((_, i) => {
+        const a = (i / 6) * Math.PI * 2
+        const x = Math.cos(a) * 0.07
+        const z = Math.sin(a) * 0.07
+        return (
+          <mesh key={i} position={[x, -0.075, z]} rotation={[Math.PI / 2 - 0.4, 0, -a]} castShadow>
+            <capsuleGeometry args={[0.012, 0.06, 4, 8]} />
+            <meshStandardMaterial color={PURPLE} roughness={0.55} />
+          </mesh>
+        )
+      })}
+    </group>
+  )
+}
+
 // ─── Whiteboard ────────────────────────────────────────────────────
 function Whiteboard() {
   return (
@@ -1092,12 +1283,12 @@ function Headphones() {
 // ─── Chair ─────────────────────────────────────────────────────────
 function Chair({ position }) {
   return (
-    <group position={position} rotation={[0, Math.PI, 0]}>
+    <group position={position}>
       {/* Seat */}
       <RoundedBox args={[0.7, 0.08, 0.65]} radius={0.02} position={[0, 0.5, 0]} castShadow>
         <meshStandardMaterial color="#1a1326" roughness={0.7} />
       </RoundedBox>
-      {/* Back */}
+      {/* Back — behind the seat (away from desk, positive z) */}
       <RoundedBox args={[0.7, 0.9, 0.08]} radius={0.04} position={[0, 0.9, 0.3]} castShadow>
         <meshStandardMaterial color="#1a1326" roughness={0.7} />
       </RoundedBox>
@@ -1190,52 +1381,70 @@ function Shelf({ position, onHover, onClick, hovered }) {
   )
 }
 
-// ─── Wall clock with live time ──────────────────────────────────────
-function Clock({ position }) {
+// ─── Wall clock with live IST time ──────────────────────────────────
+function Clock({ position, rotation = [0, 0, 0] }) {
   const minRef = useRef()
   const hrRef  = useRef()
+  const secRef = useRef()
   useFrame(() => {
-    const now = new Date()
-    const m = now.getMinutes() + now.getSeconds() / 60
-    const h = (now.getHours() % 12) + m / 60
+    const ist = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+    const s = ist.getSeconds()
+    const m = ist.getMinutes() + s / 60
+    const h = (ist.getHours() % 12) + m / 60
+    if (secRef.current) secRef.current.rotation.z = -(s / 60) * Math.PI * 2
     if (minRef.current) minRef.current.rotation.z = -(m / 60) * Math.PI * 2
     if (hrRef.current)  hrRef.current.rotation.z = -(h / 12) * Math.PI * 2
   })
   return (
-    <group position={position}>
+    <group position={position} rotation={rotation}>
+      {/* Body */}
       <mesh castShadow>
-        <cylinderGeometry args={[0.18, 0.18, 0.04, 32]} />
+        <cylinderGeometry args={[0.32, 0.32, 0.05, 32]} />
         <meshStandardMaterial color="#1a1326" metalness={0.5} roughness={0.4} />
       </mesh>
-      <mesh position={[0, 0, 0.022]} rotation={[Math.PI / 2, 0, 0]}>
-        <circleGeometry args={[0.16, 32]} />
+      {/* Face */}
+      <mesh position={[0, 0, 0.028]} rotation={[Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.28, 32]} />
         <meshBasicMaterial color="#f4f1e8" />
       </mesh>
-      {/* hour ticks */}
+      {/* Hour ticks */}
       {Array.from({ length: 12 }).map((_, i) => {
         const a = (i / 12) * Math.PI * 2
+        const major = i % 3 === 0
         return (
-          <mesh key={i} position={[Math.cos(a) * 0.13, Math.sin(a) * 0.13, 0.025]}>
-            <planeGeometry args={[0.01, 0.02]} />
+          <mesh key={i} position={[Math.cos(a) * 0.22, Math.sin(a) * 0.22, 0.032]}>
+            <planeGeometry args={[major ? 0.02 : 0.012, major ? 0.04 : 0.025]} />
             <meshBasicMaterial color="#1a1326" />
           </mesh>
         )
       })}
       {/* Hour hand */}
-      <mesh ref={hrRef} position={[0, 0, 0.026]}>
-        <planeGeometry args={[0.012, 0.16]} />
+      <mesh ref={hrRef} position={[0, 0, 0.034]}>
+        <planeGeometry args={[0.02, 0.22]} />
         <meshBasicMaterial color="#1a1326" />
       </mesh>
       {/* Minute hand */}
-      <mesh ref={minRef} position={[0, 0, 0.027]}>
-        <planeGeometry args={[0.008, 0.22]} />
-        <meshBasicMaterial color={VIOLET} toneMapped={false} />
+      <mesh ref={minRef} position={[0, 0, 0.036]}>
+        <planeGeometry args={[0.014, 0.32]} />
+        <meshBasicMaterial color="#333" />
+      </mesh>
+      {/* Second hand */}
+      <mesh ref={secRef} position={[0, 0, 0.038]}>
+        <planeGeometry args={[0.005, 0.34]} />
+        <meshBasicMaterial color={MAGENTA} toneMapped={false} />
       </mesh>
       {/* Center pin */}
-      <mesh position={[0, 0, 0.028]}>
-        <circleGeometry args={[0.012, 16]} />
+      <mesh position={[0, 0, 0.04]}>
+        <circleGeometry args={[0.018, 16]} />
         <meshBasicMaterial color={VIOLET} toneMapped={false} />
       </mesh>
+      {/* "IST" label */}
+      <Html position={[0, -0.12, 0.035]} center transform occlude scale={0.03}
+        style={{ pointerEvents: 'none', userSelect: 'none' }}>
+        <div style={{ fontSize: '8px', fontWeight: 800, color: '#1a1326', letterSpacing: '0.15em', fontFamily: 'monospace' }}>
+          IST
+        </div>
+      </Html>
     </group>
   )
 }
@@ -1256,19 +1465,60 @@ function StickyNotes({ position }) {
   )
 }
 
-// ─── Hotspot wrapper: highlights on hover, clickable ────────────────
+// Map hotspot ID -> world position. Kept for future scripted moves but
+// the live camera-focus loop was unstable (hover->cam->hover ping-pong)
+// so CameraFocus is no longer mounted.
+const FOCUS_POS = {
+  projects:   [-0.05, 1.20, -0.5],
+  experience: [-1.05, 0.85, -0.5],
+  connect:    [1.05, 0.85, -0.05],
+  tech:       [-1.4, 0.85, -0.4],
+  travel:     [1.7, 2.0, -2.55],
+  photos:     [-1.6, 2.0, -2.55],
+  fitness:    [-1.7, 0.4, 1.4],
+  stranger:   [-0.6, 0.95, -0.65],
+  about:      [0.0, 1.0, 0.9],
+  guestbook:  [0.2, 2.0, -2.55],
+  'secret-trophy': [2.0, 2.5, -2.55],
+}
+const HOTSPOT_LABELS = {
+  projects:   { text: 'MY WORK',     emoji: '🖥️' },
+  experience: { text: 'EXPERIENCE',  emoji: '📓' },
+  connect:    { text: 'CONNECT',     emoji: '📱' },
+  tech:       { text: 'TECH STACK',  emoji: '📚' },
+  travel:     { text: 'TRAVEL',      emoji: '🌴' },
+  photos:     { text: 'ABOUT ME',    emoji: '🖼️' },
+  fitness:    { text: 'GYM',         emoji: '🏋️' },
+  stranger:   { text: 'STRANGER CHAT', emoji: '🎧' },
+  about:      { text: 'SAY HI',      emoji: '💬' },
+  guestbook:  { text: 'GUESTBOOK',   emoji: '📝' },
+  'secret-trophy': { text: 'TROPHY', emoji: '🏆' },
+}
+
 function Hotspot({ id, position, rotation, children, onHover, onClick, hovered }) {
   const ref = useRef()
+  const popRef = useRef(0) // 0 = idle, 1 = just clicked
   const isHover = hovered === id
+  const label = HOTSPOT_LABELS[id]
 
   useFrame((_, dt) => {
-    if (ref.current) {
-      const target = isHover ? 1.06 : 1
-      const cur = ref.current.scale.x
-      const next = cur + (target - cur) * dt * 10
-      ref.current.scale.setScalar(next)
-    }
+    if (!ref.current) return
+    // Click pop decay
+    if (popRef.current > 0) popRef.current = Math.max(0, popRef.current - dt * 2.4)
+    const hoverScale = isHover ? 1.03 : 1
+    const popScale = 1 + popRef.current * 0.12
+    const target = hoverScale * popScale
+    const cur = ref.current.scale.x
+    const next = cur + (target - cur) * dt * 10
+    ref.current.scale.setScalar(next)
   })
+
+  const handleClick = (e) => {
+    e.stopPropagation()
+    popRef.current = 1 // trigger pop
+    // Small delay so the pop is visible before route change
+    setTimeout(() => onClick(id), 180)
+  }
 
   return (
     <group
@@ -1277,15 +1527,44 @@ function Hotspot({ id, position, rotation, children, onHover, onClick, hovered }
       ref={ref}
       onPointerOver={(e) => { e.stopPropagation(); onHover(id); document.body.style.cursor = 'pointer' }}
       onPointerOut={(e) => { e.stopPropagation(); onHover(null); document.body.style.cursor = 'auto' }}
-      onClick={(e) => { e.stopPropagation(); onClick(id) }}
+      onClick={handleClick}
     >
       {children}
-      {/* glow ring */}
+      {/* Glow ring */}
       {isHover && (
         <mesh position={[0, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[0.35, 0.42, 32]} />
           <meshBasicMaterial color={VIOLET} transparent opacity={0.5} toneMapped={false} />
         </mesh>
+      )}
+      {/* Floating label tag */}
+      {isHover && label && (
+        <Html
+          center
+          position={[0, 0.5, 0]}
+          distanceFactor={6}
+          zIndexRange={[100, 0]}
+          style={{ pointerEvents: 'none' }}
+        >
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(236,72,153,0.95))',
+            color: 'white',
+            padding: '6px 12px',
+            borderRadius: 999,
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: '0.14em',
+            fontFamily: 'ui-monospace, monospace',
+            whiteSpace: 'nowrap',
+            boxShadow: '0 8px 24px -6px rgba(139,92,246,0.7), inset 0 0 0 1px rgba(255,255,255,0.2)',
+            transform: 'translateY(-4px)',
+            animation: 'hs-pop 220ms cubic-bezier(0.34,1.56,0.64,1)',
+          }}>
+            <span style={{ marginRight: 6 }}>{label.emoji}</span>
+            {label.text}
+            <span style={{ marginLeft: 8, opacity: 0.8 }}>↗</span>
+          </div>
+        </Html>
       )}
     </group>
   )
@@ -1328,10 +1607,6 @@ function Particles({ count = 30 }) {
 // ─── Player character (low-poly) with WASD controls + camera follow ─
 function Player({ onNear, hotspots }) {
   const playerRef = useRef()
-  const legLRef   = useRef()
-  const legRRef   = useRef()
-  const armLRef   = useRef()
-  const armRRef   = useRef()
   const keys      = useRef({})
   const facing    = useRef(0)
   const speed     = useRef(0)
@@ -1371,22 +1646,6 @@ function Player({ onNear, hotspots }) {
     const p = playerRef.current.position
     p.x = Math.max(-2.4, Math.min(2.4, p.x))
     p.z = Math.max(-1.8, Math.min(2.5, p.z))
-    // Walk-cycle animation
-    const t = state.clock.elapsedTime * 8 * (speed.current > 0.1 ? speed.current : 1)
-    if (speed.current > 0.1) {
-      const swing = Math.sin(t) * 0.5
-      if (legLRef.current) legLRef.current.rotation.x =  swing
-      if (legRRef.current) legRRef.current.rotation.x = -swing
-      if (armLRef.current) armLRef.current.rotation.x = -swing * 0.7
-      if (armRRef.current) armRRef.current.rotation.x =  swing * 0.7
-      playerRef.current.position.y = 0.01 + Math.abs(Math.sin(t)) * 0.04
-    } else {
-      if (legLRef.current) legLRef.current.rotation.x *= 0.85
-      if (legRRef.current) legRRef.current.rotation.x *= 0.85
-      if (armLRef.current) armLRef.current.rotation.x *= 0.85
-      if (armRRef.current) armRRef.current.rotation.x *= 0.85
-      playerRef.current.position.y = 0
-    }
 
     // Find nearest hotspot within radius
     let nearest = null, bestD = 0.9
@@ -1413,53 +1672,9 @@ function Player({ onNear, hotspots }) {
 
   return (
     <group ref={playerRef} position={[1.5, 0, 2.0]}>
-      {/* Body */}
-      <RoundedBox args={[0.34, 0.5, 0.22]} radius={0.05} position={[0, 0.6, 0]} castShadow>
-        <meshStandardMaterial color="#8b5cf6" roughness={0.5} />
-      </RoundedBox>
-      {/* Head */}
-      <mesh position={[0, 1.05, 0]} castShadow>
-        <sphereGeometry args={[0.16, 16, 12]} />
-        <meshStandardMaterial color="#fdbae0" roughness={0.6} />
-      </mesh>
-      {/* Hair cap */}
-      <mesh position={[0, 1.13, 0]} castShadow>
-        <sphereGeometry args={[0.17, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#1a1326" roughness={0.7} />
-      </mesh>
-      {/* Eyes */}
-      <mesh position={[-0.05, 1.06, 0.14]}>
-        <sphereGeometry args={[0.018, 8, 8]} />
-        <meshStandardMaterial color="#0a0612" />
-      </mesh>
-      <mesh position={[0.05, 1.06, 0.14]}>
-        <sphereGeometry args={[0.018, 8, 8]} />
-        <meshStandardMaterial color="#0a0612" />
-      </mesh>
-      {/* Arms */}
-      <group ref={armLRef} position={[-0.21, 0.78, 0]}>
-        <RoundedBox args={[0.08, 0.4, 0.1]} radius={0.03} position={[0, -0.2, 0]} castShadow>
-          <meshStandardMaterial color="#7c3aed" />
-        </RoundedBox>
-      </group>
-      <group ref={armRRef} position={[0.21, 0.78, 0]}>
-        <RoundedBox args={[0.08, 0.4, 0.1]} radius={0.03} position={[0, -0.2, 0]} castShadow>
-          <meshStandardMaterial color="#7c3aed" />
-        </RoundedBox>
-      </group>
-      {/* Legs */}
-      <group ref={legLRef} position={[-0.09, 0.34, 0]}>
-        <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.03} position={[0, -0.2, 0]} castShadow>
-          <meshStandardMaterial color="#1c1530" />
-        </RoundedBox>
-      </group>
-      <group ref={legRRef} position={[0.09, 0.34, 0]}>
-        <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.03} position={[0, -0.2, 0]} castShadow>
-          <meshStandardMaterial color="#1c1530" />
-        </RoundedBox>
-      </group>
+      <RiggedSoldier speed={speed} />
       {/* Player nameplate */}
-      <Html position={[0, 1.5, 0]} center distanceFactor={6}>
+      <Html position={[0, 2.0, 0]} center distanceFactor={6} occlude>
         <div style={{
           padding: '2px 8px',
           borderRadius: 8,
@@ -1476,86 +1691,440 @@ function Player({ onNear, hotspots }) {
   )
 }
 
-// ─── NPC "Me" sitting at desk ──────────────────────────────────────
-function NPC({ position }) {
-  const headRef = useRef()
-  const armRef  = useRef()
-  useFrame((state) => {
-    if (headRef.current) {
-      headRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.15
-    }
-    if (armRef.current) {
-      armRef.current.rotation.z = -0.4 + Math.sin(state.clock.elapsedTime * 3) * 0.08
+// ─── Mixamo-style rigged Soldier (Three.js example asset, CC0-equivalent)
+// Loaded from public/models/soldier.glb. 3 baked anims: Idle, Walk, Run.
+// Driven by a `speed` ref so the parent Player can pick the right clip
+// without re-rendering this component every frame.
+const SOLDIER_URL = `${import.meta.env.BASE_URL || '/'}models/soldier.glb`
+
+function RiggedSoldier({ speed }) {
+  const group = useRef()
+  const { scene, animations } = useGLTF(SOLDIER_URL)
+  const cloned = React.useMemo(() => {
+    // Clone so multiple instances don't share skeleton
+    const s = scene.clone(true)
+    s.traverse((o) => {
+      if (o.isMesh) {
+        o.castShadow = true
+        o.receiveShadow = true
+        // The default model is a soldier in green; tint slightly toward our palette
+        if (o.material && o.material.color) {
+          o.material = o.material.clone()
+        }
+      }
+    })
+    return s
+  }, [scene])
+  const { actions, names } = useAnimations(animations, group)
+  const currentRef = useRef(null)
+
+  // Idle by default, swap when speed crosses thresholds
+  useFrame(() => {
+    if (!actions || names.length === 0) return
+    const s = speed?.current ?? 0
+    let want
+    if (s > 1.4) want = 'Run'
+    else if (s > 0.15) want = 'Walk'
+    else want = 'Idle'
+    if (!actions[want]) want = names[0]
+    if (currentRef.current !== want) {
+      const next = actions[want]
+      const prev = currentRef.current ? actions[currentRef.current] : null
+      next?.reset().fadeIn(0.25).play()
+      if (prev) prev.fadeOut(0.25)
+      currentRef.current = want
     }
   })
+
   return (
-    <group position={position}>
-      {/* Body sitting — y 0.7 = seat height */}
-      <RoundedBox args={[0.34, 0.5, 0.22]} radius={0.05} position={[0, 0.95, 0.1]} castShadow>
-        <meshStandardMaterial color="#0e0a1a" roughness={0.6} />
-      </RoundedBox>
-      {/* Head */}
-      <mesh position={[0, 1.4, 0.1]} ref={headRef} castShadow>
-        <sphereGeometry args={[0.16, 16, 12]} />
-        <meshStandardMaterial color="#fdbae0" roughness={0.6} />
-      </mesh>
-      {/* Hair cap */}
-      <mesh position={[0, 1.48, 0.1]} castShadow>
-        <sphereGeometry args={[0.17, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#1a1326" roughness={0.7} />
-      </mesh>
-      {/* Eyes */}
-      <mesh position={[-0.05, 1.41, 0.24]}>
-        <sphereGeometry args={[0.018, 8, 8]} />
-        <meshStandardMaterial color="#0a0612" />
-      </mesh>
-      <mesh position={[0.05, 1.41, 0.24]}>
-        <sphereGeometry args={[0.018, 8, 8]} />
-        <meshStandardMaterial color="#0a0612" />
-      </mesh>
-      {/* Glasses */}
-      <mesh position={[-0.05, 1.41, 0.25]}>
-        <ringGeometry args={[0.024, 0.032, 16]} />
-        <meshBasicMaterial color="#c4b5fd" />
-      </mesh>
-      <mesh position={[0.05, 1.41, 0.25]}>
-        <ringGeometry args={[0.024, 0.032, 16]} />
-        <meshBasicMaterial color="#c4b5fd" />
-      </mesh>
-      {/* Arms reaching forward to "type" */}
-      <group ref={armRef} position={[-0.18, 1.1, 0.2]}>
-        <RoundedBox args={[0.08, 0.32, 0.1]} radius={0.03} position={[0, -0.16, 0.0]} rotation={[-0.6, 0, 0]} castShadow>
-          <meshStandardMaterial color="#0e0a1a" />
+    <group ref={group}>
+      {/* Soldier model is ~1.8m tall; our procedural figure was ~1.1m. Scale + ground it. */}
+      <primitive object={cloned} scale={0.62} position={[0, 0, 0]} rotation={[0, Math.PI, 0]} />
+    </group>
+  )
+}
+
+useGLTF.preload(SOLDIER_URL)
+
+// ─── NPC: Stylized boy character — IST-hour driven activity ──────────
+function NPC() {
+  const headRef = useRef()
+  const armLRef = useRef()
+  const armRRef = useRef()
+  const bodyRef = useRef()
+
+  const [activity, setActivity] = React.useState(() => getActivity())
+  React.useEffect(() => {
+    const id = setInterval(() => setActivity(getActivity()), 60_000)
+    return () => clearInterval(id)
+  }, [])
+
+  useFrame((state) => {
+    const t = state.clock.elapsedTime
+
+    switch (activity.id) {
+      case "sleep":
+        if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 0.6) * 0.015
+        armLRef.current.rotation.x = 0.05
+        armRRef.current.rotation.x = 0.05
+        headRef.current.rotation.x = 0
+        headRef.current.rotation.y = 0
+        break
+      case "work":
+      case "coffee":
+        // Typing — arms forward & slightly down
+        armLRef.current.rotation.x = 1.55 + Math.sin(t * 9) * 0.05
+        armRRef.current.rotation.x = 1.55 + Math.sin(t * 9 + 1.2) * 0.05
+        headRef.current.rotation.x = 0.18 + Math.sin(t * 0.5) * 0.04
+        headRef.current.rotation.y = Math.sin(t * 0.3) * 0.08
+        break
+      case "lunch":
+        armLRef.current.rotation.x = 0.5
+        armRRef.current.rotation.x = 2.4 + Math.abs(Math.sin(t * 0.7)) * 0.3
+        headRef.current.rotation.x = 0.1 + Math.sin(t * 0.7) * 0.08
+        break
+      case "gym":
+        const lift = Math.abs(Math.sin(t * 2.5))
+        armLRef.current.rotation.x = 2.7 + lift * 0.4
+        armRRef.current.rotation.x = 2.7 + lift * 0.4
+        headRef.current.rotation.x = -0.05
+        if (bodyRef.current) bodyRef.current.scale.y = 1 + Math.sin(t * 5) * 0.02
+        break
+      case "ps5":
+        armLRef.current.rotation.x = 1.95 + Math.sin(t * 6) * 0.03
+        armRRef.current.rotation.x = 1.95 + Math.sin(t * 6 + 0.5) * 0.03
+        headRef.current.rotation.x = 0.15
+        break
+      default:
+        armLRef.current.rotation.x = 0.3
+        armRRef.current.rotation.x = 0.3
+        headRef.current.rotation.x = 0
+    }
+  })
+
+  // Polished stylized palette (Animal-Crossing-ish but for a 20s Indian guy)
+  const SKIN = "#c2895f"
+  const SKIN_SHADE = "#9a6840"
+  const HAIR = "#0f0708"
+  const SHIRT = THEME.npcShirt || "#7c3aed"      // violet tee, themed by dream level
+  const SHIRT_DARK = "#5b21b6"
+  const PANTS = "#1e293b"      // dark jeans
+  const SHOES = "#0f1218"
+
+  const sitting = activity.id !== "gym" && activity.id !== "sleep"
+  const sleeping = activity.id === "sleep"
+
+  const hipsY = sleeping ? 0.4 : (sitting ? 0.58 : 0.85)
+  const bodyRotX = sleeping ? -Math.PI / 2.2 : 0
+  const bodyZ = sleeping ? 0.25 : 0
+
+  return (
+    <group>
+      <group ref={bodyRef} position={[0, hipsY, bodyZ]} rotation={[bodyRotX, 0, 0]}>
+        {/* Hips — wider base, narrower torso for athletic young-male silhouette */}
+        <RoundedBox args={[0.34, 0.12, 0.24]} radius={0.05} position={[0, 0, 0]} castShadow>
+          <meshStandardMaterial color={PANTS} roughness={0.75} />
         </RoundedBox>
+
+        {/* Torso — slightly tapered V-shape */}
+        <group position={[0, 0.25, 0]}>
+          {/* Mid torso */}
+          <RoundedBox args={[0.36, 0.36, 0.22]} radius={0.08} castShadow>
+            <meshStandardMaterial color={SHIRT} roughness={0.7} />
+          </RoundedBox>
+          {/* Upper chest — slightly wider */}
+          <RoundedBox args={[0.4, 0.16, 0.22]} radius={0.08} position={[0, 0.16, 0]} castShadow>
+            <meshStandardMaterial color={SHIRT} roughness={0.7} />
+          </RoundedBox>
+          {/* T-shirt graphic */}
+          <mesh position={[0, 0.02, 0.115]}>
+            <circleGeometry args={[0.03, 16]} />
+            <meshStandardMaterial color={SHIRT_DARK} />
+          </mesh>
+          {/* Shirt collar */}
+          <mesh position={[0, 0.27, 0.105]}>
+            <torusGeometry args={[0.06, 0.012, 8, 12, Math.PI]} />
+            <meshStandardMaterial color={SHIRT_DARK} />
+          </mesh>
+        </group>
+
+        {/* Neck */}
+        <mesh position={[0, 0.51, 0]} castShadow>
+          <cylinderGeometry args={[0.045, 0.05, 0.07, 12]} />
+          <meshStandardMaterial color={SKIN_SHADE} roughness={0.7} />
+        </mesh>
+
+        {/* === HEAD === */}
+        <group ref={headRef} position={[0, 0.66, 0]}>
+          {/* Slightly oval head (taller than wide) */}
+          <mesh castShadow>
+            <sphereGeometry args={[0.135, 32, 24]} />
+            <meshStandardMaterial color={SKIN} roughness={0.55} />
+          </mesh>
+          {/* Jaw shading bump for cheek volume */}
+          <mesh position={[0, -0.05, 0.04]} scale={[1.05, 0.8, 1]} castShadow>
+            <sphereGeometry args={[0.12, 20, 14]} />
+            <meshStandardMaterial color={SKIN} roughness={0.6} />
+          </mesh>
+
+          {/* Hair — fuller, modern fade style */}
+          <mesh position={[0, 0.04, -0.005]} castShadow>
+            <sphereGeometry args={[0.145, 28, 20, 0, Math.PI * 2, 0, Math.PI / 1.7]} />
+            <meshStandardMaterial color={HAIR} roughness={0.85} />
+          </mesh>
+          {/* Hair front fringe */}
+          <mesh position={[0.04, 0.08, -0.1]} rotation={[0.3, -0.3, 0]} castShadow>
+            <sphereGeometry args={[0.06, 12, 8]} />
+            <meshStandardMaterial color={HAIR} roughness={0.85} />
+          </mesh>
+          {/* Sideburns */}
+          <mesh position={[-0.12, -0.02, 0.01]} castShadow>
+            <sphereGeometry args={[0.035, 12, 8]} />
+            <meshStandardMaterial color={HAIR} />
+          </mesh>
+          <mesh position={[0.12, -0.02, 0.01]} castShadow>
+            <sphereGeometry args={[0.035, 12, 8]} />
+            <meshStandardMaterial color={HAIR} />
+          </mesh>
+
+          {/* Ears */}
+          <mesh position={[-0.135, -0.005, 0]} rotation={[0, 0, 0.1]}>
+            <sphereGeometry args={[0.024, 12, 8]} />
+            <meshStandardMaterial color={SKIN} />
+          </mesh>
+          <mesh position={[0.135, -0.005, 0]} rotation={[0, 0, -0.1]}>
+            <sphereGeometry args={[0.024, 12, 8]} />
+            <meshStandardMaterial color={SKIN} />
+          </mesh>
+
+          {/* === FACE (faces -z) === */}
+          {/* Eyebrows */}
+          <mesh position={[-0.045, 0.04, -0.12]} rotation={[0, 0, -0.08]}>
+            <boxGeometry args={[0.035, 0.008, 0.005]} />
+            <meshStandardMaterial color={HAIR} />
+          </mesh>
+          <mesh position={[0.045, 0.04, -0.12]} rotation={[0, 0, 0.08]}>
+            <boxGeometry args={[0.035, 0.008, 0.005]} />
+            <meshStandardMaterial color={HAIR} />
+          </mesh>
+          {/* Eyes — simple dots for stylized look */}
+          <mesh position={[-0.045, 0.01, -0.125]}>
+            <sphereGeometry args={[0.014, 12, 8]} />
+            <meshStandardMaterial color={sleeping ? SKIN_SHADE : "#1a0e0a"} />
+          </mesh>
+          <mesh position={[0.045, 0.01, -0.125]}>
+            <sphereGeometry args={[0.014, 12, 8]} />
+            <meshStandardMaterial color={sleeping ? SKIN_SHADE : "#1a0e0a"} />
+          </mesh>
+          {/* Glasses */}
+          <mesh position={[-0.045, 0.01, -0.13]} rotation={[0, Math.PI, 0]}>
+            <ringGeometry args={[0.022, 0.028, 18]} />
+            <meshBasicMaterial color="#1a0e0a" />
+          </mesh>
+          <mesh position={[0.045, 0.01, -0.13]} rotation={[0, Math.PI, 0]}>
+            <ringGeometry args={[0.022, 0.028, 18]} />
+            <meshBasicMaterial color="#1a0e0a" />
+          </mesh>
+          <mesh position={[0, 0.01, -0.13]}>
+            <boxGeometry args={[0.018, 0.004, 0.004]} />
+            <meshStandardMaterial color="#1a0e0a" />
+          </mesh>
+          {/* Nose */}
+          <mesh position={[0, -0.012, -0.13]} castShadow>
+            <coneGeometry args={[0.018, 0.04, 8]} rotation={[Math.PI/2, 0, 0]} />
+            <meshStandardMaterial color={SKIN} />
+          </mesh>
+          {/* Mouth */}
+          <mesh position={[0, -0.065, -0.125]}>
+            <boxGeometry args={[0.038, 0.006, 0.004]} />
+            <meshStandardMaterial color="#5a2818" />
+          </mesh>
+          {/* Beard stubble */}
+          <mesh position={[0, -0.06, -0.06]} rotation={[Math.PI, 0, 0]} castShadow>
+            <sphereGeometry args={[0.095, 16, 10, 0, Math.PI * 2, 0, Math.PI * 0.32]} />
+            <meshStandardMaterial color="#2a1410" roughness={1} transparent opacity={0.45} />
+          </mesh>
+        </group>
+
+        {/* === ARMS (rotate around shoulder) === */}
+        <group ref={armLRef} position={[-0.22, 0.42, 0]}>
+          {/* Upper arm */}
+          <RoundedBox args={[0.085, 0.22, 0.1]} radius={0.04} position={[0, -0.11, 0]} castShadow>
+            <meshStandardMaterial color={SHIRT} />
+          </RoundedBox>
+          {/* Forearm — skin colored (short sleeve t-shirt) */}
+          <RoundedBox args={[0.07, 0.22, 0.085]} radius={0.035} position={[0, -0.32, 0]} castShadow>
+            <meshStandardMaterial color={SKIN} />
+          </RoundedBox>
+          {/* Hand */}
+          <mesh position={[0, -0.45, 0]} castShadow>
+            <sphereGeometry args={[0.045, 14, 10]} />
+            <meshStandardMaterial color={SKIN} />
+          </mesh>
+        </group>
+        <group ref={armRRef} position={[0.22, 0.42, 0]}>
+          <RoundedBox args={[0.085, 0.22, 0.1]} radius={0.04} position={[0, -0.11, 0]} castShadow>
+            <meshStandardMaterial color={SHIRT} />
+          </RoundedBox>
+          <RoundedBox args={[0.07, 0.22, 0.085]} radius={0.035} position={[0, -0.32, 0]} castShadow>
+            <meshStandardMaterial color={SKIN} />
+          </RoundedBox>
+          <mesh position={[0, -0.45, 0]} castShadow>
+            <sphereGeometry args={[0.045, 14, 10]} />
+            <meshStandardMaterial color={SKIN} />
+          </mesh>
+        </group>
+
+        {/* === LEGS === */}
+        {sitting && (
+          <>
+            <group position={[-0.085, -0.05, 0]}>
+              {/* Thigh forward */}
+              <RoundedBox args={[0.115, 0.12, 0.36]} radius={0.05} position={[0, 0, -0.18]} castShadow>
+                <meshStandardMaterial color={PANTS} />
+              </RoundedBox>
+              {/* Shin down */}
+              <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.04} position={[0, -0.26, -0.36]} castShadow>
+                <meshStandardMaterial color={PANTS} />
+              </RoundedBox>
+              {/* Sneaker */}
+              <RoundedBox args={[0.12, 0.06, 0.2]} radius={0.025} position={[0, -0.48, -0.42]} castShadow>
+                <meshStandardMaterial color={SHOES} />
+              </RoundedBox>
+              <mesh position={[0, -0.45, -0.32]}>
+                <boxGeometry args={[0.12, 0.015, 0.04]} />
+                <meshBasicMaterial color={"#a78bfa"} toneMapped={false} />
+              </mesh>
+            </group>
+            <group position={[0.085, -0.05, 0]}>
+              <RoundedBox args={[0.115, 0.12, 0.36]} radius={0.05} position={[0, 0, -0.18]} castShadow>
+                <meshStandardMaterial color={PANTS} />
+              </RoundedBox>
+              <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.04} position={[0, -0.26, -0.36]} castShadow>
+                <meshStandardMaterial color={PANTS} />
+              </RoundedBox>
+              <RoundedBox args={[0.12, 0.06, 0.2]} radius={0.025} position={[0, -0.48, -0.42]} castShadow>
+                <meshStandardMaterial color={SHOES} />
+              </RoundedBox>
+              <mesh position={[0, -0.45, -0.32]}>
+                <boxGeometry args={[0.12, 0.015, 0.04]} />
+                <meshBasicMaterial color={"#a78bfa"} toneMapped={false} />
+              </mesh>
+            </group>
+          </>
+        )}
+        {activity.id === "gym" && (
+          <>
+            <RoundedBox args={[0.115, 0.45, 0.12]} radius={0.04} position={[-0.085, -0.3, 0]} castShadow>
+              <meshStandardMaterial color={PANTS} />
+            </RoundedBox>
+            <RoundedBox args={[0.115, 0.45, 0.12]} radius={0.04} position={[0.085, -0.3, 0]} castShadow>
+              <meshStandardMaterial color={PANTS} />
+            </RoundedBox>
+            <RoundedBox args={[0.13, 0.06, 0.2]} radius={0.025} position={[-0.085, -0.55, 0.04]} castShadow>
+              <meshStandardMaterial color={SHOES} />
+            </RoundedBox>
+            <RoundedBox args={[0.13, 0.06, 0.2]} radius={0.025} position={[0.085, -0.55, 0.04]} castShadow>
+              <meshStandardMaterial color={SHOES} />
+            </RoundedBox>
+          </>
+        )}
+        {sleeping && (
+          <>
+            <RoundedBox args={[0.115, 0.7, 0.12]} radius={0.04} position={[-0.085, -0.4, 0]} castShadow>
+              <meshStandardMaterial color={PANTS} />
+            </RoundedBox>
+            <RoundedBox args={[0.115, 0.7, 0.12]} radius={0.04} position={[0.085, -0.4, 0]} castShadow>
+              <meshStandardMaterial color={PANTS} />
+            </RoundedBox>
+          </>
+        )}
       </group>
-      <group position={[0.18, 1.1, 0.2]}>
-        <RoundedBox args={[0.08, 0.32, 0.1]} radius={0.03} position={[0, -0.16, 0.0]} rotation={[-0.6, 0, 0]} castShadow>
-          <meshStandardMaterial color="#0e0a1a" />
-        </RoundedBox>
-      </group>
-      {/* Legs hanging from chair */}
-      <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.03} position={[-0.09, 0.5, 0.0]} castShadow>
-        <meshStandardMaterial color="#1c1530" />
-      </RoundedBox>
-      <RoundedBox args={[0.1, 0.4, 0.1]} radius={0.03} position={[0.09, 0.5, 0.0]} castShadow>
-        <meshStandardMaterial color="#1c1530" />
-      </RoundedBox>
-      {/* Nameplate */}
-      <Html position={[0, 1.85, 0.1]} center distanceFactor={6}>
+
+      {/* Activity props */}
+      {sleeping && (
+        <Float speed={1.2} floatIntensity={0.5}>
+          <Html position={[0.25, 0.8, 0.1]} center distanceFactor={6} occlude>
+            <div style={{ fontSize: 18, color: "#c4b5fd", opacity: 0.85 }}>💤</div>
+          </Html>
+        </Float>
+      )}
+      {activity.id === "lunch" && (
+        <mesh position={[0, 0.82, -0.45]} castShadow>
+          <boxGeometry args={[0.25, 0.04, 0.18]} />
+          <meshStandardMaterial color="#fbbf24" />
+        </mesh>
+      )}
+      {activity.id === "gym" && (
+        <group position={[0, 1.4, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <mesh castShadow>
+            <cylinderGeometry args={[0.025, 0.025, 0.5, 12]} />
+            <meshStandardMaterial color="#3a2a55" metalness={0.8} />
+          </mesh>
+          {[-0.25, 0.25].map((y, i) => (
+            <mesh key={i} position={[0, y, 0]} castShadow>
+              <cylinderGeometry args={[0.09, 0.09, 0.1, 16]} />
+              <meshStandardMaterial color="#1a1326" />
+            </mesh>
+          ))}
+        </group>
+      )}
+      {activity.id === "ps5" && (
+        <mesh position={[0, 0.85, -0.3]} rotation={[0.3, 0, 0]} castShadow>
+          <boxGeometry args={[0.18, 0.04, 0.08]} />
+          <meshStandardMaterial color="#0c0712" metalness={0.6} />
+        </mesh>
+      )}
+
+      {/* Status pill */}
+      <Html position={[0, sleeping ? 0.85 : (activity.id === "gym" ? 1.7 : 1.55), 0]} center distanceFactor={6} occlude>
         <div style={{
-          padding: '2px 8px',
-          borderRadius: 8,
-          background: 'rgba(236, 72, 153, 0.85)',
-          color: 'white',
+          padding: "3px 10px",
+          borderRadius: 10,
+          background: activity.color,
+          color: "white",
           fontSize: 11,
           fontWeight: 600,
-          whiteSpace: 'nowrap',
-          fontFamily: 'system-ui',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
-        }}>Kranthi · click to talk</div>
+          whiteSpace: "nowrap",
+          fontFamily: "system-ui",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
+          display: "flex",
+          alignItems: "center",
+          gap: 5,
+        }}>
+          <span>{activity.icon}</span>
+          <span>{activity.label}</span>
+        </div>
       </Html>
     </group>
   )
+}
+
+// Compute current activity based on IST hour
+function getActivity() {
+  const now = new Date()
+  const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+  const h = ist.getHours()
+  const dow = ist.getDay() // 0=Sun, 6=Sat
+
+  // Weekend schedule
+  if (dow === 0 || dow === 6) {
+    if (h < 9)  return { id: 'sleep',   label: 'Sleeping in',      icon: '💤', color: 'rgba(91, 70, 130, 0.9)' }
+    if (h < 12) return { id: 'coffee',  label: 'Lazy morning ☕',  icon: '☀️', color: 'rgba(245, 158, 11, 0.9)' }
+    if (h < 14) return { id: 'lunch',   label: 'Brunch',           icon: '🍳', color: 'rgba(34, 197, 94, 0.9)' }
+    if (h < 18) return { id: 'gym',     label: 'Out · cricket / beach', icon: '🌴', color: 'rgba(236, 72, 153, 0.9)' }
+    if (h < 22) return { id: 'ps5',     label: 'PS5 / chill',      icon: '🎮', color: 'rgba(59, 130, 246, 0.9)' }
+    return            { id: 'sleep',   label: 'Winding down',     icon: '🌙', color: 'rgba(91, 70, 130, 0.9)' }
+  }
+
+  // Weekday schedule
+  if (h < 7)  return { id: 'sleep',  label: 'Sleeping',          icon: '💤', color: 'rgba(91, 70, 130, 0.9)' }
+  if (h < 9)  return { id: 'coffee', label: 'Morning coffee ☕', icon: '☀️', color: 'rgba(245, 158, 11, 0.9)' }
+  if (h < 13) return { id: 'work',   label: 'Deep work',          icon: '💻', color: 'rgba(139, 92, 246, 0.9)' }
+  if (h < 14) return { id: 'lunch',  label: 'Lunch break',        icon: '🍱', color: 'rgba(34, 197, 94, 0.9)' }
+  if (h < 19) return { id: 'work',   label: 'Coding',             icon: '💻', color: 'rgba(139, 92, 246, 0.9)' }
+  if (h < 21) return { id: 'gym',    label: 'At the gym',         icon: '🏋️', color: 'rgba(236, 72, 153, 0.9)' }
+  return            { id: 'ps5',    label: 'PS5 time',           icon: '🎮', color: 'rgba(59, 130, 246, 0.9)' }
 }
 
 // ─── GuestbookWall — fetches notes from Supabase, displays as sticky notes ─
@@ -1723,3 +2292,4 @@ function StickyNoteForm({ onClose }) {
     </div>
   )
 }
+
