@@ -15,9 +15,7 @@ export default function WorkspaceSection() {
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             A peek into my <span className="text-gradient-violet">space</span>
           </h2>
-          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Real-time GitHub feed on the monitor · live clock · drop a sticky note on the wall · hidden easter eggs. Hit <kbd className="px-1 py-px rounded bg-foreground/10 text-foreground text-[10.5px] font-mono">Play</kbd> to walk around (WASD).
-          </p>
+          
         </div>
 
         {/* Embedded canvas — fixed aspect, rounded, glow border */}
