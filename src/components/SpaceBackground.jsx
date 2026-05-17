@@ -183,11 +183,11 @@ export default function SpaceBackground() {
         </Suspense>
       </Canvas>
 
-      {/* Vignette so content remains readable */}
+      {/* Light vignette — only at edges, lets the universe breathe */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)',
+          background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%)',
         }}
       />
     </div>

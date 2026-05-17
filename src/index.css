@@ -245,34 +245,68 @@ h2 { letter-spacing: -0.03em; }
 .nav-link-gradient:hover::after,
 .nav-link-gradient[data-active="true"]::after { opacity: 1; }
 
-/* Backdrop layers — three fixed planes like provisionr.io */
+/* Backdrop layers — cosmic universe theme */
 .pr-backdrop-base { position: fixed; inset: 0; z-index: -3; pointer-events: none;
-  background-color: var(--color-background); }
-/* Provisionr only shows glow in dark mode — light is clean */
-.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; display: none; overflow: hidden; }
-.dark .pr-backdrop-glow { display: block; }
+  background-color: var(--color-background);
+}
+/* Cosmic glow — visible in both modes (subtle in light) */
+.pr-backdrop-glow { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
 .pr-backdrop-glow::before, .pr-backdrop-glow::after {
   content: ''; position: absolute; inset: 0;
 }
-/* Big saturated glow blooming up from BOTTOM-RIGHT corner */
+/* Big saturated cosmic glow blooming up from BOTTOM-RIGHT — deep violet → magenta → blue */
 .dark .pr-backdrop-glow::before {
   background:
-    radial-gradient(ellipse 80% 70% at 100% 110%, oklch(50% 0.28 320 / 0.85), transparent 55%),
-    radial-gradient(ellipse 70% 65% at 0% 110%, oklch(40% 0.22 290 / 0.75), transparent 55%);
+    radial-gradient(ellipse 90% 80% at 100% 110%, oklch(35% 0.30 320 / 0.95), transparent 55%),
+    radial-gradient(ellipse 80% 70% at 0% 110%, oklch(32% 0.28 280 / 0.85), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, oklch(28% 0.22 300 / 0.6), transparent 60%);
 }
-/* Top-center violet wash + ambient mid-area glow */
+/* Top-center deep purple wash + nebula mid-area glow */
 .dark .pr-backdrop-glow::after {
   background:
-    radial-gradient(ellipse 80% 28% at 50% -8%, oklch(35% 0.22 290 / 0.65), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 90% 50%, oklch(45% 0.24 320 / 0.40), transparent 60%);
+    radial-gradient(ellipse 90% 35% at 50% -8%, oklch(28% 0.25 285 / 0.85), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 90% 45%, oklch(40% 0.26 320 / 0.5), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 45%, oklch(38% 0.22 290 / 0.4), transparent 60%);
 }
+/* Light mode: very subtle violet wash */
+.pr-backdrop-glow::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 110%, oklch(85% 0.10 310 / 0.4), transparent 55%);
+}
+
+/* Starfield using radial-gradient dots — twinkle animation */
 .pr-backdrop-noise {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  opacity: 0.45; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
+  opacity: 1;
+  background-image:
+    radial-gradient(1px 1px at 25% 17%, white, transparent 50%),
+    radial-gradient(1px 1px at 70% 35%, white, transparent 50%),
+    radial-gradient(1.5px 1.5px at 12% 62%, #c4b5fd, transparent 50%),
+    radial-gradient(1px 1px at 85% 78%, white, transparent 50%),
+    radial-gradient(1px 1px at 45% 50%, white, transparent 50%),
+    radial-gradient(1.5px 1.5px at 55% 88%, #fbbf24, transparent 50%),
+    radial-gradient(1px 1px at 95% 22%, white, transparent 50%),
+    radial-gradient(1px 1px at 32% 92%, white, transparent 50%),
+    radial-gradient(1.5px 1.5px at 78% 12%, #f0abfc, transparent 50%),
+    radial-gradient(1px 1px at 8% 30%, white, transparent 50%),
+    radial-gradient(1px 1px at 62% 65%, white, transparent 50%),
+    radial-gradient(1px 1px at 38% 28%, white, transparent 50%),
+    radial-gradient(1px 1px at 88% 55%, white, transparent 50%),
+    radial-gradient(1px 1px at 18% 78%, white, transparent 50%),
+    radial-gradient(1.5px 1.5px at 50% 8%, #93c5fd, transparent 50%);
+  background-size: 700px 700px;
+  background-repeat: repeat;
+  animation: twinkle 8s ease-in-out infinite;
 }
-.dark .pr-backdrop-noise { opacity: 0.7; }
+.dark .pr-backdrop-noise { opacity: 0.9; }
+:not(.dark) .pr-backdrop-noise { opacity: 0.35; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--star-opacity, 0.9); }
+  50% { opacity: calc(var(--star-opacity, 0.9) * 0.65); }
+}
+.dark .pr-backdrop-noise { --star-opacity: 0.9; }
+:not(.dark) .pr-backdrop-noise { --star-opacity: 0.35; }
 
 /* When the new backdrop layers are present, hide the body-level fallback */
 body:has(.pr-backdrop-base) { background-image: none !important; }
