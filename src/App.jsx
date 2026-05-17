@@ -41,6 +41,7 @@ const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
 const StrangerChat = lazy(() => import('./components/StrangerChat'))
 const Workspace = lazy(() => import('./components/Workspace'))
+const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -148,6 +149,15 @@ export default function App() {
           <Workspace onBack={() => { window.location.hash = ''; window.location.reload() }} />
         </Suspense>
       </>
+    )
+  }
+
+  // Space Explorer is the default — no hash or empty hash
+  if (!route || route === '#' || route === '#/') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-black flex items-center justify-center"><div className="text-[10px] font-mono tracking-[0.5em] text-white/30 animate-pulse">INITIALIZING WARP DRIVE</div></div>}>
+        <SpaceExplorer />
+      </Suspense>
     )
   }
 
