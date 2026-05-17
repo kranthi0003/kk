@@ -599,9 +599,6 @@ function CameraController({ targetId, planetPositions, controlsRef }) {
   return null
 }
 
-  return null
-}
-
 // ─── Loading screen ──────────────────────────────────────────
 function LoadingScreen({ progress }) {
   return (
