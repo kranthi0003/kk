@@ -624,11 +624,18 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
           </mesh>
         )}
 
-        {/* Atmosphere halo */}
+        {/* Subtle Fresnel-style atmosphere rim (much smaller, faces camera only) */}
         {planet.atmosphere && (
-          <mesh scale={1.15}>
-            <sphereGeometry args={[planet.size, 32, 32]} />
-            <meshBasicMaterial color={planet.atmosphere} transparent opacity={isActive ? 0.22 : 0.1} side={THREE.BackSide} depthWrite={false} />
+          <mesh scale={1.04}>
+            <sphereGeometry args={[planet.size, 48, 48]} />
+            <meshBasicMaterial
+              color={planet.atmosphere}
+              transparent
+              opacity={isActive ? 0.08 : 0.035}
+              side={THREE.BackSide}
+              depthWrite={false}
+              blending={THREE.AdditiveBlending}
+            />
           </mesh>
         )}
 
@@ -941,7 +948,7 @@ function Nebula() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[dustPositions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={0.6} color="#ffffff" transparent opacity={0.5} sizeAttenuation depthWrite={false} />
+        <pointsMaterial size={0.4} color="#ffffff" transparent opacity={0.25} sizeAttenuation depthWrite={false} />
       </points>
     </>
   )
