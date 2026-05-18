@@ -677,9 +677,9 @@ function OrbitPath({ planet, highlighted }) {
   return (
     <line geometry={geometry} rotation={[planet.inclination, planet.orbitRotation || 0, 0]}>
       <lineBasicMaterial
-        color={highlighted ? '#ffffff' : (planet.color || '#94a3b8')}
+        color={highlighted ? '#ffffff' : '#cbd5e1'}
         transparent
-        opacity={highlighted ? 0.8 : 0.45}
+        opacity={highlighted ? 0.7 : 0.3}
       />
     </line>
   )
