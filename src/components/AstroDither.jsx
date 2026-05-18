@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
 // ─── Audio Engine (MP3 loop that speeds up with travel) ──────
@@ -361,6 +361,32 @@ function Cockpit({ speedRef }) {
   )
 }
 
+// ─── Camera dynamics (FOV pulse + banking based on speed) ────
+function CameraDynamics({ speedRef }) {
+  const { camera } = useThree()
+  const bankRef = useRef(0)
+
+  useFrame((state, delta) => {
+    const speed = speedRef.current
+    // FOV grows with speed (tunnel-vision feel)
+    const targetFov = 75 + (speed - 1) * 1.8 // up to ~109 at 20x
+    camera.fov += (targetFov - camera.fov) * 0.05
+    camera.updateProjectionMatrix()
+
+    // Subtle banking — gentle roll that increases with speed
+    bankRef.current += delta * 0.3
+    const targetRoll = Math.sin(bankRef.current * 0.4) * 0.02 * (speed - 0.5)
+    camera.rotation.z += (targetRoll - camera.rotation.z) * 0.04
+
+    // Mild head bob / drift
+    const drift = (speed - 1) * 0.015
+    camera.position.x = Math.sin(state.clock.elapsedTime * 0.6) * drift
+    camera.position.y = Math.cos(state.clock.elapsedTime * 0.5) * drift * 0.8
+  })
+
+  return null
+}
+
 // ─── Scene ──────────────────────────────────────────────────
 function WarpScene({ speedRef }) {
   return (
@@ -370,6 +396,7 @@ function WarpScene({ speedRef }) {
       <WarpParticles speedRef={speedRef} />
       <WarpStreaks speedRef={speedRef} />
       <Cockpit speedRef={speedRef} />
+      <CameraDynamics speedRef={speedRef} />
     </>
   )
 }
@@ -461,7 +488,7 @@ export default function AstroDither({ onBack }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-[#050508] z-50 select-none cursor-crosshair"
+    <div className="fixed inset-0 bg-black z-50 select-none cursor-crosshair overflow-hidden"
          onPointerDown={handlePointerDown}
          onPointerUp={handlePointerUp}
          onPointerLeave={handlePointerUp}>
@@ -475,41 +502,85 @@ export default function AstroDither({ onBack }) {
         <WarpScene speedRef={speedRef} />
       </Canvas>
 
+      {/* Cinematic letterbox bars (2.35:1) */}
+      <div className="absolute top-0 left-0 right-0 bg-black pointer-events-none z-20"
+           style={{ height: '8vh', boxShadow: '0 4px 20px rgba(0,0,0,0.6)' }} />
+      <div className="absolute bottom-0 left-0 right-0 bg-black pointer-events-none z-20"
+           style={{ height: '8vh', boxShadow: '0 -4px 20px rgba(0,0,0,0.6)' }} />
+
+      {/* Vignette */}
+      <div className="absolute inset-0 pointer-events-none z-10"
+           style={{
+             background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)',
+           }} />
+
+      {/* Chromatic aberration overlay (subtle color fringes) */}
+      <div className="absolute inset-0 pointer-events-none z-10 mix-blend-screen opacity-30"
+           style={{
+             background: 'radial-gradient(ellipse at 35% 50%, rgba(255,0,80,0.04) 0%, transparent 60%), radial-gradient(ellipse at 65% 50%, rgba(0,180,255,0.04) 0%, transparent 60%)',
+           }} />
+
+      {/* Film grain overlay */}
+      <div className="absolute inset-0 pointer-events-none z-10 opacity-[0.08] mix-blend-overlay"
+           style={{
+             backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")`,
+             animation: 'grain 0.5s steps(4) infinite',
+           }} />
+
+      {/* Speed-reactive flash at high warp (white pulse) */}
+      <div className="absolute inset-0 pointer-events-none z-10"
+           style={{
+             background: 'rgba(255,255,255,0.05)',
+             opacity: Math.max(0, (displaySpeed - 10) / 20),
+             transition: 'opacity 0.3s',
+           }} />
+
       {/* UI Overlay */}
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between">
-        {/* Top bar */}
-        <div className="flex items-center justify-between px-6 py-5 pointer-events-auto">
-          <div className="font-mono text-white/50 text-xs tracking-[0.2em]">
-            @kranthi · LAB
+      <div className="absolute inset-0 pointer-events-none flex flex-col justify-between z-30">
+        {/* Top bar — inside letterbox */}
+        <div className="flex items-center justify-between px-6 pt-2 pointer-events-auto" style={{ height: '8vh' }}>
+          <div className="font-mono text-white/60 text-[10px] tracking-[0.3em] flex items-center gap-3">
+            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+            REC · @kranthi · LAB
           </div>
-          <div className="font-mono text-white/50 text-xs tracking-[0.2em]">
-            ASTRO DITHER
+          <div className="font-mono text-white/50 text-[10px] tracking-[0.3em]">
+            ASTRO DITHER · WARP DRIVE
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex items-center justify-between px-6 py-5">
+        {/* Bottom bar — inside letterbox */}
+        <div className="flex items-center justify-between px-6 pb-2 pointer-events-auto" style={{ height: '8vh' }}>
           {/* Timer - bottom left */}
-          <div className="font-mono text-white/60 text-sm tracking-widest">
+          <div className="font-mono text-white/70 text-sm tracking-widest">
             {displayTime}
           </div>
           {/* Speed indicator - bottom right */}
           <div className="font-mono text-white/40 text-xs tracking-wider flex items-center gap-3">
-            <span className="text-white/20">HOLD FOR SPEED</span>
-            <span className="text-white/50">|</span>
-            <span className="text-white/60">{displaySpeed.toFixed(2)}x</span>
+            <span className="text-white/30 text-[9px]">HOLD FOR SPEED</span>
+            <span className="text-white/40">|</span>
+            <span className="text-white/80 text-sm tabular-nums" style={{
+              textShadow: displaySpeed > 5 ? `0 0 ${(displaySpeed - 5) * 2}px rgba(255,255,255,0.6)` : 'none'
+            }}>{displaySpeed.toFixed(2)}x</span>
           </div>
         </div>
       </div>
 
-      {/* Back button */}
+      {/* Back button — top left corner over letterbox */}
       <button
         onClick={(e) => { e.stopPropagation(); onBack?.() }}
-        className="absolute top-5 left-6 text-white/20 hover:text-white/50 text-xs font-mono tracking-wider transition-colors pointer-events-auto z-10"
-        style={{ display: 'none' }}
+        className="absolute top-4 right-6 text-white/40 hover:text-white/80 text-[10px] font-mono tracking-[0.2em] transition-colors pointer-events-auto z-30"
       >
-        ← BACK
+        ← EXIT
       </button>
+
+      <style>{`
+        @keyframes grain {
+          0%, 100% { transform: translate(0, 0); }
+          25% { transform: translate(-2%, 1%); }
+          50% { transform: translate(1%, -1%); }
+          75% { transform: translate(-1%, 2%); }
+        }
+      `}</style>
     </div>
   )
 }
