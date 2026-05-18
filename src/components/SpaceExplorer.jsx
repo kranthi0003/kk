@@ -332,6 +332,11 @@ const PLANET_NOTES = {
   voyager2: 311.1, // Eb4 — explorer
   jwst: 587.3,     // D5 — golden
   iss: 440,        // A4 — home
+  // Deep sky
+  andromeda: 196,   // G3 — vast
+  'orion-nebula': 233.1, // Bb3 — warm
+  'crab-nebula': 277.2,  // Db4 — pulsing
+  pillars: 207.7,  // Ab3 — grand
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -994,6 +999,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                   {planet.isComet && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300/70 border border-amber-500/20">COMET</span>}
                   {planet.isStar && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300/70 border border-yellow-500/20">STAR</span>}
                   {planet.isProbe && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300/70 border border-emerald-500/20">SPACECRAFT</span>}
+                  {planet.isDeepSky && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300/70 border border-pink-500/20">DEEP SKY</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -1449,6 +1455,76 @@ function SpaceProbe({ probe, onSelect, onHover, hovered, selected }) {
   )
 }
 
+// ─── Galaxies & Nebulae (ethereal deep-sky markers) ──────────
+const DEEP_SKY = [
+  { id: 'andromeda', name: 'Andromeda Galaxy', color: '#c8b8ff', size: 6,
+    position: [1100, 200, -500],
+    tagline: 'Our nearest spiral galaxy',
+    facts: ['Nearest large galaxy to the Milky Way at 2.537 million light-years','Contains roughly 1 trillion stars — more than twice the Milky Way','On a collision course with the Milky Way — they\'ll merge in about 4.5 billion years','Visible to the naked eye as a faint smudge on dark nights','Also known as Messier 31 (M31)','Spans 220,000 light-years across — larger than our Milky Way','Has at least 26 known satellite galaxies orbiting it'],
+    stats: { diameter: '220,000 ly', day: 'N/A', year: 'N/A', moons: 0, distance: '2.537M light-years' }},
+  { id: 'orion-nebula', name: 'Orion Nebula', color: '#ff8090', size: 4,
+    position: [-900, -150, 600],
+    tagline: 'The stellar nursery',
+    facts: ['One of the brightest nebulae — visible to the naked eye','Located 1,344 light-years from Earth in the "sword" of Orion','An active star-forming region — new stars are being born inside it','About 24 light-years across','Contains the Trapezium Cluster — four hot, young stars at its core','Also known as Messier 42 (M42)','Approximately 2 million years old'],
+    stats: { diameter: '24 light-years', day: 'N/A', year: 'N/A', moons: 0, distance: '1,344 light-years' }},
+  { id: 'crab-nebula', name: 'Crab Nebula', color: '#60d0ff', size: 3.5,
+    position: [500, 600, 800],
+    tagline: 'The supernova remnant',
+    facts: ['Remnant of a supernova observed by Chinese astronomers in 1054 AD','Contains a pulsar spinning 30 times per second at its center','Located 6,523 light-years from Earth in the constellation Taurus','About 11 light-years across and still expanding','The pulsar emits pulses of radiation from gamma rays to radio waves','Also known as Messier 1 (M1) — the first object in Messier\'s catalog','The supernova was bright enough to be visible in daylight for 23 days'],
+    stats: { diameter: '11 light-years', day: 'Pulsar: 33ms', year: 'Age: ~970 years', moons: 0, distance: '6,523 light-years' }},
+  { id: 'pillars', name: 'Pillars of Creation', color: '#b0a080', size: 5,
+    position: [-700, 400, -800],
+    tagline: 'Cosmic cathedral',
+    facts: ['Iconic columns of gas and dust in the Eagle Nebula (M16)','Located 6,500-7,000 light-years from Earth','The tallest pillar is about 4 light-years long — roughly the distance to Alpha Centauri','Famously photographed by Hubble in 1995 and again by JWST in 2022','Stars are actively forming inside the pillars','Ultraviolet light from nearby hot stars is slowly eroding them away','May have already been destroyed by a supernova — we won\'t see it for 1,000 years'],
+    stats: { diameter: '~5 ly tall', day: 'N/A', year: 'N/A', moons: 0, distance: '~7,000 light-years' }},
+]
+
+function DeepSkyObject({ obj, onSelect, onHover, hovered, selected }) {
+  const ref = useRef()
+  const isActive = selected === obj.id || hovered === obj.id
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.z += 0.001
+      const pulse = 1 + Math.sin(Date.now() * 0.001) * 0.05
+      ref.current.scale.setScalar(pulse)
+    }
+  })
+
+  return (
+    <group position={obj.position}>
+      {/* Ethereal nebula sprite */}
+      <sprite
+        ref={ref}
+        scale={[obj.size * 6, obj.size * 6, 1]}
+        onClick={(e) => { e.stopPropagation(); onSelect({ ...obj, isDeepSky: true }) }}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(obj.id); document.body.style.cursor = 'pointer' }}
+        onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
+      >
+        <spriteMaterial color={obj.color} transparent opacity={isActive ? 0.35 : 0.15} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </sprite>
+      {/* Core glow */}
+      <sprite scale={[obj.size * 2, obj.size * 2, 1]}>
+        <spriteMaterial color={obj.color} transparent opacity={isActive ? 0.5 : 0.25} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </sprite>
+      {/* Label */}
+      <Html
+        position={[0, obj.size * 4, 0]}
+        center
+        distanceFactor={150}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.5, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[9px] font-medium tracking-[0.12em] drop-shadow-lg" style={{ color: obj.color }}>
+            ✧ {obj.name}
+          </span>
+          <span className="text-[7px] tracking-[0.1em] text-white/25">{obj.stats.distance}</span>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
@@ -1468,6 +1544,9 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       ))}
       {PROBES.map(p => (
         <SpaceProbe key={p.id} probe={p} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+      ))}
+      {DEEP_SKY.map(d => (
+        <DeepSkyObject key={d.id} obj={d} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
