@@ -2,15 +2,14 @@ import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
-// ─── Audio Engine (MP3 loop that speeds up with travel) ──────
-class WarpAudio {
+// ─── Audio Engine (pitch DROPS as you approach — time dilation) ──
+class BlackHoleAudio {
   constructor() {
     this.ctx = null
-    this.source = null
-    this.audioBuffer = null
     this.master = null
     this.started = false
     this.element = null
+    this.lowpass = null
   }
 
   init() {
@@ -20,409 +19,385 @@ class WarpAudio {
     this.ctx = new AC()
     this.master = this.ctx.createGain()
     this.master.gain.value = 0.7
-    this.master.connect(this.ctx.destination)
+    this.lowpass = this.ctx.createBiquadFilter()
+    this.lowpass.type = 'lowpass'
+    this.lowpass.frequency.value = 22000
+    this.lowpass.Q.value = 0.7
+    this.lowpass.connect(this.master).connect(this.ctx.destination)
   }
 
   async start() {
     if (!this.ctx || this.started) return
     this.started = true
-
-    // Use HTML Audio element for looping MP3 with playbackRate control
     this.element = new Audio('/audio/loop.mp3')
     this.element.loop = true
     this.element.crossOrigin = 'anonymous'
     this.element.volume = 1
 
-    // Connect through Web Audio for potential effects
     const source = this.ctx.createMediaElementSource(this.element)
-    source.connect(this.master)
+    source.connect(this.lowpass)
 
     try { await this.element.play() } catch(e) { console.warn('Audio play blocked:', e) }
   }
 
-  setSpeed(speed) {
-    if (!this.element) return
-    // Speed up playback rate (clamp to reasonable range)
-    this.element.playbackRate = Math.min(speed, 16)
-    // Also increase volume slightly at higher speeds
-    if (this.master) {
-      const now = this.ctx.currentTime
-      this.master.gain.linearRampToValueAtTime(0.7 + (speed - 1) * 0.08, now + 0.1)
-    }
+  // approach: 0 (far away) to 1 (at event horizon)
+  setApproach(approach) {
+    if (!this.element || !this.ctx) return
+    // Time dilation: playback rate DROPS as you approach (0.3x at horizon)
+    this.element.playbackRate = Math.max(0.3, 1 - approach * 0.7)
+    // Muffle high frequencies near horizon (sound bends/distorts)
+    const cutoff = Math.max(400, 22000 * (1 - approach * 0.95))
+    this.lowpass.frequency.linearRampToValueAtTime(cutoff, this.ctx.currentTime + 0.1)
+    // Volume rises slightly
+    this.master.gain.linearRampToValueAtTime(0.7 + approach * 0.2, this.ctx.currentTime + 0.1)
   }
 
   stop() {
-    if (this.element) {
-      this.element.pause()
-      this.element = null
-    }
+    if (this.element) { this.element.pause(); this.element = null }
     this.started = false
   }
 }
 
-const warpAudio = new WarpAudio()
+const bhAudio = new BlackHoleAudio()
 
-// ─── Warp tunnel particles (flying toward camera) ────────────
-function WarpParticles({ speedRef }) {
-  const meshRef = useRef()
-  const count = 1500
-  const tunnel_length = 80
-
-  // Each particle: position, velocity, color, shape type, size
-  const particleData = useMemo(() => {
-    const positions = new Float32Array(count * 3)
-    const colors = new Float32Array(count * 3)
-    const sizes = new Float32Array(count)
-    const velocities = new Float32Array(count)
-    const shapes = new Float32Array(count) // 0=square, 1=cross, 2=circle, 3=diamond
-
-    const palette = [
-      [1, 0.3, 0.6],    // pink
-      [0.7, 0.4, 1],    // purple
-      [0.3, 0.8, 1],    // cyan
-      [1, 0.8, 0.2],    // gold
-      [0.2, 1, 0.5],    // green
-      [1, 0.5, 0.2],    // orange
-      [0.5, 0.5, 1],    // lavender
-      [1, 1, 1],        // white
-    ]
-
-    for (let i = 0; i < count; i++) {
-      // Distribute in a cylinder around camera path
-      const angle = Math.random() * Math.PI * 2
-      const radius = 2 + Math.random() * 25
-      positions[i * 3] = Math.cos(angle) * radius
-      positions[i * 3 + 1] = Math.sin(angle) * radius
-      positions[i * 3 + 2] = -Math.random() * tunnel_length
-
-      velocities[i] = 0.5 + Math.random() * 0.5
-      sizes[i] = 0.1 + Math.random() * 0.4
-
-      const col = palette[Math.floor(Math.random() * palette.length)]
-      colors[i * 3] = col[0]
-      colors[i * 3 + 1] = col[1]
-      colors[i * 3 + 2] = col[2]
-
-      shapes[i] = Math.floor(Math.random() * 4)
-    }
-    return { positions, colors, sizes, velocities, shapes }
-  }, [])
-
-  const uniforms = useMemo(() => ({
-    uTime: { value: 0 },
-    uSpeed: { value: 1 },
-  }), [])
-
-  useFrame((_, delta) => {
-    if (!meshRef.current) return
-    const geo = meshRef.current.geometry
-    const posArr = geo.attributes.position.array
-    const velArr = particleData.velocities
-    const speed = speedRef.current
-
-    for (let i = 0; i < count; i++) {
-      // Move toward camera (positive Z)
-      posArr[i * 3 + 2] += velArr[i] * speed * delta * 30
-
-      // Reset particles that pass camera
-      if (posArr[i * 3 + 2] > 10) {
-        const angle = Math.random() * Math.PI * 2
-        const radius = 2 + Math.random() * 25
-        posArr[i * 3] = Math.cos(angle) * radius
-        posArr[i * 3 + 1] = Math.sin(angle) * radius
-        posArr[i * 3 + 2] = -tunnel_length - Math.random() * 20
-      }
-    }
-    geo.attributes.position.needsUpdate = true
-  })
-
-  const vertexShader = `
-    attribute float aSize;
-    attribute float aShape;
-    attribute vec3 aColor;
-    varying vec3 vColor;
-    varying float vShape;
-    varying float vDepth;
-
-    void main() {
-      vColor = aColor;
-      vShape = aShape;
-      vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
-      vDepth = -mvPos.z;
-      gl_Position = projectionMatrix * mvPos;
-      // Size gets bigger as particles approach (perspective)
-      gl_PointSize = aSize * (300.0 / -mvPos.z);
-      gl_PointSize = clamp(gl_PointSize, 1.0, 64.0);
-    }
-  `
-
-  const fragmentShader = `
-    varying vec3 vColor;
-    varying float vShape;
-    varying float vDepth;
-
-    void main() {
-      vec2 uv = gl_PointCoord - 0.5;
-      float shape = floor(vShape + 0.5);
-      float alpha = 0.0;
-
-      if (shape < 0.5) {
-        // Square
-        float s = max(abs(uv.x), abs(uv.y));
-        alpha = step(s, 0.35);
-      } else if (shape < 1.5) {
-        // Cross
-        float cx = step(abs(uv.x), 0.12) * step(abs(uv.y), 0.4);
-        float cy = step(abs(uv.y), 0.12) * step(abs(uv.x), 0.4);
-        alpha = max(cx, cy);
-      } else if (shape < 2.5) {
-        // Circle
-        alpha = step(length(uv), 0.3);
-      } else {
-        // Diamond
-        alpha = step(abs(uv.x) + abs(uv.y), 0.35);
-      }
-
-      if (alpha < 0.1) discard;
-
-      // Fade with depth
-      float depthFade = smoothstep(80.0, 5.0, vDepth);
-      // Motion blur tail (stretch color for speed feel)
-      vec3 col = vColor * (0.7 + depthFade * 0.5);
-
-      gl_FragColor = vec4(col, alpha * depthFade);
-    }
-  `
-
-  return (
-    <points ref={meshRef}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={particleData.positions} itemSize={3} />
-        <bufferAttribute attach="attributes-aSize" count={count} array={particleData.sizes} itemSize={1} />
-        <bufferAttribute attach="attributes-aShape" count={count} array={particleData.shapes} itemSize={1} />
-        <bufferAttribute attach="attributes-aColor" count={count} array={particleData.colors} itemSize={3} />
-      </bufferGeometry>
-      <shaderMaterial
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        transparent
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  )
-}
-
-// ─── Streak lines (motion streaks for warp feel) ─────────────
-function WarpStreaks({ speedRef }) {
+// ─── Accretion Disk (glowing ring around the black hole) ─────
+function AccretionDisk({ approachRef }) {
   const ref = useRef()
-  const count = 200
 
-  const positions = useMemo(() => {
-    const pos = new Float32Array(count * 6) // 2 points per line
-    for (let i = 0; i < count; i++) {
-      const angle = Math.random() * Math.PI * 2
-      const radius = 3 + Math.random() * 20
-      const x = Math.cos(angle) * radius
-      const y = Math.sin(angle) * radius
-      const z = -Math.random() * 60
-      // Start point
-      pos[i * 6] = x
-      pos[i * 6 + 1] = y
-      pos[i * 6 + 2] = z
-      // End point (slightly behind)
-      pos[i * 6 + 3] = x
-      pos[i * 6 + 4] = y
-      pos[i * 6 + 5] = z - 1.5
-    }
-    return pos
+  const { geometry, material } = useMemo(() => {
+    const g = new THREE.RingGeometry(2.2, 8, 256, 4)
+
+    const m = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uApproach: { value: 0 },
+      },
+      vertexShader: `
+        varying vec2 vUv;
+        varying float vRadius;
+        void main() {
+          vUv = uv;
+          vRadius = length(position.xy);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform float uTime;
+        uniform float uApproach;
+        varying vec2 vUv;
+        varying float vRadius;
+
+        // Simple noise
+        float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+        float noise(vec2 p) {
+          vec2 i = floor(p);
+          vec2 f = fract(p);
+          float a = hash(i);
+          float b = hash(i + vec2(1, 0));
+          float c = hash(i + vec2(0, 1));
+          float d = hash(i + vec2(1, 1));
+          vec2 u = f * f * (3.0 - 2.0 * f);
+          return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+        }
+
+        void main() {
+          // Spiral pattern - angle + log(radius) creates spiral arms
+          float angle = atan(vUv.y - 0.5, vUv.x - 0.5);
+          float r = vRadius / 8.0;
+
+          // Doppler effect — front side hotter, back side cooler
+          float doppler = 0.5 + 0.5 * cos(angle);
+
+          // Rotating turbulence
+          float spiral = sin(angle * 4.0 + log(r + 0.1) * 8.0 - uTime * 2.0);
+          float turb = noise(vec2(angle * 4.0 - uTime, log(r + 0.1) * 6.0)) * 0.6;
+
+          // Inner edge: bright white-hot, outer: deep red
+          float innerHeat = smoothstep(1.0, 0.0, r);
+          vec3 hotCore = mix(vec3(1.0, 0.95, 0.8), vec3(1.0, 0.5, 0.1), 1.0 - innerHeat);
+          vec3 outerCool = vec3(0.6, 0.1, 0.05);
+          vec3 col = mix(outerCool, hotCore, innerHeat);
+
+          // Doppler boost
+          col *= 0.5 + doppler * 1.2;
+
+          // Brightness modulation by spiral + turbulence
+          float bright = (0.5 + spiral * 0.3 + turb) * (1.0 + innerHeat * 2.0);
+
+          // Fade at outer + inner edges
+          float edgeFade = smoothstep(0.0, 0.15, vUv.x) * smoothstep(1.0, 0.85, vUv.x);
+
+          // Approach intensifies
+          bright *= 1.0 + uApproach * 1.5;
+
+          gl_FragColor = vec4(col * bright * edgeFade, edgeFade * 0.95);
+        }
+      `,
+      transparent: true,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    })
+
+    return { geometry: g, material: m }
   }, [])
 
   useFrame((_, delta) => {
     if (!ref.current) return
-    const arr = ref.current.geometry.attributes.position.array
-    const speed = speedRef.current
-
-    for (let i = 0; i < count; i++) {
-      const moveZ = speed * delta * 35
-      arr[i * 6 + 2] += moveZ
-      arr[i * 6 + 5] += moveZ
-
-      if (arr[i * 6 + 2] > 10) {
-        const angle = Math.random() * Math.PI * 2
-        const radius = 3 + Math.random() * 20
-        const x = Math.cos(angle) * radius
-        const y = Math.sin(angle) * radius
-        const z = -60 - Math.random() * 10
-        arr[i * 6] = x
-        arr[i * 6 + 1] = y
-        arr[i * 6 + 2] = z
-        arr[i * 6 + 3] = x
-        arr[i * 6 + 4] = y
-        arr[i * 6 + 5] = z - 1.5 * speed
-      }
-    }
-    ref.current.geometry.attributes.position.needsUpdate = true
+    material.uniforms.uTime.value += delta
+    material.uniforms.uApproach.value = approachRef.current
+    ref.current.rotation.z += delta * 0.05
   })
 
   return (
-    <lineSegments ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count * 2} array={positions} itemSize={3} />
-      </bufferGeometry>
-      <lineBasicMaterial color="#ffffff" transparent opacity={0.15} />
-    </lineSegments>
+    <mesh ref={ref} geometry={geometry} material={material} rotation={[Math.PI / 2 - 0.25, 0, 0]} />
   )
 }
 
-// ─── Cockpit frame (fixed to camera, like you're inside a ship) ──
-function Cockpit({ speedRef }) {
-  const ref = useRef()
+// ─── Event Horizon (the black sphere with Einstein ring) ─────
+function EventHorizon({ approachRef }) {
+  const ringRef = useRef()
+  const ringMatRef = useRef()
 
-  useFrame((_, delta) => {
-    if (!ref.current) return
-    // Subtle vibration at high speed
-    const speed = speedRef.current
-    const shake = (speed - 1) * 0.001
-    ref.current.position.x = (Math.random() - 0.5) * shake
-    ref.current.position.y = (Math.random() - 0.5) * shake
+  useFrame(() => {
+    if (ringMatRef.current) {
+      ringMatRef.current.opacity = 0.5 + approachRef.current * 0.4
+    }
   })
 
   return (
-    <group ref={ref} position={[0, 0, 3.5]}>
-      {/* Main cockpit frame - angular edges */}
-      {/* Top bar */}
-      <mesh position={[0, 1.8, 0]}>
-        <boxGeometry args={[4.5, 0.06, 0.1]} />
-        <meshBasicMaterial color="#1a1a2e" />
-      </mesh>
-      {/* Bottom bar */}
-      <mesh position={[0, -1.6, 0]}>
-        <boxGeometry args={[4.5, 0.08, 0.1]} />
-        <meshBasicMaterial color="#1a1a2e" />
-      </mesh>
-      {/* Left pillar */}
-      <mesh position={[-2.2, 0, 0]} rotation={[0, 0, 0.05]}>
-        <boxGeometry args={[0.06, 3.6, 0.1]} />
-        <meshBasicMaterial color="#1a1a2e" />
-      </mesh>
-      {/* Right pillar */}
-      <mesh position={[2.2, 0, 0]} rotation={[0, 0, -0.05]}>
-        <boxGeometry args={[0.06, 3.6, 0.1]} />
-        <meshBasicMaterial color="#1a1a2e" />
+    <group>
+      {/* The black hole itself - pure black sphere */}
+      <mesh>
+        <sphereGeometry args={[2, 64, 64]} />
+        <meshBasicMaterial color="#000000" />
       </mesh>
 
-      {/* Dashboard / control panel at bottom */}
-      <mesh position={[0, -1.9, 0.3]} rotation={[-0.4, 0, 0]}>
-        <boxGeometry args={[3.5, 0.8, 0.05]} />
-        <meshBasicMaterial color="#0d0d1a" />
-      </mesh>
-      {/* Dashboard glow indicators */}
-      <mesh position={[-0.8, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
-        <circleGeometry args={[0.03, 8]} />
-        <meshBasicMaterial color="#00ff88" />
-      </mesh>
-      <mesh position={[-0.5, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
-        <circleGeometry args={[0.03, 8]} />
-        <meshBasicMaterial color="#00ff88" />
-      </mesh>
-      <mesh position={[0.5, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
-        <circleGeometry args={[0.025, 8]} />
-        <meshBasicMaterial color="#ff4444" />
-      </mesh>
-      <mesh position={[0.8, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
-        <circleGeometry args={[0.03, 8]} />
-        <meshBasicMaterial color="#4488ff" />
+      {/* Einstein ring — gravitational lensing of light around horizon */}
+      <mesh ref={ringRef}>
+        <ringGeometry args={[2.0, 2.25, 128]} />
+        <meshBasicMaterial
+          ref={ringMatRef}
+          color="#ffcc66"
+          transparent
+          opacity={0.6}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
       </mesh>
 
-      {/* Crosshair / HUD center reticle */}
-      <mesh position={[0, 0, -0.5]}>
-        <ringGeometry args={[0.08, 0.1, 32]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
-      </mesh>
-      {/* Reticle ticks */}
-      <mesh position={[0, 0.15, -0.5]}>
-        <boxGeometry args={[0.005, 0.06, 0.001]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
-      </mesh>
-      <mesh position={[0, -0.15, -0.5]}>
-        <boxGeometry args={[0.005, 0.06, 0.001]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
-      </mesh>
-      <mesh position={[0.15, 0, -0.5]}>
-        <boxGeometry args={[0.06, 0.005, 0.001]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
-      </mesh>
-      <mesh position={[-0.15, 0, -0.5]}>
-        <boxGeometry args={[0.06, 0.005, 0.001]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
+      {/* Outer glow ring (photon sphere) */}
+      <mesh>
+        <ringGeometry args={[2.25, 2.6, 128]} />
+        <meshBasicMaterial
+          color="#ff8844"
+          transparent
+          opacity={0.25}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
       </mesh>
     </group>
   )
 }
 
-// ─── Camera dynamics (FOV pulse + banking based on speed) ────
-function CameraDynamics({ speedRef }) {
+// ─── Spiraling particles getting sucked into the black hole ──
+function InfallingParticles({ approachRef }) {
+  const ref = useRef()
+  const count = 3000
+
+  const data = useMemo(() => {
+    const positions = new Float32Array(count * 3)
+    const angles = new Float32Array(count)
+    const radii = new Float32Array(count)
+    const heights = new Float32Array(count)
+    const speeds = new Float32Array(count)
+    const colors = new Float32Array(count * 3)
+    const sizes = new Float32Array(count)
+
+    for (let i = 0; i < count; i++) {
+      angles[i] = Math.random() * Math.PI * 2
+      radii[i] = 3 + Math.random() * 25
+      heights[i] = (Math.random() - 0.5) * 1.5
+      speeds[i] = 0.3 + Math.random() * 0.5
+      sizes[i] = 0.05 + Math.random() * 0.15
+
+      // Inner: white-hot; outer: orange/red
+      const heat = 1 - (radii[i] - 3) / 25
+      colors[i * 3] = 1
+      colors[i * 3 + 1] = 0.5 + heat * 0.4
+      colors[i * 3 + 2] = 0.1 + heat * 0.6
+    }
+    return { positions, angles, radii, heights, speeds, colors, sizes }
+  }, [])
+
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    const pos = ref.current.geometry.attributes.position.array
+    const approach = approachRef.current
+    // Things accelerate as you approach
+    const spinMul = 1 + approach * 4
+    const inflowMul = 1 + approach * 3
+
+    for (let i = 0; i < count; i++) {
+      // Orbital angular velocity increases as radius decreases (Keplerian-ish)
+      const angVel = data.speeds[i] * (8 / Math.max(data.radii[i], 2)) * spinMul
+      data.angles[i] += angVel * delta
+
+      // Slow inward drift (accretion)
+      data.radii[i] -= delta * 0.4 * inflowMul * (1 / Math.max(data.radii[i] / 10, 0.3))
+      // Vertical squeeze toward disk plane
+      data.heights[i] *= (1 - delta * 0.5 * inflowMul)
+
+      // Reset when consumed
+      if (data.radii[i] < 2.4) {
+        data.angles[i] = Math.random() * Math.PI * 2
+        data.radii[i] = 22 + Math.random() * 8
+        data.heights[i] = (Math.random() - 0.5) * 1.5
+      }
+
+      pos[i * 3] = Math.cos(data.angles[i]) * data.radii[i]
+      pos[i * 3 + 1] = data.heights[i]
+      pos[i * 3 + 2] = Math.sin(data.angles[i]) * data.radii[i]
+    }
+    ref.current.geometry.attributes.position.needsUpdate = true
+  })
+
+  return (
+    <points ref={ref} rotation={[-0.25, 0, 0]}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={count} array={data.positions} itemSize={3} />
+        <bufferAttribute attach="attributes-color" count={count} array={data.colors} itemSize={3} />
+        <bufferAttribute attach="attributes-size" count={count} array={data.sizes} itemSize={1} />
+      </bufferGeometry>
+      <pointsMaterial
+        vertexColors
+        size={0.18}
+        sizeAttenuation
+        transparent
+        opacity={0.95}
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+      />
+    </points>
+  )
+}
+
+// ─── Distant background stars ───────────────────────────────
+function BackgroundStars() {
+  const ref = useRef()
+  const count = 2000
+
+  const positions = useMemo(() => {
+    const p = new Float32Array(count * 3)
+    for (let i = 0; i < count; i++) {
+      // Spherical distribution far away
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      const r = 60 + Math.random() * 40
+      p[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      p[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
+      p[i * 3 + 2] = r * Math.cos(phi)
+    }
+    return p
+  }, [])
+
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.005
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+      </bufferGeometry>
+      <pointsMaterial size={0.15} color="#ffffff" transparent opacity={0.7} sizeAttenuation depthWrite={false} />
+    </points>
+  )
+}
+
+// ─── Camera approach (moves toward black hole when holding) ──
+function CameraApproach({ approachRef, distanceRef }) {
   const { camera } = useThree()
-  const bankRef = useRef(0)
 
   useFrame((state, delta) => {
-    const speed = speedRef.current
-    // FOV grows with speed (tunnel-vision feel)
-    const targetFov = 75 + (speed - 1) * 1.8 // up to ~109 at 20x
+    const approach = approachRef.current
+    // Distance from black hole (1.0 far → 0.05 right at horizon)
+    const targetDistance = 18 - approach * 14 // 18 → 4 units away
+    distanceRef.current += (targetDistance - distanceRef.current) * 0.04
+
+    // Position camera looking at origin from slightly above the disk
+    const tilt = 0.2 + approach * 0.15
+    camera.position.x = 0
+    camera.position.y = distanceRef.current * Math.sin(tilt)
+    camera.position.z = distanceRef.current * Math.cos(tilt)
+    camera.lookAt(0, 0, 0)
+
+    // Gentle shake at deep approach (gravitational stress)
+    if (approach > 0.5) {
+      const shake = (approach - 0.5) * 0.1
+      camera.position.x += (Math.random() - 0.5) * shake
+      camera.position.y += (Math.random() - 0.5) * shake
+    }
+
+    // FOV pulses outward at deep approach (tunneling toward singularity)
+    const targetFov = 60 + approach * 25
     camera.fov += (targetFov - camera.fov) * 0.05
     camera.updateProjectionMatrix()
-
-    // Subtle banking — gentle roll that increases with speed
-    bankRef.current += delta * 0.3
-    const targetRoll = Math.sin(bankRef.current * 0.4) * 0.02 * (speed - 0.5)
-    camera.rotation.z += (targetRoll - camera.rotation.z) * 0.04
-
-    // Mild head bob / drift
-    const drift = (speed - 1) * 0.015
-    camera.position.x = Math.sin(state.clock.elapsedTime * 0.6) * drift
-    camera.position.y = Math.cos(state.clock.elapsedTime * 0.5) * drift * 0.8
   })
 
   return null
 }
 
 // ─── Scene ──────────────────────────────────────────────────
-function WarpScene({ speedRef }) {
+function BlackHoleScene({ approachRef, distanceRef }) {
   return (
     <>
-      <color attach="background" args={['#050508']} />
-      <fog attach="fog" args={['#050508', 40, 80]} />
-      <WarpParticles speedRef={speedRef} />
-      <WarpStreaks speedRef={speedRef} />
-      <Cockpit speedRef={speedRef} />
-      <CameraDynamics speedRef={speedRef} />
+      <color attach="background" args={['#000000']} />
+      <BackgroundStars />
+      <EventHorizon approachRef={approachRef} />
+      <AccretionDisk approachRef={approachRef} />
+      <InfallingParticles approachRef={approachRef} />
+      <CameraApproach approachRef={approachRef} distanceRef={distanceRef} />
     </>
   )
 }
 
-// ─── Main AstroDither Page ──────────────────────────────────
+// ─── Main page ──────────────────────────────────────────────
 export default function AstroDither({ onBack }) {
   const [entered, setEntered] = useState(false)
   const [startTime, setStartTime] = useState(null)
   const [displayTime, setDisplayTime] = useState('00:00:000')
-  const [displaySpeed, setDisplaySpeed] = useState(1)
-  const speedRef = useRef(1)
+  const [displayApproach, setDisplayApproach] = useState(0)
+  const [displayDilation, setDisplayDilation] = useState(1)
+  const approachRef = useRef(0)
+  const distanceRef = useRef(18)
   const holdingRef = useRef(false)
 
   const handleEnter = useCallback(() => {
-    warpAudio.init()
-    warpAudio.start()
+    bhAudio.init()
+    bhAudio.start()
     setEntered(true)
     setStartTime(Date.now())
   }, [])
 
-  // Timer with milliseconds
+  // Timer (with time dilation — clock slows as you approach)
   useEffect(() => {
     if (!startTime) return
     let raf
-    const tick = () => {
-      const elapsed = Date.now() - startTime
+    let dilatedElapsed = 0
+    let lastReal = performance.now()
+    const tick = (now) => {
+      const dt = now - lastReal
+      lastReal = now
+      // Dilation factor: 1.0 (normal) → 0.1 (near horizon, time crawls)
+      const dilation = Math.max(0.1, 1 - approachRef.current * 0.9)
+      dilatedElapsed += dt * dilation
+      setDisplayDilation(dilation)
+
+      const elapsed = Math.floor(dilatedElapsed)
       const mins = String(Math.floor(elapsed / 60000)).padStart(2, '0')
       const secs = String(Math.floor((elapsed % 60000) / 1000)).padStart(2, '0')
       const ms = String(elapsed % 1000).padStart(3, '0')
@@ -433,38 +408,33 @@ export default function AstroDither({ onBack }) {
     return () => cancelAnimationFrame(raf)
   }, [startTime])
 
-  // Speed ramp (smooth acceleration on hold)
+  // Approach ramp
   useEffect(() => {
     if (!entered) return
     let raf
     const update = () => {
       if (holdingRef.current) {
-        // Parabolic: acceleration slows as speed increases
-        const remaining = (20 - speedRef.current) / 19
-        speedRef.current = Math.min(speedRef.current + 0.08 * remaining, 20)
+        // Parabolic — slow approach near horizon (asymptotic)
+        const remaining = 1 - approachRef.current
+        approachRef.current = Math.min(approachRef.current + 0.005 * remaining * remaining, 0.97)
       } else {
-        speedRef.current = Math.max(speedRef.current - 0.06, 1)
+        approachRef.current = Math.max(approachRef.current - 0.01, 0)
       }
-      setDisplaySpeed(speedRef.current)
-      warpAudio.setSpeed(speedRef.current)
+      setDisplayApproach(approachRef.current)
+      bhAudio.setApproach(approachRef.current)
       raf = requestAnimationFrame(update)
     }
     raf = requestAnimationFrame(update)
     return () => cancelAnimationFrame(raf)
   }, [entered])
 
-  const handlePointerDown = useCallback(() => {
-    holdingRef.current = true
-  }, [])
-
-  const handlePointerUp = useCallback(() => {
-    holdingRef.current = false
-  }, [])
+  const handlePointerDown = useCallback(() => { holdingRef.current = true }, [])
+  const handlePointerUp = useCallback(() => { holdingRef.current = false }, [])
 
   // Entry screen
   if (!entered) {
     return (
-      <div className="fixed inset-0 bg-[#050508] flex flex-col items-center justify-center z-50 cursor-pointer"
+      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50 cursor-pointer"
            onClick={handleEnter}>
         <div className="absolute top-6 left-6">
           <button onClick={(e) => { e.stopPropagation(); onBack?.() }}
@@ -474,18 +444,27 @@ export default function AstroDither({ onBack }) {
         </div>
         <div className="text-center">
           <h1 className="text-white/80 text-2xl sm:text-4xl font-mono tracking-[0.3em] mb-8">
-            ASTRO DITHER
+            EVENT HORIZON
           </h1>
-          <div className="text-white/30 text-xs font-mono tracking-[0.2em] animate-pulse border border-white/10 px-6 py-3">
-            CLICK TO ENTER
+          <div className="text-white/30 text-xs font-mono tracking-[0.2em] mb-6 max-w-md">
+            You are about to approach a supermassive black hole.<br/>
+            Hold to fall in. Release to pull back.<br/>
+            Time will slow as you near the singularity.
+          </div>
+          <div className="text-white/40 text-xs font-mono tracking-[0.2em] animate-pulse border border-white/10 px-6 py-3 inline-block">
+            CLICK TO BEGIN DESCENT
           </div>
         </div>
         <div className="absolute bottom-8 text-white/15 text-[9px] font-mono tracking-[0.15em]">
-          A warp travel experiment · audio enabled
+          Schwarzschild radius · accretion disk · time dilation
         </div>
       </div>
     )
   }
+
+  // Redshift intensity: blue at far → red at horizon
+  const redshift = displayApproach
+  const redshiftOverlay = `radial-gradient(ellipse at center, rgba(255,${Math.floor(150 - redshift * 100)},${Math.floor(80 - redshift * 60)},${redshift * 0.18}) 0%, transparent 70%)`
 
   return (
     <div className="fixed inset-0 bg-black z-50 select-none cursor-crosshair overflow-hidden"
@@ -493,16 +472,15 @@ export default function AstroDither({ onBack }) {
          onPointerUp={handlePointerUp}
          onPointerLeave={handlePointerUp}>
 
-      {/* Three.js Canvas */}
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 100 }}
+        camera={{ position: [0, 4, 18], fov: 60, near: 0.1, far: 200 }}
         dpr={[1, 2]}
-        gl={{ antialias: false, alpha: false }}
+        gl={{ antialias: true, alpha: false }}
       >
-        <WarpScene speedRef={speedRef} />
+        <BlackHoleScene approachRef={approachRef} distanceRef={distanceRef} />
       </Canvas>
 
-      {/* Cinematic letterbox bars (2.35:1) */}
+      {/* Letterbox bars */}
       <div className="absolute top-0 left-0 right-0 bg-black pointer-events-none z-20"
            style={{ height: '8vh', boxShadow: '0 4px 20px rgba(0,0,0,0.6)' }} />
       <div className="absolute bottom-0 left-0 right-0 bg-black pointer-events-none z-20"
@@ -510,66 +488,67 @@ export default function AstroDither({ onBack }) {
 
       {/* Vignette */}
       <div className="absolute inset-0 pointer-events-none z-10"
-           style={{
-             background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)',
-           }} />
+           style={{ background: 'radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.85) 100%)' }} />
 
-      {/* Chromatic aberration overlay (subtle color fringes) */}
-      <div className="absolute inset-0 pointer-events-none z-10 mix-blend-screen opacity-30"
-           style={{
-             background: 'radial-gradient(ellipse at 35% 50%, rgba(255,0,80,0.04) 0%, transparent 60%), radial-gradient(ellipse at 65% 50%, rgba(0,180,255,0.04) 0%, transparent 60%)',
-           }} />
+      {/* Redshift overlay */}
+      <div className="absolute inset-0 pointer-events-none z-10"
+           style={{ background: redshiftOverlay, transition: 'background 0.3s' }} />
 
-      {/* Film grain overlay */}
-      <div className="absolute inset-0 pointer-events-none z-10 opacity-[0.08] mix-blend-overlay"
+      {/* Gravitational lens distortion fringe at deep approach */}
+      {displayApproach > 0.5 && (
+        <div className="absolute inset-0 pointer-events-none z-10 mix-blend-screen"
+             style={{
+               background: `radial-gradient(circle at 50% 50%, transparent ${30 - displayApproach * 15}%, rgba(255,180,80,${(displayApproach - 0.5) * 0.4}) ${35 - displayApproach * 15}%, transparent ${40 - displayApproach * 10}%)`,
+               opacity: (displayApproach - 0.5) * 2,
+             }} />
+      )}
+
+      {/* Film grain */}
+      <div className="absolute inset-0 pointer-events-none z-10 opacity-[0.07] mix-blend-overlay"
            style={{
              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")`,
              animation: 'grain 0.5s steps(4) infinite',
            }} />
 
-      {/* Speed-reactive flash at high warp (white pulse) */}
-      <div className="absolute inset-0 pointer-events-none z-10"
-           style={{
-             background: 'rgba(255,255,255,0.05)',
-             opacity: Math.max(0, (displaySpeed - 10) / 20),
-             transition: 'opacity 0.3s',
-           }} />
-
       {/* UI Overlay */}
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between z-30">
-        {/* Top bar — inside letterbox */}
+        {/* Top bar */}
         <div className="flex items-center justify-between px-6 pt-2 pointer-events-auto" style={{ height: '8vh' }}>
           <div className="font-mono text-white/60 text-[10px] tracking-[0.3em] flex items-center gap-3">
             <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
             REC · @kranthi · LAB
           </div>
           <div className="font-mono text-white/50 text-[10px] tracking-[0.3em]">
-            ASTRO DITHER · WARP DRIVE
+            EVENT HORIZON · BLACK HOLE PROBE
           </div>
         </div>
 
-        {/* Bottom bar — inside letterbox */}
+        {/* Bottom bar */}
         <div className="flex items-center justify-between px-6 pb-2 pointer-events-auto" style={{ height: '8vh' }}>
-          {/* Timer - bottom left */}
-          <div className="font-mono text-white/70 text-sm tracking-widest">
-            {displayTime}
+          <div className="flex flex-col gap-0.5">
+            <div className="font-mono text-white/70 text-sm tracking-widest">{displayTime}</div>
+            <div className="font-mono text-white/30 text-[9px] tracking-wider">
+              TIME DILATION · {displayDilation.toFixed(2)}x
+            </div>
           </div>
-          {/* Speed indicator - bottom right */}
-          <div className="font-mono text-white/40 text-xs tracking-wider flex items-center gap-3">
-            <span className="text-white/30 text-[9px]">HOLD FOR SPEED</span>
-            <span className="text-white/40">|</span>
-            <span className="text-white/80 text-sm tabular-nums" style={{
-              textShadow: displaySpeed > 5 ? `0 0 ${(displaySpeed - 5) * 2}px rgba(255,255,255,0.6)` : 'none'
-            }}>{displaySpeed.toFixed(2)}x</span>
+          <div className="flex flex-col items-end gap-0.5">
+            <div className="font-mono text-white/40 text-xs tracking-wider flex items-center gap-3">
+              <span className="text-white/30 text-[9px]">HOLD TO APPROACH</span>
+              <span className="text-white/40">|</span>
+              <span className="text-white/80 text-sm tabular-nums" style={{
+                textShadow: displayApproach > 0.5 ? `0 0 ${displayApproach * 20}px rgba(255,180,80,0.8)` : 'none'
+              }}>{(displayApproach * 100).toFixed(0)}%</span>
+            </div>
+            <div className="font-mono text-white/30 text-[9px] tracking-wider">
+              GRAVITY WELL DEPTH
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Back button — top left corner over letterbox */}
       <button
         onClick={(e) => { e.stopPropagation(); onBack?.() }}
-        className="absolute top-4 right-6 text-white/40 hover:text-white/80 text-[10px] font-mono tracking-[0.2em] transition-colors pointer-events-auto z-30"
-      >
+        className="absolute top-4 right-6 text-white/40 hover:text-white/80 text-[10px] font-mono tracking-[0.2em] transition-colors pointer-events-auto z-30">
         ← EXIT
       </button>
 

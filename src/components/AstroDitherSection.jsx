@@ -27,15 +27,15 @@ export default function AstroDitherSection() {
                 </svg>
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-indigo-300 transition-colors">
-                Astro Dither
+                Event Horizon
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Audio-reactive particle experiment with dithering shader, fluid dynamics, and mouse interaction.
+                Approach a supermassive black hole. Watch the accretion disk swirl, feel time dilate, and hear the audio bend as gravity warps reality.
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-mono text-muted-foreground/60">
                 <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">WebGL</span>
                 <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">GLSL</span>
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Audio</span>
+                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Physics</span>
               </div>
             </div>
           </a>
