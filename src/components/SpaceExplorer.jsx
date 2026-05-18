@@ -1475,22 +1475,131 @@ function SpaceProbe({ probe, onSelect, onHover, hovered, selected }) {
 
   useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.y += 0.005
+      ref.current.rotation.y += 0.003
     }
   })
 
+  // Different models per probe type
+  const isISS = probe.id === 'iss'
+  const isJWST = probe.id === 'jwst'
+  const isVoyager = probe.id.startsWith('voyager')
+
   return (
     <group position={probe.position}>
-      {/* Probe body — small octahedron */}
-      <mesh
+      <group
         ref={ref}
         onClick={(e) => { e.stopPropagation(); onSelect({ ...probe, isProbe: true }) }}
         onPointerOver={(e) => { e.stopPropagation(); onHover(probe.id); document.body.style.cursor = 'pointer' }}
         onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
       >
-        <octahedronGeometry args={[1.5, 0]} />
-        <meshStandardMaterial color={probe.color} metalness={0.8} roughness={0.2} emissive={probe.color} emissiveIntensity={0.3} />
-      </mesh>
+        {isISS ? (
+          // ISS — truss + modules + solar panels
+          <group scale={0.6}>
+            {/* Main truss */}
+            <mesh>
+              <boxGeometry args={[4, 0.15, 0.15]} />
+              <meshStandardMaterial color="#c0c0c0" metalness={0.9} roughness={0.3} />
+            </mesh>
+            {/* Habitat modules */}
+            <mesh position={[0, 0, 0]}>
+              <cylinderGeometry args={[0.2, 0.2, 1.2, 8]} rotation={[0, 0, Math.PI / 2]} />
+              <meshStandardMaterial color="#e8e0d8" metalness={0.6} roughness={0.4} />
+            </mesh>
+            <mesh position={[0.5, 0.15, 0]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.15, 0.15, 0.8, 8]} />
+              <meshStandardMaterial color="#d0d8e0" metalness={0.6} roughness={0.4} />
+            </mesh>
+            {/* Solar panels (4 pairs) */}
+            {[-1.5, -0.7, 0.7, 1.5].map((x, i) => (
+              <group key={i} position={[x, 0, 0]}>
+                <mesh position={[0, 0, 0.6]}>
+                  <boxGeometry args={[0.5, 0.02, 0.9]} />
+                  <meshStandardMaterial color="#1a237e" metalness={0.3} roughness={0.6} emissive="#1a237e" emissiveIntensity={0.1} />
+                </mesh>
+                <mesh position={[0, 0, -0.6]}>
+                  <boxGeometry args={[0.5, 0.02, 0.9]} />
+                  <meshStandardMaterial color="#1a237e" metalness={0.3} roughness={0.6} emissive="#1a237e" emissiveIntensity={0.1} />
+                </mesh>
+              </group>
+            ))}
+          </group>
+        ) : isJWST ? (
+          // JWST — hexagonal mirror + sunshield
+          <group scale={0.8}>
+            {/* Primary mirror (hexagonal arrangement) */}
+            {[0, 60, 120, 180, 240, 300].map((angle, i) => {
+              const rad = (angle * Math.PI) / 180
+              const x = Math.cos(rad) * 0.5
+              const y = Math.sin(rad) * 0.5
+              return (
+                <mesh key={i} position={[x, y, 0]} rotation={[0, 0, rad]}>
+                  <circleGeometry args={[0.35, 6]} />
+                  <meshStandardMaterial color="#ffd700" metalness={1} roughness={0.1} side={THREE.DoubleSide} />
+                </mesh>
+              )
+            })}
+            {/* Center mirror */}
+            <mesh>
+              <circleGeometry args={[0.35, 6]} />
+              <meshStandardMaterial color="#ffd700" metalness={1} roughness={0.1} side={THREE.DoubleSide} />
+            </mesh>
+            {/* Sunshield layers */}
+            <mesh position={[0, 0, -0.4]} rotation={[0, 0, Math.PI / 6]}>
+              <planeGeometry args={[2.5, 1.3]} />
+              <meshStandardMaterial color="#c0b090" metalness={0.2} roughness={0.8} transparent opacity={0.7} side={THREE.DoubleSide} />
+            </mesh>
+            <mesh position={[0, 0, -0.5]}>
+              <planeGeometry args={[2.8, 1.5]} />
+              <meshStandardMaterial color="#a09070" metalness={0.2} roughness={0.8} transparent opacity={0.5} side={THREE.DoubleSide} />
+            </mesh>
+          </group>
+        ) : isVoyager ? (
+          // Voyager — bus + dish + boom + RTG
+          <group scale={0.5}>
+            {/* Main bus (10-sided prism) */}
+            <mesh>
+              <cylinderGeometry args={[0.4, 0.4, 0.3, 10]} />
+              <meshStandardMaterial color="#d0c8b8" metalness={0.7} roughness={0.3} />
+            </mesh>
+            {/* High-gain antenna dish */}
+            <mesh position={[0, 0.4, 0]} rotation={[Math.PI / 2, 0, 0]}>
+              <coneGeometry args={[0.9, 0.4, 32, 1, true]} />
+              <meshStandardMaterial color="#e8e8e8" metalness={0.8} roughness={0.2} side={THREE.DoubleSide} />
+            </mesh>
+            {/* Magnetometer boom */}
+            <mesh position={[1.5, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.02, 0.02, 3, 4]} />
+              <meshStandardMaterial color="#808080" metalness={0.9} roughness={0.2} />
+            </mesh>
+            {/* RTG (power source) */}
+            <mesh position={[-0.8, -0.2, 0]} rotation={[0, 0, -Math.PI / 4]}>
+              <cylinderGeometry args={[0.08, 0.08, 0.8, 8]} />
+              <meshStandardMaterial color="#303030" metalness={0.9} roughness={0.4} />
+            </mesh>
+            {/* Science boom */}
+            <mesh position={[0, -0.3, 0.8]} rotation={[Math.PI / 3, 0, 0]}>
+              <cylinderGeometry args={[0.02, 0.02, 1.5, 4]} />
+              <meshStandardMaterial color="#808080" metalness={0.9} roughness={0.2} />
+            </mesh>
+          </group>
+        ) : (
+          // Generic satellite fallback
+          <group scale={0.6}>
+            <mesh>
+              <boxGeometry args={[0.6, 0.6, 0.8]} />
+              <meshStandardMaterial color={probe.color} metalness={0.7} roughness={0.3} />
+            </mesh>
+            <mesh position={[1, 0, 0]}>
+              <boxGeometry args={[1.2, 0.05, 0.6]} />
+              <meshStandardMaterial color="#1a237e" metalness={0.3} roughness={0.5} />
+            </mesh>
+            <mesh position={[-1, 0, 0]}>
+              <boxGeometry args={[1.2, 0.05, 0.6]} />
+              <meshStandardMaterial color="#1a237e" metalness={0.3} roughness={0.5} />
+            </mesh>
+          </group>
+        )}
+      </group>
       {/* Signal pulse */}
       {isActive && (
         <mesh scale={3}>
