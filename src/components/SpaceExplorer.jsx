@@ -1080,6 +1080,86 @@ function InfoDrawer({ planet, onClose, onPlay }) {
   )
 }
 
+// ─── Milky Way Galaxy (visible spiral structure you fly through) ──
+function MilkyWayGalaxy() {
+  const ref = useRef()
+
+  const { positions, colors, sizes } = useMemo(() => {
+    const arms = 4
+    const particlesPerArm = 2500
+    const coreParticles = 1500
+    const total = arms * particlesPerArm + coreParticles
+    const pos = new Float32Array(total * 3)
+    const col = new Float32Array(total * 3)
+    const sz = new Float32Array(total)
+    let idx = 0
+
+    // Spiral arms
+    for (let arm = 0; arm < arms; arm++) {
+      const armAngle = (arm / arms) * Math.PI * 2
+      for (let i = 0; i < particlesPerArm; i++) {
+        const t = i / particlesPerArm
+        const r = 800 + t * 7000
+        const windAngle = t * Math.PI * 3 + armAngle
+        const spread = 200 + t * 600
+        const x = Math.cos(windAngle) * r + (Math.random() - 0.5) * spread
+        const z = Math.sin(windAngle) * r + (Math.random() - 0.5) * spread
+        const y = (Math.random() - 0.5) * (80 + t * 250)
+        pos[idx * 3] = x
+        pos[idx * 3 + 1] = y
+        pos[idx * 3 + 2] = z
+        // Arm color: blue-white in arms, warmer toward center
+        const warmth = 1 - t
+        col[idx * 3] = 0.6 + warmth * 0.35
+        col[idx * 3 + 1] = 0.65 + warmth * 0.2
+        col[idx * 3 + 2] = 0.85 + Math.random() * 0.15
+        sz[idx] = 1.5 + Math.random() * 2
+        idx++
+      }
+    }
+
+    // Galactic core (bright dense center)
+    for (let i = 0; i < coreParticles; i++) {
+      const r = Math.random() * 1200
+      const theta = Math.random() * Math.PI * 2
+      const y = (Math.random() - 0.5) * 120
+      pos[idx * 3] = Math.cos(theta) * r
+      pos[idx * 3 + 1] = y
+      pos[idx * 3 + 2] = Math.sin(theta) * r
+      // Core: warm golden-white
+      col[idx * 3] = 0.9 + Math.random() * 0.1
+      col[idx * 3 + 1] = 0.8 + Math.random() * 0.15
+      col[idx * 3 + 2] = 0.6 + Math.random() * 0.2
+      sz[idx] = 2 + Math.random() * 3
+      idx++
+    }
+
+    return { positions: pos, colors: col, sizes: sz }
+  }, [])
+
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.0008
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+      </bufferGeometry>
+      <pointsMaterial
+        size={2}
+        vertexColors
+        transparent
+        opacity={0.3}
+        sizeAttenuation
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  )
+}
+
 // ─── Multi-layer star field (gives depth as you zoom out) ────
 function StarLayers() {
   const layers = useMemo(() => {
@@ -1605,6 +1685,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <color attach="background" args={['#000003']} />
       <ambientLight intensity={0.08} />
       <Nebula />
+      <MilkyWayGalaxy />
       <StarLayers />
       <Sun />
       <AsteroidBelt />
@@ -1742,15 +1823,16 @@ function DepthIndicator({ controlsRef }) {
       else if (dist < 150) setZone('Outer Solar System')
       else if (dist < 500) setZone('Kuiper Belt')
       else if (dist < 2000) setZone('Oort Cloud')
-      else if (dist < 5000) setZone('Interstellar Space')
-      else if (dist < 10000) setZone('Nearby Stars')
+      else if (dist < 4000) setZone('Interstellar Space')
+      else if (dist < 7000) setZone('Milky Way Galaxy')
+      else if (dist < 10000) setZone('Intergalactic Space')
       else setZone('Deep Space — Galaxies')
     }
     const interval = setInterval(update, 200)
     return () => clearInterval(interval)
   }, [controlsRef])
 
-  const zones = ['Inner Solar System', 'Outer Solar System', 'Kuiper Belt', 'Oort Cloud', 'Interstellar Space', 'Nearby Stars', 'Deep Space — Galaxies']
+  const zones = ['Inner Solar System', 'Outer Solar System', 'Kuiper Belt', 'Oort Cloud', 'Interstellar Space', 'Milky Way Galaxy', 'Intergalactic Space', 'Deep Space — Galaxies']
   const activeIdx = zones.indexOf(zone)
 
   return (
