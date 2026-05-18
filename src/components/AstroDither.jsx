@@ -43,7 +43,7 @@ class WarpAudio {
   setSpeed(speed) {
     if (!this.element) return
     // Speed up playback rate (clamp to reasonable range)
-    this.element.playbackRate = Math.min(speed, 4)
+    this.element.playbackRate = Math.min(speed, 16)
     // Also increase volume slightly at higher speeds
     if (this.master) {
       const now = this.ctx.currentTime
@@ -326,7 +326,7 @@ export default function AstroDither({ onBack }) {
     let raf
     const update = () => {
       if (holdingRef.current) {
-        speedRef.current = Math.min(speedRef.current + 0.03, 5)
+        speedRef.current = Math.min(speedRef.current + 0.05, 20)
       } else {
         speedRef.current = Math.max(speedRef.current - 0.04, 1)
       }
