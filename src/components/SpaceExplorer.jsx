@@ -751,31 +751,78 @@ function Sun() {
 
 // ─── Orbit path (elliptical, with longitude rotation + inclination tilt) ──────
 function OrbitPath({ planet, highlighted }) {
-  const points = useMemo(() => {
-    const segments = 256
-    const a = planet.orbit // semi-major axis
-    const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity) // semi-minor
-    const pts = []
+  const { geometry, dashGeometry } = useMemo(() => {
+    const segments = 512
+    const a = planet.orbit
+    const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity)
+    const c = a - b // focus offset to put sun near focus
+    const positions = new Float32Array((segments + 1) * 3)
+    const colors = new Float32Array((segments + 1) * 3)
+
+    // Highlight: bright pulse moving around when not highlighted
+    // Use planet's color faded into white
+    const baseColor = new THREE.Color(highlighted ? '#ffffff' : '#cbd5e1')
+
     for (let i = 0; i <= segments; i++) {
       const angle = (i / segments) * Math.PI * 2
-      pts.push(new THREE.Vector3(Math.cos(angle) * a, 0, Math.sin(angle) * b))
-    }
-    return pts
-  }, [planet.orbit, planet.eccentricity])
+      // Offset by eccentricity (focus at origin = sun)
+      positions[i * 3] = Math.cos(angle) * a - c * planet.eccentricity * 4
+      positions[i * 3 + 1] = 0
+      positions[i * 3 + 2] = Math.sin(angle) * b
 
-  const geometry = useMemo(() => {
-    const g = new THREE.BufferGeometry().setFromPoints(points)
-    return g
-  }, [points])
+      // Vertex gradient — subtly brighter on one quadrant for "depth feel"
+      const fade = 0.6 + 0.4 * (0.5 + 0.5 * Math.sin(angle * 2))
+      colors[i * 3] = baseColor.r * fade
+      colors[i * 3 + 1] = baseColor.g * fade
+      colors[i * 3 + 2] = baseColor.b * fade
+    }
+
+    const g = new THREE.BufferGeometry()
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    g.setAttribute('color', new THREE.BufferAttribute(colors, 3))
+
+    // Dashed inner highlight to make it look diagrammatic
+    const dashSegments = 128
+    const dashPositions = []
+    for (let i = 0; i < dashSegments; i++) {
+      if (i % 3 === 0) continue // skip every 3rd segment for dashing
+      const t1 = i / dashSegments
+      const t2 = (i + 0.7) / dashSegments
+      const a1 = t1 * Math.PI * 2
+      const a2 = t2 * Math.PI * 2
+      dashPositions.push(
+        Math.cos(a1) * a - c * planet.eccentricity * 4, 0, Math.sin(a1) * b,
+        Math.cos(a2) * a - c * planet.eccentricity * 4, 0, Math.sin(a2) * b,
+      )
+    }
+    const dg = new THREE.BufferGeometry()
+    dg.setAttribute('position', new THREE.Float32BufferAttribute(dashPositions, 3))
+
+    return { geometry: g, dashGeometry: dg }
+  }, [planet.orbit, planet.eccentricity, highlighted])
 
   return (
-    <line geometry={geometry} rotation={[planet.inclination, planet.orbitRotation || 0, 0]}>
-      <lineBasicMaterial
-        color={highlighted ? '#ffffff' : '#cbd5e1'}
-        transparent
-        opacity={highlighted ? 0.7 : 0.3}
-      />
-    </line>
+    <group rotation={[planet.inclination, planet.orbitRotation || 0, 0]}>
+      {/* Soft continuous orbit line with vertex gradient */}
+      <line geometry={geometry}>
+        <lineBasicMaterial
+          vertexColors
+          transparent
+          opacity={highlighted ? 0.55 : 0.22}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </line>
+      {/* Dashed accent overlay for diagrammatic feel */}
+      <lineSegments geometry={dashGeometry}>
+        <lineBasicMaterial
+          color={highlighted ? '#ffffff' : '#94a3b8'}
+          transparent
+          opacity={highlighted ? 0.7 : 0.35}
+          depthWrite={false}
+        />
+      </lineSegments>
+    </group>
   )
 }
 
