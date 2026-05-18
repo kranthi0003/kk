@@ -322,6 +322,11 @@ const PLANET_NOTES = {
   halley: 554.4,   // Db5 — streaking
   halebopp: 466.2, // Bb4 — grand
   neowise: 493.9,  // B4 — bright
+  // Stars
+  'alpha-centauri': 523.3, // C5
+  sirius: 1046.5,  // C6 — brilliant
+  betelgeuse: 130.8,// C3 — deep rumble
+  polaris: 659.3,  // E5 — guiding
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -982,6 +987,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                   {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300/70 border border-violet-500/20">DWARF PLANET</span>}
                   {planet.isMoon && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300/70 border border-cyan-500/20">MOON</span>}
                   {planet.isComet && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300/70 border border-amber-500/20">COMET</span>}
+                  {planet.isStar && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300/70 border border-yellow-500/20">STAR</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -1001,7 +1007,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                 { k: 'Day', v: stats.day },
                 { k: 'Year', v: stats.year },
                 { k: 'Moons', v: stats.moons },
-                { k: planet.isMoon ? 'Distance' : planet.isComet ? 'Orbit' : 'From Sun', v: stats.distance },
+                { k: planet.isMoon ? 'Distance' : planet.isComet ? 'Orbit' : planet.isStar ? 'Distance' : 'From Sun', v: stats.distance },
               ].map(s => (
                 <div key={s.k} className="bg-white/5 rounded-lg px-3 py-2 border border-white/5">
                   <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mb-1">{s.k.toUpperCase()}</div>
@@ -1290,6 +1296,83 @@ function Comet({ comet, onSelect, onHover, hovered, selected }) {
   )
 }
 
+// ─── Distant Stars (labeled points in deep space) ────────────
+const STARS = [
+  { id: 'alpha-centauri', name: 'Alpha Centauri', color: '#fff8e0', size: 1.2,
+    position: [800, 50, 200], brightness: 1.0,
+    tagline: 'Our nearest neighbor',
+    facts: ['Closest star system to Earth at 4.37 light-years away','Actually a triple star system: Alpha Centauri A, B, and Proxima Centauri','Proxima Centauri has a confirmed exoplanet in the habitable zone (Proxima b)','Alpha Centauri A is similar to our Sun in size and brightness','Visible only from the Southern Hemisphere','Would take about 6,300 years to reach with current spacecraft','Part of the constellation Centaurus'],
+    stats: { diameter: '1.22× Sun', day: '22 Earth days', year: '80 years (A+B orbit)', moons: 0, distance: '4.37 light-years' }},
+  { id: 'sirius', name: 'Sirius', color: '#c8d8ff', size: 1.5,
+    position: [-600, 120, -400], brightness: 1.2,
+    tagline: 'The Dog Star',
+    facts: ['Brightest star in Earth\'s night sky (apparent magnitude -1.46)','Located 8.6 light-years from Earth','Actually a binary system: Sirius A and the white dwarf Sirius B','25× more luminous than our Sun','Known since antiquity — the ancient Egyptians based their calendar on it','Name comes from the Greek word "Seirios" meaning "glowing" or "scorching"','Sirius B was one of the first white dwarfs ever discovered'],
+    stats: { diameter: '1.71× Sun', day: '5.4 Earth days', year: 'Binary orbit: 50 years', moons: 0, distance: '8.6 light-years' }},
+  { id: 'betelgeuse', name: 'Betelgeuse', color: '#ff6030', size: 2.0,
+    position: [300, -300, 700], brightness: 0.9,
+    tagline: 'The dying red giant',
+    facts: ['A red supergiant nearing the end of its life — will explode as a supernova','If placed at our Sun, its surface would extend past Jupiter\'s orbit','About 700 light-years from Earth in the constellation Orion','Dramatically dimmed in 2019-2020 (the "Great Dimming") — caused by a dust cloud','When it goes supernova, it will briefly outshine the full Moon','One of the largest stars visible to the naked eye','Only about 10 million years old despite its massive size'],
+    stats: { diameter: '~1,000× Sun', day: '~36 years', year: 'N/A', moons: 0, distance: '~700 light-years' }},
+  { id: 'polaris', name: 'Polaris', color: '#f0f0ff', size: 1.0,
+    position: [0, 900, -100], brightness: 0.8,
+    tagline: 'The North Star',
+    facts: ['Currently Earth\'s North Star — less than 1° from the celestial north pole','Actually a triple star system: Polaris A, Ab, and B','A Cepheid variable star that pulsates in brightness every ~4 days','About 433 light-years from Earth','Has guided navigators for centuries across oceans and deserts','Polaris A is a yellow supergiant about 45× the diameter of our Sun','Won\'t always be the North Star — Earth\'s axis precesses over 26,000 years'],
+    stats: { diameter: '45× Sun', day: '~120 days', year: 'Pulsation: 3.97 days', moons: 0, distance: '~433 light-years' }},
+]
+
+function DistantStar({ star, onSelect, onHover, hovered, selected }) {
+  const meshRef = useRef()
+  const glowRef = useRef()
+  const isActive = selected === star.id || hovered === star.id
+
+  useFrame((_, delta) => {
+    if (glowRef.current) {
+      glowRef.current.scale.setScalar(1 + Math.sin(Date.now() * 0.002) * 0.08)
+    }
+  })
+
+  return (
+    <group position={star.position}>
+      {/* Star core */}
+      <mesh
+        ref={meshRef}
+        onClick={(e) => { e.stopPropagation(); onSelect({ ...star, isStar: true }) }}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(star.id); document.body.style.cursor = 'pointer' }}
+        onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
+      >
+        <sphereGeometry args={[star.size, 16, 16]} />
+        <meshBasicMaterial color={star.color} />
+      </mesh>
+      {/* Glow */}
+      <mesh ref={glowRef} scale={2.5}>
+        <sphereGeometry args={[star.size, 16, 16]} />
+        <meshBasicMaterial color={star.color} transparent opacity={isActive ? 0.25 : 0.12} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </mesh>
+      {/* Cross-shaped lens flare */}
+      <sprite scale={[star.size * 8, star.size * 0.3, 1]}>
+        <spriteMaterial color={star.color} transparent opacity={0.15} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </sprite>
+      <sprite scale={[star.size * 0.3, star.size * 8, 1]}>
+        <spriteMaterial color={star.color} transparent opacity={0.15} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </sprite>
+      {/* Label */}
+      <Html
+        position={[0, star.size * 3, 0]}
+        center
+        distanceFactor={120}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.5, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[9px] font-medium tracking-[0.12em] drop-shadow-lg" style={{ color: star.color }}>
+            ✦ {star.name}
+          </span>
+          <span className="text-[7px] tracking-[0.1em] text-white/25">{star.stats.distance}</span>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
@@ -1303,6 +1386,9 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <OortCloud />
       {COMETS.map(c => (
         <Comet key={c.id} comet={c} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+      ))}
+      {STARS.map(s => (
+        <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
