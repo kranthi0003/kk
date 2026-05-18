@@ -318,6 +318,10 @@ const PLANET_NOTES = {
   miranda: 277.2,  // Db4 — mysterious
   titania: 293.7,  // D4 — regal
   triton: 220,     // A3 — far & cold
+  // Comets
+  halley: 554.4,   // Db5 — streaking
+  halebopp: 466.2, // Bb4 — grand
+  neowise: 493.9,  // B4 — bright
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -977,6 +981,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                   <h2 className="text-2xl font-semibold text-white/95 tracking-tight">{planet.name}</h2>
                   {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300/70 border border-violet-500/20">DWARF PLANET</span>}
                   {planet.isMoon && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300/70 border border-cyan-500/20">MOON</span>}
+                  {planet.isComet && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300/70 border border-amber-500/20">COMET</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -996,7 +1001,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                 { k: 'Day', v: stats.day },
                 { k: 'Year', v: stats.year },
                 { k: 'Moons', v: stats.moons },
-                { k: planet.isMoon ? 'Distance' : 'From Sun', v: stats.distance },
+                { k: planet.isMoon ? 'Distance' : planet.isComet ? 'Orbit' : 'From Sun', v: stats.distance },
               ].map(s => (
                 <div key={s.k} className="bg-white/5 rounded-lg px-3 py-2 border border-white/5">
                   <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mb-1">{s.k.toUpperCase()}</div>
@@ -1178,6 +1183,113 @@ function OortCloud() {
   )
 }
 
+// ─── Comet data ──────────────────────────────────────────────
+const COMETS = [
+  { id: 'halley', name: "Halley's Comet", color: '#a0d8ff', tailColor: '#60b0ff',
+    orbit: 85, perihelion: 6, eccentricity: 0.967, inclination: 2.84, speed: 0.018,
+    tagline: 'The most famous comet',
+    facts: ['Visible from Earth every 75-79 years — last appeared in 1986','Named after Edmond Halley who predicted its return in 1705','Nucleus is only 15 km long but produces a tail millions of km long','Recorded by humans since at least 240 BCE','Featured in the Bayeux Tapestry depicting the Battle of Hastings (1066)','Next visible from Earth in 2061','Orbits the Sun in the opposite direction to the planets (retrograde)'],
+    stats: { diameter: '11×8 km', day: '52 hours', year: '75.3 Earth years', moons: 0, distance: '0.59–35 AU' }},
+  { id: 'halebopp', name: 'Hale-Bopp', color: '#e0d0ff', tailColor: '#b090ff',
+    orbit: 120, perihelion: 8, eccentricity: 0.995, inclination: 1.57, speed: 0.008,
+    tagline: 'The Great Comet of 1997',
+    facts: ['Visible to the naked eye for a record 18 months','Nucleus is unusually large: ~40 km across','One of the most widely observed comets of the 20th century','Orbital period is approximately 2,520 years','Has both a blue ion tail and a white dust tail','Discovered independently by Alan Hale and Thomas Bopp in 1995','10× more active than Halley at similar distances from the Sun'],
+    stats: { diameter: '~40 km', day: '11.3 hours', year: '~2,520 years', moons: 0, distance: '0.91–370 AU' }},
+  { id: 'neowise', name: 'NEOWISE', color: '#ffe0a0', tailColor: '#ffb050',
+    orbit: 100, perihelion: 5, eccentricity: 0.999, inclination: 2.22, speed: 0.012,
+    tagline: 'Pandemic sky visitor',
+    facts: ['Discovered in March 2020 by NASA\'s NEOWISE space telescope','Became the brightest comet visible from the Northern Hemisphere since Hale-Bopp','Visible to the naked eye throughout July 2020 during the COVID-19 pandemic','Orbital period is approximately 6,766 years','Has a sodium tail in addition to the usual dust and ion tails','Nucleus is about 5 km across','Won\'t return to the inner solar system until around the year 8786'],
+    stats: { diameter: '~5 km', day: '7.6 hours', year: '~6,766 years', moons: 0, distance: '0.29–630 AU' }},
+]
+
+// ─── Comet with glowing ion tail ─────────────────────────────
+function Comet({ comet, onSelect, onHover, hovered, selected }) {
+  const groupRef = useRef()
+  const tailRef = useRef()
+  const angleRef = useRef(Math.random() * Math.PI * 2)
+  const isActive = selected === comet.id || hovered === comet.id
+
+  const orbit = useMemo(() => {
+    const a = (comet.orbit + comet.perihelion) / 2
+    const c = (comet.orbit - comet.perihelion) / 2
+    const e = c / a
+    const b = a * Math.sqrt(1 - e * e)
+    return { a, b, c, e }
+  }, [comet])
+
+  const tailPositions = useMemo(() => new Float32Array(60 * 3), [])
+  const tailOpacities = useMemo(() => new Float32Array(60), [])
+
+  useFrame((_, delta) => {
+    if (!groupRef.current) return
+    angleRef.current += comet.speed * delta
+
+    const lx = Math.cos(angleRef.current) * orbit.a - orbit.c
+    const lz = Math.sin(angleRef.current) * orbit.b
+    const cosInc = Math.cos(comet.inclination)
+    const sinInc = Math.sin(comet.inclination)
+    const x = lx
+    const y = lz * sinInc
+    const z = lz * cosInc
+
+    groupRef.current.position.set(x, y, z)
+
+    // Tail: always points AWAY from the Sun (origin)
+    if (tailRef.current) {
+      const dist = Math.sqrt(x * x + y * y + z * z)
+      const dx = x / dist, dy = y / dist, dz = z / dist
+      const tailLen = Math.max(3, 15 * (1 / (dist * 0.05 + 0.5)))
+      for (let i = 0; i < 60; i++) {
+        const t = i / 59
+        tailPositions[i * 3] = dx * t * tailLen + (Math.random() - 0.5) * t * 0.5
+        tailPositions[i * 3 + 1] = dy * t * tailLen + (Math.random() - 0.5) * t * 0.3
+        tailPositions[i * 3 + 2] = dz * t * tailLen + (Math.random() - 0.5) * t * 0.5
+        tailOpacities[i] = 1 - t
+      }
+      tailRef.current.geometry.attributes.position.needsUpdate = true
+    }
+  })
+
+  return (
+    <group ref={groupRef}>
+      {/* Comet nucleus */}
+      <mesh
+        onClick={(e) => { e.stopPropagation(); onSelect({ ...comet, isComet: true }) }}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(comet.id); document.body.style.cursor = 'pointer' }}
+        onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
+      >
+        <sphereGeometry args={[0.3, 16, 16]} />
+        <meshBasicMaterial color={comet.color} />
+      </mesh>
+      {/* Coma glow */}
+      <mesh>
+        <sphereGeometry args={[0.8, 16, 16]} />
+        <meshBasicMaterial color={comet.color} transparent opacity={0.15} depthWrite={false} blending={THREE.AdditiveBlending} />
+      </mesh>
+      {/* Ion tail */}
+      <points ref={tailRef}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[tailPositions, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.15} color={comet.tailColor} transparent opacity={0.6} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      </points>
+      {/* Label */}
+      <Html
+        position={[0, 1.2, 0]}
+        center
+        distanceFactor={50}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.5, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[9px] font-medium tracking-[0.12em] drop-shadow-lg" style={{ color: comet.color }}>
+            ☄ {comet.name}
+          </span>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
@@ -1189,6 +1301,9 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <AsteroidBelt />
       <KuiperBelt />
       <OortCloud />
+      {COMETS.map(c => (
+        <Comet key={c.id} comet={c} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+      ))}
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
       ))}
