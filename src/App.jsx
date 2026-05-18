@@ -36,12 +36,14 @@ import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
 
 import WorkspaceSection from './components/WorkspaceSection'
+import AstroDitherSection from './components/AstroDitherSection'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
 const StrangerChat = lazy(() => import('./components/StrangerChat'))
 const Workspace = lazy(() => import('./components/Workspace'))
 const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
+const AstroDither = lazy(() => import('./components/AstroDither'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -161,6 +163,15 @@ export default function App() {
     )
   }
 
+  // AstroDither — accessible via #/astro route
+  if (route === '#/astro') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-[#050508] flex items-center justify-center"><div className="text-[10px] font-mono tracking-[0.3em] text-white/20 animate-pulse">LOADING PARTICLES</div></div>}>
+        <AstroDither onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
   }, [matrixActive])
@@ -210,6 +221,7 @@ export default function App() {
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><WorkspaceSection /></div>
+        <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><About /></div>
