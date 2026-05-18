@@ -713,6 +713,7 @@ const audio = new SpaceAudio()
 
 // ─── Sun (real texture) ─────────────────────────────────────
 function Sun() {
+  const groupRef = useRef()
   const meshRef = useRef()
   const coronaRef = useRef()
   const outerRef = useRef()
@@ -723,10 +724,17 @@ function Sun() {
     if (meshRef.current) meshRef.current.rotation.y = t * 0.05
     if (coronaRef.current) coronaRef.current.scale.setScalar(1 + Math.sin(t * 0.5) * 0.06)
     if (outerRef.current) outerRef.current.scale.setScalar(1 + Math.sin(t * 0.3) * 0.04)
+    // Barycenter wobble — Sun moves in a small loop because planets (especially Jupiter)
+    // pull it around the solar system's center of mass. ~tiny offset.
+    if (groupRef.current) {
+      groupRef.current.position.x = Math.cos(t * 0.15) * 0.6 + Math.sin(t * 0.07) * 0.3
+      groupRef.current.position.z = Math.sin(t * 0.15) * 0.6 + Math.cos(t * 0.07) * 0.3
+      groupRef.current.position.y = Math.sin(t * 0.09) * 0.15
+    }
   })
 
   return (
-    <group>
+    <group ref={groupRef}>
       <mesh ref={meshRef}>
         <sphereGeometry args={[4, 64, 64]} />
         <meshBasicMaterial map={tex} toneMapped={false} />
