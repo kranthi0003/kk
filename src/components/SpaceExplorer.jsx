@@ -913,44 +913,15 @@ function InfoDrawer({ planet, onClose, onPlay }) {
   )
 }
 
-// ─── Milky Way skybox + cosmic dust ──────────────────────────
+// ─── Milky Way skybox (no extra dust layer — would create a visible sphere boundary on zoom-out) ──
 function Nebula() {
-  const dustRef = useRef()
   const milkyway = useLoader(THREE.TextureLoader, TEX('milkyway.jpg'))
 
-  const dustPositions = useMemo(() => {
-    const arr = new Float32Array(2000 * 3)
-    for (let i = 0; i < 2000; i++) {
-      const r = 150 + Math.random() * 200
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
-      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta)
-      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.5
-      arr[i * 3 + 2] = r * Math.cos(phi)
-    }
-    return arr
-  }, [])
-
-  useFrame((_, delta) => {
-    if (dustRef.current) dustRef.current.rotation.y += delta * 0.005
-  })
-
   return (
-    <>
-      {/* Real Milky Way skybox from solarsystemscope.com */}
-      <mesh rotation-y={Math.PI * 0.3}>
-        <sphereGeometry args={[450, 64, 64]} />
-        <meshBasicMaterial map={milkyway} side={THREE.BackSide} depthWrite={false} />
-      </mesh>
-
-      {/* Cosmic dust */}
-      <points ref={dustRef}>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[dustPositions, 3]} />
-        </bufferGeometry>
-        <pointsMaterial size={0.4} color="#ffffff" transparent opacity={0.25} sizeAttenuation depthWrite={false} />
-      </points>
-    </>
+    <mesh rotation-y={Math.PI * 0.3}>
+      <sphereGeometry args={[450, 64, 64]} />
+      <meshBasicMaterial map={milkyway} side={THREE.BackSide} depthWrite={false} />
+    </mesh>
   )
 }
 
