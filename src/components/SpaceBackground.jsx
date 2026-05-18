@@ -1,6 +1,5 @@
 import React, { useRef, useMemo, Suspense } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
-import { Stars } from '@react-three/drei'
 import * as THREE from 'three'
 
 /* ══════════════════════════════════════════════════════════════
@@ -176,7 +175,6 @@ export default function SpaceBackground() {
         <Suspense fallback={null}>
           <ambientLight intensity={0.08} />
           <Milkyway />
-          <Stars radius={250} depth={100} count={6000} factor={3} saturation={0.2} fade speed={0.3} />
           <Sun />
           <AsteroidBelt />
           {PLANETS.map((p, i) => <OrbitLine key={`o-${i}`} planet={p} />)}

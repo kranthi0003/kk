@@ -1,6 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect, useMemo } from 'react'
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
-import { OrbitControls, Html, Stars } from '@react-three/drei'
+import { OrbitControls, Html } from '@react-three/drei'
 import * as THREE from 'three'
 
 /* ══════════════════════════════════════════════════════════════
@@ -996,7 +996,6 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <color attach="background" args={['#000003']} />
       <ambientLight intensity={0.08} />
       <Nebula />
-      <Stars radius={250} depth={100} count={12000} factor={4} saturation={0.2} fade speed={0.4} />
       <Sun />
       <AsteroidBelt />
       {PLANETS.map(p => (
