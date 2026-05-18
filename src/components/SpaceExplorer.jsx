@@ -751,77 +751,93 @@ function Sun() {
 
 // ─── Orbit path (elliptical, with longitude rotation + inclination tilt) ──────
 function OrbitPath({ planet, highlighted }) {
-  const { geometry, dashGeometry } = useMemo(() => {
-    const segments = 512
+  const lineRef = useRef()
+  const trailRef = useRef()
+  const angleRef = useRef(Math.random() * Math.PI * 2)
+
+  const { geometry, trailGeometry, baseColor, segments } = useMemo(() => {
+    const segments = 384
     const a = planet.orbit
     const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity)
-    const c = a - b // focus offset to put sun near focus
+    // Proper Kepler: Sun is at focus, offset center by c = a*e
+    const focusOffset = a * planet.eccentricity
+
+    // Main orbit line
     const positions = new Float32Array((segments + 1) * 3)
-    const colors = new Float32Array((segments + 1) * 3)
-
-    // Highlight: bright pulse moving around when not highlighted
-    // Use planet's color faded into white
-    const baseColor = new THREE.Color(highlighted ? '#ffffff' : '#cbd5e1')
-
     for (let i = 0; i <= segments; i++) {
       const angle = (i / segments) * Math.PI * 2
-      // Offset by eccentricity (focus at origin = sun)
-      positions[i * 3] = Math.cos(angle) * a - c * planet.eccentricity * 4
+      positions[i * 3] = Math.cos(angle) * a - focusOffset
+      positions[i * 3 + 1] = 0
+      positions[i * 3 + 2] = Math.sin(angle) * b
+    }
+    const g = new THREE.BufferGeometry()
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+
+    // Trailing arc that follows the planet — 60 segments of the orbit ahead/behind
+    const trailLen = 60
+    const trailPositions = new Float32Array((trailLen + 1) * 3)
+    const trailColors = new Float32Array((trailLen + 1) * 3)
+    const tg = new THREE.BufferGeometry()
+    tg.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3))
+    tg.setAttribute('color', new THREE.BufferAttribute(trailColors, 3))
+
+    // Use planet's color as tint
+    const color = new THREE.Color(planet.color || '#94a3b8')
+    return { geometry: g, trailGeometry: tg, baseColor: color, segments: trailLen }
+  }, [planet.orbit, planet.eccentricity, planet.color])
+
+  // Animate the highlight trail to follow the planet's actual orbital position
+  useFrame((_, delta) => {
+    if (!trailRef.current) return
+    angleRef.current += planet.speed * delta
+
+    const a = planet.orbit
+    const b = a * Math.sqrt(1 - planet.eccentricity * planet.eccentricity)
+    const focusOffset = a * planet.eccentricity
+
+    const positions = trailRef.current.geometry.attributes.position.array
+    const colors = trailRef.current.geometry.attributes.color.array
+
+    // Trail spans behind the planet — from current angle backwards
+    const trailArc = 1.4 // radians of orbit covered
+    for (let i = 0; i <= segments; i++) {
+      const t = i / segments
+      const angle = angleRef.current - t * trailArc
+      positions[i * 3] = Math.cos(angle) * a - focusOffset
       positions[i * 3 + 1] = 0
       positions[i * 3 + 2] = Math.sin(angle) * b
 
-      // Vertex gradient — subtly brighter on one quadrant for "depth feel"
-      const fade = 0.6 + 0.4 * (0.5 + 0.5 * Math.sin(angle * 2))
-      colors[i * 3] = baseColor.r * fade
-      colors[i * 3 + 1] = baseColor.g * fade
-      colors[i * 3 + 2] = baseColor.b * fade
+      // Fade from bright at planet head to invisible at tail
+      const fade = (1 - t) * (highlighted ? 1.4 : 0.8)
+      colors[i * 3] = baseColor.r * fade + (highlighted ? 0.3 : 0)
+      colors[i * 3 + 1] = baseColor.g * fade + (highlighted ? 0.3 : 0)
+      colors[i * 3 + 2] = baseColor.b * fade + (highlighted ? 0.3 : 0)
     }
-
-    const g = new THREE.BufferGeometry()
-    g.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    g.setAttribute('color', new THREE.BufferAttribute(colors, 3))
-
-    // Dashed inner highlight to make it look diagrammatic
-    const dashSegments = 128
-    const dashPositions = []
-    for (let i = 0; i < dashSegments; i++) {
-      if (i % 3 === 0) continue // skip every 3rd segment for dashing
-      const t1 = i / dashSegments
-      const t2 = (i + 0.7) / dashSegments
-      const a1 = t1 * Math.PI * 2
-      const a2 = t2 * Math.PI * 2
-      dashPositions.push(
-        Math.cos(a1) * a - c * planet.eccentricity * 4, 0, Math.sin(a1) * b,
-        Math.cos(a2) * a - c * planet.eccentricity * 4, 0, Math.sin(a2) * b,
-      )
-    }
-    const dg = new THREE.BufferGeometry()
-    dg.setAttribute('position', new THREE.Float32BufferAttribute(dashPositions, 3))
-
-    return { geometry: g, dashGeometry: dg }
-  }, [planet.orbit, planet.eccentricity, highlighted])
+    trailRef.current.geometry.attributes.position.needsUpdate = true
+    trailRef.current.geometry.attributes.color.needsUpdate = true
+  })
 
   return (
     <group rotation={[planet.inclination, planet.orbitRotation || 0, 0]}>
-      {/* Soft continuous orbit line with vertex gradient */}
-      <line geometry={geometry}>
+      {/* Faint base orbit ring */}
+      <line ref={lineRef} geometry={geometry}>
+        <lineBasicMaterial
+          color={highlighted ? '#ffffff' : '#7a8499'}
+          transparent
+          opacity={highlighted ? 0.35 : 0.14}
+          depthWrite={false}
+        />
+      </line>
+      {/* Comet trail behind the planet, colored in planet tint */}
+      <line ref={trailRef} geometry={trailGeometry}>
         <lineBasicMaterial
           vertexColors
           transparent
-          opacity={highlighted ? 0.55 : 0.22}
+          opacity={highlighted ? 0.95 : 0.7}
           blending={THREE.AdditiveBlending}
           depthWrite={false}
         />
       </line>
-      {/* Dashed accent overlay for diagrammatic feel */}
-      <lineSegments geometry={dashGeometry}>
-        <lineBasicMaterial
-          color={highlighted ? '#ffffff' : '#94a3b8'}
-          transparent
-          opacity={highlighted ? 0.7 : 0.35}
-          depthWrite={false}
-        />
-      </lineSegments>
     </group>
   )
 }
