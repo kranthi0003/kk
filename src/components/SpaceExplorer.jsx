@@ -445,8 +445,102 @@ class SpaceAudio {
     // Fade master in
     this.master.gain.linearRampToValueAtTime(this.muted ? 0 : this.MASTER_VOL, now + 3)
 
+    // ─── Slow chord progression melody (bells) ──────────────
+    // Chords (Am - F - C - G in A minor) - each chord lasts 16s
+    const chords = [
+      [220, 261.63, 329.63],   // Am: A C E
+      [174.61, 220, 261.63],   // F: F A C
+      [261.63, 329.63, 392],   // C: C E G
+      [196, 246.94, 293.66],   // G: G B D
+    ]
+    const chordDuration = 16
+    const startOffset = 8 // wait for drone to settle
+    // Schedule 8 cycles (~8 minutes) — loop schedules more later
+    for (let cycle = 0; cycle < 8; cycle++) {
+      chords.forEach((chord, i) => {
+        const chordStart = now + startOffset + (cycle * chords.length + i) * chordDuration
+        chord.forEach((freq, j) => {
+          // Bell-like tone with fast attack, long decay
+          const noteStart = chordStart + j * 0.6 // slight arpeggio
+          const osc = this.ctx.createOscillator()
+          const osc2 = this.ctx.createOscillator() // harmonic
+          const gain = this.ctx.createGain()
+          const filter = this.ctx.createBiquadFilter()
+          osc.type = 'sine'
+          osc.frequency.value = freq
+          osc2.type = 'sine'
+          osc2.frequency.value = freq * 2.01 // slight detune for shimmer
+          filter.type = 'lowpass'
+          filter.frequency.value = 2500
+          filter.Q.value = 1
+          gain.gain.value = 0
+          gain.gain.setValueAtTime(0, noteStart)
+          gain.gain.linearRampToValueAtTime(0.04, noteStart + 0.05)
+          gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 8)
+          osc.connect(filter)
+          osc2.connect(filter)
+          filter.connect(gain).connect(this.master)
+          osc.start(noteStart)
+          osc2.start(noteStart)
+          osc.stop(noteStart + 8.5)
+          osc2.stop(noteStart + 8.5)
+          this.musicNodes.push(osc, osc2, gain)
+        })
+      })
+    }
+
+    // Schedule next batch of chords before the current 8 cycles end (loop forever)
+    const totalDuration = 8 * chords.length * chordDuration
+    this.chordLoopTimer = setTimeout(() => {
+      this._scheduleChordLoop()
+    }, totalDuration * 1000 - 5000)
+
     // Ambient sparkles every 4-10s
     this._scheduleSparkle()
+  }
+
+  _scheduleChordLoop() {
+    if (!this.ctx || !this.started) return
+    const now = this.ctx.currentTime
+    const chords = [
+      [220, 261.63, 329.63],
+      [174.61, 220, 261.63],
+      [261.63, 329.63, 392],
+      [196, 246.94, 293.66],
+    ]
+    const chordDuration = 16
+    for (let cycle = 0; cycle < 8; cycle++) {
+      chords.forEach((chord, i) => {
+        const chordStart = now + (cycle * chords.length + i) * chordDuration
+        chord.forEach((freq, j) => {
+          const noteStart = chordStart + j * 0.6
+          const osc = this.ctx.createOscillator()
+          const osc2 = this.ctx.createOscillator()
+          const gain = this.ctx.createGain()
+          const filter = this.ctx.createBiquadFilter()
+          osc.type = 'sine'
+          osc.frequency.value = freq
+          osc2.type = 'sine'
+          osc2.frequency.value = freq * 2.01
+          filter.type = 'lowpass'
+          filter.frequency.value = 2500
+          gain.gain.value = 0
+          gain.gain.setValueAtTime(0, noteStart)
+          gain.gain.linearRampToValueAtTime(0.04, noteStart + 0.05)
+          gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 8)
+          osc.connect(filter)
+          osc2.connect(filter)
+          filter.connect(gain).connect(this.master)
+          osc.start(noteStart)
+          osc2.start(noteStart)
+          osc.stop(noteStart + 8.5)
+          osc2.stop(noteStart + 8.5)
+          this.musicNodes.push(osc, osc2, gain)
+        })
+      })
+    }
+    const totalDuration = 8 * chords.length * chordDuration
+    this.chordLoopTimer = setTimeout(() => this._scheduleChordLoop(), totalDuration * 1000 - 5000)
   }
 
   _scheduleSparkle() {
