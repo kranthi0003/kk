@@ -159,6 +159,97 @@ const PLANETS = [
     ],
     stats: { diameter: '49,244 km', day: '16h 6m', year: '165 Earth years', moons: 14, distance: '4.5B km from Sun' },
   },
+  // ─── Dwarf Planets ──────────────────────────────────────────
+  {
+    id: 'ceres', name: 'Ceres',
+    orbit: 18, eccentricity: 0.076, inclination: 0.18,
+    size: 0.6, speed: 0.13, tilt: 0.07,
+    texture: null, color: '#9ca3af', atmosphere: null,
+    moons: 0, ring: null, isDwarf: true,
+    tagline: 'Queen of the asteroid belt',
+    facts: [
+      'Largest object in the asteroid belt — 940 km in diameter',
+      'First asteroid ever discovered, by Giuseppe Piazzi in 1801',
+      'Reclassified as a dwarf planet in 2006 alongside Pluto',
+      'Has bright spots (Occator Crater) — salt deposits from subsurface brine',
+      'May have a subsurface ocean of liquid water',
+      'NASA\'s Dawn spacecraft orbited Ceres from 2015 to 2018',
+      'Contains about one-third of the asteroid belt\'s total mass',
+    ],
+    stats: { diameter: '940 km', day: '9h 4m', year: '4.6 Earth years', moons: 0, distance: '413.7M km from Sun' },
+  },
+  {
+    id: 'pluto', name: 'Pluto',
+    orbit: 110, eccentricity: 0.25, inclination: 0.30,
+    size: 0.8, speed: 0.006, tilt: 2.14,
+    texture: 'pluto.jpg', color: '#d4a574', atmosphere: '#c2956e',
+    moons: 5, ring: null, isDwarf: true,
+    tagline: 'The beloved dwarf planet',
+    facts: [
+      'Reclassified from planet to dwarf planet in 2006 by the IAU',
+      'Has a giant heart-shaped nitrogen glacier called Tombaugh Regio',
+      'Its largest moon Charon is so large they orbit each other (binary system)',
+      'Surface temperature is around -230°C (43 K)',
+      'Orbit is so eccentric it sometimes comes closer to the Sun than Neptune',
+      'Has a thin atmosphere of nitrogen, methane, and carbon monoxide',
+      'NASA\'s New Horizons flew past Pluto in 2015, revealing stunning detail',
+    ],
+    stats: { diameter: '2,377 km', day: '6.4 Earth days', year: '248 Earth years', moons: 5, distance: '5.9B km from Sun' },
+  },
+  {
+    id: 'haumea', name: 'Haumea',
+    orbit: 120, eccentricity: 0.19, inclination: 0.49,
+    size: 0.65, speed: 0.005, tilt: 0.0,
+    texture: null, color: '#e2e8f0', atmosphere: null,
+    moons: 2, ring: null, isDwarf: true,
+    tagline: 'The egg-shaped world',
+    facts: [
+      'Shaped like an elongated egg due to its incredibly fast rotation',
+      'Spins once every 3.9 hours — fastest rotation of any known large body',
+      'Named after the Hawaiian goddess of fertility and childbirth',
+      'Has two small moons: Hiʻiaka and Namaka (both named after Haumea\'s daughters)',
+      'Surface is covered in crystalline water ice',
+      'Has a faint ring system discovered in 2017',
+      'Located in the Kuiper Belt, beyond Neptune',
+    ],
+    stats: { diameter: '~1,560 km', day: '3.9 hours', year: '284 Earth years', moons: 2, distance: '6.5B km from Sun' },
+  },
+  {
+    id: 'makemake', name: 'Makemake',
+    orbit: 130, eccentricity: 0.16, inclination: 0.50,
+    size: 0.7, speed: 0.0045, tilt: 0.0,
+    texture: null, color: '#f5deb3', atmosphere: null,
+    moons: 1, ring: null, isDwarf: true,
+    tagline: 'The Easter Island world',
+    facts: [
+      'Discovered on Easter 2005 — named after the Rapa Nui creator god',
+      'Second-brightest Kuiper Belt object after Pluto (visible with a large amateur telescope)',
+      'Surface is covered in frozen methane, ethane, and nitrogen',
+      'Has one known moon: MK2 (nicknamed "MK2"), discovered in 2016',
+      'No known atmosphere — extremely cold and airless',
+      'Reddish-brown color similar to Pluto from tholins (complex organic molecules)',
+      'Takes 306 Earth years to orbit the Sun once',
+    ],
+    stats: { diameter: '~1,430 km', day: '22.8 hours', year: '306 Earth years', moons: 1, distance: '6.8B km from Sun' },
+  },
+  {
+    id: 'eris', name: 'Eris',
+    orbit: 145, eccentricity: 0.44, inclination: 0.77,
+    size: 0.75, speed: 0.003, tilt: 0.0,
+    texture: null, color: '#f1f5f9', atmosphere: null,
+    moons: 1, ring: null, isDwarf: true,
+    tagline: 'The planet killer',
+    facts: [
+      'Discovery of Eris in 2005 directly triggered Pluto\'s reclassification',
+      'Most massive known dwarf planet — 27% more massive than Pluto',
+      'Named after the Greek goddess of discord (fitting, given the controversy)',
+      'Has one moon: Dysnomia, named after Eris\'s daughter, the spirit of lawlessness',
+      'Most distant known dwarf planet — up to 97 AU from the Sun',
+      'Takes 558 years to orbit the Sun once',
+      'Surface is one of the most reflective in the solar system (like fresh snow)',
+    ],
+    stats: { diameter: '2,326 km', day: '25.9 hours', year: '558 Earth years', moons: 1, distance: '10.1B km from Sun' },
+  },
 ]
 
 // Inject deterministic orbital rotation (longitude of ascending node) per planet
@@ -177,6 +268,11 @@ const PLANET_NOTES = {
   saturn: 329.6,   // E4 — graceful
   uranus: 261.6,   // C4 — cold
   neptune: 196,    // G3 — deep & distant
+  ceres: 440,      // A4 — neutral
+  pluto: 174.6,    // F3 — far away
+  haumea: 164.8,   // E3 — distant hum
+  makemake: 155.6, // Eb3 — eerie
+  eris: 146.8,     // D3 — deepest
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -474,7 +570,10 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
   const angleRef = useRef(Math.random() * Math.PI * 2)
   const isActive = selected === planet.id || hovered === planet.id
 
-  const planetTex = useLoader(THREE.TextureLoader, TEX(planet.texture))
+  // For textureless dwarf planets, load a 1x1 dummy — the material won't use it
+  const texPath = planet.texture ? TEX(planet.texture) : TEX('sun.jpg')
+  const hasTexture = !!planet.texture
+  const planetTex = useLoader(THREE.TextureLoader, texPath)
   const cloudsTex = planet.clouds ? useLoader(THREE.TextureLoader, TEX(planet.clouds)) : null
   const ringTex = planet.ring?.texture ? useLoader(THREE.TextureLoader, TEX(planet.ring.texture)) : null
   const bumpTex = planet.bump ? useLoader(THREE.TextureLoader, TEX(planet.bump)) : null
@@ -526,7 +625,10 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
           onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
         >
           <sphereGeometry args={[planet.size, 64, 64]} />
-          {specTex ? (
+          {!hasTexture ? (
+            /* Dwarf planets without textures: solid color with roughness */
+            <meshStandardMaterial color={planet.color} roughness={0.9} metalness={0.05} />
+          ) : specTex ? (
             /* Earth: phong with specular for ocean reflectivity + bump + night-side city lights */
             <meshPhongMaterial
               map={planetTex}
@@ -770,6 +872,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <h2 className="text-2xl font-semibold text-white/95 tracking-tight">{planet.name}</h2>
+                  {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300/70 border border-violet-500/20">DWARF PLANET</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -972,6 +1075,8 @@ function TopBar({ onHome, muted, onToggleMute, audioStarted }) {
 
 // ─── Bottom nav strip ────────────────────────────────────────
 function NavStrip({ planets, selected, onSelect }) {
+  const mainPlanets = planets.filter(p => !p.isDwarf)
+  const dwarfPlanets = planets.filter(p => p.isDwarf)
   return (
     <div className="fixed bottom-0 left-0 right-0 z-20 pointer-events-none">
       <div className="flex justify-center pb-4 px-4 pointer-events-auto">
@@ -981,15 +1086,28 @@ function NavStrip({ planets, selected, onSelect }) {
             <span className={`text-[7px] font-mono tracking-wider ${!selected ? 'text-amber-300/70' : 'text-white/20'}`}>SUN</span>
           </button>
           <div className="w-px h-6 bg-white/5" />
-          {planets.map(p => {
+          {mainPlanets.map(p => {
             const isSelected = selected?.id === p.id
             return (
-              <button key={p.id} onClick={() => onSelect(p)} className={`flex flex-col items-center gap-0.5 px-2.5 py-2 rounded-lg transition-all flex-shrink-0 ${isSelected ? 'bg-white/8' : 'hover:bg-white/5'}`} title={`${p.name} — ${p.section}`}>
+              <button key={p.id} onClick={() => onSelect(p)} className={`flex flex-col items-center gap-0.5 px-2.5 py-2 rounded-lg transition-all flex-shrink-0 ${isSelected ? 'bg-white/8' : 'hover:bg-white/5'}`} title={p.name}>
                 <div className="w-2 h-2 rounded-full transition-all" style={{ background: isSelected ? p.color : `${p.color}50`, boxShadow: isSelected ? `0 0 8px ${p.color}40` : 'none' }} />
                 <span className={`text-[7px] font-mono tracking-wider ${isSelected ? 'text-white/70' : 'text-white/20'}`}>{p.name.slice(0, 4).toUpperCase()}</span>
               </button>
             )
           })}
+          {dwarfPlanets.length > 0 && <>
+            <div className="w-px h-6 bg-white/10" />
+            <div className="text-[5px] font-mono text-white/10 tracking-wider px-1 flex-shrink-0">DWARF</div>
+            {dwarfPlanets.map(p => {
+              const isSelected = selected?.id === p.id
+              return (
+                <button key={p.id} onClick={() => onSelect(p)} className={`flex flex-col items-center gap-0.5 px-2 py-2 rounded-lg transition-all flex-shrink-0 ${isSelected ? 'bg-white/8' : 'hover:bg-white/5'}`} title={p.name}>
+                  <div className="w-1.5 h-1.5 rounded-full transition-all" style={{ background: isSelected ? p.color : `${p.color}50`, boxShadow: isSelected ? `0 0 6px ${p.color}40` : 'none' }} />
+                  <span className={`text-[6px] font-mono tracking-wider ${isSelected ? 'text-white/70' : 'text-white/15'}`}>{p.name.slice(0, 4).toUpperCase()}</span>
+                </button>
+              )
+            })}
+          </>}
         </div>
       </div>
     </div>
