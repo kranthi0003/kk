@@ -724,12 +724,11 @@ function Sun() {
     if (meshRef.current) meshRef.current.rotation.y = t * 0.05
     if (coronaRef.current) coronaRef.current.scale.setScalar(1 + Math.sin(t * 0.5) * 0.06)
     if (outerRef.current) outerRef.current.scale.setScalar(1 + Math.sin(t * 0.3) * 0.04)
-    // Barycenter wobble — Sun moves in a small loop because planets (especially Jupiter)
-    // pull it around the solar system's center of mass.
+    // Subtle barycenter wobble — Sun is gravitationally tugged by Jupiter, etc.
     if (groupRef.current) {
-      groupRef.current.position.x = Math.cos(t * 0.5) * 2.0 + Math.sin(t * 0.23) * 0.8
-      groupRef.current.position.z = Math.sin(t * 0.5) * 2.0 + Math.cos(t * 0.23) * 0.8
-      groupRef.current.position.y = Math.sin(t * 0.3) * 0.5
+      groupRef.current.position.x = Math.cos(t * 0.3) * 0.4
+      groupRef.current.position.z = Math.sin(t * 0.3) * 0.4
+      groupRef.current.position.y = Math.sin(t * 0.18) * 0.1
     }
   })
 
@@ -1872,18 +1871,42 @@ function GalacticDrift({ children }) {
   return <group ref={ref}>{children}</group>
 }
 
+// ─── Cosmic Motion ───────────────────────────────────────────
+// The solar system travels through the Milky Way on a 3D helical path
+// (~220 km/s while bobbing up/down through the galactic plane every ~30M years).
+// To convey this without losing the camera's view of the planets, we move the
+// distant background (stars, nebula, deep-sky) in the opposite direction.
+// The result is parallax — the solar system appears to sail forward through space.
+function CosmicMotion({ children }) {
+  const ref = useRef()
+  useFrame((state) => {
+    if (!ref.current) return
+    const t = state.clock.elapsedTime
+    // 3D helical drift — forward motion + slow vertical bob (out-of-plane oscillation)
+    // Scaled small relative to background distance so it reads as gentle parallax
+    ref.current.position.x = -Math.sin(t * 0.04) * 18
+    ref.current.position.z = -Math.cos(t * 0.04) * 18
+    ref.current.position.y = -Math.sin(t * 0.02) * 6 // vertical bob through galactic plane
+    // Slow opposite rotation gives the feel of stars sweeping past
+    ref.current.rotation.y = t * 0.005
+  })
+  return <group ref={ref}>{children}</group>
+}
+
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
     <>
       <color attach="background" args={['#000003']} />
       <ambientLight intensity={0.08} />
-      <Nebula />
-      {STARS.map(s => (
-        <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
-      ))}
-      {DEEP_SKY.map(d => (
-        <DeepSkyObject key={d.id} obj={d} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
-      ))}
+      <CosmicMotion>
+        <Nebula />
+        {STARS.map(s => (
+          <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+        ))}
+        {DEEP_SKY.map(d => (
+          <DeepSkyObject key={d.id} obj={d} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+        ))}
+      </CosmicMotion>
       <GalacticDrift>
         <Sun />
         <AsteroidBelt />
