@@ -1080,13 +1080,86 @@ function InfoDrawer({ planet, onClose, onPlay }) {
   )
 }
 
+// ─── Multi-layer star field (gives depth as you zoom out) ────
+function StarLayers() {
+  const layers = useMemo(() => {
+    const result = []
+    // Layer 1: Near stars (200-600 range)
+    const count1 = 800
+    const pos1 = new Float32Array(count1 * 3)
+    for (let i = 0; i < count1; i++) {
+      const r = 200 + Math.random() * 400
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      pos1[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      pos1[i * 3 + 1] = r * Math.cos(phi)
+      pos1[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta)
+    }
+    result.push({ positions: pos1, size: 0.25, color: '#ffffff', opacity: 0.4 })
+
+    // Layer 2: Mid stars (800-3000 range)
+    const count2 = 1500
+    const pos2 = new Float32Array(count2 * 3)
+    for (let i = 0; i < count2; i++) {
+      const r = 800 + Math.random() * 2200
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      pos2[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      pos2[i * 3 + 1] = r * Math.cos(phi)
+      pos2[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta)
+    }
+    result.push({ positions: pos2, size: 0.5, color: '#e0e8ff', opacity: 0.35 })
+
+    // Layer 3: Far stars (4000-10000 range)
+    const count3 = 2000
+    const pos3 = new Float32Array(count3 * 3)
+    for (let i = 0; i < count3; i++) {
+      const r = 4000 + Math.random() * 6000
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      pos3[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      pos3[i * 3 + 1] = r * Math.cos(phi)
+      pos3[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta)
+    }
+    result.push({ positions: pos3, size: 1.0, color: '#c0c8e0', opacity: 0.3 })
+
+    // Layer 4: Galaxy-distance stars (10000-16000)
+    const count4 = 1000
+    const pos4 = new Float32Array(count4 * 3)
+    for (let i = 0; i < count4; i++) {
+      const r = 10000 + Math.random() * 6000
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      pos4[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      pos4[i * 3 + 1] = r * Math.cos(phi)
+      pos4[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta)
+    }
+    result.push({ positions: pos4, size: 1.8, color: '#a0a8c0', opacity: 0.2 })
+
+    return result
+  }, [])
+
+  return (
+    <>
+      {layers.map((layer, i) => (
+        <points key={i}>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[layer.positions, 3]} />
+          </bufferGeometry>
+          <pointsMaterial size={layer.size} color={layer.color} transparent opacity={layer.opacity} sizeAttenuation depthWrite={false} />
+        </points>
+      ))}
+    </>
+  )
+}
+
 // ─── Milky Way skybox (no extra dust layer — would create a visible sphere boundary on zoom-out) ──
 function Nebula() {
   const milkyway = useLoader(THREE.TextureLoader, TEX('milkyway.jpg'))
 
   return (
     <mesh rotation-y={Math.PI * 0.3}>
-      <sphereGeometry args={[1500, 64, 64]} />
+      <sphereGeometry args={[18000, 64, 64]} />
       <meshBasicMaterial map={milkyway} side={THREE.BackSide} depthWrite={false} />
     </mesh>
   )
@@ -1135,7 +1208,7 @@ function KuiperBelt() {
     const pos = new Float32Array(count * 3)
     const col = new Float32Array(count * 3)
     const innerR = 100
-    const outerR = 160
+    const outerR = 200
     for (let i = 0; i < count; i++) {
       const r = innerR + Math.random() * (outerR - innerR)
       const theta = Math.random() * Math.PI * 2
@@ -1171,10 +1244,10 @@ function KuiperBelt() {
 function OortCloud() {
   const ref = useRef()
   const positions = useMemo(() => {
-    const count = 1200
+    const count = 2000
     const pos = new Float32Array(count * 3)
-    const innerR = 400
-    const outerR = 600
+    const innerR = 1500
+    const outerR = 4000
     for (let i = 0; i < count; i++) {
       // Spherical distribution (not just a ring)
       const r = innerR + Math.random() * (outerR - innerR)
@@ -1196,7 +1269,7 @@ function OortCloud() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.08} color="#8090b0" transparent opacity={0.2} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      <pointsMaterial size={0.3} color="#8090b0" transparent opacity={0.15} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
     </points>
   )
 }
@@ -1310,23 +1383,23 @@ function Comet({ comet, onSelect, onHover, hovered, selected }) {
 
 // ─── Distant Stars (labeled points in deep space) ────────────
 const STARS = [
-  { id: 'alpha-centauri', name: 'Alpha Centauri', color: '#fff8e0', size: 1.2,
-    position: [800, 50, 200], brightness: 1.0,
+  { id: 'alpha-centauri', name: 'Alpha Centauri', color: '#fff8e0', size: 3,
+    position: [4500, 300, 1200], brightness: 1.0,
     tagline: 'Our nearest neighbor',
     facts: ['Closest star system to Earth at 4.37 light-years away','Actually a triple star system: Alpha Centauri A, B, and Proxima Centauri','Proxima Centauri has a confirmed exoplanet in the habitable zone (Proxima b)','Alpha Centauri A is similar to our Sun in size and brightness','Visible only from the Southern Hemisphere','Would take about 6,300 years to reach with current spacecraft','Part of the constellation Centaurus'],
     stats: { diameter: '1.22× Sun', day: '22 Earth days', year: '80 years (A+B orbit)', moons: 0, distance: '4.37 light-years' }},
-  { id: 'sirius', name: 'Sirius', color: '#c8d8ff', size: 1.5,
-    position: [-600, 120, -400], brightness: 1.2,
+  { id: 'sirius', name: 'Sirius', color: '#c8d8ff', size: 4,
+    position: [-3800, 800, -2500], brightness: 1.2,
     tagline: 'The Dog Star',
     facts: ['Brightest star in Earth\'s night sky (apparent magnitude -1.46)','Located 8.6 light-years from Earth','Actually a binary system: Sirius A and the white dwarf Sirius B','25× more luminous than our Sun','Known since antiquity — the ancient Egyptians based their calendar on it','Name comes from the Greek word "Seirios" meaning "glowing" or "scorching"','Sirius B was one of the first white dwarfs ever discovered'],
     stats: { diameter: '1.71× Sun', day: '5.4 Earth days', year: 'Binary orbit: 50 years', moons: 0, distance: '8.6 light-years' }},
-  { id: 'betelgeuse', name: 'Betelgeuse', color: '#ff6030', size: 2.0,
-    position: [300, -300, 700], brightness: 0.9,
+  { id: 'betelgeuse', name: 'Betelgeuse', color: '#ff6030', size: 8,
+    position: [2000, -2000, 5000], brightness: 0.9,
     tagline: 'The dying red giant',
     facts: ['A red supergiant nearing the end of its life — will explode as a supernova','If placed at our Sun, its surface would extend past Jupiter\'s orbit','About 700 light-years from Earth in the constellation Orion','Dramatically dimmed in 2019-2020 (the "Great Dimming") — caused by a dust cloud','When it goes supernova, it will briefly outshine the full Moon','One of the largest stars visible to the naked eye','Only about 10 million years old despite its massive size'],
     stats: { diameter: '~1,000× Sun', day: '~36 years', year: 'N/A', moons: 0, distance: '~700 light-years' }},
-  { id: 'polaris', name: 'Polaris', color: '#f0f0ff', size: 1.0,
-    position: [0, 900, -100], brightness: 0.8,
+  { id: 'polaris', name: 'Polaris', color: '#f0f0ff', size: 3.5,
+    position: [0, 6000, -500], brightness: 0.8,
     tagline: 'The North Star',
     facts: ['Currently Earth\'s North Star — less than 1° from the celestial north pole','Actually a triple star system: Polaris A, Ab, and B','A Cepheid variable star that pulsates in brightness every ~4 days','About 433 light-years from Earth','Has guided navigators for centuries across oceans and deserts','Polaris A is a yellow supergiant about 45× the diameter of our Sun','Won\'t always be the North Star — Earth\'s axis precesses over 26,000 years'],
     stats: { diameter: '45× Sun', day: '~120 days', year: 'Pulsation: 3.97 days', moons: 0, distance: '~433 light-years' }},
@@ -1371,7 +1444,7 @@ function DistantStar({ star, onSelect, onHover, hovered, selected }) {
       <Html
         position={[0, star.size * 3, 0]}
         center
-        distanceFactor={120}
+        distanceFactor={600}
         style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.5, transition: 'opacity 0.3s' }}
       >
         <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
@@ -1388,22 +1461,22 @@ function DistantStar({ star, onSelect, onHover, hovered, selected }) {
 // ─── Space Probes & Missions ─────────────────────────────────
 const PROBES = [
   { id: 'voyager1', name: 'Voyager 1', color: '#e0d0b0', symbol: '🛰',
-    position: [250, 30, -180],
+    position: [1800, 200, -1200],
     tagline: 'The farthest human-made object',
     facts: ['Launched September 5, 1977 — still transmitting after 47+ years','Most distant human-made object at 24+ billion km from Earth','Entered interstellar space in August 2012','Carries the Golden Record with sounds and images of Earth for alien civilizations','Powered by plutonium-238 radioisotope thermoelectric generators','Took the famous "Pale Blue Dot" photo of Earth from 6 billion km away','Communicates at 160 bits per second — slower than a 1980s modem'],
     stats: { diameter: '3.7m dish', day: 'N/A', year: 'Launched 1977', moons: 0, distance: '24+ billion km' }},
   { id: 'voyager2', name: 'Voyager 2', color: '#b0c0e0', symbol: '🛰',
-    position: [-200, -40, 220],
+    position: [-1500, -300, 1600],
     tagline: 'The grand tour spacecraft',
     facts: ['Only spacecraft to have visited all four giant planets','Launched August 20, 1977 — 16 days before Voyager 1','Entered interstellar space in November 2018','Only spacecraft to visit Uranus (1986) and Neptune (1989)','Still communicating with Earth from 20+ billion km away','Also carries a Golden Record identical to Voyager 1','NASA briefly lost contact in 2023 after a wrong command tilted its antenna'],
     stats: { diameter: '3.7m dish', day: 'N/A', year: 'Launched 1977', moons: 0, distance: '20+ billion km' }},
   { id: 'jwst', name: 'James Webb', color: '#ffd700', symbol: '🔭',
-    position: [32, 5, 26],
+    position: [50, 8, 42],
     tagline: 'The golden eye',
     facts: ['Most powerful space telescope ever built — 100× more sensitive than Hubble','Orbits the L2 Lagrange point, 1.5 million km from Earth','Primary mirror is 6.5 meters across, made of 18 gold-coated beryllium segments','Sunshield is the size of a tennis court, keeps instruments at -233°C','Can see galaxies forming just 200 million years after the Big Bang','Cost $10 billion and took 25 years to build','Launched December 25, 2021 on an Ariane 5 rocket'],
     stats: { diameter: '6.5m mirror', day: 'N/A', year: 'Launched 2021', moons: 0, distance: '1.5M km from Earth' }},
   { id: 'iss', name: 'ISS', color: '#ffffff', symbol: '🏠',
-    position: [28.2, 1.8, 28],
+    position: [29, 2.2, 28.5],
     tagline: 'Humanity\'s home in space',
     facts: ['Orbits Earth at 408 km altitude, completing one orbit every 90 minutes','Continuously inhabited since November 2, 2000','Size of a football field (109m × 73m)','Has been visited by 270+ people from 21 countries','Travels at 28,000 km/h — fast enough to go from NYC to LA in 10 minutes','Cost over $150 billion — most expensive structure ever built','Crew sees 16 sunrises and sunsets every 24 hours'],
     stats: { diameter: '109 × 73 m', day: '90 min orbit', year: 'Since 2000', moons: 0, distance: '408 km altitude' }},
@@ -1428,21 +1501,21 @@ function SpaceProbe({ probe, onSelect, onHover, hovered, selected }) {
         onPointerOver={(e) => { e.stopPropagation(); onHover(probe.id); document.body.style.cursor = 'pointer' }}
         onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
       >
-        <octahedronGeometry args={[0.4, 0]} />
+        <octahedronGeometry args={[1.5, 0]} />
         <meshStandardMaterial color={probe.color} metalness={0.8} roughness={0.2} emissive={probe.color} emissiveIntensity={0.3} />
       </mesh>
       {/* Signal pulse */}
       {isActive && (
-        <mesh scale={2}>
-          <ringGeometry args={[0.4, 0.45, 32]} />
+        <mesh scale={3}>
+          <ringGeometry args={[1.5, 1.6, 32]} />
           <meshBasicMaterial color={probe.color} transparent opacity={0.3} side={THREE.DoubleSide} depthWrite={false} />
         </mesh>
       )}
       {/* Label */}
       <Html
-        position={[0, 1.2, 0]}
+        position={[0, 4, 0]}
         center
-        distanceFactor={40}
+        distanceFactor={200}
         style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.45, transition: 'opacity 0.3s' }}
       >
         <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
@@ -1457,23 +1530,23 @@ function SpaceProbe({ probe, onSelect, onHover, hovered, selected }) {
 
 // ─── Galaxies & Nebulae (ethereal deep-sky markers) ──────────
 const DEEP_SKY = [
-  { id: 'andromeda', name: 'Andromeda Galaxy', color: '#c8b8ff', size: 6,
-    position: [1100, 200, -500],
+  { id: 'andromeda', name: 'Andromeda Galaxy', color: '#c8b8ff', size: 40,
+    position: [10000, 2000, -5000],
     tagline: 'Our nearest spiral galaxy',
     facts: ['Nearest large galaxy to the Milky Way at 2.537 million light-years','Contains roughly 1 trillion stars — more than twice the Milky Way','On a collision course with the Milky Way — they\'ll merge in about 4.5 billion years','Visible to the naked eye as a faint smudge on dark nights','Also known as Messier 31 (M31)','Spans 220,000 light-years across — larger than our Milky Way','Has at least 26 known satellite galaxies orbiting it'],
     stats: { diameter: '220,000 ly', day: 'N/A', year: 'N/A', moons: 0, distance: '2.537M light-years' }},
-  { id: 'orion-nebula', name: 'Orion Nebula', color: '#ff8090', size: 4,
-    position: [-900, -150, 600],
+  { id: 'orion-nebula', name: 'Orion Nebula', color: '#ff8090', size: 25,
+    position: [-8000, -1500, 6000],
     tagline: 'The stellar nursery',
     facts: ['One of the brightest nebulae — visible to the naked eye','Located 1,344 light-years from Earth in the "sword" of Orion','An active star-forming region — new stars are being born inside it','About 24 light-years across','Contains the Trapezium Cluster — four hot, young stars at its core','Also known as Messier 42 (M42)','Approximately 2 million years old'],
     stats: { diameter: '24 light-years', day: 'N/A', year: 'N/A', moons: 0, distance: '1,344 light-years' }},
-  { id: 'crab-nebula', name: 'Crab Nebula', color: '#60d0ff', size: 3.5,
-    position: [500, 600, 800],
+  { id: 'crab-nebula', name: 'Crab Nebula', color: '#60d0ff', size: 20,
+    position: [5000, 7000, 8000],
     tagline: 'The supernova remnant',
     facts: ['Remnant of a supernova observed by Chinese astronomers in 1054 AD','Contains a pulsar spinning 30 times per second at its center','Located 6,523 light-years from Earth in the constellation Taurus','About 11 light-years across and still expanding','The pulsar emits pulses of radiation from gamma rays to radio waves','Also known as Messier 1 (M1) — the first object in Messier\'s catalog','The supernova was bright enough to be visible in daylight for 23 days'],
     stats: { diameter: '11 light-years', day: 'Pulsar: 33ms', year: 'Age: ~970 years', moons: 0, distance: '6,523 light-years' }},
-  { id: 'pillars', name: 'Pillars of Creation', color: '#b0a080', size: 5,
-    position: [-700, 400, -800],
+  { id: 'pillars', name: 'Pillars of Creation', color: '#b0a080', size: 30,
+    position: [-6000, 4000, -9000],
     tagline: 'Cosmic cathedral',
     facts: ['Iconic columns of gas and dust in the Eagle Nebula (M16)','Located 6,500-7,000 light-years from Earth','The tallest pillar is about 4 light-years long — roughly the distance to Alpha Centauri','Famously photographed by Hubble in 1995 and again by JWST in 2022','Stars are actively forming inside the pillars','Ultraviolet light from nearby hot stars is slowly eroding them away','May have already been destroyed by a supernova — we won\'t see it for 1,000 years'],
     stats: { diameter: '~5 ly tall', day: 'N/A', year: 'N/A', moons: 0, distance: '~7,000 light-years' }},
@@ -1511,7 +1584,7 @@ function DeepSkyObject({ obj, onSelect, onHover, hovered, selected }) {
       <Html
         position={[0, obj.size * 4, 0]}
         center
-        distanceFactor={150}
+        distanceFactor={1200}
         style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.5, transition: 'opacity 0.3s' }}
       >
         <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
@@ -1532,6 +1605,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <color attach="background" args={['#000003']} />
       <ambientLight intensity={0.08} />
       <Nebula />
+      <StarLayers />
       <Sun />
       <AsteroidBelt />
       <KuiperBelt />
@@ -1561,7 +1635,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
         enableZoom
         enableRotate
         minDistance={2}
-        maxDistance={600}
+        maxDistance={15000}
         /* No polar restriction — full 360° vertical (can fly under the system) */
         autoRotate={false}
         dampingFactor={0.08}
@@ -1654,6 +1728,50 @@ function NavStrip({ planets, selected, onSelect }) {
 }
 
 // ─── Main ────────────────────────────────────────────────────
+// ─── Depth/Zone Indicator (shows where you are in the universe) ──
+function DepthIndicator({ controlsRef }) {
+  const [zone, setZone] = useState('Solar System')
+  const [depth, setDepth] = useState(0)
+
+  useEffect(() => {
+    const update = () => {
+      if (!controlsRef.current) return
+      const dist = controlsRef.current.getDistance?.() || 0
+      setDepth(dist)
+      if (dist < 50) setZone('Inner Solar System')
+      else if (dist < 150) setZone('Outer Solar System')
+      else if (dist < 500) setZone('Kuiper Belt')
+      else if (dist < 2000) setZone('Oort Cloud')
+      else if (dist < 5000) setZone('Interstellar Space')
+      else if (dist < 10000) setZone('Nearby Stars')
+      else setZone('Deep Space — Galaxies')
+    }
+    const interval = setInterval(update, 200)
+    return () => clearInterval(interval)
+  }, [controlsRef])
+
+  const zones = ['Inner Solar System', 'Outer Solar System', 'Kuiper Belt', 'Oort Cloud', 'Interstellar Space', 'Nearby Stars', 'Deep Space — Galaxies']
+  const activeIdx = zones.indexOf(zone)
+
+  return (
+    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+      <div className="flex flex-col items-end gap-1">
+        {zones.map((z, i) => (
+          <div key={z} className={`flex items-center gap-2 transition-all duration-500 ${i === activeIdx ? 'opacity-100' : 'opacity-20'}`}>
+            <span className={`text-[8px] font-mono tracking-[0.15em] ${i === activeIdx ? 'text-white/80' : 'text-white/30'}`}>
+              {z}
+            </span>
+            <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === activeIdx ? 'bg-amber-400 scale-150 shadow-[0_0_6px_#fbbf24]' : 'bg-white/20'}`} />
+          </div>
+        ))}
+        <div className="mt-2 text-[7px] font-mono text-white/20 text-right tracking-wider">
+          {Math.round(depth)} AU
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function SpaceExplorer() {
   const [selected, setSelected] = useState(null)
   const [hovered, setHovered] = useState(null)
@@ -1722,7 +1840,7 @@ export default function SpaceExplorer() {
       {!ready && <LoadingScreen progress={Math.min(loadProgress, 100)} />}
 
       <Canvas
-        camera={{ position: [0, 40, 60], fov: 45, near: 0.1, far: 2500 }}
+        camera={{ position: [0, 40, 60], fov: 45, near: 0.1, far: 25000 }}
         dpr={window.innerWidth < 768 ? 1 : [1, 1.5]}
         onCreated={() => setTimeout(() => setReady(true), 800)}
         gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
@@ -1733,12 +1851,13 @@ export default function SpaceExplorer() {
       </Canvas>
 
       <TopBar onHome={handleHome} muted={muted} onToggleMute={toggleMute} audioStarted={audioStarted} />
+      {ready && <DepthIndicator controlsRef={controlsRef} />}
       {ready && <NavStrip planets={PLANETS} selected={selected} onSelect={handleSelect} />}
       <InfoDrawer planet={selected} onClose={() => { audio.close(); setSelected(null) }} onPlay={() => audio.ping()} />
 
       {ready && !selected && (
         <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <div className="text-[9px] font-mono tracking-[0.4em] text-white/15 animate-pulse">SELECT A PLANET TO EXPLORE</div>
+          <div className="text-[9px] font-mono tracking-[0.4em] text-white/15 animate-pulse">ZOOM OUT TO TRAVEL THE UNIVERSE · CLICK TO EXPLORE</div>
         </div>
       )}
 
