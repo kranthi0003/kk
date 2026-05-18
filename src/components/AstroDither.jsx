@@ -378,11 +378,11 @@ function WarpScene({ speedRef }) {
 export default function AstroDither({ onBack }) {
   const [entered, setEntered] = useState(false)
   const [startTime, setStartTime] = useState(null)
-  const [displayTime, setDisplayTime] = useState('00:00:000')
+  const [displayDistance, setDisplayDistance] = useState('0.000')
   const [displaySpeed, setDisplaySpeed] = useState(1)
   const speedRef = useRef(1)
   const holdingRef = useRef(false)
-  const animRef = useRef(null)
+  const distanceRef = useRef(0)
 
   const handleEnter = useCallback(() => {
     warpAudio.init()
@@ -391,16 +391,16 @@ export default function AstroDither({ onBack }) {
     setStartTime(Date.now())
   }, [])
 
-  // Timer with milliseconds
+  // Light-years distance counter (accumulates based on speed)
   useEffect(() => {
     if (!startTime) return
-    let raf
-    const tick = () => {
-      const elapsed = Date.now() - startTime
-      const mins = String(Math.floor(elapsed / 60000)).padStart(2, '0')
-      const secs = String(Math.floor((elapsed % 60000) / 1000)).padStart(2, '0')
-      const ms = String(elapsed % 1000).padStart(3, '0')
-      setDisplayTime(`${mins}:${secs}:${ms}`)
+    let raf, lastTime = performance.now()
+    const tick = (now) => {
+      const dt = (now - lastTime) / 1000 // seconds
+      lastTime = now
+      // Base rate: 0.01 ly/s at 1x, scales with speed
+      distanceRef.current += dt * speedRef.current * 0.01
+      setDisplayDistance(distanceRef.current.toFixed(3))
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
@@ -490,9 +490,9 @@ export default function AstroDither({ onBack }) {
 
         {/* Bottom bar */}
         <div className="flex items-center justify-between px-6 py-5">
-          {/* Timer - bottom left */}
+          {/* Distance - bottom left */}
           <div className="font-mono text-white/60 text-sm tracking-widest">
-            {displayTime}
+            {displayDistance} <span className="text-white/30 text-[10px]">LIGHT-YEARS</span>
           </div>
           {/* Speed indicator - bottom right */}
           <div className="font-mono text-white/40 text-xs tracking-wider flex items-center gap-3">
