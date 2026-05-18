@@ -1316,6 +1316,147 @@ function Nebula() {
   )
 }
 
+// ─── Dense layered background star field ─────────────────────
+function BackgroundStarfield() {
+  const ref1 = useRef()
+  const ref2 = useRef()
+  const ref3 = useRef()
+
+  // Three layers at different distances + colors for depth
+  const layers = useMemo(() => {
+    const makeLayer = (count, minR, maxR, colorTint) => {
+      const pos = new Float32Array(count * 3)
+      const col = new Float32Array(count * 3)
+      for (let i = 0; i < count; i++) {
+        const theta = Math.random() * Math.PI * 2
+        const phi = Math.acos(2 * Math.random() - 1)
+        const r = minR + Math.random() * (maxR - minR)
+        pos[i * 3]     = r * Math.sin(phi) * Math.cos(theta)
+        pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
+        pos[i * 3 + 2] = r * Math.cos(phi)
+        // Stellar color variety: blue-white (hot), white, yellow, orange (cool)
+        const stellarType = Math.random()
+        let r0, g0, b0
+        if (stellarType < 0.15) {
+          // Blue-white (O/B type — rare, hot)
+          r0 = 0.7; g0 = 0.85; b0 = 1.0
+        } else if (stellarType < 0.55) {
+          // Pure white (A/F type)
+          r0 = 1.0; g0 = 1.0; b0 = 1.0
+        } else if (stellarType < 0.85) {
+          // Yellow (G type, sun-like)
+          r0 = 1.0; g0 = 0.95; b0 = 0.75
+        } else {
+          // Orange/red (K/M type)
+          r0 = 1.0; g0 = 0.7; b0 = 0.5
+        }
+        const brightness = 0.5 + Math.random() * 0.5
+        col[i * 3]     = r0 * brightness * colorTint[0]
+        col[i * 3 + 1] = g0 * brightness * colorTint[1]
+        col[i * 3 + 2] = b0 * brightness * colorTint[2]
+      }
+      return { positions: pos, colors: col }
+    }
+    return {
+      near: makeLayer(3000, 350, 600, [1, 1, 1]),
+      mid:  makeLayer(4000, 700, 1000, [0.85, 0.85, 0.95]),
+      far:  makeLayer(5000, 1100, 1400, [0.65, 0.7, 0.85]),
+    }
+  }, [])
+
+  useFrame((_, delta) => {
+    // Very slow rotation for parallax
+    if (ref1.current) ref1.current.rotation.y += delta * 0.0008
+    if (ref2.current) ref2.current.rotation.y += delta * 0.0005
+    if (ref3.current) ref3.current.rotation.y += delta * 0.0003
+  })
+
+  return (
+    <>
+      <points ref={ref1}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={3000} array={layers.near.positions} itemSize={3} />
+          <bufferAttribute attach="attributes-color" count={3000} array={layers.near.colors} itemSize={3} />
+        </bufferGeometry>
+        <pointsMaterial vertexColors size={1.6} transparent opacity={0.95} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      </points>
+      <points ref={ref2}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={4000} array={layers.mid.positions} itemSize={3} />
+          <bufferAttribute attach="attributes-color" count={4000} array={layers.mid.colors} itemSize={3} />
+        </bufferGeometry>
+        <pointsMaterial vertexColors size={1.2} transparent opacity={0.8} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      </points>
+      <points ref={ref3}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={5000} array={layers.far.positions} itemSize={3} />
+          <bufferAttribute attach="attributes-color" count={5000} array={layers.far.colors} itemSize={3} />
+        </bufferGeometry>
+        <pointsMaterial vertexColors size={0.8} transparent opacity={0.6} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      </points>
+    </>
+  )
+}
+
+// ─── Nebula clouds (colored dust patches) ────────────────────
+function NebulaClouds() {
+  const ref = useRef()
+
+  const clouds = useMemo(() => {
+    // 4 large nebula clouds at fixed positions in different colors
+    const cloudConfigs = [
+      { pos: [800, 200, -600], color: [0.8, 0.3, 0.9], radius: 320, count: 1500 },  // Purple
+      { pos: [-700, -100, 500], color: [0.3, 0.5, 1.0], radius: 280, count: 1200 }, // Blue
+      { pos: [400, -300, 800], color: [1.0, 0.4, 0.4], radius: 250, count: 1000 },  // Red
+      { pos: [-900, 350, -300], color: [0.4, 0.9, 0.7], radius: 220, count: 900 },  // Teal
+    ]
+    const all = []
+    cloudConfigs.forEach(cfg => {
+      const positions = new Float32Array(cfg.count * 3)
+      const colors = new Float32Array(cfg.count * 3)
+      for (let i = 0; i < cfg.count; i++) {
+        // Gaussian-ish distribution for soft cloud
+        const u = Math.random()
+        const r = cfg.radius * Math.pow(u, 0.4) // denser center
+        const theta = Math.random() * Math.PI * 2
+        const phi = Math.acos(2 * Math.random() - 1)
+        positions[i * 3]     = cfg.pos[0] + r * Math.sin(phi) * Math.cos(theta)
+        positions[i * 3 + 1] = cfg.pos[1] + r * Math.sin(phi) * Math.sin(theta)
+        positions[i * 3 + 2] = cfg.pos[2] + r * Math.cos(phi)
+        // Color falls off toward edges
+        const intensity = (1 - u) * (0.4 + Math.random() * 0.6)
+        colors[i * 3]     = cfg.color[0] * intensity
+        colors[i * 3 + 1] = cfg.color[1] * intensity
+        colors[i * 3 + 2] = cfg.color[2] * intensity
+      }
+      all.push({ positions, colors, count: cfg.count })
+    })
+    return all
+  }, [])
+
+  return (
+    <group ref={ref}>
+      {clouds.map((c, i) => (
+        <points key={i}>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" count={c.count} array={c.positions} itemSize={3} />
+            <bufferAttribute attach="attributes-color" count={c.count} array={c.colors} itemSize={3} />
+          </bufferGeometry>
+          <pointsMaterial
+            vertexColors
+            size={4}
+            transparent
+            opacity={0.35}
+            sizeAttenuation
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </points>
+      ))}
+    </group>
+  )
+}
+
 // ─── Asteroid Belt (between Mars and Jupiter) ────────────────
 function AsteroidBelt() {
   const ref = useRef()
@@ -1897,9 +2038,12 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
   return (
     <>
       <color attach="background" args={['#000003']} />
-      <ambientLight intensity={0.08} />
+      <ambientLight intensity={0.18} />
+      <hemisphereLight args={['#5577aa', '#332244', 0.15]} />
       <CosmicMotion>
         <Nebula />
+        <BackgroundStarfield />
+        <NebulaClouds />
         {STARS.map(s => (
           <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
         ))}
