@@ -725,11 +725,11 @@ function Sun() {
     if (coronaRef.current) coronaRef.current.scale.setScalar(1 + Math.sin(t * 0.5) * 0.06)
     if (outerRef.current) outerRef.current.scale.setScalar(1 + Math.sin(t * 0.3) * 0.04)
     // Barycenter wobble — Sun moves in a small loop because planets (especially Jupiter)
-    // pull it around the solar system's center of mass. ~tiny offset.
+    // pull it around the solar system's center of mass.
     if (groupRef.current) {
-      groupRef.current.position.x = Math.cos(t * 0.15) * 0.6 + Math.sin(t * 0.07) * 0.3
-      groupRef.current.position.z = Math.sin(t * 0.15) * 0.6 + Math.cos(t * 0.07) * 0.3
-      groupRef.current.position.y = Math.sin(t * 0.09) * 0.15
+      groupRef.current.position.x = Math.cos(t * 0.5) * 2.0 + Math.sin(t * 0.23) * 0.8
+      groupRef.current.position.z = Math.sin(t * 0.5) * 2.0 + Math.cos(t * 0.23) * 0.8
+      groupRef.current.position.y = Math.sin(t * 0.3) * 0.5
     }
   })
 
