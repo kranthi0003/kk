@@ -1695,34 +1695,48 @@ function DeepSkyObject({ obj, onSelect, onHover, hovered, selected }) {
 }
 
 // ─── Scene ───────────────────────────────────────────────────
+function GalacticDrift({ children }) {
+  const ref = useRef()
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    // Slow galactic rotation: ~1 deg every ~30s (very gentle drift)
+    ref.current.rotation.y += delta * 0.0006
+    // Subtle wobble on the galactic plane
+    ref.current.rotation.x = Math.sin(Date.now() * 0.00002) * 0.02
+  })
+  return <group ref={ref}>{children}</group>
+}
+
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
     <>
       <color attach="background" args={['#000003']} />
       <ambientLight intensity={0.08} />
       <Nebula />
-      <Sun />
-      <AsteroidBelt />
-      <KuiperBelt />
-      <OortCloud />
-      {COMETS.map(c => (
-        <Comet key={c.id} comet={c} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
-      ))}
       {STARS.map(s => (
         <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
-      ))}
-      {PROBES.map(p => (
-        <SpaceProbe key={p.id} probe={p} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
       {DEEP_SKY.map(d => (
         <DeepSkyObject key={d.id} obj={d} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
-      {PLANETS.filter(p => p.inclination < 0.35).map(p => (
-        <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
-      ))}
-      {PLANETS.map(p => (
-        <Planet key={p.id} planet={p} onSelect={onSelect} selected={selected?.id} hovered={hovered} onHover={onHover} planetPositions={planetPositions} />
-      ))}
+      <GalacticDrift>
+        <Sun />
+        <AsteroidBelt />
+        <KuiperBelt />
+        <OortCloud />
+        {COMETS.map(c => (
+          <Comet key={c.id} comet={c} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+        ))}
+        {PROBES.map(p => (
+          <SpaceProbe key={p.id} probe={p} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+        ))}
+        {PLANETS.filter(p => p.inclination < 0.35).map(p => (
+          <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
+        ))}
+        {PLANETS.map(p => (
+          <Planet key={p.id} planet={p} onSelect={onSelect} selected={selected?.id} hovered={hovered} onHover={onHover} planetPositions={planetPositions} />
+        ))}
+      </GalacticDrift>
       <CameraController targetId={selected?.id || null} planetPositions={planetPositions} controlsRef={controlsRef} />
       <OrbitControls
         ref={controlsRef}
