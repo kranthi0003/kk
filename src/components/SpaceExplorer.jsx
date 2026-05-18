@@ -1717,7 +1717,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       {DEEP_SKY.map(d => (
         <DeepSkyObject key={d.id} obj={d} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
-      {PLANETS.map(p => (
+      {PLANETS.filter(p => p.inclination < 0.35).map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
       ))}
       {PLANETS.map(p => (
