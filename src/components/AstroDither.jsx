@@ -275,6 +275,92 @@ function WarpStreaks({ speedRef }) {
   )
 }
 
+// ─── Cockpit frame (fixed to camera, like you're inside a ship) ──
+function Cockpit({ speedRef }) {
+  const ref = useRef()
+
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    // Subtle vibration at high speed
+    const speed = speedRef.current
+    const shake = (speed - 1) * 0.001
+    ref.current.position.x = (Math.random() - 0.5) * shake
+    ref.current.position.y = (Math.random() - 0.5) * shake
+  })
+
+  return (
+    <group ref={ref} position={[0, 0, 3.5]}>
+      {/* Main cockpit frame - angular edges */}
+      {/* Top bar */}
+      <mesh position={[0, 1.8, 0]}>
+        <boxGeometry args={[4.5, 0.06, 0.1]} />
+        <meshBasicMaterial color="#1a1a2e" />
+      </mesh>
+      {/* Bottom bar */}
+      <mesh position={[0, -1.6, 0]}>
+        <boxGeometry args={[4.5, 0.08, 0.1]} />
+        <meshBasicMaterial color="#1a1a2e" />
+      </mesh>
+      {/* Left pillar */}
+      <mesh position={[-2.2, 0, 0]} rotation={[0, 0, 0.05]}>
+        <boxGeometry args={[0.06, 3.6, 0.1]} />
+        <meshBasicMaterial color="#1a1a2e" />
+      </mesh>
+      {/* Right pillar */}
+      <mesh position={[2.2, 0, 0]} rotation={[0, 0, -0.05]}>
+        <boxGeometry args={[0.06, 3.6, 0.1]} />
+        <meshBasicMaterial color="#1a1a2e" />
+      </mesh>
+
+      {/* Dashboard / control panel at bottom */}
+      <mesh position={[0, -1.9, 0.3]} rotation={[-0.4, 0, 0]}>
+        <boxGeometry args={[3.5, 0.8, 0.05]} />
+        <meshBasicMaterial color="#0d0d1a" />
+      </mesh>
+      {/* Dashboard glow indicators */}
+      <mesh position={[-0.8, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
+        <circleGeometry args={[0.03, 8]} />
+        <meshBasicMaterial color="#00ff88" />
+      </mesh>
+      <mesh position={[-0.5, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
+        <circleGeometry args={[0.03, 8]} />
+        <meshBasicMaterial color="#00ff88" />
+      </mesh>
+      <mesh position={[0.5, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
+        <circleGeometry args={[0.025, 8]} />
+        <meshBasicMaterial color="#ff4444" />
+      </mesh>
+      <mesh position={[0.8, -1.75, 0.2]} rotation={[-0.4, 0, 0]}>
+        <circleGeometry args={[0.03, 8]} />
+        <meshBasicMaterial color="#4488ff" />
+      </mesh>
+
+      {/* Crosshair / HUD center reticle */}
+      <mesh position={[0, 0, -0.5]}>
+        <ringGeometry args={[0.08, 0.1, 32]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.15} />
+      </mesh>
+      {/* Reticle ticks */}
+      <mesh position={[0, 0.15, -0.5]}>
+        <boxGeometry args={[0.005, 0.06, 0.001]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
+      </mesh>
+      <mesh position={[0, -0.15, -0.5]}>
+        <boxGeometry args={[0.005, 0.06, 0.001]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
+      </mesh>
+      <mesh position={[0.15, 0, -0.5]}>
+        <boxGeometry args={[0.06, 0.005, 0.001]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
+      </mesh>
+      <mesh position={[-0.15, 0, -0.5]}>
+        <boxGeometry args={[0.06, 0.005, 0.001]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.2} />
+      </mesh>
+    </group>
+  )
+}
+
 // ─── Scene ──────────────────────────────────────────────────
 function WarpScene({ speedRef }) {
   return (
@@ -283,6 +369,7 @@ function WarpScene({ speedRef }) {
       <fog attach="fog" args={['#050508', 40, 80]} />
       <WarpParticles speedRef={speedRef} />
       <WarpStreaks speedRef={speedRef} />
+      <Cockpit speedRef={speedRef} />
     </>
   )
 }
