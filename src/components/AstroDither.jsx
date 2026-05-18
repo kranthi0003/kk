@@ -372,6 +372,7 @@ export default function AstroDither({ onBack }) {
   const [displayTime, setDisplayTime] = useState('00:00:000')
   const [displayApproach, setDisplayApproach] = useState(0)
   const [displayDilation, setDisplayDilation] = useState(1)
+  const [consumed, setConsumed] = useState(false)
   const approachRef = useRef(0)
   const distanceRef = useRef(18)
   const holdingRef = useRef(false)
@@ -382,6 +383,50 @@ export default function AstroDither({ onBack }) {
     setEntered(true)
     setStartTime(Date.now())
   }, [])
+
+  // ─── Singularity event trigger ──────────────────────────────
+  const consumedAtRef = useRef(null)
+
+  // Approach ramp
+  useEffect(() => {
+    if (!entered) return
+    let raf
+    const update = () => {
+      if (consumed) {
+        raf = requestAnimationFrame(update)
+        return
+      }
+      if (holdingRef.current) {
+        // Slower than before, takes ~10-12s to hit 100%, eases out near horizon
+        const remaining = 1 - approachRef.current
+        approachRef.current = Math.min(approachRef.current + 0.012 * remaining + 0.0015, 0.995)
+      } else {
+        approachRef.current = Math.max(approachRef.current - 0.013, 0)
+      }
+      setDisplayApproach(approachRef.current)
+      bhAudio.setApproach(approachRef.current)
+
+      // Trigger singularity at 99%+ sustained for 600ms
+      if (approachRef.current >= 0.99) {
+        if (!consumedAtRef.current) consumedAtRef.current = performance.now()
+        else if (performance.now() - consumedAtRef.current > 600) {
+          setConsumed(true)
+          holdingRef.current = false
+          // Reset after 8 seconds
+          setTimeout(() => {
+            approachRef.current = 0
+            consumedAtRef.current = null
+            setConsumed(false)
+          }, 8000)
+        }
+      } else {
+        consumedAtRef.current = null
+      }
+      raf = requestAnimationFrame(update)
+    }
+    raf = requestAnimationFrame(update)
+    return () => cancelAnimationFrame(raf)
+  }, [entered, consumed])
 
   // Timer (with time dilation — clock slows as you approach)
   useEffect(() => {
@@ -413,22 +458,13 @@ export default function AstroDither({ onBack }) {
     if (!entered) return
     let raf
     const update = () => {
-      if (holdingRef.current) {
-        // Faster approach - eases out near horizon but reaches 100% in ~6s
-        const remaining = 1 - approachRef.current
-        approachRef.current = Math.min(approachRef.current + 0.025 * remaining + 0.003, 0.99)
-      } else {
-        approachRef.current = Math.max(approachRef.current - 0.02, 0)
-      }
-      setDisplayApproach(approachRef.current)
-      bhAudio.setApproach(approachRef.current)
       raf = requestAnimationFrame(update)
     }
     raf = requestAnimationFrame(update)
     return () => cancelAnimationFrame(raf)
   }, [entered])
 
-  const handlePointerDown = useCallback(() => { holdingRef.current = true }, [])
+  const handlePointerDown = useCallback(() => { if (!consumed) holdingRef.current = true }, [consumed])
   const handlePointerUp = useCallback(() => { holdingRef.current = false }, [])
 
   // Entry screen
@@ -552,12 +588,62 @@ export default function AstroDither({ onBack }) {
         ← EXIT
       </button>
 
+      {/* Singularity event overlay */}
+      {consumed && (
+        <div className="absolute inset-0 z-40 pointer-events-none flex items-center justify-center"
+             style={{ animation: 'singularity 8s ease-in-out forwards' }}>
+          <div className="absolute inset-0 bg-white" style={{ animation: 'flash 0.6s ease-out' }} />
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(circle at center, rgba(255,200,100,0.4) 0%, rgba(0,0,0,0.95) 60%)',
+            animation: 'pulse-deep 8s ease-in-out',
+          }} />
+          <div className="relative text-center px-8" style={{ animation: 'fadeInMsg 8s ease-in-out' }}>
+            <div className="font-mono text-white/40 text-[10px] tracking-[0.5em] mb-6">
+              ▸ EVENT HORIZON CROSSED ▸
+            </div>
+            <h2 className="font-mono text-white text-2xl sm:text-4xl tracking-[0.2em] mb-6"
+                style={{ textShadow: '0 0 30px rgba(255,180,80,0.6)' }}>
+              YOU ARE THE SINGULARITY
+            </h2>
+            <div className="font-mono text-white/50 text-xs tracking-[0.15em] max-w-md mx-auto leading-relaxed">
+              Spacetime has collapsed.<br/>
+              All information you carried is now stored on a 2D surface<br/>
+              area equal to your former volume.<br/>
+              <span className="text-white/30">— holographic principle, 1993</span>
+            </div>
+            <div className="mt-8 font-mono text-white/30 text-[9px] tracking-[0.3em] animate-pulse">
+              REINITIALIZING IN COSMIC TIME...
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes grain {
           0%, 100% { transform: translate(0, 0); }
           25% { transform: translate(-2%, 1%); }
           50% { transform: translate(1%, -1%); }
           75% { transform: translate(-1%, 2%); }
+        }
+        @keyframes flash {
+          0% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+        @keyframes singularity {
+          0% { opacity: 0; }
+          5% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+        @keyframes pulse-deep {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 1; }
+        }
+        @keyframes fadeInMsg {
+          0% { opacity: 0; transform: scale(0.9); }
+          15% { opacity: 1; transform: scale(1); }
+          85% { opacity: 1; transform: scale(1); }
+          100% { opacity: 0; transform: scale(1.05); }
         }
       `}</style>
     </div>
