@@ -414,11 +414,11 @@ export default function AstroDither({ onBack }) {
     let raf
     const update = () => {
       if (holdingRef.current) {
-        // Parabolic — slow approach near horizon (asymptotic)
+        // Faster approach - eases out near horizon but reaches 100% in ~6s
         const remaining = 1 - approachRef.current
-        approachRef.current = Math.min(approachRef.current + 0.005 * remaining * remaining, 0.97)
+        approachRef.current = Math.min(approachRef.current + 0.025 * remaining + 0.003, 0.99)
       } else {
-        approachRef.current = Math.max(approachRef.current - 0.01, 0)
+        approachRef.current = Math.max(approachRef.current - 0.02, 0)
       }
       setDisplayApproach(approachRef.current)
       bhAudio.setApproach(approachRef.current)
