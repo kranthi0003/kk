@@ -327,6 +327,11 @@ const PLANET_NOTES = {
   sirius: 1046.5,  // C6 — brilliant
   betelgeuse: 130.8,// C3 — deep rumble
   polaris: 659.3,  // E5 — guiding
+  // Probes
+  voyager1: 349.2, // F4 — pioneering
+  voyager2: 311.1, // Eb4 — explorer
+  jwst: 587.3,     // D5 — golden
+  iss: 440,        // A4 — home
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -988,6 +993,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                   {planet.isMoon && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300/70 border border-cyan-500/20">MOON</span>}
                   {planet.isComet && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300/70 border border-amber-500/20">COMET</span>}
                   {planet.isStar && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300/70 border border-yellow-500/20">STAR</span>}
+                  {planet.isProbe && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300/70 border border-emerald-500/20">SPACECRAFT</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -1007,7 +1013,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                 { k: 'Day', v: stats.day },
                 { k: 'Year', v: stats.year },
                 { k: 'Moons', v: stats.moons },
-                { k: planet.isMoon ? 'Distance' : planet.isComet ? 'Orbit' : planet.isStar ? 'Distance' : 'From Sun', v: stats.distance },
+                { k: (planet.isMoon || planet.isStar || planet.isProbe) ? 'Distance' : planet.isComet ? 'Orbit' : 'From Sun', v: stats.distance },
               ].map(s => (
                 <div key={s.k} className="bg-white/5 rounded-lg px-3 py-2 border border-white/5">
                   <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mb-1">{s.k.toUpperCase()}</div>
@@ -1373,6 +1379,76 @@ function DistantStar({ star, onSelect, onHover, hovered, selected }) {
   )
 }
 
+// ─── Space Probes & Missions ─────────────────────────────────
+const PROBES = [
+  { id: 'voyager1', name: 'Voyager 1', color: '#e0d0b0', symbol: '🛰',
+    position: [250, 30, -180],
+    tagline: 'The farthest human-made object',
+    facts: ['Launched September 5, 1977 — still transmitting after 47+ years','Most distant human-made object at 24+ billion km from Earth','Entered interstellar space in August 2012','Carries the Golden Record with sounds and images of Earth for alien civilizations','Powered by plutonium-238 radioisotope thermoelectric generators','Took the famous "Pale Blue Dot" photo of Earth from 6 billion km away','Communicates at 160 bits per second — slower than a 1980s modem'],
+    stats: { diameter: '3.7m dish', day: 'N/A', year: 'Launched 1977', moons: 0, distance: '24+ billion km' }},
+  { id: 'voyager2', name: 'Voyager 2', color: '#b0c0e0', symbol: '🛰',
+    position: [-200, -40, 220],
+    tagline: 'The grand tour spacecraft',
+    facts: ['Only spacecraft to have visited all four giant planets','Launched August 20, 1977 — 16 days before Voyager 1','Entered interstellar space in November 2018','Only spacecraft to visit Uranus (1986) and Neptune (1989)','Still communicating with Earth from 20+ billion km away','Also carries a Golden Record identical to Voyager 1','NASA briefly lost contact in 2023 after a wrong command tilted its antenna'],
+    stats: { diameter: '3.7m dish', day: 'N/A', year: 'Launched 1977', moons: 0, distance: '20+ billion km' }},
+  { id: 'jwst', name: 'James Webb', color: '#ffd700', symbol: '🔭',
+    position: [32, 5, 26],
+    tagline: 'The golden eye',
+    facts: ['Most powerful space telescope ever built — 100× more sensitive than Hubble','Orbits the L2 Lagrange point, 1.5 million km from Earth','Primary mirror is 6.5 meters across, made of 18 gold-coated beryllium segments','Sunshield is the size of a tennis court, keeps instruments at -233°C','Can see galaxies forming just 200 million years after the Big Bang','Cost $10 billion and took 25 years to build','Launched December 25, 2021 on an Ariane 5 rocket'],
+    stats: { diameter: '6.5m mirror', day: 'N/A', year: 'Launched 2021', moons: 0, distance: '1.5M km from Earth' }},
+  { id: 'iss', name: 'ISS', color: '#ffffff', symbol: '🏠',
+    position: [28.2, 1.8, 28],
+    tagline: 'Humanity\'s home in space',
+    facts: ['Orbits Earth at 408 km altitude, completing one orbit every 90 minutes','Continuously inhabited since November 2, 2000','Size of a football field (109m × 73m)','Has been visited by 270+ people from 21 countries','Travels at 28,000 km/h — fast enough to go from NYC to LA in 10 minutes','Cost over $150 billion — most expensive structure ever built','Crew sees 16 sunrises and sunsets every 24 hours'],
+    stats: { diameter: '109 × 73 m', day: '90 min orbit', year: 'Since 2000', moons: 0, distance: '408 km altitude' }},
+]
+
+function SpaceProbe({ probe, onSelect, onHover, hovered, selected }) {
+  const ref = useRef()
+  const isActive = selected === probe.id || hovered === probe.id
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += 0.005
+    }
+  })
+
+  return (
+    <group position={probe.position}>
+      {/* Probe body — small octahedron */}
+      <mesh
+        ref={ref}
+        onClick={(e) => { e.stopPropagation(); onSelect({ ...probe, isProbe: true }) }}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(probe.id); document.body.style.cursor = 'pointer' }}
+        onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
+      >
+        <octahedronGeometry args={[0.4, 0]} />
+        <meshStandardMaterial color={probe.color} metalness={0.8} roughness={0.2} emissive={probe.color} emissiveIntensity={0.3} />
+      </mesh>
+      {/* Signal pulse */}
+      {isActive && (
+        <mesh scale={2}>
+          <ringGeometry args={[0.4, 0.45, 32]} />
+          <meshBasicMaterial color={probe.color} transparent opacity={0.3} side={THREE.DoubleSide} depthWrite={false} />
+        </mesh>
+      )}
+      {/* Label */}
+      <Html
+        position={[0, 1.2, 0]}
+        center
+        distanceFactor={40}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.45, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[8px] font-medium tracking-[0.1em] drop-shadow-lg" style={{ color: probe.color }}>
+            {probe.symbol} {probe.name}
+          </span>
+        </div>
+      </Html>
+    </group>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
@@ -1389,6 +1465,9 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       ))}
       {STARS.map(s => (
         <DistantStar key={s.id} star={s} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
+      ))}
+      {PROBES.map(p => (
+        <SpaceProbe key={p.id} probe={p} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected?.id} />
       ))}
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
