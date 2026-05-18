@@ -9,18 +9,18 @@ export default function Hero({ onResumeClick }) {
   const [phase, setPhase] = useState('intro')
   const isIntro = phase === 'intro'
 
-  // Auto-advance to cosmos after 6s, OR on first scroll/click
+  // Scroll-driven: transition based ONLY on scroll position
+  // Going down past threshold → cosmos. Coming back to top → intro again.
   useEffect(() => {
-    if (phase !== 'intro') return
-    const advance = () => setPhase('cosmos')
-    const t = setTimeout(advance, 6000)
-    const onScroll = () => { if (window.scrollY > 20) advance() }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      clearTimeout(t)
-      window.removeEventListener('scroll', onScroll)
+    const onScroll = () => {
+      const y = window.scrollY
+      if (y > 80) setPhase('cosmos')
+      else if (y < 10) setPhase('intro')
     }
-  }, [phase])
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll() // initial check
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const handleExploreUniverse = useCallback(() => {
     window.location.hash = '#/space'
@@ -183,13 +183,10 @@ export default function Hero({ onResumeClick }) {
               </button>
             </div>
 
-            {/* Skip-intro hint */}
-            <button
-              onClick={() => setPhase('cosmos')}
-              className="mt-10 text-[10px] font-mono tracking-[0.3em] text-violet-300/40 hover:text-violet-300/80 transition-colors"
-            >
-              ↓ SCROLL OR CLICK TO EXPLORE THE COSMOS
-            </button>
+            {/* Scroll hint */}
+            <div className="mt-10 text-[10px] font-mono tracking-[0.3em] text-violet-300/40 animate-pulse">
+              ↓ SCROLL TO EXPLORE THE COSMOS
+            </div>
           </div>
 
           <div className="hidden lg:block lg:col-span-5">
