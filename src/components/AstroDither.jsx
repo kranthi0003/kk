@@ -397,11 +397,11 @@ export default function AstroDither({ onBack }) {
         return
       }
       if (holdingRef.current) {
-        // Slower than before, takes ~10-12s to hit 100%, eases out near horizon
+        // Slower approach — takes ~18-20s to hit 100%
         const remaining = 1 - approachRef.current
-        approachRef.current = Math.min(approachRef.current + 0.012 * remaining + 0.0015, 0.995)
+        approachRef.current = Math.min(approachRef.current + 0.006 * remaining + 0.0008, 0.995)
       } else {
-        approachRef.current = Math.max(approachRef.current - 0.013, 0)
+        approachRef.current = Math.max(approachRef.current - 0.008, 0)
       }
       setDisplayApproach(approachRef.current)
       bhAudio.setApproach(approachRef.current)
@@ -593,25 +593,32 @@ export default function AstroDither({ onBack }) {
         <div className="absolute inset-0 z-40 pointer-events-none flex items-center justify-center"
              style={{ animation: 'singularity 8s ease-in-out forwards' }}>
           <div className="absolute inset-0 bg-white" style={{ animation: 'flash 0.6s ease-out' }} />
+          {/* Solid dark backdrop so text is fully readable */}
+          <div className="absolute inset-0 bg-black/95" />
+          {/* Subtle outer glow */}
           <div className="absolute inset-0" style={{
-            background: 'radial-gradient(circle at center, rgba(255,200,100,0.4) 0%, rgba(0,0,0,0.95) 60%)',
+            background: 'radial-gradient(circle at center, rgba(255,180,80,0.12) 0%, transparent 70%)',
             animation: 'pulse-deep 8s ease-in-out',
           }} />
-          <div className="relative text-center px-8" style={{ animation: 'fadeInMsg 8s ease-in-out' }}>
-            <div className="font-mono text-white/40 text-[10px] tracking-[0.5em] mb-6">
+          <div className="relative text-center px-8 max-w-2xl" style={{ animation: 'fadeInMsg 8s ease-in-out' }}>
+            <div className="font-mono text-amber-300/80 text-[10px] sm:text-xs tracking-[0.5em] mb-8">
               ▸ EVENT HORIZON CROSSED ▸
             </div>
-            <h2 className="font-mono text-white text-2xl sm:text-4xl tracking-[0.2em] mb-6"
-                style={{ textShadow: '0 0 30px rgba(255,180,80,0.6)' }}>
-              YOU ARE THE SINGULARITY
+            <h2 className="font-mono text-white text-3xl sm:text-5xl tracking-[0.15em] mb-8 font-light"
+                style={{ textShadow: '0 0 40px rgba(255,180,80,0.7), 0 0 80px rgba(255,180,80,0.3)' }}>
+              YOU ARE THE<br/>SINGULARITY
             </h2>
-            <div className="font-mono text-white/50 text-xs tracking-[0.15em] max-w-md mx-auto leading-relaxed">
-              Spacetime has collapsed.<br/>
-              All information you carried is now stored on a 2D surface<br/>
-              area equal to your former volume.<br/>
-              <span className="text-white/30">— holographic principle, 1993</span>
+            <div className="font-mono text-white/80 text-sm sm:text-base tracking-[0.1em] leading-relaxed mb-3">
+              Spacetime has collapsed.
             </div>
-            <div className="mt-8 font-mono text-white/30 text-[9px] tracking-[0.3em] animate-pulse">
+            <div className="font-mono text-white/60 text-xs sm:text-sm tracking-[0.1em] leading-relaxed max-w-lg mx-auto">
+              All information you carried is now stored on a 2D surface
+              area equal to your former volume.
+            </div>
+            <div className="font-mono text-amber-300/50 text-[10px] tracking-[0.2em] mt-4">
+              — holographic principle, 1993
+            </div>
+            <div className="mt-12 font-mono text-white/40 text-[10px] tracking-[0.3em] animate-pulse">
               REINITIALIZING IN COSMIC TIME...
             </div>
           </div>
