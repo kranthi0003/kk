@@ -93,6 +93,20 @@ const PLANETS = [
     size: 3.5, speed: 0.045, tilt: 0.05,
     texture: 'jupiter.jpg', color: '#fcd34d', atmosphere: '#f59e0b',
     moons: 4, ring: null,
+    namedMoons: [
+      { id: 'io', name: 'Io', color: '#f0c040', size: 0.35, orbitR: 2.8, speed: 1.2, tagline: 'The volcanic furnace',
+        facts: ['Most volcanically active body in the solar system — over 400 active volcanoes','Tidal heating from Jupiter stretches and squeezes Io, generating extreme heat','Surface is painted with sulfur and sulfur dioxide frost','Eruptions shoot plumes 500 km above the surface','Has a thin atmosphere of sulfur dioxide','Orbits Jupiter every 1.77 Earth days','Named after a priestess in Greek mythology loved by Zeus'],
+        stats: { diameter: '3,643 km', day: '1.77 Earth days', year: 'Orbits Jupiter in 1.77 days', moons: 0, distance: '421,700 km from Jupiter' }},
+      { id: 'europa', name: 'Europa', color: '#c8daf0', size: 0.30, orbitR: 3.8, speed: 0.9, tagline: 'The ice ocean world',
+        facts: ['Surface is a shell of ice covering a global liquid water ocean','May have more water than all of Earth\'s oceans combined','One of the best candidates for extraterrestrial life in the solar system','Surface is one of the smoothest in the solar system','Crisscrossed with reddish-brown "linea" fractures','NASA\'s Europa Clipper mission launched 2024 to investigate','Ice shell estimated to be 15-25 km thick'],
+        stats: { diameter: '3,122 km', day: '3.55 Earth days', year: 'Orbits Jupiter in 3.55 days', moons: 0, distance: '671,100 km from Jupiter' }},
+      { id: 'ganymede', name: 'Ganymede', color: '#b0a890', size: 0.42, orbitR: 5.0, speed: 0.65, tagline: 'The giant moon',
+        facts: ['Largest moon in the entire solar system — bigger than Mercury','Only moon known to have its own magnetic field','Has a subsurface ocean sandwiched between ice layers','Surface shows both old cratered terrain and younger grooved terrain','Has a thin oxygen atmosphere','Discovered by Galileo Galilei in 1610','Diameter is 5,268 km — 8% larger than Mercury'],
+        stats: { diameter: '5,268 km', day: '7.15 Earth days', year: 'Orbits Jupiter in 7.15 days', moons: 0, distance: '1.07M km from Jupiter' }},
+      { id: 'callisto', name: 'Callisto', color: '#706050', size: 0.38, orbitR: 6.2, speed: 0.5, tagline: 'The ancient one',
+        facts: ['Most heavily cratered body in the solar system','Surface hasn\'t changed significantly in 4 billion years','May have a subsurface ocean beneath 200 km of ice','Farthest of the four Galilean moons from Jupiter','Considered a prime site for a future human base near Jupiter','Has a very thin atmosphere of carbon dioxide','Surface is a mix of ice and dark, rocky material'],
+        stats: { diameter: '4,821 km', day: '16.69 Earth days', year: 'Orbits Jupiter in 16.69 days', moons: 0, distance: '1.88M km from Jupiter' }},
+    ],
     tagline: 'King of the planets',
     facts: [
       'Largest planet in our solar system — could fit 1,300 Earths inside',
@@ -111,6 +125,14 @@ const PLANETS = [
     size: 3.0, speed: 0.030, tilt: 0.47,
     texture: 'saturn.jpg', color: '#fde68a', atmosphere: '#facc15',
     moons: 3, ring: { texture: 'saturn_ring.png', inner: 1.5, outer: 2.6 },
+    namedMoons: [
+      { id: 'titan', name: 'Titan', color: '#d4a050', size: 0.40, orbitR: 4.5, speed: 0.6, tagline: 'The methane world',
+        facts: ['Second-largest moon in the solar system — larger than Mercury','Only moon with a dense atmosphere (1.5× Earth\'s surface pressure)','Has lakes and seas of liquid methane and ethane on its surface','Rain falls as liquid methane in a hydrological cycle like Earth\'s water','Huygens probe landed on Titan in 2005 — most distant landing ever','Atmosphere is 95% nitrogen with methane and hydrogen','Surface temperature is -179°C'],
+        stats: { diameter: '5,150 km', day: '15.95 Earth days', year: 'Orbits Saturn in 15.95 days', moons: 0, distance: '1.22M km from Saturn' }},
+      { id: 'enceladus', name: 'Enceladus', color: '#f0f0ff', size: 0.22, orbitR: 3.2, speed: 0.95, tagline: 'The ice geyser',
+        facts: ['Shoots geysers of water ice from cracks near its south pole','Has a global subsurface ocean under an ice shell','Geysers contain organic molecules — possible ingredients for life','One of the most reflective bodies in the solar system (albedo ~0.99)','Only 504 km across — small enough to fit inside the UK','Feeds material into Saturn\'s E ring','Cassini spacecraft flew through its plumes to sample them'],
+        stats: { diameter: '504 km', day: '1.37 Earth days', year: 'Orbits Saturn in 1.37 days', moons: 0, distance: '238,000 km from Saturn' }},
+    ],
     tagline: 'The ringed jewel',
     facts: [
       'Famous for its stunning ring system made of ice and rock particles',
@@ -129,6 +151,14 @@ const PLANETS = [
     size: 2.0, speed: 0.020, tilt: 1.71,
     texture: 'uranus.jpg', color: '#a5f3fc', atmosphere: '#67e8f9',
     moons: 1, ring: { color: '#a5f3fc', inner: 1.4, outer: 1.55 },
+    namedMoons: [
+      { id: 'miranda', name: 'Miranda', color: '#a0a0b0', size: 0.18, orbitR: 2.6, speed: 1.1, tagline: 'The Frankenstein moon',
+        facts: ['Has some of the most extreme terrain in the solar system','Features Verona Rupes — a 20 km cliff, the tallest known in the solar system','Surface looks stitched together from mismatched pieces','May have been shattered and reassembled by a massive impact','Only 472 km in diameter — one of the smallest rounded moons','Named after the heroine of Shakespeare\'s The Tempest','Visited by Voyager 2 in 1986'],
+        stats: { diameter: '472 km', day: '1.41 Earth days', year: 'Orbits Uranus in 1.41 days', moons: 0, distance: '129,900 km from Uranus' }},
+      { id: 'titania', name: 'Titania', color: '#c0b8c0', size: 0.28, orbitR: 3.8, speed: 0.7, tagline: 'The ice queen',
+        facts: ['Largest moon of Uranus — 1,578 km in diameter','Named after the queen of the fairies in A Midsummer Night\'s Dream','Surface has enormous canyons and fault scarps stretching 1,500 km','May have a thin subsurface ocean under a mantle of ice','Composed of roughly half water ice and half rock','Has a very thin carbon dioxide atmosphere','Discovered by William Herschel in 1787'],
+        stats: { diameter: '1,578 km', day: '8.71 Earth days', year: 'Orbits Uranus in 8.71 days', moons: 0, distance: '435,900 km from Uranus' }},
+    ],
     tagline: 'The sideways planet',
     facts: [
       'Rotates on its side — axial tilt is 98° (essentially rolling around the Sun)',
@@ -147,6 +177,11 @@ const PLANETS = [
     size: 1.9, speed: 0.012, tilt: 0.49,
     texture: 'neptune.jpg', color: '#60a5fa', atmosphere: '#3b82f6',
     moons: 1, ring: null,
+    namedMoons: [
+      { id: 'triton', name: 'Triton', color: '#90b0c0', size: 0.30, orbitR: 3.2, speed: 0.8, tagline: 'The captured wanderer',
+        facts: ['Only large moon in the solar system with a retrograde orbit','Almost certainly a captured Kuiper Belt object','Has active geysers that shoot nitrogen gas 8 km high','Surface temperature is -235°C — one of the coldest in the solar system','Has a thin nitrogen atmosphere','Surface is mostly frozen nitrogen, with water and CO₂ ice','Slowly spiraling inward — will eventually be torn apart by Neptune\'s gravity'],
+        stats: { diameter: '2,707 km', day: '5.88 Earth days', year: 'Orbits Neptune in 5.88 days', moons: 0, distance: '354,800 km from Neptune' }},
+    ],
     tagline: 'The windy ice giant',
     facts: [
       'Farthest planet from the Sun — at 4.5 billion km away',
@@ -273,6 +308,16 @@ const PLANET_NOTES = {
   haumea: 164.8,   // E3 — distant hum
   makemake: 155.6, // Eb3 — eerie
   eris: 146.8,     // D3 — deepest
+  // Named moons
+  io: 784,         // G5 — fiery
+  europa: 740,     // F#5 — icy crystal
+  ganymede: 659.3, // E5 — grand
+  callisto: 622.3, // Eb5 — ancient
+  titan: 349.2,    // F4 — deep hum
+  enceladus: 415.3,// Ab4 — crystalline
+  miranda: 277.2,  // Db4 — mysterious
+  titania: 293.7,  // D4 — regal
+  triton: 220,     // A3 — far & cold
 }
 
 // ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
@@ -699,8 +744,12 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
         </mesh>
       )}
 
-      {/* Moons */}
-      {Array.from({ length: planet.moons }, (_, i) => (
+      {/* Named Moons (clickable with facts) */}
+      {planet.namedMoons?.map(moon => (
+        <NamedMoon key={moon.id} moon={moon} parentSize={planet.size} onSelect={onSelect} onHover={onHover} hovered={hovered} selected={selected} />
+      ))}
+      {/* Generic moons (planets without named moon data) */}
+      {!planet.namedMoons && Array.from({ length: planet.moons }, (_, i) => (
         <MoonObj key={i} parentSize={planet.size} index={i} />
       ))}
 
@@ -716,6 +765,60 @@ function Planet({ planet, onSelect, selected, hovered, onHover, planetPositions 
             {planet.name}
           </span>
           <div className="w-[1px] h-2" style={{ background: `${planet.color}40` }} />
+        </div>
+      </Html>
+    </group>
+  )
+}
+
+// ─── Named Moon (orbits parent planet, clickable with facts) ─
+function NamedMoon({ moon, parentSize, onSelect, onHover, hovered, selected }) {
+  const ref = useRef()
+  const meshRef = useRef()
+  const angleRef = useRef(Math.random() * Math.PI * 2)
+  const isActive = selected === moon.id || hovered === moon.id
+
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    angleRef.current += moon.speed * delta
+    const orbitR = parentSize * moon.orbitR
+    ref.current.position.set(
+      Math.cos(angleRef.current) * orbitR,
+      Math.sin(angleRef.current * 0.4) * 0.3,
+      Math.sin(angleRef.current) * orbitR,
+    )
+    if (meshRef.current) meshRef.current.rotation.y += 0.015
+  })
+
+  return (
+    <group ref={ref}>
+      <mesh
+        ref={meshRef}
+        onClick={(e) => { e.stopPropagation(); onSelect({ ...moon, isMoon: true }) }}
+        onPointerOver={(e) => { e.stopPropagation(); onHover(moon.id); document.body.style.cursor = 'pointer' }}
+        onPointerOut={() => { onHover(null); document.body.style.cursor = 'default' }}
+      >
+        <sphereGeometry args={[moon.size, 32, 32]} />
+        <meshStandardMaterial color={moon.color} roughness={0.85} metalness={0.05} />
+      </mesh>
+      {/* Glow when active */}
+      {isActive && (
+        <mesh scale={1.3}>
+          <sphereGeometry args={[moon.size, 24, 24]} />
+          <meshBasicMaterial color={moon.color} transparent opacity={0.15} depthWrite={false} blending={THREE.AdditiveBlending} />
+        </mesh>
+      )}
+      {/* Label */}
+      <Html
+        position={[0, moon.size + 0.6, 0]}
+        center
+        distanceFactor={30}
+        style={{ pointerEvents: 'none', opacity: isActive ? 1 : 0.4, transition: 'opacity 0.3s' }}
+      >
+        <div className="flex flex-col items-center gap-0.5 whitespace-nowrap">
+          <span className="text-[8px] font-medium tracking-[0.12em] drop-shadow-lg" style={{ color: moon.color }}>
+            {moon.name}
+          </span>
         </div>
       </Html>
     </group>
@@ -873,6 +976,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <h2 className="text-2xl font-semibold text-white/95 tracking-tight">{planet.name}</h2>
                   {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300/70 border border-violet-500/20">DWARF PLANET</span>}
+                  {planet.isMoon && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300/70 border border-cyan-500/20">MOON</span>}
                   <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 italic">{planet.tagline}</span>
                 </div>
               </div>
@@ -892,7 +996,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
                 { k: 'Day', v: stats.day },
                 { k: 'Year', v: stats.year },
                 { k: 'Moons', v: stats.moons },
-                { k: 'From Sun', v: stats.distance },
+                { k: planet.isMoon ? 'Distance' : 'From Sun', v: stats.distance },
               ].map(s => (
                 <div key={s.k} className="bg-white/5 rounded-lg px-3 py-2 border border-white/5">
                   <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mb-1">{s.k.toUpperCase()}</div>
