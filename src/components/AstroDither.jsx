@@ -2,17 +2,15 @@ import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-// ─── Audio Engine (looping drone that speeds up with travel) ──
+// ─── Audio Engine (MP3 loop that speeds up with travel) ──────
 class WarpAudio {
   constructor() {
     this.ctx = null
+    this.source = null
+    this.audioBuffer = null
     this.master = null
-    this.oscillators = []
     this.started = false
-    this.playbackRate = 1
-    this.noiseSource = null
-    this.noiseGain = null
-    this.bassGain = null
+    this.element = null
   }
 
   init() {
@@ -21,93 +19,44 @@ class WarpAudio {
     if (!AC) return
     this.ctx = new AC()
     this.master = this.ctx.createGain()
-    this.master.gain.value = 0.5
+    this.master.gain.value = 0.7
     this.master.connect(this.ctx.destination)
   }
 
-  start() {
+  async start() {
     if (!this.ctx || this.started) return
     this.started = true
-    const now = this.ctx.currentTime
 
-    // Deep bass drone (looping feel)
-    const bassFreqs = [55, 82.5, 110]
-    bassFreqs.forEach(f => {
-      const osc = this.ctx.createOscillator()
-      const gain = this.ctx.createGain()
-      osc.type = 'sine'
-      osc.frequency.value = f
-      gain.gain.value = 0
-      gain.gain.linearRampToValueAtTime(0.07, now + 2)
-      osc.connect(gain).connect(this.master)
-      osc.start(now)
-      this.oscillators.push({ osc, gain, baseFreq: f })
-    })
+    // Use HTML Audio element for looping MP3 with playbackRate control
+    this.element = new Audio('/audio/loop.mp3')
+    this.element.loop = true
+    this.element.crossOrigin = 'anonymous'
+    this.element.volume = 1
 
-    // Mid pad with filter sweep
-    const pad = this.ctx.createOscillator()
-    const padFilter = this.ctx.createBiquadFilter()
-    const padGain = this.ctx.createGain()
-    pad.type = 'sawtooth'
-    pad.frequency.value = 165
-    padFilter.type = 'lowpass'
-    padFilter.frequency.value = 300
-    padFilter.Q.value = 6
-    padGain.gain.value = 0
-    padGain.gain.linearRampToValueAtTime(0.025, now + 3)
-    pad.connect(padFilter).connect(padGain).connect(this.master)
-    pad.start(now)
-    this.oscillators.push({ osc: pad, gain: padGain, baseFreq: 165 })
+    // Connect through Web Audio for potential effects
+    const source = this.ctx.createMediaElementSource(this.element)
+    source.connect(this.master)
 
-    // LFO for filter sweep
-    const lfo = this.ctx.createOscillator()
-    const lfoGain = this.ctx.createGain()
-    lfo.frequency.value = 0.15
-    lfoGain.gain.value = 150
-    lfo.connect(lfoGain).connect(padFilter.frequency)
-    lfo.start(now)
-
-    // Warp noise (white noise through bandpass for rushing wind feel)
-    const bufferSize = this.ctx.sampleRate * 2
-    const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate)
-    const output = noiseBuffer.getChannelData(0)
-    for (let i = 0; i < bufferSize; i++) output[i] = Math.random() * 2 - 1
-    this.noiseSource = this.ctx.createBufferSource()
-    this.noiseSource.buffer = noiseBuffer
-    this.noiseSource.loop = true
-    const noiseFilter = this.ctx.createBiquadFilter()
-    noiseFilter.type = 'bandpass'
-    noiseFilter.frequency.value = 800
-    noiseFilter.Q.value = 1.5
-    this.noiseGain = this.ctx.createGain()
-    this.noiseGain.gain.value = 0.02
-    this.noiseSource.connect(noiseFilter).connect(this.noiseGain).connect(this.master)
-    this.noiseSource.start(now)
+    try { await this.element.play() } catch(e) { console.warn('Audio play blocked:', e) }
   }
 
   setSpeed(speed) {
-    if (!this.ctx || !this.started) return
-    this.playbackRate = speed
-    const now = this.ctx.currentTime
-    // Pitch up oscillators with speed
-    this.oscillators.forEach(({ osc, baseFreq }) => {
-      osc.frequency.linearRampToValueAtTime(baseFreq * (0.8 + speed * 0.2), now + 0.1)
-    })
-    // Increase noise volume with speed (rushing wind)
-    if (this.noiseGain) {
-      this.noiseGain.gain.linearRampToValueAtTime(0.02 + (speed - 1) * 0.04, now + 0.1)
-    }
-    // Increase master slightly
+    if (!this.element) return
+    // Speed up playback rate (clamp to reasonable range)
+    this.element.playbackRate = Math.min(speed, 4)
+    // Also increase volume slightly at higher speeds
     if (this.master) {
-      this.master.gain.linearRampToValueAtTime(0.5 + (speed - 1) * 0.1, now + 0.1)
+      const now = this.ctx.currentTime
+      this.master.gain.linearRampToValueAtTime(0.7 + (speed - 1) * 0.08, now + 0.1)
     }
   }
 
   stop() {
-    this.oscillators.forEach(({ osc }) => { try { osc.stop() } catch(e){} })
-    if (this.noiseSource) try { this.noiseSource.stop() } catch(e){}
+    if (this.element) {
+      this.element.pause()
+      this.element = null
+    }
     this.started = false
-    this.oscillators = []
   }
 }
 
