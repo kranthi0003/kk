@@ -919,7 +919,7 @@ function Nebula() {
 
   return (
     <mesh rotation-y={Math.PI * 0.3}>
-      <sphereGeometry args={[450, 64, 64]} />
+      <sphereGeometry args={[1500, 64, 64]} />
       <meshBasicMaterial map={milkyway} side={THREE.BackSide} depthWrite={false} />
     </mesh>
   )
@@ -982,7 +982,7 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
         enableZoom
         enableRotate
         minDistance={2}
-        maxDistance={400}
+        maxDistance={600}
         /* No polar restriction — full 360° vertical (can fly under the system) */
         autoRotate={false}
         dampingFactor={0.08}
@@ -1128,7 +1128,7 @@ export default function SpaceExplorer() {
       {!ready && <LoadingScreen progress={Math.min(loadProgress, 100)} />}
 
       <Canvas
-        camera={{ position: [0, 40, 60], fov: 45, near: 0.1, far: 600 }}
+        camera={{ position: [0, 40, 60], fov: 45, near: 0.1, far: 2500 }}
         dpr={window.innerWidth < 768 ? 1 : [1, 1.5]}
         onCreated={() => setTimeout(() => setReady(true), 800)}
         gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}

@@ -114,7 +114,7 @@ function Milkyway() {
   const tex = useLoader(THREE.TextureLoader, TEX('milkyway.jpg'))
   return (
     <mesh rotation-y={Math.PI * 0.3}>
-      <sphereGeometry args={[400, 32, 32]} />
+      <sphereGeometry args={[1500, 32, 32]} />
       <meshBasicMaterial map={tex} side={THREE.BackSide} depthWrite={false} />
     </mesh>
   )
@@ -168,7 +168,7 @@ export default function SpaceBackground() {
       aria-hidden="true"
     >
       <Canvas
-        camera={{ position: [0, 35, 75], fov: 50, near: 0.1, far: 500 }}
+        camera={{ position: [0, 35, 75], fov: 50, near: 0.1, far: 2500 }}
         dpr={[1, 1.25]}
         gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }}
       >
