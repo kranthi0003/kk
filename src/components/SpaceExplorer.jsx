@@ -179,16 +179,19 @@ const PLANET_NOTES = {
   neptune: 196,    // G3 — deep & distant
 }
 
-// ─── Web Audio: rich ambient theme + UI sound palette ────────
+// ─── Ambient MP3 loop + Web Audio UI sound palette ───────────
+const AMBIENT_LOOP_PATH = `${import.meta.env.BASE_URL || '/'}audio/loop.mp3`
+
 class SpaceAudio {
   constructor() {
     this.ctx = null
     this.master = null
-    this.musicNodes = []
     this.muted = false
     this.started = false
     this.sparkleTimer = null
-    this.MASTER_VOL = 0.85 // overall volume (was 0.5)
+    this.ambientElement = null
+    this.ambientSource = null
+    this.MASTER_VOL = 0.85
   }
 
   init() {
@@ -198,7 +201,6 @@ class SpaceAudio {
     this.ctx = new AC()
     this.master = this.ctx.createGain()
     this.master.gain.value = 0.0
-    // Gentle compressor for headroom
     const comp = this.ctx.createDynamicsCompressor()
     comp.threshold.value = -18
     comp.knee.value = 12
@@ -213,80 +215,16 @@ class SpaceAudio {
     this.started = true
     const now = this.ctx.currentTime
 
-    // ─── Deep space drone — richer harmonic stack ───────────
-    const droneFreqs = [55, 82.4, 110, 138.6, 165, 220] // A1, E2, A2, C#3, E3, A3 (A minor 7 voicing)
-    droneFreqs.forEach((f, i) => {
-      const osc = this.ctx.createOscillator()
-      const gain = this.ctx.createGain()
-      const filter = this.ctx.createBiquadFilter()
-      osc.type = ['sine', 'triangle', 'sine'][i % 3]
-      osc.frequency.value = f
-      osc.detune.value = (Math.random() - 0.5) * 8
-      filter.type = 'lowpass'
-      filter.frequency.value = 700 + i * 80
-      filter.Q.value = 2
-      gain.gain.value = 0
-      osc.connect(filter).connect(gain).connect(this.master)
-      osc.start(now)
-      gain.gain.exponentialRampToValueAtTime(0.07 + i * 0.008, now + 4 + i * 0.4)
-      // LFO modulation
-      const lfo = this.ctx.createOscillator()
-      const lfoGain = this.ctx.createGain()
-      lfo.frequency.value = 0.05 + i * 0.025
-      lfoGain.gain.value = 3 + i * 0.5
-      lfo.connect(lfoGain).connect(osc.frequency)
-      lfo.start(now)
-      this.musicNodes.push(osc, lfo, gain)
-    })
+    // ─── Ambient MP3 loop via HTMLAudioElement → Web Audio ───
+    this.ambientElement = new Audio(AMBIENT_LOOP_PATH)
+    this.ambientElement.loop = true
+    this.ambientElement.crossOrigin = 'anonymous'
+    this.ambientSource = this.ctx.createMediaElementSource(this.ambientElement)
+    this.ambientSource.connect(this.master)
+    this.ambientElement.play().catch(() => {})
 
-    // ─── Shimmer pad with filter sweep ──────────────────────
-    const shimmerOsc = this.ctx.createOscillator()
-    const shimmerGain = this.ctx.createGain()
-    const shimmerFilter = this.ctx.createBiquadFilter()
-    shimmerOsc.type = 'sawtooth'
-    shimmerOsc.frequency.value = 880
-    shimmerFilter.type = 'lowpass'
-    shimmerFilter.frequency.value = 1200
-    shimmerFilter.Q.value = 8
-    shimmerGain.gain.value = 0
-    shimmerOsc.connect(shimmerFilter).connect(shimmerGain).connect(this.master)
-    shimmerOsc.start(now)
-    shimmerGain.gain.exponentialRampToValueAtTime(0.015, now + 6)
-    const sweepLfo = this.ctx.createOscillator()
-    const sweepGain = this.ctx.createGain()
-    sweepLfo.frequency.value = 0.04
-    sweepGain.gain.value = 800
-    sweepLfo.connect(sweepGain).connect(shimmerFilter.frequency)
-    sweepLfo.start(now)
-    this.musicNodes.push(shimmerOsc, sweepLfo, shimmerGain)
-
-    // ─── Solar wind — filtered noise bed ────────────────────
-    const windBuf = this.ctx.createBuffer(1, this.ctx.sampleRate * 4, this.ctx.sampleRate)
-    const wd = windBuf.getChannelData(0)
-    for (let i = 0; i < wd.length; i++) wd[i] = (Math.random() * 2 - 1) * 0.4
-    const wind = this.ctx.createBufferSource()
-    wind.buffer = windBuf
-    wind.loop = true
-    const windFilter = this.ctx.createBiquadFilter()
-    windFilter.type = 'bandpass'
-    windFilter.frequency.value = 600
-    windFilter.Q.value = 1.5
-    const windGain = this.ctx.createGain()
-    windGain.gain.value = 0
-    wind.connect(windFilter).connect(windGain).connect(this.master)
-    wind.start(now)
-    windGain.gain.exponentialRampToValueAtTime(0.025, now + 8)
-    // Slow wind modulation
-    const windLfo = this.ctx.createOscillator()
-    const windLfoGain = this.ctx.createGain()
-    windLfo.frequency.value = 0.08
-    windLfoGain.gain.value = 200
-    windLfo.connect(windLfoGain).connect(windFilter.frequency)
-    windLfo.start(now)
-    this.musicNodes.push(wind, windLfo, windGain)
-
-    // Fade master in
-    this.master.gain.linearRampToValueAtTime(this.muted ? 0 : this.MASTER_VOL, now + 3)
+    // Fade master in over 4 seconds
+    this.master.gain.linearRampToValueAtTime(this.muted ? 0 : this.MASTER_VOL, now + 4)
 
     // Ambient sparkles every 4-10s
     this._scheduleSparkle()
@@ -305,7 +243,6 @@ class SpaceAudio {
   sparkle() {
     if (!this.ctx || this.muted) return
     const now = this.ctx.currentTime
-    // Pentatonic scale notes (A minor)
     const notes = [880, 988, 1175, 1319, 1568, 1760, 1975, 2349]
     const f = notes[Math.floor(Math.random() * notes.length)]
     const osc = this.ctx.createOscillator()
