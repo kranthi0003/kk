@@ -1104,6 +1104,80 @@ function AsteroidBelt() {
   )
 }
 
+// ─── Kuiper Belt (icy debris ring beyond Neptune) ────────────
+function KuiperBelt() {
+  const ref = useRef()
+  const { positions, colors } = useMemo(() => {
+    const count = 2500
+    const pos = new Float32Array(count * 3)
+    const col = new Float32Array(count * 3)
+    const innerR = 100
+    const outerR = 160
+    for (let i = 0; i < count; i++) {
+      const r = innerR + Math.random() * (outerR - innerR)
+      const theta = Math.random() * Math.PI * 2
+      const y = (Math.random() - 0.5) * 3.5
+      pos[i * 3] = Math.cos(theta) * r
+      pos[i * 3 + 1] = y
+      pos[i * 3 + 2] = Math.sin(theta) * r
+      // Icy blue-white colors with variation
+      const t = Math.random()
+      col[i * 3] = 0.55 + t * 0.35     // R
+      col[i * 3 + 1] = 0.6 + t * 0.35  // G
+      col[i * 3 + 2] = 0.75 + t * 0.25 // B
+    }
+    return { positions: pos, colors: col }
+  }, [])
+
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.003
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+      </bufferGeometry>
+      <pointsMaterial size={0.12} vertexColors transparent opacity={0.45} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+    </points>
+  )
+}
+
+// ─── Oort Cloud hint (distant spherical shell of faint particles) ─
+function OortCloud() {
+  const ref = useRef()
+  const positions = useMemo(() => {
+    const count = 1200
+    const pos = new Float32Array(count * 3)
+    const innerR = 400
+    const outerR = 600
+    for (let i = 0; i < count; i++) {
+      // Spherical distribution (not just a ring)
+      const r = innerR + Math.random() * (outerR - innerR)
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.acos(2 * Math.random() - 1)
+      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      pos[i * 3 + 1] = r * Math.cos(phi)
+      pos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta)
+    }
+    return pos
+  }, [])
+
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.001
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <pointsMaterial size={0.08} color="#8090b0" transparent opacity={0.2} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+    </points>
+  )
+}
+
 // ─── Scene ───────────────────────────────────────────────────
 function Scene({ selected, hovered, onSelect, onHover, planetPositions, controlsRef }) {
   return (
@@ -1113,6 +1187,8 @@ function Scene({ selected, hovered, onSelect, onHover, planetPositions, controls
       <Nebula />
       <Sun />
       <AsteroidBelt />
+      <KuiperBelt />
+      <OortCloud />
       {PLANETS.map(p => (
         <OrbitPath key={`orbit-${p.id}`} planet={p} highlighted={selected?.id === p.id || hovered === p.id} />
       ))}
