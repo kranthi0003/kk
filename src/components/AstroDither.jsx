@@ -326,9 +326,11 @@ export default function AstroDither({ onBack }) {
     let raf
     const update = () => {
       if (holdingRef.current) {
-        speedRef.current = Math.min(speedRef.current + 0.05, 20)
+        // Parabolic: acceleration slows as speed increases
+        const remaining = (20 - speedRef.current) / 19
+        speedRef.current = Math.min(speedRef.current + 0.08 * remaining, 20)
       } else {
-        speedRef.current = Math.max(speedRef.current - 0.04, 1)
+        speedRef.current = Math.max(speedRef.current - 0.06, 1)
       }
       setDisplaySpeed(speedRef.current)
       warpAudio.setSpeed(speedRef.current)
