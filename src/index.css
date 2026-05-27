@@ -255,24 +255,20 @@ h2 { letter-spacing: -0.03em; }
 .pr-backdrop-glow::before, .pr-backdrop-glow::after {
   content: ''; position: absolute; inset: 0;
 }
-/* Big saturated cosmic glow blooming up from BOTTOM-RIGHT — deep violet → magenta → blue */
+/* Big saturated cosmic glow — disabled for GitHub theme (kept neutral) */
 .dark .pr-backdrop-glow::before {
   background:
-    radial-gradient(ellipse 90% 80% at 100% 110%, oklch(35% 0.30 320 / 0.95), transparent 55%),
-    radial-gradient(ellipse 80% 70% at 0% 110%, oklch(32% 0.28 280 / 0.85), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 50% 100%, oklch(28% 0.22 300 / 0.6), transparent 60%);
+    radial-gradient(ellipse 90% 80% at 100% 110%, oklch(25% 0.04 250 / 0.6), transparent 60%),
+    radial-gradient(ellipse 80% 70% at 0% 110%, oklch(22% 0.04 250 / 0.5), transparent 60%);
 }
-/* Top-center deep purple wash + nebula mid-area glow */
 .dark .pr-backdrop-glow::after {
   background:
-    radial-gradient(ellipse 90% 35% at 50% -8%, oklch(28% 0.25 285 / 0.85), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 90% 45%, oklch(40% 0.26 320 / 0.5), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 10% 45%, oklch(38% 0.22 290 / 0.4), transparent 60%);
+    radial-gradient(ellipse 90% 35% at 50% -8%, oklch(25% 0.05 250 / 0.5), transparent 65%);
 }
-/* Light mode: very subtle violet wash */
+/* Light mode: clean, near-flat */
 .pr-backdrop-glow::before {
   background:
-    radial-gradient(ellipse 80% 60% at 100% 110%, oklch(85% 0.10 310 / 0.4), transparent 55%);
+    radial-gradient(ellipse 80% 60% at 100% 110%, oklch(94% 0.01 250 / 0.4), transparent 60%);
 }
 
 /* Starfield using radial-gradient dots — twinkle animation */
@@ -390,17 +386,17 @@ body:has(.pr-backdrop-base)::before { display: none; }
     0 1px 2px 0 rgba(0,0,0,0.4) !important;
   border-radius: var(--radius);
 }
-/* Tint overrides — set the variable used by the radial gradient */
-.pr-tint-violet  { --pr-tint: color-mix(in oklab, var(--chart-1) 14%, transparent); }
-.pr-tint-magenta { --pr-tint: color-mix(in oklab, var(--chart-2) 14%, transparent); }
-.pr-tint-coral   { --pr-tint: color-mix(in oklab, var(--chart-3) 14%, transparent); }
+/* Tint overrides — flat for GitHub theme (cards stay solid card color) */
+.pr-tint-violet  { --pr-tint: color-mix(in oklab, var(--chart-1) 4%, transparent); }
+.pr-tint-magenta { --pr-tint: color-mix(in oklab, var(--chart-2) 4%, transparent); }
+.pr-tint-coral   { --pr-tint: color-mix(in oklab, var(--chart-3) 4%, transparent); }
 
 /* Nav surface — one cohesive color across both nav rows.
    Slightly darker than body with violet tint, semi-transparent for the glow to peek through. */
 .thq-nav-surface,
 .thq-nav-surface-2 { background-color: rgba(255,255,255,0.88); }
 .dark .thq-nav-surface,
-.dark .thq-nav-surface-2 { background-color: oklch(7% 0.03 290 / 0.85); }
+.dark .thq-nav-surface-2 { background-color: oklch(20% 0.015 250 / 0.85); }
 
 /* Nav circular icon buttons — subtle violet ring + lift on hover, matches provisionr theme */
 nav button.rounded-full.bg-muted,
