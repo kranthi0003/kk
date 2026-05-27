@@ -10,9 +10,9 @@ const T = {
   green: '#10b981',
   yellow: '#f59e0b',
   cyan: '#06b6d4',
-  purple: '#8b5cf6',
+  purple: '#0969da',
   red: '#ef4444',
-  pink: '#ec4899',
+  pink: '#3fb950',
   blue: '#0077b5',
   spotify: '#1db954',
 }

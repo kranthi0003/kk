@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import supabase from '../lib/supabase'
 
 const CHANNEL_NAME = 'live-chat'
-const COLORS = ['#60a5fa','#f472b6','#34d399','#fbbf24','#a78bfa','#fb923c','#22d3ee','#f87171','#4ade80','#e879f9']
+const COLORS = ['#60a5fa','#f472b6','#34d399','#fbbf24','#58a6ff','#fb923c','#22d3ee','#f87171','#4ade80','#e879f9']
 
 function getVisitorId() {
   let id = sessionStorage.getItem('chat_visitor_id')

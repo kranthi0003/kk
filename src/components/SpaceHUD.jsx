@@ -21,7 +21,7 @@ export default function SpaceHUD({ speed, distance, sector, dockTarget }) {
             style={{
               width: `${speedPct * 100}%`,
               background: speedPct > 0.7
-                ? 'linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6)'
+                ? 'linear-gradient(90deg, #60a5fa, #58a6ff, #f472b6)'
                 : 'linear-gradient(90deg, #60a5fa, #93c5fd)',
               boxShadow: speedPct > 0.5 ? '0 0 12px rgba(96, 165, 250, 0.6)' : 'none',
             }}

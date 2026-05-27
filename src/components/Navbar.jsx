@@ -429,7 +429,7 @@ function NavGames() {
       <button
         onClick={() => setOpen(o => !o)}
         className={`p-2 rounded-full transition-colors duration-200 ${
-          open ? 'bg-purple-500/15 text-purple-500' : 'bg-muted hover:bg-border text-muted-foreground hover:text-foreground'
+          open ? 'bg-blue-500/15 text-blue-500' : 'bg-muted hover:bg-border text-muted-foreground hover:text-foreground'
         }`}
         title="Games"
       >

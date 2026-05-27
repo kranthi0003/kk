@@ -1217,7 +1217,7 @@ function InfoDrawer({ planet, onClose, onPlay }) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <h2 className="text-2xl font-semibold text-white/95 tracking-tight">{planet.name}</h2>
-                  {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300/70 border border-violet-500/20">DWARF PLANET</span>}
+                  {planet.isDwarf && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300/70 border border-blue-500/20">DWARF PLANET</span>}
                   {planet.isMoon && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300/70 border border-cyan-500/20">MOON</span>}
                   {planet.isComet && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300/70 border border-amber-500/20">COMET</span>}
                   {planet.isStar && <span className="text-[8px] font-mono tracking-[0.2em] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300/70 border border-yellow-500/20">STAR</span>}

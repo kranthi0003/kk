@@ -14,7 +14,7 @@ function getInitials(name) {
   return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2)
 }
 
-const COLORS = ['bg-blue-500/20 text-blue-400', 'bg-purple-500/20 text-purple-400', 'bg-green-500/20 text-green-400', 'bg-amber-500/20 text-amber-400', 'bg-rose-500/20 text-rose-400', 'bg-cyan-500/20 text-cyan-400']
+const COLORS = ['bg-blue-500/20 text-blue-400', 'bg-blue-500/20 text-blue-400', 'bg-green-500/20 text-green-400', 'bg-amber-500/20 text-amber-400', 'bg-rose-500/20 text-rose-400', 'bg-cyan-500/20 text-cyan-400']
 
 export default function Guestbook() {
   const [entries, setEntries] = useState([])

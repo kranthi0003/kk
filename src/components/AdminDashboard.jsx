@@ -135,7 +135,7 @@ export default function AdminDashboard() {
         {/* Stats row */}
         <div className="px-5 py-3 border-b border-white/5 flex gap-4">
           <Stat label="Total" value={visitors.length} color="text-blue-400" />
-          <Stat label="Mobile" value={visitors.filter(v => v.device === 'Mobile').length} color="text-purple-400" />
+          <Stat label="Mobile" value={visitors.filter(v => v.device === 'Mobile').length} color="text-blue-400" />
           <Stat label="Desktop" value={visitors.filter(v => v.device === 'Desktop').length} color="text-cyan-400" />
           <Stat label="Countries" value={new Set(visitors.map(v => v.country)).size} color="text-amber-400" />
         </div>

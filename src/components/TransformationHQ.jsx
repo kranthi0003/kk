@@ -352,10 +352,10 @@ function TodayTab() {
           {checks.map(c => (
             <label key={c.key}
               className={`flex items-center gap-2.5 px-2.5 py-2 rounded-lg cursor-pointer transition-all ${
-                log[c.key] ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-background/40 border border-border/30 hover:border-violet-500/40'
+                log[c.key] ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-background/40 border border-border/30 hover:border-blue-500/40'
               }`}>
               <input type="checkbox" checked={!!log[c.key]} onChange={e => update(c.key, e.target.checked)}
-                className="w-4 h-4 rounded accent-violet-500" />
+                className="w-4 h-4 rounded accent-blue-500" />
               <span className="text-base">{c.icon}</span>
               <span className={`text-xs flex-1 ${log[c.key] ? 'line-through text-muted-foreground/60' : 'text-foreground'}`}>{c.label}</span>
             </label>
@@ -392,7 +392,7 @@ function TodayTab() {
         <div className="bg-card pr-tint-violet p-4">
           <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">⚡ Low energy? Minimum viable day</h4>
           <ul className="space-y-1 text-[11px] text-muted-foreground">
-            {MVP_DAY.map((m,i) => <li key={i} className="flex gap-1.5"><span className="text-violet-400">·</span>{m}</li>)}
+            {MVP_DAY.map((m,i) => <li key={i} className="flex gap-1.5"><span className="text-blue-400">·</span>{m}</li>)}
           </ul>
         </div>
         <div className="bg-card pr-tint-coral p-4">
@@ -421,8 +421,8 @@ function ProgressRing({ value, size = 80, stroke = 6 }) {
       />
       <defs>
         <linearGradient id="prog-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="100%" stopColor="#ec4899" />
+          <stop offset="0%" stopColor="#58a6ff" />
+          <stop offset="100%" stopColor="#3fb950" />
         </linearGradient>
       </defs>
       <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" className="font-heading" style={{ fill: 'currentColor', fontSize: size * 0.26, fontWeight: 700 }}>{value}%</text>
@@ -495,7 +495,7 @@ function QuickActions({ log, plan }) {
 
   const Btn = ({ onClick, icon, label }) => (
     <button onClick={onClick}
-      className="flex flex-col items-center gap-1 px-2.5 py-2 rounded-lg bg-background/50 border border-border/40 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all min-w-[64px]">
+      className="flex flex-col items-center gap-1 px-2.5 py-2 rounded-lg bg-background/50 border border-border/40 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all min-w-[64px]">
       <span className="text-lg leading-none">{icon}</span>
       <span className="text-[9.5px] font-medium text-muted-foreground">{label}</span>
     </button>
@@ -661,7 +661,7 @@ function TrainingTab() {
               <div className="flex-1 min-w-0">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
                   <span className="text-xs font-medium text-foreground">{ex.name}</span>
-                  <span className="text-[10px] font-mono text-violet-400">{ex.sets}×{ex.reps}</span>
+                  <span className="text-[10px] font-mono text-blue-400">{ex.sets}×{ex.reps}</span>
                   <span className="text-[10px] font-mono text-muted-foreground/60">rest {ex.rest}</span>
                 </div>
                 <p className="text-[10px] text-muted-foreground mt-0.5">{ex.cue}</p>
@@ -719,7 +719,7 @@ function DietTab() {
         <div className="space-y-2.5">
           {MEAL_PLAN.map((m, i) => (
             <div key={i} className="border-b border-border/15 last:border-0 pb-2.5 last:pb-0">
-              <div className="text-[11px] font-mono font-semibold text-violet-400 mb-1">{m.slot}</div>
+              <div className="text-[11px] font-mono font-semibold text-blue-400 mb-1">{m.slot}</div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                 <div><span className="text-muted-foreground">🥬 Veg: </span><span className="text-foreground/90">{m.veg}</span></div>
                 <div><span className="text-muted-foreground">🍗 NV: </span><span className="text-foreground/90">{m.nv}</span></div>
@@ -750,7 +750,7 @@ function SuppsTab() {
         <div key={i} className={`bg-card p-4 ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral'][i % 3]}`}>
           <div className="flex items-baseline justify-between gap-3 mb-1">
             <h4 className="text-xs font-semibold text-foreground">{s.name}</h4>
-            <span className="text-[10px] font-mono text-violet-400">{s.dose}</span>
+            <span className="text-[10px] font-mono text-blue-400">{s.dose}</span>
           </div>
           <p className="text-[11px] text-foreground/80 mb-0.5"><span className="text-muted-foreground">When: </span>{s.when}</p>
           <p className="text-[11px] text-foreground/80 mb-0.5"><span className="text-muted-foreground">Why: </span>{s.why}</p>
@@ -774,7 +774,7 @@ function RecoveryTab() {
         <div key={i} className={`bg-card p-4 ${s.tint}`}>
           <h4 className="text-xs font-semibold text-foreground mb-2">{s.title}</h4>
           <ul className="text-[11px] text-muted-foreground space-y-1">
-            {s.items.map((it, j) => <li key={j} className="flex gap-1.5"><span className="text-violet-400">·</span>{it}</li>)}
+            {s.items.map((it, j) => <li key={j} className="flex gap-1.5"><span className="text-blue-400">·</span>{it}</li>)}
           </ul>
         </div>
       ))}
@@ -826,8 +826,8 @@ function TrackerTab() {
         <h4 className="text-xs font-semibold text-foreground mb-2">Weight log (kg)</h4>
         <div className="flex gap-2 mb-3">
           <input type="number" step="0.1" value={wIn} onChange={e => setWIn(e.target.value)} placeholder="e.g. 74.5"
-            className="flex-1 bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-violet-500/60" />
-          <button onClick={addWeight} className="px-3 py-1.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-xs text-foreground hover:bg-violet-500/30 transition-colors">Log today</button>
+            className="flex-1 bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-blue-500/60" />
+          <button onClick={addWeight} className="px-3 py-1.5 rounded-md bg-blue-500/20 border border-blue-500/40 text-xs text-foreground hover:bg-blue-500/30 transition-colors">Log today</button>
         </div>
         <Sparkline data={weight} unit="kg" />
       </div>
@@ -888,14 +888,14 @@ function WorkoutLogger() {
       <h4 className="text-xs font-semibold text-foreground mb-2">Workout log · personal records</h4>
       <div className="grid grid-cols-[1fr_70px_60px_auto] gap-2 mb-3">
         <select value={ex} onChange={e => setEx(e.target.value)}
-          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60">
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-blue-500/60">
           {exerciseList.map(n => <option key={n} value={n}>{n}</option>)}
         </select>
         <input type="number" step="0.5" value={w} onChange={e => setW(e.target.value)} placeholder="kg"
-          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60" />
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-blue-500/60" />
         <input type="number" value={r} onChange={e => setR(e.target.value)} placeholder="reps"
-          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-violet-500/60" />
-        <button onClick={log} className="px-3 py-1.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-[11px] text-foreground hover:bg-violet-500/30 transition-colors">Log</button>
+          className="bg-background border border-border/40 rounded-md px-2 py-1.5 text-[11px] outline-none focus:border-blue-500/60" />
+        <button onClick={log} className="px-3 py-1.5 rounded-md bg-blue-500/20 border border-blue-500/40 text-[11px] text-foreground hover:bg-blue-500/30 transition-colors">Log</button>
       </div>
 
       {prs.length > 0 && (
@@ -906,7 +906,7 @@ function WorkoutLogger() {
               <div key={i} className="flex items-center justify-between text-[11px] py-1 px-2 rounded-md bg-background/40">
                 <span className="font-medium text-foreground truncate flex-1 mr-2">{p.ex}</span>
                 <span className="font-mono text-muted-foreground tabular-nums">{p.w}kg × {p.r}</span>
-                <span className="font-mono text-violet-400 tabular-nums ml-2 w-12 text-right">{p.est1rm.toFixed(0)}kg</span>
+                <span className="font-mono text-blue-400 tabular-nums ml-2 w-12 text-right">{p.est1rm.toFixed(0)}kg</span>
               </div>
             ))}
           </div>
@@ -1010,11 +1010,11 @@ function Sparkline({ data, unit }) {
   return (
     <div>
       <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-14">
-        <polyline fill="none" stroke="currentColor" strokeWidth="1.5" points={pts} className="text-violet-400" />
+        <polyline fill="none" stroke="currentColor" strokeWidth="1.5" points={pts} className="text-blue-400" />
         {data.map((d, i) => {
           const x = pad + (i / Math.max(1, data.length - 1)) * (w - pad * 2)
           const y = pad + (1 - (d.v - min) / range) * (h - pad * 2)
-          return <circle key={i} cx={x} cy={y} r="2" className="fill-violet-300" />
+          return <circle key={i} cx={x} cy={y} r="2" className="fill-blue-300" />
         })}
       </svg>
       <div className="flex justify-between text-[10px] text-muted-foreground font-mono mt-1">
@@ -1032,7 +1032,7 @@ function RoadmapTab() {
         <div key={i} className={`bg-card p-4 ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral'][i % 3]}`}>
           <div className="flex items-baseline justify-between gap-3 mb-2">
             <h4 className="text-sm font-semibold text-foreground">{r.window}</h4>
-            <span className="text-[10px] font-mono text-violet-400">milestone</span>
+            <span className="text-[10px] font-mono text-blue-400">milestone</span>
           </div>
           <p className="text-[11px] text-foreground/85 mb-1.5"><b className="text-foreground">Body: </b>{r.body}</p>
           <p className="text-[11px] text-foreground/85 mb-1.5"><b className="text-foreground">Habit: </b>{r.habit}</p>
@@ -1089,7 +1089,7 @@ function PhotosTab() {
             <h4 className="text-xs font-semibold text-foreground">📸 Progress photos</h4>
             <p className="text-[10.5px] text-muted-foreground mt-0.5">Take a weekly photo (Sunday morning, same spot, same light, same outfit). Stored locally only.</p>
           </div>
-          <label className="px-3 py-1.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-[11px] text-foreground hover:bg-violet-500/30 transition-colors cursor-pointer">
+          <label className="px-3 py-1.5 rounded-md bg-blue-500/20 border border-blue-500/40 text-[11px] text-foreground hover:bg-blue-500/30 transition-colors cursor-pointer">
             {busy ? 'Compressing…' : '＋ Add photo'}
             <input ref={fileRef} type="file" accept="image/*" capture="environment" onChange={upload} className="hidden" disabled={busy} />
           </label>
@@ -1106,7 +1106,7 @@ function PhotosTab() {
                 <img src={p.data} alt={p.date} className="w-full h-full object-cover" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-1.5 text-[10px] text-white font-mono">
                   {p.date}
-                  {i === photos.length - 1 && <span className="ml-1 px-1 rounded bg-violet-500/60 text-[8px] uppercase">start</span>}
+                  {i === photos.length - 1 && <span className="ml-1 px-1 rounded bg-blue-500/60 text-[8px] uppercase">start</span>}
                 </div>
                 <button onClick={() => remove(i)}
                   className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/60 text-white/80 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">×</button>
@@ -1220,14 +1220,14 @@ function SettingsTab() {
         <h4 className="text-xs font-semibold text-foreground mb-3">📱 WhatsApp self-message</h4>
         <p className="text-[11px] text-muted-foreground mb-2">Your phone number with country code. Tapping the WhatsApp quick-action will draft a daily message to you.</p>
         <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+91 9876543210"
-          className="w-full bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-violet-500/60" />
+          className="w-full bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-blue-500/60" />
       </div>
 
       <div className="bg-card pr-tint-magenta p-4">
         <h4 className="text-xs font-semibold text-foreground mb-3">📲 ntfy.sh push topic</h4>
         <p className="text-[11px] text-muted-foreground mb-2">
           Free push notifications to your phone. Pick a unique topic name (random characters work best),
-          install the <a href="https://ntfy.sh" target="_blank" rel="noopener" className="text-violet-400 underline">ntfy app</a>, subscribe to your topic.
+          install the <a href="https://ntfy.sh" target="_blank" rel="noopener" className="text-blue-400 underline">ntfy app</a>, subscribe to your topic.
           The Push quick-action will deliver to that topic instantly.
         </p>
         <input type="text" value={ntfy} onChange={e => setNtfy(e.target.value)} placeholder="e.g. kranthi-thq-x7p2q"
@@ -1250,11 +1250,11 @@ function SettingsTab() {
         <h4 className="text-xs font-semibold text-foreground mb-3">🚩 Journey start date</h4>
         <p className="text-[11px] text-muted-foreground mb-2">The Day-N counter on Today counts from this date.</p>
         <input type="date" value={start} onChange={e => setStart(e.target.value)}
-          className="bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-violet-500/60" />
+          className="bg-background border border-border/40 rounded-md px-3 py-1.5 text-xs outline-none focus:border-blue-500/60" />
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <button onClick={save} className="px-4 py-2 rounded-md bg-violet-500/30 border border-violet-500/50 text-[12px] font-semibold text-foreground hover:bg-violet-500/40 transition-colors">
+        <button onClick={save} className="px-4 py-2 rounded-md bg-blue-500/30 border border-blue-500/50 text-[12px] font-semibold text-foreground hover:bg-blue-500/40 transition-colors">
           {saved || 'Save settings'}
         </button>
         <button onClick={exportData} className="px-4 py-2 rounded-md bg-background border border-border/50 text-[12px] text-foreground hover:bg-foreground/5 transition-colors">

@@ -11,7 +11,7 @@ const experiences = [
     location: 'Remote',
     period: '2026 – Present',
     companyUrl: 'https://github.com',
-    color: '#8b5cf6',
+    color: '#0969da',
     description: 'Distributed systems, Git internals & platform reliability at scale.',
     current: true,
   },

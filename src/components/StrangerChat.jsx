@@ -401,7 +401,7 @@ export default function StrangerChat({ onBack }) {
                   onKeyDown={(e) => { if (e.key === 'Enter') sendMessage() }}
                   disabled={phase === PHASE.ENDED}
                   placeholder={phase === PHASE.ENDED ? 'Stranger disconnected — hit Find new' : 'Type a message…'}
-                  className="flex-1 bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-violet-500/60 disabled:opacity-50"
+                  className="flex-1 bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-blue-500/60 disabled:opacity-50"
                   maxLength={500}
                 />
                 {phase !== PHASE.ENDED ? (
@@ -492,15 +492,15 @@ function WelcomeScreen({ onStart }) {
         <div className="bg-background/50 border border-border/40 rounded-lg p-4 text-left mb-6">
           <p className="text-[11px] font-semibold text-foreground mb-2 uppercase tracking-wider">Ground rules</p>
           <ul className="text-[12px] text-muted-foreground space-y-1.5">
-            <li className="flex gap-2"><span className="text-violet-400">·</span> Be kind. No harassment, hate, or threats.</li>
-            <li className="flex gap-2"><span className="text-violet-400">·</span> Don't share personal info you'd regret.</li>
-            <li className="flex gap-2"><span className="text-violet-400">·</span> 18+. If you're uncomfortable, hit <b>Next</b> or <b>End</b>.</li>
-            <li className="flex gap-2"><span className="text-violet-400">·</span> Conversations aren't logged anywhere.</li>
+            <li className="flex gap-2"><span className="text-blue-400">·</span> Be kind. No harassment, hate, or threats.</li>
+            <li className="flex gap-2"><span className="text-blue-400">·</span> Don't share personal info you'd regret.</li>
+            <li className="flex gap-2"><span className="text-blue-400">·</span> 18+. If you're uncomfortable, hit <b>Next</b> or <b>End</b>.</li>
+            <li className="flex gap-2"><span className="text-blue-400">·</span> Conversations aren't logged anywhere.</li>
           </ul>
         </div>
 
         <label className="flex items-center gap-2 mb-5 cursor-pointer justify-center text-xs text-muted-foreground">
-          <input type="checkbox" checked={accepted} onChange={e => setAccepted(e.target.checked)} className="w-4 h-4 accent-violet-500" />
+          <input type="checkbox" checked={accepted} onChange={e => setAccepted(e.target.checked)} className="w-4 h-4 accent-blue-500" />
           I'm 18+ and agree to the ground rules.
         </label>
 

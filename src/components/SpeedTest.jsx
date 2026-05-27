@@ -82,7 +82,7 @@ export default function SpeedTest() {
           <Bar label="FCP" value={metrics.fcp || 0} max={3000} unit="ms" color="bg-green-500" />
           <Bar label="TTFB" value={metrics.ttfb || 0} max={1000} unit="ms" color="bg-blue-500" />
           <Bar label="DOM Ready" value={metrics.domReady || 0} max={3000} unit="ms" color="bg-cyan-500" />
-          <Bar label="Full Load" value={metrics.fullLoad || 0} max={5000} unit="ms" color="bg-purple-500" />
+          <Bar label="Full Load" value={metrics.fullLoad || 0} max={5000} unit="ms" color="bg-blue-500" />
           <Bar label="Transfer" value={metrics.totalKB} max={2000} unit="KB" color="bg-amber-500" />
         </div>
 

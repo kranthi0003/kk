@@ -19,7 +19,7 @@ export default function AstroDitherSection() {
           {/* AstroDither card */}
           <a href="#/astro"
              className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(120,80,255,0.15)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

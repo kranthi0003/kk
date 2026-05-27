@@ -29,7 +29,7 @@ export default function WorkspaceSection() {
           <Suspense fallback={
             <div className="absolute inset-0 flex items-center justify-center bg-card">
               <div className="text-center">
-                <div className="w-8 h-8 mx-auto mb-3 border-2 border-muted-foreground/20 border-t-violet-500 rounded-full animate-spin" />
+                <div className="w-8 h-8 mx-auto mb-3 border-2 border-muted-foreground/20 border-t-blue-500 rounded-full animate-spin" />
                 <p className="text-xs text-muted-foreground font-mono">Loading 3D scene…</p>
               </div>
             </div>

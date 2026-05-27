@@ -24,7 +24,7 @@ function getCommitTag(msg) {
   if (m.startsWith('add') || m.startsWith('feat') || m.startsWith('create')) return { label: 'New', color: 'bg-green-500/15 text-green-400 border-green-500/20' }
   if (m.startsWith('redesign') || m.startsWith('refactor') || m.startsWith('update') || m.startsWith('improve')) return { label: 'Update', color: 'bg-blue-500/15 text-blue-400 border-blue-500/20' }
   if (m.startsWith('remove') || m.startsWith('revert') || m.startsWith('delete')) return { label: 'Remove', color: 'bg-orange-500/15 text-orange-400 border-orange-500/20' }
-  if (m.startsWith('style') || m.includes('ui') || m.includes('css')) return { label: 'Style', color: 'bg-purple-500/15 text-purple-400 border-purple-500/20' }
+  if (m.startsWith('style') || m.includes('ui') || m.includes('css')) return { label: 'Style', color: 'bg-blue-500/15 text-blue-400 border-blue-500/20' }
   return { label: 'Change', color: 'bg-white/10 text-white/50 border-white/10' }
 }
 

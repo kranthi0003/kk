@@ -9,8 +9,8 @@ import * as THREE from 'three'
 // Items glow violet on hover and open site sections on click.
 // ============================================================
 
-const VIOLET = '#a78bfa'
-const MAGENTA = '#ec4899'
+const VIOLET = '#58a6ff'
+const MAGENTA = '#3fb950'
 const CORAL = '#f97316'
 
 // ─── Theme constants (was a 4-level inception system; flattened to one) ──
@@ -21,8 +21,8 @@ const THEME = {
   bgNight: '#08040f', bgDay: '#1a1830',
   wallA: '#110d22', wallB: '#0e0a1e',
   floor: '#0c0814',
-  accent: '#8b5cf6', accent2: '#ec4899',
-  npcShirt: '#7c3aed',
+  accent: '#0969da', accent2: '#3fb950',
+  npcShirt: '#0550ae',
   monitorContent: 'code',
 }
 
@@ -452,17 +452,17 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* Rim / kick light from behind for separation */}
       <directionalLight position={[-3, 4, -4]} intensity={isDay ? 0.3 : 0.6} color={isDay ? '#ff9a6f' : '#ff3e9d'} />
       {/* Accent point lights — always on for gamer vibe */}
-      <pointLight position={[-3, 1.5, -1]} intensity={isDay ? 0.3 : 0.9} color="#8b5cf6" distance={7} decay={2} />
-      <pointLight position={[2.5, 1.5, 2]} intensity={isDay ? 0.2 : 0.7} color="#ec4899" distance={7} decay={2} />
+      <pointLight position={[-3, 1.5, -1]} intensity={isDay ? 0.3 : 0.9} color="#0969da" distance={7} decay={2} />
+      <pointLight position={[2.5, 1.5, 2]} intensity={isDay ? 0.2 : 0.7} color="#3fb950" distance={7} decay={2} />
       <pointLight position={[0, 0.2, 3]} intensity={isDay ? 0.15 : 0.5} color="#06b6d4" distance={6} decay={2} />
       {!isDay && (
         <>
           {/* Monitor screen bleed onto desk */}
-          <pointLight position={[-0.05, 1.05, -0.3]} intensity={1.0} color="#a78bfa" distance={3} decay={2} />
+          <pointLight position={[-0.05, 1.05, -0.3]} intensity={1.0} color="#58a6ff" distance={3} decay={2} />
           {/* Back wall wash — purple */}
-          <pointLight position={[0, 2.5, -2.4]} intensity={0.6} color="#7c3aed" distance={5} decay={2} />
+          <pointLight position={[0, 2.5, -2.4]} intensity={0.6} color="#0550ae" distance={5} decay={2} />
           {/* Side wall wash — magenta */}
-          <pointLight position={[-2.4, 2, -0.5]} intensity={0.4} color="#ec4899" distance={5} decay={2} />
+          <pointLight position={[-2.4, 2, -0.5]} intensity={0.4} color="#3fb950" distance={5} decay={2} />
         </>
       )}
       {/* Desk lamp warm pool — no shadow to avoid flicker */}
@@ -510,14 +510,14 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === LED STRIP — under desk edges, gamer accent glow === */}
       <mesh position={[0, 0.65, 0.79]}>
         <boxGeometry args={[3.0, 0.02, 0.02]} />
-        <meshBasicMaterial color="#8b5cf6" />
+        <meshBasicMaterial color="#0969da" />
       </mesh>
-      <pointLight position={[0, 0.5, 0.8]} intensity={isDay ? 0.2 : 0.8} color="#8b5cf6" distance={2.5} decay={2} />
+      <pointLight position={[0, 0.5, 0.8]} intensity={isDay ? 0.2 : 0.8} color="#0969da" distance={2.5} decay={2} />
       <mesh position={[0, 0.65, -0.79]}>
         <boxGeometry args={[3.0, 0.02, 0.02]} />
-        <meshBasicMaterial color="#ec4899" />
+        <meshBasicMaterial color="#3fb950" />
       </mesh>
-      <pointLight position={[0, 0.5, -0.8]} intensity={isDay ? 0.1 : 0.5} color="#ec4899" distance={2} decay={2} />
+      <pointLight position={[0, 0.5, -0.8]} intensity={isDay ? 0.1 : 0.5} color="#3fb950" distance={2} decay={2} />
       <mesh position={[-1.59, 0.65, 0]}>
         <boxGeometry args={[0.02, 0.02, 1.5]} />
         <meshBasicMaterial color="#06b6d4" />
@@ -530,14 +530,14 @@ function Scene({ onHover, onClick, hovered, isDay, gameMode, onNear }) {
       {/* === NEON WALL ACCENTS === */}
       <mesh position={[-2.2, 2.2, -2.58]}>
         <boxGeometry args={[0.03, 1.8, 0.03]} />
-        <meshBasicMaterial color="#8b5cf6" />
+        <meshBasicMaterial color="#0969da" />
       </mesh>
-      <pointLight position={[-2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#8b5cf6" distance={3} decay={2} />
+      <pointLight position={[-2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#0969da" distance={3} decay={2} />
       <mesh position={[2.2, 2.2, -2.58]}>
         <boxGeometry args={[0.03, 1.8, 0.03]} />
-        <meshBasicMaterial color="#ec4899" />
+        <meshBasicMaterial color="#3fb950" />
       </mesh>
-      <pointLight position={[2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#ec4899" distance={3} decay={2} />
+      <pointLight position={[2.2, 2.2, -2.5]} intensity={isDay ? 0.1 : 0.4} color="#3fb950" distance={3} decay={2} />
       <mesh position={[-2.58, 3.2, -1.0]}>
         <boxGeometry args={[0.03, 0.03, 2.4]} />
         <meshBasicMaterial color="#06b6d4" />
@@ -783,7 +783,7 @@ function Monitor() {
         <meshBasicMaterial color="#0c0712" toneMapped={false} />
       </mesh>
       <Html position={[-0.7, 0.38, 0.05]} transform occlude scale={0.04} rotation={[0, 0, 0]}>
-        <div style={{ color: '#a78bfa', fontFamily: 'ui-monospace, monospace', fontSize: 18, fontWeight: 600, whiteSpace: 'nowrap' }}>
+        <div style={{ color: '#58a6ff', fontFamily: 'ui-monospace, monospace', fontSize: 18, fontWeight: 600, whiteSpace: 'nowrap' }}>
           ● github.com/kranthi0003 — live
         </div>
       </Html>
@@ -792,7 +792,7 @@ function Monitor() {
         {commits.map((c, i) => (
           <Html key={i} position={[0, 0.3 - i * 0.06, 0]} transform occlude scale={0.03} rotation={[0, 0, 0]}>
             <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 16, whiteSpace: 'nowrap', display: 'flex', gap: 8 }}>
-              <span style={{ color: '#ec4899' }}>$</span>
+              <span style={{ color: '#3fb950' }}>$</span>
               <span style={{ color: '#94a3b8' }}>{c.repo}</span>
               <span style={{ color: '#e2e8f0' }}>{c.msg}</span>
             </div>
@@ -802,7 +802,7 @@ function Monitor() {
           [0.22, 0.13, 0.04, -0.05, -0.14, -0.23].map((y, i) => (
             <mesh key={i} position={[0, y, 0]}>
               <planeGeometry args={[0.5 - (i % 3) * 0.08, 0.022]} />
-              <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#c4b5fd'} toneMapped={false} />
+              <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#79c0ff'} toneMapped={false} />
             </mesh>
           ))
         )}
@@ -849,7 +849,7 @@ function Laptop() {
         {[0.22, 0.13, 0.04, -0.05, -0.14, -0.23].map((y, i) => (
           <mesh key={i} position={[-0.28 + (i % 2) * 0.05, y, 0.02]}>
             <planeGeometry args={[0.38 - (i % 3) * 0.06, 0.018]} />
-            <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#c4b5fd'} toneMapped={false} />
+            <meshBasicMaterial color={i % 3 === 0 ? MAGENTA : '#79c0ff'} toneMapped={false} />
           </mesh>
         ))}
       </group>
@@ -972,7 +972,7 @@ function Notebook({ position }) {
       </RoundedBox>
       <mesh position={[-0.15, 0.014, 0]}>
         <planeGeometry args={[0.02, 0.48]} />
-        <meshBasicMaterial color="#ec4899" toneMapped={false} />
+        <meshBasicMaterial color="#3fb950" toneMapped={false} />
       </mesh>
       {/* Pen */}
       <mesh position={[0.18, 0.025, 0.1]} rotation={[0, 0.3, Math.PI / 2]} castShadow>
@@ -1051,7 +1051,7 @@ function Cat({ position }) {
       <Float speed={1.5} floatIntensity={0.6}>
         <mesh position={[-0.05, 0.3, 0.1]}>
           <planeGeometry args={[0.05, 0.06]} />
-          <meshBasicMaterial color="#c4b5fd" transparent opacity={0.7} toneMapped={false} />
+          <meshBasicMaterial color="#79c0ff" transparent opacity={0.7} toneMapped={false} />
         </mesh>
       </Float>
     </group>
@@ -1167,7 +1167,7 @@ function Whiteboard() {
       ].map((line, i) => (
         <mesh key={i} position={[(line[0]+line[2])/2, (line[1]+line[3])/2, 0.025]}>
           <planeGeometry args={[Math.hypot(line[2]-line[0], line[3]-line[1]), 0.012]} />
-          <meshBasicMaterial color="#7c3aed" toneMapped={false} />
+          <meshBasicMaterial color="#0550ae" toneMapped={false} />
         </mesh>
       ))}
       {[[-0.4, 0.2], [0.5, 0.2], [-0.2, -0.1], [0.5, -0.2]].map((p, i) => (
@@ -1204,7 +1204,7 @@ function TravelPoster() {
       {[-0.35, -0.42, -0.49].map((y, i) => (
         <mesh key={i} position={[0, y, 0.025]}>
           <planeGeometry args={[0.6 - i * 0.1, 0.02]} />
-          <meshBasicMaterial color="#c4b5fd" />
+          <meshBasicMaterial color="#79c0ff" />
         </mesh>
       ))}
     </group>
@@ -1518,7 +1518,7 @@ function Hotspot({ id, position, rotation, children, onHover, onClick, hovered }
           style={{ pointerEvents: 'none' }}
         >
           <div style={{
-            background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(236,72,153,0.95))',
+            background: 'linear-gradient(135deg, rgba(9,105,218,0.95), rgba(63,185,80,0.95))',
             color: 'white',
             padding: '6px 12px',
             borderRadius: 999,
@@ -1527,7 +1527,7 @@ function Hotspot({ id, position, rotation, children, onHover, onClick, hovered }
             letterSpacing: '0.14em',
             fontFamily: 'ui-monospace, monospace',
             whiteSpace: 'nowrap',
-            boxShadow: '0 8px 24px -6px rgba(139,92,246,0.7), inset 0 0 0 1px rgba(255,255,255,0.2)',
+            boxShadow: '0 8px 24px -6px rgba(9,105,218,0.7), inset 0 0 0 1px rgba(255,255,255,0.2)',
             transform: 'translateY(-4px)',
             animation: 'hs-pop 220ms cubic-bezier(0.34,1.56,0.64,1)',
           }}>
@@ -1777,7 +1777,7 @@ function NPC() {
   const SKIN = "#c2895f"
   const SKIN_SHADE = "#9a6840"
   const HAIR = "#0f0708"
-  const SHIRT = THEME.npcShirt || "#7c3aed"      // violet tee, themed by dream level
+  const SHIRT = THEME.npcShirt || "#0550ae"      // violet tee, themed by dream level
   const SHIRT_DARK = "#5b21b6"
   const PANTS = "#1e293b"      // dark jeans
   const SHOES = "#0f1218"
@@ -1964,7 +1964,7 @@ function NPC() {
               </RoundedBox>
               <mesh position={[0, -0.45, -0.32]}>
                 <boxGeometry args={[0.12, 0.015, 0.04]} />
-                <meshBasicMaterial color={"#a78bfa"} toneMapped={false} />
+                <meshBasicMaterial color={"#58a6ff"} toneMapped={false} />
               </mesh>
             </group>
             <group position={[0.085, -0.05, 0]}>
@@ -1979,7 +1979,7 @@ function NPC() {
               </RoundedBox>
               <mesh position={[0, -0.45, -0.32]}>
                 <boxGeometry args={[0.12, 0.015, 0.04]} />
-                <meshBasicMaterial color={"#a78bfa"} toneMapped={false} />
+                <meshBasicMaterial color={"#58a6ff"} toneMapped={false} />
               </mesh>
             </group>
           </>
@@ -2016,7 +2016,7 @@ function NPC() {
       {sleeping && (
         <Float speed={1.2} floatIntensity={0.5}>
           <Html position={[0.25, 0.8, 0.1]} center distanceFactor={6} occlude>
-            <div style={{ fontSize: 18, color: "#c4b5fd", opacity: 0.85 }}>💤</div>
+            <div style={{ fontSize: 18, color: "#79c0ff", opacity: 0.85 }}>💤</div>
           </Html>
         </Float>
       )}
@@ -2121,7 +2121,7 @@ function GuestbookWall() {
     })
   }, [])
 
-  const colors = ['#fde047', '#f97316', '#ec4899', '#a78bfa', '#22c55e', '#3b82f6']
+  const colors = ['#fde047', '#f97316', '#3fb950', '#58a6ff', '#22c55e', '#3b82f6']
   // 5x3 grid layout
   const positions = []
   for (let row = 0; row < 3; row++) {
@@ -2236,12 +2236,12 @@ function StickyNoteForm({ onClose }) {
             <input
               type="text" placeholder="Your name (or leave blank for anon)" maxLength={24}
               value={name} onChange={e => setName(e.target.value)}
-              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-xs outline-none focus:border-violet-500/60 mb-2"
+              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-xs outline-none focus:border-blue-500/60 mb-2"
             />
             <textarea
               placeholder="Hello from… / Loved the site / Drop a thought…" maxLength={80} rows={3}
               value={message} onChange={e => setMessage(e.target.value)}
-              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-violet-500/60 resize-none mb-2"
+              className="w-full bg-background border border-border/40 rounded-md px-3 py-2 text-sm outline-none focus:border-blue-500/60 resize-none mb-2"
             />
             <div className="flex items-center justify-between mb-3">
               <span className="text-[10px] text-muted-foreground">{message.length}/80</span>

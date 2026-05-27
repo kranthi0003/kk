@@ -88,7 +88,7 @@ const SNIPPETS = {
   ],
 }
 
-const COLORS = ['#60a5fa', '#f472b6', '#34d399', '#fbbf24', '#a78bfa', '#fb923c', '#22d3ee', '#f87171']
+const COLORS = ['#60a5fa', '#f472b6', '#34d399', '#fbbf24', '#58a6ff', '#fb923c', '#22d3ee', '#f87171']
 const REACTIONS = ['🔥', '👍', '❤️', '😂', '🤯', '👀', '🚀', '✨']
 
 function getColor(name) {
