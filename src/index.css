@@ -2,42 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === Provisionr.io exact design tokens (oklch) === */
+/* === GitHub theme (Primer-inspired) === */
 :root {
-  --radius: 0.625rem;
-  --color-background: oklch(96% 0.01 320);
-  --color-foreground: oklch(15% 0.02 290);
-  --color-card: oklch(98% 0.005 320);
-  --color-card-foreground: oklch(15% 0.02 290);
-  --color-muted: oklch(94% 0.012 320);
-  --color-muted-foreground: oklch(48% 0.025 290);
-  --color-accent: oklch(58% 0.20 285);
+  --radius: 0.375rem;
+  /* GitHub Light */
+  --color-background: oklch(99% 0.003 250);   /* #ffffff */
+  --color-foreground: oklch(20% 0.012 250);   /* #1f2328 */
+  --color-card: oklch(98% 0.005 250);         /* #f6f8fa */
+  --color-card-foreground: oklch(20% 0.012 250);
+  --color-muted: oklch(96% 0.005 250);        /* #eaeef2 */
+  --color-muted-foreground: oklch(46% 0.012 250); /* #656d76 */
+  --color-accent: oklch(54% 0.18 250);        /* #0969da blue */
   --color-accent-foreground: oklch(100% 0 0);
-  --color-border: oklch(88% 0.008 290);
-  --color-primary: oklch(15% 0.02 290);
+  --color-border: oklch(88% 0.008 250);       /* #d0d7de */
+  --color-primary: oklch(20% 0.012 250);
   --color-primary-foreground: oklch(100% 0 0);
-  /* Chart accents — provisionr's signature 3-color palette */
-  --chart-1: oklch(58% 0.20 285);   /* violet */
-  --chart-2: oklch(65% 0.25 320);   /* magenta */
-  --chart-3: oklch(70% 0.18 25);    /* coral */
+  /* Chart accents — GitHub functional colors */
+  --chart-1: oklch(54% 0.18 250);   /* blue   #0969da */
+  --chart-2: oklch(58% 0.18 145);   /* green  #1a7f37 */
+  --chart-3: oklch(68% 0.18 35);    /* orange #bc4c00 */
 }
 
-/* Dark — provisionr: cards are TRUE BLACK, bg is slightly lighter dark-violet */
+/* GitHub Dark (dark-dimmed inspired) */
 .dark {
-  --color-background: oklch(9% 0.02 290);
-  --color-foreground: oklch(98% 0 0);
-  --color-card: oklch(2% 0 0);
-  --color-card-foreground: oklch(98% 0 0);
-  --color-muted: oklch(14% 0.015 285);
-  --color-muted-foreground: oklch(62% 0.012 285);
-  --color-accent: oklch(72% 0.20 285);
-  --color-accent-foreground: oklch(6% 0.012 285);
-  --color-border: oklch(22% 0.012 285);
-  --color-primary: oklch(98% 0 0);
-  --color-primary-foreground: oklch(6% 0.012 285);
-  --chart-1: oklch(70% 0.22 285);
-  --chart-2: oklch(72% 0.27 320);
-  --chart-3: oklch(75% 0.20 25);
+  --color-background: oklch(18% 0.015 250);   /* #0d1117 */
+  --color-foreground: oklch(88% 0.012 250);   /* #c9d1d9 */
+  --color-card: oklch(22% 0.018 250);         /* #161b22 */
+  --color-card-foreground: oklch(88% 0.012 250);
+  --color-muted: oklch(25% 0.018 250);        /* #1c2128 */
+  --color-muted-foreground: oklch(62% 0.012 250); /* #8b949e */
+  --color-accent: oklch(65% 0.16 250);        /* #58a6ff blue */
+  --color-accent-foreground: oklch(15% 0.015 250);
+  --color-border: oklch(33% 0.015 250);       /* #30363d */
+  --color-primary: oklch(88% 0.012 250);
+  --color-primary-foreground: oklch(15% 0.015 250);
+  --chart-1: oklch(65% 0.16 250);   /* blue   #58a6ff */
+  --chart-2: oklch(63% 0.20 145);   /* green  #3fb950 */
+  --chart-3: oklch(70% 0.18 35);    /* orange #ec775c */
 }
 
 /* Base */
@@ -441,15 +442,21 @@ section h2.font-heading { font-weight: 600; }
 ::view-transition-old(root) { z-index: 1; }
 ::view-transition-new(root) { z-index: 9999; }
 
-/* Gradient text helper for emphasis (provisionr's signature multi-color phrase) */
+/* Gradient text helper — GitHub blue→green accent */
 .text-gradient-violet {
   background-image: linear-gradient(90deg,
-    oklch(72% 0.22 285),
-    oklch(72% 0.27 320),
-    oklch(72% 0.22 25));
+    oklch(54% 0.18 250),
+    oklch(58% 0.18 200),
+    oklch(58% 0.18 145));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+.dark .text-gradient-violet {
+  background-image: linear-gradient(90deg,
+    oklch(65% 0.16 250),
+    oklch(68% 0.16 200),
+    oklch(63% 0.20 145));
 }
 
 /* === Neutralize hardcoded white/black borders in dark mode so cards
