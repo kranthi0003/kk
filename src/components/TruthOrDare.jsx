@@ -136,6 +136,204 @@ const PROMPTS = {
   },
 }
 
+// ─── Telugu-specific prompts (merged when region = telugu/both) ──
+const TELUGU_EXTRAS = {
+  mild: {
+    truth: [
+      "Which Tollywood hero would you fall for if you met them at Hyderabad airport?",
+      "What's your honest opinion on Allu Arjun's hairstyle in Pushpa?",
+      "Which Mahesh Babu movie scene do you replay when you need a mood boost?",
+      "Which Telugu song is your shower-singing anthem?",
+      "What's the most embarrassing moment you've had at a Telugu wedding?",
+      "Who's your secret Tollywood crush you'd never admit to your friends?",
+      "Which Telugu meme template best describes you?",
+      "What's your strongest opinion: Hyderabad biryani vs Andhra meals?",
+      "Which RRR scene gave you the biggest 'goosebumps moment'?",
+      "What's the most Telugu thing about you that non-Telugus find weird?",
+      "Which Telugu actor's dialogue do you secretly imitate when alone?",
+      "What's the worst Telugu song lyric that's actually a banger?",
+      "Pawan Kalyan or Chiranjeevi — don't say both.",
+      "What's the cringiest reel you saved with a Telugu song?",
+    ],
+    dare: [
+      "Recite a famous Telugu dialogue with full Mahesh Babu attitude.",
+      "Do the Allu Arjun shoulder shrug from Pushpa right now.",
+      "Sing one line of 'Naatu Naatu' and attempt at least 2 dance steps.",
+      "Pretend you're a Telugu news anchor giving breaking news about {OTHER}.",
+      "Speak only in pure Telugu (no English words) for the next prompt.",
+      "Do a 30-second Brahmanandam-style comedy reaction to anything.",
+      "Recreate Prabhas's intro walk from Baahubali, full slow-mo.",
+      "Compose a short Telugu pelli (wedding) invitation between you and {OTHER}.",
+      "Imitate any famous Telugu auto driver's bargaining style.",
+      "Recite 5 Telugu film titles in your most dramatic voice.",
+    ],
+  },
+  medium: {
+    truth: [
+      "Have you ever lied to your parents that you're going to a Telugu movie when you weren't?",
+      "Which Tollywood hero would you happily move to Hyderabad for?",
+      "Have you ever had a crush on a cousin's friend at a family function?",
+      "What's the most savage gossip you've heard during a Telugu wedding?",
+      "Which Tollywood heroine would you be best friends with?",
+      "Have you ever rejected someone because of their Telugu accent? Be honest.",
+      "What's the biggest fight you've had with parents over a sambandham?",
+      "What's the most embarrassing thing you've Googled in Telugu?",
+      "What's a strict Telugu family rule you've broken and got away with?",
+      "Have you ever pretended you don't speak Telugu just to overhear gossip?",
+    ],
+    dare: [
+      "Call a random uncle/aunty in your contacts, drop 'Em chestunnav?' — see their reaction.",
+      "Sing the chorus of 'Butta Bomma' with full hip swing, looking at {OTHER}.",
+      "Pretend {OTHER} is a Telugu movie villain — give them a 30-second confrontation scene.",
+      "Type 'Nuvvu chala bagunnav' to the 7th person in your WhatsApp list.",
+      "Speak in Telugu-accented English for the next 2 prompts.",
+      "Do a Telugu serial dramatic 'shocked' face — hold for 10 seconds.",
+    ],
+  },
+  spicy: {
+    truth: [
+      "Which Tollywood star would you go on a Goa trip with — and what would happen?",
+      "If {OTHER} was a Telugu movie character, who would they be — and why?",
+      "Have you caught feelings for someone just because they spoke Telugu beautifully?",
+      "What's a romantic Telugu song that makes you think of someone in this room?",
+      "Which Tollywood couple would you want your love story to look like?",
+      "Have you ever sent a Telugu romantic dialogue as a 'joke' but secretly meant it?",
+    ],
+    dare: [
+      "Look at {OTHER} and say 'Naa pranamantha nuvve' with full conviction.",
+      "Recreate a rain scene from any Telugu movie with {OTHER} (acting only).",
+      "Tell {OTHER} which Tollywood song reminds you of {HIM_HER}.",
+      "Propose to {OTHER} in pure Telugu, full filmy — 'nee tho life lo...'.",
+      "Sing 'Inkem Inkem Inkem Kaavaale' looking at {OTHER}.",
+      "Whisper a Telugu pet name (cheliya / bujji / chinni) to {OTHER}.",
+    ],
+  },
+}
+
+// ─── Location-specific prompts (~30% chance to fire) ─────────
+const LOCATION_PROMPTS = {
+  hyderabad: {
+    mild: { truth: [
+      "Paradise vs Bawarchi biryani — what's your hot take?",
+      "Where in Hyderabad would you take a first date that ISN'T Charminar?",
+      "What's the wildest thing you've done after midnight in Jubilee Hills?",
+    ], dare: [
+      "Order biryani on Zomato right now — show the cart (don't checkout).",
+      "Pronounce 'Begumpet', 'Madhapur', 'Gachibowli' in your worst accent.",
+    ]},
+    medium: { truth: [
+      "Have you stalked someone's Insta to figure out their Hyderabad area?",
+      "What's the most awkward date you had in Hyderabad — name the place.",
+    ], dare: [
+      "Text someone 'Banjara Hills lo unnava?' out of nowhere — show their reply.",
+    ]},
+    spicy: { truth: [
+      "Pick a place in Hyderabad you'd take {OTHER} for a perfect day out.",
+    ], dare: [
+      "Plan a fake first-date route across Hyderabad with {OTHER} — minute by minute.",
+    ]},
+  },
+  bangalore: {
+    mild: { truth: [
+      "Which Bangalore traffic moment made you question all your life choices?",
+      "Indiranagar or Koramangala — pick your team.",
+    ], dare: [
+      "Pretend you're stuck on Silk Board flyover, narrate it as breaking news.",
+    ]},
+    medium: { truth: [
+      "What's the most expensive thing you've done on MG Road?",
+    ], dare: [
+      "Open Uber/Ola — show how much your last ride cost. No hiding.",
+    ]},
+    spicy: { truth: [
+      "Which Bangalore brewpub would you take {OTHER} to for a proper date?",
+    ], dare: [
+      "Plan a Sunday for {OTHER} — Cubbon Park to Toit, in detail.",
+    ]},
+  },
+  mumbai: {
+    mild: { truth: [
+      "Marine Drive at night or Bandstand at sunset — which says more about you?",
+      "Honest opinion on Mumbai local trains?",
+    ], dare: [
+      "Recreate a 'Slumdog Millionaire' chase scene reaction.",
+    ]},
+    medium: { truth: [
+      "What's the latest you've been out in Mumbai — and doing what?",
+    ], dare: [
+      "Order a vada pav on any delivery app — show the cart.",
+    ]},
+    spicy: { truth: [
+      "Pick a place in Mumbai for a midnight walk with {OTHER}.",
+    ], dare: [
+      "Plan a monsoon-perfect date in Mumbai with {OTHER}.",
+    ]},
+  },
+  bayarea: {
+    mild: { truth: [
+      "What's the most 'I live in the Bay' thing you've done this week?",
+      "Queued for brunch in the Mission for 60+ mins? Honestly?",
+      "Caltrain or BART — who hurt you more?",
+    ], dare: [
+      "Open Yelp — show the last restaurant you bookmarked.",
+      "Do your best 'tech bro at a coffee shop' impression.",
+    ]},
+    medium: { truth: [
+      "Which Bay Area hike would you actually take a date on — not just claim?",
+      "What's the most you've spent on a 'normal' meal in SF?",
+    ], dare: [
+      "Search 'best date spots near me' — show the top 3 results.",
+    ]},
+    spicy: { truth: [
+      "Pick a Bay Area spot you'd take {OTHER} for a sunset moment.",
+    ], dare: [
+      "Plan a perfect weekend trip from SF for {OTHER} — Napa? Tahoe? Big Sur?",
+    ]},
+  },
+  nyc: {
+    mild: { truth: [
+      "Which NYC borough actually matches your energy?",
+      "What's the most NYC thing you've done you'd never tell your parents?",
+    ], dare: [
+      "Open Citi Bike or your subway app — show your last route.",
+      "Do your best 'angry New Yorker on the phone' impression.",
+    ]},
+    medium: { truth: [
+      "Which NYC bar would you drag {OTHER} to on a first date?",
+    ], dare: [
+      "Open Resy — show what you have a reservation for next.",
+    ]},
+    spicy: { truth: [
+      "Pick a rooftop in NYC for sunset with {OTHER}.",
+    ], dare: [
+      "Plan a perfect 'walking date' across NYC with {OTHER}.",
+    ]},
+  },
+  vegas: {
+    mild: { truth: [
+      "What's the most Vegas thing you've done that you don't want on Instagram?",
+      "Strip or Fremont Street — which one is more YOU?",
+      "What's the most money you've lost (or won) in one night?",
+    ], dare: [
+      "Show the last picture you took on a Vegas trip — any trip.",
+      "Order a 'fancy cocktail' on any app — show the cart.",
+    ]},
+    medium: { truth: [
+      "What happens in Vegas... what's one story you ARE willing to share?",
+      "Have you ever lied about how much you spent in Vegas?",
+    ], dare: [
+      "Pretend you're 3 drinks in at a Vegas bar — give a 30-second monologue to {OTHER}.",
+    ]},
+    spicy: { truth: [
+      "If you flew to Vegas tomorrow with {OTHER}, what's the FIRST thing on the itinerary?",
+      "Have you ever almost done something you'd regret in Vegas? How close?",
+    ], dare: [
+      "Plan a 24-hour Vegas itinerary for you and {OTHER} — be specific.",
+      "Bet {OTHER} something silly right now — winner picks the next dare for next round.",
+    ]},
+  },
+}
+
 // ─── Level escalation (short ramp, gets spicy fast) ──────────
 function pickLevel(round) {
   if (round <= 2) return 'mild'
@@ -172,13 +370,36 @@ function fillPrompt(template, otherPlayer) {
   return out
 }
 
-function getUnused(level, type, used) {
-  const pool = PROMPTS[level][type]
-  const usedKey = `${level}-${type}`
+// Merge Telugu extras into base if region includes telugu
+function mergedPool(level, type, region) {
+  const base = PROMPTS[level][type] || []
+  if (region === 'hindi') return base
+  // telugu or both — add Telugu extras
+  const telugu = (TELUGU_EXTRAS[level] && TELUGU_EXTRAS[level][type]) || []
+  return [...base, ...telugu]
+}
+
+function getUnused(level, type, used, region, location) {
+  // ~30% chance to pull from location pool if available
+  if (location && location !== 'virtual' && LOCATION_PROMPTS[location]) {
+    const locPool = (LOCATION_PROMPTS[location][level] && LOCATION_PROMPTS[location][level][type]) || []
+    if (locPool.length > 0 && Math.random() < 0.3) {
+      const usedKey = `loc-${location}-${level}-${type}`
+      const usedSet = used[usedKey] || new Set()
+      const available = locPool.filter(p => !usedSet.has(p))
+      if (available.length > 0) {
+        return { prompt: available[Math.floor(Math.random() * available.length)], usedKey }
+      }
+    }
+  }
+  const pool = mergedPool(level, type, region)
+  const usedKey = `${region}-${level}-${type}`
   const usedSet = used[usedKey] || new Set()
   const available = pool.filter(p => !usedSet.has(p))
-  if (available.length === 0) return pool[Math.floor(Math.random() * pool.length)]
-  return available[Math.floor(Math.random() * available.length)]
+  if (available.length === 0) {
+    return { prompt: pool[Math.floor(Math.random() * pool.length)], usedKey }
+  }
+  return { prompt: available[Math.floor(Math.random() * available.length)], usedKey }
 }
 
 function pickRandomOther(players, currentIdx) {
@@ -187,7 +408,7 @@ function pickRandomOther(players, currentIdx) {
   return others[Math.floor(Math.random() * others.length)]
 }
 
-const LS_KEY = 'tod-state-v2'
+const LS_KEY = 'tod-state-v3'
 
 // Default seeded slots
 const defaultPlayer = (i) => ({ name: '', gender: 'X' })
@@ -195,6 +416,8 @@ const defaultPlayer = (i) => ({ name: '', gender: 'X' })
 export default function TruthOrDare({ onBack }) {
   const [phase, setPhase] = useState('setup') // setup | playing
   const [players, setPlayers] = useState([defaultPlayer(0), defaultPlayer(1)])
+  const [region, setRegion] = useState('telugu') // telugu | hindi | both
+  const [location, setLocation] = useState('virtual') // virtual | hyderabad | bangalore | mumbai | bayarea | nyc | vegas
   const [currentIdx, setCurrentIdx] = useState(0)
   const [round, setRound] = useState(1)
   const [currentLevel, setCurrentLevel] = useState('mild')
@@ -214,6 +437,8 @@ export default function TruthOrDare({ onBack }) {
         const s = JSON.parse(saved)
         if (Array.isArray(s.players) && s.players.length >= 2 && s.players.every(p => p.name)) {
           setPlayers(s.players)
+          setRegion(s.region || 'telugu')
+          setLocation(s.location || 'virtual')
           setCurrentIdx(s.currentIdx || 0)
           setRound(s.round || 1)
           setScores(s.scores || s.players.map(() => 0))
@@ -235,11 +460,11 @@ export default function TruthOrDare({ onBack }) {
       const serializableUsed = {}
       Object.entries(used).forEach(([k, v]) => { serializableUsed[k] = Array.from(v) })
       localStorage.setItem(LS_KEY, JSON.stringify({
-        players, currentIdx, round, scores, skipsRemaining,
+        players, region, location, currentIdx, round, scores, skipsRemaining,
         used: serializableUsed, history,
       }))
     } catch(e) {}
-  }, [phase, players, currentIdx, round, scores, skipsRemaining, used, history])
+  }, [phase, players, region, location, currentIdx, round, scores, skipsRemaining, used, history])
 
   const addPlayer = () => {
     if (players.length >= 8) return
@@ -277,13 +502,12 @@ export default function TruthOrDare({ onBack }) {
 
   const pick = (type) => {
     const level = pickLevel(round)
-    const raw = getUnused(level, type, used)
+    const { prompt: raw, usedKey } = getUnused(level, type, used, region, location)
     const other = pickRandomOther(players, currentIdx)
     setCurrentLevel(level)
     setCurrentType(type)
     setCurrentRawPrompt(raw)
     setCurrentOther(other)
-    const usedKey = `${level}-${type}`
     setUsed(prev => {
       const next = { ...prev }
       const set = new Set(next[usedKey] || [])
@@ -338,6 +562,38 @@ export default function TruthOrDare({ onBack }) {
             Add 2–8 players. Game starts mild, gets spicier round by round.
             Pick gender so pronouns work properly. Take turns, skip if needed.
           </p>
+
+          {/* Region + Location */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <div>
+              <label className="block text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1">Vibe</label>
+              <select
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+                className="w-full px-2 py-2 bg-card border border-border rounded-md text-sm focus:outline-none focus:border-accent"
+              >
+                <option value="telugu">Telugu</option>
+                <option value="hindi">Hindi</option>
+                <option value="both">Both (Telugu + Hindi)</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1">Location</label>
+              <select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full px-2 py-2 bg-card border border-border rounded-md text-sm focus:outline-none focus:border-accent"
+              >
+                <option value="virtual">Virtual / Generic</option>
+                <option value="hyderabad">Hyderabad</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="bayarea">SF Bay Area</option>
+                <option value="nyc">New York City</option>
+                <option value="vegas">Las Vegas</option>
+              </select>
+            </div>
+          </div>
 
           <div className="space-y-2 mb-3">
             {players.map((p, i) => (
