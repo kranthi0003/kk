@@ -408,7 +408,7 @@ export default function TruthOrDare({ onBack }) {
   const [skipsRemaining, setSkipsRemaining] = useState([3, 3])
   const [used, setUsed] = useState({})
   const [history, setHistory] = useState([])
-  const [recentTypes, setRecentTypes] = useState([]) // last 2 completed types (excluding current)
+  const [recentTypes, setRecentTypes] = useState([[], []]) // per-player array of last 2 types
 
   useEffect(() => {
     try {
@@ -427,7 +427,7 @@ export default function TruthOrDare({ onBack }) {
           Object.entries(s.used || {}).forEach(([k, v]) => { u[k] = new Set(v) })
           setUsed(u)
           setHistory(s.history || [])
-          setRecentTypes(s.recentTypes || [])
+          setRecentTypes(s.recentTypes || s.players.map(() => []))
           setPhase('playing')
         }
       }
@@ -451,12 +451,14 @@ export default function TruthOrDare({ onBack }) {
     setPlayers([...players, defaultPlayer()])
     setScores([...scores, 0])
     setSkipsRemaining([...skipsRemaining, 3])
+    setRecentTypes([...recentTypes, []])
   }
   const removePlayer = (i) => {
     if (players.length <= 2) return
     setPlayers(players.filter((_, idx) => idx !== i))
     setScores(scores.filter((_, idx) => idx !== i))
     setSkipsRemaining(skipsRemaining.filter((_, idx) => idx !== i))
+    setRecentTypes(recentTypes.filter((_, idx) => idx !== i))
   }
   const updatePlayer = (i, field, value) => {
     setPlayers(players.map((p, idx) => idx === i ? { ...p, [field]: value } : p))
@@ -474,7 +476,7 @@ export default function TruthOrDare({ onBack }) {
     setCurrentIdx(0); setRound(1)
     setCurrentType(null); setCurrentRawPrompt(null); setCurrentOther(null)
     setScores([0, 0]); setSkipsRemaining([3, 3])
-    setUsed({}); setHistory([]); setRecentTypes([])
+    setUsed({}); setHistory([]); setRecentTypes([[], []])
   }
 
   const pick = (type) => {
@@ -500,7 +502,7 @@ export default function TruthOrDare({ onBack }) {
       round, player: players[currentIdx].name, type: currentType,
       prompt: fillPrompt(currentRawPrompt, currentOther), status: 'done',
     }])
-    setRecentTypes(prev => [...prev.slice(-1), currentType])
+    setRecentTypes(prev => prev.map((arr, i) => i === currentIdx ? [...arr.slice(-1), currentType] : arr))
     nextTurn()
   }
   const skip = () => {
@@ -511,7 +513,7 @@ export default function TruthOrDare({ onBack }) {
       round, player: players[currentIdx].name, type: currentType,
       prompt: fillPrompt(currentRawPrompt, currentOther), status: 'skipped',
     }])
-    setRecentTypes(prev => [...prev.slice(-1), currentType])
+    setRecentTypes(prev => prev.map((arr, i) => i === currentIdx ? [...arr.slice(-1), currentType] : arr))
     nextTurn()
   }
   const nextTurn = () => {
@@ -629,8 +631,9 @@ export default function TruthOrDare({ onBack }) {
 
         {!currentType ? (
           (() => {
-            const lastTwoSame = recentTypes.length >= 2 && recentTypes[0] === recentTypes[1]
-            const forcedType = lastTwoSame ? (recentTypes[0] === 'truth' ? 'dare' : 'truth') : null
+            const playerRecent = recentTypes[currentIdx] || []
+            const lastTwoSame = playerRecent.length >= 2 && playerRecent[0] === playerRecent[1]
+            const forcedType = lastTwoSame ? (playerRecent[0] === 'truth' ? 'dare' : 'truth') : null
             return (
               <div className="bg-card border border-border rounded-md p-8 text-center">
                 <div className="text-xs font-mono text-muted-foreground mb-3">Your turn,</div>
