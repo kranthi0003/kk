@@ -320,18 +320,18 @@ const LOCATION_PROMPTS = {
   },
 }
 
-// ─── Level escalation: shorter medium, spicy+wild clubbed ───
-// r1-2:  mild (icebreakers)
-// r3-5:  medium (personal about her)
-// r6+:   spicy + wild mixed (intimate + chemistry together)
+// ─── Level escalation: longer mild + medium ─────────────────
+// r1-4:   mild (icebreakers)
+// r5-10:  medium (personal about her)
+// r11+:   spicy + wild mixed
 function pickLevel(round) {
-  if (round <= 2) return 'mild'
-  if (round <= 5) {
+  if (round <= 4) return 'mild'
+  if (round <= 10) {
     const r = Math.random()
     if (r < 0.15) return 'mild'
     return 'medium'
   }
-  // r6+: spicy + wild together
+  // r11+: spicy + wild together
   const r = Math.random()
   if (r < 0.1) return 'medium'
   if (r < 0.55) return 'spicy'
@@ -408,6 +408,7 @@ export default function TruthOrDare({ onBack }) {
   const [skipsRemaining, setSkipsRemaining] = useState([3, 3])
   const [used, setUsed] = useState({})
   const [history, setHistory] = useState([])
+  const [recentTypes, setRecentTypes] = useState([]) // last 2 completed types (excluding current)
 
   useEffect(() => {
     try {
@@ -426,6 +427,7 @@ export default function TruthOrDare({ onBack }) {
           Object.entries(s.used || {}).forEach(([k, v]) => { u[k] = new Set(v) })
           setUsed(u)
           setHistory(s.history || [])
+          setRecentTypes(s.recentTypes || [])
           setPhase('playing')
         }
       }
@@ -439,10 +441,10 @@ export default function TruthOrDare({ onBack }) {
       Object.entries(used).forEach(([k, v]) => { serializableUsed[k] = Array.from(v) })
       localStorage.setItem(LS_KEY, JSON.stringify({
         players, region, location, currentIdx, round, scores, skipsRemaining,
-        used: serializableUsed, history,
+        used: serializableUsed, history, recentTypes,
       }))
     } catch(e) {}
-  }, [phase, players, region, location, currentIdx, round, scores, skipsRemaining, used, history])
+  }, [phase, players, region, location, currentIdx, round, scores, skipsRemaining, used, history, recentTypes])
 
   const addPlayer = () => {
     if (players.length >= 8) return
@@ -472,7 +474,7 @@ export default function TruthOrDare({ onBack }) {
     setCurrentIdx(0); setRound(1)
     setCurrentType(null); setCurrentRawPrompt(null); setCurrentOther(null)
     setScores([0, 0]); setSkipsRemaining([3, 3])
-    setUsed({}); setHistory([])
+    setUsed({}); setHistory([]); setRecentTypes([])
   }
 
   const pick = (type) => {
@@ -498,6 +500,7 @@ export default function TruthOrDare({ onBack }) {
       round, player: players[currentIdx].name, type: currentType,
       prompt: fillPrompt(currentRawPrompt, currentOther), status: 'done',
     }])
+    setRecentTypes(prev => [...prev.slice(-1), currentType])
     nextTurn()
   }
   const skip = () => {
@@ -508,6 +511,7 @@ export default function TruthOrDare({ onBack }) {
       round, player: players[currentIdx].name, type: currentType,
       prompt: fillPrompt(currentRawPrompt, currentOther), status: 'skipped',
     }])
+    setRecentTypes(prev => [...prev.slice(-1), currentType])
     nextTurn()
   }
   const nextTurn = () => {
@@ -624,14 +628,37 @@ export default function TruthOrDare({ onBack }) {
         </div>
 
         {!currentType ? (
-          <div className="bg-card border border-border rounded-md p-8 text-center">
-            <div className="text-xs font-mono text-muted-foreground mb-3">Your turn,</div>
-            <h2 className="text-2xl font-semibold mb-8">{active.name}</h2>
-            <div className="flex gap-3 justify-center">
-              <button onClick={() => pick('truth')} className="flex-1 max-w-[160px] px-6 py-3 bg-accent text-accent-foreground rounded-md text-sm font-medium hover:opacity-90 transition-opacity">Truth</button>
-              <button onClick={() => pick('dare')} className="flex-1 max-w-[160px] px-6 py-3 bg-foreground text-background rounded-md text-sm font-medium hover:opacity-90 transition-opacity">Dare</button>
-            </div>
-          </div>
+          (() => {
+            const lastTwoSame = recentTypes.length >= 2 && recentTypes[0] === recentTypes[1]
+            const forcedType = lastTwoSame ? (recentTypes[0] === 'truth' ? 'dare' : 'truth') : null
+            return (
+              <div className="bg-card border border-border rounded-md p-8 text-center">
+                <div className="text-xs font-mono text-muted-foreground mb-3">Your turn,</div>
+                <h2 className="text-2xl font-semibold mb-8">{active.name}</h2>
+                {forcedType && (
+                  <div className="text-[11px] font-mono text-amber-500/80 mb-4 -mt-4">
+                    No 3-in-a-row — must pick {forcedType.toUpperCase()}
+                  </div>
+                )}
+                <div className="flex gap-3 justify-center">
+                  <button
+                    onClick={() => pick('truth')}
+                    disabled={forcedType === 'dare'}
+                    className="flex-1 max-w-[160px] px-6 py-3 bg-accent text-accent-foreground rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    Truth
+                  </button>
+                  <button
+                    onClick={() => pick('dare')}
+                    disabled={forcedType === 'truth'}
+                    className="flex-1 max-w-[160px] px-6 py-3 bg-foreground text-background rounded-md text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    Dare
+                  </button>
+                </div>
+              </div>
+            )
+          })()
         ) : (
           <div className="bg-card border border-border rounded-md p-8">
             <div className="text-xs font-mono text-muted-foreground mb-5">
