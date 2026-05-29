@@ -44,6 +44,7 @@ const StrangerChat = lazy(() => import('./components/StrangerChat'))
 const Workspace = lazy(() => import('./components/Workspace'))
 const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 const AstroDither = lazy(() => import('./components/AstroDither'))
+const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -168,6 +169,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-[#050508] flex items-center justify-center"><div className="text-[10px] font-mono tracking-[0.3em] text-white/20 animate-pulse">LOADING PARTICLES</div></div>}>
         <AstroDither onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Truth or Dare — accessible via #/tod route
+  if (route === '#/tod') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading game...</div></div>}>
+        <TruthOrDare onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }
