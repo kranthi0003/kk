@@ -30,12 +30,12 @@ export default function AstroDitherSection() {
                 Truth or Dare
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Two-player game that starts easy with get-to-know questions and gradually opens up. Perfect coffee-break time-pass.
+                2–8 players, M/F gender-aware prompts, Indian context (Bollywood, IPL, Zomato). Starts mild, gets spicy by round 6.
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-mono text-muted-foreground/60">
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">2-player</span>
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">100+ prompts</span>
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Auto-escalates</span>
+                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">2-8 players</span>
+                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Indian</span>
+                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Gender-aware</span>
               </div>
             </div>
           </a>
