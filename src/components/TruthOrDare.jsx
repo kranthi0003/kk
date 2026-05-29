@@ -134,6 +134,42 @@ const PROMPTS = {
       "Tell the group who in this room you'd most like to be stuck in a lift with for 1 hour.",
     ],
   },
+  wild: {
+    truth: [
+      "Look at {OTHER} and answer honestly — what's the first thing you noticed about {HIM_HER}?",
+      "If you and {OTHER} were alone in a hotel suite tonight, what's the FIRST thing you'd do?",
+      "What's a thought you've had about {OTHER} that you'd never say out loud?",
+      "Has anyone in this room ever made you do a double-take? Don't say who — just yes or no.",
+      "What's the most attractive thing {OTHER} has done so far tonight?",
+      "If we paused the game right now and you could ask {OTHER} ONE personal question, what would it be?",
+      "When was the last time you wanted to kiss someone but didn't? Don't name them.",
+      "What's a part of {OTHER}'s personality that low-key drives you a little crazy?",
+      "If {OTHER} asked you to leave the group right now and go for a drive, would you?",
+      "What's the smallest thing about {OTHER} you've already noticed and liked?",
+      "Pick: a slow night-in with {OTHER}, or a wild night out — and explain why honestly.",
+      "What's one thing you'd say to {OTHER} if there were no one else in the room?",
+      "If tonight had to end with one moment with {OTHER}, what would that moment look like?",
+      "When did you last feel a real spark with someone? What was it about them?",
+    ],
+    dare: [
+      "Walk over to {OTHER} and tell {HIM_HER}, eye to eye: 'I'm really glad you're here tonight.'",
+      "Stand close enough to {OTHER} that your shoulders touch — hold it for 30 seconds, no talking.",
+      "Lean in and whisper one true compliment in {OTHER}'s ear. No one else gets to hear.",
+      "Look at {OTHER}, no smiling, and say: 'I've been waiting for tonight.'",
+      "Take {OTHER}'s hand and don't let go until your next turn comes around.",
+      "Slow-dance with {OTHER} for one full minute — pick a song, the rest of the group watches.",
+      "Trade phones with {OTHER} for 5 minutes — full access, no clicking off any screen.",
+      "Confess to {OTHER}: tell {HIM_HER} the exact moment tonight you found {HIM_HER} most attractive.",
+      "Brush a strand of {OTHER}'s hair behind {HIS_HER} ear — no rush, no laughing.",
+      "Look at {OTHER} for 30 seconds without saying anything. Just look.",
+      "Tell {OTHER}: 'If I asked you to come somewhere with me right now, would you?' Then wait for the answer.",
+      "Get up, take {OTHER}'s hand, and lead {HIM_HER} once around the room — slowly.",
+      "Pick a place in your phone's saved locations — show {OTHER} and say 'I want to go here with you'.",
+      "Look at {OTHER} and say one sentence that starts with 'When this is over, I want to...'",
+      "Give {OTHER} a hug. Hold it longer than is technically polite.",
+      "Tell {OTHER} which song you'd want playing if it were just the two of you tonight.",
+    ],
+  },
 }
 
 // ─── Telugu-specific prompts (merged when region = telugu/both) ──
@@ -206,6 +242,19 @@ const TELUGU_EXTRAS = {
       "Propose to {OTHER} in pure Telugu, full filmy — 'nee tho life lo...'.",
       "Sing 'Inkem Inkem Inkem Kaavaale' looking at {OTHER}.",
       "Whisper a Telugu pet name (cheliya / bujji / chinni) to {OTHER}.",
+    ],
+  },
+  wild: {
+    truth: [
+      "If {OTHER} was your Tollywood heroine/hero, what's the FIRST scene you'd want to film with {HIM_HER}?",
+      "What's a Telugu romantic line you've always wanted to say to someone — and to whom in this room would you say it now?",
+      "Look at {OTHER}. Which Telugu love song captures EXACTLY what you'd want to feel with {HIM_HER}?",
+    ],
+    dare: [
+      "Look {OTHER} in the eyes and say 'Naa lo ni jagam undhi' — full meaning, full intent.",
+      "Whisper the most romantic Telugu line you know in {OTHER}'s ear.",
+      "Take {OTHER}'s hand and sing two lines of 'Yenti Yenti' or any Telugu romantic song just for {HIM_HER}.",
+      "Tell {OTHER} in pure Telugu: what you'd want to do if it were just the two of you tonight.",
     ],
   },
 }
@@ -327,27 +376,58 @@ const LOCATION_PROMPTS = {
     spicy: { truth: [
       "If you flew to Vegas tomorrow with {OTHER}, what's the FIRST thing on the itinerary?",
       "Have you ever almost done something you'd regret in Vegas? How close?",
+      "What's the 'we should never tell anyone' story you have from Vegas?",
+      "If you were in a Vegas hotel suite right now with {OTHER}, what'd be the soundtrack?",
     ], dare: [
-      "Plan a 24-hour Vegas itinerary for you and {OTHER} — be specific.",
+      "Plan a 24-hour Vegas itinerary for you and {OTHER} — be specific, hour by hour.",
       "Bet {OTHER} something silly right now — winner picks the next dare for next round.",
+      "Order any 'fancy Vegas-style' cocktail on a delivery app — show the cart to {OTHER}.",
+    ]},
+    wild: { truth: [
+      "If tonight ended with you and {OTHER} at the top of the Stratosphere alone, what would you say?",
+      "What's a Vegas memory you'd want to re-create with {OTHER}?",
+      "If {OTHER} suggested 'let's just stay out till sunrise' — would you say yes?",
+      "Vegas chapels stay open 24/7. If {OTHER} jokingly said 'let's do something stupid', how stupid would you go?",
+    ], dare: [
+      "Look at {OTHER} and say, 'If we were in Vegas right now, I'd take you to ___' — fill in the blank.",
+      "Pull up Google Maps, drop a pin anywhere on the Strip, and tell {OTHER} 'meet me here at midnight'.",
+      "Take {OTHER}'s hand and walk slowly to the nearest window — pretend you're looking at the Vegas skyline together.",
+      "Whisper to {OTHER}: one thing you'd want to do in Vegas that you'd never tell the rest of the group.",
+      "Tell {OTHER} which Vegas hotel suite you'd want to wake up in together — and why that one.",
     ]},
   },
 }
 
-// ─── Level escalation (short ramp, gets spicy fast) ──────────
+// ─── Level escalation: 4-tier ramp ──────────────────────────
+// r1-2: mild only (settle in)
+// r3-5: mild/medium mix
+// r6-10: medium + spicy (mostly)
+// r11+: spicy + wild (the deep end)
 function pickLevel(round) {
   if (round <= 2) return 'mild'
-  if (round <= 5) return Math.random() < 0.4 ? 'mild' : 'medium'
+  if (round <= 5) {
+    const r = Math.random()
+    if (r < 0.35) return 'mild'
+    return 'medium'
+  }
+  if (round <= 10) {
+    const r = Math.random()
+    if (r < 0.15) return 'mild'
+    if (r < 0.55) return 'medium'
+    return 'spicy'
+  }
+  // r11+: deep end
   const r = Math.random()
-  if (r < 0.2) return 'mild'
-  if (r < 0.6) return 'medium'
-  return 'spicy'
+  if (r < 0.1) return 'medium'
+  if (r < 0.5) return 'spicy'
+  return 'wild'
 }
 
 const LEVEL_META = {
-  mild: { label: 'Warm-up', color: 'text-emerald-500', bg: 'bg-emerald-500/8', border: 'border-emerald-500/30' },
-  medium: { label: 'Open up', color: 'text-amber-500', bg: 'bg-amber-500/8', border: 'border-amber-500/30' },
-  spicy: { label: 'Spicy', color: 'text-rose-500', bg: 'bg-rose-500/8', border: 'border-rose-500/30' },
+  mild: { label: '', color: '', bg: '', border: '' },
+  medium: { label: '', color: '', bg: '', border: '' },
+  spicy: { label: '', color: '', bg: '', border: '' },
+  wild: { label: '', color: '', bg: '', border: '' },
 }
 
 // Pronoun resolver — fed gender of OTHER player
@@ -714,13 +794,8 @@ export default function TruthOrDare({ onBack }) {
           </div>
         ) : (
           <div className="bg-card border border-border rounded-md p-8">
-            <div className="flex items-center justify-between mb-5">
-              <div className="text-xs font-mono text-muted-foreground">
-                {active.name} · {currentType.toUpperCase()}
-              </div>
-              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${meta.color} ${meta.bg} ${meta.border}`}>
-                {meta.label}
-              </span>
+            <div className="text-xs font-mono text-muted-foreground mb-5">
+              {active.name} · {currentType.toUpperCase()}
             </div>
 
             <p className="text-lg leading-relaxed mb-8 min-h-[80px]">
@@ -753,7 +828,7 @@ export default function TruthOrDare({ onBack }) {
                 <div key={i} className="text-xs flex items-start gap-2 py-2 border-b border-border last:border-0">
                   <span className="font-mono text-muted-foreground shrink-0 w-8">#{h.round}</span>
                   <span className="font-medium shrink-0">{h.player}</span>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${LEVEL_META[h.level].color} ${LEVEL_META[h.level].bg}`}>
+                  <span className="text-[10px] font-mono text-muted-foreground shrink-0">
                     {h.type}
                   </span>
                   <span className="text-muted-foreground flex-1 leading-relaxed">{h.prompt}</span>
