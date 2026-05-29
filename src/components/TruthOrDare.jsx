@@ -320,26 +320,21 @@ const LOCATION_PROMPTS = {
   },
 }
 
-// ─── Level escalation: slow burn ────────────────────────────
-// r1-2:  mild (icebreakers, funny)
-// r3-7:  medium (personal deep dive — about HER)
-// r8-12: spicy (intimate personal — attractions, fantasies, still about HER)
-// r13+:  wild (chemistry — you and her, eye contact, touch)
+// ─── Level escalation: shorter medium, spicy+wild clubbed ───
+// r1-2:  mild (icebreakers)
+// r3-5:  medium (personal about her)
+// r6+:   spicy + wild mixed (intimate + chemistry together)
 function pickLevel(round) {
   if (round <= 2) return 'mild'
-  if (round <= 7) {
+  if (round <= 5) {
     const r = Math.random()
     if (r < 0.15) return 'mild'
     return 'medium'
   }
-  if (round <= 12) {
-    const r = Math.random()
-    if (r < 0.1) return 'medium'
-    return 'spicy'
-  }
-  // r13+
+  // r6+: spicy + wild together
   const r = Math.random()
-  if (r < 0.15) return 'spicy'
+  if (r < 0.1) return 'medium'
+  if (r < 0.55) return 'spicy'
   return 'wild'
 }
 
