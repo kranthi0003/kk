@@ -4,6 +4,17 @@ import React, { useEffect, useState } from 'react'
 export default function AllTheBest({ onBack }) {
   const [mounted, setMounted] = useState(false)
   const [bounceClick, setBounceClick] = useState(0)
+  const [flipped, setFlipped] = useState(false)
+  const [rolling, setRolling] = useState(false)
+
+  const handleCardClick = () => {
+    if (rolling) return
+    setRolling(true)
+    setBounceClick(c => c + 1)
+    // Swap content at midpoint of roll
+    setTimeout(() => setFlipped(f => !f), 350)
+    setTimeout(() => setRolling(false), 750)
+  }
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80)
@@ -132,11 +143,11 @@ export default function AllTheBest({ onBack }) {
       <div
         className="relative z-10 max-w-md w-full"
         style={{
+          perspective: '1500px',
           transition: 'opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.5, 1.5, 0.5, 1)',
           opacity: mounted ? 1 : 0,
           transform: mounted ? 'rotate(-1.5deg) scale(1)' : 'rotate(-1.5deg) scale(0.7) translateY(40px)',
         }}
-        onClick={() => setBounceClick(c => c + 1)}
       >
         {/* Tape strips at corners */}
         <div className="absolute -top-3 left-8 w-16 h-6 bg-yellow-200/80 rotate-[-12deg] z-20 shadow-sm" />
@@ -145,83 +156,127 @@ export default function AllTheBest({ onBack }) {
         {/* The sticky note */}
         <div
           key={bounceClick}
+          onClick={handleCardClick}
           className="relative rounded-2xl p-8 sm:p-10 cursor-pointer"
           style={{
             background: 'linear-gradient(180deg, #fffdf2 0%, #fff8e1 100%)',
             border: '3px solid #1a1a1a',
             boxShadow: '8px 8px 0 #1a1a1a, 16px 16px 40px rgba(0,0,0,0.2)',
-            animation: bounceClick > 0 ? 'cardBounce 0.4s ease-out' : 'none',
+            animation: rolling ? 'diceRoll 0.75s ease-in-out' : 'none',
+            transformStyle: 'preserve-3d',
           }}
         >
-          {/* Tiny tag */}
-          <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-600 mb-3 text-center">
-            ☆ for chaitra ☆
-          </div>
+          {!flipped ? (
+            <>
+              {/* ─── FRONT: the original note ─── */}
+              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-600 mb-3 text-center">
+                ☆ for chaitra ☆
+              </div>
 
-          {/* Big wobbly heading */}
-          <h1
-            className="text-center leading-[0.95] tracking-tight mb-6"
-            style={{
-              fontFamily: 'Georgia, "Times New Roman", serif',
-              fontSize: 'clamp(2.5rem, 9vw, 4.5rem)',
-              fontWeight: 800,
-              fontStyle: 'italic',
-              color: '#1a1a1a',
-              textShadow: '4px 4px 0 #ff8fb0, 8px 8px 0 #b347ff',
-              animation: 'headWobble 4s ease-in-out infinite',
-            }}
-          >
-            All the<br />best!
-          </h1>
+              <h1
+                className="text-center leading-[0.95] tracking-tight mb-6"
+                style={{
+                  fontFamily: 'Georgia, "Times New Roman", serif',
+                  fontSize: 'clamp(2.5rem, 9vw, 4.5rem)',
+                  fontWeight: 800,
+                  fontStyle: 'italic',
+                  color: '#1a1a1a',
+                  textShadow: '4px 4px 0 #ff8fb0, 8px 8px 0 #b347ff',
+                  animation: 'headWobble 4s ease-in-out infinite',
+                }}
+              >
+                All the<br />best!
+              </h1>
 
-          {/* Squiggly divider */}
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite' }}>🍀</span>
-            <span className="text-base">~</span>
-            <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.3s' }}>💻</span>
-            <span className="text-base">~</span>
-            <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.6s' }}>✨</span>
-          </div>
+              <div className="flex items-center justify-center gap-2 mb-5">
+                <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite' }}>🍀</span>
+                <span className="text-base">~</span>
+                <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.3s' }}>💻</span>
+                <span className="text-base">~</span>
+                <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.6s' }}>✨</span>
+              </div>
 
-          {/* Message — handwritten feel */}
-          <div
-            className="space-y-3 text-center text-gray-800 leading-relaxed"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '17px' }}
-          >
-            <p>
-              Baaga raayu. Iyna nuv thop le senior... easy ga rasesthav.
-            </p>
-            <p>
-              Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
-            </p>
-            <p className="text-pink-700 font-bold pt-2 text-lg">
-              See you on the other side. 👋
-            </p>
-          </div>
+              <div
+                className="space-y-3 text-center text-gray-800 leading-relaxed"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '17px' }}
+              >
+                <p>
+                  Baaga raayu. Iyna nuv thop le senior... easy ga rasesthav.
+                </p>
+                <p>
+                  Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
+                </p>
+                <p className="text-pink-700 font-bold pt-2 text-lg">
+                  See you on the other side. 👋
+                </p>
+              </div>
 
-          {/* Signature */}
-          <div className="mt-8 flex items-end justify-end">
-            <div
-              className="text-gray-800"
-              style={{
-                fontFamily: 'Georgia, "Times New Roman", serif',
-                fontStyle: 'italic',
-                fontSize: '20px',
-                fontWeight: 600,
-                textDecoration: 'underline',
-                textDecorationColor: '#ff4d8d',
-                textDecorationThickness: '2px',
-                textUnderlineOffset: '4px',
-              }}
-            >
-              — Kranthi
-            </div>
-          </div>
+              <div className="mt-8 flex items-end justify-end">
+                <div
+                  className="text-gray-800"
+                  style={{
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontStyle: 'italic',
+                    fontSize: '20px',
+                    fontWeight: 600,
+                    textDecoration: 'underline',
+                    textDecorationColor: '#ff4d8d',
+                    textDecorationThickness: '2px',
+                    textUnderlineOffset: '4px',
+                  }}
+                >
+                  — Kranthi
+                </div>
+              </div>
 
-          {/* Tiny click hint */}
-          <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-mono text-gray-600 whitespace-nowrap">
-            ↑ tap me!
-          </div>
+              <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-mono text-gray-600 whitespace-nowrap">
+                ↑ tap me!
+              </div>
+            </>
+          ) : (
+            <>
+              {/* ─── BACK: the cheeky message after dice roll ─── */}
+              <div className="text-center py-6">
+                <div className="text-6xl mb-4" style={{ animation: 'wobble 1.5s ease-in-out infinite' }}>
+                  🎲
+                </div>
+
+                <h2
+                  className="leading-tight tracking-tight mb-6"
+                  style={{
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontSize: 'clamp(1.6rem, 5vw, 2.4rem)',
+                    fontWeight: 800,
+                    fontStyle: 'italic',
+                    color: '#1a1a1a',
+                    textShadow: '3px 3px 0 #ffd966',
+                  }}
+                >
+                  heheh.. em ledhu gaani..
+                </h2>
+
+                <p
+                  className="text-gray-800 font-bold"
+                  style={{
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontSize: 'clamp(1.2rem, 4vw, 1.6rem)',
+                  }}
+                >
+                  poyi exam rasko, byeee 👋
+                </p>
+
+                <div className="mt-8 text-3xl flex justify-center gap-3">
+                  <span style={{ animation: 'wobble 2s ease-in-out infinite' }}>🍀</span>
+                  <span style={{ animation: 'wobble 2s ease-in-out infinite 0.3s' }}>✨</span>
+                  <span style={{ animation: 'wobble 2s ease-in-out infinite 0.6s' }}>💪</span>
+                </div>
+
+                <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-mono text-gray-600 whitespace-nowrap">
+                  ↑ tap to flip back
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -254,6 +309,13 @@ export default function AllTheBest({ onBack }) {
           0% { transform: scale(1); }
           40% { transform: scale(1.04); }
           100% { transform: scale(1); }
+        }
+        @keyframes diceRoll {
+          0%   { transform: rotateY(0deg) rotateZ(0deg) scale(1); }
+          25%  { transform: rotateY(90deg) rotateZ(8deg) scale(0.95); }
+          50%  { transform: rotateY(180deg) rotateZ(0deg) scale(0.85); }
+          75%  { transform: rotateY(270deg) rotateZ(-8deg) scale(0.95); }
+          100% { transform: rotateY(360deg) rotateZ(0deg) scale(1); }
         }
       `}</style>
     </div>
