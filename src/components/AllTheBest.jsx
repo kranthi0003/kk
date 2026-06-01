@@ -176,15 +176,12 @@ export default function AllTheBest({ onBack }) {
 
           {/* Signature */}
           <div
-            className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between"
+            className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-end"
             style={{
               transition: 'opacity 0.6s ease-out 1s',
               opacity: mounted ? 1 : 0,
             }}
           >
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/35">
-              rooting for you
-            </div>
             <div
               className="text-white/80"
               style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '15px' }}
