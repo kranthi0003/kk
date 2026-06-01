@@ -11,7 +11,7 @@ export default function AllTheBest({ onBack }) {
   }, [])
 
   // Raining emoji setup
-  const rainEmojis = ['🍀', '🐙', '✨', '🎯', '☕', '📚', '💪', '🔥', '⭐', '🚀', '💖', '🎉']
+  const rainEmojis = ['🍀', '💻', '✨', '🎯', '☕', '📚', '💪', '🔥', '⭐', '🎈', '💖', '🎉']
   const rainItems = Array.from({ length: 24 }).map((_, i) => ({
     id: i,
     emoji: rainEmojis[i % rainEmojis.length],
@@ -23,7 +23,7 @@ export default function AllTheBest({ onBack }) {
 
   // Corner stickers
   const stickers = [
-    { emoji: '🐙', top: '8%', left: '6%', rot: -15, delay: 0, size: 56 },
+    { emoji: '💻', top: '8%', left: '6%', rot: -15, delay: 0, size: 56 },
     { emoji: '🍀', top: '12%', right: '8%', rot: 18, delay: 0.6, size: 52 },
     { emoji: '✨', bottom: '14%', left: '7%', rot: -8, delay: 1.2, size: 48 },
     { emoji: '☕', bottom: '10%', right: '6%', rot: 12, delay: 0.3, size: 52 },
@@ -179,7 +179,7 @@ export default function AllTheBest({ onBack }) {
           <div className="flex items-center justify-center gap-2 mb-5">
             <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite' }}>🍀</span>
             <span className="text-base">~</span>
-            <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.3s' }}>🐙</span>
+            <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.3s' }}>💻</span>
             <span className="text-base">~</span>
             <span className="text-2xl" style={{ animation: 'wobble 2s ease-in-out infinite 0.6s' }}>✨</span>
           </div>
