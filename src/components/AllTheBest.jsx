@@ -11,9 +11,9 @@ export default function AllTheBest({ onBack }) {
     if (rolling) return
     setRolling(true)
     setBounceClick(c => c + 1)
-    // Swap content near the end when card is settling face-up
-    setTimeout(() => setFlipped(f => !f), 950)
-    setTimeout(() => setRolling(false), 1300)
+    // Swap content at midpoint when card is edge-on
+    setTimeout(() => setFlipped(f => !f), 350)
+    setTimeout(() => setRolling(false), 700)
   }
 
   useEffect(() => {
@@ -168,7 +168,7 @@ export default function AllTheBest({ onBack }) {
             background: 'linear-gradient(180deg, #fffaf3 0%, #fff2e6 100%)',
             border: '3px solid #3a2a2e',
             boxShadow: '8px 8px 0 #3a2a2e, 16px 16px 40px rgba(58,42,46,0.20)',
-            animation: rolling ? 'diceRoll 1.3s cubic-bezier(0.3, 0.0, 0.2, 1)' : 'none',
+            animation: rolling ? 'diceRoll 0.7s ease-in-out' : 'none',
             transformStyle: 'preserve-3d',
           }}
         >
@@ -318,14 +318,8 @@ export default function AllTheBest({ onBack }) {
           100% { transform: scale(1); }
         }
         @keyframes diceRoll {
-          0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); }
-          15%  { transform: rotateX(180deg) rotateY(360deg) rotateZ(45deg) scale(0.92); }
-          30%  { transform: rotateX(360deg) rotateY(720deg) rotateZ(120deg) scale(0.85); }
-          45%  { transform: rotateX(540deg) rotateY(1080deg) rotateZ(220deg) scale(0.78); }
-          60%  { transform: rotateX(720deg) rotateY(1440deg) rotateZ(310deg) scale(0.82); }
-          75%  { transform: rotateX(900deg) rotateY(1800deg) rotateZ(380deg) scale(0.9); }
-          90%  { transform: rotateX(1080deg) rotateY(2160deg) rotateZ(360deg) scale(0.97); }
-          100% { transform: rotateX(1080deg) rotateY(2160deg) rotateZ(360deg) scale(1); }
+          0%   { transform: rotateY(0deg); }
+          100% { transform: rotateY(360deg); }
         }
       `}</style>
     </div>
