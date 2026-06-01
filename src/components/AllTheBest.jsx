@@ -1,77 +1,104 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
-// Hidden ATB page for Chaitra — simple content, beautiful UI
+// Hidden ATB page for Chaitra — premium UI with cursor spotlight, animated border, parallax
 export default function AllTheBest({ onBack }) {
   const [mounted, setMounted] = useState(false)
+  const cardRef = useRef(null)
+  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 })
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0 })
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80)
     return () => clearTimeout(t)
   }, [])
 
+  const onMouseMove = (e) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    setMouse({ x, y })
+    // Subtle parallax tilt
+    setTilt({ rx: (0.5 - y) * 4, ry: (x - 0.5) * 4 })
+  }
+
+  const onMouseLeave = () => {
+    setMouse({ x: 0.5, y: 0.5 })
+    setTilt({ rx: 0, ry: 0 })
+  }
+
   return (
     <div
       className="min-h-screen relative overflow-hidden flex items-center justify-center px-6 py-12"
       style={{
-        background: '#0a0612',
+        background: '#070310',
       }}
     >
-      {/* Aurora-style soft animated glows */}
+      {/* ─── Mesh gradient background (multi-layer aurora) ─── */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute rounded-full"
           style={{
-            top: '-10%', left: '-10%', width: '60%', height: '60%',
-            background: 'radial-gradient(circle, rgba(244,114,182,0.35) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-            animation: 'auroraA 14s ease-in-out infinite',
+            top: '-20%', left: '-15%', width: '70%', height: '70%',
+            background: 'radial-gradient(circle, rgba(244,114,182,0.40) 0%, transparent 65%)',
+            filter: 'blur(100px)',
+            animation: 'auroraA 18s ease-in-out infinite',
           }}
         />
         <div
           className="absolute rounded-full"
           style={{
-            bottom: '-10%', right: '-10%', width: '70%', height: '70%',
-            background: 'radial-gradient(circle, rgba(167,139,250,0.30) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-            animation: 'auroraB 16s ease-in-out infinite 2s',
+            bottom: '-20%', right: '-15%', width: '80%', height: '80%',
+            background: 'radial-gradient(circle, rgba(139,92,246,0.40) 0%, transparent 65%)',
+            filter: 'blur(110px)',
+            animation: 'auroraB 22s ease-in-out infinite 3s',
           }}
         />
         <div
           className="absolute rounded-full"
           style={{
-            top: '30%', right: '20%', width: '40%', height: '40%',
-            background: 'radial-gradient(circle, rgba(251,191,36,0.20) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-            animation: 'auroraC 18s ease-in-out infinite 4s',
+            top: '20%', right: '20%', width: '50%', height: '50%',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.25) 0%, transparent 70%)',
+            filter: 'blur(90px)',
+            animation: 'auroraC 20s ease-in-out infinite 5s',
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            bottom: '20%', left: '15%', width: '45%', height: '45%',
+            background: 'radial-gradient(circle, rgba(251,191,36,0.22) 0%, transparent 70%)',
+            filter: 'blur(90px)',
+            animation: 'auroraD 24s ease-in-out infinite 7s',
           }}
         />
       </div>
 
-      {/* Subtle dot grid */}
+      {/* Dot grid */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        className="absolute inset-0 pointer-events-none opacity-[0.12]"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
+          backgroundSize: '36px 36px',
+          maskImage: 'radial-gradient(ellipse at center, black 35%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 35%, transparent 80%)',
         }}
       />
 
-      {/* Tiny floating sparkles */}
+      {/* Floating sparkles */}
       <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 14 }).map((_, i) => (
+        {Array.from({ length: 20 }).map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full"
             style={{
-              left: `${10 + (i * 7) % 80}%`,
-              top: `${15 + (i * 11) % 70}%`,
-              width: `${2 + (i % 3)}px`,
-              height: `${2 + (i % 3)}px`,
-              background: 'rgba(255,255,255,0.7)',
-              boxShadow: '0 0 8px rgba(255,255,255,0.7)',
-              animation: `twinkle ${3 + (i % 4)}s ease-in-out ${i * 0.3}s infinite`,
+              left: `${5 + (i * 13) % 90}%`,
+              top: `${8 + (i * 17) % 84}%`,
+              width: `${1 + (i % 3)}px`,
+              height: `${1 + (i % 3)}px`,
+              background: 'rgba(255,255,255,0.85)',
+              boxShadow: `0 0 ${6 + (i % 4) * 2}px rgba(255,255,255,0.8)`,
+              animation: `twinkle ${3 + (i % 5) * 0.7}s ease-in-out ${i * 0.25}s infinite`,
             }}
           />
         ))}
@@ -81,34 +108,70 @@ export default function AllTheBest({ onBack }) {
       {onBack && (
         <button
           onClick={onBack}
-          className="absolute top-6 left-6 text-white/30 hover:text-white/80 text-xs font-mono tracking-wider transition-colors z-20"
+          className="absolute top-6 left-6 text-white/30 hover:text-white/80 text-xs font-mono tracking-wider transition-colors z-30"
         >
           ← back
         </button>
       )}
 
-      {/* Main card */}
+      {/* ─── Main card with animated border + parallax + spotlight ─── */}
       <div
-        className="relative z-10 max-w-lg w-full transition-all duration-[1200ms] ease-out"
+        className="relative z-10 max-w-lg w-full"
         style={{
+          perspective: '1500px',
+          transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
           opacity: mounted ? 1 : 0,
-          transform: mounted ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.96)',
+          transform: mounted ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.96)',
         }}
       >
-        {/* Glass card */}
+        {/* Animated conic gradient border (rotating) */}
         <div
-          className="relative rounded-3xl p-10 sm:p-14"
+          className="absolute -inset-px rounded-3xl pointer-events-none"
           style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.10)',
+            background: 'conic-gradient(from 0deg, transparent 0%, rgba(244,114,182,0.6) 20%, transparent 40%, rgba(139,92,246,0.6) 60%, transparent 80%, rgba(56,189,248,0.6) 100%)',
+            animation: 'spin 8s linear infinite',
+            opacity: 0.5,
+          }}
+        />
+
+        {/* Outer glow */}
+        <div
+          className="absolute -inset-8 rounded-[2rem] pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(244,114,182,0.15) 0%, rgba(139,92,246,0.10) 40%, transparent 70%)',
+            filter: 'blur(40px)',
+          }}
+        />
+
+        {/* The actual card */}
+        <div
+          ref={cardRef}
+          onMouseMove={onMouseMove}
+          onMouseLeave={onMouseLeave}
+          className="relative rounded-3xl p-10 sm:p-14 overflow-hidden"
+          style={{
+            background: 'linear-gradient(180deg, rgba(20,15,40,0.85) 0%, rgba(15,10,30,0.92) 100%)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: '0 40px 100px -20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.10)',
+            transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
+            transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            transformStyle: 'preserve-3d',
           }}
         >
+          {/* Cursor spotlight */}
+          <div
+            className="absolute inset-0 pointer-events-none rounded-3xl"
+            style={{
+              background: `radial-gradient(600px circle at ${mouse.x * 100}% ${mouse.y * 100}%, rgba(255,255,255,0.06) 0%, transparent 40%)`,
+              transition: 'background 0.1s ease-out',
+            }}
+          />
+
           {/* Tiny header */}
           <div
-            className="text-[10px] font-mono uppercase tracking-[0.5em] text-white/50 mb-6 text-center"
+            className="text-[10px] font-mono uppercase tracking-[0.5em] text-white/45 mb-6 text-center"
             style={{
               transition: 'opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s',
               opacity: mounted ? 1 : 0,
@@ -118,28 +181,38 @@ export default function AllTheBest({ onBack }) {
             for chaitra
           </div>
 
-          {/* Big gradient heading */}
-          <h1
-            className="text-center font-heading leading-[1] tracking-tight mb-8"
-            style={{
-              fontSize: 'clamp(3rem, 10vw, 5.5rem)',
-              fontWeight: 600,
-              background: 'linear-gradient(135deg, #fce7f3 0%, #f9a8d4 25%, #c4b5fd 50%, #93c5fd 75%, #fde68a 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              backgroundSize: '200% 200%',
-              animation: 'shimmer 8s ease-in-out infinite',
-              filter: 'drop-shadow(0 0 40px rgba(244,114,182,0.3))',
-              transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? 'translateY(0)' : 'translateY(12px)',
-            }}
-          >
-            All the
-            <br />
-            best.
-          </h1>
+          {/* Heading with halo glow */}
+          <div className="relative mb-8">
+            {/* Halo behind text */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'radial-gradient(ellipse at center, rgba(244,114,182,0.25) 0%, transparent 60%)',
+                filter: 'blur(30px)',
+              }}
+            />
+            <h1
+              className="relative text-center font-heading leading-[1] tracking-tight"
+              style={{
+                fontSize: 'clamp(3rem, 11vw, 6rem)',
+                fontWeight: 600,
+                background: 'linear-gradient(135deg, #fce7f3 0%, #f9a8d4 20%, #c4b5fd 45%, #93c5fd 70%, #fde68a 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                backgroundSize: '250% 250%',
+                animation: 'shimmer 7s ease-in-out infinite',
+                filter: 'drop-shadow(0 4px 20px rgba(244,114,182,0.4))',
+                transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? 'translateY(0)' : 'translateY(12px)',
+              }}
+            >
+              All the
+              <br />
+              best.
+            </h1>
+          </div>
 
           {/* Divider */}
           <div
@@ -149,14 +222,14 @@ export default function AllTheBest({ onBack }) {
               opacity: mounted ? 1 : 0,
             }}
           >
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-white/30" />
-            <div className="w-1 h-1 rounded-full bg-white/40" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-white/30" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/30" />
+            <div className="w-1.5 h-1.5 rounded-full bg-pink-400/60" style={{ boxShadow: '0 0 8px rgba(244,114,182,0.7)' }} />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/30" />
           </div>
 
-          {/* Simple message */}
+          {/* Message */}
           <div
-            className="space-y-4 text-center text-white/80 text-base sm:text-lg leading-relaxed font-light"
+            className="space-y-4 text-center text-white/85 text-base sm:text-lg leading-relaxed font-light"
             style={{
               transition: 'opacity 0.6s ease-out 0.7s, transform 0.6s ease-out 0.7s',
               opacity: mounted ? 1 : 0,
@@ -169,7 +242,7 @@ export default function AllTheBest({ onBack }) {
             <p>
               Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
             </p>
-            <p className="text-white pt-1">
+            <p className="text-white pt-1 font-normal">
               See you on the other side.
             </p>
           </div>
@@ -183,46 +256,42 @@ export default function AllTheBest({ onBack }) {
             }}
           >
             <div
-              className="text-white/80"
-              style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '15px' }}
+              className="text-white/85"
+              style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '16px' }}
             >
               — Kranthi
             </div>
           </div>
-        </div>
-
-        {/* Tiny note under card */}
-        <div
-          className="text-center mt-6 text-[10px] font-mono tracking-[0.3em] text-white/25"
-          style={{
-            transition: 'opacity 0.6s ease-out 1.2s',
-            opacity: mounted ? 1 : 0,
-          }}
-        >
-          ───
         </div>
       </div>
 
       <style>{`
         @keyframes auroraA {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(15%, 10%) scale(1.15); }
+          50% { transform: translate(18%, 12%) scale(1.18); }
         }
         @keyframes auroraB {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-15%, -10%) scale(1.2); }
+          50% { transform: translate(-18%, -12%) scale(1.22); }
         }
         @keyframes auroraC {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-10%, 15%) scale(1.1); }
+          50% { transform: translate(-12%, 18%) scale(1.15); }
+        }
+        @keyframes auroraD {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(15%, -10%) scale(1.12); }
         }
         @keyframes shimmer {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
         }
         @keyframes twinkle {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.4); }
+          0%, 100% { opacity: 0.2; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.5); }
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
