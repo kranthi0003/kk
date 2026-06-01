@@ -5,7 +5,6 @@ export default function AllTheBest({ onBack }) {
   const [mounted, setMounted] = useState(false)
   const cardRef = useRef(null)
   const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 })
-  const [tilt, setTilt] = useState({ rx: 0, ry: 0 })
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80)
@@ -18,13 +17,10 @@ export default function AllTheBest({ onBack }) {
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
     setMouse({ x, y })
-    // Subtle parallax tilt
-    setTilt({ rx: (0.5 - y) * 4, ry: (x - 0.5) * 4 })
   }
 
   const onMouseLeave = () => {
     setMouse({ x: 0.5, y: 0.5 })
-    setTilt({ rx: 0, ry: 0 })
   }
 
   return (
@@ -118,22 +114,11 @@ export default function AllTheBest({ onBack }) {
       <div
         className="relative z-10 max-w-lg w-full"
         style={{
-          perspective: '1500px',
           transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
           opacity: mounted ? 1 : 0,
           transform: mounted ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.96)',
         }}
       >
-        {/* Animated conic gradient border (rotating) */}
-        <div
-          className="absolute -inset-px rounded-3xl pointer-events-none"
-          style={{
-            background: 'conic-gradient(from 0deg, transparent 0%, rgba(244,114,182,0.6) 20%, transparent 40%, rgba(139,92,246,0.6) 60%, transparent 80%, rgba(56,189,248,0.6) 100%)',
-            animation: 'spin 8s linear infinite',
-            opacity: 0.5,
-          }}
-        />
-
         {/* Outer glow */}
         <div
           className="absolute -inset-8 rounded-[2rem] pointer-events-none"
@@ -153,11 +138,8 @@ export default function AllTheBest({ onBack }) {
             background: 'linear-gradient(180deg, rgba(20,15,40,0.85) 0%, rgba(15,10,30,0.92) 100%)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.10)',
             boxShadow: '0 40px 100px -20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.10)',
-            transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
-            transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
-            transformStyle: 'preserve-3d',
           }}
         >
           {/* Cursor spotlight */}
