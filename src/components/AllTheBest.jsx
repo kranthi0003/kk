@@ -118,11 +118,10 @@ export default function AllTheBest({ onBack }) {
         }}
       >
         <div
-          className="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-white"
+          className="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-gray-800 border-2 border-black/15"
           style={{
-            background: 'linear-gradient(90deg, #ff4d8d, #b347ff)',
-            boxShadow: '0 0 20px rgba(255,77,141,0.5), 0 4px 0 rgba(0,0,0,0.15)',
-            textShadow: '1px 1px 0 rgba(0,0,0,0.2)',
+            background: 'linear-gradient(135deg, #ffd6e8 0%, #ffe8b8 35%, #b8e6ff 70%, #d4b8ff 100%)',
+            boxShadow: '0 4px 0 rgba(0,0,0,0.12), 0 8px 16px rgba(244,114,182,0.25)',
           }}
         >
           🎯 GO CHAITRA GO 🎯
