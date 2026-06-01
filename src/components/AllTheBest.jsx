@@ -46,22 +46,28 @@ export default function AllTheBest({ onBack }) {
     <div
       className="min-h-screen relative overflow-hidden flex items-center justify-center px-6 py-12"
       style={{
-        background: 'linear-gradient(135deg, #ffd6e8 0%, #ffe8b8 25%, #b8e6ff 60%, #d4b8ff 100%)',
+        background: 'linear-gradient(135deg, #ffe4ec 0%, #ffd7c4 25%, #fff0db 50%, #d8ecd9 75%, #e4d4f0 100%)',
       }}
     >
       {/* Wavy pastel blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute rounded-full" style={{
           top: '-10%', left: '-5%', width: '50%', height: '50%',
-          background: 'rgba(255, 180, 220, 0.5)',
-          filter: 'blur(60px)',
+          background: 'rgba(232, 165, 184, 0.45)',
+          filter: 'blur(70px)',
           animation: 'wiggle 10s ease-in-out infinite',
         }} />
         <div className="absolute rounded-full" style={{
           bottom: '-10%', right: '-5%', width: '55%', height: '55%',
-          background: 'rgba(180, 220, 255, 0.5)',
-          filter: 'blur(70px)',
+          background: 'rgba(216, 197, 232, 0.5)',
+          filter: 'blur(80px)',
           animation: 'wiggle 12s ease-in-out infinite 2s',
+        }} />
+        <div className="absolute rounded-full" style={{
+          top: '40%', right: '20%', width: '35%', height: '35%',
+          background: 'rgba(200, 224, 204, 0.45)',
+          filter: 'blur(70px)',
+          animation: 'wiggle 14s ease-in-out infinite 4s',
         }} />
       </div>
 
@@ -131,8 +137,8 @@ export default function AllTheBest({ onBack }) {
         <div
           className="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-gray-800 border-2 border-black/15"
           style={{
-            background: 'linear-gradient(135deg, #ffd6e8 0%, #ffe8b8 35%, #b8e6ff 70%, #d4b8ff 100%)',
-            boxShadow: '0 4px 0 rgba(0,0,0,0.12), 0 8px 16px rgba(244,114,182,0.25)',
+          background: 'linear-gradient(135deg, #ffe4ec 0%, #ffd7c4 35%, #fff0db 70%, #d8ecd9 100%)',
+            boxShadow: '0 4px 0 rgba(0,0,0,0.10), 0 8px 16px rgba(232,165,184,0.30)',
           }}
         >
           🎯 GO CHAITRA GO 🎯
@@ -149,9 +155,9 @@ export default function AllTheBest({ onBack }) {
           transform: mounted ? 'rotate(-1.5deg) scale(1)' : 'rotate(-1.5deg) scale(0.7) translateY(40px)',
         }}
       >
-        {/* Tape strips at corners */}
-        <div className="absolute -top-3 left-8 w-16 h-6 bg-yellow-200/80 rotate-[-12deg] z-20 shadow-sm" />
-        <div className="absolute -top-3 right-8 w-16 h-6 bg-yellow-200/80 rotate-[8deg] z-20 shadow-sm" />
+        {/* Tape strips at corners — sage */}
+        <div className="absolute -top-3 left-8 w-16 h-6 rotate-[-12deg] z-20 shadow-sm" style={{ background: 'rgba(184, 215, 188, 0.85)' }} />
+        <div className="absolute -top-3 right-8 w-16 h-6 rotate-[8deg] z-20 shadow-sm" style={{ background: 'rgba(184, 215, 188, 0.85)' }} />
 
         {/* The sticky note */}
         <div
@@ -159,9 +165,9 @@ export default function AllTheBest({ onBack }) {
           onClick={handleCardClick}
           className="relative rounded-2xl p-8 sm:p-10 cursor-pointer"
           style={{
-            background: 'linear-gradient(180deg, #fffdf2 0%, #fff8e1 100%)',
-            border: '3px solid #1a1a1a',
-            boxShadow: '8px 8px 0 #1a1a1a, 16px 16px 40px rgba(0,0,0,0.2)',
+            background: 'linear-gradient(180deg, #fffaf3 0%, #fff2e6 100%)',
+            border: '3px solid #3a2a2e',
+            boxShadow: '8px 8px 0 #3a2a2e, 16px 16px 40px rgba(58,42,46,0.20)',
             animation: rolling ? 'diceRoll 1.3s cubic-bezier(0.3, 0.0, 0.2, 1)' : 'none',
             transformStyle: 'preserve-3d',
           }}
@@ -197,8 +203,8 @@ export default function AllTheBest({ onBack }) {
               </div>
 
               <div
-                className="space-y-3 text-center text-gray-800 leading-relaxed"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '17px' }}
+                className="space-y-3 text-center leading-relaxed"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '17px', color: '#3a2a2e' }}
               >
                 <p>
                   Baaga raayu. Iyna nuv thop le senior... easy ga rasesthav.
@@ -206,21 +212,21 @@ export default function AllTheBest({ onBack }) {
                 <p>
                   Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
                 </p>
-                <p className="text-pink-700 font-bold pt-2 text-lg">
+                <p className="font-bold pt-2 text-lg" style={{ color: '#c97086' }}>
                   See you on the other side. 👋
                 </p>
               </div>
 
               <div className="mt-8 flex items-end justify-end">
                 <div
-                  className="text-gray-800"
                   style={{
                     fontFamily: 'Georgia, "Times New Roman", serif',
                     fontStyle: 'italic',
                     fontSize: '20px',
                     fontWeight: 600,
+                    color: '#3a2a2e',
                     textDecoration: 'underline',
-                    textDecorationColor: '#ff4d8d',
+                    textDecorationColor: '#c97086',
                     textDecorationThickness: '2px',
                     textUnderlineOffset: '4px',
                   }}
@@ -248,18 +254,19 @@ export default function AllTheBest({ onBack }) {
                     fontSize: 'clamp(1.6rem, 5vw, 2.4rem)',
                     fontWeight: 800,
                     fontStyle: 'italic',
-                    color: '#1a1a1a',
-                    textShadow: '3px 3px 0 #ffd966',
+                    color: '#3a2a2e',
+                    textShadow: '3px 3px 0 #ffd8a8',
                   }}
                 >
                   heheh.. em ledhu gaani..
                 </h2>
 
                 <p
-                  className="text-gray-800 font-bold"
+                  className="font-bold"
                   style={{
                     fontFamily: 'Georgia, "Times New Roman", serif',
                     fontSize: 'clamp(1.2rem, 4vw, 1.6rem)',
+                    color: '#3a2a2e',
                   }}
                 >
                   poyi exam rasko, byeee 👋
