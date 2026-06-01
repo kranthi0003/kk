@@ -15,7 +15,7 @@ export default function AllTheBest({ onBack }) {
       size: 4 + Math.random() * 8,
       delay: Math.random() * 4,
       duration: 8 + Math.random() * 8,
-      emoji: ['✨', '🌟', '💫', '⭐', '🍀'][Math.floor(Math.random() * 5)],
+      emoji: ['✨', '🌟', '🍀', '🐙', '⌨️'][Math.floor(Math.random() * 5)],
     }))
     setConfetti(particles)
     return () => clearTimeout(t)
@@ -127,14 +127,14 @@ export default function AllTheBest({ onBack }) {
                 All The Best
               </h1>
               <div className="text-white/60 text-base sm:text-lg mt-2 font-light tracking-wide">
-                you've got this. 🍀
+                GitHub Admin exam — you've got this. 🍀
               </div>
             </div>
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-8">
               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-              <div className="text-white/30 text-xs">✦</div>
+              <div className="text-white/30 text-xs">{`</>`}</div>
               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </div>
 
@@ -144,21 +144,35 @@ export default function AllTheBest({ onBack }) {
                 Hey Chaitra,
               </p>
               <p>
-                Whatever you're walking into today —
-                an interview, a presentation, an exam, a big talk, a small one —
-                I just wanted you to know that <span className="text-white">you are absolutely going to crush it</span>.
+                Today's the day. <span className="text-white">GitHub Admin exam</span> — and you are
+                <em className="text-amber-200/90"> more than ready</em> for this.
               </p>
               <p>
-                You've already done the hard part — showing up, preparing, caring enough to be nervous.
-                The rest is just letting yourself <em className="text-amber-200/90">be</em> who you already are.
+                You've put in the hours. You know your way around orgs, teams, audit logs, SAML, SSO, branch protection,
+                Actions, packages, enterprise settings — the whole stack. The exam is just a formal way of telling
+                you what you already know.
               </p>
               <p>
-                Take a breath. Stand tall. Smile when you walk in.
-                Trust the work you've put in.
+                When you hit a question that feels tricky — <span className="text-white">pause, breathe, read it once more</span>.
+                The answer is usually in the question. Trust the process, eliminate the obviously wrong ones, and go with your gut.
+              </p>
+              <p>
+                And remember — even if anything goes sideways, it's just a retake. Nothing about today changes who you are or
+                how good you are at what you do.
               </p>
               <p className="text-white font-medium text-lg sm:text-xl pt-2">
-                Go shine. ✨
+                Now go pass that exam. Then come back and tell me all about it. 🎯
               </p>
+            </div>
+
+            {/* Quick reminders */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[10px] font-mono text-white/40">
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">read twice</div>
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">flag &amp; move on</div>
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">trust your gut</div>
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">breathe</div>
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">hydrate</div>
+              <div className="px-2 py-1.5 rounded border border-white/10 bg-white/[0.02] text-center">finish strong</div>
             </div>
 
             {/* Signature */}
