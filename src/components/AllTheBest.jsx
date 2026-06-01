@@ -164,13 +164,13 @@ export default function AllTheBest({ onBack }) {
             }}
           >
             <p>
-              You've got the GitHub Admin exam today.
+              Baaga raayu. Iyna nuv thop le senior... easy ga rasesthav.
             </p>
             <p>
-              You're ready. Trust your gut. Take your time.
+              Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
             </p>
             <p className="text-white pt-1">
-              You'll do great. 🍀
+              See you on the other side.
             </p>
           </div>
 
