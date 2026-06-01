@@ -196,7 +196,7 @@ export default function AllTheBest({ onBack }) {
               Exam ipoyaka passed ani msg chey... poyna kuda cheyu, kalsi edudham. Na actions exam etu pothadhi 😄
             </p>
             <p className="text-pink-700 font-bold pt-2 text-lg">
-              See you on the other side. 🚀
+              See you on the other side. 👋
             </p>
           </div>
 
