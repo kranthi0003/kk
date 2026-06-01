@@ -94,6 +94,13 @@ const PROMPTS = {
   spicy: {
     truth: [
       "What's the dirtiest thing you've ever Googled?",
+      "Tell us the FULL story of your first kiss — where, who, how it felt.",
+      "How old were you the first time you made out with someone?",
+      "What's the most you've ever kissed someone on a single night?",
+      "Where's the riskiest place you've ever kissed someone?",
+      "Have you ever kissed someone you shouldn't have? Walk us through it.",
+      "What's the best kiss you've ever had — what made it the best?",
+      "Where on your body do you find a kiss most distracting?",
       "When was the last time you got butterflies — and what triggered it?",
       "What's a body feature in someone that instantly makes you weak?",
       "What's the most flirty thing you've ever done over chat?",
@@ -110,32 +117,33 @@ const PROMPTS = {
       "What's a small detail about someone that makes you instantly notice them?",
       "What's the most attracted you've ever felt to someone, where you couldn't say a word?",
       "What's a memory of someone that still makes your stomach drop in a good way?",
-      "What's a song lyric that perfectly describes how you fall in love?",
       "What's a moment from your past where you wish you had been bolder with someone?",
-      "What's something you've always secretly wanted to be told?",
       "What's an underrated turn-on for you that you've never told anyone?",
       "What's the most you've ever fallen for someone without them knowing?",
       "When you really, really want to impress someone, what do you do differently?",
     ],
     dare: [
+      "Blow a kiss to {OTHER} — keep eye contact.",
+      "Kiss your own hand and place it gently on {OTHER}'s cheek.",
+      "Demonstrate (on the air, no contact) how you'd kiss someone you really really wanted to kiss.",
+      "Rate the last 3 kisses you remember — out of 10, no names.",
       "Show the most attractive picture in your camera roll (yours OR someone else's — your call).",
       "Show your favourite photo of yourself ever taken.",
-      "Show your phone background AND your laptop background — and explain why you chose them.",
-      "Show the last person you screenshotted from an Insta profile.",
       "Pick the most romantic song in your playlist right now and play 15 seconds of it.",
       "Show a screenshot of a flirty conversation you've had (cover names if needed).",
-      "Tell us the most romantic gesture you've EVER done for someone.",
       "Take your best 'main character' selfie right now.",
       "Tell the table the most attractive thing you think you have to offer someone.",
       "Read your favourite love song lyric out loud, slowly.",
       "Describe your dream first date — every detail, like you're directing a scene.",
+      "Show your phone background AND your laptop background — and explain why you chose them.",
     ],
   },
 
-  // ─── WILD: chemistry between players — eye contact, touch, "you and me" ──
+  // ─── WILD: chemistry between players — eye contact, touch, kiss, "you and me" ──
   wild: {
     truth: [
       "Look at {OTHER} and answer honestly — what's the first thing you noticed about {HIM_HER}?",
+      "Have you ever wondered what it'd feel like to kiss {OTHER}? Be honest.",
       "What's a thought you've had about {OTHER} that you'd never say out loud?",
       "What's the most attractive thing {OTHER} has done so far tonight?",
       "If you and {OTHER} were alone right now, what's the FIRST thing you'd do?",
@@ -144,13 +152,17 @@ const PROMPTS = {
       "What's the smallest thing about {OTHER} you've already noticed and liked?",
       "What's one thing you'd say to {OTHER} if there were no one else in the room?",
       "If tonight had to end with one moment with {OTHER}, what would that moment look like?",
-      "If we paused the game right now and you could ask {OTHER} ONE personal question, what would it be?",
+      "If you could kiss anyone in this room, would it be {OTHER}? Don't think — just answer.",
       "What's a part of {OTHER}'s personality that low-key drives you a little crazy?",
       "Pick: a slow night-in with {OTHER}, or a wild night out — and explain why honestly.",
       "What's something about {OTHER} you've already imagined doing together?",
       "When did you first realize {OTHER} was someone you wanted to know more?",
     ],
     dare: [
+      "Kiss {OTHER} on the cheek.",
+      "Kiss {OTHER} on the forehead — slow, no rush.",
+      "Kiss the back of {OTHER}'s hand, eye contact.",
+      "Whisper something in {OTHER}'s ear and end it with a soft cheek kiss.",
       "Walk over to {OTHER} and tell {HIM_HER}, eye to eye: 'I'm really glad you're here tonight.'",
       "Look at {OTHER}, no smiling, and say: 'I've been waiting for tonight.'",
       "Take {OTHER}'s hand and don't let go until your next turn comes around.",
@@ -173,6 +185,7 @@ const PROMPTS = {
     ],
   },
 }
+
 
 // ─── Telugu extras (merged when region = telugu / both) ─────
 const TELUGU_EXTRAS = {
@@ -329,21 +342,18 @@ const LOCATION_PROMPTS = {
   },
 }
 
-// ─── Level escalation: longer mild + medium ─────────────────
-// r1-4:   mild (icebreakers)
-// r5-10:  medium (personal about her)
-// r11+:   spicy + wild mixed
+// ─── Level escalation: quick warm-up, masala fast ───────────
+// r1-2:  mild  (quick icebreakers)
+// r3-5:  medium (love life — quick)
+// r6+:   spicy + wild (intimate + chemistry mixed)
 function pickLevel(round) {
-  if (round <= 4) return 'mild'
-  if (round <= 10) {
-    const r = Math.random()
-    if (r < 0.15) return 'mild'
-    return 'medium'
+  if (round <= 2) return 'mild'
+  if (round <= 5) {
+    return Math.random() < 0.15 ? 'mild' : 'medium'
   }
-  // r11+: spicy + wild together
   const r = Math.random()
   if (r < 0.1) return 'medium'
-  if (r < 0.55) return 'spicy'
+  if (r < 0.5) return 'spicy'
   return 'wild'
 }
 
