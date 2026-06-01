@@ -15,31 +15,7 @@ export default function AstroDitherSection() {
         </div>
 
         {/* Card grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Truth or Dare card */}
-          <a href="#/tod"
-             className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(244,114,182,0.15)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative">
-              <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                </svg>
-              </div>
-              <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-rose-300 transition-colors">
-                Truth or Dare
-              </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                2–8 players, M/F gender-aware prompts, Indian context (Bollywood, IPL, Zomato). Starts mild, gets spicy by round 6.
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-[10px] font-mono text-muted-foreground/60">
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">2-8 players</span>
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Indian</span>
-                <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">Gender-aware</span>
-              </div>
-            </div>
-          </a>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* AstroDither card */}
           <a href="#/astro"
              className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(120,80,255,0.15)]">
