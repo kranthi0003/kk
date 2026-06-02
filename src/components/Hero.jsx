@@ -63,11 +63,12 @@ export default function Hero({ onResumeClick }) {
             </div>
 
             <h1
-              className="font-arcade text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-3 animate-fade-in-up"
+              className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-3 animate-fade-in-up"
               style={{
                 animationDelay: '0.2s',
-                fontWeight: 400,
-                letterSpacing: '0.01em',
+                fontWeight: 800,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.05,
               }}
             >
               Hey, I'm Kranthi
@@ -92,34 +93,24 @@ export default function Hero({ onResumeClick }) {
             </p>
 
             {/* Primary CTAs */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-              <a
-                href="#connect"
-                className="group inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-accent text-accent-foreground font-medium text-sm hover:opacity-90 transition-opacity"
-              >
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start items-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+              <a href="#connect" className="btn-primary">
                 Work Together
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20">
-                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <span className="btn-arrow-circle">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
               </a>
-              <a
-                href="#projects"
-                className="group inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-muted text-foreground font-medium text-sm hover:bg-muted/80 transition-colors"
-              >
+              <a href="#projects" className="btn-secondary">
                 Projects
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-foreground/10">
-                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <span className="btn-arrow-circle">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
               </a>
-              <button
-                onClick={onResumeClick}
-                data-resume-btn
-                className="inline-flex items-center px-5 py-2 rounded-full border border-border/80 text-foreground font-medium text-sm hover:bg-muted/40 transition-colors"
-              >
+              <button onClick={onResumeClick} data-resume-btn className="btn-outline">
                 Resume
               </button>
             </div>

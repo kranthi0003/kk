@@ -44,32 +44,23 @@
 /* Base */
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Sora', system-ui, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
   letter-spacing: -0.01em;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Gaming-feel heading font util */
+/* Headings: clean modern geometric */
 .font-heading,
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Sora', system-ui, sans-serif;
   letter-spacing: -0.02em;
-}
-
-/* Gaming/arcade sticker font util — use for hero title or accents */
-.font-arcade {
-  font-family: 'Bungee', 'Space Grotesk', system-ui, sans-serif;
-  letter-spacing: 0.02em;
-}
-.font-pixel {
-  font-family: 'Press Start 2P', monospace;
 }
 
 /* Mono fallback */
 .font-mono, code, pre, kbd {
-  font-family: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* Animations */
@@ -494,6 +485,24 @@ nav button.rounded-full.bg-muted\/60:hover {
   background: var(--color-muted);
   transform: translateY(-1px);
 }
+
+/* Arrow circle inside a pill button (when present) */
+.btn-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  margin-right: -0.6rem;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+}
+.btn-primary .btn-arrow-circle { background: rgba(255,255,255,0.22); }
+.btn-secondary .btn-arrow-circle { background: color-mix(in oklab, var(--color-foreground) 10%, transparent); }
+.btn-primary .btn-arrow-circle svg,
+.btn-secondary .btn-arrow-circle svg { width: 14px; height: 14px; }
+.btn-primary .btn-arrow-circle svg { color: #ffffff; stroke: #ffffff; }
 
 /* Hide scrollbar while keeping scroll behavior */
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
