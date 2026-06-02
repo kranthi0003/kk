@@ -300,7 +300,10 @@ export default function CollabEditor({ onBack }) {
 
   const joinChannel = (room, name) => {
     const channel = supabase.channel(`collab-${room}`, {
-      config: { presence: { key: crypto.randomUUID().slice(0, 8) } }
+      config: {
+        broadcast: { self: false, ack: false },
+        presence: { key: crypto.randomUUID().slice(0, 8) },
+      },
     })
 
     channel
@@ -414,9 +417,11 @@ export default function CollabEditor({ onBack }) {
     const prevFile = files.find(f => f.id === activeFileId)
     const delta = (newCode?.length || 0) - (prevFile?.code?.length || 0)
     setFiles(prev => prev.map(f => f.id === activeFileId ? { ...f, code: newCode || '' } : f))
-    if (!suppressSync.current && channelRef.current) {
-      channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, fileId: activeFileId, code: newCode, delta } })
-      channelRef.current.send({ type: 'broadcast', event: 'typing', payload: { name: userName } })
+    if (!suppressSync.current && channelRef.current && channelRef.current.state === 'joined') {
+      try {
+        channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, fileId: activeFileId, code: newCode, delta } })
+        channelRef.current.send({ type: 'broadcast', event: 'typing', payload: { name: userName } })
+      } catch (e) { console.warn('collab send failed', e) }
       if (delta > 0) setContribStats(s => ({ ...s, [userName]: (s[userName] || 0) + delta }))
     }
   }

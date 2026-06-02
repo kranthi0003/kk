@@ -70,7 +70,10 @@ export default function BattlePage({ onBack }) {
   // ─── SUPABASE CHANNEL ───
   const joinChannel = (room, name) => {
     const channel = supabase.channel(`battle-${room}`, {
-      config: { presence: { key: crypto.randomUUID().slice(0, 8) } }
+      config: {
+        broadcast: { self: false, ack: false },
+        presence: { key: crypto.randomUUID().slice(0, 8) },
+      },
     })
 
     channel
