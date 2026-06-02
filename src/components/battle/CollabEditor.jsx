@@ -178,7 +178,7 @@ export default function CollabEditor({ onBack }) {
   const [roomCode, setRoomCode] = useState('')
   const [isHost, setIsHost] = useState(false)
   const [files, setFiles] = useState([
-    { id: genFileId(), name: 'main', lang: 'markdown', code: LANGUAGES[1].template }
+    { id: 'main', name: 'main', lang: 'markdown', code: LANGUAGES[1].template }
   ])
   const [activeFileId, setActiveFileId] = useState(null)
   const [users, setUsers] = useState([])
@@ -243,6 +243,36 @@ export default function CollabEditor({ onBack }) {
     const params = new URLSearchParams(window.location.hash.split('?')[1] || '')
     const r = params.get('room')
     if (r) setRoomCode(r.toUpperCase())
+  }, [])
+
+  // ─── Persist active session so a refresh doesn't drop you to lobby ───
+  // Save current session
+  useEffect(() => {
+    if (phase !== 'editor' || !roomCode || !userName) return
+    try {
+      sessionStorage.setItem('collab:session', JSON.stringify({
+        phase, roomCode, userName, isHost, files, activeFileId,
+      }))
+    } catch {}
+  }, [phase, roomCode, userName, isHost, files, activeFileId])
+
+  // Restore on mount — if we were in an editor session, rejoin automatically
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem('collab:session')
+      if (!raw) return
+      const s = JSON.parse(raw)
+      if (!s.roomCode || !s.userName || s.phase !== 'editor') return
+      setUserName(s.userName)
+      setRoomCode(s.roomCode)
+      setIsHost(!!s.isHost)
+      if (Array.isArray(s.files) && s.files.length > 0) setFiles(s.files)
+      if (s.activeFileId) setActiveFileId(s.activeFileId)
+      setPhase('editor')
+      // Rejoin channel after state settles
+      setTimeout(() => joinChannel(s.roomCode, s.userName), 200)
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => () => { if (channelRef.current) supabase.removeChannel(channelRef.current) }, [])
@@ -322,8 +352,17 @@ export default function CollabEditor({ onBack }) {
       .on('broadcast', { event: 'code-change' }, ({ payload }) => {
         if (payload.name !== name) {
           suppressSync.current = true
-          setFiles(prev => prev.map(f => f.id === payload.fileId ? { ...f, code: payload.code } : f))
-          setTimeout(() => { suppressSync.current = false }, 50)
+          setFiles(prev => {
+            const exists = prev.find(f => f.id === payload.fileId)
+            if (exists) {
+              return prev.map(f => f.id === payload.fileId ? { ...f, code: payload.code } : f)
+            }
+            // ID mismatch — adopt the incoming file so future updates land
+            return [...prev, { id: payload.fileId, name: 'main', lang: 'markdown', code: payload.code }]
+          })
+          // Also ensure we're viewing the file being edited
+          setActiveFileId(prev => prev || payload.fileId)
+          setTimeout(() => { suppressSync.current = false }, 200)
           if (payload.delta > 0) setContribStats(s => ({ ...s, [payload.name]: (s[payload.name] || 0) + payload.delta }))
         }
       })
@@ -417,7 +456,7 @@ export default function CollabEditor({ onBack }) {
     const prevFile = files.find(f => f.id === activeFileId)
     const delta = (newCode?.length || 0) - (prevFile?.code?.length || 0)
     setFiles(prev => prev.map(f => f.id === activeFileId ? { ...f, code: newCode || '' } : f))
-    if (!suppressSync.current && channelRef.current && channelRef.current.state === 'joined') {
+    if (!suppressSync.current && channelRef.current) {
       try {
         channelRef.current.send({ type: 'broadcast', event: 'code-change', payload: { name: userName, fileId: activeFileId, code: newCode, delta } })
         channelRef.current.send({ type: 'broadcast', event: 'typing', payload: { name: userName } })
@@ -925,8 +964,12 @@ export default function CollabEditor({ onBack }) {
     <div className="h-screen bg-background text-foreground flex flex-col overflow-hidden relative">
       {/* Top bar */}
       <div className="flex items-center px-3 py-2 bg-card border-b border-border/30 flex-shrink-0 gap-2 flex-wrap">
-        <button onClick={onBack} className="px-2 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/30 text-sm transition-colors">
-          ← back
+        <button
+          onClick={() => { try { sessionStorage.removeItem('collab:session') } catch {}; onBack() }}
+          className="px-2 py-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/30 text-sm transition-colors"
+          title="leave room"
+        >
+          ← leave
         </button>
 
         <div className="w-px h-5 bg-border/30" />
