@@ -218,6 +218,7 @@ export default function CollabEditor({ onBack }) {
   const editorRef = useRef(null)
   const monacoRef = useRef(null)
   const suppressSync = useRef(false)
+  const userNameRef = useRef('')
   const chatEndRef = useRef(null)
   const reactionIdRef = useRef(0)
   const activityIdRef = useRef(0)
@@ -276,7 +277,7 @@ export default function CollabEditor({ onBack }) {
   }, [])
 
   useEffect(() => () => { if (channelRef.current) supabase.removeChannel(channelRef.current) }, [])
-  useEffect(() => { localStorage.setItem('collab:name', userName) }, [userName])
+  useEffect(() => { localStorage.setItem('collab:name', userName); userNameRef.current = userName }, [userName])
 
   // Pomodoro tick
   useEffect(() => {
@@ -350,56 +351,54 @@ export default function CollabEditor({ onBack }) {
         })
       })
       .on('broadcast', { event: 'code-change' }, ({ payload }) => {
-        if (payload.name !== name) {
-          suppressSync.current = true
-          setFiles(prev => {
-            const exists = prev.find(f => f.id === payload.fileId)
-            if (exists) {
-              return prev.map(f => f.id === payload.fileId ? { ...f, code: payload.code } : f)
-            }
-            // ID mismatch — adopt the incoming file so future updates land
-            return [...prev, { id: payload.fileId, name: 'main', lang: 'markdown', code: payload.code }]
-          })
-          // Also ensure we're viewing the file being edited
-          setActiveFileId(prev => prev || payload.fileId)
-          setTimeout(() => { suppressSync.current = false }, 200)
-          if (payload.delta > 0) setContribStats(s => ({ ...s, [payload.name]: (s[payload.name] || 0) + payload.delta }))
-        }
+        if (payload.name === userNameRef.current || payload.name === name) return
+        suppressSync.current = true
+        setFiles(prev => {
+          const exists = prev.find(f => f.id === payload.fileId)
+          if (exists) {
+            return prev.map(f => f.id === payload.fileId ? { ...f, code: payload.code } : f)
+          }
+          // ID mismatch — adopt the incoming file so future updates land
+          return [...prev, { id: payload.fileId, name: 'main', lang: 'markdown', code: payload.code }]
+        })
+        setActiveFileId(prev => prev || payload.fileId)
+        setTimeout(() => { suppressSync.current = false }, 200)
+        if (payload.delta > 0) setContribStats(s => ({ ...s, [payload.name]: (s[payload.name] || 0) + payload.delta }))
       })
       .on('broadcast', { event: 'file-sync' }, ({ payload }) => {
-        if (payload.name !== name) {
-          setFiles(payload.files)
-        }
+        if (payload.name === userNameRef.current || payload.name === name) return
+        setFiles(payload.files)
       })
       .on('broadcast', { event: 'request-state' }, ({ payload }) => {
-        if (payload.name === name) return
+        if (payload.name === userNameRef.current || payload.name === name) return
         // host responds with current state
         if (isHost || users[0]?.name === name) {
-          channelRef.current?.send({ type: 'broadcast', event: 'file-sync', payload: { name, files } })
+          channelRef.current?.send({ type: 'broadcast', event: 'file-sync', payload: { name: userNameRef.current || name, files } })
         }
       })
       .on('broadcast', { event: 'chat-message' }, ({ payload }) => {
         setChatMessages(prev => [...prev.slice(-100), payload])
       })
       .on('broadcast', { event: 'ai-result' }, ({ payload }) => {
-        if (payload.name === name) return
+        if (payload.name === userNameRef.current || payload.name === name) return
         setAiResult(`${payload.name} asked AI to explain "${payload.snippet}…"\n\n${payload.text}`)
         pushActivity(`${payload.name} used AI explain`, 'ai', getColor(payload.name))
       })
       .on('broadcast', { event: 'typing' }, ({ payload }) => {
-        if (payload.name === name) return
+        if (payload.name === userNameRef.current || payload.name === name) return
         setTyping(prev => ({ ...prev, [payload.name]: Date.now() }))
       })
       .on('broadcast', { event: 'cursor' }, ({ payload }) => {
-        if (payload.name === name) return
+        if (payload.name === userNameRef.current || payload.name === name) return
         setRemoteCursors(prev => ({ ...prev, [payload.name]: { ...payload, lastUpdate: Date.now() } }))
       })
       .on('broadcast', { event: 'reaction' }, ({ payload }) => {
+        if (payload.name === userNameRef.current || payload.name === name) return
         spawnReaction(payload.emoji, payload.name, payload.color)
         pushActivity(`${payload.name} reacted ${payload.emoji}`, 'reaction', payload.color)
       })
       .on('broadcast', { event: 'timer' }, ({ payload }) => {
-        if (payload.name === name) return
+        if (payload.name === userNameRef.current || payload.name === name) return
         setTimerDuration(payload.duration)
         setTimerSeconds(payload.seconds)
         setTimerRunning(payload.running)
