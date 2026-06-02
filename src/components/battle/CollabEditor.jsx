@@ -556,6 +556,9 @@ export default function CollabEditor({ onBack }) {
     editorRef.current = editor
     monacoRef.current = monaco
     editor.onDidChangeCursorPosition(() => {
+      // Skip if cursor moved due to incoming remote code change —
+      // otherwise the other user's cursor "ghosts" right next to yours
+      if (suppressSync.current) return
       const now = Date.now()
       if (now - cursorThrottleRef.current < 80) return
       cursorThrottleRef.current = now
@@ -570,8 +573,8 @@ export default function CollabEditor({ onBack }) {
         type: 'broadcast',
         event: 'cursor',
         payload: {
-          name: userName,
-          color: getColor(userName),
+          name: userNameRef.current || userName,
+          color: getColor(userNameRef.current || userName),
           fileId: activeFileId,
           line: pos.lineNumber,
           column: pos.column,
