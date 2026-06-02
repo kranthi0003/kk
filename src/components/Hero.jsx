@@ -63,11 +63,11 @@ export default function Hero({ onResumeClick }) {
             </div>
 
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-3 animate-fade-in-up"
+              className="font-arcade text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-3 animate-fade-in-up"
               style={{
                 animationDelay: '0.2s',
-                fontFamily: 'Georgia, "Times New Roman", serif',
-                fontWeight: 700,
+                fontWeight: 400,
+                letterSpacing: '0.01em',
               }}
             >
               Hey, I'm Kranthi

@@ -44,11 +44,32 @@
 /* Base */
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
-  letter-spacing: -0.0025em;
+  letter-spacing: -0.01em;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gaming-feel heading font util */
+.font-heading,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Gaming/arcade sticker font util — use for hero title or accents */
+.font-arcade {
+  font-family: 'Bungee', 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Mono fallback */
+.font-mono, code, pre, kbd {
+  font-family: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
 }
 
 /* Animations */
@@ -420,6 +441,59 @@ nav button.rounded-full.bg-muted\/60:hover {
 .rounded-lg { border-radius: var(--radius) !important; }
 .rounded-md { border-radius: calc(var(--radius) - 2px) !important; }
 .rounded-xl { border-radius: calc(var(--radius) + 4px) !important; }
+
+/* === Unified site-wide button styles (gamy, consistent) ===
+   .btn-primary  — filled accent, white text, pill
+   .btn-secondary — muted bg, foreground text, pill
+   .btn-outline   — bordered pill
+   All share font weight, tracking, transition */
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.005em;
+  transition: opacity 0.18s, background-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+  box-shadow: 0 2px 8px -2px color-mix(in oklab, var(--color-accent) 40%, transparent);
+}
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -4px color-mix(in oklab, var(--color-accent) 55%, transparent);
+}
+.btn-secondary {
+  background: var(--color-muted);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+}
+.btn-secondary:hover {
+  background: color-mix(in oklab, var(--color-muted) 80%, var(--color-foreground) 5%);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+}
+.btn-outline:hover {
+  background: var(--color-muted);
+  transform: translateY(-1px);
+}
 
 /* Hide scrollbar while keeping scroll behavior */
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
