@@ -542,7 +542,27 @@ export default function CollabEditor({ onBack }) {
         }
       })
     })
+
+    // Observe container resize and call layout — fixes Monaco showing
+    // stale dimensions when preview / sidebar panels toggle.
+    const dom = editor.getDomNode()
+    if (dom && dom.parentElement && typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(() => {
+        try { editor.layout() } catch {}
+      })
+      ro.observe(dom.parentElement)
+      // store cleanup
+      editor._roCleanup = () => ro.disconnect()
+    }
   }
+
+  // Force Monaco relayout when surrounding panels toggle
+  useEffect(() => {
+    const t = setTimeout(() => {
+      try { editorRef.current?.layout?.() } catch {}
+    }, 80)
+    return () => clearTimeout(t)
+  }, [previewOpen, sidebarOpen, activeTab])
 
   const formatCode = () => editorRef.current?.getAction('editor.action.formatDocument')?.run()
 
