@@ -45,7 +45,6 @@ const Workspace = lazy(() => import('./components/Workspace'))
 const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
-const AllTheBest = lazy(() => import('./components/AllTheBest'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -179,15 +178,6 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading game...</div></div>}>
         <TruthOrDare onBack={() => { window.location.hash = ''; window.location.reload() }} />
-      </Suspense>
-    )
-  }
-
-  // Hidden: ATB note for Chaitra — only via direct URL #/atb
-  if (route === '#/atb') {
-    return (
-      <Suspense fallback={<div className="fixed inset-0 bg-black flex items-center justify-center"><div className="text-xs font-mono text-white/30 animate-pulse">loading...</div></div>}>
-        <AllTheBest onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }
