@@ -8,10 +8,144 @@ export default function GoodMorning({ onBack }) {
   const [dragging, setDragging] = useState(false)
   const [emojis, setEmojis] = useState([])    // celebratory burst
   const [taps, setTaps] = useState(0)         // sun taps after wake
+  const [musicOn, setMusicOn] = useState(true)
+  const audioCtxRef = useRef(null)
+  const musicLoopRef = useRef(null)
   const containerRef = useRef(null)
   const sunRef = useRef(null)
   const startYRef = useRef(0)
   const startSunYRef = useRef(0)
+
+  // ─── Funky chiptune Friday jingle ───
+  const initAudio = () => {
+    if (audioCtxRef.current) return audioCtxRef.current
+    const AC = window.AudioContext || window.webkitAudioContext
+    if (!AC) return null
+    audioCtxRef.current = new AC()
+    return audioCtxRef.current
+  }
+
+  const playNote = (ctx, freq, when, duration, type = 'square', vol = 0.10, dest = null) => {
+    if (freq <= 0) return
+    const osc = ctx.createOscillator()
+    const g = ctx.createGain()
+    osc.type = type
+    osc.frequency.value = freq
+    g.gain.setValueAtTime(0, when)
+    g.gain.linearRampToValueAtTime(vol, when + 0.01)
+    g.gain.exponentialRampToValueAtTime(0.001, when + duration)
+    osc.connect(g).connect(dest || ctx.destination)
+    osc.start(when)
+    osc.stop(when + duration + 0.05)
+  }
+
+  const playKick = (ctx, when, dest) => {
+    const osc = ctx.createOscillator()
+    const g = ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.setValueAtTime(120, when)
+    osc.frequency.exponentialRampToValueAtTime(40, when + 0.18)
+    g.gain.setValueAtTime(0.22, when)
+    g.gain.exponentialRampToValueAtTime(0.001, when + 0.22)
+    osc.connect(g).connect(dest || ctx.destination)
+    osc.start(when)
+    osc.stop(when + 0.25)
+  }
+
+  const playHat = (ctx, when, dest) => {
+    const bufferSize = Math.floor(ctx.sampleRate * 0.05)
+    const noise = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
+    const data = noise.getChannelData(0)
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1
+    const src = ctx.createBufferSource()
+    src.buffer = noise
+    const hp = ctx.createBiquadFilter()
+    hp.type = 'highpass'
+    hp.frequency.value = 7000
+    const g = ctx.createGain()
+    g.gain.setValueAtTime(0.07, when)
+    g.gain.exponentialRampToValueAtTime(0.001, when + 0.05)
+    src.connect(hp).connect(g).connect(dest || ctx.destination)
+    src.start(when)
+    src.stop(when + 0.06)
+  }
+
+  // ↓ catchy chiptune phrase, loops while awake
+  const playFridayJingle = () => {
+    const ctx = initAudio()
+    if (!ctx) return
+    if (ctx.state === 'suspended') ctx.resume()
+
+    const master = ctx.createGain()
+    master.gain.value = 0.45
+    master.connect(ctx.destination)
+
+    // Notes
+    const C = 261.63, D = 293.66, E = 329.63, F = 349.23, G = 392.00, A = 440.00, B = 493.88
+    const C2 = 523.25, D2 = 587.33, E2 = 659.25, G2 = 783.99, A2 = 880.00
+    const C_LOW = 130.81, G_LOW = 196.00, F_LOW = 174.61, A_LOW = 220.00
+
+    // Bouncy melody (16 steps per bar, 4 bars)
+    const melody = [
+      G2, 0, E2, 0, C2, E2, G2, 0,   E2, 0, A2, 0, G2, E2, C2, 0,
+      F, 0, A, 0, C2, A, F, 0,       G, 0, B, 0, D2, B, G, 0,
+      C2, E2, G2, E2, A2, G2, E2, C2, D2, F, A, F, G2, E2, C2, 0,
+      G2, 0, E2, 0, C2, 0, G_LOW, 0, F, 0, E, 0, C, 0, 0, 0,
+    ]
+    // Bass — root notes per bar
+    const bass = [C_LOW, C_LOW, F_LOW, F_LOW, C_LOW, C_LOW, G_LOW, G_LOW]
+    // Drums (16-step kick + hat pattern, per bar)
+    const kickStep = [1,0,0,0, 0,0,1,0, 0,0,1,0, 0,0,0,0]
+    const hatStep  = [0,1,1,1, 0,1,1,1, 0,1,1,1, 0,1,1,1]
+
+    const stepDur = 0.115 // ~130 BPM sixteenths
+    const start = ctx.currentTime + 0.05
+    const bars = 4
+    const stepsPerBar = 16
+
+    for (let bar = 0; bar < bars; bar++) {
+      const barStart = start + bar * stepsPerBar * stepDur
+      // melody (16 per bar)
+      for (let s = 0; s < stepsPerBar; s++) {
+        const idx = bar * stepsPerBar + s
+        const freq = melody[idx % melody.length]
+        if (freq) playNote(ctx, freq, barStart + s * stepDur, stepDur * 1.4, 'square', 0.11, master)
+      }
+      // bass (2 hits per bar — beats 1 and 3)
+      const bassFreq = bass[(bar * 2) % bass.length]
+      playNote(ctx, bassFreq, barStart, stepDur * 7, 'triangle', 0.16, master)
+      playNote(ctx, bass[(bar * 2 + 1) % bass.length], barStart + stepDur * 8, stepDur * 7, 'triangle', 0.16, master)
+      // drums
+      for (let s = 0; s < stepsPerBar; s++) {
+        if (kickStep[s]) playKick(ctx, barStart + s * stepDur, master)
+        if (hatStep[s]) playHat(ctx, barStart + s * stepDur, master)
+      }
+    }
+
+    const loopLength = bars * stepsPerBar * stepDur * 1000
+    musicLoopRef.current = setTimeout(() => playFridayJingle(), loopLength - 200)
+  }
+
+  const stopMusic = () => {
+    if (musicLoopRef.current) { clearTimeout(musicLoopRef.current); musicLoopRef.current = null }
+    if (audioCtxRef.current) {
+      try { audioCtxRef.current.close() } catch {}
+      audioCtxRef.current = null
+    }
+  }
+
+  const toggleMusic = () => {
+    if (musicOn) {
+      stopMusic()
+      setMusicOn(false)
+    } else {
+      setMusicOn(true)
+      if (awake) playFridayJingle()
+    }
+  }
+
+  // Stop music on unmount
+  useEffect(() => () => stopMusic(), [])
 
   // Drag handlers
   const onPointerDown = (e) => {
@@ -31,6 +165,7 @@ export default function GoodMorning({ onBack }) {
     if (next >= 0.95 && !awake) {
       setAwake(true)
       burstEmojis(40, true)
+      if (musicOn) playFridayJingle()
     }
   }
 
@@ -220,7 +355,17 @@ export default function GoodMorning({ onBack }) {
       )}
 
       {/* Top bar — date / weekend pill */}
-      <div className="absolute top-5 right-5 z-20">
+      <div className="absolute top-5 right-5 z-20 flex items-center gap-2">
+        {awake && (
+          <button
+            onClick={toggleMusic}
+            title={musicOn ? 'mute music' : 'unmute music'}
+            className="px-3 py-1.5 rounded-full bg-black/30 backdrop-blur text-white/85 text-xs font-medium border border-white/10 hover:bg-black/50 transition-colors flex items-center gap-1.5"
+          >
+            <span>{musicOn ? '🔊' : '🔇'}</span>
+            <span className="hidden sm:inline">{musicOn ? 'mute' : 'unmute'}</span>
+          </button>
+        )}
         <div className="px-3 py-1.5 rounded-full bg-black/30 backdrop-blur text-white/80 text-xs font-medium border border-white/10 flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
           Friday · weekend incoming
