@@ -45,6 +45,7 @@ const Workspace = lazy(() => import('./components/Workspace'))
 const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
+const GoodMorning = lazy(() => import('./components/GoodMorning'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -178,6 +179,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading game...</div></div>}>
         <TruthOrDare onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Hidden good-morning page — direct URL only #/gm
+  if (route === '#/gm') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-black flex items-center justify-center"><div className="text-xs font-mono text-white/30 animate-pulse">rising...</div></div>}>
+        <GoodMorning onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }
