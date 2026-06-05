@@ -372,72 +372,56 @@ export default function GoodMorning({ onBack }) {
         </div>
       </div>
 
-      {/* Content */}
-      <div className="absolute inset-x-0 top-0 z-10 flex flex-col items-center px-6 pt-20 pointer-events-none">
-        <div className="text-center max-w-2xl">
-          {/* Header tag */}
-          <div className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.4em] text-white/60 mb-3">
-            ✦ for chaitra ✦
-          </div>
-
-          {/* Big greeting */}
-          <h1
-            className="leading-[1] tracking-tight mb-4"
-            style={{
-              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-              fontWeight: 700,
-              color: awake ? '#fff' : '#fff8dc',
-              textShadow: awake
-                ? '0 4px 30px rgba(255,200,120,0.6), 0 2px 6px rgba(0,0,0,0.4)'
-                : '0 2px 12px rgba(0,0,0,0.5)',
-              transition: 'color 0.5s, text-shadow 0.5s',
-            }}
-          >
-            {awake ? 'Good Morning!' : 'pssst...'}
-          </h1>
-
-          <h2
-            className="text-lg sm:text-2xl text-white/85 mb-6"
-            style={{ fontWeight: 500, textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}
-          >
-            {awake ? (
-              <>Happy <span style={{ color: '#ffd86b' }}>Friday</span>, Chaitra 🍹</>
-            ) : (
-              <>the sun is sleeping. wake it up?</>
-            )}
-          </h2>
-
-          {/* Hint */}
-          {!awake && (
-            <div className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur border border-white/20 text-white/70 text-xs sm:text-sm font-medium pointer-events-auto">
-              <span className="text-base">👇</span>
-              drag the sleepy sun UP to the sky
-            </div>
-          )}
-
-          {/* Awake message */}
-          {awake && (
-            <div className="mt-2 space-y-3 animate-fade-in-up">
-              <p className="text-white/85 text-base sm:text-lg max-w-md mx-auto leading-relaxed" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.35)' }}>
-                Weekend is <em className="text-amber-200">right there</em>.
-                Coffee. Sun. Friends. Maybe pelli sambaram somewhere. 😄
+      {/* Content — centered vertically */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pointer-events-none">
+        <div className="text-center max-w-3xl">
+          {!awake ? (
+            <>
+              <h1
+                className="leading-[1] tracking-tight mb-4"
+                style={{
+                  fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+                  fontWeight: 700,
+                  color: '#fff8dc',
+                  textShadow: '0 2px 12px rgba(0,0,0,0.5)',
+                }}
+              >
+                pssst...
+              </h1>
+              <p className="text-base sm:text-lg text-white/80 mb-6" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}>
+                the sun is sleeping. wake it up?
               </p>
-              <div className="pt-1 text-xs text-white/60 font-mono pointer-events-auto">
-                {taps === 0 && <span>↑ tap the sun for vibes</span>}
-                {taps > 0 && taps < 5 && <span>✦ {taps} vibe{taps === 1 ? '' : 's'} unleashed</span>}
-                {taps >= 5 && taps < 10 && <span>🔥 {taps} vibes — you're on a roll</span>}
-                {taps >= 10 && <span>💫 {taps} vibes — okay easy chaitra, save some for saturday</span>}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur border border-white/20 text-white/80 text-xs sm:text-sm font-medium pointer-events-auto">
+                <span className="text-base">👇</span>
+                drag the sleepy sun UP to the sky
               </div>
-            </div>
-          )}
-
-          {/* Signature once awake */}
-          {awake && (
-            <div className="mt-12 text-right max-w-md mx-auto pointer-events-auto">
-              <div style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '16px', color: 'rgba(255,255,255,0.85)' }}>
-                — Kranthi
-              </div>
-            </div>
+            </>
+          ) : (
+            <>
+              {/* Two falling lines */}
+              <h1
+                className="leading-[1.05] tracking-tight mb-4 fall-in-1"
+                style={{
+                  fontSize: 'clamp(2.5rem, 9vw, 5.5rem)',
+                  fontWeight: 800,
+                  color: '#fff',
+                  textShadow: '0 4px 30px rgba(255,200,120,0.6), 0 2px 8px rgba(0,0,0,0.4)',
+                }}
+              >
+                Good Morning Chaitraaaaa!
+              </h1>
+              <h2
+                className="leading-[1.1] tracking-tight fall-in-2"
+                style={{
+                  fontSize: 'clamp(1.6rem, 5vw, 2.8rem)',
+                  fontWeight: 600,
+                  color: '#fff',
+                  textShadow: '0 2px 14px rgba(0,0,0,0.4)',
+                }}
+              >
+                Happy <span style={{ color: '#ffd86b' }}>Friday</span> 💃
+              </h2>
+            </>
           )}
         </div>
       </div>
@@ -465,6 +449,13 @@ export default function GoodMorning({ onBack }) {
           from { transform: translateX(0); }
           to { transform: translateX(-120vw); }
         }
+        @keyframes fallIn {
+          0% { opacity: 0; transform: translateY(-80vh) scale(0.85) rotate(-3deg); }
+          70% { opacity: 1; transform: translateY(10px) scale(1.04) rotate(1deg); }
+          100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+        .fall-in-1 { animation: fallIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+        .fall-in-2 { animation: fallIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both; }
       `}</style>
     </div>
   )
