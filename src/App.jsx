@@ -119,8 +119,8 @@ export default function App() {
     )
   }
 
-  // Transformation HQ page route
-  if (route.startsWith('#/transformation')) {
+  // Transformation HQ page route (also reachable via #/fitness)
+  if (route.startsWith('#/transformation') || route.startsWith('#/fitness')) {
     return (
       <>
         <div className="pr-backdrop-glow" aria-hidden="true" />
