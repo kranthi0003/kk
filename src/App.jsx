@@ -24,6 +24,7 @@ import DevCalc from './components/DevCalc'
 import CarbonCalc from './components/CarbonCalc'
 import SalaryCalc from './components/SalaryCalc'
 import TransformationHQ from './components/TransformationHQ'
+import GoalTracker from './components/GoalTracker'
 import LiveChat from './components/LiveChat'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
@@ -230,6 +231,7 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
+        <div className="section-animate"><GoalTracker /></div>
         <div className="section-animate"><WorkspaceSection /></div>
         <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><Experience /></div>

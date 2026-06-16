@@ -492,6 +492,7 @@ function NavAIChat() {
 
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Goals', href: '#goals' },
   { label: 'Experience', href: '#experience' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
