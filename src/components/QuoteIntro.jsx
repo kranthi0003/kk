@@ -26,14 +26,15 @@ function buildSlots() {
 const SLOTS = buildSlots()
 const LAST_WORD_MS = SLOTS[SLOTS.length - 1].time + WORD_MS
 const ATTRIBUTION_MS = LAST_WORD_MS + 700
-const PROMPT_MS = ATTRIBUTION_MS + 1600
-const AUTO_EXIT_MS = PROMPT_MS + 7000
+// After the quote + attribution land, hold briefly, then auto-route into the site.
+const HOLD_MS = ATTRIBUTION_MS + 2600
+// Allow an optional click / keypress to skip ahead once the reveal has begun.
+const SKIP_ENABLED_MS = 900
 
 export default function QuoteIntro() {
   const [show, setShow]           = useState(false)
   const [tick, setTick]           = useState(-1)
   const [showAttrib, setShowAttrib] = useState(false)
-  const [showPrompt, setShowPrompt] = useState(false)
   const [exiting, setExiting]     = useState(false)
 
   const canExitRef = useRef(false)
@@ -60,8 +61,8 @@ export default function QuoteIntro() {
     )
 
     const t1 = setTimeout(() => setShowAttrib(true), ATTRIBUTION_MS)
-    const t2 = setTimeout(() => { setShowPrompt(true); canExitRef.current = true }, PROMPT_MS)
-    const t3 = setTimeout(() => exit(), AUTO_EXIT_MS)
+    const t2 = setTimeout(() => { canExitRef.current = true }, SKIP_ENABLED_MS)
+    const t3 = setTimeout(() => exit(), HOLD_MS)
 
     return () => {
       wordTimers.forEach(clearTimeout)
@@ -163,27 +164,6 @@ export default function QuoteIntro() {
         }}>
           {ATTRIBUTION}
         </p>
-      </div>
-
-      {/* Enter prompt */}
-      <div style={{
-        position: 'absolute',
-        bottom: '2.2rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        opacity: showPrompt ? 1 : 0,
-        transition: 'opacity 1.2s ease',
-        pointerEvents: 'none',
-      }}>
-        <span style={{
-          fontFamily: 'ui-monospace, "JetBrains Mono", "Courier New", monospace',
-          fontSize: '0.6rem',
-          color: 'rgba(255,255,255,0.18)',
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-        }}>
-          tap anywhere to enter
-        </span>
       </div>
     </div>
   )
