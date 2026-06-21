@@ -1,6 +1,7 @@
 import React from 'react'
 import profile from '../../assets/profile.png'
 import TypingText from './TypingText'
+import TransformationPulse from './TransformationPulse'
 
 export default function Hero({ onResumeClick }) {
   return (
@@ -47,6 +48,9 @@ export default function Hero({ onResumeClick }) {
                 </svg>
               </a>
             </div>
+
+            {/* Personal fitness pulse — only visible on a browser with tracking data */}
+            <TransformationPulse />
           </div>
 
           {/* ─── RIGHT: name, role, description, CTAs ─── */}

@@ -1,10 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import {
+  lsGet, lsSet, todayKey,
+  PLAN, SCHEDULED_DAYS, workoutLabelForDay,
+  thisWeekDates, dayCompletion, workoutDoneForDate, cumulativeStats,
+  strongDay,
+} from '../lib/fitness'
 
 // ============================================================
 // TRANSFORMATION HQ — Personal fitness OS for Kranthi
 // Goal: lean, muscular, flat belly by end of 2027
 // 78kg / ~24% BF  ->  70-72kg / ~15% BF
 // Equipment: dumbbells + bench. Storage: localStorage ("thq:*")
+// Plan + progress helpers live in ../lib/fitness (shared with hero pulse)
 // ============================================================
 
 const TABS = [
@@ -15,61 +22,15 @@ const TABS = [
   { id: 'progress', icon: '📈', label: 'Progress' },
 ]
 
-// ------- storage helpers --------------------------------------------------
-const lsGet = (k, fb) => {
-  try { const v = localStorage.getItem(`thq:${k}`); return v ? JSON.parse(v) : fb } catch { return fb }
-}
-const lsSet = (k, v) => { try { localStorage.setItem(`thq:${k}`, JSON.stringify(v)) } catch {} }
-const todayKey = () => new Date().toISOString().slice(0, 10)
-
 // ------- data -------------------------------------------------------------
 const DAILY_CHECKS = [
   { key: 'protein',  label: 'Hit protein target',          sub: '~150–165g across meals' },
   { key: 'calories', label: 'Stayed near calorie target',  sub: '~1,950 lift day / ~1,650 rest' },
   { key: 'steps',    label: '10,000 steps',                sub: 'morning + post-lunch + evening' },
-  { key: 'workout',  label: 'Workout done',                sub: 'only Mon / Wed / Fri' },
+  { key: 'workout',  label: 'Workout done',                sub: 'check off exercises in Workout tab' },
   { key: 'water',    label: '2.5–3 L water',               sub: '' },
   { key: 'sleep',    label: 'Slept 7–8 hrs',               sub: 'fat loss happens here' },
   { key: 'nojunk',   label: 'No liquid calories / deep fry', sub: '' },
-]
-
-// Mon=A, Wed=B, Fri=C (getDay: 0=Sun..6=Sat)
-const WORKOUT_BY_DAY = { 1: 'Day A — Push', 3: 'Day B — Pull', 5: 'Day C — Full mix' }
-
-const SPLIT = [
-  {
-    id: 'A', title: 'Day A — Push emphasis', day: 'Mon', accent: '🟢',
-    rows: [
-      ['Goblet Squat', '3 × 10–12'],
-      ['Flat DB Bench Press', '3 × 8–10'],
-      ['One-Arm DB Row', '3 × 10 / side'],
-      ['Seated DB Shoulder Press', '3 × 10'],
-      ['DB Romanian Deadlift', '3 × 10–12'],
-      ['Plank', '3 × 30–45s'],
-    ],
-  },
-  {
-    id: 'B', title: 'Day B — Pull emphasis', day: 'Wed', accent: '🔵',
-    rows: [
-      ['DB Reverse Lunge', '3 × 10 / side'],
-      ['Incline DB Bench Press (30–45°)', '3 × 8–10'],
-      ['Chest-Supported DB Row', '3 × 10'],
-      ['DB Lateral Raise', '3 × 12–15'],
-      ['DB Hip Thrust (back on bench)', '3 × 12'],
-      ['DB Bicep Curl', '3 × 12'],
-    ],
-  },
-  {
-    id: 'C', title: 'Day C — Full mix', day: 'Fri', accent: '🟣',
-    rows: [
-      ['Bulgarian Split Squat (foot on bench)', '3 × 8 / side'],
-      ['Flat DB Bench Press', '3 × 10'],
-      ['DB Pullover', '3 × 12'],
-      ['Arnold Press', '3 × 10'],
-      ['DB Stiff-Leg Deadlift', '3 × 12'],
-      ['DB Overhead Triceps Extension', '3 × 12'],
-    ],
-  },
 ]
 
 const MEALS = [
@@ -148,27 +109,6 @@ function Stat({ value, label }) {
       <div className="text-xl font-semibold" style={{ color: ACCENT }}>{value}</div>
       <div className="text-[10.5px] text-muted-foreground mt-0.5">{label}</div>
     </div>
-  )
-}
-
-function ExTable({ rows }) {
-  return (
-    <table className="w-full text-[13px]">
-      <thead>
-        <tr className="text-[10.5px] uppercase tracking-wide text-muted-foreground">
-          <th className="text-left font-medium py-1.5">Exercise</th>
-          <th className="text-right font-medium py-1.5">Sets × Reps</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map(([ex, sr]) => (
-          <tr key={ex} className="border-t border-border/40">
-            <td className="py-2 pr-2 text-foreground font-medium">{ex}</td>
-            <td className="py-2 text-right text-muted-foreground whitespace-nowrap">{sr}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
   )
 }
 
@@ -259,8 +199,6 @@ export default function TransformationHQ({ onBack }) {
 // ============================================================
 // TODAY
 // ============================================================
-function strongDay(d) { return !!(d && d.protein && d.steps) }
-
 function TodayTab() {
   const tk = todayKey()
   const [log, setLog] = useState(() => lsGet(`day:${tk}`, {}))
@@ -270,7 +208,7 @@ function TodayTab() {
   }
 
   const now = new Date()
-  const lift = WORKOUT_BY_DAY[now.getDay()]
+  const lift = workoutLabelForDay(now.getDay())
 
   // week (Mon-Sun) + stats
   const { cells, hits, lifts } = useMemo(() => {
@@ -304,6 +242,11 @@ function TodayTab() {
     }
     return s
   }, [log, tk])
+
+  // Workout progress — this week (from per-exercise check-offs) + all-time
+  const wkWorkouts = useMemo(() => thisWeekDates().filter(d => workoutDoneForDate(d.dateKey)).length, [log, tk])
+  const cum = useMemo(() => cumulativeStats(), [log, tk])
+  const wkPct = Math.round((wkWorkouts / SCHEDULED_DAYS) * 100)
 
   return (
     <>
@@ -347,9 +290,23 @@ function TodayTab() {
         <div className="flex gap-2.5 mt-3">
           <Stat value={streak} label="day streak" />
           <Stat value={`${hits}/7`} label="strong days" />
-          <Stat value={`${lifts}/3`} label="lifts this wk" />
+          <Stat value={`${wkWorkouts}/${SCHEDULED_DAYS}`} label="workouts wk" />
         </div>
         <Note><b className="text-foreground">Never miss twice in a row.</b> One off day is human. Two is a pattern.</Note>
+      </Card>
+
+      <Card title="🏋️ Workout Progress" sub="Updates as you check off exercises in the Workout tab.">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[12px] text-muted-foreground">This week</span>
+          <span className="text-[12px] font-medium text-foreground">{wkWorkouts}/{SCHEDULED_DAYS} workouts · {wkPct}%</span>
+        </div>
+        <ProgressBar pct={wkPct} />
+        <div className="flex gap-2.5 mt-3">
+          <Stat value={cum.workouts} label="all-time workouts" />
+          <Stat value={cum.exercises} label="exercises done" />
+          <Stat value={`${wkPct}%`} label="week complete" />
+        </div>
+        <Note>Every checked exercise counts — <b className="text-foreground">{cum.exercises}</b> done so far. Consistency compounds.</Note>
       </Card>
     </>
   )
@@ -358,23 +315,98 @@ function TodayTab() {
 // ============================================================
 // WORKOUT
 // ============================================================
+function ProgressBar({ pct, height = 8 }) {
+  return (
+    <div className="w-full rounded-full overflow-hidden" style={{ height, background: 'color-mix(in oklab, var(--chart-1) 12%, transparent)' }}>
+      <div className="h-full rounded-full transition-all duration-500" style={{ width: `${Math.max(0, Math.min(100, pct))}%`, background: ACCENT }} />
+    </div>
+  )
+}
+
 function WorkoutTab() {
+  const week = useMemo(thisWeekDates, [])
+  const initial = Math.max(0, week.findIndex(d => d.isToday))
+  const [sel, setSel] = useState(initial)
+  const day = week[sel]
+  const plan = PLAN[day.idx]
+  const [log, setLog] = useState(() => lsGet(`workout:${day.dateKey}`, {}))
+
+  useEffect(() => { setLog(lsGet(`workout:${day.dateKey}`, {})) }, [day.dateKey])
+
+  const toggle = (exId) => {
+    const next = { ...log, [exId]: !log[exId] }
+    setLog(next); lsSet(`workout:${day.dateKey}`, next)
+  }
+  const setAll = (val) => {
+    const next = {}
+    if (val) plan.exercises.forEach(e => { next[e.id] = true })
+    setLog(next); lsSet(`workout:${day.dateKey}`, next)
+  }
+
+  const total = plan.exercises.length
+  const done = plan.exercises.filter(e => log[e.id]).length
+  const pct = total ? Math.round((done / total) * 100) : 0
+  const labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+
   return (
     <>
-      <Card title="🏋️ Dumbbells + Bench · 3-Day Full Body"
-        sub="Mon = A · Wed = B · Fri = C. 3 sets each, rest 60–90s. Last 1–2 reps hard but clean. Add reps weekly → then add weight (progressive overload).">
-        <div className="flex flex-wrap gap-2">
-          <Pill>Warm-up <b className="text-foreground">5 min</b></Pill>
-          <Pill>Session <b className="text-foreground">40–50 min</b></Pill>
-          <Pill>Tempo <b className="text-foreground">controlled</b></Pill>
-        </div>
+      {/* Day selector */}
+      <div className="grid grid-cols-7 gap-1.5">
+        {week.map((d, i) => {
+          const p = PLAN[d.idx]
+          const comp = workoutDoneForDate(d.dateKey)
+          const active = i === sel
+          return (
+            <button key={i} onClick={() => setSel(i)}
+              className="rounded-xl border py-2 flex flex-col items-center gap-0.5 transition-all"
+              style={active
+                ? { background: 'color-mix(in oklab, var(--chart-1) 16%, transparent)', borderColor: 'color-mix(in oklab, var(--chart-1) 42%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 30%, transparent)' }
+                : { borderColor: d.isToday ? 'color-mix(in oklab, var(--chart-1) 38%, transparent)' : 'var(--color-border)' }}>
+              <span className="text-[10px] text-muted-foreground">{labels[i]}</span>
+              <span className="text-[11px] font-semibold text-foreground">{d.date}</span>
+              <span className="text-[10px] leading-none">{p.rest ? '🛌' : comp ? '✅' : '•'}</span>
+            </button>
+          )
+        })}
+      </div>
+
+      <Card title={`${plan.day} — ${plan.name}`} sub={plan.focus}>
+        {plan.rest ? (
+          <div className="text-[13px] text-muted-foreground">Rest day — {plan.cardio}. No weights. Muscle grows on rest days, not in the gym.</div>
+        ) : (
+          <>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[12px] text-muted-foreground tabular-nums">{done}/{total} done · {pct}%</span>
+              <button onClick={() => setAll(done !== total)} className="text-[11px] font-medium" style={{ color: ACCENT }}>
+                {done === total ? 'Clear all' : 'Mark all'}
+              </button>
+            </div>
+            <ProgressBar pct={pct} />
+            <div className="space-y-2 mt-3">
+              {plan.exercises.map(ex => {
+                const checked = !!log[ex.id]
+                return (
+                  <button key={ex.id} onClick={() => toggle(ex.id)}
+                    className="w-full flex items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors"
+                    style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 14%, var(--color-border))', background: checked ? 'color-mix(in oklab, var(--chart-1) 10%, transparent)' : 'transparent' }}>
+                    <span className="w-5 h-5 rounded-md flex-shrink-0 flex items-center justify-center"
+                      style={{ background: checked ? ACCENT : 'transparent', boxShadow: checked ? 'none' : 'inset 0 0 0 2px var(--color-muted-foreground)' }}>
+                      {checked && <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="var(--color-background)" strokeWidth={3.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
+                    </span>
+                    <span className="flex-1 min-w-0 flex items-baseline justify-between gap-2">
+                      <span className={`text-[13px] ${checked ? 'text-muted-foreground line-through' : 'text-foreground'}`}>{ex.name}</span>
+                      <span className="text-[11px] text-muted-foreground whitespace-nowrap">{ex.sr}</span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </>
+        )}
+        <Note>🏃 Cardio: {plan.cardio}</Note>
       </Card>
-      {SPLIT.map(s => (
-        <Card key={s.id} title={`${s.accent} ${s.title}`} sub={`(${s.day})`}>
-          <ExTable rows={s.rows} />
-        </Card>
-      ))}
-      <Note>Tue / Thu / Sat / Sun = rest or an easy walk. Muscle grows on rest days, not in the gym.</Note>
+
+      <Note>Trains <b className="text-foreground">Mon–Sat</b> · Sunday is full rest. Check off each exercise as you finish — your week &amp; all-time progress update on the <b className="text-foreground">Today</b> tab.</Note>
     </>
   )
 }
