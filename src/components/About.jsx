@@ -136,11 +136,11 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">About</p>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl" style={{ fontWeight: 500 }}>
             A bit about me
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            What I'm shipping, listening to, and where I am right now.
+            Where I am, what I'm tending to, and what's playing.
           </p>
         </div>
 

@@ -8,8 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Instrument Sans', 'Inter', 'sans-serif'],
-        body: ['Instrument Sans', 'Inter', 'sans-serif'],
+        heading: ['Newsreader', 'Georgia', 'serif'],
+        body: ['Sora', 'Inter', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {

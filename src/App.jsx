@@ -36,6 +36,7 @@ import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
+import Reflection from './components/Reflection'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -121,8 +122,8 @@ export default function App() {
     )
   }
 
-  // Transformation HQ page route (also reachable via #/fitness)
-  if (route.startsWith('#/transformation') || route.startsWith('#/fitness')) {
+  // Transformation HQ page route
+  if (route.startsWith('#/transformation')) {
     return (
       <>
         <div className="pr-backdrop-glow" aria-hidden="true" />
@@ -232,6 +233,7 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
+        <div className="section-animate"><Reflection by="— René Girard">You don't want what you want because of who you are. You want what you want because the people you want to be have them.</Reflection></div>
         <div className="section-animate"><WorkspaceSection /></div>
         <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><Experience /></div>
@@ -240,6 +242,7 @@ export default function App() {
         <div className="section-animate"><Terminal /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><TravelMap /></div>
+        <div className="section-animate"><Reflection>The work that lasts is rarely the loudest. Build quietly; let it speak for itself.</Reflection></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
       </main>

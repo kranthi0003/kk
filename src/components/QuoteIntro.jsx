@@ -1,38 +1,25 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-const PART1 = "You don't want what you want because of who you are..."
-const PART2 = "You want what you want because the people you want to be have them."
-const ATTRIBUTION = '— René Girard'
+const QUOTE = 'Who were you before the World told who you are?'
 
-const WORD_MS = 210 // delay between each word
+// Reveal cadence tuned to a comfortable on-screen English reading pace for a
+// common Indian reader (~140 wpm → ~430 ms/word) so each word can be read as it
+// lands. (ESL on-screen reading averages ~100–160 wpm.)
+const WORD_MS = 430
 
-function buildSlots() {
-  const slots = []
-  let t = 0
-  PART1.split(' ').forEach(w => {
-    slots.push({ type: 'word', text: w, time: t })
-    t += WORD_MS
-  })
-  // Longer pause between sentences — let the first idea land
-  slots.push({ type: 'break', time: t })
-  t += 900
-  PART2.split(' ').forEach(w => {
-    slots.push({ type: 'word', text: w, time: t })
-    t += WORD_MS
-  })
-  return slots
-}
-
-const SLOTS = buildSlots()
-const LAST_WORD_MS = SLOTS[SLOTS.length - 1].time + WORD_MS
-const ATTRIBUTION_MS = LAST_WORD_MS + 700
-// After the quote + attribution land, hold briefly, then auto-route into the site.
-const HOLD_MS = ATTRIBUTION_MS + 2600
+const WORDS = QUOTE.split(' ')
+const SLOTS = WORDS.map((text, i) => ({ text, time: i * WORD_MS }))
+const LAST_WORD_MS = SLOTS.length * WORD_MS
+// A beat after the line lands, the author credit fades in.
+const ATTRIBUTION_MS = LAST_WORD_MS + 800
+// After the line + credit rest, auto-route into the site.
+const HOLD_MS = LAST_WORD_MS + 2900
 // Allow an optional click / keypress to skip ahead once the reveal has begun.
-const SKIP_ENABLED_MS = 900
+const SKIP_ENABLED_MS = 1000
 
 export default function QuoteIntro() {
   const [show, setShow]           = useState(false)
+  const [entered, setEntered]     = useState(false)
   const [tick, setTick]           = useState(-1)
   const [showAttrib, setShowAttrib] = useState(false)
   const [exiting, setExiting]     = useState(false)
@@ -51,20 +38,23 @@ export default function QuoteIntro() {
   }, [])
 
   useEffect(() => {
-    if (sessionStorage.getItem('quote_intro_seen')) return
+    const forceShow = /(?:[?&]intro=1)|(?:#intro)/.test(window.location.search + window.location.hash)
+    if (!forceShow && sessionStorage.getItem('quote_intro_seen')) return
 
     setShow(true)
+    const enterTimer = setTimeout(() => setEntered(true), 30)
 
-    // Schedule each word/break slot
+    // Schedule each word's reveal
     const wordTimers = SLOTS.map((slot, idx) =>
       setTimeout(() => setTick(idx), slot.time)
     )
 
-    const t1 = setTimeout(() => setShowAttrib(true), ATTRIBUTION_MS)
-    const t2 = setTimeout(() => { canExitRef.current = true }, SKIP_ENABLED_MS)
-    const t3 = setTimeout(() => exit(), HOLD_MS)
+    const t1 = setTimeout(() => { canExitRef.current = true }, SKIP_ENABLED_MS)
+    const t2 = setTimeout(() => exit(), HOLD_MS)
+    const t3 = setTimeout(() => setShowAttrib(true), ATTRIBUTION_MS)
 
     return () => {
+      clearTimeout(enterTimer)
       wordTimers.forEach(clearTimeout)
       clearTimeout(t1)
       clearTimeout(t2)
@@ -80,6 +70,8 @@ export default function QuoteIntro() {
 
   if (!show) return null
 
+  const lineComplete = tick >= SLOTS.length - 1
+
   return (
     <div
       onClick={() => { if (canExitRef.current) exit() }}
@@ -87,60 +79,69 @@ export default function QuoteIntro() {
         position: 'fixed',
         inset: 0,
         zIndex: 400,
-        background: '#000',
+        background: 'radial-gradient(ellipse 120% 120% at 50% 32%, #14161d 0%, #0c0d12 55%, #08090c 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: '2rem',
-        opacity: exiting ? 0 : 1,
-        transition: 'opacity 0.95s ease',
+        opacity: (entered && !exiting) ? 1 : 0,
+        transition: 'opacity 1.1s ease',
         cursor: 'default',
       }}
     >
-      {/* Subtle vignette */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)',
+      <style>{`
+        @keyframes qi-breathe {
+          0%, 100% { opacity: 0.32; transform: translate(-50%, -50%) scale(1); }
+          50%      { opacity: 0.55; transform: translate(-50%, -50%) scale(1.14); }
+        }
+        @keyframes qi-progress {
+          from { transform: scaleX(0); }
+          to   { transform: scaleX(1); }
+        }
+      `}</style>
+
+      {/* Ambient breathing glow */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: '42%', left: '50%',
+        width: 'min(70vw, 620px)', height: 'min(70vw, 620px)',
+        pointerEvents: 'none',
+        background: 'radial-gradient(circle, rgba(126,146,196,0.18), transparent 70%)',
+        filter: 'blur(8px)',
+        animation: 'qi-breathe 8s ease-in-out infinite',
       }} />
 
-      <div style={{ maxWidth: '640px', width: '100%', textAlign: 'center', position: 'relative' }}>
+      {/* Soft vignette to settle the edges */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)',
+      }} />
+
+      <div style={{ maxWidth: '660px', width: '100%', textAlign: 'center', position: 'relative' }}>
 
         {/* Quote text */}
         <p style={{
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          fontSize: 'clamp(1rem, 2.4vw, 1.35rem)',
-          color: 'rgba(255,255,255,0.85)',
-          lineHeight: 2,
-          letterSpacing: '0.015em',
+          fontFamily: "'Newsreader', Georgia, 'Times New Roman', serif",
+          fontSize: 'clamp(1.35rem, 3.4vw, 2.2rem)',
+          fontWeight: 300,
+          color: 'rgba(236,238,245,0.92)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
           margin: 0,
+          textShadow: '0 1px 36px rgba(150,170,212,0.12)',
         }}>
           {SLOTS.map((slot, idx) => {
             const isVisible = tick >= idx
-
-            if (slot.type === 'break') {
-              return (
-                <span
-                  key={idx}
-                  style={{ display: 'block', height: '0.55em' }}
-                  aria-hidden="true"
-                />
-              )
-            }
-
             return (
               <span
                 key={idx}
                 style={{
                   display: 'inline-block',
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(7px)',
-                  transition: 'opacity 0.55s ease, transform 0.55s ease',
-                  marginRight: '0.3em',
-                  // Slightly different shade for second sentence — barely noticeable
-                  color: idx > SLOTS.findIndex(s => s.type === 'break')
-                    ? 'rgba(255,255,255,0.78)'
-                    : 'rgba(255,255,255,0.88)',
+                  transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
+                  filter: isVisible ? 'blur(0)' : 'blur(7px)',
+                  transition: 'opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease',
+                  marginRight: '0.32em',
                 }}
               >
                 {slot.text}
@@ -151,19 +152,36 @@ export default function QuoteIntro() {
 
         {/* Attribution */}
         <p style={{
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)',
-          color: 'rgba(255,255,255,0.28)',
+          fontFamily: "'Newsreader', Georgia, 'Times New Roman', serif",
           fontStyle: 'italic',
-          letterSpacing: '0.1em',
-          marginTop: '2.2rem',
+          fontSize: 'clamp(0.72rem, 1.5vw, 0.9rem)',
+          color: 'rgba(236,238,245,0.34)',
+          letterSpacing: '0.14em',
+          marginTop: '2rem',
           marginBottom: 0,
           opacity: showAttrib ? 1 : 0,
-          transform: showAttrib ? 'translateY(0)' : 'translateY(10px)',
-          transition: 'opacity 1s ease, transform 1s ease',
+          transform: showAttrib ? 'translateY(0)' : 'translateY(8px)',
+          transition: 'opacity 1.1s ease, transform 1.1s ease',
         }}>
-          {ATTRIBUTION}
+          — Anonymous
         </p>
+      </div>
+
+      {/* Gentle pacing hairline */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', bottom: '2.6rem', left: '50%', transform: 'translateX(-50%)',
+        width: '150px', height: '1px',
+        background: 'rgba(255,255,255,0.06)',
+        overflow: 'hidden',
+        opacity: lineComplete ? 1 : 0.5,
+        transition: 'opacity 1s ease',
+      }}>
+        <div style={{
+          width: '100%', height: '100%',
+          transformOrigin: 'left',
+          background: 'linear-gradient(to right, transparent, rgba(150,170,212,0.6))',
+          animation: `qi-progress ${HOLD_MS}ms linear forwards`,
+        }} />
       </div>
     </div>
   )
