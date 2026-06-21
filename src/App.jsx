@@ -37,6 +37,7 @@ import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
 import Reflection from './components/Reflection'
+import MathBackdrop from './components/MathBackdrop'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -226,6 +227,7 @@ export default function App() {
       <div className="pr-backdrop-base" aria-hidden="true" />
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
+      <MathBackdrop />
       <div className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
