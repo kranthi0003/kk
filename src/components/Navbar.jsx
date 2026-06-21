@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
+import TransformationPulse from './TransformationPulse'
 
 const SpotifyIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -562,32 +563,11 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           </span>
         </a>
 
-        {/* Center — Nav links (desktop) */}
-        <div className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
-          {navLinks.map(link => {
-            const isActive = activeSection === link.href.slice(1)
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                data-active={isActive ? 'true' : 'false'}
-                className={`nav-link-gradient relative px-3 py-1.5 rounded-md font-body text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'text-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                style={isActive ? {
-                  background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)',
-                } : undefined}
-              >
-                {link.label}
-              </a>
-            )
-          })}
-        </div>
+        {/* Center — Nav links removed for a cleaner, minimal bar */}
 
-        {/* Right — Icons (desktop) — original set */}
+        {/* Right — Icons (desktop) */}
         <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <TransformationPulse compact />
           <ToolsDropdown />
           <TechNews side="right" />
           <NavWallet />
@@ -623,6 +603,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       {mobileOpen && (
         <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
+            <div className="flex justify-center"><TransformationPulse compact /></div>
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
