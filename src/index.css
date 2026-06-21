@@ -25,20 +25,21 @@
 
 /* GitHub Dark (dark-dimmed inspired) */
 .dark {
-  --color-background: oklch(18% 0.015 250);   /* #0d1117 */
-  --color-foreground: oklch(88% 0.012 250);   /* #c9d1d9 */
-  --color-card: oklch(22% 0.018 250);         /* #161b22 */
-  --color-card-foreground: oklch(88% 0.012 250);
-  --color-muted: oklch(25% 0.018 250);        /* #1c2128 */
-  --color-muted-foreground: oklch(62% 0.012 250); /* #8b949e */
-  --color-accent: oklch(65% 0.16 250);        /* #58a6ff blue */
-  --color-accent-foreground: oklch(15% 0.015 250);
-  --color-border: oklch(33% 0.015 250);       /* #30363d */
-  --color-primary: oklch(88% 0.012 250);
-  --color-primary-foreground: oklch(15% 0.015 250);
-  --chart-1: oklch(65% 0.16 250);   /* blue   #58a6ff */
-  --chart-2: oklch(63% 0.20 145);   /* green  #3fb950 */
-  --chart-3: oklch(70% 0.18 35);    /* orange #ec775c */
+  /* Deep nocturnal ink — near-black depths, moonlit grays, a muted accent */
+  --color-background: oklch(15% 0.011 260);   /* deep ink */
+  --color-foreground: oklch(84% 0.010 250);   /* soft moonlit gray */
+  --color-card: oklch(19% 0.012 260);
+  --color-card-foreground: oklch(84% 0.010 250);
+  --color-muted: oklch(23% 0.012 260);
+  --color-muted-foreground: oklch(58% 0.011 250); /* quiet */
+  --color-accent: oklch(72% 0.055 250);       /* muted moonlight blue */
+  --color-accent-foreground: oklch(15% 0.012 260);
+  --color-border: oklch(27% 0.010 260);
+  --color-primary: oklch(84% 0.010 250);
+  --color-primary-foreground: oklch(15% 0.012 260);
+  --chart-1: oklch(72% 0.055 250);  /* muted moonlight blue */
+  --chart-2: oklch(68% 0.060 165);  /* muted sage-teal */
+  --chart-3: oklch(74% 0.060 60);   /* muted sand */
 }
 
 /* Base */
@@ -51,11 +52,17 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Headings: clean modern geometric */
+/* Display headings: calm editorial serif (Newsreader) */
 .font-heading,
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.012em;
+  font-weight: 500;
+}
+/* Small UI headings stay in the clean sans */
+h4, h5, h6 {
   font-family: 'Sora', system-ui, sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.018em;
 }
 
 /* Mono fallback */
@@ -70,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -85,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 .animate-float {
@@ -111,11 +118,11 @@ h1, h2, h3, h4, h5, h6 {
 .card-3d {
   transform-style: preserve-3d;
   perspective: 1000px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .card-3d:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-4px);
 }
 
 /* Light mode card refinement */
@@ -129,18 +136,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hover lift */
 .hover-lift {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 }
 
 /* Section fade-in on scroll */
 .section-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(18px);
+  transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .section-animate.in-view {
@@ -219,13 +226,14 @@ body.reading-mode::before {
 /* Selection: violet wash */
 ::selection { background: color-mix(in oklab, var(--color-accent) 40%, transparent); color: var(--color-foreground); }
 
-/* Headings: tighter tracking, weight 600 (Instrument Sans signature) */
-h1, h2, h3, h4, h5 {
-  letter-spacing: -0.022em;
-  font-weight: 600;
+/* Serif display headings — softer weight + airier tracking for calm */
+h1, h2, h3 {
+  letter-spacing: -0.012em;
+  font-weight: 500;
 }
-h1 { letter-spacing: -0.035em; }
-h2 { letter-spacing: -0.03em; }
+h1 { letter-spacing: -0.018em; }
+h2 { letter-spacing: -0.015em; }
+h4, h5 { font-weight: 600; letter-spacing: -0.018em; }
 
 /* Body tracking is set in :root body above to -0.0025em (provisionr value) */
 
@@ -290,32 +298,32 @@ h2 { letter-spacing: -0.03em; }
   background-image:
     radial-gradient(1px 1px at 25% 17%, white, transparent 50%),
     radial-gradient(1px 1px at 70% 35%, white, transparent 50%),
-    radial-gradient(1.5px 1.5px at 12% 62%, #c4b5fd, transparent 50%),
+    radial-gradient(1.4px 1.4px at 12% 62%, rgba(186,200,228,0.7), transparent 50%),
     radial-gradient(1px 1px at 85% 78%, white, transparent 50%),
     radial-gradient(1px 1px at 45% 50%, white, transparent 50%),
-    radial-gradient(1.5px 1.5px at 55% 88%, #fbbf24, transparent 50%),
+    radial-gradient(1.4px 1.4px at 55% 88%, rgba(206,212,224,0.6), transparent 50%),
     radial-gradient(1px 1px at 95% 22%, white, transparent 50%),
     radial-gradient(1px 1px at 32% 92%, white, transparent 50%),
-    radial-gradient(1.5px 1.5px at 78% 12%, #f0abfc, transparent 50%),
+    radial-gradient(1.4px 1.4px at 78% 12%, rgba(198,200,224,0.6), transparent 50%),
     radial-gradient(1px 1px at 8% 30%, white, transparent 50%),
     radial-gradient(1px 1px at 62% 65%, white, transparent 50%),
     radial-gradient(1px 1px at 38% 28%, white, transparent 50%),
     radial-gradient(1px 1px at 88% 55%, white, transparent 50%),
     radial-gradient(1px 1px at 18% 78%, white, transparent 50%),
-    radial-gradient(1.5px 1.5px at 50% 8%, #93c5fd, transparent 50%);
-  background-size: 700px 700px;
+    radial-gradient(1.4px 1.4px at 50% 8%, rgba(170,190,225,0.7), transparent 50%);
+  background-size: 760px 760px;
   background-repeat: repeat;
-  animation: twinkle 8s ease-in-out infinite;
+  animation: twinkle 14s ease-in-out infinite;
 }
-.dark .pr-backdrop-noise { opacity: 0.9; }
-:not(.dark) .pr-backdrop-noise { opacity: 0.35; }
+.dark .pr-backdrop-noise { opacity: 0.5; }
+:not(.dark) .pr-backdrop-noise { opacity: 0.28; }
 
 @keyframes twinkle {
   0%, 100% { opacity: var(--star-opacity, 0.9); }
   50% { opacity: calc(var(--star-opacity, 0.9) * 0.65); }
 }
-.dark .pr-backdrop-noise { --star-opacity: 0.9; }
-:not(.dark) .pr-backdrop-noise { --star-opacity: 0.35; }
+.dark .pr-backdrop-noise { --star-opacity: 0.5; }
+:not(.dark) .pr-backdrop-noise { --star-opacity: 0.28; }
 
 /* When the new backdrop layers are present, hide the body-level fallback */
 body:has(.pr-backdrop-base) { background-image: none !important; }
@@ -509,7 +517,7 @@ nav button.rounded-full.bg-muted\/60:hover {
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 
 /* Section headings inside <section> tags — slightly more refined */
-section h2.font-heading { font-weight: 600; }
+section h2.font-heading { font-weight: 500; }
 
 /* === View Transition for theme toggle (circular reveal) ===
    Always have NEW on top with clip-path expanding to reveal. */

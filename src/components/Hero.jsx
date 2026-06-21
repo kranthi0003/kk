@@ -63,33 +63,32 @@ export default function Hero({ onResumeClick }) {
             </div>
 
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-3 animate-fade-in-up"
+              className="font-heading text-5xl sm:text-6xl lg:text-7xl mb-3 animate-fade-in-up"
               style={{
                 animationDelay: '0.2s',
-                fontWeight: 800,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.05,
+                fontWeight: 500,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.08,
               }}
             >
               Hey, I'm Kranthi
             </h1>
 
             <h2
-              className="text-xl sm:text-2xl lg:text-3xl mb-6 animate-fade-in-up"
-              style={{ animationDelay: '0.3s', fontWeight: 600, color: 'var(--color-accent)' }}
+              className="font-heading text-xl sm:text-2xl lg:text-3xl mb-6 animate-fade-in-up"
+              style={{ animationDelay: '0.3s', fontWeight: 400, fontStyle: 'italic', color: 'var(--color-accent)' }}
             >
               <TypingText
-                phrases={['Cloud Engineer', 'Infrastructure Builder', 'Distributed Systems Nerd', 'GitHub Engineer']}
+                phrases={['Cloud engineer', 'Distributed systems', 'Builder of quiet, reliable things', 'Forever a student']}
                 typingSpeed={120}
                 deletingSpeed={60}
-                pauseDuration={2500}
+                pauseDuration={2600}
               />
             </h2>
 
             <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
-              I build reliable infrastructure, tame distributed systems, and craft tools that
-              make engineering teams more productive. I help teams ship faster — without
-              the chaos.
+              I build the quiet infrastructure beneath things that can't afford to fail.
+              To me, reliability is a craft — patient, unglamorous, and quietly human.
             </p>
 
             {/* Primary CTAs */}
@@ -119,29 +118,17 @@ export default function Hero({ onResumeClick }) {
             <div className="mt-7 flex flex-wrap gap-2 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
               <button
                 onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
-                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 transition-colors"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
               >
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
-                </span>
                 Collab — code &amp; battle
-                <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
+                <span className="opacity-50 group-hover:translate-x-0.5 transition-transform">→</span>
               </button>
               <button
                 onClick={() => { window.location.hash = '#/stranger'; window.location.reload() }}
-                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[12px] font-medium text-foreground transition-all"
-                style={{
-                  background: 'color-mix(in oklab, var(--chart-2) 12%, transparent)',
-                  boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-2) 35%, transparent), 0 0 18px -6px color-mix(in oklab, var(--chart-2) 45%, transparent)',
-                }}
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
               >
-                <span className="px-1 py-px rounded text-[8.5px] font-bold uppercase tracking-wider"
-                  style={{ background: 'color-mix(in oklab, var(--chart-2) 35%, transparent)', color: 'oklch(95% 0.05 320)' }}>
-                  New
-                </span>
                 Stranger Chat
-                <span className="text-muted-foreground group-hover:translate-x-0.5 transition-transform">→</span>
+                <span className="opacity-50 group-hover:translate-x-0.5 transition-transform">→</span>
               </button>
             </div>
           </div>
