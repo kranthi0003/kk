@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { hasFitnessData, weekSummary } from '../lib/fitness'
 
-// A quiet personal "pulse" shown in the hero — only appears on a browser
-// that has real tracking data (so visitors never see an empty tracker).
-// Reads the same localStorage the Transformation HQ writes.
-export default function TransformationPulse() {
+// A quiet personal "pulse" — only appears on a browser that has real tracking
+// data (so visitors never see an empty tracker). Reads the same localStorage
+// the Transformation HQ writes. `compact` renders a small navbar pill.
+export default function TransformationPulse({ compact = false }) {
   const [data, setData] = useState(() => (hasFitnessData() ? weekSummary() : null))
 
   useEffect(() => {
@@ -24,6 +24,40 @@ export default function TransformationPulse() {
 
   const open = () => { window.location.hash = '#/transformation'; window.location.reload() }
   const dayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+
+  // ---- Compact navbar pill: a tiny week-dot strip + count + streak ----
+  if (compact) {
+    return (
+      <button
+        onClick={open}
+        title={`Transformation — ${data.wkWorkouts}/${data.scheduled} this week · ${data.allTimeWorkouts} all-time · open HQ`}
+        aria-label="Open Transformation HQ"
+        className="group inline-flex items-center gap-2 h-8 pl-2 pr-2.5 rounded-full border border-border/60 bg-card/40 backdrop-blur transition-colors hover:border-accent/40"
+      >
+        <span className="flex items-center gap-[3px]">
+          {data.week.map((d, i) => (
+            <span
+              key={i}
+              className="w-1.5 h-1.5 rounded-full"
+              style={
+                d.done
+                  ? { background: 'var(--color-accent)' }
+                  : {
+                      background: d.isToday
+                        ? 'color-mix(in oklab, var(--color-accent) 45%, transparent)'
+                        : 'color-mix(in oklab, var(--color-muted-foreground) 30%, transparent)',
+                    }
+              }
+            />
+          ))}
+        </span>
+        <span className="text-[11px] font-medium text-foreground tabular-nums leading-none">{data.wkWorkouts}/{data.scheduled}</span>
+        {data.streak > 0 && (
+          <span className="text-[11px] text-muted-foreground leading-none tabular-nums">{data.streak}🔥</span>
+        )}
+      </button>
+    )
+  }
 
   return (
     <button
