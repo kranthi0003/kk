@@ -1,8 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
 
 const API_KEY = import.meta.env.VITE_WEATHER_UNION_API_KEY
-const BASE_URL = 'https://www.weatherunion.com/gw/weather/external/v0/get_weather_data'
-// Hyderabad as fallback
+const WU_URL = 'https://www.weatherunion.com/gw/weather/external/v0/get_weather_data'
+const OPEN_METEO_URL = 'https://api.open-meteo.com/v1/forecast'
+// Hyderabad as fallback location (used only if geolocation is unavailable)
 const DEFAULT_LAT = 17.385
 const DEFAULT_LNG = 78.4867
 const DEFAULT_CITY = 'Hyderabad'
@@ -33,9 +34,47 @@ function windDir(deg) {
   return dirs[Math.round(deg / 45) % 8]
 }
 
+// Hyperlocal source — Zomato Weather Union (great where it has a live station)
+async function fetchFromWeatherUnion(lat, lng) {
+  if (!API_KEY) return null
+  const res = await fetch(`${WU_URL}?latitude=${lat}&longitude=${lng}`, {
+    headers: { 'x-zomato-api-key': API_KEY },
+  })
+  const json = await res.json()
+  const d = json?.locality_weather_data
+  // Treat null temperature/humidity as "no live data" (station offline or rain-only)
+  if (json?.status === '200' && d && (d.temperature != null || d.humidity != null)) {
+    return { source: 'Weather Union', data: d }
+  }
+  return null
+}
+
+// Global fallback — Open-Meteo (free, no key, worldwide coverage)
+async function fetchFromOpenMeteo(lat, lng) {
+  const params = 'temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,precipitation'
+  const res = await fetch(`${OPEN_METEO_URL}?latitude=${lat}&longitude=${lng}&current=${params}&wind_speed_unit=ms`)
+  const json = await res.json()
+  const c = json?.current
+  if (!c || c.temperature_2m == null) return null
+  return {
+    source: 'Open-Meteo',
+    data: {
+      temperature: c.temperature_2m,
+      humidity: c.relative_humidity_2m,
+      wind_speed: c.wind_speed_10m,
+      wind_direction: c.wind_direction_10m,
+      rain_intensity: c.precipitation,
+      rain_accumulation: c.precipitation,
+      aqi_pm_10: null,
+      aqi_pm_2_point_5: null,
+    },
+  }
+}
+
 export default function WeatherWidget() {
   const [open, setOpen] = useState(false)
   const [weather, setWeather] = useState(null)
+  const [source, setSource] = useState('Weather Union')
   const [city, setCity] = useState(DEFAULT_CITY)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -45,22 +84,18 @@ export default function WeatherWidget() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`, {
-        headers: { 'x-zomato-api-key': API_KEY },
-      })
-      const json = await res.json()
-      if (json.status === '200' && json.locality_weather_data) {
-        const d = json.locality_weather_data
-        // Verify at least temperature is present
-        if (d.temperature != null || d.humidity != null) {
-          setWeather(d)
-          setLastUpdated(new Date())
-        } else {
-          // station near but no data — try fallback
-          throw new Error('No sensor data available')
-        }
+      // Prefer hyperlocal Weather Union; fall back to Open-Meteo where it has no live station
+      let result = null
+      try { result = await fetchFromWeatherUnion(lat, lng) } catch {}
+      if (!result) {
+        try { result = await fetchFromOpenMeteo(lat, lng) } catch {}
+      }
+      if (result) {
+        setWeather(result.data)
+        setSource(result.source)
+        setLastUpdated(new Date())
       } else {
-        throw new Error(json.message || 'API error')
+        throw new Error('No weather data available')
       }
     } catch (e) {
       setError(e.message)
@@ -136,7 +171,7 @@ export default function WeatherWidget() {
               <span className="text-2xl leading-none">{loading ? '⏳' : emoji}</span>
               <div>
                 <p className="text-[11px] font-semibold text-white/90 leading-tight truncate max-w-[130px]">{city}</p>
-                <p className="text-[10px] text-white/40">Weather Union</p>
+                <p className="text-[10px] text-white/40">{source}</p>
               </div>
             </div>
             <button
