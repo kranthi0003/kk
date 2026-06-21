@@ -34,6 +34,8 @@ import CryptoDashboard from './components/CryptoDashboard'
 import DevNet from './components/DevNet'
 import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
+import WeatherWidget from './components/WeatherWidget'
+import QuoteIntro from './components/QuoteIntro'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -261,6 +263,8 @@ export default function App() {
       <DevNet />
       <ServiceStatus />
       <CronSchedule />
+      <WeatherWidget />
+      <QuoteIntro />
     </div>
     </>
   )
