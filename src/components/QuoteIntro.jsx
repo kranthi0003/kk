@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-const QUOTE = 'Who were you before the World told who you are?'
+const QUOTE = 'Who were you before the world told you who you are?'
 
 // Reveal cadence tuned to a comfortable on-screen English reading pace for a
 // common Indian reader (~140 wpm → ~430 ms/word) so each word can be read as it
@@ -84,7 +84,7 @@ export default function QuoteIntro() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '2rem',
+        padding: '2rem 1rem',
         opacity: (entered && !exiting) ? 1 : 0,
         transition: 'opacity 1.1s ease',
         cursor: 'default',
@@ -117,16 +117,17 @@ export default function QuoteIntro() {
         background: 'radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)',
       }} />
 
-      <div style={{ maxWidth: '660px', width: '100%', textAlign: 'center', position: 'relative' }}>
+      <div style={{ maxWidth: 'none', width: 'auto', textAlign: 'center', position: 'relative' }}>
 
         {/* Quote text */}
         <p style={{
           fontFamily: "'Newsreader', Georgia, 'Times New Roman', serif",
-          fontSize: 'clamp(1.35rem, 3.4vw, 2.2rem)',
+          fontSize: 'clamp(0.78rem, 3.7vw, 2rem)',
           fontWeight: 300,
           color: 'rgba(236,238,245,0.92)',
           lineHeight: 1.7,
           letterSpacing: '0.01em',
+          whiteSpace: 'nowrap',
           margin: 0,
           textShadow: '0 1px 36px rgba(150,170,212,0.12)',
         }}>
@@ -141,7 +142,7 @@ export default function QuoteIntro() {
                   transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                   filter: isVisible ? 'blur(0)' : 'blur(7px)',
                   transition: 'opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease',
-                  marginRight: '0.32em',
+                  marginRight: '0.28em',
                 }}
               >
                 {slot.text}
