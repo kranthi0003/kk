@@ -29,7 +29,7 @@ export default function TransformationPulse() {
     <button
       onClick={open}
       title="Open Transformation HQ"
-      className="group mt-5 w-full max-w-[280px] rounded-xl border border-border/60 bg-card/30 backdrop-blur px-3.5 py-3 text-left transition-colors hover:border-accent/40"
+      className="group w-[244px] rounded-xl border border-border/60 bg-card/40 backdrop-blur px-3.5 py-3 text-left shadow-lg transition-colors hover:border-accent/40"
     >
       {/* Header row */}
       <div className="flex items-center justify-between mb-2.5">
