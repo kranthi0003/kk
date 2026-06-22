@@ -18,11 +18,20 @@ const HOLD_MS = LAST_WORD_MS + 2900
 const SKIP_ENABLED_MS = 1000
 
 export default function QuoteIntro() {
-  const [show, setShow]           = useState(false)
-  const [entered, setEntered]     = useState(false)
-  const [tick, setTick]           = useState(-1)
+  // Decide synchronously on first render so the opaque backdrop paints
+  // immediately — no flash of the site before the intro appears.
+  const shouldShow = () => {
+    try {
+      const forceShow = /(?:[?&]intro=1)|(?:#intro)/.test(window.location.search + window.location.hash)
+      if (forceShow) return true
+      return !sessionStorage.getItem('quote_intro_seen')
+    } catch { return true }
+  }
+
+  const [show, setShow]             = useState(shouldShow)
+  const [tick, setTick]             = useState(-1)
   const [showAttrib, setShowAttrib] = useState(false)
-  const [exiting, setExiting]     = useState(false)
+  const [exiting, setExiting]       = useState(false)
 
   const canExitRef = useRef(false)
   const doneRef    = useRef(false)
@@ -33,34 +42,33 @@ export default function QuoteIntro() {
     setExiting(true)
     setTimeout(() => {
       setShow(false)
-      sessionStorage.setItem('quote_intro_seen', '1')
+      try { sessionStorage.setItem('quote_intro_seen', '1') } catch {}
     }, 950)
   }, [])
 
   useEffect(() => {
-    const forceShow = /(?:[?&]intro=1)|(?:#intro)/.test(window.location.search + window.location.hash)
-    if (!forceShow && sessionStorage.getItem('quote_intro_seen')) return
+    if (!show) return
 
-    setShow(true)
-    const enterTimer = setTimeout(() => setEntered(true), 30)
+    // Lock scroll while the intro is up
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
 
     // Schedule each word's reveal
     const wordTimers = SLOTS.map((slot, idx) =>
       setTimeout(() => setTick(idx), slot.time)
     )
-
     const t1 = setTimeout(() => { canExitRef.current = true }, SKIP_ENABLED_MS)
     const t2 = setTimeout(() => exit(), HOLD_MS)
     const t3 = setTimeout(() => setShowAttrib(true), ATTRIBUTION_MS)
 
     return () => {
-      clearTimeout(enterTimer)
+      document.body.style.overflow = prevOverflow
       wordTimers.forEach(clearTimeout)
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
     }
-  }, [exit])
+  }, [show, exit])
 
   useEffect(() => {
     const onKey = () => { if (canExitRef.current) exit() }
@@ -85,8 +93,8 @@ export default function QuoteIntro() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '2rem 1rem',
-        opacity: (entered && !exiting) ? 1 : 0,
-        transition: 'opacity 1.1s ease',
+        opacity: exiting ? 0 : 1,
+        transition: 'opacity 0.95s ease',
         cursor: 'default',
       }}
     >
