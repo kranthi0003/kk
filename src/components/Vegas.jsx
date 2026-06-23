@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { VEGAS_PAYLOAD as PAYLOAD } from '../lib/vegasPayload'
-import { LISTS, loadList, saveList, newId } from '../lib/vegasLists'
+import { LISTS, ESSENTIAL_PRESETS, loadList, saveList, newId } from '../lib/vegasLists'
 
 const TABS = [
   { id: 'elplan',  label: 'El-plan' },
@@ -139,6 +139,151 @@ function ListCard({ person, listId, title, placeholder }) {
   )
 }
 
+// Travel docs & essentials — labelled key/value details (passport, tickets,
+// booking refs…) you want to grab fast. Tap a value to copy it to the
+// clipboard. Persisted per person on the device.
+function EssentialsCard({ person }) {
+  const listId = 'essentials'
+  const [items, setItems] = useState(() => loadList(person, listId))
+  const [label, setLabel] = useState('')
+  const [value, setValue] = useState('')
+  const [copiedId, setCopiedId] = useState(null)
+  const valueRef = useRef(null)
+
+  useEffect(() => { saveList(person, listId, items) }, [items, person])
+
+  const add = () => {
+    const l = label.trim(); const v = value.trim()
+    if (!l || !v) return
+    setItems(prev => [...prev, { id: newId(), label: l, value: v, ts: Date.now() }])
+    setLabel(''); setValue('')
+  }
+  const remove = (id) => setItems(prev => prev.filter(i => i.id !== id))
+  const copy = async (item) => {
+    try {
+      if (!navigator.clipboard?.writeText) return
+      await navigator.clipboard.writeText(item.value)
+      setCopiedId(item.id)
+      setTimeout(() => setCopiedId(c => (c === item.id ? null : c)), 1400)
+    } catch {
+      /* clipboard blocked — ignore */
+    }
+  }
+  const pickPreset = (p) => { setLabel(p); valueRef.current?.focus() }
+
+  const inputStyle = { background: 'var(--color-background)', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }
+  const onInFocus = (e) => { e.target.style.borderColor = 'var(--color-accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in oklab, var(--color-accent) 20%, transparent)' }
+  const onInBlur = (e) => { e.target.style.borderColor = 'var(--color-border)'; e.target.style.boxShadow = 'none' }
+
+  return (
+    <section
+      className="rounded-2xl p-4 sm:p-5 mb-4"
+      style={{
+        background: 'color-mix(in oklab, var(--color-card) 70%, transparent)',
+        border: '1px solid var(--color-border)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+      }}
+    >
+      <div className="mb-3">
+        <h3 className="font-heading text-[1.05rem]" style={{ fontWeight: 500 }}>Travel docs &amp; essentials</h3>
+        <p className="text-[12px] text-muted-foreground mt-0.5">Passport, tickets, refs — tap a value to copy it.</p>
+      </div>
+
+      <div className="flex flex-wrap gap-1.5 mb-3">
+        {ESSENTIAL_PRESETS.map(p => (
+          <button
+            key={p}
+            type="button"
+            onClick={() => pickPreset(p)}
+            className="px-2.5 py-1 rounded-full text-[11px] transition-colors"
+            style={{ background: 'color-mix(in oklab, var(--color-background) 60%, transparent)', border: '1px solid var(--color-border)', color: 'var(--color-muted-foreground)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-foreground)'; e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 40%, transparent)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-muted-foreground)'; e.currentTarget.style.borderColor = 'var(--color-border)' }}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
+
+      <form onSubmit={(e) => { e.preventDefault(); add() }} className="space-y-2 mb-3">
+        <input
+          value={label}
+          onChange={(e) => setLabel(e.target.value)}
+          placeholder="Label (e.g. Passport no)"
+          aria-label="Detail label"
+          className="w-full rounded-xl px-3 py-2 text-sm outline-none transition-all"
+          style={inputStyle} onFocus={onInFocus} onBlur={onInBlur}
+        />
+        <div className="flex gap-2">
+          <input
+            ref={valueRef}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Value"
+            aria-label="Detail value"
+            className="flex-1 min-w-0 rounded-xl px-3 py-2 text-sm font-mono outline-none transition-all"
+            style={inputStyle} onFocus={onInFocus} onBlur={onInBlur}
+          />
+          <button
+            type="submit"
+            className="flex-shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition-all"
+            style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.08)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.filter = 'none' }}
+          >
+            Add
+          </button>
+        </div>
+      </form>
+
+      <ul className="space-y-1.5">
+        {items.length === 0 && (
+          <li className="text-[13px] text-muted-foreground/70 italic py-1.5">Nothing here yet — add passport, tickets, booking refs…</li>
+        )}
+        {items.map(i => (
+          <li
+            key={i.id}
+            className="group flex items-center gap-2 rounded-xl px-2 py-1.5"
+            style={{ background: 'color-mix(in oklab, var(--color-background) 55%, transparent)' }}
+          >
+            <button
+              onClick={() => copy(i)}
+              title="Tap to copy"
+              className="flex-1 min-w-0 flex items-center gap-2 text-left rounded-lg px-2 py-1 transition-colors"
+            >
+              <span className="flex-1 min-w-0">
+                <span className="block text-[10.5px] uppercase tracking-wide text-muted-foreground/80">{i.label}</span>
+                <span className="block text-sm font-mono break-words" style={{ color: 'var(--color-foreground)' }}>{i.value}</span>
+              </span>
+              <span
+                className="flex-shrink-0 inline-flex items-center gap-1 text-[11px]"
+                style={{ color: copiedId === i.id ? 'var(--color-accent)' : 'var(--color-muted-foreground)' }}
+              >
+                {copiedId === i.id ? (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+                    Copied
+                  </>
+                ) : (
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+                )}
+              </span>
+            </button>
+            <button
+              onClick={() => remove(i.id)}
+              aria-label="Delete"
+              className="flex-shrink-0 p-1 rounded-md text-muted-foreground/60 hover:text-foreground transition-all sm:opacity-0 sm:group-hover:opacity-100"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M10 11v6M14 11v6" /></svg>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 // One person's space — a calm, scrollable column of their lists.
 function VegasPersonal({ person, name }) {
   return (
@@ -151,8 +296,9 @@ function VegasPersonal({ person, name }) {
       <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-24">
         <div className="mb-6">
           <h2 className="font-heading text-2xl mb-1" style={{ fontWeight: 500 }}>{name}</h2>
-          <p className="text-sm text-muted-foreground">Wishlist, things to buy, and notes — saved on this device.</p>
+          <p className="text-sm text-muted-foreground">Travel docs, wishlist, things to buy, and notes — saved on this device.</p>
         </div>
+        <EssentialsCard person={person} />
         {LISTS.map(l => (
           <ListCard key={l.id} person={person} listId={l.id} title={l.title} placeholder={l.placeholder} />
         ))}
