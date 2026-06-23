@@ -7,16 +7,8 @@
 const PREFIX = 'vegas:v1'
 
 export const LISTS = [
-  { id: 'wishlist', title: 'Wishlist', placeholder: 'Add something you want…' },
-  { id: 'tobuy',    title: 'To buy',   placeholder: 'Add something to buy…' },
-  { id: 'notes',    title: 'Notes',    placeholder: 'Add a note to remember…' },
-]
-
-// Quick-fill labels for the "Travel docs & essentials" card — the stuff you
-// want to grab fast on the move (tap a chip, type the value).
-export const ESSENTIAL_PRESETS = [
-  'Passport no', 'Passport expiry', 'Flight PNR', 'Flight no',
-  'Seat', 'Booking ref', 'Hotel', 'Emergency contact',
+  { id: 'tobuy', title: 'To buy',  placeholder: 'Add something to buy or pack…' },
+  { id: 'notes', title: 'Notes',   placeholder: 'Add a note to remember…' },
 ]
 
 const key = (person, listId) => `${PREFIX}:${person}:${listId}`

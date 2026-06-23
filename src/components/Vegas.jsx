@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { VEGAS_PAYLOAD as PAYLOAD } from '../lib/vegasPayload'
-import { LISTS, ESSENTIAL_PRESETS, loadList, saveList, newId } from '../lib/vegasLists'
+import { LISTS, loadList, saveList, newId } from '../lib/vegasLists'
+import { addFiles, listFiles, deleteFile, blobUrl, formatSize } from '../lib/vegasFiles'
 
 const TABS = [
   { id: 'elplan',  label: 'El-plan' },
@@ -139,41 +140,69 @@ function ListCard({ person, listId, title, placeholder }) {
   )
 }
 
-// Travel docs & essentials — labelled key/value details (passport, tickets,
-// booking refs…) you want to grab fast. Tap a value to copy it to the
-// clipboard. Persisted per person on the device.
-function EssentialsCard({ person }) {
-  const listId = 'essentials'
-  const [items, setItems] = useState(() => loadList(person, listId))
-  const [label, setLabel] = useState('')
-  const [value, setValue] = useState('')
-  const [copiedId, setCopiedId] = useState(null)
-  const valueRef = useRef(null)
+// Files — drop in actual documents (PDFs, images, anything). They're stored in
+// IndexedDB on the device, so they persist across visits. Tap a file to open
+// it; the trash removes it. No template — upload whatever you want.
+function FilesCard({ person }) {
+  const [files, setFiles] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [busy, setBusy] = useState(false)
+  const [err, setErr] = useState('')
+  const [dragOver, setDragOver] = useState(false)
+  const inputRef = useRef(null)
+  const urlsRef = useRef(new Map()) // id -> object URL for image thumbnails
 
-  useEffect(() => { saveList(person, listId, items) }, [items, person])
+  useEffect(() => {
+    let alive = true
+    const urls = urlsRef.current
+    listFiles(person)
+      .then(recs => { if (alive) { setFiles(recs); setLoading(false) } })
+      .catch(() => { if (alive) { setErr('Could not load files.'); setLoading(false) } })
+    return () => {
+      alive = false
+      urls.forEach(u => URL.revokeObjectURL(u))
+      urls.clear()
+    }
+  }, [person])
 
-  const add = () => {
-    const l = label.trim(); const v = value.trim()
-    if (!l || !v) return
-    setItems(prev => [...prev, { id: newId(), label: l, value: v, ts: Date.now() }])
-    setLabel(''); setValue('')
+  const thumb = (rec) => {
+    if (!rec.type?.startsWith('image/')) return null
+    if (!urlsRef.current.has(rec.id)) urlsRef.current.set(rec.id, blobUrl(rec))
+    return urlsRef.current.get(rec.id)
   }
-  const remove = (id) => setItems(prev => prev.filter(i => i.id !== id))
-  const copy = async (item) => {
+
+  const pick = async (fileList) => {
+    setErr('')
+    const arr = Array.from(fileList || [])
+    if (!arr.length) return
+    const MAX = 25 * 1024 * 1024
+    const tooBig = arr.find(f => f.size > MAX)
+    if (tooBig) { setErr(`"${tooBig.name}" is over 25 MB — too big to keep here.`); return }
+    setBusy(true)
     try {
-      if (!navigator.clipboard?.writeText) return
-      await navigator.clipboard.writeText(item.value)
-      setCopiedId(item.id)
-      setTimeout(() => setCopiedId(c => (c === item.id ? null : c)), 1400)
+      const added = await addFiles(person, arr)
+      setFiles(prev => [...prev, ...added])
     } catch {
-      /* clipboard blocked — ignore */
+      setErr('Could not save the file — the device storage may be full.')
+    } finally {
+      setBusy(false)
+      if (inputRef.current) inputRef.current.value = ''
     }
   }
-  const pickPreset = (p) => { setLabel(p); valueRef.current?.focus() }
 
-  const inputStyle = { background: 'var(--color-background)', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }
-  const onInFocus = (e) => { e.target.style.borderColor = 'var(--color-accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in oklab, var(--color-accent) 20%, transparent)' }
-  const onInBlur = (e) => { e.target.style.borderColor = 'var(--color-border)'; e.target.style.boxShadow = 'none' }
+  const open = (rec) => {
+    const url = blobUrl(rec)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 60000)
+  }
+
+  const remove = async (rec) => {
+    try { await deleteFile(rec.id) } catch { /* ignore */ }
+    if (urlsRef.current.has(rec.id)) { URL.revokeObjectURL(urlsRef.current.get(rec.id)); urlsRef.current.delete(rec.id) }
+    setFiles(prev => prev.filter(f => f.id !== rec.id))
+  }
+
+  const isPdf = (rec) => rec.type === 'application/pdf' || /\.pdf$/i.test(rec.name)
 
   return (
     <section
@@ -186,92 +215,60 @@ function EssentialsCard({ person }) {
       }}
     >
       <div className="mb-3">
-        <h3 className="font-heading text-[1.05rem]" style={{ fontWeight: 500 }}>Travel docs &amp; essentials</h3>
-        <p className="text-[12px] text-muted-foreground mt-0.5">Passport, tickets, refs — tap a value to copy it.</p>
+        <h3 className="font-heading text-[1.05rem]" style={{ fontWeight: 500 }}>Files</h3>
+        <p className="text-[12px] text-muted-foreground mt-0.5">Upload whatever you want handy — e.g. passport, flight ticket, visa, hotel booking.</p>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 mb-3">
-        {ESSENTIAL_PRESETS.map(p => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => pickPreset(p)}
-            className="px-2.5 py-1 rounded-full text-[11px] transition-colors"
-            style={{ background: 'color-mix(in oklab, var(--color-background) 60%, transparent)', border: '1px solid var(--color-border)', color: 'var(--color-muted-foreground)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-foreground)'; e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 40%, transparent)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-muted-foreground)'; e.currentTarget.style.borderColor = 'var(--color-border)' }}
-          >
-            {p}
-          </button>
-        ))}
+      <div
+        onClick={() => inputRef.current?.click()}
+        onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
+        onDragLeave={() => setDragOver(false)}
+        onDrop={(e) => { e.preventDefault(); setDragOver(false); pick(e.dataTransfer.files) }}
+        className="cursor-pointer rounded-xl p-5 text-center transition-colors mb-3"
+        style={{
+          border: `1px dashed ${dragOver ? 'var(--color-accent)' : 'var(--color-border)'}`,
+          background: dragOver ? 'color-mix(in oklab, var(--color-accent) 8%, transparent)' : 'transparent',
+        }}
+      >
+        <svg className="w-6 h-6 mx-auto mb-1.5" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M12 16V4m0 0L8 8m4-4l4 4" /><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /></svg>
+        <div className="text-sm" style={{ color: 'var(--color-foreground)' }}>{busy ? 'Saving…' : 'Tap to upload, or drop files here'}</div>
+        <div className="text-[11px] text-muted-foreground mt-0.5">PDFs, images — anything up to 25 MB</div>
+        <input ref={inputRef} type="file" multiple className="hidden" onChange={(e) => pick(e.target.files)} />
       </div>
 
-      <form onSubmit={(e) => { e.preventDefault(); add() }} className="space-y-2 mb-3">
-        <input
-          value={label}
-          onChange={(e) => setLabel(e.target.value)}
-          placeholder="Label (e.g. Passport no)"
-          aria-label="Detail label"
-          className="w-full rounded-xl px-3 py-2 text-sm outline-none transition-all"
-          style={inputStyle} onFocus={onInFocus} onBlur={onInBlur}
-        />
-        <div className="flex gap-2">
-          <input
-            ref={valueRef}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Value"
-            aria-label="Detail value"
-            className="flex-1 min-w-0 rounded-xl px-3 py-2 text-sm font-mono outline-none transition-all"
-            style={inputStyle} onFocus={onInFocus} onBlur={onInBlur}
-          />
-          <button
-            type="submit"
-            className="flex-shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition-all"
-            style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.08)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.filter = 'none' }}
-          >
-            Add
-          </button>
-        </div>
-      </form>
+      {err && <div className="text-[12px] mb-2" style={{ color: '#ef6b6b' }}>{err}</div>}
 
       <ul className="space-y-1.5">
-        {items.length === 0 && (
-          <li className="text-[13px] text-muted-foreground/70 italic py-1.5">Nothing here yet — add passport, tickets, booking refs…</li>
+        {loading && <li className="text-[13px] text-muted-foreground/70 py-1.5">Loading…</li>}
+        {!loading && files.length === 0 && (
+          <li className="text-[13px] text-muted-foreground/70 italic py-1.5">No files yet — e.g. passport.pdf, ticket.pdf, hotel.pdf.</li>
         )}
-        {items.map(i => (
+        {files.map(rec => (
           <li
-            key={i.id}
-            className="group flex items-center gap-2 rounded-xl px-2 py-1.5"
+            key={rec.id}
+            className="group flex items-center gap-3 rounded-xl px-3 py-2"
             style={{ background: 'color-mix(in oklab, var(--color-background) 55%, transparent)' }}
           >
-            <button
-              onClick={() => copy(i)}
-              title="Tap to copy"
-              className="flex-1 min-w-0 flex items-center gap-2 text-left rounded-lg px-2 py-1 transition-colors"
-            >
-              <span className="flex-1 min-w-0">
-                <span className="block text-[10.5px] uppercase tracking-wide text-muted-foreground/80">{i.label}</span>
-                <span className="block text-sm font-mono break-words" style={{ color: 'var(--color-foreground)' }}>{i.value}</span>
-              </span>
+            <button onClick={() => open(rec)} className="flex-1 min-w-0 flex items-center gap-3 text-left" title="Open">
               <span
-                className="flex-shrink-0 inline-flex items-center gap-1 text-[11px]"
-                style={{ color: copiedId === i.id ? 'var(--color-accent)' : 'var(--color-muted-foreground)' }}
+                className="flex-shrink-0 w-9 h-9 rounded-md flex items-center justify-center overflow-hidden"
+                style={{ background: 'color-mix(in oklab, var(--color-accent) 12%, transparent)', border: '1px solid var(--color-border)' }}
               >
-                {copiedId === i.id ? (
-                  <>
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-                    Copied
-                  </>
+                {thumb(rec) ? (
+                  <img src={thumb(rec)} alt="" className="w-full h-full object-cover" />
+                ) : isPdf(rec) ? (
+                  <svg className="w-4 h-4" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
                 ) : (
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+                  <svg className="w-4 h-4" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
                 )}
+              </span>
+              <span className="flex-1 min-w-0">
+                <span className="block text-sm truncate" style={{ color: 'var(--color-foreground)' }}>{rec.name}</span>
+                <span className="block text-[11px] text-muted-foreground">{formatSize(rec.size)}</span>
               </span>
             </button>
             <button
-              onClick={() => remove(i.id)}
+              onClick={() => remove(rec)}
               aria-label="Delete"
               className="flex-shrink-0 p-1 rounded-md text-muted-foreground/60 hover:text-foreground transition-all sm:opacity-0 sm:group-hover:opacity-100"
             >
@@ -284,7 +281,7 @@ function EssentialsCard({ person }) {
   )
 }
 
-// One person's space — a calm, scrollable column of their lists.
+// One person's space — a calm, scrollable column of their files and lists.
 function VegasPersonal({ person, name }) {
   return (
     <div className="relative h-full overflow-y-auto" style={{ background: 'var(--color-background)' }}>
@@ -296,9 +293,9 @@ function VegasPersonal({ person, name }) {
       <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-24">
         <div className="mb-6">
           <h2 className="font-heading text-2xl mb-1" style={{ fontWeight: 500 }}>{name}</h2>
-          <p className="text-sm text-muted-foreground">Travel docs, wishlist, things to buy, and notes — saved on this device.</p>
+          <p className="text-sm text-muted-foreground">Files, things to buy, and notes — saved on this device.</p>
         </div>
-        <EssentialsCard person={person} />
+        <FilesCard person={person} />
         {LISTS.map(l => (
           <ListCard key={l.id} person={person} listId={l.id} title={l.title} placeholder={l.placeholder} />
         ))}
