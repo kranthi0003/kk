@@ -1,17 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { VEGAS_PAYLOAD as PAYLOAD } from '../lib/vegasPayload'
 import { LISTS, loadList, saveList, newId } from '../lib/vegasLists'
-import { addFiles, listFiles, deleteFile, blobUrl, formatSize } from '../lib/vegasFiles'
-
-const TABS = [
-  { id: 'elplan',  label: 'El-plan' },
-  { id: 'chaitra', label: 'Chaitra' },
-  { id: 'kiran',   label: 'Kiran' },
-]
 
 // Same crypto as the original public/vegas.html — PBKDF2 (SHA-256) → AES-GCM.
 // The content stays encrypted at rest in the bundle and only decrypts in the
-// browser with the correct passphrase.
+// browser with the correct passphrase. Plaintext is JSON: { html, days }.
 const ITER = PAYLOAD.iter || 200000
 const b64ToU8 = (b) => Uint8Array.from(atob(b), c => c.charCodeAt(0))
 const enc = new TextEncoder()
@@ -28,13 +21,35 @@ async function deriveKey(pass, salt) {
 async function unlock(pass) {
   const salt = b64ToU8(PAYLOAD.salt), iv = b64ToU8(PAYLOAD.iv), ct = b64ToU8(PAYLOAD.ct)
   const key = await deriveKey(pass, salt)
-  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct)
-  return dec.decode(pt)
+  const pt = dec.decode(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct))
+  // Plaintext is JSON { html, days }. Fall back to legacy plain-HTML payloads.
+  try {
+    const obj = JSON.parse(pt)
+    if (obj && typeof obj === 'object' && ('html' in obj || 'days' in obj)) {
+      return { html: obj.html || '', days: Array.isArray(obj.days) ? obj.days : [] }
+    }
+  } catch { /* legacy payload — treat as raw HTML */ }
+  return { html: pt, days: [] }
 }
 
 // In-memory cache so navigating away and back within the same page load keeps
 // it unlocked. Never persisted — a full reload re-prompts.
-let cachedHtml = null
+let cachedData = null
+
+const mapsUrl = (place) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`
+
+// Split text on URLs so they can render as clickable links.
+const URL_RE = /(https?:\/\/[^\s]+)/g
+const isUrl = (s) => /^https?:\/\/\S+$/i.test(s.trim())
+function linkify(text) {
+  const parts = String(text).split(URL_RE)
+  return parts.map((part, i) =>
+    URL_RE.test(part)
+      ? <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline break-all" style={{ color: 'var(--color-accent)' }}>{part}</a>
+      : <span key={i}>{part}</span>
+  )
+}
 
 // A single editable list (wishlist / to buy / notes) for one person. Items are
 // loaded from and saved to localStorage, so they persist across visits on this
@@ -124,7 +139,7 @@ function ListCard({ person, listId, title, placeholder }) {
                 ? { textDecoration: 'line-through', color: 'var(--color-muted-foreground)', opacity: 0.7 }
                 : { color: 'var(--color-foreground)' }}
             >
-              {i.text}
+              {linkify(i.text)}
             </span>
             <button
               onClick={() => remove(i.id)}
@@ -140,148 +155,131 @@ function ListCard({ person, listId, title, placeholder }) {
   )
 }
 
-// Files — drop in actual documents (PDFs, images, anything). They're stored in
-// IndexedDB on the device, so they persist across visits. Tap a file to open
-// it; the trash removes it. No template — upload whatever you want.
-function FilesCard({ person }) {
-  const [files, setFiles] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [busy, setBusy] = useState(false)
-  const [err, setErr] = useState('')
-  const [dragOver, setDragOver] = useState(false)
-  const inputRef = useRef(null)
-  const urlsRef = useRef(new Map()) // id -> object URL for image thumbnails
+// Per-day editable "Tickets & links" — the clickable stuff you want fast:
+// confirmation numbers, booking URLs, reservation refs. Stored on the device
+// (localStorage) per day, so real ticket details never go into the repo.
+function DayLinks({ dayId }) {
+  const store = `day:${dayId}`
+  const [items, setItems] = useState(() => loadList(store, 'links'))
+  const [label, setLabel] = useState('')
+  const [value, setValue] = useState('')
+  const [copiedId, setCopiedId] = useState(null)
+  const valueRef = useRef(null)
 
-  useEffect(() => {
-    let alive = true
-    const urls = urlsRef.current
-    listFiles(person)
-      .then(recs => { if (alive) { setFiles(recs); setLoading(false) } })
-      .catch(() => { if (alive) { setErr('Could not load files.'); setLoading(false) } })
-    return () => {
-      alive = false
-      urls.forEach(u => URL.revokeObjectURL(u))
-      urls.clear()
-    }
-  }, [person])
+  useEffect(() => { saveList(store, 'links', items) }, [items, store])
 
-  const thumb = (rec) => {
-    if (!rec.type?.startsWith('image/')) return null
-    if (!urlsRef.current.has(rec.id)) urlsRef.current.set(rec.id, blobUrl(rec))
-    return urlsRef.current.get(rec.id)
+  const add = () => {
+    const l = label.trim(), v = value.trim()
+    if (!v) return
+    setItems(prev => [...prev, { id: newId(), label: l, value: v, ts: Date.now() }])
+    setLabel(''); setValue('')
+    valueRef.current?.focus()
+  }
+  const remove = (id) => setItems(prev => prev.filter(i => i.id !== id))
+  const copy = async (it) => {
+    try { await navigator.clipboard?.writeText(it.value); setCopiedId(it.id); setTimeout(() => setCopiedId(c => (c === it.id ? null : c)), 1400) } catch { /* ignore */ }
   }
 
-  const pick = async (fileList) => {
-    setErr('')
-    const arr = Array.from(fileList || [])
-    if (!arr.length) return
-    const MAX = 25 * 1024 * 1024
-    const tooBig = arr.find(f => f.size > MAX)
-    if (tooBig) { setErr(`"${tooBig.name}" is over 25 MB — too big to keep here.`); return }
-    setBusy(true)
-    try {
-      const added = await addFiles(person, arr)
-      setFiles(prev => [...prev, ...added])
-    } catch {
-      setErr('Could not save the file — the device storage may be full.')
-    } finally {
-      setBusy(false)
-      if (inputRef.current) inputRef.current.value = ''
-    }
-  }
-
-  const open = (rec) => {
-    const url = blobUrl(rec)
-    window.open(url, '_blank', 'noopener')
-    setTimeout(() => URL.revokeObjectURL(url), 60000)
-  }
-
-  const remove = async (rec) => {
-    try { await deleteFile(rec.id) } catch { /* ignore */ }
-    if (urlsRef.current.has(rec.id)) { URL.revokeObjectURL(urlsRef.current.get(rec.id)); urlsRef.current.delete(rec.id) }
-    setFiles(prev => prev.filter(f => f.id !== rec.id))
-  }
-
-  const isPdf = (rec) => rec.type === 'application/pdf' || /\.pdf$/i.test(rec.name)
+  const inputStyle = { background: 'var(--color-background)', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }
+  const onFocus = (e) => { e.target.style.borderColor = 'var(--color-accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in oklab, var(--color-accent) 20%, transparent)' }
+  const onBlur = (e) => { e.target.style.borderColor = 'var(--color-border)'; e.target.style.boxShadow = 'none' }
 
   return (
-    <section
-      className="rounded-2xl p-4 sm:p-5 mb-4"
-      style={{
-        background: 'color-mix(in oklab, var(--color-card) 70%, transparent)',
-        border: '1px solid var(--color-border)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-      }}
-    >
-      <div className="mb-3">
-        <h3 className="font-heading text-[1.05rem]" style={{ fontWeight: 500 }}>Files</h3>
-        <p className="text-[12px] text-muted-foreground mt-0.5">Upload whatever you want handy — e.g. passport, flight ticket, visa, hotel booking.</p>
-      </div>
+    <div className="mt-5 pt-4" style={{ borderTop: '1px solid var(--color-border)' }}>
+      <h4 className="text-[13px] font-semibold mb-1" style={{ color: 'var(--color-foreground)' }}>Tickets &amp; links</h4>
+      <p className="text-[11.5px] text-muted-foreground mb-3">Paste booking refs, confirmation numbers, or links — saved on this device. Tap a link to open, or a value to copy.</p>
 
-      <div
-        onClick={() => inputRef.current?.click()}
-        onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
-        onDragLeave={() => setDragOver(false)}
-        onDrop={(e) => { e.preventDefault(); setDragOver(false); pick(e.dataTransfer.files) }}
-        className="cursor-pointer rounded-xl p-5 text-center transition-colors mb-3"
-        style={{
-          border: `1px dashed ${dragOver ? 'var(--color-accent)' : 'var(--color-border)'}`,
-          background: dragOver ? 'color-mix(in oklab, var(--color-accent) 8%, transparent)' : 'transparent',
-        }}
-      >
-        <svg className="w-6 h-6 mx-auto mb-1.5" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M12 16V4m0 0L8 8m4-4l4 4" /><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /></svg>
-        <div className="text-sm" style={{ color: 'var(--color-foreground)' }}>{busy ? 'Saving…' : 'Tap to upload, or drop files here'}</div>
-        <div className="text-[11px] text-muted-foreground mt-0.5">PDFs, images — anything up to 25 MB</div>
-        <input ref={inputRef} type="file" multiple className="hidden" onChange={(e) => pick(e.target.files)} />
-      </div>
-
-      {err && <div className="text-[12px] mb-2" style={{ color: '#ef6b6b' }}>{err}</div>}
+      <form onSubmit={(e) => { e.preventDefault(); add() }} className="space-y-2 mb-3">
+        <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Label (e.g. Flight PNR, Bacchanal booking)"
+          aria-label="Label" className="w-full rounded-xl px-3 py-2 text-sm outline-none transition-all" style={inputStyle} onFocus={onFocus} onBlur={onBlur} />
+        <div className="flex gap-2">
+          <input ref={valueRef} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Value or https:// link"
+            aria-label="Value" className="flex-1 min-w-0 rounded-xl px-3 py-2 text-sm font-mono outline-none transition-all" style={inputStyle} onFocus={onFocus} onBlur={onBlur} />
+          <button type="submit" className="flex-shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition-all"
+            style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.08)' }} onMouseLeave={(e) => { e.currentTarget.style.filter = 'none' }}>Add</button>
+        </div>
+      </form>
 
       <ul className="space-y-1.5">
-        {loading && <li className="text-[13px] text-muted-foreground/70 py-1.5">Loading…</li>}
-        {!loading && files.length === 0 && (
-          <li className="text-[13px] text-muted-foreground/70 italic py-1.5">No files yet — e.g. passport.pdf, ticket.pdf, hotel.pdf.</li>
-        )}
-        {files.map(rec => (
-          <li
-            key={rec.id}
-            className="group flex items-center gap-3 rounded-xl px-3 py-2"
-            style={{ background: 'color-mix(in oklab, var(--color-background) 55%, transparent)' }}
-          >
-            <button onClick={() => open(rec)} className="flex-1 min-w-0 flex items-center gap-3 text-left" title="Open">
-              <span
-                className="flex-shrink-0 w-9 h-9 rounded-md flex items-center justify-center overflow-hidden"
-                style={{ background: 'color-mix(in oklab, var(--color-accent) 12%, transparent)', border: '1px solid var(--color-border)' }}
-              >
-                {thumb(rec) ? (
-                  <img src={thumb(rec)} alt="" className="w-full h-full object-cover" />
-                ) : isPdf(rec) ? (
-                  <svg className="w-4 h-4" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
-                ) : (
-                  <svg className="w-4 h-4" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
-                )}
-              </span>
-              <span className="flex-1 min-w-0">
-                <span className="block text-sm truncate" style={{ color: 'var(--color-foreground)' }}>{rec.name}</span>
-                <span className="block text-[11px] text-muted-foreground">{formatSize(rec.size)}</span>
-              </span>
-            </button>
-            <button
-              onClick={() => remove(rec)}
-              aria-label="Delete"
-              className="flex-shrink-0 p-1 rounded-md text-muted-foreground/60 hover:text-foreground transition-all sm:opacity-0 sm:group-hover:opacity-100"
-            >
+        {items.map(it => (
+          <li key={it.id} className="group flex items-center gap-2 rounded-xl px-3 py-2" style={{ background: 'color-mix(in oklab, var(--color-background) 55%, transparent)' }}>
+            <div className="flex-1 min-w-0">
+              {it.label && <span className="block text-[10.5px] uppercase tracking-wide text-muted-foreground/80">{it.label}</span>}
+              {isUrl(it.value) ? (
+                <a href={it.value.trim()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-mono underline break-all" style={{ color: 'var(--color-accent)' }}>
+                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+                  Open
+                </a>
+              ) : (
+                <button onClick={() => copy(it)} className="block text-sm font-mono break-words text-left" style={{ color: 'var(--color-foreground)' }} title="Tap to copy">
+                  {it.value} <span className="text-[10.5px]" style={{ color: copiedId === it.id ? 'var(--color-accent)' : 'var(--color-muted-foreground)' }}>{copiedId === it.id ? '· copied' : '· copy'}</span>
+                </button>
+              )}
+            </div>
+            <button onClick={() => remove(it.id)} aria-label="Delete" className="flex-shrink-0 p-1 rounded-md text-muted-foreground/60 hover:text-foreground transition-all sm:opacity-0 sm:group-hover:opacity-100">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M10 11v6M14 11v6" /></svg>
             </button>
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   )
 }
 
-// One person's space — a calm, scrollable column of their files and lists.
+// One day of the plan — a clean timeline with clickable map locations, plus the
+// editable tickets/links for that day. Plan data comes from the decrypted
+// payload, so it stays private; only personal links live on the device.
+function DayView({ day }) {
+  return (
+    <div className="relative h-full overflow-y-auto" style={{ background: 'var(--color-background)' }}>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(70% 50% at 50% 0%, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent 70%)' }} />
+      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-24">
+        <div className="mb-6">
+          <div className="flex items-center gap-2 flex-wrap mb-1">
+            <h2 className="font-heading text-2xl" style={{ fontWeight: 500 }}>{day.dow} · {day.date}</h2>
+            {day.tag && (
+              <span className="text-[11px] px-2 py-0.5 rounded-full"
+                style={day.free
+                  ? { background: 'color-mix(in oklab, var(--color-accent) 14%, transparent)', color: 'var(--color-accent)', border: '1px solid color-mix(in oklab, var(--color-accent) 30%, transparent)' }
+                  : { background: 'color-mix(in oklab, var(--color-muted-foreground) 12%, transparent)', color: 'var(--color-muted-foreground)', border: '1px solid var(--color-border)' }}>
+                {day.tag}
+              </span>
+            )}
+          </div>
+          <p className="text-sm text-muted-foreground">{day.title}</p>
+        </div>
+
+        <section className="rounded-2xl p-4 sm:p-5"
+          style={{ background: 'color-mix(in oklab, var(--color-card) 70%, transparent)', border: '1px solid var(--color-border)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
+          <ul className="space-y-3">
+            {day.items.map((it, idx) => (
+              <li key={idx} className="flex gap-3">
+                <span className="flex-shrink-0 w-[68px] sm:w-20 text-[12px] font-mono leading-snug pt-0.5" style={{ color: 'var(--color-accent)' }}>{it.time}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm leading-relaxed break-words" style={{ color: 'var(--color-foreground)' }}>{linkify(it.text)}</p>
+                  {it.place && (
+                    <a href={mapsUrl(it.place)} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 mt-1.5 px-2 py-1 rounded-lg text-[11.5px] transition-colors"
+                      style={{ background: 'color-mix(in oklab, var(--color-accent) 10%, transparent)', color: 'var(--color-accent)', border: '1px solid color-mix(in oklab, var(--color-accent) 25%, transparent)' }}>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                      Map
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <DayLinks dayId={day.id} />
+        </section>
+      </div>
+    </div>
+  )
+}
+
+// One person's space — a calm, scrollable column of their lists.
 function VegasPersonal({ person, name }) {
   return (
     <div className="relative h-full overflow-y-auto" style={{ background: 'var(--color-background)' }}>
@@ -293,9 +291,8 @@ function VegasPersonal({ person, name }) {
       <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-24">
         <div className="mb-6">
           <h2 className="font-heading text-2xl mb-1" style={{ fontWeight: 500 }}>{name}</h2>
-          <p className="text-sm text-muted-foreground">Files, things to buy, and notes — saved on this device.</p>
+          <p className="text-sm text-muted-foreground">To buy, notes, and links — saved on this device.</p>
         </div>
-        <FilesCard person={person} />
         {LISTS.map(l => (
           <ListCard key={l.id} person={person} listId={l.id} title={l.title} placeholder={l.placeholder} />
         ))}
@@ -310,26 +307,26 @@ export default function Vegas({ onBack }) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [shake, setShake] = useState(false)
-  const [html, setHtml] = useState(cachedHtml)
+  const [data, setData] = useState(cachedData)
   const [tab, setTab] = useState('elplan')
   const inputRef = useRef(null)
 
-  useEffect(() => { if (!html) inputRef.current?.focus() }, [html])
+  useEffect(() => { if (!data) inputRef.current?.focus() }, [data])
 
   // Esc closes the gate back to the site
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape' && !html) onBack?.() }
+    const onKey = (e) => { if (e.key === 'Escape' && !data) onBack?.() }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [html, onBack])
+  }, [data, onBack])
 
   const submit = async (e) => {
     e.preventDefault()
     setError(''); setBusy(true)
     try {
       const out = await unlock(pw)
-      cachedHtml = out
-      setHtml(out)
+      cachedData = out
+      setData(out)
     } catch {
       setBusy(false)
       setError('Wrong passphrase — try again.')
@@ -338,9 +335,18 @@ export default function Vegas({ onBack }) {
     }
   }
 
-  // Unlocked — tabbed layout: the shared plan (El-plan) plus a private,
-  // persistent space for each person.
-  if (html) {
+  // Unlocked — tabbed layout: the overview plan, a tab per day, then a private
+  // space for each person. Tab list is built from the decrypted day data.
+  if (data) {
+    const days = data.days || []
+    const tabs = [
+      { id: 'elplan', label: 'El-plan', group: 'plan' },
+      ...days.map(d => ({ id: d.id, label: d.dow, group: 'day' })),
+      { id: 'chaitra', label: 'Chaitra', group: 'people' },
+      { id: 'kiran', label: 'Kiran', group: 'people' },
+    ]
+    const activeDay = days.find(d => d.id === tab)
+
     return (
       <div className="fixed inset-0 z-[300] flex flex-col" style={{ background: 'var(--color-background)' }}>
         {/* Tab bar — replaces the old floating "Back to site" pill */}
@@ -355,23 +361,26 @@ export default function Vegas({ onBack }) {
         >
           <div className="max-w-5xl mx-auto flex items-center gap-1 px-2 sm:px-3 py-2">
             <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide">
-              {TABS.map(t => {
+              {tabs.map((t, i) => {
                 const active = tab === t.id
+                const showDivider = i > 0 && tabs[i - 1].group !== t.group
                 return (
-                  <button
-                    key={t.id}
-                    onClick={() => setTab(t.id)}
-                    className="px-3.5 py-1.5 rounded-lg text-[13px] font-medium whitespace-nowrap transition-all"
-                    style={active ? {
-                      background: 'color-mix(in oklab, var(--color-accent) 16%, transparent)',
-                      color: 'var(--color-foreground)',
-                      boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 38%, transparent)',
-                    } : { color: 'var(--color-muted-foreground)' }}
-                    onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-foreground)' }}
-                    onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-muted-foreground)' }}
-                  >
-                    {t.label}
-                  </button>
+                  <React.Fragment key={t.id}>
+                    {showDivider && <span className="flex-shrink-0 w-px h-4 mx-1" style={{ background: 'var(--color-border)' }} aria-hidden="true" />}
+                    <button
+                      onClick={() => setTab(t.id)}
+                      className="px-3 py-1.5 rounded-lg text-[13px] font-medium whitespace-nowrap transition-all"
+                      style={active ? {
+                        background: 'color-mix(in oklab, var(--color-accent) 16%, transparent)',
+                        color: 'var(--color-foreground)',
+                        boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 38%, transparent)',
+                      } : { color: 'var(--color-muted-foreground)' }}
+                      onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-foreground)' }}
+                      onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-muted-foreground)' }}
+                    >
+                      {t.label}
+                    </button>
+                  </React.Fragment>
                 )
               })}
             </div>
@@ -391,10 +400,12 @@ export default function Vegas({ onBack }) {
           {tab === 'elplan' ? (
             <iframe
               title="Vegas Plan"
-              srcDoc={html}
+              srcDoc={data.html}
               sandbox="allow-same-origin allow-scripts allow-popups"
               className="w-full h-full border-0"
             />
+          ) : activeDay ? (
+            <DayView key={activeDay.id} day={activeDay} />
           ) : (
             <VegasPersonal key={tab} person={tab} name={tab === 'chaitra' ? 'Chaitra' : 'Kiran'} />
           )}
