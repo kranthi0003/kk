@@ -237,32 +237,52 @@ const DAY_THEME = {
   fri: '#5fa8e6', // sky
 }
 
-// A location with its photo + a one-tap Maps link. The photo is hotlinked from
-// Wikimedia Commons; if it ever fails to load we fall back to a plain Map pill.
-function PlaceCard({ place, img, color }) {
+// A location with its photo + a one-tap Maps link, plus a "Book on Klook" link
+// when it's a bookable experience. The photo is hotlinked from Wikimedia
+// Commons; if it ever fails to load we fall back to a plain Map pill.
+function PlaceCard({ place, img, klook, color }) {
   const [err, setErr] = useState(false)
   const mapIcon = (
     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
   )
+  // Klook brand orange — kept consistent (not per-day) so "book" reads as a
+  // distinct action everywhere it appears.
+  const klookPill = klook ? (
+    <a href={klook} target="_blank" rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11.5px] font-medium transition-all"
+      style={{ background: 'color-mix(in oklab, #ff6a2b 16%, transparent)', color: '#ff8a52', border: '1px solid color-mix(in oklab, #ff6a2b 40%, transparent)' }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = 'color-mix(in oklab, #ff6a2b 26%, transparent)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = 'color-mix(in oklab, #ff6a2b 16%, transparent)' }}>
+      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z" /><path d="M13 5v14" strokeDasharray="2 2" /></svg>
+      Book on Klook
+    </a>
+  ) : null
+
   if (img && !err) {
     return (
-      <div className="mt-2 relative rounded-xl overflow-hidden" style={{ border: `1px solid color-mix(in oklab, ${color} 32%, var(--color-border))` }}>
-        <img src={img} alt={place} loading="lazy" onError={() => setErr(true)} className="w-full h-24 sm:h-28 object-cover" />
-        <div aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,.5), transparent 60%)' }} />
-        <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
-          className="absolute bottom-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11.5px] font-medium"
-          style={{ background: 'rgba(0,0,0,.5)', color: '#fff', border: `1px solid color-mix(in oklab, ${color} 55%, transparent)`, backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
-          {mapIcon} Map
-        </a>
+      <div className="mt-2">
+        <div className="relative rounded-xl overflow-hidden" style={{ border: `1px solid color-mix(in oklab, ${color} 32%, var(--color-border))` }}>
+          <img src={img} alt={place} loading="lazy" onError={() => setErr(true)} className="w-full h-24 sm:h-28 object-cover" />
+          <div aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,.5), transparent 60%)' }} />
+          <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
+            className="absolute bottom-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11.5px] font-medium"
+            style={{ background: 'rgba(0,0,0,.5)', color: '#fff', border: `1px solid color-mix(in oklab, ${color} 55%, transparent)`, backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
+            {mapIcon} Map
+          </a>
+        </div>
+        {klookPill && <div className="mt-1.5">{klookPill}</div>}
       </div>
     )
   }
   return (
-    <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 mt-1.5 px-2 py-1 rounded-lg text-[11.5px] transition-colors"
-      style={{ background: `color-mix(in oklab, ${color} 12%, transparent)`, color, border: `1px solid color-mix(in oklab, ${color} 30%, transparent)` }}>
-      {mapIcon} Map
-    </a>
+    <div className="mt-1.5 flex flex-wrap items-center gap-2">
+      <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11.5px] transition-colors"
+        style={{ background: `color-mix(in oklab, ${color} 12%, transparent)`, color, border: `1px solid color-mix(in oklab, ${color} 30%, transparent)` }}>
+        {mapIcon} Map
+      </a>
+      {klookPill}
+    </div>
   )
 }
 
@@ -297,7 +317,7 @@ function DayView({ day }) {
                 <span className="flex-shrink-0 w-[68px] sm:w-20 text-[12px] font-mono leading-snug pt-0.5" style={{ color: c }}>{it.time}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm leading-relaxed break-words" style={{ color: 'var(--color-foreground)' }}>{linkify(it.text)}</p>
-                  {it.place && <PlaceCard place={it.place} img={it.img} color={c} />}
+                  {it.place && <PlaceCard place={it.place} img={it.img} klook={it.klook} color={c} />}
                 </div>
               </li>
             ))}
