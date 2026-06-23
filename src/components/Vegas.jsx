@@ -28,6 +28,60 @@ async function unlock(pass) {
 // it unlocked. Never persisted — a full reload re-prompts.
 let cachedHtml = null
 
+// Site-matching theme injected into the decrypted document so the unlocked
+// page feels native — dark background, the site's fonts, gold accent, and
+// styled headings/tables/links. Essentials are forced (!important) so they win
+// over the original document's lighter styling; layout is left flexible.
+const THEME_CSS = `
+:root { color-scheme: dark; }
+html, body {
+  background: radial-gradient(1200px 600px at 50% -10%, #1a1f2b, #0d0f13 60%) !important;
+  background-attachment: fixed !important;
+  color: #cdd1db !important;
+  font-family: 'Sora', -apple-system, system-ui, sans-serif !important;
+  line-height: 1.7;
+}
+body { max-width: 820px; margin: 0 auto; padding: 56px 24px 96px; }
+h1, h2, h3, h4 { font-family: 'Newsreader', Georgia, serif !important; color: #eceef5 !important; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
+h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .5em; }
+h2 { font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 1.8em 0 .6em; padding-bottom: .3em; border-bottom: 1px solid #252a33; }
+h3 { font-size: 1.2rem; margin: 1.4em 0 .5em; }
+p, li, td, th, dd, dt { color: #c2c7d2 !important; }
+strong, b { color: #eceef5 !important; }
+em, i { color: #d6dae3; }
+a { color: #d8a72b !important; text-decoration: none; border-bottom: 1px solid rgba(216,167,43,.35); }
+a:hover { border-bottom-color: #d8a72b; }
+ul, ol { padding-left: 1.4em; }
+li { margin: .3em 0; }
+code, pre, kbd { font-family: 'JetBrains Mono', ui-monospace, monospace !important; }
+code { background: rgba(255,255,255,.06); padding: .12em .42em; border-radius: 5px; font-size: .88em; color: #e3c98a; }
+pre { background: #14171d !important; border: 1px solid #252a33; border-radius: 12px; padding: 16px 18px; overflow: auto; }
+pre code { background: none; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 1.3em 0; font-size: .94em; }
+th, td { border: 1px solid #252a33 !important; padding: 9px 13px; text-align: left; vertical-align: top; }
+thead th { background: rgba(216,167,43,.12) !important; color: #eceef5 !important; font-weight: 600; }
+tbody tr:nth-child(even) td { background: rgba(255,255,255,.022); }
+blockquote { border-left: 3px solid #c79a3a; margin: 1.2em 0; padding: .5em 1.1em; color: #aab0bd; background: rgba(255,255,255,.03); border-radius: 0 10px 10px 0; }
+hr { border: none; border-top: 1px solid #252a33; margin: 2.2em 0; }
+img { max-width: 100%; height: auto; border-radius: 10px; }
+::selection { background: rgba(216,167,43,.3); color: #fff; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: rgba(216,167,43,.35); border-radius: 5px; }
+`
+
+const FONT_LINKS =
+  '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
+  '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+
+// Inject the font links + theme after the document's own styles so ours win.
+function applySiteTheme(rawHtml) {
+  const inject = `${FONT_LINKS}<style id="kk-site-theme">${THEME_CSS}</style>`
+  if (/<\/head>/i.test(rawHtml)) return rawHtml.replace(/<\/head>/i, `${inject}</head>`)
+  if (/<body[^>]*>/i.test(rawHtml)) return rawHtml.replace(/(<body[^>]*>)/i, `$1${inject}`)
+  return `${inject}${rawHtml}`
+}
+
 export default function Vegas({ onBack }) {
   const [pw, setPw] = useState('')
   const [show, setShow] = useState(false)
@@ -51,8 +105,9 @@ export default function Vegas({ onBack }) {
     setError(''); setBusy(true)
     try {
       const out = await unlock(pw)
-      cachedHtml = out
-      setHtml(out)
+      const themed = applySiteTheme(out)
+      cachedHtml = themed
+      setHtml(themed)
     } catch {
       setBusy(false)
       setError('Wrong passphrase — try again.')
