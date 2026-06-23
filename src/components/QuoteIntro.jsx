@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-const QUOTE = 'Who were you before the world told you who you are?'
+const QUOTE = 'Who were you before the world told who you are?'
 
 // Reveal cadence tuned to a comfortable on-screen English reading pace for a
 // common Indian reader (~140 wpm → ~430 ms/word) so each word can be read as it
@@ -11,7 +11,7 @@ const WORDS = QUOTE.split(' ')
 const SLOTS = WORDS.map((text, i) => ({ text, time: i * WORD_MS }))
 // The pivotal word — the warm, authentic "you" in "who you are?". Emphasized
 // in glowing gold italic against the cool moonlight text for depth/impact.
-const EMPHASIS_INDEX = 9
+const EMPHASIS_INDEX = 8
 const LAST_WORD_MS = SLOTS.length * WORD_MS
 // A beat after the line lands, the author credit fades in.
 const ATTRIBUTION_MS = LAST_WORD_MS + 800
