@@ -236,13 +236,13 @@ export default function App() {
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><Reflection by="— René Girard">You don't want what you want because of who you are. You want what you want because the people you want to be have them.</Reflection></div>
-        <div className="section-animate"><WorkspaceSection /></div>
-        <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
+        <div className="section-animate"><Projects /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Terminal /></div>
-        <div className="section-animate"><Projects /></div>
+        <div className="section-animate"><WorkspaceSection /></div>
+        <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><Reflection>The work that lasts is rarely the loudest. Build quietly; let it speak for itself.</Reflection></div>
         <div className="section-animate"><Connect /></div>
