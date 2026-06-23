@@ -227,23 +227,61 @@ function DayLinks({ dayId }) {
   )
 }
 
-// One day of the plan — a clean timeline with clickable map locations, plus the
+// A distinct, calm accent per weekday — gives each day tab its own colour.
+const DAY_THEME = {
+  sun: '#e3a857', // amber
+  mon: '#4ec9c9', // teal
+  tue: '#a98be0', // violet
+  wed: '#e58aab', // rose
+  thu: '#67c98c', // emerald
+  fri: '#5fa8e6', // sky
+}
+
+// A location with its photo + a one-tap Maps link. The photo is hotlinked from
+// Wikimedia Commons; if it ever fails to load we fall back to a plain Map pill.
+function PlaceCard({ place, img, color }) {
+  const [err, setErr] = useState(false)
+  const mapIcon = (
+    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+  )
+  if (img && !err) {
+    return (
+      <div className="mt-2 relative rounded-xl overflow-hidden" style={{ border: `1px solid color-mix(in oklab, ${color} 32%, var(--color-border))` }}>
+        <img src={img} alt={place} loading="lazy" onError={() => setErr(true)} className="w-full h-24 sm:h-28 object-cover" />
+        <div aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,.5), transparent 60%)' }} />
+        <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
+          className="absolute bottom-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11.5px] font-medium"
+          style={{ background: 'rgba(0,0,0,.5)', color: '#fff', border: `1px solid color-mix(in oklab, ${color} 55%, transparent)`, backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}>
+          {mapIcon} Map
+        </a>
+      </div>
+    )
+  }
+  return (
+    <a href={mapsUrl(place)} target="_blank" rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 mt-1.5 px-2 py-1 rounded-lg text-[11.5px] transition-colors"
+      style={{ background: `color-mix(in oklab, ${color} 12%, transparent)`, color, border: `1px solid color-mix(in oklab, ${color} 30%, transparent)` }}>
+      {mapIcon} Map
+    </a>
+  )
+}
+
+// One day of the plan — a clean timeline with photo + map locations, plus the
 // editable tickets/links for that day. Plan data comes from the decrypted
 // payload, so it stays private; only personal links live on the device.
 function DayView({ day }) {
+  const c = DAY_THEME[day.id] || 'var(--color-accent)'
   return (
     <div className="relative h-full overflow-y-auto" style={{ background: 'var(--color-background)' }}>
       <div aria-hidden="true" className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(70% 50% at 50% 0%, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent 70%)' }} />
+        style={{ background: `radial-gradient(70% 48% at 50% 0%, color-mix(in oklab, ${c} 16%, transparent), transparent 70%)` }} />
       <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 pb-24">
         <div className="mb-6">
           <div className="flex items-center gap-2 flex-wrap mb-1">
-            <h2 className="font-heading text-2xl" style={{ fontWeight: 500 }}>{day.dow} · {day.date}</h2>
+            <h2 className="font-heading text-2xl" style={{ fontWeight: 500, color: c }}>{day.dow} · {day.date}</h2>
             {day.tag && (
               <span className="text-[11px] px-2 py-0.5 rounded-full"
-                style={day.free
-                  ? { background: 'color-mix(in oklab, var(--color-accent) 14%, transparent)', color: 'var(--color-accent)', border: '1px solid color-mix(in oklab, var(--color-accent) 30%, transparent)' }
-                  : { background: 'color-mix(in oklab, var(--color-muted-foreground) 12%, transparent)', color: 'var(--color-muted-foreground)', border: '1px solid var(--color-border)' }}>
+                style={{ background: `color-mix(in oklab, ${c} 15%, transparent)`, color: c, border: `1px solid color-mix(in oklab, ${c} 32%, transparent)` }}>
                 {day.tag}
               </span>
             )}
@@ -251,22 +289,15 @@ function DayView({ day }) {
           <p className="text-sm text-muted-foreground">{day.title}</p>
         </div>
 
-        <section className="rounded-2xl p-4 sm:p-5"
-          style={{ background: 'color-mix(in oklab, var(--color-card) 70%, transparent)', border: '1px solid var(--color-border)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
+        <section className="rounded-2xl p-4 sm:p-5 overflow-hidden"
+          style={{ background: 'color-mix(in oklab, var(--color-card) 70%, transparent)', border: '1px solid var(--color-border)', borderTop: `3px solid ${c}`, backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
           <ul className="space-y-3">
             {day.items.map((it, idx) => (
               <li key={idx} className="flex gap-3">
-                <span className="flex-shrink-0 w-[68px] sm:w-20 text-[12px] font-mono leading-snug pt-0.5" style={{ color: 'var(--color-accent)' }}>{it.time}</span>
+                <span className="flex-shrink-0 w-[68px] sm:w-20 text-[12px] font-mono leading-snug pt-0.5" style={{ color: c }}>{it.time}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm leading-relaxed break-words" style={{ color: 'var(--color-foreground)' }}>{linkify(it.text)}</p>
-                  {it.place && (
-                    <a href={mapsUrl(it.place)} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-1.5 px-2 py-1 rounded-lg text-[11.5px] transition-colors"
-                      style={{ background: 'color-mix(in oklab, var(--color-accent) 10%, transparent)', color: 'var(--color-accent)', border: '1px solid color-mix(in oklab, var(--color-accent) 25%, transparent)' }}>
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-                      Map
-                    </a>
-                  )}
+                  {it.place && <PlaceCard place={it.place} img={it.img} color={c} />}
                 </div>
               </li>
             ))}
@@ -369,7 +400,7 @@ export default function Vegas({ onBack }) {
                     {showDivider && <span className="flex-shrink-0 w-px h-4 mx-1" style={{ background: 'var(--color-border)' }} aria-hidden="true" />}
                     <button
                       onClick={() => setTab(t.id)}
-                      className="px-3 py-1.5 rounded-lg text-[13px] font-medium whitespace-nowrap transition-all"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-medium whitespace-nowrap transition-all"
                       style={active ? {
                         background: 'color-mix(in oklab, var(--color-accent) 16%, transparent)',
                         color: 'var(--color-foreground)',
@@ -378,6 +409,9 @@ export default function Vegas({ onBack }) {
                       onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-foreground)' }}
                       onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = 'var(--color-muted-foreground)' }}
                     >
+                      {t.group === 'day' && (
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: DAY_THEME[t.id] || 'var(--color-accent)' }} aria-hidden="true" />
+                      )}
                       {t.label}
                     </button>
                   </React.Fragment>
