@@ -95,6 +95,13 @@ h4, h5, h6 {
   animation: fadeInUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.animate-shake { animation: shake 0.4s; }
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
