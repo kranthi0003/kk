@@ -87,8 +87,7 @@ export default function Hero({ onResumeClick }) {
             </h2>
 
             <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
-              I build the quiet infrastructure beneath things that can't afford to fail.
-              To me, reliability is a craft — patient, unglamorous, and quietly human.
+              I make computers talk to each other reliably. It's less romantic than it sounds.
             </p>
 
             {/* Primary CTAs */}
