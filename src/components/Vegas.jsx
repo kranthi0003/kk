@@ -28,60 +28,6 @@ async function unlock(pass) {
 // it unlocked. Never persisted — a full reload re-prompts.
 let cachedHtml = null
 
-// Site-matching theme injected into the decrypted document so the unlocked
-// page feels native — dark background, the site's fonts, gold accent, and
-// styled headings/tables/links. Essentials are forced (!important) so they win
-// over the original document's lighter styling; layout is left flexible.
-const THEME_CSS = `
-:root { color-scheme: dark; }
-html, body {
-  background: radial-gradient(1200px 600px at 50% -10%, #1a1f2b, #0d0f13 60%) !important;
-  background-attachment: fixed !important;
-  color: #cdd1db !important;
-  font-family: 'Sora', -apple-system, system-ui, sans-serif !important;
-  line-height: 1.7;
-}
-body { max-width: 820px; margin: 0 auto; padding: 56px 24px 96px; }
-h1, h2, h3, h4 { font-family: 'Newsreader', Georgia, serif !important; color: #eceef5 !important; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
-h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .5em; }
-h2 { font-size: clamp(1.3rem, 4vw, 1.6rem); margin: 1.8em 0 .6em; padding-bottom: .3em; border-bottom: 1px solid #252a33; }
-h3 { font-size: 1.2rem; margin: 1.4em 0 .5em; }
-p, li, td, th, dd, dt { color: #c2c7d2 !important; }
-strong, b { color: #eceef5 !important; }
-em, i { color: #d6dae3; }
-a { color: #d8a72b !important; text-decoration: none; border-bottom: 1px solid rgba(216,167,43,.35); }
-a:hover { border-bottom-color: #d8a72b; }
-ul, ol { padding-left: 1.4em; }
-li { margin: .3em 0; }
-code, pre, kbd { font-family: 'JetBrains Mono', ui-monospace, monospace !important; }
-code { background: rgba(255,255,255,.06); padding: .12em .42em; border-radius: 5px; font-size: .88em; color: #e3c98a; }
-pre { background: #14171d !important; border: 1px solid #252a33; border-radius: 12px; padding: 16px 18px; overflow: auto; }
-pre code { background: none; color: inherit; padding: 0; }
-table { width: 100%; border-collapse: collapse; margin: 1.3em 0; font-size: .94em; }
-th, td { border: 1px solid #252a33 !important; padding: 9px 13px; text-align: left; vertical-align: top; }
-thead th { background: rgba(216,167,43,.12) !important; color: #eceef5 !important; font-weight: 600; }
-tbody tr:nth-child(even) td { background: rgba(255,255,255,.022); }
-blockquote { border-left: 3px solid #c79a3a; margin: 1.2em 0; padding: .5em 1.1em; color: #aab0bd; background: rgba(255,255,255,.03); border-radius: 0 10px 10px 0; }
-hr { border: none; border-top: 1px solid #252a33; margin: 2.2em 0; }
-img { max-width: 100%; height: auto; border-radius: 10px; }
-::selection { background: rgba(216,167,43,.3); color: #fff; }
-*::-webkit-scrollbar { width: 9px; height: 9px; }
-*::-webkit-scrollbar-thumb { background: rgba(216,167,43,.35); border-radius: 5px; }
-`
-
-const FONT_LINKS =
-  '<link rel="preconnect" href="https://fonts.googleapis.com">' +
-  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
-  '<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
-
-// Inject the font links + theme after the document's own styles so ours win.
-function applySiteTheme(rawHtml) {
-  const inject = `${FONT_LINKS}<style id="kk-site-theme">${THEME_CSS}</style>`
-  if (/<\/head>/i.test(rawHtml)) return rawHtml.replace(/<\/head>/i, `${inject}</head>`)
-  if (/<body[^>]*>/i.test(rawHtml)) return rawHtml.replace(/(<body[^>]*>)/i, `$1${inject}`)
-  return `${inject}${rawHtml}`
-}
-
 export default function Vegas({ onBack }) {
   const [pw, setPw] = useState('')
   const [show, setShow] = useState(false)
@@ -105,9 +51,8 @@ export default function Vegas({ onBack }) {
     setError(''); setBusy(true)
     try {
       const out = await unlock(pw)
-      const themed = applySiteTheme(out)
-      cachedHtml = themed
-      setHtml(themed)
+      cachedHtml = out
+      setHtml(out)
     } catch {
       setBusy(false)
       setError('Wrong passphrase — try again.')
@@ -138,32 +83,43 @@ export default function Vegas({ onBack }) {
     )
   }
 
-  // Locked — site-themed passphrase gate
+  // Locked — calm, site-matching passphrase gate
   return (
-    <div className="fixed inset-0 z-[300] flex items-center justify-center px-6"
-      style={{ background: 'radial-gradient(1200px 600px at 50% -10%, #1a1f2b, var(--color-background) 60%)' }}>
-      {/* subtle starfield reuse */}
-      <div className="pr-backdrop-noise" aria-hidden="true" style={{ opacity: 0.35 }} />
+    <div className="fixed inset-0 z-[300] flex items-center justify-center px-6">
+      {/* Site backdrop layers — full cohesion with the rest of the site */}
+      <div className="pr-backdrop-base" aria-hidden="true" />
+      <div className="pr-backdrop-glow" aria-hidden="true" />
+      <div className="pr-backdrop-noise" aria-hidden="true" />
 
       <button
         onClick={onBack}
-        className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground transition-colors"
+        className="absolute top-5 left-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-foreground transition-colors"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
         Back
       </button>
 
       <main
-        className={`relative w-full max-w-[420px] rounded-2xl p-8 sm:p-9 text-center ${shake ? 'animate-shake' : ''}`}
+        className={`relative z-10 w-full max-w-[400px] rounded-2xl p-8 sm:p-10 text-center ${shake ? 'animate-shake' : ''}`}
         style={{
-          background: 'linear-gradient(180deg, color-mix(in oklab, var(--color-card) 92%, #161a21), var(--color-card))',
+          background: 'color-mix(in oklab, var(--color-card) 78%, transparent)',
           border: '1px solid var(--color-border)',
-          boxShadow: '0 24px 70px rgba(0,0,0,.55)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          boxShadow: '0 24px 70px rgba(0,0,0,.5)',
         }}
       >
-        <div className="text-4xl mb-3" style={{ filter: 'drop-shadow(0 4px 12px rgba(199,154,58,.35))' }}>🎰</div>
-        <h1 className="font-heading text-2xl mb-1.5" style={{ fontWeight: 500 }}>This page is private</h1>
-        <p className="text-[13.5px] text-muted-foreground mb-6 leading-relaxed">Enter the passphrase to unlock the Vegas plan.</p>
+        {/* Lock mark */}
+        <div className="mx-auto mb-5 w-12 h-12 rounded-full flex items-center justify-center"
+          style={{ background: 'color-mix(in oklab, var(--color-accent) 12%, transparent)', border: '1px solid color-mix(in oklab, var(--color-accent) 30%, transparent)' }}>
+          <svg className="w-5 h-5" style={{ color: 'var(--color-accent)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="5" y="11" width="14" height="9" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+        </div>
+
+        <h1 className="font-heading text-[1.6rem] mb-2" style={{ fontWeight: 500 }}>This page is private</h1>
+        <p className="text-sm text-muted-foreground mb-7 leading-relaxed">A quiet corner of the site. Enter the passphrase to continue.</p>
 
         <form onSubmit={submit} autoComplete="off" className="flex flex-col gap-3">
           <div className="relative">
@@ -177,29 +133,36 @@ export default function Vegas({ onBack }) {
               aria-label="Passphrase"
               className="w-full rounded-xl py-3 pl-3.5 pr-11 text-[15px] font-mono outline-none transition-all"
               style={{ background: 'var(--color-background)', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }}
-              onFocus={(e) => { e.target.style.borderColor = '#c79a3a'; e.target.style.boxShadow = '0 0 0 3px rgba(199,154,58,.18)' }}
+              onFocus={(e) => { e.target.style.borderColor = 'var(--color-accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in oklab, var(--color-accent) 22%, transparent)' }}
               onBlur={(e) => { e.target.style.borderColor = 'var(--color-border)'; e.target.style.boxShadow = 'none' }}
             />
             <button type="button" onClick={() => { setShow(s => !s); inputRef.current?.focus() }}
               aria-label="Show or hide passphrase"
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-foreground transition-colors text-[15px] leading-none">
-              {show ? '🙈' : '👁'}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground transition-colors">
+              {show ? (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M3 3l18 18M10.6 10.6a3 3 0 0 0 4 4M9.4 4.2A10.6 10.6 0 0 1 12 4c6 0 10 8 10 8a18.5 18.5 0 0 1-2.6 3.4M6.3 6.3A18.6 18.6 0 0 0 2 12s4 8 10 8a10.6 10.6 0 0 0 3-.4" /></svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" /><circle cx="12" cy="12" r="3" /></svg>
+              )}
             </button>
           </div>
 
           <button type="submit" disabled={busy}
             className="rounded-xl py-3 text-[15px] font-semibold transition-all disabled:opacity-60 disabled:cursor-wait"
-            style={{ background: 'linear-gradient(180deg, #d8a72b, #b9881f)', color: '#1a1405', fontFamily: "'Sora', sans-serif" }}
-            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.06)' }}
+            style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.08)' }}
             onMouseLeave={(e) => { e.currentTarget.style.filter = 'none' }}
           >
             {busy ? 'Unlocking…' : 'Unlock'}
           </button>
 
-          <div className="text-[13px] min-h-[18px]" style={{ color: 'var(--destructive, #ef5b6b)' }} role="alert">{error}</div>
+          <div className="text-[13px] min-h-[18px]" style={{ color: '#ef6b6b' }} role="alert">{error}</div>
         </form>
 
-        <div className="text-[11.5px] text-muted-foreground/80 mt-4">🔐 End-to-end encrypted · decrypts only in your browser</div>
+        <div className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground/70 mt-5">
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" /></svg>
+          End-to-end encrypted · decrypts only in your browser
+        </div>
       </main>
     </div>
   )
