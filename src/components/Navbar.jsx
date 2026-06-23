@@ -500,6 +500,21 @@ const navLinks = [
   { label: 'Connect', href: '#connect' },
 ]
 
+// Private Vegas page — routes to the password-gated #/vegas page
+function VegasButton() {
+  return (
+    <button
+      onClick={() => { window.location.hash = '#/vegas'; window.location.reload() }}
+      title="Vegas (private)"
+      className="group inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
+    >
+      <span className="text-[13px] leading-none">🎰</span>
+      <span>Vegas</span>
+      <span className="text-[9px] opacity-50 group-hover:opacity-80 transition-opacity">🔒</span>
+    </button>
+  )
+}
+
 export default function Navbar({ onSecretTrigger, onResumeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -568,6 +583,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         {/* Right — Icons (desktop) */}
         <div className="hidden lg:flex items-center gap-2 ml-auto">
           <TransformationPulse compact />
+          <VegasButton />
           <ToolsDropdown />
           <TechNews side="right" />
           <NavWallet />
@@ -603,7 +619,13 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       {mobileOpen && (
         <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
-            <div className="flex justify-center"><TransformationPulse compact /></div>
+            <div className="flex justify-center mb-1"><TransformationPulse compact /></div>
+            <button
+              onClick={() => { setMobileOpen(false); window.location.hash = '#/vegas'; window.location.reload() }}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-lg font-body text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              <span>🎰</span> Vegas <span className="text-[10px] opacity-50">🔒</span>
+            </button>
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
