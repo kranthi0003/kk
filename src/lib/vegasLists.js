@@ -12,6 +12,13 @@ export const LISTS = [
   { id: 'notes',    title: 'Notes',    placeholder: 'Add a note to remember…' },
 ]
 
+// Quick-fill labels for the "Travel docs & essentials" card — the stuff you
+// want to grab fast on the move (tap a chip, type the value).
+export const ESSENTIAL_PRESETS = [
+  'Passport no', 'Passport expiry', 'Flight PNR', 'Flight no',
+  'Seat', 'Booking ref', 'Hotel', 'Emergency contact',
+]
+
 const key = (person, listId) => `${PREFIX}:${person}:${listId}`
 
 export function loadList(person, listId) {
