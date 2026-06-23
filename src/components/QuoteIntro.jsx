@@ -9,6 +9,9 @@ const WORD_MS = 430
 
 const WORDS = QUOTE.split(' ')
 const SLOTS = WORDS.map((text, i) => ({ text, time: i * WORD_MS }))
+// The pivotal word — the warm, authentic "you" in "who you are?". Emphasized
+// in glowing gold italic against the cool moonlight text for depth/impact.
+const EMPHASIS_INDEX = 9
 const LAST_WORD_MS = SLOTS.length * WORD_MS
 // A beat after the line lands, the author credit fades in.
 const ATTRIBUTION_MS = LAST_WORD_MS + 800
@@ -107,6 +110,10 @@ export default function QuoteIntro() {
           from { transform: scaleX(0); }
           to   { transform: scaleX(1); }
         }
+        @keyframes qi-glow {
+          0%, 100% { text-shadow: 0 0 16px rgba(233,196,128,0.35), 0 0 4px rgba(233,196,128,0.25); }
+          50%      { text-shadow: 0 0 34px rgba(233,196,128,0.65), 0 0 9px rgba(233,196,128,0.45); }
+        }
       `}</style>
 
       {/* Ambient breathing glow */}
@@ -141,6 +148,7 @@ export default function QuoteIntro() {
         }}>
           {SLOTS.map((slot, idx) => {
             const isVisible = tick >= idx
+            const isEmphasis = idx === EMPHASIS_INDEX
             return (
               <span
                 key={idx}
@@ -151,6 +159,15 @@ export default function QuoteIntro() {
                   filter: isVisible ? 'blur(0)' : 'blur(7px)',
                   transition: 'opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease',
                   marginRight: '0.28em',
+                  ...(isEmphasis ? {
+                    fontFamily: "'Newsreader', Georgia, serif",
+                    fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: '1.14em',
+                    color: 'rgb(233, 196, 128)',
+                    letterSpacing: '0.015em',
+                    animation: isVisible ? 'qi-glow 4.5s ease-in-out infinite' : 'none',
+                  } : null),
                 }}
               >
                 {slot.text}
