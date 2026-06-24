@@ -29,7 +29,7 @@ export default function Stats() {
     { label: 'Days in tech', value: workingDays.toLocaleString() },
     { label: 'Companies', value: '4' },
     { label: 'Enterprise clients', value: '100+' },
-    { label: 'Certifications', value: '6' },
+    { label: 'Certifications', value: '7' },
   ]
 
   return (

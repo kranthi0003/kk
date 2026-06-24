@@ -43,7 +43,8 @@ CERTIFICATIONS:
 - Certified Associate Architect with Capella (Couchbase)
 - GitHub Foundations (GitHub / Microsoft)
 - GitHub Administration (GitHub / Microsoft)
-- Currently pursuing: GitHub Actions, GHAS, GitHub Copilot certifications
+- GitHub Actions (GitHub / Microsoft)
+- Currently pursuing: GHAS, GitHub Copilot certifications
 
 PROJECTS:
 1. SketchGate — A high-availability distributed rate limiter with penalty queues, built in Go. Designed for cloud-native architectures with sliding window counters and adaptive throttling.

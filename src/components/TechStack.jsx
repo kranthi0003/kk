@@ -14,6 +14,7 @@ const certs = [
   { name: 'Couchbase Architect', tag: 'ARCH', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
   { name: 'GitHub Foundations', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
   { name: 'GitHub Administration', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
+  { name: 'GitHub Actions', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
 ]
 
 export default function TechStack() {
