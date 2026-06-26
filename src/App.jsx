@@ -50,6 +50,7 @@ const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
 const Vegas = lazy(() => import('./components/Vegas'))
+const ReliabilityLab = lazy(() => import('./components/ReliabilityLab'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -192,6 +193,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <Vegas onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Reliability Lab — live observability dashboard via #/reliability route
+  if (route === '#/reliability') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">booting telemetry…</div></div>}>
+        <ReliabilityLab onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }
