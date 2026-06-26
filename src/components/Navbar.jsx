@@ -513,6 +513,23 @@ function VegasButton() {
   )
 }
 
+// Live status pill — routes to the Reliability Lab observability dashboard.
+function StatusPill() {
+  return (
+    <button
+      onClick={() => { window.location.hash = '#/reliability'; window.location.reload() }}
+      title="Reliability Lab — live status & observability"
+      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-emerald-400/40 transition-colors"
+    >
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 opacity-70 animate-ping" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+      </span>
+      <span className="hidden sm:inline">Status</span>
+    </button>
+  )
+}
+
 export default function Navbar({ onSecretTrigger, onResumeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -581,6 +598,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         {/* Right side — Vegas always visible on every width, then responsive clusters */}
         <div className="flex items-center gap-2">
           <VegasButton />
+          <StatusPill />
 
           {/* Desktop icons */}
           <div className="hidden lg:flex items-center gap-2">
@@ -700,6 +718,7 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Reading Mode',      onClick: () => document.body.classList.toggle('reading-mode') },
     { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
     { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation'; window.location.reload() } },
+    { icon: <PulseIcon />,  label: 'Reliability Lab',    onClick: () => { window.location.hash = '#/reliability'; window.location.reload() } },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
