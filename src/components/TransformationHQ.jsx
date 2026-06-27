@@ -487,7 +487,7 @@ function MealBlock({ slot, time, meal, checked, onToggle }) {
           <li className="text-[13px] flex items-start gap-2">
             <span>🥗</span>
             <span>
-              <span className={checked ? 'line-through text-muted-foreground' : 'text-foreground'}>{meal.salad}{meal.salad !== "Chef's Choice" ? ' Salad' : ''}</span>
+              <span className={checked ? 'line-through text-muted-foreground' : 'text-foreground'}>{meal.salad}</span>
               {SALADS[meal.salad] && <span className="block text-[11px] text-muted-foreground">{SALADS[meal.salad]}</span>}
             </span>
           </li>
@@ -562,7 +562,7 @@ function DietTab() {
                     <div className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1.5">{mk === 'm1' ? `Meal 1 · ${MEAL_TIMES.m1}` : `Meal 2 · ${MEAL_TIMES.m2}`}</div>
                     <ul className="space-y-0.5">
                       {d[mk].items.map((it, i) => (<li key={i} className="text-[12.5px] text-foreground flex items-center gap-1.5"><span>{it.e}</span><span>{it.t}</span></li>))}
-                      {d[mk].salad && <li className="text-[12.5px] flex items-center gap-1.5"><span>🥗</span><span className="text-foreground">{d[mk].salad}{d[mk].salad !== "Chef's Choice" ? ' Salad' : ''}</span></li>}
+                      {d[mk].salad && <li className="text-[12.5px] flex items-center gap-1.5"><span>🥗</span><span className="text-foreground">{d[mk].salad}</span></li>}
                     </ul>
                   </div>
                 ))}
