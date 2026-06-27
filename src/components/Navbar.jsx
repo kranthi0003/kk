@@ -719,6 +719,7 @@ function ToolsDropdown() {
     { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
     { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation'; window.location.reload() } },
     { icon: <PulseIcon />,  label: 'Reliability Lab',    onClick: () => { window.location.hash = '#/reliability'; window.location.reload() } },
+    { icon: <ReadIcon />,   label: 'Blog',               onClick: () => { window.location.hash = '#/blog'; window.location.reload() } },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
