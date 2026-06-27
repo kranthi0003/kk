@@ -5,6 +5,7 @@ import {
   thisWeekDates, dayCompletion, workoutDoneForDate, cumulativeStats,
   strongDay,
 } from '../lib/fitness'
+import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan } from '../lib/diet'
 
 // ============================================================
 // TRANSFORMATION HQ — Personal fitness OS for Kranthi
@@ -18,6 +19,7 @@ const TABS = [
   { id: 'today',    icon: '✅', label: 'Today' },
   { id: 'workout',  icon: '🏋️', label: 'Workout' },
   { id: 'nutrition',icon: '🍽️', label: 'Nutrition' },
+  { id: 'diet',     icon: '🥗', label: 'Diet' },
   { id: 'steps',    icon: '🚶', label: 'Steps & Recovery' },
   { id: 'progress', icon: '📈', label: 'Progress' },
 ]
@@ -185,6 +187,7 @@ export default function TransformationHQ({ onBack }) {
         {tab === 'today'     && <TodayTab />}
         {tab === 'workout'   && <WorkoutTab />}
         {tab === 'nutrition' && <NutritionTab />}
+        {tab === 'diet'      && <DietTab />}
         {tab === 'steps'     && <StepsTab />}
         {tab === 'progress'  && <ProgressTab />}
       </div>
@@ -452,6 +455,135 @@ function NutritionTab() {
           ))}
         </ul>
       </Card>
+    </>
+  )
+}
+
+// ============================================================
+// DIET — 100-Day Lean Diet (Meal 1 / Meal 2 + daily check-offs)
+// ============================================================
+function MealBlock({ slot, time, meal, checked, onToggle }) {
+  return (
+    <div className="rounded-xl border px-3 py-3 transition-colors"
+      style={{ borderColor: checked ? 'color-mix(in oklab, var(--chart-1) 38%, transparent)' : 'var(--color-border)', background: checked ? 'color-mix(in oklab, var(--chart-1) 8%, transparent)' : 'transparent' }}>
+      <button onClick={onToggle} className="w-full flex items-center gap-3 text-left">
+        <span className="w-5 h-5 rounded-md flex-shrink-0 flex items-center justify-center"
+          style={{ background: checked ? ACCENT : 'transparent', boxShadow: checked ? 'none' : 'inset 0 0 0 2px var(--color-muted-foreground)' }}>
+          {checked && <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="var(--color-background)" strokeWidth={3.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
+        </span>
+        <span className="flex-1 flex items-baseline justify-between gap-2">
+          <span className="text-[13px] font-semibold text-foreground">{slot}</span>
+          <span className="text-[11px] text-muted-foreground">🕐 {time}</span>
+        </span>
+      </button>
+      <ul className="mt-2 ml-8 space-y-1">
+        {meal.items.map((it, i) => (
+          <li key={i} className="text-[13px] flex items-center gap-2">
+            <span>{it.e}</span>
+            <span className={checked ? 'line-through text-muted-foreground' : 'text-foreground'}>{it.t}</span>
+          </li>
+        ))}
+        {meal.salad && (
+          <li className="text-[13px] flex items-start gap-2">
+            <span>🥗</span>
+            <span>
+              <span className={checked ? 'line-through text-muted-foreground' : 'text-foreground'}>{meal.salad}{meal.salad !== "Chef's Choice" ? ' Salad' : ''}</span>
+              {SALADS[meal.salad] && <span className="block text-[11px] text-muted-foreground">{SALADS[meal.salad]}</span>}
+            </span>
+          </li>
+        )}
+      </ul>
+    </div>
+  )
+}
+
+function DietTab() {
+  const tk = todayKey()
+  const [meals, setMeals] = useState(() => lsGet(`meals:${tk}`, { m1: false, m2: false }))
+  const today = todayPlan()
+  const done = (meals.m1 ? 1 : 0) + (meals.m2 ? 1 : 0)
+  const toggle = (m) => { const next = { ...meals, [m]: !meals[m] }; setMeals(next); lsSet(`meals:${tk}`, next) }
+  const setBoth = () => { const v = done !== 2; const next = { m1: v, m2: v }; setMeals(next); lsSet(`meals:${tk}`, next) }
+  const week = thisWeekDates()
+  const DOW = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
+  return (
+    <>
+      <Card title="📊 Daily Nutrition" sub="Approximate — Week 1 repeats through the 100 days">
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+          {NUTRITION.map(n => (
+            <div key={n.label} className="rounded-xl border border-border/60 px-2.5 py-2 text-center">
+              <div className="text-[13px] font-semibold text-foreground tabular-nums leading-tight">{n.value}</div>
+              <div className="text-[9.5px] uppercase tracking-wide text-muted-foreground mt-0.5">{n.unit} · {n.label}</div>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card title={`🍽️ Today — ${today.day}`} sub={`Tap a meal to log it · Meal 1 ~${MEAL_TIMES.m1} · Meal 2 ~${MEAL_TIMES.m2}`}>
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[12px] text-muted-foreground tabular-nums">{done}/2 meals done</span>
+          <button onClick={setBoth} className="text-[11px] font-medium" style={{ color: ACCENT }}>{done === 2 ? 'Clear' : 'Mark both'}</button>
+        </div>
+        <ProgressBar pct={Math.round((done / 2) * 100)} />
+        <div className="space-y-2.5 mt-3">
+          <MealBlock slot="Meal 1" time={MEAL_TIMES.m1} meal={today.m1} checked={meals.m1} onToggle={() => toggle('m1')} />
+          <MealBlock slot="Meal 2" time={MEAL_TIMES.m2} meal={today.m2} checked={meals.m2} onToggle={() => toggle('m2')} />
+        </div>
+      </Card>
+
+      <Card title="✅ This week" sub="Two dots = both meals logged that day.">
+        <div className="grid grid-cols-7 gap-1.5">
+          {week.map(d => {
+            const m = lsGet(`meals:${d.dateKey}`, { m1: false, m2: false })
+            const c = (m.m1 ? 1 : 0) + (m.m2 ? 1 : 0)
+            return (
+              <div key={d.dateKey} className="flex flex-col items-center gap-1 rounded-lg py-1.5"
+                style={{ background: d.isToday ? 'color-mix(in oklab, var(--chart-1) 12%, transparent)' : 'transparent', border: d.isToday ? '1px solid color-mix(in oklab, var(--chart-1) 30%, transparent)' : '1px solid transparent' }}>
+                <span className="text-[9.5px] text-muted-foreground">{DOW[d.idx]}</span>
+                <div className="flex gap-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: c >= 1 ? ACCENT : 'var(--color-border)' }} />
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: c >= 2 ? ACCENT : 'var(--color-border)' }} />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </Card>
+
+      <Card title="🗓️ The full week" sub="Print it, stick it on the fridge.">
+        <div className="space-y-3">
+          {WEEK.map(d => (
+            <div key={d.dow} className="rounded-xl border border-border/50 overflow-hidden" style={today.dow === d.dow ? { borderColor: 'color-mix(in oklab, var(--chart-1) 38%, transparent)' } : undefined}>
+              <div className="px-3 py-1.5 text-[12px] font-semibold text-foreground" style={{ background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)' }}>{d.day}</div>
+              <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+                {['m1', 'm2'].map(mk => (
+                  <div key={mk} className="px-3 py-2.5">
+                    <div className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1.5">{mk === 'm1' ? `Meal 1 · ${MEAL_TIMES.m1}` : `Meal 2 · ${MEAL_TIMES.m2}`}</div>
+                    <ul className="space-y-0.5">
+                      {d[mk].items.map((it, i) => (<li key={i} className="text-[12.5px] text-foreground flex items-center gap-1.5"><span>{it.e}</span><span>{it.t}</span></li>))}
+                      {d[mk].salad && <li className="text-[12.5px] flex items-center gap-1.5"><span>🥗</span><span className="text-foreground">{d[mk].salad}{d[mk].salad !== "Chef's Choice" ? ' Salad' : ''}</span></li>}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card title="🥗 Salad & bowl legend">
+        <div className="space-y-2">
+          {Object.entries(SALADS).map(([name, ing]) => (
+            <div key={name} className="text-[13px]">
+              <span className="text-foreground font-medium">{name}</span>
+              <span className="block text-[12px] text-muted-foreground">{ing}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Note>Check off both meals each day — the dots above fill in, and your streak builds. All stored locally · no cloud · no judgment.</Note>
     </>
   )
 }
