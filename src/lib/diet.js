@@ -49,5 +49,39 @@ export const NUTRITION = [
   { label: 'fiber',    value: '30–35',     unit: 'g' },
 ]
 
+export const PLAN_DAYS = 100
+
+// Build a one-week shopping list from the plan: measured staples are summed
+// from the meal items; fresh produce / pantry is the de-duped set of salad
+// ingredients (quantities to taste). Regenerates automatically if the plan changes.
+export function weeklyGrocery() {
+  const staples = {}
+  const bump = (key, name, field, amt) => {
+    staples[key] = staples[key] || { name, grams: null, count: null, scoops: null }
+    staples[key][field] = (staples[key][field] || 0) + amt
+  }
+  WEEK.forEach(d => [d.m1, d.m2].forEach(meal => meal.items.forEach(({ t }) => {
+    let m
+    if ((m = t.match(/^(\d+)g\s+(.+)$/))) {
+      const name = m[2].replace(/\s*\(.*?\)\s*/g, '').trim()
+      bump(name.toLowerCase(), name, 'grams', +m[1])
+    } else if ((m = t.match(/^(\d+)\s+Whole\s+Eggs?/i))) {
+      bump('eggs', 'Whole Eggs', 'count', +m[1])
+    } else if ((m = t.match(/^(\d+)\s+Scoop/i))) {
+      bump('whey', 'Whey', 'scoops', +m[1])
+    }
+  })))
+  const EXCLUDE = new Set(['paneer', 'hung curd', 'pumpkin seeds'])
+  const produce = new Set()
+  WEEK.forEach(d => {
+    const s = SALADS[d.m1.salad]
+    if (s) s.split(',').map(x => x.trim()).forEach(x => { if (x && !EXCLUDE.has(x.toLowerCase())) produce.add(x.toLowerCase()) })
+  })
+  return {
+    staples: Object.values(staples),
+    produce: [...produce].sort((a, b) => a.localeCompare(b)),
+  }
+}
+
 export const dayByDow = (dow) => WEEK.find(d => d.dow === dow) || WEEK[0]
 export const todayPlan = () => dayByDow(new Date().getDay())
