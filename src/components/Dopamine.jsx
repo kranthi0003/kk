@@ -201,6 +201,49 @@ const SUPER = [
   { name: 'Sugar', natural: 'rare, precious calories', supernormal: 'hyper-concentrated sweetness that exists nowhere in nature, on every shelf' },
 ]
 
+// Dr. Eric Berg — go-deeper resources. Topic links land on his current videos,
+// so they never go stale or dead. (Educational only — no product links.)
+const BERG = [
+  { label: 'Dopamine, explained', sub: 'how it drives craving & reward', url: 'https://www.youtube.com/@DrBerg/search?query=dopamine', kind: 'play' },
+  { label: 'The dopamine detox / reset', sub: 'resetting an overstimulated brain', url: 'https://www.youtube.com/@DrBerg/search?query=dopamine+detox', kind: 'play' },
+  { label: 'Sugar & addiction', sub: 'why sugar hooks the same circuit', url: 'https://www.youtube.com/@DrBerg/search?query=sugar+addiction', kind: 'play' },
+  { label: "Dr. Berg's channel", sub: 'youtube.com/@DrBerg', url: 'https://www.youtube.com/@DrBerg', kind: 'channel' },
+  { label: 'drberg.com', sub: 'articles & free resources', url: 'https://www.drberg.com/', kind: 'site' },
+]
+
+function BergResources() {
+  const icon = (kind) => kind === 'play' ? (
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+  ) : kind === 'channel' ? (
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM10 15V9l5 3z" /></svg>
+  ) : (
+    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
+  )
+  return (
+    <Section>
+      <Eyebrow color={DOPA}>Watch &amp; learn — with Dr. Berg</Eyebrow>
+      <H>Go deeper.</H>
+      <P>Dr. Eric Berg breaks this down in plain, practical terms across his videos — dopamine, the detox/reset, and the sugar connection. Worth the watch if you want to keep going.</P>
+      <div className="mt-7 space-y-2.5">
+        {BERG.map((r) => (
+          <a key={r.url} href={r.url} target="_blank" rel="noopener noreferrer"
+            className="group flex items-center gap-3.5 rounded-xl px-4 py-3 transition-all"
+            style={{ background: 'color-mix(in oklab, var(--color-card) 60%, transparent)', border: '1px solid var(--color-border)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklab, ${DOPA} 38%, transparent)` }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-border)' }}>
+            <span className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: `color-mix(in oklab, ${DOPA} 12%, transparent)`, color: DOPA }}>{icon(r.kind)}</span>
+            <span className="flex-1 min-w-0">
+              <span className="block text-[14.5px] font-medium" style={{ color: 'var(--color-foreground)' }}>{r.label}</span>
+              <span className="block text-[12px] text-muted-foreground">{r.sub}</span>
+            </span>
+            <svg className="w-4 h-4 flex-shrink-0 text-muted-foreground/50 group-hover:text-foreground transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
+          </a>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
 /* ------------------------------------------------------------------ *
  * Article (content only — page chrome is provided by BlogPost)
  * ------------------------------------------------------------------ */
@@ -315,6 +358,9 @@ export function DopamineArticle() {
           </div>
         </Section>
 
+        {/* Go deeper — Dr. Berg */}
+        <BergResources />
+
         {/* Closing */}
         <section className="max-w-2xl mx-auto px-5 sm:px-6 pt-10 pb-24 text-center">
           <Reveal>
@@ -324,7 +370,7 @@ export function DopamineArticle() {
             </p>
             <p className="font-serif text-muted-foreground/60 mt-5 text-[15px]">The plaster eggs just got loud enough to drown them out.</p>
             <p className="text-[11.5px] text-muted-foreground/50 mt-12 leading-relaxed font-mono">
-              Drawn from the work of Wolfram Schultz · Kent Berridge · Niko Tinbergen ·<br className="hidden sm:block" /> B.F. Skinner · Robert Sapolsky · Anna Lembke (<span className="italic">Dopamine Nation</span>).
+              Anchored in Dr. Eric Berg's teaching on dopamine, sugar &amp; the detox —<br className="hidden sm:block" /> and the neuroscience beneath it: Schultz · Berridge · Tinbergen · Skinner · Sapolsky · Lembke.
             </p>
           </Reveal>
         </section>
