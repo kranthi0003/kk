@@ -5,7 +5,7 @@ import {
   thisWeekDates, dayCompletion, workoutDoneForDate, cumulativeStats,
   strongDay,
 } from '../lib/fitness'
-import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan } from '../lib/diet'
+import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan, weeklyGrocery, PLAN_DAYS } from '../lib/diet'
 
 // ============================================================
 // TRANSFORMATION HQ — Personal fitness OS for Kranthi
@@ -500,6 +500,7 @@ function MealBlock({ slot, time, meal, checked, onToggle }) {
 function DietTab() {
   const tk = todayKey()
   const [meals, setMeals] = useState(() => lsGet(`meals:${tk}`, { m1: false, m2: false }))
+  const [start, setStart] = useState(() => lsGet('diet:start', null))
   const today = todayPlan()
   const done = (meals.m1 ? 1 : 0) + (meals.m2 ? 1 : 0)
   const toggle = (m) => { const next = { ...meals, [m]: !meals[m] }; setMeals(next); lsSet(`meals:${tk}`, next) }
@@ -507,8 +508,35 @@ function DietTab() {
   const week = thisWeekDates()
   const DOW = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
+  const dayNum = start ? Math.min(Math.max(Math.floor((new Date(tk) - new Date(start)) / 86400000) + 1, 1), PLAN_DAYS) : 0
+  const weekNum = Math.ceil(dayNum / 7)
+  const totalWeeks = Math.ceil(PLAN_DAYS / 7)
+  const groceries = weeklyGrocery()
+  const fmtQty = (s) => s.grams != null ? (s.grams >= 1000 ? `${(s.grams / 1000).toFixed(1)} kg` : `${s.grams} g`) : s.count != null ? `${s.count}` : `${s.scoops} scoops`
+
   return (
     <>
+      <Card title="🔥 100-Day Lean Cut" sub="Week 1 repeats — just keep showing up.">
+        {!start ? (
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <span className="text-[13px] text-muted-foreground">Mark today as Day 1 to start the count.</span>
+            <button onClick={() => { setStart(tk); lsSet('diet:start', tk) }}
+              className="rounded-lg px-3 py-1.5 text-[12px] font-semibold" style={{ background: ACCENT, color: 'var(--color-background)' }}>
+              Start the 100 days
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-baseline justify-between mb-2">
+              <span className="text-[15px] font-semibold text-foreground">Day {dayNum} <span className="text-muted-foreground font-normal">of {PLAN_DAYS}</span></span>
+              <span className="text-[12px] text-muted-foreground">Week {weekNum} of {totalWeeks} · {PLAN_DAYS - dayNum} to go</span>
+            </div>
+            <ProgressBar pct={Math.round((dayNum / PLAN_DAYS) * 100)} />
+            <button onClick={() => { lsSet('diet:start', null); setStart(null) }} className="text-[11px] text-muted-foreground/60 hover:text-foreground transition-colors mt-2">reset start date</button>
+          </>
+        )}
+      </Card>
+
       <Card title="📊 Daily Nutrition" sub="Approximate — Week 1 repeats through the 100 days">
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
           {NUTRITION.map(n => (
@@ -568,6 +596,24 @@ function DietTab() {
                 ))}
               </div>
             </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card title="🛒 Weekly grocery list" sub="One week's shop — auto-built from the plan. Double it for a fortnight.">
+        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1.5">Protein · dairy · nuts</div>
+        <ul className="space-y-1 mb-4">
+          {groceries.staples.map(s => (
+            <li key={s.name} className="flex items-center justify-between text-[13px] border-b border-border/30 pb-1">
+              <span className="text-foreground capitalize">{s.name}</span>
+              <span className="text-muted-foreground tabular-nums">{fmtQty(s)}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mb-2">Vegetables · salad · pantry <span className="normal-case text-muted-foreground/70">— buy fresh, to taste</span></div>
+        <div className="flex flex-wrap gap-1.5">
+          {groceries.produce.map(p => (
+            <span key={p} className="text-[12px] px-2 py-0.5 rounded-full border border-border/60 text-foreground capitalize">{p}</span>
           ))}
         </div>
       </Card>
