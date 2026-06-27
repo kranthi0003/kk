@@ -38,6 +38,7 @@ import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
 import Reflection from './components/Reflection'
 import MathBackdrop from './components/MathBackdrop'
+import DopamineTeaser from './components/DopamineTeaser'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -51,6 +52,8 @@ const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
 const Vegas = lazy(() => import('./components/Vegas'))
 const ReliabilityLab = lazy(() => import('./components/ReliabilityLab'))
+const Blog = lazy(() => import('./components/Blog'))
+const BlogPost = lazy(() => import('./components/BlogPost'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -206,6 +209,23 @@ export default function App() {
     )
   }
 
+  // Blog — index, individual posts, and a backward-compatible #/dopamine link
+  if (route === '#/blog') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <Blog onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+  if (route.startsWith('#/blog/') || route === '#/dopamine') {
+    const slug = route === '#/dopamine' ? 'cheap-dopamine' : route.slice('#/blog/'.length)
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <BlogPost slug={slug} onBack={() => { window.location.hash = '#/blog'; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
   const handleSecretTrigger = useCallback(() => {
     if (!matrixActive) setMatrixActive(true)
   }, [matrixActive])
@@ -264,6 +284,7 @@ export default function App() {
         <div className="section-animate"><WorkspaceSection /></div>
         <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><TravelMap /></div>
+        <div className="section-animate"><DopamineTeaser /></div>
         <div className="section-animate"><Reflection>The work that lasts is rarely the loudest. Build quietly; let it speak for itself.</Reflection></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
