@@ -3,8 +3,11 @@
 // blocks. Categories drive the filter chips on the index. Keep this file as the
 // single source of truth — add a post object here and it shows up everywhere.
 
+import { CERT_POSTS } from './certPosts'
+
 export const CATEGORIES = [
   { id: 'mind',        label: 'Mind & Dopamine' },
+  { id: 'certs',       label: 'Certifications' },
   { id: 'reliability', label: 'Reliability' },
   { id: 'engineering', label: 'Engineering' },
   { id: 'reflections', label: 'Reflections' },
@@ -46,6 +49,7 @@ export const POSTS = [
       { type: 'p', text: 'The lesson under the lesson: perfect is not the target. The right amount of unreliability, chosen on purpose, is.' },
     ],
   },
+  ...CERT_POSTS,
 ]
 
 export const publishedPosts = () =>
