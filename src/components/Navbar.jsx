@@ -495,7 +495,7 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Engineering', href: '#projects' },
   { label: 'Travel', href: '#travel' },
   { label: 'Connect', href: '#connect' },
 ]
@@ -677,6 +677,11 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle'; window.location.reload() } },
+                { icon: '📝', label: 'Blog', action: () => { window.location.hash = '#/blog'; window.location.reload() } },
+                { icon: '📚', label: 'Notes', action: () => { window.location.hash = '#/notes'; window.location.reload() } },
+                { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline'; window.location.reload() } },
+                { icon: '📍', label: 'Now', action: () => { window.location.hash = '#/now'; window.location.reload() } },
+                { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses'; window.location.reload() } },
               ].map(a => (
                 <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
                   className="flex flex-col items-center gap-1 py-2.5 rounded-xl bg-muted/30 hover:bg-muted/60 transition-colors">
@@ -722,6 +727,8 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Blog',               onClick: () => { window.location.hash = '#/blog'; window.location.reload() } },
     { icon: <ReadIcon />,   label: 'Learning Timeline',  onClick: () => { window.location.hash = '#/timeline'; window.location.reload() } },
     { icon: <ReadIcon />,   label: 'Now',                onClick: () => { window.location.hash = '#/now'; window.location.reload() } },
+    { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes'; window.location.reload() } },
+    { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses'; window.location.reload() } },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)

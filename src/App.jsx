@@ -56,6 +56,8 @@ const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
 const NowPage = lazy(() => import('./components/NowPage'))
 const Timeline = lazy(() => import('./components/Timeline'))
+const UsesPage = lazy(() => import('./components/UsesPage'))
+const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -242,6 +244,24 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <Timeline onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Knowledge Base — topic-first view of notes & TILs
+  if (route === '#/notes') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <KnowledgeBase onBack={() => { window.location.hash = ''; window.location.reload() }} />
+      </Suspense>
+    )
+  }
+
+  // Uses — the tools & gear behind the work
+  if (route === '#/uses') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <UsesPage onBack={() => { window.location.hash = ''; window.location.reload() }} />
       </Suspense>
     )
   }

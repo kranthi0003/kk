@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getPost, categoryLabel, formatDate } from '../lib/blog'
+import { getPost, categoryLabel, formatDate, topicsForPost, topicLabel } from '../lib/blog'
 import { DopamineArticle } from './Dopamine'
 
 const ACCENT = '#e0a04a'
@@ -91,20 +91,43 @@ function Block({ b }) {
           <span>{b.text}</span>
         </div>
       )
+    case 'code':
+      return (
+        <pre className="rounded-xl p-4 overflow-x-auto text-[12.5px] leading-relaxed font-mono" style={{ background: 'color-mix(in oklab, var(--color-card) 72%, transparent)', border: '1px solid var(--color-border)', color: 'var(--color-foreground)' }}>
+          <code>{b.text}</code>
+        </pre>
+      )
     default:
       return <p className="text-[clamp(1rem,2.2vw,1.15rem)] leading-[1.75] text-muted-foreground">{b.text}</p>
   }
 }
 
 function Prose({ post }) {
+  const topics = topicsForPost(post)
   return (
     <article className="relative z-10 max-w-2xl mx-auto px-5 sm:px-6 pt-28 pb-24">
       <Reveal>
-        <div className="text-[11px] font-mono uppercase tracking-[0.28em] mb-4" style={{ color: ACCENT }}>{categoryLabel(post.category)}</div>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-[11px] font-mono uppercase tracking-[0.28em]" style={{ color: ACCENT }}>{categoryLabel(post.category)}</span>
+          {post.til && (
+            <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full" style={{ color: ACCENT, background: `color-mix(in oklab, ${ACCENT} 14%, transparent)`, border: `1px solid color-mix(in oklab, ${ACCENT} 34%, transparent)` }}>TIL</span>
+          )}
+        </div>
         <h1 className="font-heading text-[clamp(2rem,6vw,3.2rem)] leading-[1.08] mb-3" style={{ fontWeight: 500 }}>{post.title}</h1>
         {post.subtitle && <p className="text-[clamp(1.05rem,2.6vw,1.35rem)] text-muted-foreground leading-snug mb-5">{post.subtitle}</p>}
-        <div className="text-[12.5px] text-muted-foreground/70 font-mono pb-8 mb-8" style={{ borderBottom: '1px solid var(--color-border)' }}>
-          {formatDate(post.date)} · {post.readingMins} min read
+        <div className="flex items-center flex-wrap gap-x-3 gap-y-2 text-[12.5px] text-muted-foreground/70 font-mono pb-8 mb-8" style={{ borderBottom: '1px solid var(--color-border)' }}>
+          <span>{formatDate(post.date)} · {post.readingMins} min read</span>
+          {topics.length > 0 && (
+            <span className="flex items-center gap-1.5">
+              {topics.map(t => (
+                <button key={t} onClick={() => { window.location.hash = '#/notes'; window.location.reload() }}
+                  className="px-2 py-0.5 rounded-full text-[10.5px] not-italic transition-colors hover:text-foreground"
+                  style={{ background: 'color-mix(in oklab, var(--color-card) 55%, transparent)', border: '1px solid var(--color-border)' }}>
+                  {topicLabel(t)}
+                </button>
+              ))}
+            </span>
+          )}
         </div>
       </Reveal>
       <div className="space-y-5">
