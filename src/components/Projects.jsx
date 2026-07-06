@@ -59,12 +59,12 @@ export default function Projects() {
     <section id="projects" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Projects</p>
+          <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Engineering</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             What I've built
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            A handful of tools, experiments, and things I keep meaning to ship.
+            Tools, experiments, and systems — a handful of the things I've shipped and keep tinkering with.
           </p>
         </div>
 

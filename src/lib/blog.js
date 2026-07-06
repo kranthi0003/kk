@@ -4,6 +4,7 @@
 // single source of truth — add a post object here and it shows up everywhere.
 
 import { CERT_POSTS } from './certPosts'
+import { TIL_POSTS } from './tilPosts'
 
 export const CATEGORIES = [
   { id: 'mind',        label: 'Mind & Dopamine' },
@@ -14,6 +15,36 @@ export const CATEGORIES = [
 ]
 
 export const categoryLabel = (id) => CATEGORIES.find(c => c.id === id)?.label || id
+
+// Knowledge-base topics — technical domains, separate from the editorial
+// CATEGORIES above. A post joins a topic either via its own `topics: []` field
+// or via SLUG_TOPICS below (so existing posts get tagged without editing them).
+// Counts shown in the UI are always computed from real posts — never hard-coded.
+export const TOPICS = [
+  { id: 'github',      label: 'GitHub & Actions',  icon: '⚙️' },
+  { id: 'aws',         label: 'AWS',               icon: '☁️' },
+  { id: 'kubernetes',  label: 'Kubernetes',        icon: '☸️' },
+  { id: 'terraform',   label: 'Terraform',         icon: '🏗️' },
+  { id: 'linux',       label: 'Linux',             icon: '🐧' },
+  { id: 'reliability', label: 'Reliability / SRE', icon: '📈' },
+  { id: 'ai',          label: 'AI',                icon: '🤖' },
+  { id: 'omscs',       label: 'OMSCS',             icon: '🎓' },
+]
+
+export const topicLabel = (id) => TOPICS.find(t => t.id === id)?.label || id
+export const topicMeta = (id) => TOPICS.find(t => t.id === id) || null
+
+// Map already-written posts to KB topics without touching their source files.
+const SLUG_TOPICS = {
+  'error-budgets-in-one-minute': ['reliability'],
+  'aws-saa': ['aws'],
+  'github-foundations': ['github'],
+  'github-administration': ['github'],
+  'github-actions': ['github'],
+}
+
+export const topicsForPost = (post) =>
+  (post && (post.topics || SLUG_TOPICS[post.slug])) || []
 
 export const POSTS = [
   {
@@ -50,6 +81,7 @@ export const POSTS = [
     ],
   },
   ...CERT_POSTS,
+  ...TIL_POSTS,
 ]
 
 export const publishedPosts = () =>
@@ -61,6 +93,13 @@ export const postsByCategory = (catId) =>
   catId === 'all' ? publishedPosts() : publishedPosts().filter(p => p.category === catId)
 
 export const featuredPost = () => POSTS.find(p => p.featured) || POSTS[0]
+
+// Knowledge-base helpers (real counts, computed from actual posts).
+export const postsByTopic = (topicId) =>
+  publishedPosts().filter(p => topicsForPost(p).includes(topicId))
+export const topicCount = (topicId) => postsByTopic(topicId).length
+export const tilPosts = () => publishedPosts().filter(p => p.til)
+export const notePosts = () => publishedPosts().filter(p => topicsForPost(p).length > 0)
 
 export const formatDate = (iso) => {
   try {
