@@ -8,13 +8,13 @@ const skillGroups = [
 ]
 
 const certs = [
-  { name: 'AWS Solutions Architect', tag: 'SAA', url: 'https://www.credly.com/badges/4528a7ce-198b-4edd-94dd-54bea26bcafd' },
-  { name: 'Couchbase Admin', tag: 'PRO', url: 'https://www.credly.com/badges/21986ffd-3145-4312-8ed8-8f870454b7d5/public_url' },
-  { name: 'Couchbase Python', tag: 'DEV', url: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65' },
-  { name: 'Couchbase Architect', tag: 'ARCH', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
-  { name: 'GitHub Foundations', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
-  { name: 'GitHub Administration', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
-  { name: 'GitHub Actions', tag: 'GH', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
+  { name: 'AWS Solutions Architect', tag: 'SAA', slug: 'aws-saa', url: 'https://www.credly.com/badges/4528a7ce-198b-4edd-94dd-54bea26bcafd' },
+  { name: 'Couchbase Admin', tag: 'PRO', slug: 'couchbase-admin', url: 'https://www.credly.com/badges/21986ffd-3145-4312-8ed8-8f870454b7d5/public_url' },
+  { name: 'Couchbase Python', tag: 'DEV', slug: 'couchbase-python', url: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65' },
+  { name: 'Couchbase Architect', tag: 'ARCH', slug: 'couchbase-architect', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
+  { name: 'GitHub Foundations', tag: 'GH', slug: 'github-foundations', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
+  { name: 'GitHub Administration', tag: 'GH', slug: 'github-administration', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
+  { name: 'GitHub Actions', tag: 'GH', slug: 'github-actions', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
 ]
 
 export default function TechStack() {
@@ -65,24 +65,26 @@ export default function TechStack() {
             const tagColors = ['oklch(75% 0.22 285)', 'oklch(72% 0.27 320)', 'oklch(75% 0.20 25)']
             const tint = tints[i % 3]
             const tagColor = tagColors[i % 3]
+            const goArticle = () => { window.location.hash = `#/blog/${c.slug}`; window.location.reload() }
             return (
-              <a
+              <div
                 key={c.name}
-                href={c.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
               >
                 <span className="w-9 h-9 rounded-md flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                   style={{ background: `color-mix(in oklab, ${tagColor} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${tagColor} 35%, transparent)`, color: tagColor }}>
                   {c.tag}
                 </span>
-                <div className="flex flex-col min-w-0 flex-1">
-                  <span className="text-xs font-semibold text-foreground leading-tight truncate">{c.name}</span>
-                  <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">Verified ✓</span>
-                </div>
-                <span className="text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all text-xs">→</span>
-              </a>
+                <button onClick={goArticle} className="flex flex-col min-w-0 flex-1 text-left" title={`Read the story: ${c.name}`}>
+                  <span className="text-xs font-semibold text-foreground leading-tight truncate group-hover:text-accent transition-colors">{c.name}</span>
+                  <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">Read the story →</span>
+                </button>
+                <a href={c.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                  className="text-[10px] text-muted-foreground hover:text-accent transition-colors flex-shrink-0 inline-flex items-center gap-0.5"
+                  title="Verify credential">
+                  Verify ✓
+                </a>
+              </div>
             )
           })}
         </div>
