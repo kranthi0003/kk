@@ -8,7 +8,20 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 
 const TRACKS = [
   { id: 'wmLGG5DYDWQ', title: 'Late Night Drive', by: 'Cigarettes After Sex mix' },
+  { id: 'vx4kLgnFexo', title: 'My Love Mine All Mine', by: 'Mitski' },
   { id: 'DOT1LmQbFFA', title: 'Weightless',       by: 'Martin Garrix & Arijit Singh' },
+  { id: 'NgsWGfUlwJI', title: 'Glimpse of Us',     by: 'Joji' },
+  { id: 'gJLVTKhTnog', title: 'Husn',              by: 'Anuv Jain' },
+  { id: 'VF-FGf_ZZiI', title: 'Bad Habit',         by: 'Steve Lacy' },
+  { id: 'MiAoetOXKcY', title: 'Say Yes to Heaven', by: 'Lana Del Rey' },
+  { id: 'myh5xtfUG-I', title: 'double take',       by: 'dhruv' },
+  { id: 'Il7Nv270zNk', title: 'cold/mess',         by: 'Prateek Kuhad' },
+  { id: 'GCdwKhTtNNw', title: 'Sweater Weather',   by: 'The Neighbourhood' },
+  { id: 'MJyKN-8UncM', title: 'Shayad',            by: 'Arijit Singh' },
+  { id: 'uzS3WG6__G4', title: 'Pink + White',      by: 'Frank Ocean' },
+  { id: 'LDY_XyxBu8A', title: 'Snooze',            by: 'SZA' },
+  { id: 'cW8VLC9nnTo', title: 'What Was I Made For?', by: 'Billie Eilish' },
+  { id: 'sElE_BfQ67s', title: 'Apocalypse',        by: 'Cigarettes After Sex' },
 ]
 
 const DEFAULT_VOL = 28
