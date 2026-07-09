@@ -130,6 +130,35 @@ function BentoClockCard() {
   )
 }
 
+const REFLECTIONS = [
+  { t: 'How we spend our days is, of course, how we spend our lives.', by: 'Annie Dillard' },
+  { t: 'You could leave life right now. Let that determine what you do.', by: 'Marcus Aurelius' },
+  { t: 'Attention is the rarest and purest form of generosity.', by: 'Simone Weil' },
+]
+
+function BentoReflectionCard() {
+  const [i, setI] = useState(0)
+  const [show, setShow] = useState(true)
+  useEffect(() => {
+    const id = setInterval(() => {
+      setShow(false)
+      setTimeout(() => { setI(n => (n + 1) % REFLECTIONS.length); setShow(true) }, 500)
+    }, 7500)
+    return () => clearInterval(id)
+  }, [])
+  const r = REFLECTIONS[i]
+  return (
+    <div className="col-span-2 bg-card overflow-hidden pr-tint-coral flex flex-col justify-center px-6 py-5 relative">
+      <span aria-hidden="true" className="absolute top-2 left-4 font-serif text-5xl leading-none text-muted-foreground/15 select-none">“</span>
+      <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Reflection</p>
+      <div style={{ opacity: show ? 1 : 0, transform: show ? 'none' : 'translateY(6px)', transition: 'opacity .5s ease, transform .5s ease' }}>
+        <p className="font-serif italic text-foreground/90 leading-snug" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.15rem)' }}>{r.t}</p>
+        <p className="font-serif text-[11px] tracking-[0.14em] text-muted-foreground/60 mt-3">— {r.by}</p>
+      </div>
+    </div>
+  )
+}
+
 export default function About() {
   return (
     <section id="about" className="py-24">
@@ -140,14 +169,14 @@ export default function About() {
             A bit about me
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Where I am, what I'm tending to, and what's playing.
+            Where I am, what I'm tending to, and what I keep coming back to.
           </p>
         </div>
 
         {/* Bento grid: 4 cols, explicit row layout */}
         <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 170px 170px' }}>
 
-          {/* R1: Profile (2col) + Spotify (2col) */}
+          {/* R1: Profile (2col) + Reflection (2col) */}
           <div className="col-span-2 bg-card overflow-hidden flex flex-col pr-tint-magenta">
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
@@ -168,9 +197,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="col-span-2 overflow-hidden bg-card pr-tint-coral">
-            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" className="rounded-2xl" title="Spotify" />
-          </div>
+          <BentoReflectionCard />
 
           {/* R2: Clock + Currently (left 2 cols) + Instagram (right 2 cols, spans R2+R3) */}
           <BentoClockCard />

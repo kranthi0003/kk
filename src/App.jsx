@@ -36,6 +36,7 @@ import ServiceStatus from './components/ServiceStatus'
 import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
+import AmbientPlayer from './components/AmbientPlayer'
 import Reflection from './components/Reflection'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
@@ -351,6 +352,7 @@ export default function App() {
       <CronSchedule />
       <WeatherWidget />
       <QuoteIntro />
+      <AmbientPlayer />
     </div>
     </>
   )
