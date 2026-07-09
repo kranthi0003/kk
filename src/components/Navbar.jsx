@@ -4,55 +4,6 @@ import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import TransformationPulse from './TransformationPulse'
 
-const SpotifyIcon = () => (
-  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-  </svg>
-)
-
-function NavSpotify() {
-  const [open, setOpen] = useState(false)
-  const ref = useRef()
-
-  useEffect(() => {
-    if (!open) return
-    const handleClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [open])
-
-  return (
-    <div className="relative" ref={ref}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        className={`p-2 rounded-full transition-colors duration-200 ${
-          open ? 'bg-green-500/15 text-green-500' : 'bg-muted hover:bg-border text-muted-foreground hover:text-green-500'
-        }`}
-        aria-label="Toggle music player"
-        data-spotify-btn
-      >
-        <SpotifyIcon />
-      </button>
-      {open && (
-        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50 sm:min-w-[300px]">
-          <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0ieekvzt1Ic?utm_source=generator&theme=0"
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Spotify"
-            className="rounded-2xl border border-border/30 shadow-2xl shadow-black/20"
-            style={{ minWidth: '280px' }}
-          />
-        </div>
-      )}
-    </div>
-  )
-}
 
 function NavWallet() {
   const [open, setOpen] = useState(false)
@@ -606,7 +557,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <ToolsDropdown />
             <TechNews side="right" />
             <NavWallet />
-            <NavSpotify />
             <NavStatus />
             <ThemeToggle />
           </div>
@@ -614,7 +564,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           {/* Mobile — icons + hamburger */}
           <div className="flex md:hidden items-center gap-2">
             <NavWallet />
-            <NavSpotify />
             <NavStatus />
             <ThemeToggle />
             <button
@@ -682,6 +631,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline'; window.location.reload() } },
                 { icon: '📍', label: 'Now', action: () => { window.location.hash = '#/now'; window.location.reload() } },
                 { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses'; window.location.reload() } },
+                { icon: '🎵', label: 'Ambient', action: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
               ].map(a => (
                 <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
                   className="flex flex-col items-center gap-1 py-2.5 rounded-xl bg-muted/30 hover:bg-muted/60 transition-colors">
@@ -729,6 +679,7 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Now',                onClick: () => { window.location.hash = '#/now'; window.location.reload() } },
     { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes'; window.location.reload() } },
     { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses'; window.location.reload() } },
+    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
