@@ -58,6 +58,7 @@ export default function AmbientPlayer() {
     return Number.isFinite(n) && n >= 0 && n < TRACKS.length ? n : 0
   })
   const [playing, setPlaying] = useState(false)
+  const [everPlayed, setEverPlayed] = useState(false)
   const [hover, setHover] = useState(false)
   const [vol, setVol] = useState(() => {
     const v = parseInt(localStorage.getItem('ambient_vol') || String(DEFAULT_VOL), 10)
@@ -66,6 +67,7 @@ export default function AmbientPlayer() {
 
   const idxRef = useRef(idx)
   idxRef.current = idx
+  const autoStartedRef = useRef(false)
 
   const prefersReduced = typeof window !== 'undefined' &&
     window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -88,7 +90,7 @@ export default function AmbientPlayer() {
             setIdx(next)
             try { e.target.loadVideoById(TRACKS[next].id) } catch {}
           } else if (e.data === YT.PlayerState.PLAYING) {
-            setPlaying(true)
+            setPlaying(true); setEverPlayed(true); autoStartedRef.current = true
           } else if (e.data === YT.PlayerState.PAUSED) {
             setPlaying(false)
           }
@@ -132,16 +134,32 @@ export default function AmbientPlayer() {
     return () => window.removeEventListener('toggle-ambient', h)
   }, [toggle])
 
-  const open = playing || hover
+  // Autoplay: browsers block audio until a user gesture, so we try immediately
+  // (works when the browser allows it) and otherwise start on the very first
+  // interaction anywhere on the page — including the click/keypress that
+  // dismisses the intro screen. After that, only the manual controls apply.
+  useEffect(() => {
+    if (!built) return
+    try { playerRef.current && playerRef.current.playVideo() } catch {}
+    let done = false
+    const types = ['pointerdown', 'touchstart', 'keydown', 'click']
+    const remove = () => types.forEach(t => window.removeEventListener(t, kick, true))
+    function kick() {
+      if (done || autoStartedRef.current) { remove(); return }
+      done = true
+      try { playerRef.current && playerRef.current.playVideo() } catch {}
+      remove()
+    }
+    types.forEach(t => window.addEventListener(t, kick, true))
+    return remove
+  }, [built])
+
   const track = TRACKS[idx]
 
   return (
     <>
       <style>{`
-        @keyframes amb-ring { 0%,100%{transform:scale(1);opacity:.5} 50%{transform:scale(1.35);opacity:0} }
-        @keyframes amb-bar1 { 0%,100%{height:5px} 50%{height:15px} }
-        @keyframes amb-bar2 { 0%,100%{height:12px} 50%{height:6px} }
-        @keyframes amb-bar3 { 0%,100%{height:8px} 50%{height:16px} }
+        @keyframes amb-ring { 0%,100%{transform:scale(1);opacity:.55} 50%{transform:scale(1.5);opacity:0} }
       `}</style>
 
       {/* Hidden audio-only player (kept in DOM, not display:none, for reliable playback) */}
@@ -150,83 +168,64 @@ export default function AmbientPlayer() {
       </div>
 
       <div
-        className="fixed z-40 flex items-center"
-        style={{ bottom: '7rem', left: '1.5rem' }}
+        className="relative flex items-center flex-shrink-0"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         <div
           className="flex items-center rounded-full overflow-hidden"
           style={{
-            background: 'color-mix(in oklab, var(--color-card) 80%, transparent)',
+            background: 'color-mix(in oklab, var(--color-card) 72%, transparent)',
             border: '1px solid var(--color-border)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 6px 22px -8px rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(8px)',
           }}
         >
-          {/* Play / pause — always visible */}
+          {/* Play / pause — clear, accent-filled so it obviously reads as a control */}
           <button
             onClick={toggle}
             disabled={!built}
-            title={built ? (playing ? 'Pause ambient sound' : 'Play ambient sound') : 'Loading…'}
-            aria-label={playing ? 'Pause ambient sound' : 'Play ambient sound'}
-            className="relative flex items-center justify-center flex-shrink-0 transition-colors"
-            style={{ width: 42, height: 42, color: 'var(--color-foreground)' }}
+            title={built ? (playing ? 'Pause music' : 'Play music') : 'Loading…'}
+            aria-label={playing ? 'Pause music' : 'Play music'}
+            className="relative flex items-center justify-center flex-shrink-0 transition-transform hover:scale-105"
+            style={{ width: 32, height: 32, margin: 3, borderRadius: 999,
+              background: 'color-mix(in oklab, var(--color-accent) 18%, transparent)',
+              color: 'var(--color-accent)' }}
           >
-            {/* breathing ring when playing */}
-            {playing && !prefersReduced && (
-              <span aria-hidden="true" className="absolute rounded-full" style={{
-                width: 42, height: 42,
-                border: '1.5px solid var(--color-accent)',
-                animation: 'amb-ring 3.2s ease-out infinite',
-              }} />
+            {!everPlayed && !prefersReduced && (
+              <span aria-hidden="true" className="absolute rounded-full" style={{ inset: -1, border: '1.5px solid var(--color-accent)', animation: 'amb-ring 2.4s ease-out infinite' }} />
             )}
             {playing ? (
-              // little equalizer
-              <span className="flex items-end gap-[2px]" style={{ height: 16 }} aria-hidden="true">
-                {[0,1,2].map(i => (
-                  <span key={i} style={{
-                    width: 3, borderRadius: 2, background: 'var(--color-accent)',
-                    height: 8,
-                    animation: prefersReduced ? 'none' : `amb-bar${i+1} 1s ease-in-out ${i*0.15}s infinite`,
-                  }} />
-                ))}
-              </span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
             ) : (
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
-              </svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
             )}
           </button>
 
-          {/* Expanding controls */}
+          {/* Label — visible on sm+; a bigger, obvious hit target that also toggles */}
+          <div onClick={toggle} className="hidden sm:flex flex-col justify-center cursor-pointer select-none pl-1.5 pr-1 min-w-0" style={{ height: 38 }}>
+            <span className="text-[11.5px] font-medium leading-tight truncate" style={{ color: 'var(--color-foreground)', maxWidth: 128 }}>{playing ? track.title : 'Play music'}</span>
+            <span className="text-[9.5px] leading-tight truncate text-muted-foreground" style={{ maxWidth: 128 }}>{playing ? track.by : 'ambient radio'}</span>
+          </div>
+
+          {/* Hover-reveal (desktop): prev / next / volume */}
           <div
-            className="flex items-center transition-all duration-300 ease-out"
-            style={{ maxWidth: open ? 320 : 0, opacity: open ? 1 : 0 }}
+            className="hidden md:flex items-center transition-all duration-300 ease-out overflow-hidden"
+            style={{ maxWidth: hover ? 168 : 0, opacity: hover ? 1 : 0 }}
           >
             <button onClick={() => step(-1)} title="Previous track" aria-label="Previous track"
-              className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground transition-colors"
-              style={{ width: 30, height: 42 }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+              className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground transition-colors" style={{ width: 26, height: 38 }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
             </button>
-
-            <div className="min-w-0 px-1" style={{ width: 148 }}>
-              <div className="text-[12px] font-medium leading-tight truncate" style={{ color: 'var(--color-foreground)' }}>{track.title}</div>
-              <div className="text-[10px] leading-tight truncate text-muted-foreground">{track.by}</div>
-            </div>
-
             <button onClick={() => step(1)} title="Next track" aria-label="Next track"
-              className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground transition-colors"
-              style={{ width: 30, height: 42 }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-2.5 6L5 6v12z"/></svg>
+              className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground transition-colors" style={{ width: 26, height: 38 }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-2.5 6L5 6v12z"/></svg>
             </button>
-
             <input
               type="range" min="0" max="100" value={vol}
               onChange={(e) => setVol(parseInt(e.target.value, 10))}
               aria-label="Ambient volume"
-              className="ambient-vol flex-shrink-0 mr-3 ml-1"
-              style={{ width: 56, accentColor: 'var(--color-accent)' }}
+              className="ambient-vol flex-shrink-0 mr-2.5 ml-1"
+              style={{ width: 50, accentColor: 'var(--color-accent)' }}
             />
           </div>
         </div>

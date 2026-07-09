@@ -3,6 +3,7 @@ import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import TransformationPulse from './TransformationPulse'
+import AmbientPlayer from './AmbientPlayer'
 
 
 function NavWallet() {
@@ -527,8 +528,9 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       ref={navRef}
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center">
-        {/* Left — Logo */}
-        <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0 mr-auto">
+        {/* Left — Logo + ambient music */}
+        <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
+        <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
           <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-sm overflow-hidden"
             style={{
               background: 'linear-gradient(135deg, oklch(55% 0.22 285), oklch(55% 0.27 320))',
@@ -543,6 +545,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             {isCompact ? 'KK' : 'Kranthi Kiran'}
           </span>
         </a>
+          <AmbientPlayer />
+        </div>
 
         {/* Center — Nav links removed for a cleaner, minimal bar */}
 
