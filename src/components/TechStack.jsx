@@ -22,7 +22,7 @@ export default function TechStack() {
     <section id="techstack" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section header — provisionr style: small eyebrow + large quiet heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3" style={{ color: 'oklch(75% 0.22 285)' }}>Stack</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             Tools I build with
@@ -40,7 +40,7 @@ export default function TechStack() {
             return (
               <div
                 key={group.title}
-                className={`group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
+                className={`reveal group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] mb-3" style={{ color: eyebrowColors[i % 4] }}>{group.title}</p>
                 <div className="flex flex-wrap gap-1.5">
@@ -56,7 +56,7 @@ export default function TechStack() {
         </div>
 
         {/* Certs — clean rounded-md cards, no rainbow */}
-        <div className="text-center mb-5">
+        <div className="text-center mb-5 reveal">
           <p className="font-mono text-xs uppercase tracking-[0.2em]" style={{ color: 'oklch(75% 0.22 285)' }}>Certifications</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -69,7 +69,7 @@ export default function TechStack() {
             return (
               <div
                 key={c.name}
-                className={`group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
+                className={`reveal group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
               >
                 <span className="w-9 h-9 rounded-md flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                   style={{ background: `color-mix(in oklab, ${tagColor} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${tagColor} 35%, transparent)`, color: tagColor }}>

@@ -41,7 +41,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Where I've shipped</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             Experience
@@ -60,7 +60,7 @@ export default function Experience() {
                 href={exp.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative flex-1 max-w-[260px] bg-card hover:shadow-lg transition-all duration-300 p-6 flex flex-col group ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral','pr-tint-violet'][i % 4]}`}
+                className={`reveal relative flex-1 max-w-[260px] bg-card hover:shadow-lg transition-all duration-300 p-6 flex flex-col group ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral','pr-tint-violet'][i % 4]}`}
               >
                 {/* Current badge */}
                 {exp.current && (
@@ -119,7 +119,7 @@ export default function Experience() {
                 href={exp.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative w-full max-w-sm bg-card p-5 flex items-start gap-4 transition-all ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral','pr-tint-violet'][i % 4]}`}
+                className={`reveal relative w-full max-w-sm bg-card p-5 flex items-start gap-4 transition-all ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral','pr-tint-violet'][i % 4]}`}
               >
                 {exp.current && (
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30">
