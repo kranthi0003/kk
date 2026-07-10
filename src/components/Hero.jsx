@@ -11,13 +11,23 @@ export default function Hero({ onResumeClick }) {
           {/* ─── LEFT: Portrait + socials ─── */}
           <div className="flex flex-col items-center lg:items-start animate-fade-in-up">
             <div className="relative">
-              <img
-                src={profile}
-                alt="Kranthi Kiran"
-                className="w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] lg:w-[340px] lg:h-[420px] object-cover rounded-2xl shadow-xl"
-              />
+              {/* subtle gold frame matching the site's calm accent */}
+              <div className="relative rounded-2xl p-[3px]"
+                style={{
+                  background: 'linear-gradient(160deg, color-mix(in oklab, #e0a04a 45%, transparent), color-mix(in oklab, var(--color-border) 60%, transparent) 55%, color-mix(in oklab, #e0a04a 22%, transparent))',
+                  boxShadow: '0 18px 50px -18px color-mix(in oklab, #e0a04a 35%, transparent)',
+                }}>
+                <img
+                  src={profile}
+                  alt="Kranthi Kiran"
+                  className="w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] lg:w-[340px] lg:h-[420px] object-cover rounded-[13px] block"
+                />
+                {/* faint inner highlight so the frame reads as glass, not a hard line */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-[13px]"
+                  style={{ boxShadow: 'inset 0 1px 0 0 color-mix(in oklab, white 12%, transparent), inset 0 0 0 1px color-mix(in oklab, #e0a04a 18%, transparent)' }} />
+              </div>
               <div className="absolute bottom-3 left-3">
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-medium text-foreground shadow-md border border-border/40">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-medium text-foreground shadow-md" style={{ border: '1px solid color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
                   Kranthi
                 </span>
               </div>
