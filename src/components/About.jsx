@@ -106,7 +106,7 @@ function BentoClockCard() {
   const isDay = ist.getHours() >= 6 && ist.getHours() < 19
 
   return (
-    <div className="bg-card p-5 flex flex-col justify-between pr-tint-violet">
+    <div className="col-span-1 rounded-2xl bg-card p-5 flex flex-col justify-between pr-tint-violet">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Vizag, India</p>
         <span className="text-base">{isDay ? '☀️' : '🌙'}</span>
@@ -148,7 +148,7 @@ function BentoReflectionCard() {
   }, [])
   const r = REFLECTIONS[i]
   return (
-    <div className="col-span-2 bg-card overflow-hidden pr-tint-coral flex flex-col justify-center px-6 py-5 relative">
+    <div className="col-span-2 rounded-2xl bg-card overflow-hidden pr-tint-coral flex flex-col justify-center px-6 py-5 relative">
       <span aria-hidden="true" className="absolute top-2 left-4 font-serif text-5xl leading-none text-muted-foreground/15 select-none">“</span>
       <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Reflection</p>
       <div style={{ opacity: show ? 1 : 0, transform: show ? 'none' : 'translateY(6px)', transition: 'opacity .5s ease, transform .5s ease' }}>
@@ -173,11 +173,11 @@ export default function About() {
           </p>
         </div>
 
-        {/* Bento grid: 4 cols, explicit row layout */}
-        <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: '210px 170px 170px' }}>
+        {/* Bento grid — responsive: 2 cols on mobile, 4 on desktop; auto row heights so nothing overlaps */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 auto-rows-[minmax(150px,auto)]">
 
-          {/* R1: Profile (2col) + Reflection (2col) */}
-          <div className="col-span-2 bg-card overflow-hidden flex flex-col pr-tint-magenta">
+          {/* Profile / LinkedIn */}
+          <div className="col-span-2 rounded-2xl bg-card overflow-hidden flex flex-col pr-tint-magenta">
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
               <div className="absolute -bottom-7 left-4">
@@ -185,51 +185,47 @@ export default function About() {
               </div>
             </div>
             <div className="pt-9 px-4 pb-4 flex flex-col flex-1">
-              <div className="flex items-center gap-1.5 mb-0.5">
+              <div className="flex items-center gap-1.5">
                 <h4 className="font-heading font-bold text-sm">Kranthi Kiran</h4>
-                <svg className="w-3.5 h-3.5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                <svg className="w-3.5 h-3.5 text-[#0a66c2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
               </div>
-              <p className="text-[11px] text-muted-foreground mb-3">SE-III @GitHub · prev Amazon, Couchbase</p>
-              <div className="flex gap-2 mt-auto">
-                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-1.5 rounded-lg bg-blue-600 text-white font-medium text-[11px] hover:opacity-90 transition-all">Connect</a>
-                <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-1.5 rounded-lg border border-border/40 text-foreground font-medium text-[11px] hover:bg-muted/50 transition-all">Profile</a>
-              </div>
+              <p className="text-[11px] text-foreground/80 mt-0.5">Support Engineer III · GitHub</p>
+              <p className="text-[10.5px] text-muted-foreground/70">prev Amazon · Couchbase</p>
+              <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#0a66c2] text-white font-medium text-[11px] hover:opacity-90 transition-all">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                Connect on LinkedIn
+              </a>
             </div>
           </div>
 
+          {/* Reflection (col-span-2 baked in) */}
           <BentoReflectionCard />
 
-          {/* R2: Clock + Currently (left 2 cols) + Instagram (right 2 cols, spans R2+R3) */}
+          {/* Local time / availability (col-span-1) */}
           <BentoClockCard />
 
-          <div className="bg-card p-4 flex flex-col pr-tint-violet">
+          {/* Currently */}
+          <div className="col-span-1 rounded-2xl bg-card p-4 flex flex-col pr-tint-violet">
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-2">Currently</p>
             <div className="space-y-2 flex-1 flex flex-col justify-center">
-              <div className="flex items-center gap-2">
-                <span className="text-sm">💼</span>
-                <p className="text-[11px] text-foreground">Building at <span className="font-semibold text-accent">GitHub</span></p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm">🎧</span>
-                <p className="text-[11px] text-foreground">Bollywood Hits</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm">📚</span>
-                <p className="text-[11px] text-foreground">System Design</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm">🎮</span>
-                <p className="text-[11px] text-foreground">Valorant</p>
-              </div>
+              <div className="flex items-center gap-2"><span className="text-sm">💼</span><p className="text-[11px] text-foreground">Building at <span className="font-semibold text-accent">GitHub</span></p></div>
+              <div className="flex items-center gap-2"><span className="text-sm">🎧</span><p className="text-[11px] text-foreground">Bollywood Hits</p></div>
+              <div className="flex items-center gap-2"><span className="text-sm">📚</span><p className="text-[11px] text-foreground">System Design</p></div>
+              <div className="flex items-center gap-2"><span className="text-sm">🎮</span><p className="text-[11px] text-foreground">Valorant</p></div>
             </div>
           </div>
 
-          <div className="col-span-2 row-span-2 overflow-hidden bg-card pr-tint-magenta">
-            <iframe src="https://www.instagram.com/p/DS5NAvokmU9/embed" width="100%" height="100%" frameBorder="0" scrolling="no" allowTransparency="true" loading="lazy" className="rounded-2xl" title="Instagram" />
-          </div>
+          {/* X / Twitter — small, replaces the old Instagram embed */}
+          <a href="https://x.com/kranthikiran03" target="_blank" rel="noopener noreferrer"
+            className="col-span-2 rounded-2xl bg-card p-4 flex flex-col items-center justify-center text-center gap-1.5 pr-tint-coral hover:bg-muted/20 transition-colors group">
+            <svg className="w-6 h-6 text-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            <p className="text-[12px] font-medium text-foreground">@kranthikiran03</p>
+            <span className="text-[10px] text-muted-foreground group-hover:text-accent transition-colors">Follow on X →</span>
+          </a>
 
-          {/* R3: GitHub Contribution Heatmap (full width left 2 cols), Instagram continues right */}
-          <div className="col-span-2 bg-card p-4 flex flex-col pr-tint-violet justify-center overflow-hidden">
+          {/* GitHub Contributions — full width */}
+          <div className="col-span-2 sm:col-span-4 rounded-2xl bg-card p-4 flex flex-col pr-tint-violet justify-center overflow-hidden">
             <div className="flex items-center justify-between mb-2">
               <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">GitHub Contributions</p>
               <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="text-[10px] text-accent hover:underline">@kranthi0003</a>
