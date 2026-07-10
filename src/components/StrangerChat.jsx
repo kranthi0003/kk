@@ -337,7 +337,7 @@ export default function StrangerChat({ onBack }) {
       <div className="sticky top-0 z-30 thq-nav-surface backdrop-blur-xl border-b"
         style={{ borderBottomColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          <button onClick={onBack || (() => { window.location.hash = ''; window.location.reload() })}
+          <button onClick={onBack || (() => { window.location.hash = '' })}
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm group">
             <span className="w-7 h-7 rounded-lg flex items-center justify-center"
               style={{ background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 22%, transparent)' }}>

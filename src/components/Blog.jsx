@@ -3,7 +3,7 @@ import { CATEGORIES, categoryLabel, postsByCategory, featuredPost, formatDate, p
 
 const ACCENT = '#e0a04a'
 
-const goPost = (slug) => { window.location.hash = `#/blog/${slug}`; window.location.reload() }
+const goPost = (slug) => { window.location.hash = `#/blog/${slug}` }
 
 function PostCard({ post }) {
   return (

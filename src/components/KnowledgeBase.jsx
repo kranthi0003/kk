@@ -7,7 +7,7 @@ import { TOPICS, topicCount, postsByTopic, notePosts, tilPosts, categoryLabel, t
 // the same registry as the blog; this page is just the topic-first view of them.
 
 const ACCENT = '#e0a04a'
-const goPost = (slug) => { window.location.hash = `#/blog/${slug}`; window.location.reload() }
+const goPost = (slug) => { window.location.hash = `#/blog/${slug}` }
 
 function TopicCard({ topic, active, onClick }) {
   const n = topicCount(topic.id)

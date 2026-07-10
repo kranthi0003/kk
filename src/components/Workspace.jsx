@@ -84,14 +84,14 @@ export default function Workspace({ onBack, embedded = false }) {
 
   const nav = (id) => {
     // Site sub-page routes
-    if (id === 'projects')   { window.location.hash = '#/projects';   window.location.reload(); return }
-    if (id === 'experience') { window.location.hash = '#/experience'; window.location.reload(); return }
-    if (id === 'connect')    { window.location.hash = '#/connect';    window.location.reload(); return }
-    if (id === 'tech')       { window.location.hash = '#/tech';       window.location.reload(); return }
-    if (id === 'travel')     { window.location.hash = '#/travel';     window.location.reload(); return }
-    if (id === 'photos')     { window.location.hash = '#/about';      window.location.reload(); return }
-    if (id === 'fitness')    { window.location.hash = '#/transformation'; window.location.reload(); return }
-    if (id === 'stranger')   { window.location.hash = '#/stranger';   window.location.reload(); return }
+    if (id === 'projects')   { window.location.hash = '#/projects'; return }
+    if (id === 'experience') { window.location.hash = '#/experience'; return }
+    if (id === 'connect')    { window.location.hash = '#/connect'; return }
+    if (id === 'tech')       { window.location.hash = '#/tech'; return }
+    if (id === 'travel')     { window.location.hash = '#/travel'; return }
+    if (id === 'photos')     { window.location.hash = '#/about'; return }
+    if (id === 'fitness')    { window.location.hash = '#/transformation'; return }
+    if (id === 'stranger')   { window.location.hash = '#/stranger'; return }
     // In-scene interactions
     if (id === 'about')      { setChatOpen(true); return }
     if (id === 'guestbook')  { setShowStickyForm(true); return }
@@ -241,7 +241,7 @@ export default function Workspace({ onBack, embedded = false }) {
       <div className="sticky top-0 z-30 thq-nav-surface backdrop-blur-xl border-b"
         style={{ borderBottomColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          <button onClick={onBack || (() => { window.location.hash = ''; window.location.reload() })}
+          <button onClick={onBack || (() => { window.location.hash = '' })}
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm group">
             <span className="w-7 h-7 rounded-lg flex items-center justify-center"
               style={{ background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 22%, transparent)' }}>
@@ -400,8 +400,8 @@ export default function Workspace({ onBack, embedded = false }) {
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { label: '📖 Read my About', go: () => { setChatOpen(false); sessionStorage.setItem('scrollTo', 'about'); window.location.hash = ''; window.location.reload() } },
-                  { label: '💼 Experience',    go: () => { setChatOpen(false); sessionStorage.setItem('scrollTo', 'experience'); window.location.hash = ''; window.location.reload() } },
+                  { label: '📖 Read my About', go: () => { setChatOpen(false); sessionStorage.setItem('scrollTo', 'about'); window.location.hash = '' } },
+                  { label: '💼 Experience',    go: () => { setChatOpen(false); sessionStorage.setItem('scrollTo', 'experience'); window.location.hash = '' } },
                   { label: '✉️  Send email',   go: () => window.open('mailto:kranthikiranakkumahanthi@gmail.com', '_blank') },
                   { label: '🔍 Show LinkedIn', go: () => window.open('https://linkedin.com/in/kranthikiran3', '_blank') },
                 ].map((c, i) => (
