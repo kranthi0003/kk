@@ -49,7 +49,7 @@ CERTIFICATIONS:
 PROJECTS:
 1. SketchGate — A high-availability distributed rate limiter with penalty queues, built in Go. Designed for cloud-native architectures with sliding window counters and adaptive throttling.
 2. Health Risk Prediction — ML pipeline for predicting health risks using patient data. Classification models with feature engineering using Python, Pandas, Scikit-learn.
-3. kranthikiran.com — This portfolio site! Built with React, Tailwind CSS, Vite. Features 3D globe, AI chatbot, interactive terminal, Ubuntu boot sequence, Matrix easter egg, Bitcoin wallet tracker.
+3. kranthikiran.com — This portfolio site! Built with React, Tailwind CSS, Vite. Features an interactive travel map, AI chatbot, interactive terminal, Ubuntu boot sequence, Matrix easter egg, Bitcoin wallet tracker.
 4. 2028 Halving Strategy — Crypto halving cycle strategy tracker in TypeScript. Analyzes historical Bitcoin halving data and models investment strategies.
 5. IoT Smart Home Controller — NodeMCU + Arduino project to remotely control lights/fans via mobile app using relays and WiFi.
 6. Rotating Solar Panel — Self-rotating solar panel using gear motor and Arduino UNO for maximum sunlight tracking.
@@ -104,7 +104,7 @@ SITE FEATURES (everything on the site):
 4. Admin Mode — type "kk2026" in search bar + Enter to unlock admin features (visitor dashboard, guestbook moderation). Green badge shows when active.
 5. AI Chatbot (you!) — bottom-right floating button. Knows everything about Kranthi. Typing effect, suggestion pills, sessionStorage cache.
 6. Interactive Terminal — AI Shell Translator (English → shell commands), Architecture Diagram Generator ("design twitter"), 4 games (Snake, Tic-Tac-Toe, Wordle with tech words, Memory). Rotating prompt suggestions.
-7. 3D Travel Globe — react-globe.gl showing cities Kranthi has visited with arcs and labels.
+7. Travel Map — an interactive Leaflet map showing places Kranthi has visited (gold pins) and places he wants to go (blue pins), with click-to-explore.
 8. Bitcoin Wallet Tracker — navbar dropdown showing live BTC balance, USD value, transaction count. Uses blockchain.info API.
 9. Spotify Player — embedded Spotify playlist dropdown in navbar.
 10. Status Monitor — navbar dropdown with ECG heartbeat canvas, live metrics (FCP, TTFB, DOM load, resource count, JS heap memory). Pings every 750ms.

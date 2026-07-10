@@ -8,6 +8,8 @@ import React, { createContext, useContext, useEffect, useRef, useState, useCallb
 
 export const TRACKS = [
   { id: 'DOT1LmQbFFA', title: 'Weightless',       by: 'Martin Garrix & Arijit Singh' },
+  { id: 'JgDNFQ2RaLQ', title: 'Sapphire',         by: 'Ed Sheeran' },
+  { id: 'WWEs82u37Mw', title: 'Lose My Mind',     by: 'Don Toliver, Doja Cat' },
   { id: 'GCdwKhTtNNw', title: 'Sweater Weather',   by: 'The Neighbourhood' },
   { id: 'nyuo9-OjNNg', title: 'I Wanna Be Yours',  by: 'Arctic Monkeys' },
   { id: 'o_1aF54DO60', title: 'Young and Beautiful', by: 'Lana Del Rey' },
