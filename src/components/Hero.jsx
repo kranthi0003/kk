@@ -53,10 +53,10 @@ export default function Hero({ onResumeClick }) {
           <div className="text-center lg:text-left">
             {/* Status pill */}
             <div className="mb-5 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/60 bg-card/30 backdrop-blur text-xs font-medium text-muted-foreground">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-card/20 backdrop-blur text-xs font-medium text-muted-foreground/90" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500/90" />
                 </span>
                 Currently at GitHub · Microsoft
               </span>
