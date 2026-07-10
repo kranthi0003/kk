@@ -65,7 +65,7 @@ export default function TechStack() {
             const tagColors = ['oklch(75% 0.22 285)', 'oklch(72% 0.27 320)', 'oklch(75% 0.20 25)']
             const tint = tints[i % 3]
             const tagColor = tagColors[i % 3]
-            const goArticle = () => { window.location.hash = `#/blog/${c.slug}`; window.location.reload() }
+            const goArticle = () => { window.location.hash = `#/blog/${c.slug}` }
             return (
               <div
                 key={c.name}

@@ -3,7 +3,7 @@ import React from 'react'
 // A quiet homepage entry into the dopamine explainer — calm, in the site's
 // voice, no hard sell. Routes to the full #/dopamine page.
 export default function DopamineTeaser() {
-  const go = () => { window.location.hash = '#/blog/cheap-dopamine'; window.location.reload() }
+  const go = () => { window.location.hash = '#/blog/cheap-dopamine' }
   return (
     <section className="py-20 sm:py-28 px-6">
       <div className="max-w-2xl mx-auto">

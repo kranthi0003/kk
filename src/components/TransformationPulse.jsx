@@ -22,7 +22,7 @@ export default function TransformationPulse({ compact = false }) {
 
   if (!data) return null
 
-  const open = () => { window.location.hash = '#/transformation'; window.location.reload() }
+  const open = () => { window.location.hash = '#/transformation' }
   const dayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
 
   // ---- Compact navbar pill: a tiny week-dot strip + count + streak ----

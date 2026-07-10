@@ -6,7 +6,7 @@ import React from 'react'
 // when you want them.
 
 const ACCENT = 'var(--color-accent)'
-const goArticle = (slug) => { window.location.hash = `#/blog/${slug}`; window.location.reload() }
+const goArticle = (slug) => { window.location.hash = `#/blog/${slug}` }
 
 const GROUPS = [
   {

@@ -860,7 +860,7 @@ export default function CollabEditor({ onBack }) {
                 </div>
               </div>
               <button
-                onClick={() => { window.location.hash = '#/battle'; window.location.reload() }}
+                onClick={() => { window.location.hash = '#/battle' }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
                 Enter Battle Arena <span>→</span>
               </button>

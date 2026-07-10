@@ -120,7 +120,7 @@ function Prose({ post }) {
           {topics.length > 0 && (
             <span className="flex items-center gap-1.5">
               {topics.map(t => (
-                <button key={t} onClick={() => { window.location.hash = '#/notes'; window.location.reload() }}
+                <button key={t} onClick={() => { window.location.hash = '#/notes' }}
                   className="px-2 py-0.5 rounded-full text-[10.5px] not-italic transition-colors hover:text-foreground"
                   style={{ background: 'color-mix(in oklab, var(--color-card) 55%, transparent)', border: '1px solid var(--color-border)' }}>
                   {topicLabel(t)}

@@ -456,7 +456,7 @@ const navLinks = [
 function VegasButton() {
   return (
     <button
-      onClick={() => { window.location.hash = '#/vegas'; window.location.reload() }}
+      onClick={() => { window.location.hash = '#/vegas' }}
       title="Vegas (private)"
       className="inline-flex items-center h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
     >
@@ -469,7 +469,7 @@ function VegasButton() {
 function StatusPill() {
   return (
     <button
-      onClick={() => { window.location.hash = '#/reliability'; window.location.reload() }}
+      onClick={() => { window.location.hash = '#/reliability' }}
       title="Reliability Lab — live status & observability"
       className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-emerald-400/40 transition-colors"
     >
@@ -531,17 +531,20 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         {/* Left — Logo + ambient music */}
         <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
         <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-sm overflow-hidden"
+          <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, oklch(55% 0.22 285), oklch(55% 0.27 320))',
-              color: 'white',
-              boxShadow: '0 4px 12px -2px color-mix(in oklab, var(--chart-1) 50%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.2)',
+              background: 'linear-gradient(155deg, color-mix(in oklab, #e0a04a 22%, var(--color-card)), var(--color-card))',
+              color: '#e0a04a',
+              border: '1px solid color-mix(in oklab, #e0a04a 32%, transparent)',
+              boxShadow: '0 4px 14px -6px color-mix(in oklab, #e0a04a 40%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)',
+              fontWeight: 500,
             }}
           >
-            <span className="relative z-10">KK</span>
-            <span className="absolute -top-1.5 -right-2 px-1 py-0 rounded text-[7px] font-bold uppercase tracking-wider bg-yellow-500 text-black leading-tight">β</span>
+            <span className="relative z-10 text-[15px] tracking-tight">KK</span>
+            <span className="absolute -top-1 -right-1.5 px-1 rounded text-[7px] font-mono uppercase tracking-wider leading-tight"
+              style={{ background: 'color-mix(in oklab, #e0a04a 16%, var(--color-card))', color: '#e0a04a', border: '1px solid color-mix(in oklab, #e0a04a 30%, transparent)' }}>β</span>
           </div>
-          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-gradient-violet transition-colors">
+          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-accent transition-colors">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
           </span>
         </a>
@@ -626,15 +629,15 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
                 { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
                 { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
-                { icon: '🔥', label: 'Fitness', action: () => { window.location.hash = '#/transformation'; window.location.reload() } },
+                { icon: '🔥', label: 'Fitness', action: () => { window.location.hash = '#/transformation' } },
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
-                { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle'; window.location.reload() } },
-                { icon: '📝', label: 'Blog', action: () => { window.location.hash = '#/blog'; window.location.reload() } },
-                { icon: '📚', label: 'Notes', action: () => { window.location.hash = '#/notes'; window.location.reload() } },
-                { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline'; window.location.reload() } },
-                { icon: '📍', label: 'Now', action: () => { window.location.hash = '#/now'; window.location.reload() } },
-                { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses'; window.location.reload() } },
+                { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle' } },
+                { icon: '📝', label: 'Blog', action: () => { window.location.hash = '#/blog' } },
+                { icon: '📚', label: 'Notes', action: () => { window.location.hash = '#/notes' } },
+                { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline' } },
+                { icon: '📍', label: 'Now', action: () => { window.location.hash = '#/now' } },
+                { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses' } },
                 { icon: '🎵', label: 'Ambient', action: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
               ].map(a => (
                 <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
@@ -676,13 +679,13 @@ function ToolsDropdown() {
     { icon: <PulseIcon />,  label: 'Service Status',    evt: 'toggle-service-status' },
     { icon: <ReadIcon />,   label: 'Reading Mode',      onClick: () => document.body.classList.toggle('reading-mode') },
     { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
-    { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation'; window.location.reload() } },
-    { icon: <PulseIcon />,  label: 'Reliability Lab',    onClick: () => { window.location.hash = '#/reliability'; window.location.reload() } },
-    { icon: <ReadIcon />,   label: 'Blog',               onClick: () => { window.location.hash = '#/blog'; window.location.reload() } },
-    { icon: <ReadIcon />,   label: 'Learning Timeline',  onClick: () => { window.location.hash = '#/timeline'; window.location.reload() } },
-    { icon: <ReadIcon />,   label: 'Now',                onClick: () => { window.location.hash = '#/now'; window.location.reload() } },
-    { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes'; window.location.reload() } },
-    { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses'; window.location.reload() } },
+    { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation' } },
+    { icon: <PulseIcon />,  label: 'Reliability Lab',    onClick: () => { window.location.hash = '#/reliability' } },
+    { icon: <ReadIcon />,   label: 'Blog',               onClick: () => { window.location.hash = '#/blog' } },
+    { icon: <ReadIcon />,   label: 'Learning Timeline',  onClick: () => { window.location.hash = '#/timeline' } },
+    { icon: <ReadIcon />,   label: 'Now',                onClick: () => { window.location.hash = '#/now' } },
+    { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes' } },
+    { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')

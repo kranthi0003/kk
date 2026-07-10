@@ -79,7 +79,7 @@ export default function Hero({ onResumeClick }) {
               style={{ animationDelay: '0.3s', fontWeight: 400, fontStyle: 'italic', color: 'var(--color-accent)' }}
             >
               <TypingText
-                phrases={['Cloud engineer', 'Distributed systems', 'Builder of quiet, reliable things', 'Forever a student']}
+                phrases={['Support Engineer at GitHub', 'Distributed systems & reliability', 'CI/CD & GitHub Actions', 'AWS & cloud infrastructure']}
                 typingSpeed={120}
                 deletingSpeed={60}
                 pauseDuration={2600}
@@ -116,14 +116,14 @@ export default function Hero({ onResumeClick }) {
             {/* Secondary pills */}
             <div className="mt-7 flex flex-wrap gap-2 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
               <button
-                onClick={() => { window.location.hash = '#/collab'; window.location.reload() }}
+                onClick={() => { window.location.hash = '#/collab' }}
                 className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
               >
                 Collab — code &amp; battle
                 <span className="opacity-50 group-hover:translate-x-0.5 transition-transform">→</span>
               </button>
               <button
-                onClick={() => { window.location.hash = '#/stranger'; window.location.reload() }}
+                onClick={() => { window.location.hash = '#/stranger' }}
                 className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
               >
                 Stranger Chat

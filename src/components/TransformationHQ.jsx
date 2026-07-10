@@ -136,7 +136,7 @@ export default function TransformationHQ({ onBack }) {
         style={{ borderBottomColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
           <button
-            onClick={onBack || (() => { window.location.hash = ''; window.location.reload() })}
+            onClick={onBack || (() => { window.location.hash = '' })}
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm group"
           >
             <span className="w-7 h-7 rounded-lg flex items-center justify-center transition-colors"

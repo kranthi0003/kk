@@ -114,11 +114,49 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
+  // IMPORTANT: every hook must run before the route early-returns below.
+  // Navigation is reload-free (SPA), so a route change re-renders this same
+  // component — if a hook lived after an early return, the hook count would
+  // change between renders and React would throw (error #300).
+  const handleSecretTrigger = useCallback(() => {
+    if (!matrixActive) setMatrixActive(true)
+  }, [matrixActive])
+
+  const handleMatrixComplete = useCallback(() => {
+    setMatrixActive(false)
+  }, [])
+
+  // Listen for matrix trigger from command palette
+  useEffect(() => {
+    const handler = () => { if (!matrixActive) setMatrixActive(true) }
+    window.addEventListener('trigger-matrix', handler)
+    return () => window.removeEventListener('trigger-matrix', handler)
+  }, [matrixActive])
+
+  // Reveal-on-scroll for homepage sections. Re-runs on route change so the
+  // sections are re-observed when returning to the homepage (no-op elsewhere).
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    document.querySelectorAll('.section-animate').forEach((el) => {
+      observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [route])
+
   // Battle page route
   if (route === '#/battle') {
     return (
       <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
-        <BattlePage onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <BattlePage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -127,7 +165,7 @@ export default function App() {
   if (route.startsWith('#/collab')) {
     return (
       <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
-        <CollabEditor onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <CollabEditor onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -138,7 +176,7 @@ export default function App() {
       <>
         <div className="pr-backdrop-glow" aria-hidden="true" />
         <div className="pr-backdrop-noise" aria-hidden="true" />
-        <TransformationHQ onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <TransformationHQ onBack={() => { window.location.hash = '' }} />
       </>
     )
   }
@@ -150,7 +188,7 @@ export default function App() {
         <div className="pr-backdrop-glow" aria-hidden="true" />
         <div className="pr-backdrop-noise" aria-hidden="true" />
         <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
-          <StrangerChat onBack={() => { window.location.hash = ''; window.location.reload() }} />
+          <StrangerChat onBack={() => { window.location.hash = '' }} />
         </Suspense>
       </>
     )
@@ -162,7 +200,7 @@ export default function App() {
       <>
         <div className="pr-backdrop-glow" aria-hidden="true" />
         <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><div className="w-6 h-6 border-2 border-muted-foreground/20 border-t-accent rounded-full animate-spin" /></div>}>
-          <Workspace onBack={() => { window.location.hash = ''; window.location.reload() }} />
+          <Workspace onBack={() => { window.location.hash = '' }} />
         </Suspense>
       </>
     )
@@ -181,7 +219,7 @@ export default function App() {
   if (route === '#/astro') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-[#050508] flex items-center justify-center"><div className="text-[10px] font-mono tracking-[0.3em] text-white/20 animate-pulse">LOADING PARTICLES</div></div>}>
-        <AstroDither onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <AstroDither onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -190,7 +228,7 @@ export default function App() {
   if (route === '#/tod') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading game...</div></div>}>
-        <TruthOrDare onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <TruthOrDare onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -199,7 +237,7 @@ export default function App() {
   if (route === '#/vegas') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <Vegas onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <Vegas onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -208,7 +246,7 @@ export default function App() {
   if (route === '#/reliability') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">booting telemetry…</div></div>}>
-        <ReliabilityLab onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <ReliabilityLab onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -217,7 +255,7 @@ export default function App() {
   if (route === '#/blog') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <Blog onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <Blog onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -225,7 +263,7 @@ export default function App() {
     const slug = route === '#/dopamine' ? 'cheap-dopamine' : route.slice('#/blog/'.length)
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <BlogPost slug={slug} onBack={() => { window.location.hash = '#/blog'; window.location.reload() }} />
+        <BlogPost slug={slug} onBack={() => { window.location.hash = '#/blog' }} />
       </Suspense>
     )
   }
@@ -234,7 +272,7 @@ export default function App() {
   if (route === '#/now') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <NowPage onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <NowPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -243,7 +281,7 @@ export default function App() {
   if (route === '#/timeline') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <Timeline onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <Timeline onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -252,7 +290,7 @@ export default function App() {
   if (route === '#/notes') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <KnowledgeBase onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <KnowledgeBase onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
@@ -261,44 +299,10 @@ export default function App() {
   if (route === '#/uses') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <UsesPage onBack={() => { window.location.hash = ''; window.location.reload() }} />
+        <UsesPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
-
-  const handleSecretTrigger = useCallback(() => {
-    if (!matrixActive) setMatrixActive(true)
-  }, [matrixActive])
-
-  // Listen for matrix trigger from command palette
-  useEffect(() => {
-    const handler = () => { if (!matrixActive) setMatrixActive(true) }
-    window.addEventListener('trigger-matrix', handler)
-    return () => window.removeEventListener('trigger-matrix', handler)
-  }, [matrixActive])
-
-  const handleMatrixComplete = useCallback(() => {
-    setMatrixActive(false)
-  }, [])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    document.querySelectorAll('.section-animate').forEach((el) => {
-      observer.observe(el)
-    })
-
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <>
