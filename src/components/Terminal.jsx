@@ -100,11 +100,9 @@ export default function Terminal() {
   const [history, setHistory] = useState([
     { type: 'output', lines: [
       colorize('', ''),
-      colorize('  ╭──────────────────────────────────────╮', T.accent),
-      colorize('  │   kranthi.sh — AI Shell Translator   │', T.fg),
-      colorize('  │   Type what you want in English ✨    │', T.muted),
-      colorize('  │   or "help" for games & commands     │', T.dim),
-      colorize('  ╰──────────────────────────────────────╯', T.accent),
+      colorize('  kranthi.sh — AI Shell Translator', T.accent),
+      colorize('  Type what you want in plain English, and I\u2019ll turn it into a shell command.', T.muted),
+      colorize('  Try “help” for games & commands.', T.dim),
       colorize('', ''),
     ]},
   ])
@@ -682,11 +680,11 @@ export default function Terminal() {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/terminal</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">AI Shell Translator</h2>
+          <h2 className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 500 }}>AI Shell Translator</h2>
           <p className="text-muted-foreground text-sm mt-2">Describe what you want in plain English · Also has games & architecture diagrams</p>
         </div>
 
-        <div className="rounded-2xl border border-border/30 shadow-2xl overflow-hidden bg-card">
+        <div className="rounded-2xl border shadow-2xl overflow-hidden bg-card" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 50%, transparent)' }}>
           {/* Title bar */}
           <div className="flex items-center px-4 py-2.5 border-b border-border/20 bg-muted/30">
             <div className="flex gap-1.5">
@@ -711,7 +709,7 @@ export default function Terminal() {
           {/* Terminal body */}
           <div
             ref={scrollRef}
-            className="p-5 h-[400px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text scroll-smooth"
+            className="p-5 h-[280px] sm:h-[320px] overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text scroll-smooth"
             onClick={() => inputRef.current?.focus()}
           >
             {history.map((entry, i) => (
@@ -762,7 +760,10 @@ export default function Terminal() {
               <button
                 key={cmd}
                 onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
-                className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-accent/30 hover:text-foreground hover:bg-muted/30 transition-all"
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 40%, transparent)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+                style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+                className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border hover:text-foreground hover:bg-muted/30 transition-all"
               >
                 {cmd.startsWith('design') ? '🏗️ ' : ''}{cmd}
               </button>
@@ -776,7 +777,10 @@ export default function Terminal() {
                 <button
                   key={cmd}
                   onClick={() => { setInput(cmd); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
-                  className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border border-border/30 hover:border-accent/30 hover:text-foreground hover:bg-muted/30 transition-all"
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 40%, transparent)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+                  style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+                  className="px-3 py-1.5 rounded-full text-[11px] font-mono text-muted-foreground border hover:text-foreground hover:bg-muted/30 transition-all"
                 >
                   {g}
                 </button>
