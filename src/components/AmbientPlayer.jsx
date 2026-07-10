@@ -19,6 +19,10 @@ export default function AmbientPlayer() {
     <>
       <style>{`
         @keyframes amb-ring { 0%,100%{transform:scale(1);opacity:.55} 50%{transform:scale(1.5);opacity:0} }
+        @keyframes amb-eq1 { 0%,100%{height:4px} 50%{height:13px} }
+        @keyframes amb-eq2 { 0%,100%{height:11px} 50%{height:5px} }
+        @keyframes amb-eq3 { 0%,100%{height:6px} 50%{height:14px} }
+        @keyframes amb-eq4 { 0%,100%{height:13px} 50%{height:7px} }
       `}</style>
 
       <div
@@ -29,24 +33,43 @@ export default function AmbientPlayer() {
         {/* soft divider from the name — calm separation, no box */}
         <span aria-hidden="true" className="hidden sm:block flex-shrink-0 mr-3" style={{ width: 1, height: 22, background: 'var(--color-border)', opacity: 0.5 }} />
 
-        {/* Play / pause — a light ghost circle: airy, but still obviously a control */}
+        {/* Vibrant "now playing" chip. Shows dancing equalizer bars by default;
+            reveals the play/pause icon on hover so it's clearly a control. */}
         <button
           onClick={toggle}
           disabled={!built}
           title={built ? (playing ? 'Pause music' : 'Play music') : 'Loading…'}
           aria-label={playing ? 'Pause music' : 'Play music'}
-          className="relative flex items-center justify-center flex-shrink-0 transition-transform hover:scale-105"
-          style={{ width: 30, height: 30, borderRadius: 999,
-            background: 'color-mix(in oklab, var(--color-accent) 11%, transparent)',
-            color: 'var(--color-accent)' }}
+          className="relative flex items-center justify-center flex-shrink-0 transition-all hover:scale-105"
+          style={{ width: 32, height: 32, borderRadius: 999,
+            background: playing
+              ? 'color-mix(in oklab, var(--color-accent) 22%, transparent)'
+              : 'color-mix(in oklab, var(--color-accent) 12%, transparent)',
+            color: 'var(--color-accent)',
+            boxShadow: playing ? '0 0 12px -2px color-mix(in oklab, var(--color-accent) 55%, transparent)' : 'none' }}
         >
           {!everPlayed && !prefersReduced && (
             <span aria-hidden="true" className="absolute rounded-full" style={{ inset: -1, border: '1.5px solid var(--color-accent)', animation: 'amb-ring 2.4s ease-out infinite' }} />
           )}
-          {playing ? (
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+          {hover ? (
+            // On hover: the actual play/pause control
+            playing ? (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+            ) : (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
+            )
           ) : (
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
+            // Default: vibrant equalizer bars (dancing when playing, resting when paused)
+            <span className="flex items-end gap-[2px]" style={{ height: 15 }} aria-hidden="true">
+              {[1, 2, 3, 4].map((n) => (
+                <span key={n} style={{
+                  width: 2.5, borderRadius: 2, background: 'currentColor',
+                  height: playing ? undefined : 4,
+                  opacity: playing ? 1 : 0.55,
+                  animation: (playing && !prefersReduced) ? `amb-eq${n} ${0.9 + n * 0.12}s ease-in-out infinite` : 'none',
+                }} />
+              ))}
+            </span>
           )}
         </button>
 
