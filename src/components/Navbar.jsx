@@ -458,7 +458,10 @@ function VegasButton() {
     <button
       onClick={() => { window.location.hash = '#/vegas' }}
       title="Vegas (private)"
-      className="inline-flex items-center h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 45%, transparent)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+      style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+      className="inline-flex items-center h-8 px-3 rounded-full border bg-card/30 backdrop-blur text-[12px] font-medium text-muted-foreground/90 hover:text-foreground transition-colors"
     >
       Vegas
     </button>
@@ -471,7 +474,10 @@ function StatusPill() {
     <button
       onClick={() => { window.location.hash = '#/reliability' }}
       title="Reliability Lab — live status & observability"
-      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-emerald-400/40 transition-colors"
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, #34d399 45%, transparent)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+      style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border bg-card/30 backdrop-blur text-[12px] font-medium text-muted-foreground/90 hover:text-foreground transition-colors"
     >
       <span className="relative flex h-2 w-2">
         <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 opacity-70 animate-ping" />
