@@ -181,7 +181,7 @@ export default function About() {
             <div className="h-20 relative overflow-hidden flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop" alt="" className="w-full h-full object-cover" />
               <div className="absolute -bottom-7 left-4">
-                <img src={profile} alt="Kranthi Kiran" className="w-14 h-14 rounded-full object-cover border-2 border-card shadow-md" />
+                <img src={profile} alt="Kranthi Kiran" className="w-14 h-14 rounded-full object-cover shadow-md" style={{ border: '2px solid var(--color-card)', outline: '1.5px solid color-mix(in oklab, #e0a04a 45%, transparent)', outlineOffset: '1px' }} />
               </div>
             </div>
             <div className="pt-9 px-4 pb-4 flex flex-col flex-1">
