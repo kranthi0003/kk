@@ -139,7 +139,7 @@ export default function WeatherWidget() {
   const emoji = weatherEmoji(w)
 
   return (
-    <div className="fixed bottom-16 left-6 z-40">
+    <div className="hidden md:block fixed bottom-16 left-6 z-40">
       {/* Collapsed pill */}
       {!open && (
         <button
