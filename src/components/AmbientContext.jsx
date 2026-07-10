@@ -7,21 +7,20 @@ import React, { createContext, useContext, useEffect, useRef, useState, useCallb
 // API (licensing/ads handled by YouTube). Auto-advances through the list, loops.
 
 export const TRACKS = [
-  { id: 'wmLGG5DYDWQ', title: 'Late Night Drive', by: 'Cigarettes After Sex mix' },
-  { id: 'vx4kLgnFexo', title: 'My Love Mine All Mine', by: 'Mitski' },
   { id: 'DOT1LmQbFFA', title: 'Weightless',       by: 'Martin Garrix & Arijit Singh' },
-  { id: 'NgsWGfUlwJI', title: 'Glimpse of Us',     by: 'Joji' },
-  { id: 'gJLVTKhTnog', title: 'Husn',              by: 'Anuv Jain' },
-  { id: 'VF-FGf_ZZiI', title: 'Bad Habit',         by: 'Steve Lacy' },
-  { id: 'MiAoetOXKcY', title: 'Say Yes to Heaven', by: 'Lana Del Rey' },
-  { id: 'myh5xtfUG-I', title: 'double take',       by: 'dhruv' },
-  { id: 'Il7Nv270zNk', title: 'cold/mess',         by: 'Prateek Kuhad' },
   { id: 'GCdwKhTtNNw', title: 'Sweater Weather',   by: 'The Neighbourhood' },
-  { id: 'MJyKN-8UncM', title: 'Shayad',            by: 'Arijit Singh' },
-  { id: 'uzS3WG6__G4', title: 'Pink + White',      by: 'Frank Ocean' },
-  { id: 'LDY_XyxBu8A', title: 'Snooze',            by: 'SZA' },
-  { id: 'cW8VLC9nnTo', title: 'What Was I Made For?', by: 'Billie Eilish' },
   { id: 'sElE_BfQ67s', title: 'Apocalypse',        by: 'Cigarettes After Sex' },
+  { id: 'cW8VLC9nnTo', title: 'What Was I Made For?', by: 'Billie Eilish' },
+  { id: 'VF-FGf_ZZiI', title: 'Bad Habit',         by: 'Steve Lacy' },
+  { id: 'myh5xtfUG-I', title: 'double take',       by: 'dhruv' },
+  { id: 'LDY_XyxBu8A', title: 'Snooze',            by: 'SZA' },
+  { id: 'uzS3WG6__G4', title: 'Pink + White',      by: 'Frank Ocean' },
+  { id: 'MiAoetOXKcY', title: 'Say Yes to Heaven', by: 'Lana Del Rey' },
+  { id: 'vx4kLgnFexo', title: 'My Love Mine All Mine', by: 'Mitski' },
+  { id: 'NgsWGfUlwJI', title: 'Glimpse of Us',     by: 'Joji' },
+  { id: 'Il7Nv270zNk', title: 'cold/mess',         by: 'Prateek Kuhad' },
+  { id: 'wmLGG5DYDWQ', title: 'Late Night Drive', by: 'Cigarettes After Sex mix' },
+  { id: 'gJLVTKhTnog', title: 'Husn',              by: 'Anuv Jain' },
 ]
 
 const DEFAULT_VOL = 28
@@ -56,10 +55,10 @@ export function AmbientProvider({ children }) {
   const hostRef = useRef(null)
   const [built, setBuilt] = useState(false)
 
-  const [idx, setIdx] = useState(() => {
-    const n = parseInt(localStorage.getItem('ambient_idx') || '0', 10)
-    return Number.isFinite(n) && n >= 0 && n < TRACKS.length ? n : 0
-  })
+  // Always begin at track 0 (Weightless) on a fresh page load, so the site
+  // consistently opens with that song. Navigation is reload-free, so the live
+  // position is kept in memory across pages anyway.
+  const [idx, setIdx] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [everPlayed, setEverPlayed] = useState(false)
   const [vol, setVolState] = useState(() => {
@@ -98,8 +97,6 @@ export function AmbientProvider({ children }) {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiReady])
-
-  useEffect(() => { localStorage.setItem('ambient_idx', String(idx)) }, [idx])
 
   const setVol = useCallback((v) => {
     const nv = Math.min(100, Math.max(0, v | 0))
