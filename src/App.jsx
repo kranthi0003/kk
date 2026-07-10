@@ -141,6 +141,13 @@ export default function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view')
+            // Stagger the visible reveal items so they settle in one-by-one.
+            const items = Array.from(entry.target.querySelectorAll('.reveal'))
+              .filter((el) => el.offsetParent !== null)
+            items.forEach((el, i) => {
+              el.style.transitionDelay = `${Math.min(i * 70, 630)}ms`
+            })
+            observer.unobserve(entry.target)
           }
         })
       },

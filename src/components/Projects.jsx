@@ -58,7 +58,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Engineering</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
             What I've built
@@ -75,7 +75,7 @@ export default function Projects() {
             return (
               <div
                 key={p.name}
-                className={`group relative bg-card hover:border-accent/40 transition-colors overflow-hidden ${tints[i % 3]}`}
+                className={`reveal group relative bg-card hover:border-accent/40 transition-colors overflow-hidden ${tints[i % 3]}`}
               >
                 <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
                 {/* Title bar */}
