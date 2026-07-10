@@ -1,143 +1,223 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import { PLACES, STATUS_STYLE } from '../lib/travelPlaces'
 
-const Globe = React.lazy(() => import('react-globe.gl'))
+const TILES = {
+  dark: 'https://{s}.basemap.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  light: 'https://{s}.basemap.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+}
+const ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
 
-const places = [
-  { id: 'vizag', city: 'Visakhapatnam', label: 'Hometown 🏠', lat: 17.6868, lng: 83.2185, color: '#10b981', home: true, photos: [] },
-  { id: 'hyderabad', city: 'Hyderabad', label: 'Worked here 🏰', lat: 17.385, lng: 78.4867, color: '#f59e0b', photos: [] },
-  { id: 'bangalore', city: 'Bangalore', label: 'Garden City 🌳', lat: 12.9716, lng: 77.5946, color: '#3b82f6', photos: [] },
-  { id: 'mumbai', city: 'Mumbai', label: 'City of dreams 🌊', lat: 19.076, lng: 72.8777, color: '#ef4444', photos: [] },
-  { id: 'delhi', city: 'Delhi', label: 'Capital stories 🕌', lat: 28.6139, lng: 77.209, color: '#0969da', photos: [] },
-  { id: 'goa', city: 'Goa', label: 'Beach days 🏖️', lat: 15.2993, lng: 74.124, color: '#06b6d4', photos: [] },
-  { id: 'chennai', city: 'Chennai', label: 'Temple & tech 🛕', lat: 13.0827, lng: 80.2707, color: '#3fb950', photos: [] },
-  { id: 'kolkata', city: 'Kolkata', label: 'City of Joy 🌉', lat: 22.5726, lng: 88.3639, color: '#f97316', photos: [] },
-  { id: 'lasvegas', city: 'Las Vegas', label: 'What happens in Vegas 🎰', lat: 36.1699, lng: -115.1398, color: '#eab308', photos: [] },
-  { id: 'chicago', city: 'Chicago', label: 'The Windy City 🌬️', lat: 41.8781, lng: -87.6298, color: '#14b8a6', photos: [] },
-]
-
-const arcs = [
-  // India network
-  { from: 0, to: 1 }, { from: 0, to: 6 }, { from: 0, to: 7 },
-  { from: 1, to: 2 }, { from: 1, to: 3 }, { from: 1, to: 4 },
-  { from: 2, to: 5 }, { from: 2, to: 6 },
-  { from: 3, to: 4 }, { from: 3, to: 5 },
-  { from: 4, to: 7 },
-  // International flights
-  { from: 0, to: 8 }, { from: 0, to: 9 },
-  { from: 8, to: 9 },
-]
-
-const arcData = arcs.map(a => ({
-  startLat: places[a.from].lat, startLng: places[a.from].lng,
-  endLat: places[a.to].lat, endLng: places[a.to].lng,
-  color: [places[a.from].color, places[a.to].color],
-}))
+function pinHtml(place, active) {
+  const s = STATUS_STYLE[place.status] || STATUS_STYLE.visited
+  const size = place.home ? 17 : 13
+  const cls = ['tm-pin']
+  if (place.home) cls.push('tm-pin--home')
+  if (place.status === 'wishlist') cls.push('tm-pin--wishlist')
+  if (active) cls.push('tm-pin--active')
+  return `<span class="${cls.join(' ')}" style="--fill:${s.fill};--ring:${s.ring};width:${size}px;height:${size}px"></span>`
+}
+function makeIcon(place, active) {
+  const size = place.home ? 17 : 13
+  return L.divIcon({
+    className: 'tm-pin-wrap',
+    html: pinHtml(place, active),
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  })
+}
 
 export default function TravelMap() {
-  const globeRef = useRef()
-  const containerRef = useRef()
+  const containerRef = useRef(null)
+  const mapRef = useRef(null)
+  const tileRef = useRef(null)
+  const markersRef = useRef({}) // id -> marker
+  const layersRef = useRef({}) // status -> LayerGroup
+
   const [selected, setSelected] = useState(null)
-  const [globeSize, setGlobeSize] = useState(500)
-  const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'))
+  const [filter, setFilter] = useState('all')
+  const [isDark, setIsDark] = useState(
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  )
 
+  const counts = useMemo(() => {
+    const visited = PLACES.filter(p => p.status === 'visited').length
+    const wishlist = PLACES.filter(p => p.status === 'wishlist').length
+    const countries = new Set(PLACES.map(p => p.country).filter(Boolean)).size
+    return { visited, wishlist, countries, total: PLACES.length }
+  }, [])
+
+  const visiblePlaces = useMemo(
+    () => (filter === 'all' ? PLACES : PLACES.filter(p => p.status === filter)),
+    [filter]
+  )
+
+  // Track dark-mode toggling to swap tiles
   useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'))
+    const el = document.documentElement
+    const obs = new MutationObserver(() => setIsDark(el.classList.contains('dark')))
+    obs.observe(el, { attributes: true, attributeFilter: ['class'] })
+    return () => obs.disconnect()
+  }, [])
+
+  const focus = useCallback((place) => {
+    setSelected(place)
+    if (mapRef.current) mapRef.current.flyTo([place.lat, place.lng], 6, { duration: 0.9 })
+  }, [])
+
+  // Init map once
+  useEffect(() => {
+    if (mapRef.current || !containerRef.current) return
+    const map = L.map(containerRef.current, {
+      center: [22, 20],
+      zoom: 2,
+      minZoom: 2,
+      worldCopyJump: true,
+      scrollWheelZoom: false,
+      attributionControl: true,
+      zoomControl: true,
     })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
-    return () => observer.disconnect()
-  }, [])
+    mapRef.current = map
 
+    tileRef.current = L.tileLayer(isDark ? TILES.dark : TILES.light, {
+      attribution: ATTRIBUTION,
+      subdomains: 'abcd',
+      maxZoom: 19,
+      detectRetina: true,
+    }).addTo(map)
+
+    const groups = { visited: L.layerGroup(), wishlist: L.layerGroup() }
+    PLACES.forEach((place) => {
+      const marker = L.marker([place.lat, place.lng], {
+        icon: makeIcon(place, false),
+        riseOnHover: true,
+        keyboard: false,
+      })
+      marker.bindTooltip(
+        `<b>${place.city}</b><span>${place.label}</span>`,
+        { className: 'tm-tip', direction: 'top', offset: [0, -8], opacity: 1 }
+      )
+      marker.on('click', () => focus(place))
+      markersRef.current[place.id] = marker
+      ;(groups[place.status] || groups.visited).addLayer(marker)
+    })
+    layersRef.current = groups
+    groups.visited.addTo(map)
+    groups.wishlist.addTo(map)
+
+    const pts = PLACES.map(p => [p.lat, p.lng])
+    if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 5 })
+    setTimeout(() => map.invalidateSize(), 250)
+
+    return () => {
+      map.remove()
+      mapRef.current = null
+      markersRef.current = {}
+      layersRef.current = {}
+    }
+  }, [focus]) // isDark handled in its own effect
+
+  // Swap tiles on theme change
   useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        const w = containerRef.current.offsetWidth
-        setGlobeSize(Math.min(w, 600))
-      }
-    }
-    updateSize()
-    window.addEventListener('resize', updateSize)
-    return () => window.removeEventListener('resize', updateSize)
-  }, [])
+    if (tileRef.current) tileRef.current.setUrl(isDark ? TILES.dark : TILES.light)
+  }, [isDark])
 
+  // Apply filter to layer visibility
   useEffect(() => {
-    if (globeRef.current) {
-      globeRef.current.pointOfView({ lat: 20, lng: 78, altitude: 2.2 }, 0)
-      const controls = globeRef.current.controls()
-      if (controls) {
-        controls.autoRotate = true
-        controls.autoRotateSpeed = 0.5
-        controls.enableZoom = true
-      }
-    }
-  }, [])
+    const map = mapRef.current
+    const groups = layersRef.current
+    if (!map || !groups.visited) return
+    ;['visited', 'wishlist'].forEach((status) => {
+      const show = filter === 'all' || filter === status
+      const g = groups[status]
+      if (show && !map.hasLayer(g)) g.addTo(map)
+      if (!show && map.hasLayer(g)) map.removeLayer(g)
+    })
+  }, [filter])
 
-  const handlePointClick = useCallback((point) => {
-    const place = places.find(p => p.lat === point.lat && p.lng === point.lng)
-    setSelected(place || null)
-    if (globeRef.current) {
-      globeRef.current.pointOfView({ lat: point.lat, lng: point.lng, altitude: 1.8 }, 800)
-    }
-  }, [])
+  // Reflect selection as an enlarged/active pin
+  useEffect(() => {
+    Object.entries(markersRef.current).forEach(([id, marker]) => {
+      const place = PLACES.find(p => p.id === id)
+      if (place) marker.setIcon(makeIcon(place, selected?.id === id))
+    })
+  }, [selected])
+
+  const FilterBtn = ({ id, children }) => (
+    <button
+      onClick={() => setFilter(id)}
+      className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all ${
+        filter === id ? 'bg-accent/15 text-foreground' : 'text-muted-foreground hover:bg-muted/50'
+      }`}
+      style={filter === id ? { boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, transparent)' } : undefined}
+    >
+      {children}
+    </button>
+  )
 
   return (
     <section id="travel" className="py-20 px-6">
+      <style>{`
+        .tm-pin{display:block;border-radius:9999px;background:var(--fill);
+          box-shadow:0 0 0 2px color-mix(in srgb, var(--fill) 30%, transparent),0 1px 4px rgba(0,0,0,.45);
+          transition:transform .15s ease}
+        .tm-pin--wishlist{background:transparent;border:2px solid var(--fill);
+          box-shadow:0 0 8px color-mix(in srgb, var(--fill) 55%, transparent)}
+        .tm-pin--active{transform:scale(1.45);box-shadow:0 0 0 3px color-mix(in srgb, var(--ring) 55%, transparent),0 2px 8px rgba(0,0,0,.5)}
+        .tm-pin-wrap:hover .tm-pin{transform:scale(1.3)}
+        .tm-pin--home::after{content:'';position:absolute;left:50%;top:50%;width:100%;height:100%;
+          border-radius:9999px;transform:translate(-50%,-50%);border:2px solid var(--fill);
+          animation:tm-pulse 1.8s ease-out infinite}
+        @keyframes tm-pulse{0%{width:100%;height:100%;opacity:.7}100%{width:420%;height:420%;opacity:0}}
+        .tm-tip{background:rgba(15,17,22,.92)!important;color:#fff!important;border:1px solid rgba(255,255,255,.12)!important;
+          border-radius:10px!important;padding:6px 11px!important;backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.4)!important;
+          font-family:system-ui!important;text-align:center;line-height:1.3}
+        .tm-tip b{display:block;font-size:12.5px}
+        .tm-tip span{display:block;font-size:10.5px;opacity:.65;margin-top:1px}
+        .tm-tip::before{border-top-color:rgba(15,17,22,.92)!important}
+        .leaflet-container{background:transparent;font-family:inherit}
+        .leaflet-control-zoom a{background:rgba(20,22,28,.85)!important;color:#e6e6e6!important;border:none!important;
+          backdrop-filter:blur(6px)}
+        .leaflet-control-zoom a:hover{background:rgba(40,44,54,.95)!important}
+        .leaflet-control-attribution{background:rgba(0,0,0,.35)!important;color:#9aa0a6!important;font-size:9px!important}
+        .leaflet-control-attribution a{color:#c9ad72!important}
+        html:not(.dark) .tm-tip{background:rgba(255,255,255,.95)!important;color:#1a1a1a!important;border-color:rgba(0,0,0,.08)!important}
+        html:not(.dark) .tm-tip span{opacity:.55}
+        html:not(.dark) .tm-tip::before{border-top-color:rgba(255,255,255,.95)!important}
+        html:not(.dark) .leaflet-control-zoom a{background:rgba(255,255,255,.9)!important;color:#333!important}
+      `}</style>
+
       <div className="max-w-6xl mx-auto">
         <h2 className="font-heading font-bold text-3xl sm:text-4xl text-center mb-3">
           Places I've Been{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">✈️</span>
         </h2>
         <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto text-sm">
-          Drag & spin the globe — click a dot to explore
+          Drag & explore the map — click a pin to see the story
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start">
-          {/* Globe */}
-          <div ref={containerRef} className="flex-1 flex justify-center relative">
-            {/* Glow behind globe */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[70%] h-[70%] rounded-full bg-accent/5 blur-3xl" />
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+          {/* Map */}
+          <div className="flex-1 relative">
+            <div
+              ref={containerRef}
+              className="w-full h-[380px] sm:h-[520px] rounded-2xl overflow-hidden border border-border/40 relative z-0"
+              style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+            />
+            {/* Legend */}
+            <div className="absolute bottom-3 left-3 z-[400] flex gap-3 px-3 py-2 rounded-xl text-[11px] font-mono pointer-events-none"
+              style={{ background: 'color-mix(in srgb, var(--color-card) 82%, transparent)', backdropFilter: 'blur(8px)', border: '1px solid color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full" style={{ background: STATUS_STYLE.visited.fill }} />
+                Visited
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: STATUS_STYLE.wishlist.fill }} />
+                Want to go
+              </span>
             </div>
-            <React.Suspense fallback={
-              <div className="flex items-center justify-center h-[500px] text-muted-foreground">
-                <p className="font-mono text-sm animate-pulse">🌍 Loading globe...</p>
-              </div>
-            }>
-              <Globe
-                ref={globeRef}
-                width={globeSize}
-                height={globeSize}
-                backgroundColor="rgba(0,0,0,0)"
-                globeImageUrl={isDark
-                  ? '//unpkg.com/three-globe/example/img/earth-night.jpg'
-                  : '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
-                }
-                atmosphereColor={isDark ? '#60a5fa' : '#3b82f6'}
-                atmosphereAltitude={0.18}
-                pointsData={places}
-                pointLat="lat"
-                pointLng="lng"
-                pointColor="color"
-                pointAltitude={0.06}
-                pointRadius={0.45}
-                pointLabel={d => `<div style="font-family:system-ui;background:rgba(0,0,0,0.85);color:white;padding:8px 14px;border-radius:10px;font-size:13px;text-align:center;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)"><b>${d.city}</b><br/><span style="opacity:0.6;font-size:11px">${d.label}</span></div>`}
-                onPointClick={handlePointClick}
-                arcsData={arcData}
-                arcColor="color"
-                arcStroke={0.6}
-                arcDashLength={0.5}
-                arcDashGap={0.15}
-                arcDashAnimateTime={2500}
-                arcAltitudeAutoScale={0.35}
-                ringsData={places.filter(p => p.home)}
-                ringLat="lat"
-                ringLng="lng"
-                ringColor={() => '#10b981'}
-                ringMaxRadius={4}
-                ringPropagationSpeed={2}
-                ringRepeatPeriod={1200}
-              />
-            </React.Suspense>
           </div>
 
           {/* Sidebar */}
@@ -145,53 +225,60 @@ export default function TravelMap() {
             <div className="bg-card p-4 pr-tint-violet">
               <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                {places.length} locations • 2 countries
+                {counts.total} locations • {counts.countries} countries
               </p>
+
+              <div className="flex gap-1 mb-3">
+                <FilterBtn id="all">All</FilterBtn>
+                <FilterBtn id="visited">Visited {counts.visited}</FilterBtn>
+                <FilterBtn id="wishlist">Wishlist {counts.wishlist}</FilterBtn>
+              </div>
+
               {selected ? (
                 <div className="animate-fade-in-up">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: selected.color, boxShadow: `0 0 8px ${selected.color}44` }} />
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: (STATUS_STYLE[selected.status] || STATUS_STYLE.visited).fill }} />
                     <h3 className="font-heading font-bold text-base">{selected.city}</h3>
                   </div>
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1">
+                    {(STATUS_STYLE[selected.status] || STATUS_STYLE.visited).label} · {selected.country}
+                  </p>
                   <p className="text-sm text-muted-foreground mb-4">{selected.label}</p>
-                  {selected.photos.length > 0 ? (
-                    <div className="grid grid-cols-2 gap-2">
-                      {selected.photos.map((photo, i) => (
-                        <img key={i} src={photo} alt="" className="w-full h-24 object-cover rounded-lg" />
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="bg-muted/50 rounded-xl p-4 text-center border border-border/20">
-                      <p className="text-2xl mb-1">📸</p>
-                      <p className="text-xs text-muted-foreground">Photos coming soon!</p>
-                    </div>
-                  )}
+                  <div className="bg-muted/50 rounded-xl p-4 text-center border border-border/20">
+                    <p className="text-2xl mb-1">📸</p>
+                    <p className="text-xs text-muted-foreground">Photos coming soon!</p>
+                  </div>
                   <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← all locations</button>
                 </div>
               ) : (
-                <div className="space-y-1 max-h-[200px] sm:max-h-[400px] overflow-y-auto">
-                {places.map(place => (
-                  <button
-                    key={place.id}
-                    onClick={() => {
-                      setSelected(place)
-                      if (globeRef.current) {
-                        globeRef.current.pointOfView({ lat: place.lat, lng: place.lng, altitude: 1.8 }, 800)
-                      }
-                    }}
-                    className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all hover:bg-muted/50 group"
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform" style={{ backgroundColor: place.color }} />
-                    <div className="min-w-0">
-                      <p className="font-medium text-xs text-foreground truncate">{place.city}</p>
-                      <p className="text-[10px] text-muted-foreground truncate">{place.label}</p>
-                    </div>
-                  </button>
-                ))}
+                <div className="space-y-1 max-h-[220px] sm:max-h-[420px] overflow-y-auto">
+                  {visiblePlaces.length === 0 && (
+                    <p className="text-xs text-muted-foreground py-6 text-center">No places here yet.</p>
+                  )}
+                  {visiblePlaces.map(place => {
+                    const s = STATUS_STYLE[place.status] || STATUS_STYLE.visited
+                    return (
+                      <button
+                        key={place.id}
+                        onClick={() => focus(place)}
+                        className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all hover:bg-muted/50 group"
+                      >
+                        <span
+                          className="w-2.5 h-2.5 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform"
+                          style={place.status === 'wishlist'
+                            ? { border: `2px solid ${s.fill}` }
+                            : { backgroundColor: s.fill }}
+                        />
+                        <div className="min-w-0">
+                          <p className="font-medium text-xs text-foreground truncate">{place.city}</p>
+                          <p className="text-[10px] text-muted-foreground truncate">{place.label}</p>
+                        </div>
+                      </button>
+                    )
+                  })}
                 </div>
               )}
             </div>
-
           </div>
         </div>
       </div>
