@@ -79,7 +79,7 @@ export default function Hero({ onResumeClick }) {
               style={{ animationDelay: '0.3s', fontWeight: 400, fontStyle: 'italic', color: 'var(--color-accent)' }}
             >
               <TypingText
-                phrases={['Support Engineer at GitHub', 'Distributed systems & reliability', 'CI/CD & GitHub Actions', 'AWS & cloud infrastructure']}
+                phrases={['Living like it matters', 'In love with the process', 'Present over perfect', 'Meaning over noise', 'One life — making it count']}
                 typingSpeed={120}
                 deletingSpeed={60}
                 pauseDuration={2600}
