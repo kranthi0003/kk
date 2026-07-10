@@ -152,8 +152,8 @@ function BentoReflectionCard() {
       <span aria-hidden="true" className="absolute top-2 left-4 font-serif text-5xl leading-none text-muted-foreground/15 select-none">“</span>
       <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Reflection</p>
       <div style={{ opacity: show ? 1 : 0, transform: show ? 'none' : 'translateY(6px)', transition: 'opacity .5s ease, transform .5s ease' }}>
-        <p className="font-serif italic text-foreground/90 leading-snug" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.15rem)' }}>{r.t}</p>
-        <p className="font-serif text-[11px] tracking-[0.14em] text-muted-foreground/60 mt-3">— {r.by}</p>
+        <p className="font-serif italic text-foreground/90 leading-snug" style={{ fontSize: 'clamp(1.1rem, 2.1vw, 1.5rem)' }}>{r.t}</p>
+        <p className="font-serif text-[12px] tracking-[0.14em] text-muted-foreground/60 mt-4">— {r.by}</p>
       </div>
     </div>
   )
@@ -216,12 +216,20 @@ export default function About() {
             </div>
           </div>
 
-          {/* X / Twitter — small, replaces the old Instagram embed */}
+          {/* X / Twitter — small square */}
           <a href="https://x.com/kranthikiran03" target="_blank" rel="noopener noreferrer"
-            className="col-span-2 rounded-2xl bg-card p-4 flex flex-col items-center justify-center text-center gap-1.5 pr-tint-coral hover:bg-muted/20 transition-colors group">
-            <svg className="w-6 h-6 text-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-            <p className="text-[12px] font-medium text-foreground">@kranthikiran03</p>
-            <span className="text-[10px] text-muted-foreground group-hover:text-accent transition-colors">Follow on X →</span>
+            className="col-span-1 rounded-2xl bg-card p-4 flex flex-col items-center justify-center text-center gap-1 pr-tint-coral hover:bg-muted/20 transition-colors group">
+            <svg className="w-5 h-5 text-foreground mb-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            <p className="text-[11.5px] font-medium text-foreground">@kranthikiran03</p>
+            <span className="text-[9.5px] text-muted-foreground group-hover:text-accent transition-colors">Follow on X →</span>
+          </a>
+
+          {/* Say hello — email */}
+          <a href="mailto:kranthikiranakkumahanthi@gmail.com"
+            className="col-span-1 rounded-2xl bg-card p-4 flex flex-col items-center justify-center text-center gap-1 pr-tint-magenta hover:bg-muted/20 transition-colors group">
+            <svg className="w-5 h-5 text-foreground/80 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <p className="text-[11.5px] font-medium text-foreground">Say hello</p>
+            <span className="text-[9.5px] text-muted-foreground group-hover:text-accent transition-colors">Email me →</span>
           </a>
 
           {/* GitHub Contributions — full width */}
