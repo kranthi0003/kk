@@ -133,7 +133,7 @@ function BentoClockCard() {
 const REFLECTIONS = [
   { t: 'How we spend our days is, of course, how we spend our lives.', by: 'Annie Dillard' },
   { t: 'You could leave life right now. Let that determine what you do.', by: 'Marcus Aurelius' },
-  { t: 'Attention is the rarest and purest form of generosity.', by: 'Simone Weil' },
+  { t: 'I wanted to live deep and suck out all the marrow of life.', by: 'Henry David Thoreau' },
 ]
 
 function BentoReflectionCard() {

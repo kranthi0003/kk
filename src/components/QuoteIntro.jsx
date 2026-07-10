@@ -1,17 +1,17 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-const QUOTE = 'Who were you before the world told who you are?'
+const QUOTE = 'Tell me, what is it you plan to do with your one wild and precious life?'
 
 // Reveal cadence tuned to a comfortable on-screen English reading pace for a
 // common Indian reader (~140 wpm → ~430 ms/word) so each word can be read as it
-// lands. (ESL on-screen reading averages ~100–160 wpm.)
-const WORD_MS = 430
+// lands. (ESL on-screen reading averages ~100–160 wpm.) Slightly quicker here
+// because the line is longer.
+const WORD_MS = 340
 
 const WORDS = QUOTE.split(' ')
 const SLOTS = WORDS.map((text, i) => ({ text, time: i * WORD_MS }))
-// The pivotal word — the warm, authentic "you" in "who you are?". Emphasized
-// in glowing gold italic against the cool moonlight text for depth/impact.
-const EMPHASIS_INDEX = 8
+// The pivotal word — the final "life?" lands last, glowing gold, as the payoff.
+const EMPHASIS_INDEX = 15
 const LAST_WORD_MS = SLOTS.length * WORD_MS
 // A beat after the line lands, the author credit fades in.
 const ATTRIBUTION_MS = LAST_WORD_MS + 800
@@ -132,17 +132,16 @@ export default function QuoteIntro() {
         background: 'radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)',
       }} />
 
-      <div style={{ maxWidth: 'none', width: 'auto', textAlign: 'center', position: 'relative' }}>
+      <div style={{ maxWidth: 'min(90vw, 34rem)', width: 'auto', textAlign: 'center', position: 'relative' }}>
 
         {/* Quote text */}
         <p style={{
           fontFamily: "'Newsreader', Georgia, 'Times New Roman', serif",
-          fontSize: 'clamp(0.78rem, 3.7vw, 2rem)',
+          fontSize: 'clamp(1.15rem, 4.6vw, 2.1rem)',
           fontWeight: 300,
           color: 'rgba(236,238,245,0.92)',
-          lineHeight: 1.7,
+          lineHeight: 1.6,
           letterSpacing: '0.01em',
-          whiteSpace: 'nowrap',
           margin: 0,
           textShadow: '0 1px 36px rgba(150,170,212,0.12)',
         }}>
@@ -189,7 +188,7 @@ export default function QuoteIntro() {
           transform: showAttrib ? 'translateY(0)' : 'translateY(8px)',
           transition: 'opacity 1.1s ease, transform 1.1s ease',
         }}>
-          — Anonymous
+          — Mary Oliver
         </p>
       </div>
 
