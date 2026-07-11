@@ -154,6 +154,11 @@ export default function BlogPost({ slug, onBack }) {
     return () => el.removeEventListener('scroll', onScroll)
   }, [])
 
+  // The book gets its own full-screen paginated (Kindle-style) reader.
+  if (post && post.render === 'letter') {
+    return <ItsAlwaysHerArticle onBack={onBack} />
+  }
+
   return (
     <div ref={scrollRef} className="fixed inset-0 z-[300] overflow-y-auto" style={{ background: 'var(--color-background)' }}>
       <div className="pr-backdrop-base" aria-hidden="true" />
@@ -181,8 +186,6 @@ export default function BlogPost({ slug, onBack }) {
         </div>
       ) : post.render === 'dopamine' ? (
         <DopamineArticle />
-      ) : post.render === 'letter' ? (
-        <ItsAlwaysHerArticle />
       ) : (
         <Prose post={post} />
       )}
