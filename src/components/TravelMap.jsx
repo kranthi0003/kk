@@ -1,8 +1,6 @@
-import React, { useState, useMemo, useRef, Suspense } from 'react'
+import React, { useState, useMemo, useRef } from 'react'
 import indiaGeo from '../lib/india-states.json'
-import { INDIA_PLACES, ABROAD_PLACES, HOME, CATEGORY_STYLE } from '../lib/travelPlaces'
-
-const AbroadGlobe = React.lazy(() => import('./AbroadGlobe'))
+import { INDIA_PLACES, ABROAD_PLACES, CATEGORY_STYLE } from '../lib/travelPlaces'
 
 // ── Mercator projection fitted to India's bounding box ───────────────────────
 const VIEW_W = 460, VIEW_H = 520, PAD = 18
@@ -222,19 +220,26 @@ export default function TravelMap() {
           </div>
         </div>
 
-        {/* ── Abroad globe ── */}
+        {/* ── Abroad ── */}
         <div className="mt-8">
           <p className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-brand)' }}>
-            <span>🌐</span> Abroad
+            <span>✈️</span> Abroad
           </p>
-          <Suspense fallback={
-            <div className="h-[320px] rounded-2xl flex items-center justify-center text-muted-foreground text-sm font-mono animate-pulse"
-              style={{ border: '1px solid color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
-              🌍 loading globe…
-            </div>
-          }>
-            <AbroadGlobe places={ABROAD_PLACES} home={HOME} />
-          </Suspense>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {ABROAD_PLACES.map((p) => (
+              <div
+                key={p.id}
+                className="bg-card rounded-xl p-4"
+                style={{ border: '1px solid color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: 'var(--color-brand)' }} />
+                  <p className="font-medium text-sm text-foreground truncate">{p.name}</p>
+                </div>
+                <p className="text-[11px] text-muted-foreground truncate pl-4">{p.region}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

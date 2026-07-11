@@ -10,14 +10,15 @@
 // To add a place: copy a row, set lat/lng (decimal degrees) and category.
 
 export const HOME = {
-  id: 'bengaluru', name: 'Bengaluru', region: 'Karnataka',
-  lat: 12.9716, lng: 77.5946, category: 'home',
+  id: 'vizag', name: 'Visakhapatnam', region: 'Andhra Pradesh',
+  lat: 17.6868, lng: 83.2185, category: 'home',
 }
 
 export const INDIA_PLACES = [
   HOME,
 
   // ── Destinations: cities, hill stations, nature, treks ──────────────────────
+  { id: 'bengaluru',  name: 'Bengaluru',        region: 'Karnataka',      lat: 12.9716, lng: 77.5946, category: 'destination' },
   { id: 'goa',        name: 'Goa',              region: 'Goa',            lat: 15.4909, lng: 73.8278, category: 'destination' },
   { id: 'mumbai',     name: 'Mumbai',           region: 'Maharashtra',    lat: 19.0760, lng: 72.8777, category: 'destination' },
   { id: 'delhi',      name: 'Delhi',            region: 'Delhi',          lat: 28.6139, lng: 77.2090, category: 'destination' },
