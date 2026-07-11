@@ -111,8 +111,8 @@ export default function QuoteIntro() {
           to   { transform: scaleX(1); }
         }
         @keyframes qi-glow {
-          0%, 100% { text-shadow: 0 0 16px rgba(233,196,128,0.35), 0 0 4px rgba(233,196,128,0.25); }
-          50%      { text-shadow: 0 0 34px rgba(233,196,128,0.65), 0 0 9px rgba(233,196,128,0.45); }
+          0%, 100% { text-shadow: 0 0 16px rgba(125,185,255,0.35), 0 0 4px rgba(125,185,255,0.25); }
+          50%      { text-shadow: 0 0 34px rgba(125,185,255,0.65), 0 0 9px rgba(125,185,255,0.45); }
         }
       `}</style>
 
@@ -164,7 +164,7 @@ export default function QuoteIntro() {
                     fontStyle: 'italic',
                     fontWeight: 400,
                     fontSize: '1.14em',
-                    color: 'rgb(233, 196, 128)',
+                    color: 'rgb(125, 185, 255)',
                     letterSpacing: '0.015em',
                     animation: isVisible ? 'qi-glow 4.5s ease-in-out infinite' : 'none',
                   } : null),

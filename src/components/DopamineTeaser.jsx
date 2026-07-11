@@ -16,10 +16,10 @@ export default function DopamineTeaser() {
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, #e0a04a 38%, transparent)' }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-brand) 38%, transparent)' }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-border)' }}
         >
-          <div className="text-[11px] font-mono uppercase tracking-[0.28em] mb-4" style={{ color: '#e0a04a' }}>
+          <div className="text-[11px] font-mono uppercase tracking-[0.28em] mb-4" style={{ color: 'var(--color-brand)' }}>
             From the blog · the science of cheap dopamine
           </div>
           <h3 className="font-heading text-[clamp(1.5rem,4vw,2.1rem)] leading-tight mb-3" style={{ fontWeight: 500 }}>
@@ -28,7 +28,7 @@ export default function DopamineTeaser() {
           <p className="text-[15px] sm:text-base leading-relaxed text-muted-foreground max-w-xl">
             Three habits that feel unrelated, run by one hijacked circuit. A calm, honest breakdown of how it works in the brain — and how it lets go.
           </p>
-          <span className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium" style={{ color: '#e0a04a' }}>
+          <span className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium" style={{ color: 'var(--color-brand)' }}>
             Read the breakdown
             <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
           </span>

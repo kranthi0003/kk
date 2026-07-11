@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { getPost, categoryLabel, formatDate, topicsForPost, topicLabel } from '../lib/blog'
 import { DopamineArticle } from './Dopamine'
 
-const ACCENT = '#e0a04a'
+const ACCENT = 'var(--color-brand)'
 
 // Reveal-on-scroll for prose blocks.
 function Reveal({ children }) {

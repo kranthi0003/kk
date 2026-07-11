@@ -539,16 +539,16 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
           <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading overflow-hidden"
             style={{
-              background: 'linear-gradient(155deg, color-mix(in oklab, #e0a04a 22%, var(--color-card)), var(--color-card))',
-              color: '#e0a04a',
-              border: '1px solid color-mix(in oklab, #e0a04a 32%, transparent)',
-              boxShadow: '0 4px 14px -6px color-mix(in oklab, #e0a04a 40%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)',
+              background: 'linear-gradient(155deg, color-mix(in oklab, var(--color-brand) 22%, var(--color-card)), var(--color-card))',
+              color: 'var(--color-brand)',
+              border: '1px solid color-mix(in oklab, var(--color-brand) 32%, transparent)',
+              boxShadow: '0 4px 14px -6px color-mix(in oklab, var(--color-brand) 40%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)',
               fontWeight: 500,
             }}
           >
             <span className="relative z-10 text-[15px] tracking-tight">KK</span>
             <span className="absolute -top-1 -right-1.5 px-1 rounded text-[7px] font-mono uppercase tracking-wider leading-tight"
-              style={{ background: 'color-mix(in oklab, #e0a04a 16%, var(--color-card))', color: '#e0a04a', border: '1px solid color-mix(in oklab, #e0a04a 30%, transparent)' }}>β</span>
+              style={{ background: 'color-mix(in oklab, var(--color-brand) 16%, var(--color-card))', color: 'var(--color-brand)', border: '1px solid color-mix(in oklab, var(--color-brand) 30%, transparent)' }}>β</span>
           </div>
           <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-accent transition-colors">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
@@ -624,6 +624,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <p className="text-[10px] text-muted-foreground/40 uppercase tracking-wider mb-2 font-semibold">Quick Actions</p>
             <div className="grid grid-cols-4 gap-2">
               {[
+                { icon: '🤝', label: 'Collab', action: () => { window.location.hash = '#/collab' } },
+                { icon: '🎭', label: 'Stranger', action: () => { window.location.hash = '#/stranger' } },
                 { icon: '🧮', label: 'Dev Tools', action: () => window.dispatchEvent(new CustomEvent('toggle-dev-calc')) },
                 { icon: '📂', label: 'Source', action: () => window.dispatchEvent(new CustomEvent('toggle-code-browser')) },
                 { icon: '📋', label: 'Changelog', action: () => window.dispatchEvent(new CustomEvent('toggle-changelog')) },
@@ -674,6 +676,8 @@ function ToolsDropdown() {
   }, [open])
 
   const items = [
+    { icon: <SwordsIcon />, label: 'Collab — Code & Battle', onClick: () => { window.location.hash = '#/collab' } },
+    { icon: <ChatIcon />,   label: 'Stranger Chat',       onClick: () => { window.location.hash = '#/stranger' } },
     { icon: <CalcIcon />,   label: 'Dev Toolkit',       evt: 'toggle-dev-calc' },
     { icon: <CodeIcon />,   label: 'Source Code',       evt: 'toggle-code-browser' },
     { icon: <ClockIcon />,  label: 'Changelog',         evt: 'toggle-changelog' },
@@ -882,6 +886,12 @@ const CalcIcon = () => (
 const CodeIcon = () => (
   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
+  </svg>
+)
+const SwordsIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14.5 17.5 21 11l-1-4-4-1-6.5 6.5M14.5 17.5 12 15m2.5 2.5L17 20l3-3-2.5-2.5" />
+    <path d="M9.5 17.5 3 11l1-4 4-1 6.5 6.5M9.5 17.5 12 15m-2.5 2.5L7 20l-3-3 2.5-2.5" />
   </svg>
 )
 const LeafIcon = () => (

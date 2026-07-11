@@ -1,285 +1,240 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
-import { PLACES, STATUS_STYLE } from '../lib/travelPlaces'
+import React, { useState, useMemo, useRef, Suspense } from 'react'
+import indiaGeo from '../lib/india-states.json'
+import { INDIA_PLACES, ABROAD_PLACES, HOME, CATEGORY_STYLE } from '../lib/travelPlaces'
 
-const TILES = {
-  dark: 'https://{s}.basemap.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-  light: 'https://{s}.basemap.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-}
-const ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+const AbroadGlobe = React.lazy(() => import('./AbroadGlobe'))
 
-function pinHtml(place, active) {
-  const s = STATUS_STYLE[place.status] || STATUS_STYLE.visited
-  const size = place.home ? 17 : 13
-  const cls = ['tm-pin']
-  if (place.home) cls.push('tm-pin--home')
-  if (place.status === 'wishlist') cls.push('tm-pin--wishlist')
-  if (active) cls.push('tm-pin--active')
-  return `<span class="${cls.join(' ')}" style="--fill:${s.fill};--ring:${s.ring};width:${size}px;height:${size}px"></span>`
+// ── Mercator projection fitted to India's bounding box ───────────────────────
+const VIEW_W = 460, VIEW_H = 520, PAD = 18
+const B = { lngMin: 67.5, lngMax: 98.0, latMin: 6.5, latMax: 37.6 }
+const mx = (lng) => (lng * Math.PI) / 180
+const my = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI / 180) / 2))
+const RX0 = mx(B.lngMin), RX1 = mx(B.lngMax), RY0 = my(B.latMin), RY1 = my(B.latMax)
+const BW = RX1 - RX0, BH = RY1 - RY0
+const SCALE = Math.min((VIEW_W - 2 * PAD) / BW, (VIEW_H - 2 * PAD) / BH)
+const OFFX = (VIEW_W - SCALE * BW) / 2, OFFY = (VIEW_H - SCALE * BH) / 2
+function project(lng, lat) {
+  return [OFFX + (mx(lng) - RX0) * SCALE, OFFY + (RY1 - my(lat)) * SCALE]
 }
-function makeIcon(place, active) {
-  const size = place.home ? 17 : 13
-  return L.divIcon({
-    className: 'tm-pin-wrap',
-    html: pinHtml(place, active),
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size / 2],
-  })
+function geomToPath(geom) {
+  const polys = geom.type === 'Polygon' ? [geom.coordinates] : geom.coordinates
+  let d = ''
+  for (const poly of polys) {
+    for (const ring of poly) {
+      ring.forEach((c, i) => {
+        const [x, y] = project(c[0], c[1])
+        d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1)
+      })
+      d += 'Z'
+    }
+  }
+  return d
 }
+
+const GROUPS = [
+  { key: 'home',        icon: '⌂', label: 'Home' },
+  { key: 'destination', icon: '◎', label: 'Destinations' },
+  { key: 'temple',      icon: '☖', label: 'Temples & Pilgrimage' },
+]
 
 export default function TravelMap() {
-  const containerRef = useRef(null)
-  const mapRef = useRef(null)
-  const tileRef = useRef(null)
-  const markersRef = useRef({}) // id -> marker
-  const layersRef = useRef({}) // status -> LayerGroup
+  const [active, setActive] = useState(null) // place id (hover)
+  const [pinned, setPinned] = useState(null) // clicked place id
+  const svgRef = useRef(null)
 
-  const [selected, setSelected] = useState(null)
-  const [filter, setFilter] = useState('all')
-  const [isDark, setIsDark] = useState(
-    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  const statePaths = useMemo(
+    () => indiaGeo.features.map((f) => ({ name: f.properties.st_nm, d: geomToPath(f.geometry) })),
+    []
   )
-
-  const counts = useMemo(() => {
-    const visited = PLACES.filter(p => p.status === 'visited').length
-    const wishlist = PLACES.filter(p => p.status === 'wishlist').length
-    const countries = new Set(PLACES.map(p => p.country).filter(Boolean)).size
-    return { visited, wishlist, countries, total: PLACES.length }
+  const projected = useMemo(
+    () => INDIA_PLACES.map((p) => ({ ...p, xy: project(p.lng, p.lat) })),
+    []
+  )
+  const byGroup = useMemo(() => {
+    const g = { home: [], destination: [], temple: [] }
+    INDIA_PLACES.forEach((p) => { (g[p.category] || g.destination).push(p) })
+    return g
   }, [])
 
-  const visiblePlaces = useMemo(
-    () => (filter === 'all' ? PLACES : PLACES.filter(p => p.status === filter)),
-    [filter]
-  )
+  const current = active || pinned
+  const currentPlace = projected.find((p) => p.id === current)
 
-  // Track dark-mode toggling to swap tiles
-  useEffect(() => {
-    const el = document.documentElement
-    const obs = new MutationObserver(() => setIsDark(el.classList.contains('dark')))
-    obs.observe(el, { attributes: true, attributeFilter: ['class'] })
-    return () => obs.disconnect()
-  }, [])
+  const counts = {
+    total: INDIA_PLACES.length,
+    states: new Set(INDIA_PLACES.map((p) => p.region.split('·')[0].split(',').pop().trim())).size,
+    abroad: ABROAD_PLACES.length,
+  }
 
-  const focus = useCallback((place) => {
-    setSelected(place)
-    if (mapRef.current) mapRef.current.flyTo([place.lat, place.lng], 6, { duration: 0.9 })
-  }, [])
-
-  // Init map once
-  useEffect(() => {
-    if (mapRef.current || !containerRef.current) return
-    const map = L.map(containerRef.current, {
-      center: [22, 20],
-      zoom: 2,
-      minZoom: 2,
-      worldCopyJump: true,
-      scrollWheelZoom: false,
-      attributionControl: true,
-      zoomControl: true,
-    })
-    mapRef.current = map
-
-    tileRef.current = L.tileLayer(isDark ? TILES.dark : TILES.light, {
-      attribution: ATTRIBUTION,
-      subdomains: 'abcd',
-      maxZoom: 19,
-      detectRetina: true,
-    }).addTo(map)
-
-    const groups = { visited: L.layerGroup(), wishlist: L.layerGroup() }
-    PLACES.forEach((place) => {
-      const marker = L.marker([place.lat, place.lng], {
-        icon: makeIcon(place, false),
-        riseOnHover: true,
-        keyboard: false,
-      })
-      marker.bindTooltip(
-        `<b>${place.city}</b><span>${place.label}</span>`,
-        { className: 'tm-tip', direction: 'top', offset: [0, -8], opacity: 1 }
-      )
-      marker.on('click', () => focus(place))
-      markersRef.current[place.id] = marker
-      ;(groups[place.status] || groups.visited).addLayer(marker)
-    })
-    layersRef.current = groups
-    groups.visited.addTo(map)
-    groups.wishlist.addTo(map)
-
-    const pts = PLACES.map(p => [p.lat, p.lng])
-    if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 5 })
-    setTimeout(() => map.invalidateSize(), 250)
-
-    return () => {
-      map.remove()
-      mapRef.current = null
-      markersRef.current = {}
-      layersRef.current = {}
-    }
-  }, [focus]) // isDark handled in its own effect
-
-  // Swap tiles on theme change
-  useEffect(() => {
-    if (tileRef.current) tileRef.current.setUrl(isDark ? TILES.dark : TILES.light)
-  }, [isDark])
-
-  // Apply filter to layer visibility
-  useEffect(() => {
-    const map = mapRef.current
-    const groups = layersRef.current
-    if (!map || !groups.visited) return
-    ;['visited', 'wishlist'].forEach((status) => {
-      const show = filter === 'all' || filter === status
-      const g = groups[status]
-      if (show && !map.hasLayer(g)) g.addTo(map)
-      if (!show && map.hasLayer(g)) map.removeLayer(g)
-    })
-  }, [filter])
-
-  // Reflect selection as an enlarged/active pin
-  useEffect(() => {
-    Object.entries(markersRef.current).forEach(([id, marker]) => {
-      const place = PLACES.find(p => p.id === id)
-      if (place) marker.setIcon(makeIcon(place, selected?.id === id))
-    })
-  }, [selected])
-
-  const FilterBtn = ({ id, children }) => (
-    <button
-      onClick={() => setFilter(id)}
-      className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all ${
-        filter === id ? 'bg-accent/15 text-foreground' : 'text-muted-foreground hover:bg-muted/50'
-      }`}
-      style={filter === id ? { boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, transparent)' } : undefined}
-    >
-      {children}
-    </button>
-  )
+  const select = (id) => setPinned((prev) => (prev === id ? null : id))
 
   return (
     <section id="travel" className="py-20 px-6">
-      <style>{`
-        .tm-pin{display:block;border-radius:9999px;background:var(--fill);
-          box-shadow:0 0 0 2px color-mix(in srgb, var(--fill) 30%, transparent),0 1px 4px rgba(0,0,0,.45);
-          transition:transform .15s ease}
-        .tm-pin--wishlist{background:transparent;border:2px solid var(--fill);
-          box-shadow:0 0 8px color-mix(in srgb, var(--fill) 55%, transparent)}
-        .tm-pin--active{transform:scale(1.45);box-shadow:0 0 0 3px color-mix(in srgb, var(--ring) 55%, transparent),0 2px 8px rgba(0,0,0,.5)}
-        .tm-pin-wrap:hover .tm-pin{transform:scale(1.3)}
-        .tm-pin--home::after{content:'';position:absolute;left:50%;top:50%;width:100%;height:100%;
-          border-radius:9999px;transform:translate(-50%,-50%);border:2px solid var(--fill);
-          animation:tm-pulse 1.8s ease-out infinite}
-        @keyframes tm-pulse{0%{width:100%;height:100%;opacity:.7}100%{width:420%;height:420%;opacity:0}}
-        .tm-tip{background:rgba(15,17,22,.92)!important;color:#fff!important;border:1px solid rgba(255,255,255,.12)!important;
-          border-radius:10px!important;padding:6px 11px!important;backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(0,0,0,.4)!important;
-          font-family:system-ui!important;text-align:center;line-height:1.3}
-        .tm-tip b{display:block;font-size:12.5px}
-        .tm-tip span{display:block;font-size:10.5px;opacity:.65;margin-top:1px}
-        .tm-tip::before{border-top-color:rgba(15,17,22,.92)!important}
-        .leaflet-container{background:transparent;font-family:inherit}
-        .leaflet-control-zoom a{background:rgba(20,22,28,.85)!important;color:#e6e6e6!important;border:none!important;
-          backdrop-filter:blur(6px)}
-        .leaflet-control-zoom a:hover{background:rgba(40,44,54,.95)!important}
-        .leaflet-control-attribution{background:rgba(0,0,0,.35)!important;color:#9aa0a6!important;font-size:9px!important}
-        .leaflet-control-attribution a{color:#c9ad72!important}
-        html:not(.dark) .tm-tip{background:rgba(255,255,255,.95)!important;color:#1a1a1a!important;border-color:rgba(0,0,0,.08)!important}
-        html:not(.dark) .tm-tip span{opacity:.55}
-        html:not(.dark) .tm-tip::before{border-top-color:rgba(255,255,255,.95)!important}
-        html:not(.dark) .leaflet-control-zoom a{background:rgba(255,255,255,.9)!important;color:#333!important}
-      `}</style>
-
       <div className="max-w-6xl mx-auto">
         <h2 className="font-heading font-bold text-3xl sm:text-4xl text-center mb-3">
           Places I've Been{' '}
           <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">✈️</span>
         </h2>
         <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto text-sm">
-          Drag & explore the map — click a pin to see the story
+          A map of where I've wandered — cities, temples, and a few trips that needed a passport.
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
-          {/* Map */}
-          <div className="flex-1 relative">
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          {/* ── India map ── */}
+          <div className="w-full lg:flex-1 relative">
             <div
-              ref={containerRef}
-              className="w-full h-[380px] sm:h-[520px] rounded-2xl overflow-hidden border border-border/40 relative z-0"
-              style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
-            />
-            {/* Legend */}
-            <div className="absolute bottom-3 left-3 z-[400] flex gap-3 px-3 py-2 rounded-xl text-[11px] font-mono pointer-events-none"
-              style={{ background: 'color-mix(in srgb, var(--color-card) 82%, transparent)', backdropFilter: 'blur(8px)', border: '1px solid color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full" style={{ background: STATUS_STYLE.visited.fill }} />
-                Visited
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: STATUS_STYLE.wishlist.fill }} />
-                Want to go
-              </span>
-            </div>
-          </div>
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                background: 'radial-gradient(120% 90% at 60% 40%, color-mix(in oklab, var(--color-brand) 8%, transparent), transparent 60%), color-mix(in oklab, var(--color-card) 70%, #0c0a09)',
+                border: '1px solid color-mix(in oklab, var(--color-border) 45%, transparent)',
+              }}
+            >
+              <svg
+                ref={svgRef}
+                viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+                className="w-full h-auto block"
+                style={{ maxHeight: 560 }}
+                onMouseLeave={() => setActive(null)}
+              >
+                <defs>
+                  <filter id="tm-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.4" result="b" />
+                    <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                  </filter>
+                </defs>
 
-          {/* Sidebar */}
-          <div className="w-full lg:w-[260px] flex flex-col gap-2 flex-shrink-0">
-            <div className="bg-card p-4 pr-tint-violet">
-              <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                {counts.total} locations • {counts.countries} countries
-              </p>
+                {/* States */}
+                <g>
+                  {statePaths.map((s) => (
+                    <path
+                      key={s.name}
+                      d={s.d}
+                      fill="color-mix(in oklab, #1c1917 88%, var(--color-brand))"
+                      stroke="color-mix(in oklab, var(--color-brand) 32%, transparent)"
+                      strokeWidth="0.6"
+                      strokeLinejoin="round"
+                    />
+                  ))}
+                </g>
 
-              <div className="flex gap-1 mb-3">
-                <FilterBtn id="all">All</FilterBtn>
-                <FilterBtn id="visited">Visited {counts.visited}</FilterBtn>
-                <FilterBtn id="wishlist">Wishlist {counts.wishlist}</FilterBtn>
-              </div>
-
-              {selected ? (
-                <div className="animate-fade-in-up">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: (STATUS_STYLE[selected.status] || STATUS_STYLE.visited).fill }} />
-                    <h3 className="font-heading font-bold text-base">{selected.city}</h3>
-                  </div>
-                  <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1">
-                    {(STATUS_STYLE[selected.status] || STATUS_STYLE.visited).label} · {selected.country}
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-4">{selected.label}</p>
-                  <div className="bg-muted/50 rounded-xl p-4 text-center border border-border/20">
-                    <p className="text-2xl mb-1">📸</p>
-                    <p className="text-xs text-muted-foreground">Photos coming soon!</p>
-                  </div>
-                  <button onClick={() => setSelected(null)} className="mt-3 text-xs text-accent hover:underline font-mono">← all locations</button>
-                </div>
-              ) : (
-                <div className="space-y-1 max-h-[220px] sm:max-h-[420px] overflow-y-auto">
-                  {visiblePlaces.length === 0 && (
-                    <p className="text-xs text-muted-foreground py-6 text-center">No places here yet.</p>
-                  )}
-                  {visiblePlaces.map(place => {
-                    const s = STATUS_STYLE[place.status] || STATUS_STYLE.visited
+                {/* Pins */}
+                <g>
+                  {projected.map((p) => {
+                    const st = CATEGORY_STYLE[p.category] || CATEGORY_STYLE.destination
+                    const [x, y] = p.xy
+                    const isCur = current === p.id
+                    const r = p.category === 'home' ? 4.4 : 3.1
                     return (
-                      <button
-                        key={place.id}
-                        onClick={() => focus(place)}
-                        className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-all hover:bg-muted/50 group"
+                      <g
+                        key={p.id}
+                        transform={`translate(${x} ${y})`}
+                        style={{ cursor: 'pointer' }}
+                        onMouseEnter={() => setActive(p.id)}
+                        onClick={() => select(p.id)}
                       >
-                        <span
-                          className="w-2.5 h-2.5 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform"
-                          style={place.status === 'wishlist'
-                            ? { border: `2px solid ${s.fill}` }
-                            : { backgroundColor: s.fill }}
+                        {p.category === 'home' && (
+                          <circle r="4" fill="none" stroke={st.fill} strokeWidth="1.2" opacity="0.7">
+                            <animate attributeName="r" from="4" to="12" dur="1.8s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" from="0.7" to="0" dur="1.8s" repeatCount="indefinite" />
+                          </circle>
+                        )}
+                        <circle
+                          r={isCur ? r + 1.8 : r}
+                          fill={st.fill}
+                          stroke="#0c0a09"
+                          strokeWidth="0.8"
+                          filter={isCur ? 'url(#tm-glow)' : undefined}
+                          style={{ transition: 'r .12s ease' }}
                         />
-                        <div className="min-w-0">
-                          <p className="font-medium text-xs text-foreground truncate">{place.city}</p>
-                          <p className="text-[10px] text-muted-foreground truncate">{place.label}</p>
-                        </div>
-                      </button>
+                      </g>
                     )
                   })}
-                </div>
-              )}
+
+                  {/* Active label */}
+                  {currentPlace && (() => {
+                    const [x, y] = currentPlace.xy
+                    const w = Math.max(currentPlace.name.length * 5.4 + 14, 40)
+                    const left = x + w + 8 > VIEW_W
+                    const bx = left ? x - w - 8 : x + 8
+                    return (
+                      <g pointerEvents="none" transform={`translate(${bx} ${y - 9})`}>
+                        <rect width={w} height="18" rx="5"
+                          fill="rgba(12,10,9,0.92)" stroke="color-mix(in oklab, var(--color-brand) 40%, transparent)" strokeWidth="0.6" />
+                        <text x={w / 2} y="12.5" textAnchor="middle" fontSize="9.5"
+                          fill="#f5e9d6" style={{ fontFamily: 'system-ui' }}>{currentPlace.name}</text>
+                      </g>
+                    )
+                  })()}
+                </g>
+              </svg>
+
+              {/* Legend */}
+              <div className="absolute bottom-3 left-3 flex flex-wrap gap-x-3 gap-y-1 px-3 py-2 rounded-xl text-[10px] font-mono pointer-events-none"
+                style={{ background: 'color-mix(in srgb, #0c0a09 72%, transparent)', backdropFilter: 'blur(6px)', border: '1px solid color-mix(in oklab, var(--color-border) 35%, transparent)' }}>
+                {GROUPS.map((g) => (
+                  <span key={g.key} className="flex items-center gap-1.5 text-muted-foreground">
+                    <span className="w-2 h-2 rounded-full" style={{ background: CATEGORY_STYLE[g.key].fill }} />
+                    {g.label}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
+
+          {/* ── Sidebar ── */}
+          <div className="w-full lg:w-[300px] flex-shrink-0">
+            <div className="bg-card p-4 pr-tint-violet rounded-2xl">
+              <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                {counts.total} places • {counts.states} states • {counts.abroad} abroad
+              </p>
+
+              <div className="max-h-[460px] overflow-y-auto pr-1 space-y-5">
+                {GROUPS.map((g) => (
+                  <div key={g.key}>
+                    <p className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] mb-2"
+                      style={{ color: CATEGORY_STYLE[g.key].fill }}>
+                      <span>{g.icon}</span> {g.label}
+                      <span className="text-muted-foreground/50 normal-case tracking-normal">· {byGroup[g.key].length}</span>
+                    </p>
+                    <div className="space-y-0.5">
+                      {byGroup[g.key].map((p) => (
+                        <button
+                          key={p.id}
+                          onClick={() => select(p.id)}
+                          onMouseEnter={() => setActive(p.id)}
+                          onMouseLeave={() => setActive(null)}
+                          className={`w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-left transition-colors ${
+                            current === p.id ? 'bg-accent/10' : 'hover:bg-muted/40'
+                          }`}
+                        >
+                          <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: CATEGORY_STYLE[g.key].fill }} />
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-xs text-foreground truncate leading-tight">{p.name}</span>
+                            <span className="block text-[10px] text-muted-foreground truncate">{p.region}</span>
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Abroad globe ── */}
+        <div className="mt-8">
+          <p className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-brand)' }}>
+            <span>🌐</span> Abroad
+          </p>
+          <Suspense fallback={
+            <div className="h-[320px] rounded-2xl flex items-center justify-center text-muted-foreground text-sm font-mono animate-pulse"
+              style={{ border: '1px solid color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
+              🌍 loading globe…
+            </div>
+          }>
+            <AbroadGlobe places={ABROAD_PLACES} home={HOME} />
+          </Suspense>
         </div>
       </div>
     </section>

@@ -14,8 +14,8 @@ export default function Hero({ onResumeClick }) {
               {/* subtle gold frame matching the site's calm accent */}
               <div className="relative rounded-2xl p-[3px]"
                 style={{
-                  background: 'linear-gradient(160deg, color-mix(in oklab, #e0a04a 45%, transparent), color-mix(in oklab, var(--color-border) 60%, transparent) 55%, color-mix(in oklab, #e0a04a 22%, transparent))',
-                  boxShadow: '0 18px 50px -18px color-mix(in oklab, #e0a04a 35%, transparent)',
+                  background: 'linear-gradient(160deg, color-mix(in oklab, var(--color-brand) 45%, transparent), color-mix(in oklab, var(--color-border) 60%, transparent) 55%, color-mix(in oklab, var(--color-brand) 22%, transparent))',
+                  boxShadow: '0 18px 50px -18px color-mix(in oklab, var(--color-brand) 35%, transparent)',
                 }}>
                 <img
                   src={profile}
@@ -24,7 +24,7 @@ export default function Hero({ onResumeClick }) {
                 />
                 {/* faint inner highlight so the frame reads as glass, not a hard line */}
                 <div aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-[13px]"
-                  style={{ boxShadow: 'inset 0 1px 0 0 color-mix(in oklab, white 12%, transparent), inset 0 0 0 1px color-mix(in oklab, #e0a04a 18%, transparent)' }} />
+                  style={{ boxShadow: 'inset 0 1px 0 0 color-mix(in oklab, white 12%, transparent), inset 0 0 0 1px color-mix(in oklab, var(--color-brand) 18%, transparent)' }} />
               </div>
               <div className="absolute bottom-3 left-3">
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-medium text-foreground shadow-md" style={{ border: '1px solid color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
@@ -120,24 +120,6 @@ export default function Hero({ onResumeClick }) {
               </a>
               <button onClick={onResumeClick} data-resume-btn className="btn-outline">
                 Resume
-              </button>
-            </div>
-
-            {/* Secondary pills */}
-            <div className="mt-7 flex flex-wrap gap-2 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-              <button
-                onClick={() => { window.location.hash = '#/collab' }}
-                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
-              >
-                Collab — code &amp; battle
-                <span className="opacity-50 group-hover:translate-x-0.5 transition-transform">→</span>
-              </button>
-              <button
-                onClick={() => { window.location.hash = '#/stranger' }}
-                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 bg-card/40 backdrop-blur text-[12px] font-medium text-muted-foreground hover:text-foreground hover:border-accent/40 transition-colors"
-              >
-                Stranger Chat
-                <span className="opacity-50 group-hover:translate-x-0.5 transition-transform">→</span>
               </button>
             </div>
           </div>
