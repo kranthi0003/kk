@@ -26,7 +26,7 @@ WORK EXPERIENCE (chronological):
    - Earned 3 Couchbase certifications during tenure
 3. SE-III (Software Engineer 3) at GitHub / Microsoft (2026-Present)
    - Distributed systems, Git internals & platform reliability at scale
-   - Working on support engineering excellence and automation
+   - Working on engineering excellence and automation
 
 TECHNICAL SKILLS:
 - Languages: Python (strong), Java, Ruby, Bash, JavaScript, TypeScript, Go, C++
@@ -63,13 +63,13 @@ International: Las Vegas, Chicago (USA)
 
 CAREER GOALS:
 - Short-term: Excel at GitHub, crack roles at top product companies
-- Medium-term: Become highly skilled in DevOps, cloud architecture, and support engineering excellence
+- Medium-term: Become highly skilled in DevOps, cloud architecture, and engineering excellence
 - Certifications target: Complete all GitHub certifications (Admin, Actions, GHAS, Copilot)
 - Long-term: Financial independence & early retirement by ~40, travel the world full-time, build a YouTube channel for travel content
 
 CURRENT FOCUS:
 - Automating backend troubleshooting at GitHub
-- Improving support engineer workflows
+- Improving engineering workflows
 - Learning advanced cloud + DevOps tooling
 - Building meaningful open-source side projects
 - Growing personal brand and digital presence
