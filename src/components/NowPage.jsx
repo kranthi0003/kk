@@ -12,7 +12,7 @@ const NOW = [
     icon: '🏢',
     title: 'Work',
     lines: [
-      'Support Engineer III at **GitHub**, on **GitHub Actions** — helping enterprises run large-scale CI/CD reliably.',
+      'On **GitHub Actions** at **GitHub** — helping enterprises run large-scale CI/CD reliably.',
       '[Add a line about what you are focused on this quarter.]',
     ],
   },

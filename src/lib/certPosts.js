@@ -205,7 +205,7 @@ export const CERT_POSTS = [
     excerpt: 'The entry point to the GitHub certification track — Git, repositories, collaboration, and the wider platform. Quick to prep if you use GitHub daily.',
     body: [
       editNote,
-      { type: 'p', text: 'Working at GitHub [add: as a Support Engineer on Actions], most of this is daily reality. But Foundations is worth doing precisely because it forces you to be precise about the basics — the difference between Git and GitHub, exactly what a fork is, how protected branches and permissions actually behave.' },
+      { type: 'p', text: 'Working at GitHub on Actions, most of this is daily reality. But Foundations is worth doing precisely because it forces you to be precise about the basics — the difference between Git and GitHub, exactly what a fork is, how protected branches and permissions actually behave.' },
       { type: 'facts', items: [
         { k: 'Exam code', v: 'GH-900' },
         { k: 'Questions', v: '~75' },
@@ -298,7 +298,7 @@ export const CERT_POSTS = [
     excerpt: 'CI/CD, workflows, runners, reusable workflows and secrets — the exam on the platform I support for a living. What it covers and how I would prepare.',
     body: [
       editNote,
-      { type: 'p', text: 'This is the one closest to my day job — I support GitHub Actions [add: as a Support Engineer at GitHub], so the exam content is the same ground I walk with customers: workflow syntax that will not trigger, a reusable workflow passing the wrong secret, a self-hosted runner that will not come online. Sitting the cert was less about learning it cold and more about making the mental model airtight.' },
+      { type: 'p', text: 'This is the one closest to my day job — I work on GitHub Actions, so the exam content is the same ground I walk with customers: workflow syntax that will not trigger, a reusable workflow passing the wrong secret, a self-hosted runner that will not come online. Sitting the cert was less about learning it cold and more about making the mental model airtight.' },
       { type: 'facts', items: [
         { k: 'Exam code', v: 'GH-200' },
         { k: 'Provider', v: 'GitHub (via Microsoft)' },
