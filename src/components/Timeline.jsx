@@ -24,7 +24,7 @@ const GROUPS = [
   },
   {
     status: 'In progress',
-    color: '#e0a04a',
+    color: 'var(--color-brand)',
     items: [
       { name: '[Add what you are studying right now]', when: '' },
     ],

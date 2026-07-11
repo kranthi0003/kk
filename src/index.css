@@ -13,6 +13,7 @@
   --color-muted: oklch(96% 0.005 250);        /* #eaeef2 */
   --color-muted-foreground: oklch(46% 0.012 250); /* #656d76 */
   --color-accent: oklch(54% 0.18 250);        /* #0969da blue */
+  --color-brand: oklch(54% 0.18 250);         /* vivid brand blue */
   --color-accent-foreground: oklch(100% 0 0);
   --color-border: oklch(88% 0.008 250);       /* #d0d7de */
   --color-primary: oklch(20% 0.012 250);
@@ -33,6 +34,7 @@
   --color-muted: oklch(23% 0.012 260);
   --color-muted-foreground: oklch(58% 0.011 250); /* quiet */
   --color-accent: oklch(72% 0.055 250);       /* muted moonlight blue */
+  --color-brand: oklch(70% 0.15 250);         /* vivid brand blue (dark) */
   --color-accent-foreground: oklch(15% 0.012 260);
   --color-border: oklch(27% 0.010 260);
   --color-primary: oklch(84% 0.010 250);

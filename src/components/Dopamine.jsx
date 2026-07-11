@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from 'react'
  * Nation — the pleasure/pain balance). Hand-rolled SVG visuals, no deps.
  * ------------------------------------------------------------------ */
 
-const DOPA = '#e0a04a' // warm amber — dopamine / pleasure
+const DOPA = 'var(--color-brand)' // warm amber — dopamine / pleasure
 const PAIN = '#6f8fd6' // cool blue — the comedown / pain side
 
 // Reveal-on-scroll wrapper (self-contained IntersectionObserver).

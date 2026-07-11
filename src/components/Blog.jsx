@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CATEGORIES, categoryLabel, postsByCategory, featuredPost, formatDate, publishedPosts } from '../lib/blog'
 
-const ACCENT = '#e0a04a'
+const ACCENT = 'var(--color-brand)'
 
 const goPost = (slug) => { window.location.hash = `#/blog/${slug}` }
 

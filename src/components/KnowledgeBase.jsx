@@ -6,7 +6,7 @@ import { TOPICS, topicCount, postsByTopic, notePosts, tilPosts, categoryLabel, t
 // honestly read "growing" rather than faking a number. Notes and TILs live in
 // the same registry as the blog; this page is just the topic-first view of them.
 
-const ACCENT = '#e0a04a'
+const ACCENT = 'var(--color-brand)'
 const goPost = (slug) => { window.location.hash = `#/blog/${slug}` }
 
 function TopicCard({ topic, active, onClick }) {
