@@ -68,7 +68,7 @@ export const POSTS = [
     readingMins: 60,
     render: 'letter', // book-style reader (cover -> contents -> chapters)
     excerpt:
-      'A novel in eleven chapters — one for each month up to her birthday. A one-sided love that lasted ten years, from a quiet classroom door in the eleventh grade to an ocean between Vizag and Germany.',
+      'A novel in eleven chapters. A one-sided love that lasted ten years — from a quiet classroom door in the eleventh grade to an ocean between Vizag and Germany.',
   },
   {
     slug: 'error-budgets-in-one-minute',
