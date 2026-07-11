@@ -60,6 +60,17 @@ export const POSTS = [
       'Three habits that feel unrelated, run by one hijacked circuit. A calm, honest breakdown of how it works in the brain — and how it lets go.',
   },
   {
+    slug: 'its-always-her',
+    title: "It's Always Her",
+    subtitle: 'A ten-year letter to the girl who walked in through a quiet door',
+    category: 'reflections',
+    date: '2026-07-11',
+    readingMins: 60,
+    render: 'letter', // book-style reader (cover -> contents -> chapters)
+    excerpt:
+      'A novel in eleven chapters — one for each month up to her birthday. A one-sided love that lasted ten years, from a quiet classroom door in the eleventh grade to an ocean between Vizag and Germany.',
+  },
+  {
     slug: 'error-budgets-in-one-minute',
     title: 'Error budgets, in one minute',
     subtitle: 'Why the goal was never zero failures',
