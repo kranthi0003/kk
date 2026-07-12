@@ -567,6 +567,36 @@ function Sparkline({ data }) {
 // ============================================================
 // GYM — home-gym plan, each exercise links a verified form demo
 // ============================================================
+function PostureCard() {
+  const [play, setPlay] = useState(false)
+  const id = 'PQnS87AnnR0'
+  return (
+    <Card title="🧍 Posture reset" sub="Desk work wrecks posture. This quick routine from Dr. Berg undoes forward-head, rounded shoulders and lower-back slump — do it along, daily.">
+      <div className="relative w-full overflow-hidden rounded-xl border" style={{ aspectRatio: '16 / 9', borderColor: 'color-mix(in oklab, var(--chart-1) 20%, transparent)' }}>
+        {play ? (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+            title="Correct Your Posture in Just Minutes!"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <button onClick={() => setPlay(true)} className="group absolute inset-0 w-full h-full cursor-pointer" aria-label="Play the posture routine">
+            <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="Correct Your Posture in Just Minutes!" className="w-full h-full object-cover" loading="lazy" />
+            <span className="absolute inset-0 flex items-center justify-center transition-colors" style={{ background: 'color-mix(in oklab, #000 32%, transparent)' }}>
+              <span className="inline-flex items-center justify-center w-14 h-14 rounded-full transition-transform group-hover:scale-110" style={{ background: 'rgba(0,0,0,.62)', boxShadow: '0 8px 24px rgba(0,0,0,.5)' }}>
+                <svg className="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+            </span>
+          </button>
+        )}
+      </div>
+      <Note>Watch once, then follow along — <b className="text-foreground">every morning</b> and after long desk sessions.</Note>
+    </Card>
+  )
+}
+
 function GymTab() {
   const week = useMemo(thisWeekDates, [])
   const initial = Math.max(0, week.findIndex(d => d.isToday))
@@ -600,6 +630,8 @@ function GymTab() {
         </div>
         <Note>Every exercise has a <b className="text-foreground">▶ Form</b> link — tap it to watch the technique before your first set. Good form = results without injury.</Note>
       </Card>
+
+      <PostureCard />
 
       {/* Day selector */}
       <div className="grid grid-cols-7 gap-1.5">
