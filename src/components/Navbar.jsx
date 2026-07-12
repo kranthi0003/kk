@@ -522,7 +522,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
-  const [isCompact, setIsCompact] = useState(false)
   const navRef = useRef()
 
   // Track scroll and active section
@@ -544,14 +543,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Check if nav links overflow — switch to compact mode
-  useEffect(() => {
-    const check = () => setIsCompact(window.innerWidth < 1080 && window.innerWidth >= 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -568,7 +559,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
         <a href="#home" className="flex items-center group flex-shrink-0">
           <span className="font-heading font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
-            {isCompact ? 'KK' : 'Kranthi Kiran'}
+            KK
           </span>
         </a>
           <AmbientPlayer />
