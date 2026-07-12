@@ -600,65 +600,76 @@ nav button.rounded-full.bg-muted\/60:hover {
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-height: 2.9rem;
   padding: 0.55rem 1.25rem;
   border-radius: 9999px;
+  border: 1px solid transparent;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   letter-spacing: 0.005em;
-  transition: opacity 0.18s, background-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s, color 0.2s;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
   line-height: 1.2;
 }
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-outline:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-accent) 70%, transparent);
+  outline-offset: 2px;
+}
 .btn-primary {
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in oklab, var(--color-accent) 70%, var(--color-primary)));
   color: var(--color-accent-foreground);
-  box-shadow: 0 2px 8px -2px color-mix(in oklab, var(--color-accent) 40%, transparent);
+  box-shadow: 0 4px 14px -4px color-mix(in oklab, var(--color-accent) 50%, transparent);
 }
 .btn-primary:hover {
-  opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px -4px color-mix(in oklab, var(--color-accent) 55%, transparent);
+  box-shadow: 0 9px 22px -6px color-mix(in oklab, var(--color-accent) 60%, transparent);
 }
-.btn-secondary {
-  background: var(--color-muted);
-  color: var(--color-foreground);
-  border: 1px solid var(--color-border);
-}
-.btn-secondary:hover {
-  background: color-mix(in oklab, var(--color-muted) 80%, var(--color-foreground) 5%);
-  transform: translateY(-1px);
-}
+/* Projects + Resume — matched translucent "glass" pills */
+.btn-secondary,
 .btn-outline {
-  background: transparent;
+  background: color-mix(in oklab, var(--color-card) 55%, transparent);
   color: var(--color-foreground);
-  border: 1px solid var(--color-border);
+  border: 1px solid color-mix(in oklab, var(--color-border) 65%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
+.btn-secondary:hover,
 .btn-outline:hover {
-  background: var(--color-muted);
+  background: color-mix(in oklab, var(--color-card) 82%, var(--color-foreground) 4%);
+  border-color: color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
   transform: translateY(-1px);
 }
 
-/* Arrow circle inside a pill button (when present) */
+/* Trailing arrow circle — shared by all three CTAs for a uniform look */
 .btn-arrow-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 9999px;
-  margin-right: -0.6rem;
-  margin-left: 0.25rem;
+  margin-right: -0.55rem;
+  margin-left: 0.3rem;
   flex-shrink: 0;
+  transition: transform 0.2s;
 }
+.btn-primary:hover .btn-arrow-circle,
+.btn-secondary:hover .btn-arrow-circle,
+.btn-outline:hover .btn-arrow-circle { transform: translateX(2px); }
 .btn-primary .btn-arrow-circle { background: rgba(255,255,255,0.22); }
-.btn-secondary .btn-arrow-circle { background: color-mix(in oklab, var(--color-foreground) 10%, transparent); }
+.btn-secondary .btn-arrow-circle,
+.btn-outline .btn-arrow-circle { background: color-mix(in oklab, var(--color-foreground) 10%, transparent); }
 .btn-primary .btn-arrow-circle svg,
-.btn-secondary .btn-arrow-circle svg { width: 14px; height: 14px; }
+.btn-secondary .btn-arrow-circle svg,
+.btn-outline .btn-arrow-circle svg { width: 13px; height: 13px; }
 .btn-primary .btn-arrow-circle svg { color: #ffffff; stroke: #ffffff; }
 
 /* Hide scrollbar while keeping scroll behavior */
