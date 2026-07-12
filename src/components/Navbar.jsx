@@ -566,7 +566,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
           {/* Desktop icons */}
           <div className="hidden lg:flex items-center gap-2">
-            <TransformationPulse compact />
+            <TransformationPulse labeled />
             <ToolsDropdown />
             <TechNews side="right" />
             <NavWallet />
@@ -600,7 +600,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       {mobileOpen && (
         <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
-            <div className="flex justify-center mb-1"><TransformationPulse compact /></div>
+            <div className="flex justify-center mb-1"><TransformationPulse labeled /></div>
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
@@ -637,7 +637,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
                 { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
                 { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
-                { icon: '🔥', label: 'Fitness', action: () => { window.location.hash = '#/transformation' } },
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle' } },
@@ -689,7 +688,6 @@ function ToolsDropdown() {
     { icon: <PulseIcon />,  label: 'Service Status',    evt: 'toggle-service-status' },
     { icon: <ReadIcon />,   label: 'Reading Mode',      onClick: () => document.body.classList.toggle('reading-mode') },
     { icon: <RupeeIcon />,  label: 'Salary Calc',       evt: 'toggle-salary-calc' },
-    { icon: <FlameIcon />,  label: 'Transformation HQ', onClick: () => { window.location.hash = '#/transformation' } },
     { icon: <PulseIcon />,  label: 'Reliability Lab',    onClick: () => { window.location.hash = '#/reliability' } },
     { icon: <ReadIcon />,   label: 'Blog',               onClick: () => { window.location.hash = '#/blog' } },
     { icon: <ReadIcon />,   label: 'Learning Timeline',  onClick: () => { window.location.hash = '#/timeline' } },
