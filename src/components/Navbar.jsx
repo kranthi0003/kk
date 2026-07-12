@@ -566,21 +566,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center">
         {/* Left — Logo + ambient music */}
         <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
-        <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading overflow-hidden"
-            style={{
-              background: 'linear-gradient(155deg, color-mix(in oklab, var(--color-brand) 22%, var(--color-card)), var(--color-card))',
-              color: 'var(--color-brand)',
-              border: '1px solid color-mix(in oklab, var(--color-brand) 32%, transparent)',
-              boxShadow: '0 4px 14px -6px color-mix(in oklab, var(--color-brand) 40%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)',
-              fontWeight: 500,
-            }}
-          >
-            <span className="relative z-10 text-[15px] tracking-tight">KK</span>
-            <span className="absolute -top-1 -right-1.5 px-1 rounded text-[7px] font-mono uppercase tracking-wider leading-tight"
-              style={{ background: 'color-mix(in oklab, var(--color-brand) 16%, var(--color-card))', color: 'var(--color-brand)', border: '1px solid color-mix(in oklab, var(--color-brand) 30%, transparent)' }}>β</span>
-          </div>
-          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-accent transition-colors">
+        <a href="#home" className="flex items-center group flex-shrink-0">
+          <span className="font-heading font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
           </span>
         </a>
