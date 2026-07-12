@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
@@ -47,6 +48,7 @@ function WalletDropdown() {
   const [btcPrice, setBtcPrice] = useState(null)
   const [copied, setCopied] = useState(false)
   const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
+  const BTC = '#f7931a'
 
   useEffect(() => {
     const cached = sessionStorage.getItem('btc_wallet')
@@ -63,44 +65,112 @@ function WalletDropdown() {
     }).catch(() => { setData({ final_balance: 2697427, n_tx: 8 }); setBtcPrice(97000) })
   }, [])
 
-  const btc = data ? (data.final_balance / 1e8).toFixed(8) : '···'
-  const usd = data && btcPrice ? ((data.final_balance / 1e8) * btcPrice).toFixed(2) : '···'
+  const loading = !data
+  const btc = data ? (data.final_balance / 1e8).toFixed(8) : null
+  const usd = data && btcPrice ? (data.final_balance / 1e8) * btcPrice : null
+  const fmtUsd = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  const copy = () => { navigator.clipboard.writeText(ADDR); setCopied(true); setTimeout(() => setCopied(false), 1800) }
 
   return (
-    <div className="w-full sm:w-[280px] rounded-2xl border border-border/30 bg-card shadow-2xl shadow-black/20 overflow-hidden">
-      <div className="p-4 border-b border-border/20 flex items-center gap-2">
-        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-          <span className="text-accent-foreground text-[10px] font-bold">₿</span>
+    <div className="w-full sm:w-[300px] rounded-2xl border overflow-hidden"
+      style={{
+        background: 'color-mix(in oklab, var(--color-card) 92%, transparent)',
+        borderColor: 'var(--color-border)',
+        backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
+        boxShadow: '0 24px 60px -14px rgba(0,0,0,.6), inset 0 1px 0 0 color-mix(in oklab, white 6%, transparent)',
+      }}>
+
+      {/* Header */}
+      <div className="px-4 pt-4 pb-3 flex items-center gap-2.5"
+        style={{ background: `linear-gradient(180deg, color-mix(in oklab, ${BTC} 12%, transparent), transparent)` }}>
+        <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ background: `linear-gradient(145deg, ${BTC}, #ffc061)`, boxShadow: `0 4px 12px -3px color-mix(in oklab, ${BTC} 65%, transparent)` }}>
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="#fff" aria-hidden="true">
+            <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.755.005a.25.25 0 0 0-.248.25v.977c0 .137.11.25.248.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.3V4.487zm0 4.051h1.985c1.03 0 1.62.354 1.62 1.318 0 .922-.605 1.36-1.612 1.36H6.927V8.538z"/>
+          </svg>
         </div>
-        <span className="text-xs font-semibold">Bitcoin Wallet</span>
-        <span className="ml-auto text-[9px] font-mono text-muted-foreground">{data?.n_tx || '·'} txns</span>
+        <div className="min-w-0">
+          <div className="text-[12.5px] font-semibold text-foreground leading-tight">Bitcoin Wallet</div>
+          <div className="text-[9.5px] text-muted-foreground leading-tight font-mono">mainnet · self-custody</div>
+        </div>
+        <span className="ml-auto inline-flex items-center gap-1 text-[9.5px] font-mono text-muted-foreground">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 animate-ping" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+          </span>
+          live
+        </span>
       </div>
-      <div className="p-4 text-center">
-        <p className="text-2xl font-bold font-mono">${usd}</p>
-        <p className="text-xs text-muted-foreground font-mono mt-0.5">{btc} BTC</p>
+
+      {/* Balance hero */}
+      <div className="px-4 pb-3 text-center">
+        {loading ? (
+          <div className="flex flex-col items-center gap-2 py-1.5">
+            <div className="h-7 w-32 rounded-md animate-pulse bg-muted/60" />
+            <div className="h-3 w-24 rounded animate-pulse bg-muted/40" />
+          </div>
+        ) : (
+          <>
+            <div className="text-[26px] font-bold font-mono tracking-tight text-foreground leading-none">
+              <span className="text-muted-foreground text-lg align-top mr-0.5">$</span>{fmtUsd(usd)}
+            </div>
+            <div className="mt-1.5 text-[11.5px] font-mono font-medium" style={{ color: BTC }}>{btc} BTC</div>
+          </>
+        )}
       </div>
-      <div className="px-4 pb-3">
-        <button
-          onClick={() => { navigator.clipboard.writeText(ADDR); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
-          className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all"
-        >
-          <span>{ADDR.slice(0, 8)}···{ADDR.slice(-4)}</span>
-          <span className="text-accent">{copied ? '✓' : 'copy'}</span>
+
+      {/* Stats strip */}
+      <div className="mx-4 mb-3 grid grid-cols-2 rounded-xl overflow-hidden text-center"
+        style={{ boxShadow: 'inset 0 0 0 1px var(--color-border)' }}>
+        <div className="py-2 px-1" style={{ boxShadow: 'inset -1px 0 0 0 var(--color-border)' }}>
+          <div className="text-[8.5px] uppercase tracking-wide text-muted-foreground">BTC Price</div>
+          <div className="text-[12px] font-mono font-medium text-foreground tabular-nums">{btcPrice ? '$' + btcPrice.toLocaleString() : '···'}</div>
+        </div>
+        <div className="py-2 px-1">
+          <div className="text-[8.5px] uppercase tracking-wide text-muted-foreground">Transactions</div>
+          <div className="text-[12px] font-mono font-medium text-foreground tabular-nums">{data?.n_tx ?? '···'}</div>
+        </div>
+      </div>
+
+      {/* QR + address */}
+      <div className="px-4 pb-3 flex flex-col items-center">
+        <div className="p-2 rounded-xl bg-white" style={{ boxShadow: '0 2px 10px -2px rgba(0,0,0,.25)' }}>
+          <QRCodeSVG value={`bitcoin:${ADDR}`} size={100} level="M" bgColor="#ffffff" fgColor="#0b0b0b" />
+        </div>
+        <p className="mt-2 text-[9px] text-muted-foreground">Scan to send · tap the address to copy</p>
+        <button onClick={copy}
+          className="mt-1.5 w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg border transition-colors hover:border-accent/40"
+          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
+          <span className="text-[10.5px] font-mono text-muted-foreground truncate">{ADDR.slice(0, 10)}…{ADDR.slice(-6)}</span>
+          <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold flex-shrink-0" style={{ color: copied ? '#34d399' : 'var(--color-accent)' }}>
+            {copied ? (
+              <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>Copied</>
+            ) : (
+              <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>Copy</>
+            )}
+          </span>
         </button>
       </div>
-      <div className="px-4 pb-3 flex gap-2">
+
+      {/* Explorer links */}
+      <div className="px-4 pb-3 grid grid-cols-2 gap-2">
         <a href={`https://mempool.space/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
-          className="flex-1 text-center py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all">
+          className="text-center py-2 rounded-lg border text-[10.5px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
           Activity ↗
         </a>
         <a href={`https://platform.arkhamintelligence.com/explorer/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
-          className="flex-1 text-center py-2 rounded-lg bg-muted/50 border border-border/20 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-all">
+          className="text-center py-2 rounded-lg border text-[10.5px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
           Arkham ↗
         </a>
       </div>
+
+      {/* CTA */}
       <button
         onClick={() => window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))}
-        className="w-full px-4 py-2.5 bg-gradient-to-r from-accent to-primary text-accent-foreground text-[11px] font-semibold hover:opacity-95 transition-all flex items-center justify-center gap-1.5 border-t border-border/20"
+        className="w-full px-4 py-2.5 text-[11.5px] font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
+        style={{ background: 'linear-gradient(to right, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)', borderTop: '1px solid color-mix(in oklab, white 8%, transparent)' }}
       >
         📊 Open Crypto Dashboard
       </button>
