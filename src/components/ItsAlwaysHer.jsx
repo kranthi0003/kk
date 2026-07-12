@@ -29,6 +29,15 @@ function Block({ b, drop }) {
   }
   if (b.type === 'em') return <p className="rd-em">{inline(b.text)}</p>
   if (b.type === 'break') return <div className="rd-break" aria-hidden="true">✦</div>
+  if (b.type === 'salutation') return <p className="rd-letter-salutation">{inline(b.text)}</p>
+  if (b.type === 'letter') return <p className="rd-letter-p">{inline(b.text)}</p>
+  if (b.type === 'signoff') {
+    return (
+      <div className="rd-letter-signoff">
+        {b.lines.map((l, i) => <span key={i}>{inline(l)}</span>)}
+      </div>
+    )
+  }
   return <p className={`rd-p${drop ? ' rd-drop' : ''}`}>{inline(b.text)}</p>
 }
 
@@ -375,6 +384,11 @@ const CSS = `
   .rd-verse-line{ display:block; font-style:italic; font-size:1.08rem; line-height:1.7; color:color-mix(in oklab, var(--brand) 70%, var(--ink)); }
   .rd-break{ text-align:center; color:color-mix(in oklab, var(--brand) 55%, transparent); letter-spacing:.5em; margin:1.4rem 0; break-inside:avoid; }
   .rd-ch-end{ text-align:center; color:color-mix(in oklab, var(--brand) 45%, transparent); margin-top:1.4rem; break-inside:avoid; }
+  .rd-letter-salutation{ font-size:1.1rem; font-style:italic; color:var(--ink); margin:.2rem 0 1.15rem; }
+  .rd-letter-p{ font-size:1.06rem; line-height:1.74; margin:0 0 1.05rem; text-align:left; color:var(--ink); }
+  .rd-letter-p em{ font-style:italic; color:color-mix(in oklab, var(--brand) 60%, var(--ink)); }
+  .rd-letter-signoff{ margin:1.6rem 0 .4rem; text-align:right; break-inside:avoid; }
+  .rd-letter-signoff span{ display:block; font-style:italic; font-size:1.08rem; line-height:1.5; color:var(--ink); }
 
   .rd-bar-bottom{ border-top:1px solid var(--rule); }
   .rd-nav{ width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center;
