@@ -8,7 +8,7 @@ export const BOOK = {
   meta: {
     title: "It's Always Her",
     subtitle: 'A ten-year letter to the girl who walked in through a quiet door.',
-    author: 'Kranthi Kiran',
+    author: 'Kiran',
     place: 'Vizag · by the Bay of Bengal',
     dedication: [
       'For V — born on the twenty-fifth of December;',
