@@ -62,27 +62,17 @@ export default function Hero({ onResumeClick }) {
 
           {/* ─── RIGHT: name, role, description, CTAs ─── */}
           <div className="text-center lg:text-left">
-            {/* Status pill */}
-            <div className="mb-5 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-card/20 backdrop-blur text-xs font-medium text-muted-foreground/90" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500/90" />
-                </span>
-                Currently at GitHub · Microsoft
-              </span>
-            </div>
-
             <h1
               className="font-heading text-4xl sm:text-5xl lg:text-6xl mb-3 animate-fade-in-up"
               style={{
-                animationDelay: '0.2s',
+                animationDelay: '0.15s',
                 fontWeight: 500,
                 letterSpacing: '-0.02em',
                 lineHeight: 1.08,
               }}
             >
-              <RollingGreeting />,<br />I'm Kiran
+              <span className="block font-medium text-2xl sm:text-3xl lg:text-4xl mb-1"><RollingGreeting />,</span>
+              I'm Kiran
             </h1>
 
             <h2
@@ -97,9 +87,20 @@ export default function Hero({ onResumeClick }) {
               />
             </h2>
 
-            <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
+            <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-5 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
               I make computers talk to each other reliably. It's less romantic than it sounds.
             </p>
+
+            {/* Status pill — moved down next to the CTAs */}
+            <div className="mb-6 flex justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-card/20 backdrop-blur text-xs font-medium text-muted-foreground/90" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 40%, transparent)' }}>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500/90" />
+                </span>
+                Currently at GitHub · Microsoft
+              </span>
+            </div>
 
             {/* Primary CTAs */}
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start items-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>

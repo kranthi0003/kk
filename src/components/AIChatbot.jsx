@@ -5,13 +5,14 @@ const SYSTEM_PROMPT = `You are an AI assistant on Kranthi Kiran's portfolio webs
 
 BASICS:
 - Full name: Kranthi Kiran Akkumahanthi
+- Goes by: Kiran (what people close to him call him; the site greets visitors as "Kiran")
 - Current role: SE-III (Software Engineer 3) at GitHub (Microsoft)
 - Location: Visakhapatnam (Vizag), Andhra Pradesh, India
 - Hometown: Vizag — born and raised
 - Education: B.Tech in Computer Science from GITAM University, Vizag (2017-2021)
 - Email: kranthikiranakkumahanthi@gmail.com
 - LinkedIn: linkedin.com/in/akkiran003
-- GitHub: github.com/kranthi0003 (38 public repos, 342+ contributions this year)
+- GitHub: github.com/kranthi0003 (very active — thousands of contributions a year)
 - X/Twitter: x.com/kranthikiran03
 - Website: kranthikiran.com
 - On GitHub since: February 2019
@@ -78,7 +79,7 @@ INTERESTS & HOBBIES:
 - Algorithmic trading using Zerodha Kite API
 - Crypto investing (Bitcoin, high-growth opportunities, tracks halving cycles)
 - Owns a Bitcoin wallet (tracks it on his site!)
-- Fitness transformation (goal: best physique by end of 2027)
+- Fitness — on a focused 6-month body transformation he calls "The Lock-In" (home gym + calorie-deficit diet + skincare + daily discipline), tracked in a private Transformation HQ on the site. Goal: leanest, sharpest shape.
 - Travel content creation — loves sunrises and sunsets
 - Gaming — plays Valorant
 - Satellite imagery enthusiast
@@ -104,9 +105,9 @@ SITE FEATURES (everything on the site):
 4. Admin Mode — type "kk2026" in search bar + Enter to unlock admin features (visitor dashboard, guestbook moderation). Green badge shows when active.
 5. AI Chatbot (you!) — bottom-right floating button. Knows everything about Kranthi. Typing effect, suggestion pills, sessionStorage cache.
 6. Interactive Terminal — AI Shell Translator (English → shell commands), Architecture Diagram Generator ("design twitter"), 4 games (Snake, Tic-Tac-Toe, Wordle with tech words, Memory). Rotating prompt suggestions.
-7. Travel Map — an interactive Leaflet map showing places Kranthi has visited (gold pins) and places he wants to go (blue pins), with click-to-explore.
+7. Travel Map — a hand-drawn dark map of India marking places Kranthi has visited (home base: Vizag), plus temples/pilgrimage spots and a few trips abroad (LA, Vegas, Chicago, Mauritius).
 8. Bitcoin Wallet Tracker — navbar dropdown showing live BTC balance, USD value, transaction count. Uses blockchain.info API.
-9. Spotify Player — embedded Spotify playlist dropdown in navbar.
+9. Ambient Radio — a YouTube-powered ambient/chill music player in the navbar that keeps playing across the whole site (it pauses itself on the Lock-In page).
 10. Status Monitor — navbar dropdown with ECG heartbeat canvas, live metrics (FCP, TTFB, DOM load, resource count, JS heap memory). Pings every 750ms.
 11. Guestbook — Supabase-backed visitor messages (280 char limit). Hidden admin mode for deleting messages.
 12. Live Visitor Counter — Supabase Realtime Presence, shows "X viewing now" badge when 2+ visitors online.
@@ -119,6 +120,13 @@ SITE FEATURES (everything on the site):
 19. Matrix Easter Egg — 5x rapid click on theme toggle triggers Matrix code rain animation.
 20. Scroll Progress Bar — thin accent bar at top showing scroll position.
 21. Grid Background — faint engineering paper grid across entire site (different opacity for light/dark mode).
+
+RECENT ADDITIONS (2026):
+- Transformation HQ — "The 6-Month Lock-In": a personal fitness OS with a daily clock-in, home-gym workouts (each linking a form video), a calorie-deficit diet plan, a skincare routine, a gym playlist, and a progress/monitor dashboard. Reachable from the "Lock-In" item in the navbar.
+- Crypto Dashboard — live markets, Bitcoin network stats, a fear/greed gauge, and a live BTC price ticker that updates every couple of seconds. There's also a Bitcoin wallet popup with a scannable QR.
+- Blog + a /now page — short essays/reflections and a snapshot of what he's focused on right now.
+- Reliability Lab — a live status & observability dashboard.
+- The greeting on the homepage rolls "hello" through many languages.
 
 ACTION BAR (Line 2 of navbar, desktop only — 9 icon buttons):
 Left side:
@@ -169,14 +177,24 @@ export default function AIChatbot() {
     'What is SketchGate?', 'Hobbies?', 'Current role?',
     'Education?', 'Favorite tech?', 'Career goals?',
     'Work at Amazon?', 'Why GitHub?', 'Bitcoin?',
-    'Fitness goals?', 'DevOps tools?', 'Work style?',
+    'The 6-month Lock-In?', 'DevOps tools?', 'Work style?',
+    "What's on this site?", 'Time at Couchbase?', 'Fitness goals?',
   ]
-  const [suggestions, setSuggestions] = useState(() => ALL_SUGGESTIONS.slice(0, 3))
-
-  const rotateSuggestions = () => {
-    const shuffled = ALL_SUGGESTIONS.sort(() => Math.random() - 0.5)
-    setSuggestions(shuffled.slice(0, 3))
+  // Cycle through the questions (shuffled) three at a time, so the pills never
+  // repeat until every one has been shown.
+  const shuffle = (arr) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
+  const poolRef = useRef(null)
+  const posRef = useRef(0)
+  if (!poolRef.current) poolRef.current = shuffle(ALL_SUGGESTIONS)
+  const takeThree = () => {
+    if (posRef.current + 3 > poolRef.current.length) { poolRef.current = shuffle(ALL_SUGGESTIONS); posRef.current = 0 }
+    const out = poolRef.current.slice(posRef.current, posRef.current + 3)
+    posRef.current += 3
+    return out
   }
+  const [suggestions, setSuggestions] = useState(() => takeThree())
+
+  const rotateSuggestions = () => setSuggestions(takeThree())
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
@@ -417,30 +435,35 @@ export default function AIChatbot() {
           )}
 
           {/* Input */}
-          <form onSubmit={sendMessage} className="px-3 pb-3 pt-0 flex-shrink-0">
-            <div className="flex items-center gap-2 rounded-xl px-3 py-2 transition-all focus-within:ring-2"
-              style={{ background: 'color-mix(in oklab, var(--color-muted) 40%, transparent)', boxShadow: 'inset 0 0 0 1px var(--color-border)' }}>
+          <form onSubmit={sendMessage} className="px-3 pb-3 pt-1 flex-shrink-0">
+            <style>{`
+              .chat-typebox { background: color-mix(in oklab, var(--color-muted) 45%, transparent); box-shadow: inset 0 0 0 1px var(--color-border); }
+              .chat-typebox:focus-within { box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--color-accent) 55%, transparent), 0 0 0 3px color-mix(in oklab, var(--color-accent) 16%, transparent); }
+              .chat-send:not(:disabled):hover { transform: scale(1.08); }
+              .chat-send:not(:disabled):active { transform: scale(0.94); }
+            `}</style>
+            <div className="chat-typebox flex items-center gap-1.5 rounded-full pl-4 pr-1.5 py-1.5 transition-shadow">
               <input
                 ref={inputRef}
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder="Ask anything about Kranthi…"
-                className="flex-1 bg-transparent text-[13.5px] text-foreground placeholder:text-muted-foreground/50 outline-none"
+                placeholder="Ask anything…"
+                className="flex-1 bg-transparent text-[13.5px] text-foreground placeholder:text-muted-foreground/45 outline-none"
                 disabled={loading || typing}
               />
               <button
                 type="submit"
                 disabled={loading || typing || !input.trim()}
-                className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all disabled:opacity-30 hover:brightness-110"
-                style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)' }}
+                className="chat-send w-8 h-8 rounded-full grid place-items-center flex-shrink-0 transition-transform disabled:opacity-30 disabled:cursor-not-allowed"
+                style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)', boxShadow: '0 2px 8px -2px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}
                 aria-label="Send"
               >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
                 </svg>
               </button>
             </div>
-            <div className="text-center text-[9px] text-muted-foreground/50 mt-1.5 font-mono">powered by Groq</div>
+            <div className="text-center text-[9px] text-muted-foreground/45 mt-1.5 font-mono">powered by Groq</div>
           </form>
         </div>
       )}
