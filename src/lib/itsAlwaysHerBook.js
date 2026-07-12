@@ -437,6 +437,29 @@ export const BOOK = {
     },
 
     {
+      id: 'unsent',
+      kind: 'interlude',
+      label: 'Interlude',
+      title: 'The Unsent Message',
+      blocks: [
+        { type: 'p', text: `You already know there is a letter. I wrote the first of it at eighteen, over four nights on the floor of the front room, by the light of my phone so my mother would not see the lamp and ask questions I had no answers for — and I tore up every draft but the last, and never gave even that one. What you do not know is that I never really stopped writing it. I have gone on writing it for ten years, silently, in the fog of bus windows and the hush of the twenty-fifths and the terrible half-second between a phone ringing and my courage failing. This is that letter, as I would write it now, at twenty-six, with everything the boy did not understand finally, slowly, understood.` },
+        { type: 'p', text: `I will still never send it. That is not a tragedy anymore; it is only the shape of the thing, the way a coastline is only the shape of the sea's long argument with the land. But a letter ten years in the writing deserves, at least once, to exist in full. So let it exist here, on this single page, unsent — and let her go on never having to carry a word of it.` },
+        { type: 'break' },
+        { type: 'salutation', text: `V —` },
+        { type: 'letter', text: `I have started this letter more times than I have started anything in my life, and torn up every version, because none of them could hold the size of the thing without breaking. So let me try the smallest, truest one — plainly, the way I never once managed to say it to your face.` },
+        { type: 'letter', text: `First: I am sorry. I am sorry for carrying this for you all these years. I never planned it. I have honestly tried to set it down and walk on, the way you are supposed to — and every single time I am sure I have finally left it somewhere behind me, I turn a corner and there it is again, waiting, having never moved at all. I do not tell you this to hand you the weight of it. It was never your fault that a boy at a last bench looked up one morning when a door opened, and never quite learned to look away.` },
+        { type: 'letter', text: `I know your heart is your own. I know it may already be somewhere else, with someone else, and that it was probably never going to be mine. I have made my peace with that — a real peace, not a wound wearing a peaceful face. You do not owe me a single thing: not a word back, not a reason, not even the knowing.` },
+        { type: 'letter', text: `But some things deserve to be said once, even unsent — even if the only ones who ever read them are me, and the sea, and whatever God I still remember on the twenty-fifth.` },
+        { type: 'letter', text: `Thank you. Thank you for existing — for being, somewhere in the same world as me, that calm and unhurried and kind. You gave an ordinary life a private colour it would never have had otherwise. You taught me, without ever once knowing you were teaching, what it is to stand near a soul that felt like home the first second I saw it. Whatever else my life becomes, it will always have had that in it: the door, the breeze, the pen, a shaky handshake on a December birthday, two years of a whole language built from nothing but winks. I would not trade those for a quieter heart.` },
+        { type: 'letter', text: `And I need you to know — truly know — that wherever you go, however far the far country carries you, you will never be entirely without one person in your corner. If a day ever comes when you feel that no one is proud of you, that no one is watching, that you are carrying all of it alone in some strange and colder place — I need you to remember that there is a man by the Bay of Bengal who has been quietly on your side for ten years, who wants nothing from you, and who will go on being on your side for the rest of his life, whether you ever look this way or not. Silently cheering. Faithfully. With his whole heart.` },
+        { type: 'letter', text: `It is alright if you never feel what I feel. I mean that with everything in me. I am not writing to change your answer; I am writing because a thing this long deserves, at least once, to be true out loud. I will keep the lamp. I will keep the calendar. I will keep wishing you the gentlest possible life — not because I am waiting, but because loving you stopped being about being loved back a long time ago. It became, somewhere I never caught the moment of, only this: _let her be well. Let her be happy. Let the world be soft with her._` },
+        { type: 'letter', text: `Because of you, I finally understood what the word means. Not the wanting — the other thing, underneath the wanting. The thing that stays, and asks for nothing, and burns very low and very blue, and keeps.` },
+        { type: 'letter', text: `I hope this year is gentle with you.` },
+        { type: 'signoff', lines: [`Always,`, `Kiaan`] },
+      ],
+    },
+
+    {
       id: 'epilogue',
       kind: 'epilogue',
       label: 'Epilogue',
