@@ -74,7 +74,7 @@ export default function Hero({ onResumeClick }) {
             </div>
 
             <h1
-              className="font-heading text-5xl sm:text-6xl lg:text-7xl mb-3 animate-fade-in-up"
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl mb-3 animate-fade-in-up"
               style={{
                 animationDelay: '0.2s',
                 fontWeight: 500,

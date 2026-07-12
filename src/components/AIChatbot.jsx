@@ -329,61 +329,86 @@ export default function AIChatbot() {
         )}
       </button>
 
-      {/* Chat window — clean & minimal */}
+      {/* Chat window */}
       {open && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[350px] max-w-[calc(100vw-2rem)] rounded-xl border border-border/40 bg-card shadow-xl overflow-hidden flex flex-col animate-fade-in-up" style={{ height: '460px' }}>
-          
-          {/* Header — simple */}
-          <div className="px-4 py-3 border-b border-border/30 flex items-center justify-between flex-shrink-0">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[372px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden flex flex-col animate-fade-in-up"
+          style={{
+            height: '520px', maxHeight: 'calc(100vh - 7rem)',
+            background: 'color-mix(in oklab, var(--color-card) 94%, transparent)',
+            border: '1px solid color-mix(in oklab, var(--color-border) 70%, transparent)',
+            backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
+            boxShadow: '0 24px 70px -16px rgba(0,0,0,.6)',
+          }}>
+
+          {/* Header */}
+          <div className="px-4 py-3 flex items-center justify-between flex-shrink-0 border-b"
+            style={{ borderColor: 'color-mix(in oklab, var(--color-border) 50%, transparent)', background: 'linear-gradient(180deg, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent)' }}>
             <div className="flex items-center gap-2.5">
-              <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-sm font-medium text-foreground">Ask Kranthi</span>
+              <div className="relative w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))', boxShadow: '0 3px 10px -3px color-mix(in oklab, var(--color-accent) 60%, transparent)' }}>
+                <svg className="w-4 h-4" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.7 4.3L18 8l-4.3 1.7L12 14l-1.7-4.3L6 8l4.3-1.7L12 2z" /></svg>
+                <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400" style={{ border: '2px solid var(--color-card)' }} />
+              </div>
+              <div className="leading-tight">
+                <div className="text-[13.5px] font-semibold text-foreground">Ask Kranthi</div>
+                <div className="text-[10px] text-muted-foreground">AI · usually replies instantly</div>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => setMessages([{ role: 'assistant', text: "Fresh chat. What do you want to know about Kranthi?" }])}
-                className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                title="New chat"
-              >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-              </button>
-            </div>
+            <button
+              onClick={() => setMessages([{ role: 'assistant', text: "Fresh chat. What do you want to know about Kranthi?" }])}
+              className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              title="New chat"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
           </div>
 
-          {/* Messages — clean layout */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scroll-smooth">
+          {/* Messages */}
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-3.5 py-4 space-y-3 scroll-smooth scrollbar-hide">
             {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-3.5 py-2.5 text-[13px] leading-relaxed ${
-                  msg.role === 'user'
-                    ? 'bg-foreground text-background rounded-2xl rounded-br-sm'
-                    : 'text-foreground rounded-2xl rounded-bl-sm bg-muted/50'
-                }`}>
+              <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                {msg.role !== 'user' && (
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mb-0.5"
+                    style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))' }}>
+                    <svg className="w-3 h-3" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.4 3.6L17 7l-3.6 1.4L12 12l-1.4-3.6L7 7l3.6-1.4L12 2z" /></svg>
+                  </div>
+                )}
+                <div className={`max-w-[80%] px-3.5 py-2.5 text-[13px] leading-relaxed ${msg.role === 'user' ? 'rounded-2xl rounded-br-md' : 'rounded-2xl rounded-bl-md'}`}
+                  style={msg.role === 'user'
+                    ? { background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)' }
+                    : { background: 'color-mix(in oklab, var(--color-muted) 60%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
                   {msg.text}{msg.typing && <span className="inline-block w-[2px] h-3.5 bg-foreground/60 ml-0.5 animate-pulse align-middle" />}
                 </div>
               </div>
             ))}
             {loading && (
-              <div className="flex justify-start">
-                <div className="bg-muted/50 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 animate-bounce" style={{ animationDelay: '300ms' }} />
+              <div className="flex items-end gap-2 justify-start">
+                <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))' }}>
+                  <svg className="w-3 h-3" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.4 3.6L17 7l-3.6 1.4L12 12l-1.4-3.6L7 7l3.6-1.4L12 2z" /></svg>
+                </div>
+                <div className="rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1" style={{ background: 'color-mix(in oklab, var(--color-muted) 60%, transparent)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               </div>
             )}
           </div>
 
-          {/* Suggestion pills — always visible, rotate after each answer */}
+          {/* Suggestion pills */}
           {!loading && !typing && (
-            <div className="px-4 pb-2 flex flex-wrap gap-1.5">
+            <div className="px-3.5 pb-2 flex flex-wrap gap-1.5">
               {suggestions.map(q => (
                 <button
                   key={q}
                   onClick={() => { setInput(q); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
-                  className="px-3 py-1 rounded-full text-[11px] text-muted-foreground border border-border/30 hover:border-foreground/20 hover:text-foreground transition-all"
+                  className="px-3 py-1 rounded-full text-[11px] font-medium transition-all text-muted-foreground hover:text-foreground"
+                  style={{ background: 'color-mix(in oklab, var(--color-accent) 7%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 20%, transparent)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 15%, transparent)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 7%, transparent)' }}
                 >
                   {q}
                 </button>
@@ -391,27 +416,31 @@ export default function AIChatbot() {
             </div>
           )}
 
-          {/* Input — clean */}
-          <form onSubmit={sendMessage} className="px-3 pb-3 pt-0 flex items-center gap-2 flex-shrink-0">
-            <div className="flex-1 flex items-center bg-muted/30 border border-border/30 rounded-lg px-3 py-2 focus-within:border-foreground/20 transition-colors">
+          {/* Input */}
+          <form onSubmit={sendMessage} className="px-3 pb-3 pt-0 flex-shrink-0">
+            <div className="flex items-center gap-2 rounded-xl px-3 py-2 transition-all focus-within:ring-2"
+              style={{ background: 'color-mix(in oklab, var(--color-muted) 40%, transparent)', boxShadow: 'inset 0 0 0 1px var(--color-border)' }}>
               <input
                 ref={inputRef}
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder="Ask something..."
-                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/40 outline-none"
+                placeholder="Ask anything about Kranthi…"
+                className="flex-1 bg-transparent text-[13.5px] text-foreground placeholder:text-muted-foreground/50 outline-none"
                 disabled={loading || typing}
               />
               <button
                 type="submit"
                 disabled={loading || typing || !input.trim()}
-                className="ml-2 text-muted-foreground hover:text-foreground disabled:opacity-20 transition-all"
+                className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all disabled:opacity-30 hover:brightness-110"
+                style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)' }}
+                aria-label="Send"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
                 </svg>
               </button>
             </div>
+            <div className="text-center text-[9px] text-muted-foreground/50 mt-1.5 font-mono">powered by Groq</div>
           </form>
         </div>
       )}
