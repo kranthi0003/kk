@@ -51,6 +51,7 @@ const SpaceExplorer = lazy(() => import('./components/SpaceExplorer'))
 const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
 const Vegas = lazy(() => import('./components/Vegas'))
+const Europe = lazy(() => import('./components/Europe'))
 const ReliabilityLab = lazy(() => import('./components/ReliabilityLab'))
 const Blog = lazy(() => import('./components/Blog'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
@@ -245,6 +246,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <Vegas onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Europe — private, password-protected winter-trip plan via #/europe route
+  if (route === '#/europe') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <Europe onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

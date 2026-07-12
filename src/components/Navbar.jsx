@@ -452,39 +452,69 @@ const navLinks = [
   { label: 'Connect', href: '#connect' },
 ]
 
-// Private Vegas page — routes to the password-gated #/vegas page
-function VegasButton() {
-  return (
-    <button
-      onClick={() => { window.location.hash = '#/vegas' }}
-      title="Vegas (private)"
-      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-accent) 45%, transparent)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
-      style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
-      className="inline-flex items-center h-8 px-3 rounded-full border bg-card/30 backdrop-blur text-[12px] font-medium text-muted-foreground/90 hover:text-foreground transition-colors"
-    >
-      Vegas
-    </button>
-  )
-}
+// Discreet "sidecar" menu pinned to the far right — keeps the private pages
+// (Vegas, Europe) tucked behind a single unobtrusive control instead of sitting
+// out in the open on the bar.
+function SidecarMenu() {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onKey)
+    return () => { document.removeEventListener('mousedown', onDoc); document.removeEventListener('keydown', onKey) }
+  }, [open])
 
-// Live status pill — routes to the Reliability Lab observability dashboard.
-function StatusPill() {
+  const items = [
+    { label: 'Vegas', emoji: '🎰', hash: '#/vegas' },
+    { label: 'Europe', emoji: '❄️', hash: '#/europe' },
+  ]
+  const go = (hash) => { setOpen(false); window.location.hash = hash }
+
   return (
-    <button
-      onClick={() => { window.location.hash = '#/reliability' }}
-      title="Reliability Lab — live status & observability"
-      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, #34d399 45%, transparent)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
-      style={{ borderColor: 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
-      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border bg-card/30 backdrop-blur text-[12px] font-medium text-muted-foreground/90 hover:text-foreground transition-colors"
-    >
-      <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 opacity-70 animate-ping" />
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-      </span>
-      <span className="hidden sm:inline">Status</span>
-    </button>
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+        aria-label="More"
+        title="More"
+        className="inline-flex items-center justify-center h-8 w-8 rounded-full border bg-card/30 backdrop-blur text-muted-foreground/80 hover:text-foreground transition-colors"
+        style={{ borderColor: open ? 'color-mix(in oklab, var(--color-accent) 45%, transparent)' : 'color-mix(in oklab, var(--color-border) 45%, transparent)' }}
+      >
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="5" cy="12" r="1.7" /><circle cx="12" cy="12" r="1.7" /><circle cx="19" cy="12" r="1.7" />
+        </svg>
+      </button>
+      {open && (
+        <div
+          className="absolute top-full right-0 mt-2 w-44 rounded-xl overflow-hidden z-50 animate-fade-in-up"
+          style={{
+            background: 'var(--color-card)',
+            boxShadow: 'inset 0 0 0 1px var(--color-border), 0 20px 50px -12px rgba(0,0,0,0.6)',
+          }}
+        >
+          <div className="px-3 py-2 border-b border-border/40 flex items-center gap-1.5">
+            <svg className="w-3 h-3" style={{ color: 'var(--color-muted-foreground)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
+            </svg>
+            <span className="text-[10px] uppercase tracking-[0.14em] font-semibold text-muted-foreground">Private</span>
+          </div>
+          <div className="p-1.5">
+            {items.map(it => (
+              <button
+                key={it.hash}
+                onClick={() => go(it.hash)}
+                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-[13px] text-foreground/90 hover:bg-muted/60 transition-colors text-left"
+              >
+                <span aria-hidden="true">{it.emoji}</span><span>{it.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -536,21 +566,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center">
         {/* Left — Logo + ambient music */}
         <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
-        <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className="relative w-9 h-9 rounded-xl flex items-center justify-center font-heading overflow-hidden"
-            style={{
-              background: 'linear-gradient(155deg, color-mix(in oklab, var(--color-brand) 22%, var(--color-card)), var(--color-card))',
-              color: 'var(--color-brand)',
-              border: '1px solid color-mix(in oklab, var(--color-brand) 32%, transparent)',
-              boxShadow: '0 4px 14px -6px color-mix(in oklab, var(--color-brand) 40%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)',
-              fontWeight: 500,
-            }}
-          >
-            <span className="relative z-10 text-[15px] tracking-tight">KK</span>
-            <span className="absolute -top-1 -right-1.5 px-1 rounded text-[7px] font-mono uppercase tracking-wider leading-tight"
-              style={{ background: 'color-mix(in oklab, var(--color-brand) 16%, var(--color-card))', color: 'var(--color-brand)', border: '1px solid color-mix(in oklab, var(--color-brand) 30%, transparent)' }}>β</span>
-          </div>
-          <span className="font-heading font-semibold text-lg text-foreground hidden sm:inline group-hover:text-accent transition-colors">
+        <a href="#home" className="flex items-center group flex-shrink-0">
+          <span className="font-heading font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
             {isCompact ? 'KK' : 'Kranthi Kiran'}
           </span>
         </a>
@@ -559,11 +576,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
         {/* Center — Nav links removed for a cleaner, minimal bar */}
 
-        {/* Right side — Vegas always visible on every width, then responsive clusters */}
+        {/* Right side — responsive clusters, plus a discreet menu pinned far right */}
         <div className="flex items-center gap-2">
-          <VegasButton />
-          <StatusPill />
-
           {/* Desktop icons */}
           <div className="hidden lg:flex items-center gap-2">
             <TransformationPulse labeled />
@@ -593,6 +607,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               </svg>
             </button>
           </div>
+
+          <SidecarMenu />
         </div>
       </div>
 
