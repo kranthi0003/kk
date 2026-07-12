@@ -4,7 +4,7 @@ import { hasFitnessData, weekSummary } from '../lib/fitness'
 // A quiet personal "pulse" — only appears on a browser that has real tracking
 // data (so visitors never see an empty tracker). Reads the same localStorage
 // the Transformation HQ writes. `compact` renders a small navbar pill.
-export default function TransformationPulse({ compact = false }) {
+export default function TransformationPulse({ compact = false, labeled = false }) {
   const [data, setData] = useState(() => (hasFitnessData() ? weekSummary() : null))
 
   useEffect(() => {
@@ -20,9 +20,27 @@ export default function TransformationPulse({ compact = false }) {
     }
   }, [])
 
+  const open = () => { window.location.hash = '#/transformation' }
+
+  // ---- Labeled navbar entry — the primary link to the Lock-In (always shown) ----
+  if (labeled) {
+    const flame = data?.clockStreak || 0
+    return (
+      <button
+        onClick={open}
+        title="Open Lock-In — your 6-month transformation"
+        aria-label="Open Lock-In"
+        className="group inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border/60 bg-card/40 backdrop-blur transition-colors hover:border-accent/40 hover:text-foreground"
+      >
+        <span className="text-[13px] leading-none">🔒</span>
+        <span className="text-[12px] font-medium text-foreground leading-none">Lock-In</span>
+        {flame > 0 && <span className="text-[11px] text-muted-foreground leading-none tabular-nums">{flame}🔥</span>}
+      </button>
+    )
+  }
+
   if (!data) return null
 
-  const open = () => { window.location.hash = '#/transformation' }
   const dayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
   const clockedThisWeek = data.week.filter(d => d.clockedIn).length
   const flame = data.clockStreak || 0
