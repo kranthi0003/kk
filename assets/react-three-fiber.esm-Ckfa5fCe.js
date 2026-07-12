@@ -1,4 +1,4 @@
-import{r as nt,a as qy,j as Bn}from"./index-BDL1MIZa.js";/**
+import{r as nt,a as qy,j as Bn}from"./index-ChNa1duY.js";/**
  * @license
  * Copyright 2010-2026 Three.js Authors
  * SPDX-License-Identifier: MIT
