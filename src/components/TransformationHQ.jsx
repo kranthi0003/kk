@@ -10,6 +10,7 @@ import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan, weeklyGrocery, PLAN_DAY
 import { AM, PM, WEEKLY, GLOW, RULES, skinFor, setSkin } from '../lib/skincare'
 import { PLAYLIST, watchUrl, playAllUrl, STARTER } from '../lib/gymPlaylist'
 import LockInIntro from './LockInIntro'
+import { useAmbient } from './AmbientContext'
 
 // ============================================================
 // TRANSFORMATION HQ — the 6-Month Lock-In
@@ -203,6 +204,21 @@ export default function TransformationHQ({ onBack }) {
     setJustRevealed(false)
     setIntro(true)
   }
+
+  // Silence the site's ambient radio while the Lock-In page is open — it should
+  // never play over the intro reel or the gym playlist. Restore it on the way out
+  // only if it was actually playing when we arrived.
+  const ambient = useAmbient()
+  useEffect(() => {
+    if (!ambient) return
+    const wasPlaying = ambient.playing
+    ambient.setSuppressed(true)
+    return () => {
+      ambient.setSuppressed(false)
+      if (wasPlaying) ambient.play()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
