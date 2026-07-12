@@ -7,8 +7,9 @@ import {
   totalClockIns, daySummary, weekAdherence, lifetimeTotals,
 } from '../lib/fitness'
 import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan, weeklyGrocery, PLAN_DAYS } from '../lib/diet'
-import { AM, PM, WEEKLY, GLOW, RULES, skinFor, setSkin } from '../lib/skincare'
+import { AM, PM, WEEKLY, GLOW, RULES, BODY_PIGMENTATION, HAIR, skinFor, setSkin } from '../lib/skincare'
 import { PLAYLIST, watchUrl, playAllUrl, STARTER } from '../lib/gymPlaylist'
+import { FOUNDATION, PHASES, STREAKS, URGE_PLAN, streakDays, streakBest, streakStarted, streakStart, streakReset } from '../lib/protocol'
 import LockInIntro from './LockInIntro'
 import { useAmbient } from './AmbientContext'
 
@@ -22,10 +23,12 @@ import { useAmbient } from './AmbientContext'
 
 const TABS = [
   { id: 'today',    icon: '✅', label: 'Today' },
+  { id: 'roadmap',  icon: '🗺️', label: 'Roadmap' },
   { id: 'monitor',  icon: '📊', label: 'Monitor' },
   { id: 'gym',      icon: '🏋️', label: 'Gym' },
   { id: 'diet',     icon: '🥗', label: 'Diet' },
-  { id: 'skincare', icon: '✨', label: 'Skincare' },
+  { id: 'skincare', icon: '✨', label: 'Skin & Hair' },
+  { id: 'discipline', icon: '🧠', label: 'Discipline' },
   { id: 'playlist', icon: '🎧', label: 'Playlist' },
   { id: 'progress', icon: '📈', label: 'Progress' },
 ]
@@ -278,10 +281,12 @@ export default function TransformationHQ({ onBack }) {
       {/* Body */}
       <div className="thq-body max-w-5xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-4">
         {tab === 'today'    && <TodayTab lk={lk} go={setTab} />}
+        {tab === 'roadmap'  && <RoadmapTab lk={lk} go={setTab} />}
         {tab === 'monitor'  && <MonitorTab lk={lk} />}
         {tab === 'gym'      && <GymTab />}
         {tab === 'diet'     && <DietTab />}
         {tab === 'skincare' && <SkincareTab />}
+        {tab === 'discipline' && <DisciplineTab />}
         {tab === 'playlist' && <PlaylistTab />}
         {tab === 'progress' && <ProgressTab />}
       </div>
@@ -708,6 +713,138 @@ function GymTab() {
 }
 
 // ============================================================
+// ROADMAP — the sequenced 6-month protocol (all 10 goals)
+// ============================================================
+function RoadmapTab({ lk, go }) {
+  const curPhase = lk.status === 'active' && lk.total
+    ? Math.min(PHASES.length - 1, Math.floor((lk.day - 1) / (lk.total / PHASES.length)))
+    : -1
+  const jump = (id, label) => (
+    <button onClick={() => go(id)}
+      className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[12px] font-semibold transition-colors"
+      style={{ background: 'color-mix(in oklab, var(--chart-1) 10%, transparent)', color: ACCENT, boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 24%, transparent)' }}>
+      {label}
+    </button>
+  )
+  return (
+    <>
+      <Card title="🗺️ The 6-month protocol" sub="Ten problems, one project. The foundation runs from Day 1; treatments layer in one system at a time, so nothing overwhelms you and your skin never gets over-treated.">
+        <div className="flex flex-wrap gap-1.5">
+          {['Posture', 'Lose fat', 'Muscle', 'Face', 'Dark spots', 'Hair', 'Discipline'].map(t => <Pill key={t}>{t}</Pill>)}
+        </div>
+      </Card>
+
+      <Card title="⚡ Always-on foundation" sub="Every day, all six months. These alone fix half the list.">
+        <div className="space-y-2.5">
+          {FOUNDATION.map(f => (
+            <div key={f.title} className="flex gap-3">
+              <span className="text-lg flex-shrink-0">{f.emoji}</span>
+              <span className="min-w-0">
+                <span className="text-[13px] font-medium text-foreground">{f.title}</span>
+                <span className="block text-[12px] text-muted-foreground leading-relaxed">{f.sub}</span>
+                <span className="text-[10px] font-mono" style={{ color: ACCENT }}>{f.hits}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      {PHASES.map((p, i) => {
+        const now = i === curPhase
+        return (
+          <Card key={p.month} title={`${p.month} — ${p.tag}`} sub={p.focus}
+            right={now ? <span className="text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap" style={{ background: 'color-mix(in oklab, var(--chart-1) 20%, transparent)', color: ACCENT }}>◆ You are here</span> : null}>
+            <div className="space-y-2">
+              {p.tracks.map(t => (
+                <div key={t.k} className="flex gap-2.5 text-[13px]">
+                  <span className="text-[11px] font-semibold flex-shrink-0 mt-[1px]" style={{ color: ACCENT, minWidth: '5.5rem' }}>{t.k}</span>
+                  <span className="text-muted-foreground leading-relaxed">{t.d}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )
+      })}
+
+      <div className="flex flex-wrap gap-2">
+        {jump('gym', '🏋️ Gym & posture →')}
+        {jump('skincare', '✨ Skin & hair →')}
+        {jump('discipline', '🧠 Discipline →')}
+      </div>
+
+      <Note>Not medical advice — patch-test actives, add one at a time, and see a doctor / dermatologist for persistent hair loss, a sudden velvety-dark neck, or before starting minoxidil.</Note>
+    </>
+  )
+}
+
+// ============================================================
+// DISCIPLINE — quit-streaks (#10) + urge protocol. Focus, not shame.
+// ============================================================
+function StreakCard({ s }) {
+  const [, bump] = useState(0)
+  const [confirming, setConfirming] = useState(false)
+  const started = streakStarted(s.key)
+  const days = streakDays(s.key)
+  const best = streakBest(s.key)
+  return (
+    <Card title={`${s.emoji} ${s.title}`} sub={s.sub}>
+      {started ? (
+        <>
+          <div className="flex items-end gap-3">
+            <div className="text-[40px] leading-none font-bold tabular-nums" style={{ color: ACCENT }}>{days}</div>
+            <div className="text-[12px] text-muted-foreground mb-1">days clean · best {best}</div>
+          </div>
+          {confirming ? (
+            <div className="mt-3 flex items-center gap-2 flex-wrap">
+              <span className="text-[12px] text-muted-foreground">Reset to zero?</span>
+              <button onClick={() => { streakReset(s.key); setConfirming(false); bump(v => v + 1) }}
+                className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: ACCENT, color: 'var(--color-background)' }}>Yes, reset</button>
+              <button onClick={() => setConfirming(false)} className="text-[11px] text-muted-foreground px-2 py-1">Keep it</button>
+            </div>
+          ) : (
+            <button onClick={() => setConfirming(true)} className="mt-3 text-[11px] font-medium text-muted-foreground hover:text-foreground transition-colors">↺ I slipped — reset</button>
+          )}
+        </>
+      ) : (
+        <button onClick={() => { streakStart(s.key); bump(v => v + 1) }}
+          className="w-full rounded-xl border py-2.5 text-[13px] font-semibold transition-colors"
+          style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 40%, transparent)', color: ACCENT, background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)' }}>
+          Start the streak
+        </button>
+      )}
+      <Note>{s.why}</Note>
+    </Card>
+  )
+}
+
+function DisciplineTab() {
+  return (
+    <>
+      <Card title="🧠 Discipline" sub="Three habits that free up the time, energy and focus the rest of the plan runs on. This is about reclaiming your drive — not shame.">
+        <div className="flex flex-wrap gap-1.5">
+          <Pill>No PMO</Pill><Pill>No added sugar</Pill><Pill>Phone curfew</Pill>
+        </div>
+      </Card>
+
+      {STREAKS.map(s => <StreakCard key={s.key} s={s} />)}
+
+      <Card title="🌊 When the urge hits" sub="Have the plan ready before you need it.">
+        <ul className="space-y-1.5">
+          {URGE_PLAN.map(u => (
+            <li key={u} className="flex items-start gap-2 text-[13px]">
+              <span style={{ color: ACCENT }}>→</span>
+              <span className="text-muted-foreground leading-relaxed">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      <Note>Streaks are stored only on this device. Miss a day? Reset and keep going — the goal is the next 100 days, not a perfect record.</Note>
+    </>
+  )
+}
+
+// ============================================================
 // DIET — calorie-deficit lean cut (Meal 1 / Meal 2 + check-offs)
 // ============================================================
 function MealBlock({ slot, time, meal, checked, onToggle }) {
@@ -969,6 +1106,46 @@ function SkincareTab() {
             </li>
           ))}
         </ul>
+      </Card>
+
+      <Card title="🌗 Body — dark spots" sub="Knees, elbows, neck, underarms, inner thighs. Same playbook everywhere: stop the cause, gently exfoliate, brighten, protect. Weeks, not days.">
+        <div className="space-y-3">
+          {BODY_PIGMENTATION.map(b => (
+            <div key={b.area} className="rounded-xl border p-3" style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 14%, var(--color-border))' }}>
+              <div className="text-[13px] font-semibold text-foreground">{b.area}</div>
+              <div className="text-[12px] text-muted-foreground mt-0.5 mb-2 leading-relaxed">{b.cause}</div>
+              <ul className="space-y-1">
+                {b.fix.map(f => (
+                  <li key={f} className="flex items-start gap-2 text-[12.5px]"><span style={{ color: ACCENT }}>✓</span><span className="text-foreground/90">{f}</span></li>
+                ))}
+              </ul>
+              <div className="mt-2 text-[11.5px] text-muted-foreground leading-relaxed"><span className="font-medium text-foreground">Avoid:</span> {b.avoid}</div>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card title="💇 Hair — loss control" sub={HAIR.intro}>
+        <div className="space-y-2.5">
+          {HAIR.routine.map(h => (
+            <div key={h.title} className="flex gap-3">
+              <span className="text-lg flex-shrink-0">{h.emoji}</span>
+              <span className="min-w-0">
+                <span className="text-[13px] font-medium text-foreground">{h.title}</span>
+                <span className="block text-[12px] text-muted-foreground leading-relaxed">{h.body}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 pt-3 border-t" style={{ borderColor: 'var(--color-border)' }}>
+          <div className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">From within</div>
+          <ul className="space-y-1.5">
+            {HAIR.within.map(([t, why]) => (
+              <li key={t} className="flex items-start gap-2 text-[12.5px]"><span style={{ color: ACCENT }}>✓</span><span><span className="text-foreground font-medium">{t}</span> <span className="text-muted-foreground">— {why}</span></span></li>
+            ))}
+          </ul>
+        </div>
+        <Note>{HAIR.caveat}</Note>
       </Card>
 
       <Card title="✅ This week" sub="Two dots = AM + PM both done.">
