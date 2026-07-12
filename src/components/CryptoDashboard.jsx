@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 const BTC_ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
 const HALVING_BLOCK = 1050000 // next halving target (after 840k in 2024)
@@ -77,6 +77,81 @@ function FearGreedGauge({ value, label }) {
         <div className="text-4xl font-bold font-mono">{v}</div>
         <div className="text-xs text-muted-foreground uppercase tracking-widest mt-0.5">{label || '—'}</div>
       </div>
+    </div>
+  )
+}
+
+// A live BTC price strip that ticks every ~2s while the dashboard is open.
+// Polls Coinbase (falls back to Binance) — both are CORS-enabled and USD.
+// The dashboard unmounts when closed, so this interval only runs while open;
+// it also pauses while the browser tab is hidden.
+function LiveTicker({ fallback }) {
+  const [price, setPrice] = useState(fallback ?? null)
+  const [dir, setDir] = useState('flat')
+  const [pop, setPop] = useState(0)
+  const prev = useRef(fallback ?? null)
+  const openPrice = useRef(fallback ?? null)
+
+  useEffect(() => {
+    let alive = true
+    const getPrice = async () => {
+      try {
+        const r = await fetch('https://api.exchange.coinbase.com/products/BTC-USD/ticker')
+        if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p }
+      } catch {}
+      try {
+        const r = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT')
+        if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p }
+      } catch {}
+      return null
+    }
+    const tick = async () => {
+      if (typeof document !== 'undefined' && document.hidden) return
+      const p = await getPrice()
+      if (!alive || p == null) return
+      if (openPrice.current == null) openPrice.current = p
+      const pr = prev.current
+      if (pr != null && p !== pr) { setDir(p > pr ? 'up' : 'down'); setPop(k => k + 1) }
+      prev.current = p
+      setPrice(p)
+    }
+    tick()
+    const id = setInterval(tick, 2000)
+    const onVis = () => { if (!document.hidden) tick() }
+    document.addEventListener('visibilitychange', onVis)
+    return () => { alive = false; clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
+  }, [])
+
+  const up = dir === 'up', down = dir === 'down'
+  const arrowCol = up ? '#22c55e' : down ? '#ef4444' : 'var(--color-muted-foreground)'
+  const delta = price != null && openPrice.current != null ? price - openPrice.current : 0
+  const pct = openPrice.current ? (delta / openPrice.current) * 100 : 0
+  const deltaCol = delta > 0 ? '#22c55e' : delta < 0 ? '#ef4444' : 'var(--color-muted-foreground)'
+  const fmt = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+  return (
+    <div className="flex items-center gap-2.5 px-5 py-2 border-b border-border/30 bg-background/60 overflow-hidden">
+      <style>{`
+        @keyframes ckTick { 0%{transform:translateY(5px);opacity:.4;background:color-mix(in oklab, var(--tc, transparent) 24%, transparent)} 100%{transform:translateY(0);opacity:1;background:transparent} }
+        .ck-tick { display:inline-block; animation: ckTick .34s ease-out; }
+        @media (prefers-reduced-motion: reduce){ .ck-tick { animation: none } }
+      `}</style>
+      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground flex-shrink-0">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 animate-ping" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+        </span>
+        Live
+      </span>
+      <span className="text-[10.5px] font-mono text-muted-foreground flex-shrink-0 hidden sm:inline">BTC/USD</span>
+      <span key={pop} className="ck-tick font-mono font-bold text-[15px] tabular-nums px-1 rounded text-foreground"
+        style={{ '--tc': up ? '#22c55e' : down ? '#ef4444' : 'transparent' }}>
+        ${price != null ? fmt(price) : '—'}
+      </span>
+      <span className="text-[12px] flex-shrink-0 w-3" style={{ color: arrowCol }}>{up ? '▲' : down ? '▼' : ''}</span>
+      <span className="ml-auto text-[11px] font-mono tabular-nums flex-shrink-0" style={{ color: deltaCol }}>
+        {delta >= 0 ? '+' : ''}{fmt(delta)} <span className="opacity-80">({pct >= 0 ? '+' : ''}{pct.toFixed(2)}%)</span>
+      </span>
     </div>
   )
 }
@@ -205,6 +280,9 @@ export default function CryptoDashboard() {
           </div>
           <button onClick={() => setOpen(false)} className="w-7 h-7 rounded-lg hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors text-lg">✕</button>
         </div>
+
+        {/* Live ticker */}
+        <LiveTicker fallback={btcPrice} />
 
         {/* Tabs */}
         <div className="flex items-center gap-0.5 px-3 py-2 border-b border-border/30 bg-background overflow-x-auto scrollbar-hide">
