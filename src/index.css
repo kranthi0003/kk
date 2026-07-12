@@ -244,6 +244,66 @@ h4, h5, h6 {
   }
 }
 
+/* ── Europe winter plan — themed prose + subtle snow ─────────────────── */
+.europe-prose { color: var(--color-foreground); font-size: 15px; line-height: 1.72; }
+.europe-prose > h1 { display: none; }
+.europe-prose h2 {
+  margin-top: 2.3rem; margin-bottom: 0.6rem; font-size: 1.32rem; font-weight: 600;
+  letter-spacing: -0.01em; padding-bottom: 0.4rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-brand) 24%, var(--color-border));
+}
+.europe-prose h3 {
+  margin-top: 1.5rem; margin-bottom: 0.35rem; font-size: 1.02rem; font-weight: 600;
+  color: color-mix(in oklab, var(--color-brand) 78%, var(--color-foreground));
+}
+.europe-prose p { margin: 0.7rem 0; color: color-mix(in oklab, var(--color-foreground) 90%, transparent); }
+.europe-prose ul, .europe-prose ol { margin: 0.6rem 0 0.9rem; padding-left: 1.3rem; }
+.europe-prose ol { list-style: decimal; }
+.europe-prose li { margin: 0.28rem 0; }
+.europe-prose ul li { list-style: none; position: relative; padding-left: 1.05rem; }
+.europe-prose ul li::before { content: '›'; position: absolute; left: 0; color: var(--color-brand); font-weight: 700; }
+.europe-prose strong { color: var(--color-foreground); font-weight: 650; }
+.europe-prose em { color: var(--color-muted-foreground); }
+.europe-prose a { color: var(--color-accent); text-decoration: underline; }
+.europe-prose hr { border: none; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+.europe-prose blockquote { border-left: 3px solid var(--color-brand); padding-left: 1rem; margin: 1rem 0; color: var(--color-muted-foreground); }
+.europe-prose table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 13.5px; }
+.europe-prose thead th {
+  text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--color-muted-foreground); padding: 0.45rem 0.55rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.europe-prose tbody td { padding: 0.5rem 0.55rem; border-bottom: 1px solid color-mix(in oklab, var(--color-border) 55%, transparent); }
+.europe-prose tbody td:last-child { text-align: right; color: color-mix(in oklab, var(--color-brand) 82%, var(--color-foreground)); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.europe-prose tbody tr:last-child td { border-bottom: none; }
+
+.europe-snow, .europe-snow::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+}
+.europe-snow {
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(205,220,255,0.75), transparent),
+    radial-gradient(2px 2px at 72% 62%, rgba(205,220,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 42% 82%, rgba(205,220,255,0.65), transparent),
+    radial-gradient(2px 2px at 90% 18%, rgba(205,220,255,0.55), transparent);
+  background-size: 340px 340px;
+  animation: europeSnow 15s linear infinite;
+  opacity: 0.5;
+}
+.europe-snow::before {
+  background-image:
+    radial-gradient(1.5px 1.5px at 15% 48%, rgba(220,230,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 58% 22%, rgba(220,230,255,0.55), transparent),
+    radial-gradient(1px 1px at 82% 72%, rgba(220,230,255,0.6), transparent);
+  background-size: 240px 240px;
+  animation: europeSnow 9s linear infinite;
+  opacity: 0.45;
+}
+@keyframes europeSnow { from { background-position: 0 -340px; } to { background-position: 0 340px; } }
+@media (prefers-reduced-motion: reduce) {
+  .europe-snow, .europe-snow::before { animation: none !important; opacity: 0.28; }
+}
+
 /* Reading Mode — clean, focused document layout */
 body.reading-mode {
   background-image: none !important;
