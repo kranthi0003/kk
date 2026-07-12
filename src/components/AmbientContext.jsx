@@ -78,6 +78,8 @@ export function AmbientProvider({ children }) {
   const [idx, setIdx] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [everPlayed, setEverPlayed] = useState(false)
+  const [suppressed, setSuppressedState] = useState(false)
+  const suppressedRef = useRef(false)
   const [vol, setVolState] = useState(() => {
     const v = parseInt(localStorage.getItem('ambient_vol') || String(DEFAULT_VOL), 10)
     return Number.isFinite(v) ? Math.min(100, Math.max(0, v)) : DEFAULT_VOL
@@ -123,8 +125,18 @@ export function AmbientProvider({ children }) {
   }, [])
 
   const play = useCallback(() => {
+    if (suppressedRef.current) return
     const p = playerRef.current; if (!p) return
     try { p.playVideo() } catch {}
+  }, [])
+
+  // Pages like the Lock-In / gym experience call this to silence the ambient
+  // radio while they're open (so it never clashes with the intro reel or the
+  // gym playlist), then release it when they unmount.
+  const setSuppressed = useCallback((v) => {
+    suppressedRef.current = !!v
+    setSuppressedState(!!v)
+    if (v) { const p = playerRef.current; try { p && p.pauseVideo() } catch {} }
   }, [])
 
   const toggle = useCallback(() => {
@@ -156,12 +168,13 @@ export function AmbientProvider({ children }) {
   // dismisses the intro screen. After that, only the manual controls apply.
   useEffect(() => {
     if (!built) return
-    try { playerRef.current && playerRef.current.playVideo() } catch {}
+    if (!suppressedRef.current) { try { playerRef.current && playerRef.current.playVideo() } catch {} }
     let done = false
     const types = ['pointerdown', 'touchstart', 'keydown', 'click']
     const remove = () => types.forEach(t => window.removeEventListener(t, kick, true))
     function kick() {
       if (done || autoStartedRef.current) { remove(); return }
+      if (suppressedRef.current) return // stay armed, but don't start while a page has silenced us
       done = true
       try { playerRef.current && playerRef.current.playVideo() } catch {}
       remove()
@@ -171,9 +184,9 @@ export function AmbientProvider({ children }) {
   }, [built])
 
   const value = {
-    built, playing, everPlayed, idx, vol,
+    built, playing, everPlayed, idx, vol, suppressed,
     track: TRACKS[idx],
-    toggle, next, prev, setVol,
+    toggle, next, prev, setVol, play, setSuppressed,
   }
 
   return (
