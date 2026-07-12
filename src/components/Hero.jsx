@@ -81,7 +81,7 @@ export default function Hero({ onResumeClick }) {
                 lineHeight: 1.08,
               }}
             >
-              Hey, I'm Kranthi
+              Hey, I'm Kiran
             </h1>
 
             <h2
