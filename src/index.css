@@ -191,6 +191,59 @@ h4, h5, h6 {
   }
 }
 
+/* ── Lock-In: cinematic intro + Ferrari-style dashboard reveal ───────── */
+@keyframes thqShellIn {
+  from { opacity: 0; transform: scale(0.985) translateY(12px); filter: blur(7px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+@keyframes thqUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+.thq-enter { animation: thqShellIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.thq-enter .thq-body > * { animation: thqUp 0.6s cubic-bezier(0.2, 0.65, 0.3, 1) both; }
+.thq-enter .thq-body > *:nth-child(1) { animation-delay: 0.10s; }
+.thq-enter .thq-body > *:nth-child(2) { animation-delay: 0.17s; }
+.thq-enter .thq-body > *:nth-child(3) { animation-delay: 0.24s; }
+.thq-enter .thq-body > *:nth-child(4) { animation-delay: 0.31s; }
+.thq-enter .thq-body > *:nth-child(5) { animation-delay: 0.38s; }
+.thq-enter .thq-body > *:nth-child(6) { animation-delay: 0.45s; }
+.thq-enter .thq-body > *:nth-child(n+7) { animation-delay: 0.52s; }
+
+/* film grain overlay for the intro */
+.thq-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  animation: thqGrain 1.1s steps(4) infinite;
+}
+@keyframes thqGrain {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-7%, -7%); }
+}
+.lockin-kenburns { animation: thqKenBurns 18s ease-out both; }
+@keyframes thqKenBurns {
+  from { transform: scale(1.2); }
+  to   { transform: scale(1.34); }
+}
+.lockin-pulse { animation: thqSoundPulse 1.8s ease-in-out infinite; }
+@keyframes thqSoundPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.92; }
+  50%      { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
+}
+.lockin-fade-in { animation: thqCtaIn 0.5s ease-out both; }
+@keyframes thqCtaIn {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thq-enter, .thq-enter .thq-body > *,
+  .thq-grain, .lockin-kenburns, .lockin-pulse, .lockin-fade-in {
+    animation: none !important;
+  }
+}
+
 /* Reading Mode — clean, focused document layout */
 body.reading-mode {
   background-image: none !important;

@@ -9,6 +9,7 @@ import {
 import { WEEK, SALADS, NUTRITION, MEAL_TIMES, todayPlan, weeklyGrocery, PLAN_DAYS } from '../lib/diet'
 import { AM, PM, WEEKLY, GLOW, RULES, skinFor, setSkin } from '../lib/skincare'
 import { PLAYLIST, watchUrl, playAllUrl, STARTER } from '../lib/gymPlaylist'
+import LockInIntro from './LockInIntro'
 
 // ============================================================
 // TRANSFORMATION HQ — the 6-Month Lock-In
@@ -184,8 +185,29 @@ export default function TransformationHQ({ onBack }) {
 
   const lk = lockin()
 
+  // Cinematic intro — plays once per browser session (skipped for reduced motion).
+  const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const [intro, setIntro] = useState(() => {
+    try { if (sessionStorage.getItem('thq:introSeen')) return false } catch {}
+    return !prefersReduced
+  })
+  const [justRevealed, setJustRevealed] = useState(false)
+  const dismissIntro = () => {
+    try { sessionStorage.setItem('thq:introSeen', '1') } catch {}
+    setIntro(false)
+    setJustRevealed(true)
+    setTimeout(() => setJustRevealed(false), 1600)
+  }
+  const replayIntro = () => {
+    try { sessionStorage.removeItem('thq:introSeen') } catch {}
+    setJustRevealed(false)
+    setIntro(true)
+  }
+
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      {intro && <LockInIntro onDone={dismissIntro} />}
+      <div className={`min-h-screen bg-background${justRevealed ? ' thq-enter' : ''}`}>
       {/* Top bar */}
       <div className="sticky top-0 z-30 thq-nav-surface backdrop-blur-xl border-b"
         style={{ borderBottomColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))' }}>
@@ -238,7 +260,7 @@ export default function TransformationHQ({ onBack }) {
       </div>
 
       {/* Body */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-4">
+      <div className="thq-body max-w-5xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-4">
         {tab === 'today'    && <TodayTab lk={lk} go={setTab} />}
         {tab === 'monitor'  && <MonitorTab lk={lk} />}
         {tab === 'gym'      && <GymTab />}
@@ -248,10 +270,12 @@ export default function TransformationHQ({ onBack }) {
         {tab === 'progress' && <ProgressTab />}
       </div>
 
-      <div className="border-t border-border/30 py-4 text-center">
+      <div className="border-t border-border/30 py-4 text-center flex items-center justify-center gap-3 flex-wrap">
         <span className="text-[10px] text-muted-foreground/60 font-mono">All data stored locally · no cloud · no judgment · just show up</span>
+        <button onClick={replayIntro} className="text-[10px] text-muted-foreground/50 hover:text-foreground font-mono transition-colors">↻ replay intro</button>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 
