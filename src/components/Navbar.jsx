@@ -49,6 +49,9 @@ function WalletDropdown() {
   const [copied, setCopied] = useState(false)
   const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
   const BTC = '#f7931a'
+  const [dir, setDir] = useState('flat')
+  const [pop, setPop] = useState(0)
+  const prevPrice = useRef(null)
 
   useEffect(() => {
     const cached = sessionStorage.getItem('btc_wallet')
@@ -63,6 +66,31 @@ function WalletDropdown() {
       setData(w); setBtcPrice(p.bitcoin.usd)
       sessionStorage.setItem('btc_wallet', JSON.stringify({ data: w, price: p.bitcoin.usd, ts: Date.now() }))
     }).catch(() => { setData({ final_balance: 2697427, n_tx: 8 }); setBtcPrice(97000) })
+  }, [])
+
+  // Live price — polls every ~2s while the popup is open (it unmounts when
+  // closed, so this only runs while open) and pauses while the tab is hidden.
+  useEffect(() => {
+    let alive = true
+    const getPrice = async () => {
+      try { const r = await fetch('https://api.exchange.coinbase.com/products/BTC-USD/ticker'); if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p } } catch {}
+      try { const r = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT'); if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p } } catch {}
+      return null
+    }
+    const tick = async () => {
+      if (typeof document !== 'undefined' && document.hidden) return
+      const p = await getPrice()
+      if (!alive || p == null) return
+      const pr = prevPrice.current
+      if (pr != null && p !== pr) { setDir(p > pr ? 'up' : 'down'); setPop(k => k + 1) }
+      prevPrice.current = p
+      setBtcPrice(p)
+    }
+    tick()
+    const id = setInterval(tick, 2000)
+    const onVis = () => { if (!document.hidden) tick() }
+    document.addEventListener('visibilitychange', onVis)
+    return () => { alive = false; clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
   }, [])
 
   const loading = !data
@@ -104,6 +132,11 @@ function WalletDropdown() {
 
       {/* Balance hero */}
       <div className="px-4 pb-3 text-center">
+        <style>{`
+          @keyframes walletTick { 0%{transform:translateY(4px);opacity:.5;background:color-mix(in oklab, var(--wt, transparent) 22%, transparent)} 100%{transform:translateY(0);opacity:1;background:transparent} }
+          .wallet-tick { display:inline-block; border-radius:8px; padding:0 5px; animation: walletTick .38s ease-out; }
+          @media (prefers-reduced-motion: reduce){ .wallet-tick{ animation:none } }
+        `}</style>
         {loading ? (
           <div className="flex flex-col items-center gap-2 py-1.5">
             <div className="h-7 w-32 rounded-md animate-pulse bg-muted/60" />
@@ -112,9 +145,13 @@ function WalletDropdown() {
         ) : (
           <>
             <div className="text-[26px] font-bold font-mono tracking-tight text-foreground leading-none">
-              <span className="text-muted-foreground text-lg align-top mr-0.5">$</span>{fmtUsd(usd)}
+              <span className="text-muted-foreground text-lg align-top mr-0.5">$</span>
+              <span key={pop} className="wallet-tick" style={{ '--wt': dir === 'up' ? '#22c55e' : dir === 'down' ? '#ef4444' : 'transparent' }}>{fmtUsd(usd)}</span>
             </div>
-            <div className="mt-1.5 text-[11.5px] font-mono font-medium" style={{ color: BTC }}>{btc} BTC</div>
+            <div className="mt-1.5 flex items-center justify-center gap-1.5 text-[11.5px] font-mono font-medium">
+              <span style={{ color: BTC }}>{btc} BTC</span>
+              {dir !== 'flat' && <span style={{ color: dir === 'up' ? '#22c55e' : '#ef4444' }}>{dir === 'up' ? '▲' : '▼'}</span>}
+            </div>
           </>
         )}
       </div>
