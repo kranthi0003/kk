@@ -1,6 +1,7 @@
 import React from 'react'
 import profile from '../../assets/profile.png'
 import TypingText from './TypingText'
+import RollingGreeting from './RollingGreeting'
 
 export default function Hero({ onResumeClick }) {
   return (
@@ -81,7 +82,7 @@ export default function Hero({ onResumeClick }) {
                 lineHeight: 1.08,
               }}
             >
-              Hey, I'm Kiran
+              <RollingGreeting />,<br />I'm Kiran
             </h1>
 
             <h2
