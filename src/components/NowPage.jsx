@@ -44,7 +44,7 @@ const NOW = [
     icon: '🌱',
     title: 'Life',
     lines: [
-      'A 100-day lean cut — tracked in the private Transformation HQ.',
+      'A 6-month lock-in — home gym, calorie deficit, skincare. Tracked daily in the private Transformation HQ.',
       'Based in Visakhapatnam, India.',
     ],
   },
