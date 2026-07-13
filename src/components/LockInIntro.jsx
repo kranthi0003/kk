@@ -9,7 +9,7 @@ import { lockin } from '../lib/fitness'
 // ============================================================
 export default function LockInIntro({ onDone }) {
   const vref = useRef(null)
-  const [muted, setMuted] = useState(true)
+  const [muted, setMuted] = useState(false)
   const [progress, setProgress] = useState(0)
   const [leaving, setLeaving] = useState(false)
   const [showHint, setShowHint] = useState(true)
@@ -24,8 +24,18 @@ export default function LockInIntro({ onDone }) {
   useEffect(() => {
     const v = vref.current
     if (!v) return
-    const tryPlay = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}) }
-    tryPlay()
+    // Sound on by default. The HQ opens from a user tap, which usually
+    // satisfies autoplay-with-sound; if the browser still blocks it, fall
+    // back to muted so the reel always plays and show the "tap for sound" hint.
+    v.muted = false
+    const p = v.play()
+    if (p && p.then) {
+      p.catch(() => {
+        v.muted = true
+        setMuted(true)
+        const p2 = v.play(); if (p2 && p2.catch) p2.catch(() => {})
+      })
+    }
     const onTime = () => { if (v.duration) setProgress(v.currentTime / v.duration) }
     const onEnd = () => dismiss()
     v.addEventListener('timeupdate', onTime)
