@@ -29,6 +29,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Weather Union (Zomato) hyperlocal weather — client-side key baked
+          # into the bundle at build. Kept in Actions secrets, not in git.
+          VITE_WEATHER_UNION_API_KEY: ${{ secrets.VITE_WEATHER_UNION_API_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
