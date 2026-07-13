@@ -1,4 +1,5 @@
 import React from 'react'
+import { SystemStatusPill } from './SystemStatus'
 
 const links = [
   { label: 'GitHub', href: 'https://github.com/kranthi0003', icon: '🐙' },
@@ -42,6 +43,9 @@ export default function Footer() {
 
           {/* Right — meta */}
           <div className="text-center sm:text-right">
+            <div className="flex sm:justify-end mb-1.5">
+              <SystemStatusPill />
+            </div>
             <p className="text-[11px] text-muted-foreground/70">
               © {new Date().getFullYear()} · React + Tailwind + Vite
             </p>
