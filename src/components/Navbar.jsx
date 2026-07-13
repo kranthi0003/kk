@@ -5,6 +5,7 @@ import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
+import { SystemStatusDot } from './SystemStatus'
 
 
 function NavWallet() {
@@ -678,6 +679,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         <div className="flex items-center gap-2">
           {/* Desktop icons */}
           <div className="hidden lg:flex items-center gap-2">
+            <SystemStatusDot />
             <TransformationPulse labeled />
             <ToolsDropdown />
             <TechNews side="right" />
@@ -688,6 +690,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
           {/* Mobile — icons + hamburger */}
           <div className="flex md:hidden items-center gap-2">
+            <SystemStatusDot />
             <NavWallet />
             <NavStatus />
             <ThemeToggle />

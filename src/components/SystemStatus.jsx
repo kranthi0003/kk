@@ -16,20 +16,48 @@ export default function SystemStatus() {
   const [dismissed, setDismissed] = useState(false)
   const [lastRun, setLastRun] = useState(null)
   const [running, setRunning] = useState(false)
+  const [history, setHistory] = useState({}) // per-check rolling latency samples
   const prevOverall = useRef(null)
+  const runningRef = useRef(false)
+  const lastRunAt = useRef(0)
 
   const groupStatus = {}
   for (const g of GROUPS) groupStatus[g.id] = rollupGroup(results, g)
   const overall = overallStatus(groupStatus)
 
   const run = useCallback(async () => {
+    if (runningRef.current) return // don't overlap an in-flight run
+    runningRef.current = true
     setRunning(true)
-    await runAllChecks(partial => setResults({ ...partial }))
+    const final = await runAllChecks(partial => setResults({ ...partial }))
+    // append this run's latency to each check's rolling history (null = down)
+    setHistory(prev => {
+      const next = { ...prev }
+      for (const g of GROUPS) for (const c of g.checks) {
+        const ms = final[c.id]?.status === 'down' ? null : (final[c.id]?.ms ?? null)
+        next[c.id] = (next[c.id] || []).concat(ms).slice(-24)
+      }
+      return next
+    })
+    lastRunAt.current = Date.now()
     setLastRun(new Date())
     setRunning(false)
+    runningRef.current = false
   }, [])
 
-  useEffect(() => { run() }, [run])
+  // Run on mount, then auto re-run every 3 min while the tab is visible
+  // (paused when hidden). Also refresh when returning to a stale tab.
+  useEffect(() => {
+    run()
+    const id = setInterval(() => {
+      if (document.visibilityState === 'visible') run()
+    }, 180000)
+    const onVis = () => {
+      if (document.visibilityState === 'visible' && Date.now() - lastRunAt.current > 90000) run()
+    }
+    document.addEventListener('visibilitychange', onVis)
+    return () => { clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
+  }, [run])
 
   // Broadcast overall status for the footer pill; re-show banner if it worsens.
   useEffect(() => {
@@ -78,7 +106,7 @@ export default function SystemStatus() {
       {open && (
         <StatusPanel
           onClose={() => setOpen(false)}
-          results={results} groupStatus={groupStatus} overall={overall}
+          results={results} groupStatus={groupStatus} overall={overall} history={history}
           lastRun={lastRun} running={running} onRerun={run}
         />
       )}
@@ -86,7 +114,7 @@ export default function SystemStatus() {
   )
 }
 
-function StatusPanel({ onClose, results, groupStatus, overall, lastRun, running, onRerun }) {
+function StatusPanel({ onClose, results, groupStatus, overall, history, lastRun, running, onRerun }) {
   const meta = STATUS_META[overall] || STATUS_META.checking
   return (
     <div className="fixed inset-0 z-[1001] flex items-start justify-center p-4 sm:p-8 overflow-y-auto"
@@ -129,13 +157,16 @@ function StatusPanel({ onClose, results, groupStatus, overall, lastRun, running,
                   {g.checks.map(c => {
                     const r = results[c.id] || { status: 'checking' }
                     return (
-                      <div key={c.id} className="flex items-center justify-between text-[11.5px]">
-                        <span className="flex items-center gap-1.5 text-muted-foreground">
-                          <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: DOT[r.status] || DOT.checking }} />
-                          {c.label}
+                      <div key={c.id} className="flex items-center justify-between gap-2 text-[11.5px]">
+                        <span className="flex items-center gap-1.5 text-muted-foreground min-w-0 flex-shrink">
+                          <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: DOT[r.status] || DOT.checking }} />
+                          <span className="truncate">{c.label}</span>
                         </span>
-                        <span className="font-mono tabular-nums" style={{ color: r.status === 'down' ? DOT.down : 'var(--color-muted-foreground)' }}>
-                          {r.status === 'checking' ? '···' : r.detail || CHECK_LABEL[r.status]}
+                        <span className="flex items-center gap-2 flex-shrink-0">
+                          <Sparkline data={history?.[c.id]} />
+                          <span className="font-mono tabular-nums text-right" style={{ color: r.status === 'down' ? DOT.down : 'var(--color-muted-foreground)', minWidth: '4.5rem' }}>
+                            {r.status === 'checking' ? '···' : r.detail || CHECK_LABEL[r.status]}
+                          </span>
                         </span>
                       </div>
                     )
@@ -149,7 +180,7 @@ function StatusPanel({ onClose, results, groupStatus, overall, lastRun, running,
         {/* Footer */}
         <div className="px-5 py-3 flex items-center justify-between" style={{ borderTop: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-muted) 40%, transparent)' }}>
           <span className="text-[10.5px] text-muted-foreground font-mono">
-            {lastRun ? `Updated ${lastRun.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}` : 'Checking…'}
+            {lastRun ? `Updated ${lastRun.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })} · auto every 3m` : 'Checking…'}
           </span>
           <button onClick={onRerun} disabled={running}
             className="text-[11px] font-semibold px-3 py-1.5 rounded-full transition-colors disabled:opacity-50"
@@ -159,6 +190,32 @@ function StatusPanel({ onClose, results, groupStatus, overall, lastRun, running,
         </div>
       </div>
     </div>
+  )
+}
+
+// A tiny latency sparkline from a check's rolling samples (null = down).
+function Sparkline({ data }) {
+  const W = 46, H = 14
+  const pts = (data || []).slice(-16)
+  const nums = pts.filter(v => typeof v === 'number')
+  if (nums.length < 2) return <span className="inline-block flex-shrink-0" style={{ width: W }} />
+  const min = Math.min(...nums), max = Math.max(...nums)
+  const range = max - min || 1
+  const n = pts.length
+  const x = (i) => (n === 1 ? 0 : (i / (n - 1)) * (W - 2)) + 1
+  const y = (v) => H - 1 - ((v - min) / range) * (H - 2)
+  let d = '', pen = false
+  pts.forEach((v, i) => {
+    if (typeof v === 'number') { d += `${pen ? 'L' : 'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)} `; pen = true }
+    else pen = false // break the line where a sample was down
+  })
+  const last = pts[n - 1]
+  return (
+    <svg width={W} height={H} className="flex-shrink-0 text-muted-foreground/60" aria-hidden="true">
+      <path d={d} fill="none" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+      {typeof last === 'number' && <circle cx={x(n - 1)} cy={y(last)} r="1.5" fill="var(--color-accent)" />}
+      {pts.map((v, i) => v === null ? <circle key={i} cx={x(i)} cy={H - 2} r="1.1" fill="#ef4444" /> : null)}
+    </svg>
   )
 }
 
@@ -182,6 +239,31 @@ export function SystemStatusPill() {
         <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: meta.dot }} />
       </span>
       {meta.label}
+    </button>
+  )
+}
+
+// A subtle navbar indicator that appears ONLY during an active incident
+// (degraded = amber, outage = red). Clicking opens the status panel.
+export function SystemStatusDot() {
+  const [overall, setOverall] = useState('checking')
+  useEffect(() => {
+    const onChange = (e) => setOverall(e.detail?.overall || 'checking')
+    window.addEventListener('system-status-change', onChange)
+    window.dispatchEvent(new CustomEvent('system-status-request'))
+    return () => window.removeEventListener('system-status-change', onChange)
+  }, [])
+  if (overall !== 'degraded' && overall !== 'outage') return null
+  const color = overall === 'outage' ? '#ef4444' : '#f59e0b'
+  return (
+    <button onClick={() => window.dispatchEvent(new CustomEvent('system-status-open'))}
+      title={overall === 'outage' ? 'Service incident — view status' : 'Degraded performance — view status'}
+      aria-label="Service status incident"
+      className="relative inline-flex items-center justify-center w-8 h-8 rounded-lg hover:bg-muted transition-colors">
+      <span className="relative flex h-2.5 w-2.5">
+        <span className="absolute inline-flex h-full w-full rounded-full animate-ping" style={{ background: color, opacity: 0.6 }} />
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: color }} />
+      </span>
     </button>
   )
 }
