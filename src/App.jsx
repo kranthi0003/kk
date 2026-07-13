@@ -33,6 +33,7 @@ import AdminDashboard from './components/AdminDashboard'
 import CryptoDashboard from './components/CryptoDashboard'
 import DevNet from './components/DevNet'
 import ServiceStatus from './components/ServiceStatus'
+import SystemStatus from './components/SystemStatus'
 import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
@@ -379,6 +380,7 @@ export default function App() {
       <CryptoDashboard />
       <DevNet />
       <ServiceStatus />
+      <SystemStatus />
       <CronSchedule />
       <WeatherWidget />
       <QuoteIntro />
