@@ -13,7 +13,7 @@ export default function AmbientPlayer() {
     window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   if (!amb) return null
-  const { built, playing, everPlayed, track, vol, toggle, next, prev, setVol } = amb
+  const { built, playing, everPlayed, track, vol, loop, toggle, next, prev, setVol, toggleLoop } = amb
 
   return (
     <>
@@ -82,7 +82,7 @@ export default function AmbientPlayer() {
         {/* Hover-reveal (desktop): prev / next / volume — open, no box */}
         <div
           className="hidden md:flex items-center transition-all duration-300 ease-out overflow-hidden"
-          style={{ maxWidth: hover ? 150 : 0, opacity: hover ? 1 : 0 }}
+          style={{ maxWidth: hover ? 180 : 0, opacity: hover ? 1 : 0 }}
         >
           <button onClick={prev} title="Previous track" aria-label="Previous track"
             className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground/70 transition-colors ml-1.5" style={{ width: 22, height: 30 }}>
@@ -91,6 +91,17 @@ export default function AmbientPlayer() {
           <button onClick={next} title="Next track" aria-label="Next track"
             className="flex-shrink-0 flex items-center justify-center hover:text-foreground text-muted-foreground/70 transition-colors" style={{ width: 22, height: 30 }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-2.5 6L5 6v12z"/></svg>
+          </button>
+          <button onClick={toggleLoop} title={loop ? 'Loop: on (repeat this song)' : 'Loop: off'} aria-label="Toggle loop" aria-pressed={loop}
+            className="relative flex-shrink-0 flex items-center justify-center transition-colors ml-0.5"
+            style={{ width: 22, height: 30, color: loop ? 'var(--color-accent)' : undefined }}>
+            <span className={loop ? '' : 'text-muted-foreground/70 hover:text-foreground'} style={{ display: 'inline-flex' }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17 2l4 4-4 4" /><path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+                <path d="M7 22l-4-4 4-4" /><path d="M21 13v1a4 4 0 0 1-4 4H3" />
+              </svg>
+            </span>
+            {loop && <span aria-hidden="true" className="absolute rounded-full" style={{ width: 3, height: 3, background: 'var(--color-accent)', bottom: 3, left: '50%', transform: 'translateX(-50%)' }} />}
           </button>
           <input
             type="range" min="0" max="100" value={vol}

@@ -78,6 +78,7 @@ export function AmbientProvider({ children }) {
   const [idx, setIdx] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [everPlayed, setEverPlayed] = useState(false)
+  const [loop, setLoopState] = useState(() => localStorage.getItem('ambient_loop') === '1')
   const [suppressed, setSuppressedState] = useState(false)
   const suppressedRef = useRef(false)
   const [vol, setVolState] = useState(() => {
@@ -87,6 +88,8 @@ export function AmbientProvider({ children }) {
 
   const idxRef = useRef(idx)
   idxRef.current = idx
+  const loopRef = useRef(loop)
+  loopRef.current = loop
   const autoStartedRef = useRef(false)
 
   // Build the player once the API is ready.
@@ -103,9 +106,14 @@ export function AmbientProvider({ children }) {
         onStateChange: (e) => {
           const YT = window.YT
           if (e.data === YT.PlayerState.ENDED) {
-            const next = (idxRef.current + 1) % TRACKS.length
-            setIdx(next)
-            try { e.target.loadVideoById(TRACKS[next].id) } catch {}
+            // Loop mode: replay the same track. Otherwise advance to the next.
+            if (loopRef.current) {
+              try { e.target.seekTo(0, true); e.target.playVideo() } catch {}
+            } else {
+              const next = (idxRef.current + 1) % TRACKS.length
+              setIdx(next)
+              try { e.target.loadVideoById(TRACKS[next].id) } catch {}
+            }
           } else if (e.data === YT.PlayerState.PLAYING) {
             setPlaying(true); setEverPlayed(true); autoStartedRef.current = true
           } else if (e.data === YT.PlayerState.PAUSED) {
@@ -155,6 +163,15 @@ export function AmbientProvider({ children }) {
   const next = useCallback(() => step(1), [step])
   const prev = useCallback(() => step(-1), [step])
 
+  const toggleLoop = useCallback(() => {
+    setLoopState(v => {
+      const nv = !v
+      loopRef.current = nv
+      localStorage.setItem('ambient_loop', nv ? '1' : '0')
+      return nv
+    })
+  }, [])
+
   // External toggle (e.g. from the Tools menu).
   useEffect(() => {
     const h = () => toggle()
@@ -184,9 +201,9 @@ export function AmbientProvider({ children }) {
   }, [built])
 
   const value = {
-    built, playing, everPlayed, idx, vol, suppressed,
+    built, playing, everPlayed, idx, vol, suppressed, loop,
     track: TRACKS[idx],
-    toggle, next, prev, setVol, play, setSuppressed,
+    toggle, next, prev, setVol, play, setSuppressed, toggleLoop,
   }
 
   return (
