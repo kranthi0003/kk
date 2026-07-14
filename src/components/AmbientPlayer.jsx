@@ -73,6 +73,19 @@ export default function AmbientPlayer() {
           )}
         </button>
 
+        {/* Open the full music library / playlists page */}
+        <button
+          onClick={() => { window.location.hash = '#/music' }}
+          title="Open music library"
+          aria-label="Open music library"
+          className="flex-shrink-0 flex items-center justify-center ml-1.5 text-muted-foreground/70 hover:text-foreground transition-colors"
+          style={{ width: 26, height: 30 }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+          </svg>
+        </button>
+
         {/* Label — open, no box; also a hit target */}
         <div onClick={toggle} className="hidden sm:flex flex-col justify-center cursor-pointer select-none min-w-0 ml-2.5">
           <span className="text-[11.5px] font-medium leading-tight truncate" style={{ color: 'var(--color-foreground)', maxWidth: 132 }}>{playing ? track.title : 'Play music'}</span>

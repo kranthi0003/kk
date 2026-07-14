@@ -92,6 +92,24 @@ export function AmbientProvider({ children }) {
   const loopRef = useRef(loop)
   loopRef.current = loop
   const autoStartedRef = useRef(false)
+  // The active queue. Defaults to the curated radio, but a user can start
+  // any library track or a custom playlist, and next/prev/auto-advance then
+  // walk whatever queue is playing. `current` is the loaded track object.
+  const queueRef = useRef(TRACKS)
+  const [current, setCurrent] = useState(TRACKS[0])
+
+  // Load the track at position i of the active queue (wrapping), and play it.
+  const loadAt = useCallback((i, playNow = true) => {
+    const q = queueRef.current
+    if (!q || !q.length) return
+    const at = ((i % q.length) + q.length) % q.length
+    idxRef.current = at
+    setIdx(at)
+    const t = q[at]
+    setCurrent(t)
+    const p = playerRef.current
+    try { p && (playNow ? p.loadVideoById(t.id) : p.cueVideoById(t.id)) } catch {}
+  }, [])
 
   // Build the player once the API is ready.
   useEffect(() => {
@@ -107,13 +125,12 @@ export function AmbientProvider({ children }) {
         onStateChange: (e) => {
           const YT = window.YT
           if (e.data === YT.PlayerState.ENDED) {
-            // Loop mode: replay the same track. Otherwise advance to the next.
+            // Loop mode: replay the same track. Otherwise advance within the
+            // active queue (radio or a user playlist).
             if (loopRef.current) {
               try { e.target.seekTo(0, true); e.target.playVideo() } catch {}
             } else {
-              const next = (idxRef.current + 1) % TRACKS.length
-              setIdx(next)
-              try { e.target.loadVideoById(TRACKS[next].id) } catch {}
+              loadAt(idxRef.current + 1)
             }
           } else if (e.data === YT.PlayerState.PLAYING) {
             setPlaying(true); setEverPlayed(true); autoStartedRef.current = true
@@ -155,14 +172,20 @@ export function AmbientProvider({ children }) {
   }, [playing, play])
 
   const step = useCallback((dir) => {
-    const next = (idxRef.current + dir + TRACKS.length) % TRACKS.length
-    setIdx(next)
-    const p = playerRef.current
-    try { p && p.loadVideoById(TRACKS[next].id) } catch {}
-  }, [])
+    loadAt(idxRef.current + dir)
+  }, [loadAt])
 
   const next = useCallback(() => step(1), [step])
   const prev = useCallback(() => step(-1), [step])
+
+  // Start playing an arbitrary queue of tracks (a library selection or a user
+  // playlist), from `start`. Explicit user action, so we lift suppression.
+  const playQueue = useCallback((tracks, start = 0) => {
+    if (!tracks || !tracks.length) return
+    queueRef.current = tracks
+    if (suppressedRef.current) { suppressedRef.current = false; setSuppressedState(false) }
+    loadAt(start, true)
+  }, [loadAt])
 
   const toggleLoop = useCallback(() => {
     setLoopState(v => {
@@ -203,8 +226,8 @@ export function AmbientProvider({ children }) {
 
   const value = {
     built, playing, everPlayed, idx, vol, suppressed, loop,
-    track: TRACKS[idx],
-    toggle, next, prev, setVol, play, setSuppressed, toggleLoop,
+    track: current, currentId: current?.id,
+    toggle, next, prev, setVol, play, setSuppressed, toggleLoop, playQueue,
   }
 
   return (
