@@ -60,6 +60,7 @@ const NowPage = lazy(() => import('./components/NowPage'))
 const Timeline = lazy(() => import('./components/Timeline'))
 const UsesPage = lazy(() => import('./components/UsesPage'))
 const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
+const MusicPage = lazy(() => import('./components/MusicPage'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -260,9 +261,17 @@ export default function App() {
     )
   }
 
-  // Reliability Lab — live observability dashboard via #/reliability route
-  if (route === '#/reliability') {
+  // Music — Spotify-like library + user playlists via #/music route
+  if (route === '#/music') {
     return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading music…</div></div>}>
+        <MusicPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Reliability Lab — live observability dashboard via #/reliability route
+  if (route === '#/reliability') {    return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">booting telemetry…</div></div>}>
         <ReliabilityLab onBack={() => { window.location.hash = '' }} />
       </Suspense>
