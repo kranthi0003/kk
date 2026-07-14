@@ -76,14 +76,20 @@ export default function AmbientPlayer() {
         {/* Open the full music library / playlists page */}
         <button
           onClick={() => { window.location.hash = '#/music' }}
-          title="Open music library"
-          aria-label="Open music library"
-          className="flex-shrink-0 flex items-center justify-center ml-1.5 text-muted-foreground/70 hover:text-foreground transition-colors"
-          style={{ width: 26, height: 30 }}
+          title="Open your music library & playlists"
+          aria-label="Open music library and playlists"
+          className="flex-shrink-0 inline-flex items-center gap-1.5 ml-2 rounded-full px-2.5 py-1 font-semibold transition-all hover:scale-105"
+          style={{
+            fontSize: 11,
+            background: 'color-mix(in oklab, var(--color-accent) 15%, transparent)',
+            color: 'var(--color-accent)',
+            boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 32%, transparent)',
+          }}
         >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
           </svg>
+          <span className="hidden sm:inline">Playlists</span>
         </button>
 
         {/* Label — open, no box; also a hit target */}
