@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useAmbient, TRACKS } from './AmbientContext'
+import { getSession, onAuthChange, signInWithEmail, signOut, fetchCloudPlaylists, saveCloudPlaylists } from '../lib/musicCloud'
 
 // ============================================================
 // MUSIC — a Spotify-like page. "Kranthi's Radio" is the curated
@@ -56,12 +57,66 @@ export default function MusicPage({ onBack }) {
   const [busy, setBusy] = useState(false)
   const firstSave = useRef(true)
 
+  // --- cloud sync (optional; email magic-link) ---
+  const [session, setSession] = useState(null)
+  const [email, setEmail] = useState('')
+  const [syncNote, setSyncNote] = useState('') // transient status message
+  const playlistsRef = useRef(playlists)
+  playlistsRef.current = playlists
+  const cloudReady = useRef(false)
+  const cloudTimer = useRef(null)
+
+  // Watch auth state.
   useEffect(() => {
-    // Don't overwrite storage on the initial mount (state already came from it);
-    // only persist real user changes. Prevents any chance of an empty-mount wipe.
+    let alive = true
+    getSession().then(s => { if (alive) setSession(s) })
+    const unsub = onAuthChange(s => { setSession(s); if (!s) cloudReady.current = false })
+    return () => { alive = false; unsub() }
+  }, [])
+
+  // On sign-in, pull the cloud copy and merge local playlists into it so
+  // nothing is lost, then treat the cloud as the source of truth.
+  useEffect(() => {
+    if (!session) return
+    let alive = true
+    ;(async () => {
+      const { data: cloud, error } = await fetchCloudPlaylists()
+      if (!alive) return
+      const local = playlistsRef.current
+      let merged
+      if (Array.isArray(cloud)) {
+        merged = [...cloud, ...local.filter(l => !cloud.some(c => c.id === l.id))]
+      } else {
+        merged = local // no cloud row yet → seed it from local
+        if (error && error !== 'not-signed-in') { setSyncNote('Sync isn\u2019t set up yet — using this device only.'); return }
+      }
+      setPlaylists(merged)
+      cloudReady.current = true
+      const res = await saveCloudPlaylists(merged)
+      if (res.error && res.error !== 'not-signed-in') setSyncNote('Sync isn\u2019t set up yet — using this device only.')
+      else setSyncNote('')
+    })()
+    return () => { alive = false }
+  }, [session])
+
+  // Persist changes: localStorage always; cloud too when signed in (debounced).
+  useEffect(() => {
     if (firstSave.current) { firstSave.current = false; return }
     savePlaylists(playlists)
-  }, [playlists])
+    if (session && cloudReady.current) {
+      clearTimeout(cloudTimer.current)
+      cloudTimer.current = setTimeout(() => { saveCloudPlaylists(playlistsRef.current) }, 700)
+    }
+  }, [playlists, session])
+
+  const sendMagicLink = async () => {
+    const e = email.trim()
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)) { setSyncNote('Enter a valid email.'); return }
+    setBusy(true); setSyncNote('')
+    try { await signInWithEmail(e); setSyncNote('sent') }
+    catch (err) { setSyncNote(err?.message || 'Could not send the link.') }
+    setBusy(false)
+  }
 
   const openPl = playlists.find(p => p.id === openId) || null
 
@@ -106,7 +161,7 @@ export default function MusicPage({ onBack }) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
             Back
           </button>
-          <span className="text-[11px] font-mono text-muted-foreground/60">saved on this device</span>
+          <span className="text-[11px] font-mono text-muted-foreground/60">{session ? '\u2601 synced' : 'saved on this device'}</span>
         </div>
 
         <div className="flex items-end gap-4 mb-8">
@@ -118,6 +173,42 @@ export default function MusicPage({ onBack }) {
             <h1 className="font-heading text-[2rem] leading-tight font-semibold">Your Library</h1>
             <p className="text-[13px] text-muted-foreground">Play the radio, or build your own playlists.</p>
           </div>
+        </div>
+
+        {/* Cloud sync (email magic link) */}
+        <div className="mb-8 rounded-xl px-4 py-3" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 45%, transparent)' }}>
+          {session ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-base">☁️</span>
+                <div className="min-w-0">
+                  <div className="text-[13px] font-medium text-foreground">Synced across your devices</div>
+                  <div className="text-[11px] text-muted-foreground truncate">{session.user?.email}</div>
+                </div>
+              </div>
+              <button onClick={() => signOut()} className="text-[12px] font-medium text-muted-foreground hover:text-foreground flex-shrink-0">Sign out</button>
+            </div>
+          ) : syncNote === 'sent' ? (
+            <div className="flex items-center gap-2">
+              <span className="text-base">📬</span>
+              <div className="text-[13px] text-foreground">Check your email — tap the link to sign in and sync. <button onClick={() => setSyncNote('')} className="text-[12px] underline ml-1" style={{ color: ACCENT }}>use a different email</button></div>
+            </div>
+          ) : (
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-base">☁️</span>
+                <div className="text-[13px] font-medium text-foreground">Sync across devices</div>
+              </div>
+              <p className="text-[11.5px] text-muted-foreground mb-2.5">Sign in with your email and your playlists follow you everywhere. No password.</p>
+              <div className="flex items-center gap-2">
+                <input value={email} onChange={e => setEmail(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') sendMagicLink() }}
+                  type="email" placeholder="you@email.com" autoComplete="email"
+                  className="flex-1 rounded-lg px-3 py-2 text-[13px] bg-transparent outline-none" style={{ border: '1px solid var(--color-border)' }} />
+                <button onClick={sendMagicLink} disabled={busy} className="text-[12px] font-semibold px-3.5 py-2 rounded-lg disabled:opacity-50 flex-shrink-0" style={{ background: ACCENT, color: 'var(--color-accent-foreground)' }}>{busy ? 'Sending…' : 'Send link'}</button>
+              </div>
+              {syncNote && syncNote !== 'sent' && <p className="text-[11px] mt-2" style={{ color: '#f59e0b' }}>{syncNote}</p>}
+            </div>
+          )}
         </div>
 
         {/* Your Playlists */}
