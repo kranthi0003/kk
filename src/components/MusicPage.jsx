@@ -43,9 +43,52 @@ async function fetchMeta(id) {
 const thumb = (id) => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`
 const ACCENT = 'var(--color-accent)'
 
+// Deterministic, on-theme colourful cover per playlist (two-hue oklch
+// gradient seeded from the id, tuned to sit nicely on the dark theme).
+const COVER_HUES = [255, 285, 320, 20, 45, 145, 175, 210]
+function coverGradient(seed = '') {
+  let h = 0
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0
+  const a = COVER_HUES[h % COVER_HUES.length]
+  const b = COVER_HUES[(h >> 3) % COVER_HUES.length]
+  return `linear-gradient(140deg, oklch(64% 0.14 ${a}), oklch(50% 0.13 ${b}))`
+}
+
+function shuffleArr(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]] }
+  return a
+}
+
+const fmtTime = (s) => {
+  if (!s || !isFinite(s)) return '0:00'
+  const m = Math.floor(s / 60), sec = Math.floor(s % 60)
+  return `${m}:${sec < 10 ? '0' : ''}${sec}`
+}
+
+// Animated equalizer bars — shows a track is playing.
+function Eq({ color = 'currentColor', size = 12 }) {
+  return (
+    <span className="mp-eq" style={{ height: size }} aria-hidden="true">
+      {[0, 1, 2, 3].map(n => <span key={n} style={{ background: color, animationDelay: `${n * 0.15}s` }} />)}
+    </span>
+  )
+}
+
+const MP_STYLE = `
+  .mp-eq{ display:inline-flex; align-items:flex-end; gap:2px; }
+  .mp-eq > span{ width:2.5px; height:40%; border-radius:2px; animation: mpEq .9s ease-in-out infinite; }
+  .mp-eq > span:nth-child(2){ animation-duration:1.1s } .mp-eq > span:nth-child(3){ animation-duration:.75s } .mp-eq > span:nth-child(4){ animation-duration:1s }
+  @keyframes mpEq{ 0%,100%{height:30%} 50%{height:100%} }
+  @keyframes mpGlow{ 0%,100%{opacity:.5; transform:translateY(0)} 50%{opacity:.85; transform:translateY(-3px)} }
+  .mp-cover-glow{ animation: mpGlow 6s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .mp-eq > span, .mp-cover-glow{ animation:none } }
+`
+
 export default function MusicPage({ onBack }) {
   const amb = useAmbient() || {}
-  const { playing, track: current, currentId, toggle, next, prev, loop, toggleLoop, playQueue } = amb
+  const { playing, track: current, currentId, toggle, next, prev, loop, toggleLoop, playQueue, getProgress } = amb
+  const [progress, setProgress] = useState({ elapsed: 0, duration: 0 })
 
   const [playlists, setPlaylists] = useState(loadPlaylists)
   const [openId, setOpenId] = useState(null)
@@ -152,8 +195,22 @@ export default function MusicPage({ onBack }) {
     ? <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
     : <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
 
+  // Poll playback position for the now-playing progress bar (only while a
+  // track exists; light 500ms tick).
+  useEffect(() => {
+    if (!current || !getProgress) return
+    const tick = () => setProgress(getProgress())
+    tick()
+    const id = setInterval(tick, 500)
+    return () => clearInterval(id)
+  }, [current, getProgress, playing])
+
+  const totalSongs = playlists.reduce((n, p) => n + p.tracks.length, 0)
+  const seekPct = progress.duration ? Math.min(100, (progress.elapsed / progress.duration) * 100) : 0
+
   return (
     <div className="min-h-screen text-foreground" style={{ background: 'var(--color-background)' }}>
+      <style>{MP_STYLE}</style>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-32">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -164,14 +221,34 @@ export default function MusicPage({ onBack }) {
           <span className="text-[11px] font-mono text-muted-foreground/60">{session ? '\u2601 synced' : 'saved on this device'}</span>
         </div>
 
-        <div className="flex items-end gap-4 mb-8">
-          <div className="w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `linear-gradient(140deg, ${ACCENT}, color-mix(in oklab, ${ACCENT} 55%, var(--color-primary)))` }}>
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--color-accent-foreground)"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" fill="none" stroke="var(--color-accent-foreground)" strokeWidth="2" /><circle cx="18" cy="16" r="3" fill="none" stroke="var(--color-accent-foreground)" strokeWidth="2" /></svg>
+        {/* Hero */}
+        <div className="relative overflow-hidden rounded-2xl mb-7 p-5 sm:p-6" style={{ border: '1px solid color-mix(in oklab, var(--color-accent) 22%, var(--color-border))' }}>
+          <div className="mp-cover-glow absolute inset-0 -z-10" style={{ background: 'radial-gradient(120% 120% at 15% 0%, oklch(60% 0.15 285 / 0.28), transparent 55%), radial-gradient(120% 120% at 90% 30%, oklch(62% 0.14 200 / 0.24), transparent 55%), radial-gradient(100% 120% at 60% 100%, oklch(64% 0.14 20 / 0.18), transparent 55%)' }} />
+          <div className="flex items-end gap-4">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg" style={{ background: 'linear-gradient(140deg, oklch(66% 0.15 285), oklch(52% 0.14 210))', boxShadow: '0 10px 30px -8px oklch(60% 0.15 260 / 0.5)' }}>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="#fff"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" fill="none" stroke="#fff" strokeWidth="2" /><circle cx="18" cy="16" r="3" fill="none" stroke="#fff" strokeWidth="2" /></svg>
+            </div>
+            <div className="min-w-0">
+              <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">Music</div>
+              <h1 className="font-heading text-[2rem] sm:text-[2.4rem] leading-tight font-semibold">Your Library</h1>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-[12px] text-muted-foreground">
+                <span className="inline-flex items-center gap-1"><b className="text-foreground">{TRACKS.length}</b> in the radio</span>
+                <span className="opacity-40">·</span>
+                <span className="inline-flex items-center gap-1"><b className="text-foreground">{playlists.length}</b> {playlists.length === 1 ? 'playlist' : 'playlists'}</span>
+                <span className="opacity-40">·</span>
+                <span className="inline-flex items-center gap-1"><b className="text-foreground">{totalSongs}</b> saved</span>
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Music</div>
-            <h1 className="font-heading text-[2rem] leading-tight font-semibold">Your Library</h1>
-            <p className="text-[13px] text-muted-foreground">Play the radio, or build your own playlists.</p>
+          <div className="flex flex-wrap items-center gap-2 mt-4">
+            <button onClick={() => playQueue(TRACKS, 0)} className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-semibold transition-transform hover:scale-105" style={{ background: ACCENT, color: 'var(--color-accent-foreground)', boxShadow: `0 6px 18px -6px color-mix(in oklab, ${ACCENT} 60%, transparent)` }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
+              Play radio
+            </button>
+            <button onClick={() => playQueue(shuffleArr(TRACKS), 0)} className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors" style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px var(--color-border)' }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" /></svg>
+              Shuffle
+            </button>
           </div>
         </div>
 
@@ -230,17 +307,23 @@ export default function MusicPage({ onBack }) {
             <p className="text-[13px] text-muted-foreground py-2">No playlists yet. Hit <b className="text-foreground">+ New playlist</b>, then add songs from the radio below or by pasting a YouTube link.</p>
           )}
           <div className="space-y-2">
-            {playlists.map(pl => (
-              <div key={pl.id} className="rounded-xl overflow-hidden" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 55%, transparent)' }}>
+            {playlists.map(pl => {
+              const isPlayingThis = pl.tracks.some(t => t.id === currentId)
+              return (
+              <div key={pl.id} className="rounded-xl overflow-hidden transition-shadow" style={{ border: `1px solid ${openId === pl.id ? 'color-mix(in oklab, var(--color-accent) 34%, var(--color-border))' : 'var(--color-border)'}`, background: 'color-mix(in oklab, var(--color-card) 55%, transparent)' }}>
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <button onClick={() => pl.tracks.length && playQueue(pl.tracks, 0)} disabled={!pl.tracks.length}
-                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 disabled:opacity-40 transition-transform hover:scale-105"
-                    style={{ background: ACCENT, color: 'var(--color-accent-foreground)' }} title="Play playlist">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>
+                    className="relative w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 disabled:opacity-50 overflow-hidden transition-transform hover:scale-105 group/cover"
+                    style={{ background: coverGradient(pl.id), boxShadow: '0 4px 12px -4px rgba(0,0,0,.4)' }} title="Play playlist">
+                    <span className="absolute inset-0 flex items-center justify-center transition-colors" style={{ background: 'rgba(0,0,0,0.18)' }}>
+                      {isPlayingThis && playing
+                        ? <Eq color="#fff" size={14} />
+                        : <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" className="drop-shadow" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>}
+                    </span>
                   </button>
                   <button onClick={() => setOpenId(openId === pl.id ? null : pl.id)} className="flex-1 min-w-0 text-left">
-                    <div className="text-[14px] font-semibold text-foreground truncate">{pl.name}</div>
-                    <div className="text-[11.5px] text-muted-foreground">{pl.tracks.length} {pl.tracks.length === 1 ? 'song' : 'songs'}</div>
+                    <div className="text-[14px] font-semibold truncate" style={{ color: isPlayingThis ? ACCENT : 'var(--color-foreground)' }}>{pl.name}</div>
+                    <div className="text-[11.5px] text-muted-foreground">{pl.tracks.length} {pl.tracks.length === 1 ? 'song' : 'songs'}{isPlayingThis && playing ? ' · now playing' : ''}</div>
                   </button>
                   <button onClick={() => setOpenId(openId === pl.id ? null : pl.id)} className="text-muted-foreground/70 hover:text-foreground p-1" title="Edit">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: openId === pl.id ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}><path d="M6 9l6 6 6-6" /></svg>
@@ -292,7 +375,8 @@ export default function MusicPage({ onBack }) {
                   </div>
                 )}
               </div>
-            ))}
+              )
+            })}
           </div>
         </Section>
 
@@ -302,19 +386,23 @@ export default function MusicPage({ onBack }) {
             {TRACKS.map((t, i) => {
               const isCur = currentId === t.id
               return (
-                <div key={t.id} className="group flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-muted/40" style={{ background: isCur ? `color-mix(in oklab, ${ACCENT} 10%, transparent)` : 'transparent' }}>
-                  <button onClick={() => (isCur ? toggle && toggle() : playQueue(TRACKS, i))} className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 text-muted-foreground group-hover:text-foreground" title={isCur && playing ? 'Pause' : 'Play'}>
-                    {isCur && playing
-                      ? <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
-                      : <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>}
-                  </button>
+                <div key={t.id} className="group flex items-center gap-3 rounded-lg pl-2 pr-2 py-1.5 transition-colors hover:bg-muted/40" style={{ background: isCur ? `color-mix(in oklab, ${ACCENT} 12%, transparent)` : 'transparent' }}>
+                  <span className="w-5 text-center flex-shrink-0 relative">
+                    <span className={`text-[11px] font-mono tabular-nums ${isCur ? 'opacity-0' : 'text-muted-foreground/50 group-hover:opacity-0'} transition-opacity`}>{i + 1}</span>
+                    <button onClick={() => (isCur ? toggle && toggle() : playQueue(TRACKS, i))} className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: isCur ? ACCENT : 'var(--color-foreground)', opacity: isCur ? 1 : undefined }} title={isCur && playing ? 'Pause' : 'Play'}>
+                      {isCur && playing
+                        ? <Eq color={ACCENT} size={13} />
+                        : <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 1 }}><path d="M8 5v14l11-7z" /></svg>}
+                    </button>
+                  </span>
                   <img src={thumb(t.id)} alt="" loading="lazy" className="w-9 h-9 rounded object-cover flex-shrink-0" style={{ border: '1px solid var(--color-border)' }} />
                   <span className="flex-1 min-w-0">
                     <span className="block text-[13px] truncate" style={{ color: isCur ? ACCENT : 'var(--color-foreground)' }}>{t.title}</span>
                     <span className="block text-[11px] text-muted-foreground truncate">{t.by}</span>
                   </span>
-                  <button onClick={() => setAddFor(t)} className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-foreground px-2 transition-opacity flex-shrink-0" title="Add to playlist">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
+                  <button onClick={() => setAddFor(t)} className="opacity-0 group-hover:opacity-100 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all flex-shrink-0 inline-flex items-center gap-1" style={{ color: ACCENT, background: `color-mix(in oklab, ${ACCENT} 12%, transparent)` }} title="Add to playlist">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
+                    Add
                   </button>
                 </div>
               )
@@ -351,18 +439,30 @@ export default function MusicPage({ onBack }) {
 
       {/* Now-playing bar */}
       {current && (
-        <div className="fixed bottom-0 left-0 right-0 z-[1100]" style={{ background: 'color-mix(in oklab, var(--color-card) 92%, transparent)', backdropFilter: 'blur(12px)', borderTop: '1px solid var(--color-border)' }}>
+        <div className="fixed bottom-0 left-0 right-0 z-[1100]" style={{ background: 'color-mix(in oklab, var(--color-card) 92%, transparent)', backdropFilter: 'blur(12px)', borderTop: '1px solid color-mix(in oklab, var(--color-accent) 20%, var(--color-border))' }}>
+          {/* progress */}
+          <div className="h-[3px] w-full" style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)' }}>
+            <div className="h-full transition-[width] duration-500 ease-linear" style={{ width: `${seekPct}%`, background: `linear-gradient(90deg, oklch(66% 0.15 285), ${ACCENT})` }} />
+          </div>
           <div className="max-w-3xl mx-auto px-4 py-2.5 flex items-center gap-3">
-            <img src={thumb(current.id)} alt="" className="w-11 h-11 rounded object-cover flex-shrink-0" style={{ border: '1px solid var(--color-border)' }} />
+            <div className="relative flex-shrink-0">
+              <img src={thumb(current.id)} alt="" className="w-11 h-11 rounded object-cover" style={{ border: '1px solid var(--color-border)' }} />
+              {playing && <span className="absolute inset-0 flex items-center justify-center rounded" style={{ background: 'rgba(0,0,0,0.35)' }}><Eq color="#fff" size={14} /></span>}
+            </div>
             <div className="flex-1 min-w-0">
               <div className="text-[13px] font-medium truncate text-foreground">{current.title}</div>
-              <div className="text-[11px] text-muted-foreground truncate">{current.by || 'ambient radio'}</div>
+              <div className="text-[11px] text-muted-foreground truncate flex items-center gap-1.5">
+                <span className="font-mono tabular-nums">{fmtTime(progress.elapsed)}</span>
+                <span className="opacity-40">/</span>
+                <span className="font-mono tabular-nums opacity-70">{fmtTime(progress.duration)}</span>
+                <span className="opacity-40 truncate">· {current.by || 'ambient radio'}</span>
+              </div>
             </div>
             <div className="flex items-center gap-1.5 flex-shrink-0">
               <button onClick={() => prev && prev()} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground" title="Previous"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" /></svg></button>
-              <button onClick={() => toggle && toggle()} className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-transform hover:scale-105" style={{ background: ACCENT, color: 'var(--color-accent-foreground)' }} title={playing ? 'Pause' : 'Play'}>{NowIcon}</button>
+              <button onClick={() => toggle && toggle()} className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-transform hover:scale-105" style={{ background: ACCENT, color: 'var(--color-accent-foreground)', boxShadow: `0 4px 14px -4px color-mix(in oklab, ${ACCENT} 60%, transparent)` }} title={playing ? 'Pause' : 'Play'}>{NowIcon}</button>
               <button onClick={() => next && next()} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground" title="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-2.5 6L5 6v12z" /></svg></button>
-              <button onClick={() => toggleLoop && toggleLoop()} className="w-8 h-8 rounded-full flex items-center justify-center transition-colors" style={{ color: loop ? ACCENT : 'var(--color-muted-foreground)' }} title={loop ? 'Loop: on' : 'Loop: off'} aria-pressed={!!loop}>
+              <button onClick={() => toggleLoop && toggleLoop()} className="w-8 h-8 rounded-full items-center justify-center transition-colors hidden sm:flex" style={{ color: loop ? ACCENT : 'var(--color-muted-foreground)' }} title={loop ? 'Loop: on' : 'Loop: off'} aria-pressed={!!loop}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 2l4 4-4 4" /><path d="M3 11v-1a4 4 0 0 1 4-4h14" /><path d="M7 22l-4-4 4-4" /><path d="M21 13v1a4 4 0 0 1-4 4H3" /></svg>
               </button>
             </div>
