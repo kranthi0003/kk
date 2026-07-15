@@ -156,6 +156,19 @@ export function AmbientProvider({ children }) {
     try { p.playVideo() } catch {}
   }, [])
 
+  // Read live playback position (for a progress bar). Returns seconds.
+  const getProgress = useCallback(() => {
+    const p = playerRef.current
+    try {
+      if (p && p.getDuration) {
+        const duration = p.getDuration() || 0
+        const elapsed = p.getCurrentTime() || 0
+        return { elapsed, duration }
+      }
+    } catch {}
+    return { elapsed: 0, duration: 0 }
+  }, [])
+
   // Pages like the Lock-In / gym experience call this to silence the ambient
   // radio while they're open (so it never clashes with the intro reel or the
   // gym playlist), then release it when they unmount.
@@ -227,7 +240,7 @@ export function AmbientProvider({ children }) {
   const value = {
     built, playing, everPlayed, idx, vol, suppressed, loop,
     track: current, currentId: current?.id,
-    toggle, next, prev, setVol, play, setSuppressed, toggleLoop, playQueue,
+    toggle, next, prev, setVol, play, setSuppressed, toggleLoop, playQueue, getProgress,
   }
 
   return (
