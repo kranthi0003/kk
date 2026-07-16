@@ -37,7 +37,7 @@ import SystemStatus from './components/SystemStatus'
 import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
 import QuoteIntro from './components/QuoteIntro'
-import Reflection from './components/Reflection'
+import QuoteFlip from './components/QuoteFlip'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
 
@@ -346,12 +346,7 @@ export default function App() {
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
-        <div className="section-animate"><Reflection interval={7000} quotes={[
-          { t: "To live is the rarest thing in the world. Most people exist, that is all.", by: "— Oscar Wilde" },
-          { t: "You only live once, but if you do it right, once is enough.", by: "— Mae West" },
-          { t: "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.", by: "— Ferris Bueller's Day Off" },
-          { t: "Life is either a daring adventure, or nothing.", by: "— Helen Keller" },
-        ]} /></div>
+        <div className="section-animate"><QuoteFlip /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
         <div className="section-animate"><Projects /></div>
@@ -361,12 +356,6 @@ export default function App() {
         <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><DopamineTeaser /></div>
-        <div className="section-animate"><Reflection interval={8500} quotes={[
-          { t: "Love many things, for therein lies the true strength.", by: "— Vincent van Gogh" },
-          { t: "And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom.", by: "— Anaïs Nin" },
-          { t: "Life is what happens to you while you're busy making other plans.", by: "— John Lennon" },
-          { t: "As long as you live, keep learning how to live.", by: "— Seneca" },
-        ]} /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
       </main>
