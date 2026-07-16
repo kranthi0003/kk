@@ -3,6 +3,7 @@ import { QRCodeSVG } from 'qrcode.react'
 import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
+import MatrixToggle from './MatrixToggle'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
@@ -685,6 +686,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <TechNews side="right" />
             <NavWallet />
             <NavStatus />
+            <MatrixToggle />
             <ThemeToggle />
           </div>
 
@@ -693,6 +695,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <SystemStatusDot />
             <NavWallet />
             <NavStatus />
+            <MatrixToggle />
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(o => !o)}
