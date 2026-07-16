@@ -35,6 +35,7 @@
         var stored = localStorage.getItem('theme');
         var dark = stored ? stored === 'dark' : true; // default dark
         if (dark) document.documentElement.classList.add('dark');
+        if (localStorage.getItem('matrix') === '1') document.documentElement.classList.add('matrix');
       } catch (e) { document.documentElement.classList.add('dark'); }
     })();
   </script>
@@ -43,8 +44,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-Bkd6lKTU.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B2ODnrCT.css">
+  <script type="module" crossorigin src="/assets/index-DB9mng0K.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cx8xISq-.css">
 </head>
 <body>
   <div id="root"></div>
