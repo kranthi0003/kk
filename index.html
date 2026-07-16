@@ -35,6 +35,7 @@
         var stored = localStorage.getItem('theme');
         var dark = stored ? stored === 'dark' : true; // default dark
         if (dark) document.documentElement.classList.add('dark');
+        if (localStorage.getItem('matrix') === '1') document.documentElement.classList.add('matrix');
       } catch (e) { document.documentElement.classList.add('dark'); }
     })();
   </script>

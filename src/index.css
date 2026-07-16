@@ -44,6 +44,68 @@
   --chart-3: oklch(74% 0.060 60);   /* muted sand */
 }
 
+/* ============================================================
+   MATRIX MODE — a reversible green-on-black phosphor theme.
+   `html.matrix` (specificity beats :root and .dark) repaints every
+   token. Toggled by src/lib/matrix.js; digital rain by MatrixRain.jsx.
+   ============================================================ */
+html.matrix {
+  --color-background: oklch(14% 0.028 155);   /* near-black, faint green */
+  --color-foreground: oklch(87% 0.19 150);    /* phosphor green */
+  --color-card: oklch(18% 0.035 155);
+  --color-card-foreground: oklch(88% 0.18 150);
+  --color-muted: oklch(23% 0.045 155);
+  --color-muted-foreground: oklch(70% 0.15 150);
+  --color-accent: oklch(84% 0.25 148);        /* bright matrix green */
+  --color-brand: oklch(84% 0.25 148);
+  --color-accent-foreground: oklch(14% 0.03 155); /* dark ink on green */
+  --color-border: oklch(42% 0.11 150);        /* green-tinted rules */
+  --color-primary: oklch(87% 0.19 150);
+  --color-primary-foreground: oklch(12% 0.03 155);
+  --chart-1: oklch(84% 0.25 148);
+  --chart-2: oklch(78% 0.19 165);
+  --chart-3: oklch(82% 0.17 130);
+  color-scheme: dark;
+}
+
+/* Everything is code — monospace across the board. */
+html.matrix body,
+html.matrix .font-heading,
+html.matrix h1, html.matrix h2, html.matrix h3,
+html.matrix h4, html.matrix h5, html.matrix h6 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+  letter-spacing: -0.01em;
+}
+
+/* Phosphor glow on display text + accents. */
+html.matrix h1, html.matrix h2, html.matrix h3,
+html.matrix .text-accent { text-shadow: 0 0 6px rgba(0, 255, 110, 0.35); }
+html.matrix body { text-shadow: 0 0 1px rgba(0, 255, 110, 0.12); }
+
+/* Green selection + terminal scrollbar. */
+html.matrix ::selection { background: rgba(0, 255, 110, 0.28); color: #d6ffe4; }
+html.matrix { scrollbar-color: #1c7a44 #06120a; }
+html.matrix ::-webkit-scrollbar { width: 10px; height: 10px; }
+html.matrix ::-webkit-scrollbar-track { background: #06120a; }
+html.matrix ::-webkit-scrollbar-thumb { background: #1c7a44; border-radius: 6px; }
+html.matrix ::-webkit-scrollbar-thumb:hover { background: #28a35d; }
+
+/* Trade the calm cosmic backdrops for the digital rain. */
+html.matrix .pr-backdrop-glow,
+html.matrix .pr-backdrop-noise,
+html.matrix .math-backdrop { display: none !important; }
+
+/* CRT scanlines — a faint textured veil (behind content, over the rain). */
+.matrix-scanlines {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px,
+    rgba(0, 24, 10, 0.55) 3px, rgba(0, 0, 0, 0) 4px);
+  opacity: 0.4;
+}
+@media (prefers-reduced-motion: reduce) { .matrix-scanlines { opacity: 0.22; } }
+
 /* Base */
 html { scroll-behavior: smooth; }
 body {

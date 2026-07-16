@@ -167,6 +167,7 @@ export default function MathBackdrop() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
+      className="math-backdrop"
       style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none' }}
     />
   )
