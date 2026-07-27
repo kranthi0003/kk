@@ -109,7 +109,7 @@ export default function AllTheBest({ onBack }) {
           /* ---------- Revealed message ---------- */
           <div onClick={luck} className="atb-reveal w-full max-w-xl text-center cursor-pointer">
             <h1 className="atb-title font-heading font-semibold leading-[1.04] mb-6"
-              style={{ fontSize: 'clamp(1.35rem, 6.2vw, 4.25rem)', whiteSpace: 'nowrap' }}>
+              style={{ fontSize: 'clamp(1.05rem, 4.5vw, 3.4rem)', whiteSpace: 'nowrap' }}>
               All the best, Amrutha.
             </h1>
 
