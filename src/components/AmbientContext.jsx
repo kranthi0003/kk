@@ -91,7 +91,6 @@ export function AmbientProvider({ children }) {
   idxRef.current = idx
   const loopRef = useRef(loop)
   loopRef.current = loop
-  const autoStartedRef = useRef(false)
   // The active queue. Defaults to the curated radio, but a user can start
   // any library track or a custom playlist, and next/prev/auto-advance then
   // walk whatever queue is playing. `current` is the loaded track object.
@@ -133,7 +132,7 @@ export function AmbientProvider({ children }) {
               loadAt(idxRef.current + 1)
             }
           } else if (e.data === YT.PlayerState.PLAYING) {
-            setPlaying(true); setEverPlayed(true); autoStartedRef.current = true
+            setPlaying(true); setEverPlayed(true)
           } else if (e.data === YT.PlayerState.PAUSED) {
             setPlaying(false)
           }
@@ -216,26 +215,10 @@ export function AmbientProvider({ children }) {
     return () => window.removeEventListener('toggle-ambient', h)
   }, [toggle])
 
-  // Autoplay: browsers block audio until a user gesture, so we try immediately
-  // (works when the browser allows it) and otherwise start on the very first
-  // interaction anywhere on the page — including the click/keypress that
-  // dismisses the intro screen. After that, only the manual controls apply.
-  useEffect(() => {
-    if (!built) return
-    if (!suppressedRef.current) { try { playerRef.current && playerRef.current.playVideo() } catch {} }
-    let done = false
-    const types = ['pointerdown', 'touchstart', 'keydown', 'click']
-    const remove = () => types.forEach(t => window.removeEventListener(t, kick, true))
-    function kick() {
-      if (done || autoStartedRef.current) { remove(); return }
-      if (suppressedRef.current) return // stay armed, but don't start while a page has silenced us
-      done = true
-      try { playerRef.current && playerRef.current.playVideo() } catch {}
-      remove()
-    }
-    types.forEach(t => window.addEventListener(t, kick, true))
-    return remove
-  }, [built])
+  // Music is opt-in: the ambient radio starts ONLY when the visitor uses the
+  // player controls (the navbar music button, the Tools "Ambient" item, or the
+  // Music page). It never autoplays on load and never starts from a stray click
+  // elsewhere on the page.
 
   const value = {
     built, playing, everPlayed, idx, vol, suppressed, loop,
