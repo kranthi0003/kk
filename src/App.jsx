@@ -61,6 +61,7 @@ const Timeline = lazy(() => import('./components/Timeline'))
 const UsesPage = lazy(() => import('./components/UsesPage'))
 const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 const MusicPage = lazy(() => import('./components/MusicPage'))
+const AllTheBest = lazy(() => import('./components/AllTheBest'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -266,6 +267,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading music…</div></div>}>
         <MusicPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // All the best — a private, unlisted note (shared directly by link). Not in nav.
+  if (route === '#/allthebest') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <AllTheBest onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
