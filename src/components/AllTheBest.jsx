@@ -60,6 +60,10 @@ export default function AllTheBest({ onBack }) {
     <div className="atb-root fixed inset-0 z-[300] overflow-hidden">
       <style>{ATB_STYLE}</style>
 
+      {/* Depth: soft central glow + vignette */}
+      <div className="atb-glow absolute inset-0 pointer-events-none" aria-hidden="true" />
+      <div className="atb-vignette absolute inset-0 pointer-events-none" aria-hidden="true" />
+
       {/* Ambient drifting gold specks */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {SPECKS.map((s, i) => (
@@ -104,13 +108,9 @@ export default function AllTheBest({ onBack }) {
         ) : (
           /* ---------- Revealed message ---------- */
           <div onClick={luck} className="atb-reveal w-full max-w-xl text-center cursor-pointer">
-            <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.34em] mb-6 atb-r" style={{ color: '#e8c877', animationDelay: '0.05s' }}>
-              For your B1/B2 visa
-            </div>
-
             <h1 className="atb-title font-heading font-semibold leading-[1.04] mb-6"
-              style={{ fontSize: 'clamp(3rem, 13vw, 6rem)' }}>
-              All the best.
+              style={{ fontSize: 'clamp(1.35rem, 6.2vw, 4.25rem)', whiteSpace: 'nowrap' }}>
+              All the best, Amrutha.
             </h1>
 
             <div className="atb-r flex items-center justify-center gap-4 mb-6" style={{ animationDelay: '0.2s' }} aria-hidden="true">
@@ -146,11 +146,11 @@ const SPECKS = Array.from({ length: 16 }, (_, i) => ({
 const ATB_STYLE = `
   .atb-root {
     background:
-      radial-gradient(55% 50% at 18% 18%, rgba(15,118,110,0.55) 0%, transparent 60%),
-      radial-gradient(50% 48% at 84% 16%, rgba(8,145,178,0.42) 0%, transparent 60%),
-      radial-gradient(55% 55% at 82% 84%, rgba(76,29,149,0.42) 0%, transparent 62%),
-      radial-gradient(60% 55% at 16% 88%, rgba(180,136,31,0.28) 0%, transparent 60%),
-      linear-gradient(160deg, #0a1120 0%, #0b1a2e 48%, #071b18 100%);
+      radial-gradient(58% 52% at 16% 16%, rgba(16,185,129,0.55) 0%, transparent 60%),
+      radial-gradient(52% 50% at 86% 14%, rgba(34,211,238,0.48) 0%, transparent 60%),
+      radial-gradient(58% 56% at 84% 86%, rgba(139,92,246,0.5) 0%, transparent 62%),
+      radial-gradient(62% 56% at 14% 90%, rgba(244,63,94,0.32) 0%, transparent 60%),
+      linear-gradient(165deg, #070a17 0%, #0a1a2f 46%, #061f1c 100%);
     background-size: 170% 170%, 170% 170%, 170% 170%, 170% 170%, 200% 200%;
     animation: atbAurora 22s ease-in-out infinite;
   }
@@ -158,6 +158,9 @@ const ATB_STYLE = `
     0%,100% { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%; }
     50%     { background-position: 26% 16%, 74% 18%, 72% 82%, 26% 84%, 100% 50%; }
   }
+  /* Warm focus glow behind the message + darkened edges for depth */
+  .atb-glow { background: radial-gradient(46% 42% at 50% 44%, rgba(243,217,139,0.14) 0%, transparent 70%); }
+  .atb-vignette { background: radial-gradient(120% 100% at 50% 45%, transparent 52%, rgba(3,6,12,0.55) 100%); }
 
   /* Sealed gate */
   .atb-gate { animation: atbFade .9s cubic-bezier(.22,.61,.36,1) both; }
