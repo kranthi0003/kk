@@ -19,67 +19,67 @@ export function localKey(dt) {
 // YouTube form-demo link for an exercise (verified public videos).
 export const ytUrl = (id) => `https://www.youtube.com/watch?v=${id}`
 
-// ------- 6-day plan (train Mon–Sat, rest Sun). Indexed by getDay() 0=Sun..6=Sat
-// Home gym: adjustable dumbbells + a flat/incline bench. Every exercise carries a
-// verified `yt` form-demo video id (see /lib link-verification, all oEmbed 200).
+// ------- Upper/Lower split — 4 lifting days (Mon/Tue/Thu/Fri; each muscle 2×/week)
+// plus 2 walk + mobility days (Wed/Sat) and full rest Sunday. Chosen so it recovers
+// well in a calorie deficit and leaves room for daily cardio while cutting. Indexed
+// by getDay() 0=Sun..6=Sat. Home gym: adjustable dumbbells + a flat/incline bench,
+// so a few gym staples (lat pulldown, leg press, cables) use the closest dumbbell
+// movement. Every exercise carries a verified `yt` form-demo video id (oEmbed 200).
 export const PLAN = [
-  { day: 'Sun', name: 'Recovery', focus: 'Rest day — no weights', rest: true, equip: 'Just your legs', cardio: 'Easy walk 20–30 min',
+  { day: 'Sun', name: 'Complete Rest', focus: 'Full recovery — muscle grows now', rest: true, equip: 'Nothing', cardio: 'Optional gentle walk or stretch',
     exercises: [
-      { id: 'sun-walk',    name: 'Brisk Walk',   sr: '20–30 min', yt: 'vdsaHSr1H_E' },
-      { id: 'sun-stretch', name: 'Full Stretch', sr: 'Optional',  yt: 'T_l0AyZywjU' },
-      { id: 'sun-mob',     name: 'Mobility Flow', sr: 'Optional',  yt: 'a9rqTzZaI7s' },
+      { id: 'sun-walk',    name: 'Easy Walk (optional)', sr: '15–20 min', yt: 'vdsaHSr1H_E' },
+      { id: 'sun-stretch', name: 'Full-Body Stretch',    sr: 'Optional',  yt: 'T_l0AyZywjU' },
     ] },
-  { day: 'Mon', name: 'Push Day', focus: 'Chest · Shoulders · Triceps', equip: 'Dumbbells + bench', cardio: '30 min walk',
+  { day: 'Mon', name: 'Upper A · Strength', focus: 'Chest · Back · Shoulders · Arms', equip: 'Dumbbells + bench', cardio: '20–30 min walk',
     exercises: [
-      { id: 'mon-1', name: 'Flat Dumbbell Bench Press',      sr: '3 × 10',     yt: 'QsYre__-aro' },
-      { id: 'mon-2', name: 'Incline Dumbbell Press',         sr: '3 × 10',     yt: 'IP4oeKh1Sd4' },
-      { id: 'mon-3', name: 'Seated Dumbbell Shoulder Press', sr: '3 × 10',     yt: 'rO_iEImwHyo' },
-      { id: 'mon-4', name: 'Lateral Raise',                  sr: '3 × 15',     yt: 'WJm9zA2NY8E' },
-      { id: 'mon-5', name: 'Overhead Tricep Extension',      sr: '3 × 12',     yt: '-Vyt2QdsR7E' },
-      { id: 'mon-6', name: 'Plank',                          sr: '3 × 30 sec', yt: '6LqqeBtFn9M' },
+      { id: 'mon-1', name: 'Flat Dumbbell Bench Press',    sr: '4 × 6–8',   yt: 'QsYre__-aro' },
+      { id: 'mon-2', name: 'One-Arm Dumbbell Row',         sr: '4 × 6–8',   yt: 'gfUg6qWohTk' },
+      { id: 'mon-3', name: 'Incline Dumbbell Press',       sr: '3 × 8–10',  yt: 'IP4oeKh1Sd4' },
+      { id: 'mon-4', name: 'Chest-Supported Row',          sr: '3 × 8–10',  yt: 'nl2MnK1i504' },
+      { id: 'mon-5', name: 'Lateral Raise',                sr: '3 × 12–15', yt: 'WJm9zA2NY8E' },
+      { id: 'mon-6', name: 'Overhead Tricep Extension',    sr: '3 × 10–12', yt: '-Vyt2QdsR7E' },
+      { id: 'mon-7', name: 'Dumbbell Curl',                sr: '3 × 10–12', yt: 'XE_pHwbst04' },
     ] },
-  { day: 'Tue', name: 'Legs', focus: 'Quads · Hamstrings · Calves', equip: 'Dumbbells + bench', cardio: 'Walk or Tennis',
+  { day: 'Tue', name: 'Lower A', focus: 'Quads · Hamstrings · Calves · Core', equip: 'Dumbbells + bench', cardio: '20–30 min walk',
     exercises: [
-      { id: 'tue-1', name: 'Goblet Squat',           sr: '4 × 10',      yt: 'gCESNsDsbqk' },
-      { id: 'tue-2', name: 'Romanian Deadlift',      sr: '4 × 10',      yt: 'hQgFixeXdZo' },
+      { id: 'tue-1', name: 'Goblet Squat',           sr: '4 × 8–10',     yt: 'gCESNsDsbqk' },
+      { id: 'tue-2', name: 'Romanian Deadlift',      sr: '4 × 8–10',     yt: 'hQgFixeXdZo' },
       { id: 'tue-3', name: 'Bulgarian Split Squat',  sr: '3 × 10 / leg', yt: 'hiLF_pF3EJM' },
-      { id: 'tue-4', name: 'Standing Calf Raise',    sr: '3 × 20',      yt: 'k8ipHzKeAkQ' },
-      { id: 'tue-5', name: 'Dead Bug',               sr: '3 × 12',      yt: 'o4GKiEoYClI' },
+      { id: 'tue-4', name: 'Standing Calf Raise',    sr: '4 × 12–15',    yt: 'k8ipHzKeAkQ' },
+      { id: 'tue-5', name: 'Dead Bug (core)',        sr: '3 × 12',       yt: 'o4GKiEoYClI' },
     ] },
-  { day: 'Wed', name: 'Recovery & Core', focus: 'Core · Mobility', equip: 'Bodyweight', cardio: 'Easy Walk',
+  { day: 'Wed', name: 'Walk & Mobility', focus: 'Active recovery — no weights', equip: 'Bodyweight', cardio: '45–60 min brisk walk',
     exercises: [
-      { id: 'wed-1', name: 'Bird Dog',             sr: '3 × 10',     yt: 'QABW99qPiNM' },
-      { id: 'wed-2', name: 'Side Plank',           sr: '3 × 20 sec', yt: 'NXr4Fw8q60o' },
-      { id: 'wed-3', name: 'Dead Bug',             sr: '3 × 12',     yt: 'o4GKiEoYClI' },
-      { id: 'wed-4', name: 'Hip Flexor Stretch',   sr: '5 min',      yt: 'DXuStgWuJV8' },
-      { id: 'wed-5', name: 'Hamstring Stretch',    sr: '5 min',      yt: 'T_l0AyZywjU' },
-      { id: 'wed-6', name: 'Shoulder Mobility',    sr: '5 min',      yt: 'a9rqTzZaI7s' },
+      { id: 'wed-1', name: 'Brisk Walk',           sr: '45–60 min', yt: 'vdsaHSr1H_E' },
+      { id: 'wed-2', name: 'Shoulder Mobility',     sr: '5 min',     yt: 'a9rqTzZaI7s' },
+      { id: 'wed-3', name: 'Hip Flexor Stretch',    sr: '5 min',     yt: 'DXuStgWuJV8' },
+      { id: 'wed-4', name: 'Hamstring Stretch',     sr: '5 min',     yt: 'T_l0AyZywjU' },
     ] },
-  { day: 'Thu', name: 'Pull Day', focus: 'Back · Biceps', equip: 'Dumbbells + bench', cardio: '30 min walk',
+  { day: 'Thu', name: 'Upper B · Hypertrophy', focus: 'Chest · Back · Delts · Arms', equip: 'Dumbbells + bench', cardio: '20–30 min walk',
     exercises: [
-      { id: 'thu-1', name: 'One-Arm Dumbbell Row',  sr: '4 × 10', yt: 'gfUg6qWohTk' },
-      { id: 'thu-2', name: 'Chest Supported Row',   sr: '3 × 12', yt: 'nl2MnK1i504' },
-      { id: 'thu-3', name: 'Rear Delt Fly',         sr: '3 × 15', yt: 'buuYPLVXsJg' },
-      { id: 'thu-4', name: 'Dumbbell Curl',         sr: '3 × 10', yt: 'XE_pHwbst04' },
-      { id: 'thu-5', name: 'Hammer Curl',           sr: '3 × 10', yt: '8XLxfXROrTo' },
+      { id: 'thu-1', name: 'Incline Dumbbell Press',      sr: '3 × 8–10',  yt: 'IP4oeKh1Sd4' },
+      { id: 'thu-2', name: 'Chest-Supported Row',         sr: '3 × 8–10',  yt: 'nl2MnK1i504' },
+      { id: 'thu-3', name: 'Flat Dumbbell Bench Press',   sr: '3 × 10–12', yt: 'QsYre__-aro' },
+      { id: 'thu-4', name: 'One-Arm Dumbbell Row',        sr: '3 × 10–12', yt: 'gfUg6qWohTk' },
+      { id: 'thu-5', name: 'Rear Delt Fly',               sr: '3 × 15',    yt: 'buuYPLVXsJg' },
+      { id: 'thu-6', name: 'Overhead Tricep Extension',   sr: '3 × 12',    yt: '-Vyt2QdsR7E' },
+      { id: 'thu-7', name: 'Hammer Curl',                 sr: '3 × 12',    yt: '8XLxfXROrTo' },
     ] },
-  { day: 'Fri', name: 'Full Body', focus: 'Total body', equip: 'Dumbbells + bench', cardio: 'Walk or Tennis',
+  { day: 'Fri', name: 'Lower B', focus: 'Posterior chain · Quads · Calves · Core', equip: 'Dumbbells + bench', cardio: '20–30 min walk',
     exercises: [
-      { id: 'fri-1', name: 'Dumbbell Bench Press',    sr: '3 × 10',     yt: 'QsYre__-aro' },
-      { id: 'fri-2', name: 'Dumbbell Row',            sr: '3 × 10',     yt: 'gfUg6qWohTk' },
-      { id: 'fri-3', name: 'Goblet Squat',            sr: '3 × 10',     yt: 'gCESNsDsbqk' },
-      { id: 'fri-4', name: 'Dumbbell Shoulder Press', sr: '3 × 10',     yt: 'rO_iEImwHyo' },
-      { id: 'fri-5', name: 'Plank',                   sr: '3 × 30 sec', yt: '6LqqeBtFn9M' },
+      { id: 'fri-1', name: 'Romanian Deadlift',        sr: '3 × 6–8',      yt: 'hQgFixeXdZo' },
+      { id: 'fri-2', name: 'Bulgarian Split Squat',    sr: '3 × 10 / leg', yt: 'hiLF_pF3EJM' },
+      { id: 'fri-3', name: 'Goblet Squat',             sr: '3 × 12',       yt: 'gCESNsDsbqk' },
+      { id: 'fri-4', name: 'Standing Calf Raise',      sr: '4 × 15',       yt: 'k8ipHzKeAkQ' },
+      { id: 'fri-5', name: 'Weighted Russian Twist',   sr: '3 × 20',       yt: 'wkD8rjkodUI' },
     ] },
-  { day: 'Sat', name: 'Arms & Shoulders', focus: 'Shoulders · Arms · Core', equip: 'Dumbbells', cardio: '45 min walk, cycling, tennis, or boxing',
+  { day: 'Sat', name: 'Walk + Optional Arms', focus: 'Cardio · optional shoulders & arms', equip: 'Dumbbells (optional)', cardio: '45–60 min walk',
     exercises: [
-      { id: 'sat-1', name: 'Dumbbell Shoulder Press', sr: '3 × 10', yt: 'rO_iEImwHyo' },
-      { id: 'sat-2', name: 'Lateral Raise',           sr: '3 × 15', yt: 'WJm9zA2NY8E' },
-      { id: 'sat-3', name: 'Front Raise',             sr: '3 × 12', yt: 'CH9JzDStL3U' },
-      { id: 'sat-4', name: 'Dumbbell Curl',           sr: '3 × 12', yt: 'XE_pHwbst04' },
-      { id: 'sat-5', name: 'Hammer Curl',             sr: '3 × 12', yt: '8XLxfXROrTo' },
-      { id: 'sat-6', name: 'Tricep Extension',        sr: '3 × 12', yt: '-Vyt2QdsR7E' },
-      { id: 'sat-7', name: 'Russian Twist',           sr: '3 × 20', yt: 'wkD8rjkodUI' },
+      { id: 'sat-1', name: 'Brisk Walk',                       sr: '45–60 min', yt: 'vdsaHSr1H_E' },
+      { id: 'sat-2', name: 'Lateral Raise (optional)',         sr: '3 × 15',    yt: 'WJm9zA2NY8E' },
+      { id: 'sat-3', name: 'Dumbbell Curl (optional)',         sr: '3 × 12',    yt: 'XE_pHwbst04' },
+      { id: 'sat-4', name: 'Overhead Tricep Ext (optional)',   sr: '3 × 12',    yt: '-Vyt2QdsR7E' },
     ] },
 ]
 
