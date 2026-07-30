@@ -24,7 +24,7 @@ export const PHASES = [
     month: 'Month 1', tag: 'Foundation & reset',
     focus: 'Build the base. No harsh actives yet — just lock the habits in.',
     tracks: [
-      { k: 'Fitness', d: 'Lock the 6-day split + the deficit. Nail your form first (Gym tab).' },
+      { k: 'Fitness', d: 'Lock the Upper/Lower split + the deficit. Nail your form first (Gym tab).' },
       { k: 'Posture', d: 'The 5-minute routine + video, every morning (Gym tab).' },
       { k: 'Face', d: 'Simplest routine only — gentle cleanser, moisturiser, SPF. No actives yet.' },
       { k: 'Dark spots', d: 'Stop making them worse: no hard scrubbing, no razor on underarms / inner thigh, breathable clothing, moisturise daily.' },
