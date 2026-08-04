@@ -75,7 +75,7 @@ export default function Projects() {
             return (
               <div
                 key={p.name}
-                className={`reveal group relative bg-card hover:border-accent/40 transition-colors overflow-hidden ${tints[i % 3]}`}
+                className={`reveal hover-lift group relative bg-card hover:border-accent/40 transition-colors overflow-hidden ${tints[i % 3]}`}
               >
                 <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
                 {/* Title bar */}

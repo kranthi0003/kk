@@ -40,7 +40,7 @@ export default function TechStack() {
             return (
               <div
                 key={group.title}
-                className={`reveal group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
+                className={`reveal hover-lift group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] mb-3" style={{ color: eyebrowColors[i % 4] }}>{group.title}</p>
                 <div className="flex flex-wrap gap-1.5">
@@ -69,7 +69,7 @@ export default function TechStack() {
             return (
               <div
                 key={c.name}
-                className={`reveal group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
+                className={`reveal hover-lift group flex items-center gap-3 px-3 py-2.5 rounded-md bg-card hover:border-accent/50 transition-colors ${tint}`}
               >
                 <span className="w-9 h-9 rounded-md flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                   style={{ background: `color-mix(in oklab, ${tagColor} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${tagColor} 35%, transparent)`, color: tagColor }}>

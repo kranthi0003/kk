@@ -74,7 +74,7 @@ function GitHubHeatmap() {
   )
 }
 
-const CARD = 'transition-transform duration-300 hover:-translate-y-1'
+const CARD = 'hover-lift'
 const tintStyle = (pct = 6) => ({
   border: '1px solid color-mix(in oklab, var(--color-border) 50%, transparent)',
   background: `linear-gradient(150deg, color-mix(in oklab, var(--color-brand) ${pct}%, var(--color-card)), var(--color-card) 70%)`,
