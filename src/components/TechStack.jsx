@@ -40,12 +40,12 @@ export default function TechStack() {
             return (
               <div
                 key={group.title}
-                className={`reveal hover-lift group relative rounded-lg bg-card p-5 hover:border-accent/40 transition-colors ${tints[i % 4]}`}
+                className={`reveal hover-lift group relative rounded-lg bg-card p-5 flex flex-col hover:border-accent/40 transition-colors ${tints[i % 4]}`}
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] mb-3" style={{ color: eyebrowColors[i % 4] }}>{group.title}</p>
-                <div className="flex flex-wrap gap-1.5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] mb-4" style={{ color: eyebrowColors[i % 4] }}>{group.title}</p>
+                <div className="flex-1 flex flex-wrap content-center gap-2">
                   {group.items.map(s => (
-                    <span key={s} className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[oklch(15%_0.015_285)] text-foreground/90 border border-border/80 hover:border-accent/50 hover:text-accent transition-colors">
+                    <span key={s} className="px-3 py-1.5 rounded-lg text-[11.5px] font-medium bg-[oklch(15%_0.015_285)] text-foreground/90 border border-border/80 hover:border-accent/50 hover:text-accent transition-colors">
                       {s}
                     </span>
                   ))}
