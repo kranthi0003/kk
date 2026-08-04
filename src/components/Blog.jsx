@@ -84,6 +84,16 @@ export default function Blog({ onBack }) {
           <p className="text-[clamp(1rem,2.4vw,1.2rem)] leading-relaxed text-muted-foreground">
             Notes on the mind, reliability, and building quiet things — plus the occasional long story. Written to be read slowly.
           </p>
+          <div className="mt-4 flex items-center gap-3 text-[12px] font-mono">
+            <a href="/feed.xml" target="_blank" rel="noopener noreferrer" title="Subscribe via RSS"
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36zM4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z" /></svg>
+              RSS
+            </a>
+            <span className="text-muted-foreground/30">·</span>
+            <a href="/feed.json" target="_blank" rel="noopener noreferrer" title="Subscribe via JSON Feed"
+              className="text-muted-foreground hover:text-foreground transition-colors">JSON</a>
+          </div>
         </header>
 
         {/* Category chips */}
