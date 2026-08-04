@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "postbuild": "cp dist/index.html dist/404.html && node scripts/gen-feed.mjs"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.5.0",
+    "esbuild": "^0.21.5",
     "postcss": "^8.5.13",
     "tailwindcss": "^3.4.19",
     "vite": "^5.0.0",
