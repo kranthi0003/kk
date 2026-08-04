@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kranthi Kiran — Blog</title>
+    <link>https://kranthikiran.com/#/blog</link>
+    <atom:link href="https://kranthikiran.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Engineering, reliability, and reflections — from kranthikiran.com</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Aug 2026 16:37:03 GMT</lastBuildDate>
+    <item>
+      <title>Facts, Not Stories</title>
+      <link>https://kranthikiran.com/#/blog/facts-not-stories</link>
+      <guid isPermaLink="false">kranthikiran:post:facts-not-stories</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Reflections</category>
+      <description>The moment your brain turns one unseen message into a catastrophe — and a small, honest framework for keeping your calm from depending on someone else’s screen.</description>
+    </item>
+    <item>
+      <title>It&apos;s Always Her</title>
+      <link>https://kranthikiran.com/#/blog/its-always-her</link>
+      <guid isPermaLink="false">kranthikiran:post:its-always-her</guid>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Reflections</category>
+      <description>A novel in eleven chapters. A one-sided love that lasted ten years — from a quiet classroom door in the eleventh grade to an ocean between Vizag and Germany.</description>
+    </item>
+    <item>
+      <title>GitHub Administration</title>
+      <link>https://kranthikiran.com/#/blog/github-administration</link>
+      <guid isPermaLink="false">kranthikiran:post:github-administration</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>The step up from Foundations: managing orgs, members, policies, security and integrations for a whole company. What it covers and how I prepared.</description>
+    </item>
+    <item>
+      <title>GitHub Foundations</title>
+      <link>https://kranthikiran.com/#/blog/github-foundations</link>
+      <guid isPermaLink="false">kranthikiran:post:github-foundations</guid>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>The entry point to the GitHub certification track — Git, repositories, collaboration, and the wider platform. Quick to prep if you use GitHub daily.</description>
+    </item>
+    <item>
+      <title>Why an Actions job gets stuck in “queued”</title>
+      <link>https://kranthikiran.com/#/blog/til-actions-job-stuck-queued</link>
+      <guid isPermaLink="false">kranthikiran:post:til-actions-job-stuck-queued</guid>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Engineering</category>
+      <description>A job sits in &quot;queued&quot; when no runner is available to pick it up. Here are the usual causes and the exact order I check them in.</description>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://kranthikiran.com/#/blog/github-actions</link>
+      <guid isPermaLink="false">kranthikiran:post:github-actions</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>CI/CD, workflows, runners, reusable workflows and secrets — the exam on the platform I support for a living. What it covers and how I would prepare.</description>
+    </item>
+    <item>
+      <title>Stop wasting minutes: cancel superseded runs</title>
+      <link>https://kranthikiran.com/#/blog/til-actions-concurrency-cancel</link>
+      <guid isPermaLink="false">kranthikiran:post:til-actions-concurrency-cancel</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Engineering</category>
+      <description>Push three times to a PR and you get three runs, two of them already pointless. A concurrency group cancels the stale ones automatically.</description>
+    </item>
+    <item>
+      <title>Give GITHUB_TOKEN only what it needs</title>
+      <link>https://kranthikiran.com/#/blog/til-actions-token-permissions</link>
+      <guid isPermaLink="false">kranthikiran:post:til-actions-token-permissions</guid>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Engineering</category>
+      <description>Every run gets an automatic GITHUB_TOKEN, and its default scope depends on a setting you might not control. Declaring permissions yourself removes the guesswork.</description>
+    </item>
+    <item>
+      <title>AWS Solutions Architect Associate</title>
+      <link>https://kranthikiran.com/#/blog/aws-saa</link>
+      <guid isPermaLink="false">kranthikiran:post:aws-saa</guid>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>The cert that turned a pile of AWS services into a way of designing systems. My story, the exact path I took, and the resources that actually moved the needle.</description>
+    </item>
+    <item>
+      <title>Couchbase Certified — Administrator</title>
+      <link>https://kranthikiran.com/#/blog/couchbase-admin</link>
+      <guid isPermaLink="false">kranthikiran:post:couchbase-admin</guid>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>Running Couchbase in support taught me the failure modes; the administrator cert made me formalise them. Buckets, XDCR, rebalances — and how I studied them.</description>
+    </item>
+    <item>
+      <title>Couchbase Certified — Python Developer</title>
+      <link>https://kranthikiran.com/#/blog/couchbase-python</link>
+      <guid isPermaLink="false">kranthikiran:post:couchbase-python</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>The developer track: SDKs, N1QL/SQL++, and the mental model shift from rows and joins to documents and keys. How I picked it up.</description>
+    </item>
+    <item>
+      <title>Couchbase Certified — Architect</title>
+      <link>https://kranthikiran.com/#/blog/couchbase-architect</link>
+      <guid isPermaLink="false">kranthikiran:post:couchbase-architect</guid>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>The architect track pulls the admin and developer views together: sizing, services, replication topology, and designing for failure. My path through it.</description>
+    </item>
+    <item>
+      <title>Phone. Porn. Sugar.</title>
+      <link>https://kranthikiran.com/#/blog/cheap-dopamine</link>
+      <guid isPermaLink="false">kranthikiran:post:cheap-dopamine</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Mind &amp; Dopamine</category>
+      <description>Three habits that feel unrelated, run by one hijacked circuit. A calm, honest breakdown of how it works in the brain — and how it lets go.</description>
+    </item>
+    <item>
+      <title>Error budgets, in one minute</title>
+      <link>https://kranthikiran.com/#/blog/error-budgets-in-one-minute</link>
+      <guid isPermaLink="false">kranthikiran:post:error-budgets-in-one-minute</guid>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Reliability</category>
+      <description>A 100% reliability target is a trap. Here is the small idea that lets teams move fast and stay stable at the same time.</description>
+    </item>
+  </channel>
+</rss>

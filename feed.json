@@ -1,0 +1,150 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Kranthi Kiran — Blog",
+  "home_page_url": "https://kranthikiran.com/#/blog",
+  "feed_url": "https://kranthikiran.com/feed.json",
+  "description": "Engineering, reliability, and reflections — from kranthikiran.com",
+  "language": "en",
+  "items": [
+    {
+      "id": "kranthikiran:post:facts-not-stories",
+      "url": "https://kranthikiran.com/#/blog/facts-not-stories",
+      "title": "Facts, Not Stories",
+      "summary": "The moment your brain turns one unseen message into a catastrophe — and a small, honest framework for keeping your calm from depending on someone else’s screen.",
+      "date_published": "2026-07-14T00:00:00.000Z",
+      "tags": [
+        "Reflections"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:its-always-her",
+      "url": "https://kranthikiran.com/#/blog/its-always-her",
+      "title": "It's Always Her",
+      "summary": "A novel in eleven chapters. A one-sided love that lasted ten years — from a quiet classroom door in the eleventh grade to an ocean between Vizag and Germany.",
+      "date_published": "2026-07-11T00:00:00.000Z",
+      "tags": [
+        "Reflections"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:github-administration",
+      "url": "https://kranthikiran.com/#/blog/github-administration",
+      "title": "GitHub Administration",
+      "summary": "The step up from Foundations: managing orgs, members, policies, security and integrations for a whole company. What it covers and how I prepared.",
+      "date_published": "2026-07-06T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:github-foundations",
+      "url": "https://kranthikiran.com/#/blog/github-foundations",
+      "title": "GitHub Foundations",
+      "summary": "The entry point to the GitHub certification track — Git, repositories, collaboration, and the wider platform. Quick to prep if you use GitHub daily.",
+      "date_published": "2026-07-05T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:til-actions-job-stuck-queued",
+      "url": "https://kranthikiran.com/#/blog/til-actions-job-stuck-queued",
+      "title": "Why an Actions job gets stuck in “queued”",
+      "summary": "A job sits in \"queued\" when no runner is available to pick it up. Here are the usual causes and the exact order I check them in.",
+      "date_published": "2026-07-05T00:00:00.000Z",
+      "tags": [
+        "Engineering"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:github-actions",
+      "url": "https://kranthikiran.com/#/blog/github-actions",
+      "title": "GitHub Actions",
+      "summary": "CI/CD, workflows, runners, reusable workflows and secrets — the exam on the platform I support for a living. What it covers and how I would prepare.",
+      "date_published": "2026-07-04T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:til-actions-concurrency-cancel",
+      "url": "https://kranthikiran.com/#/blog/til-actions-concurrency-cancel",
+      "title": "Stop wasting minutes: cancel superseded runs",
+      "summary": "Push three times to a PR and you get three runs, two of them already pointless. A concurrency group cancels the stale ones automatically.",
+      "date_published": "2026-07-04T00:00:00.000Z",
+      "tags": [
+        "Engineering"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:til-actions-token-permissions",
+      "url": "https://kranthikiran.com/#/blog/til-actions-token-permissions",
+      "title": "Give GITHUB_TOKEN only what it needs",
+      "summary": "Every run gets an automatic GITHUB_TOKEN, and its default scope depends on a setting you might not control. Declaring permissions yourself removes the guesswork.",
+      "date_published": "2026-07-03T00:00:00.000Z",
+      "tags": [
+        "Engineering"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:aws-saa",
+      "url": "https://kranthikiran.com/#/blog/aws-saa",
+      "title": "AWS Solutions Architect Associate",
+      "summary": "The cert that turned a pile of AWS services into a way of designing systems. My story, the exact path I took, and the resources that actually moved the needle.",
+      "date_published": "2026-07-02T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:couchbase-admin",
+      "url": "https://kranthikiran.com/#/blog/couchbase-admin",
+      "title": "Couchbase Certified — Administrator",
+      "summary": "Running Couchbase in support taught me the failure modes; the administrator cert made me formalise them. Buckets, XDCR, rebalances — and how I studied them.",
+      "date_published": "2026-07-01T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:couchbase-python",
+      "url": "https://kranthikiran.com/#/blog/couchbase-python",
+      "title": "Couchbase Certified — Python Developer",
+      "summary": "The developer track: SDKs, N1QL/SQL++, and the mental model shift from rows and joins to documents and keys. How I picked it up.",
+      "date_published": "2026-06-30T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:couchbase-architect",
+      "url": "https://kranthikiran.com/#/blog/couchbase-architect",
+      "title": "Couchbase Certified — Architect",
+      "summary": "The architect track pulls the admin and developer views together: sizing, services, replication topology, and designing for failure. My path through it.",
+      "date_published": "2026-06-29T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:cheap-dopamine",
+      "url": "https://kranthikiran.com/#/blog/cheap-dopamine",
+      "title": "Phone. Porn. Sugar.",
+      "summary": "Three habits that feel unrelated, run by one hijacked circuit. A calm, honest breakdown of how it works in the brain — and how it lets go.",
+      "date_published": "2026-06-27T00:00:00.000Z",
+      "tags": [
+        "Mind & Dopamine"
+      ]
+    },
+    {
+      "id": "kranthikiran:post:error-budgets-in-one-minute",
+      "url": "https://kranthikiran.com/#/blog/error-budgets-in-one-minute",
+      "title": "Error budgets, in one minute",
+      "summary": "A 100% reliability target is a trap. Here is the small idea that lets teams move fast and stay stable at the same time.",
+      "date_published": "2026-06-20T00:00:00.000Z",
+      "tags": [
+        "Reliability"
+      ]
+    }
+  ]
+}
