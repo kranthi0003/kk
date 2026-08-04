@@ -185,34 +185,17 @@ h4, h5, h6 {
   animation: gradient-shift 4s ease infinite;
 }
 
-/* Card 3D effect */
-.card-3d {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.card-3d:hover {
-  transform: translateY(-4px);
-}
-
-/* Light mode card refinement */
-:root .card-3d {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
-}
-
-:root .card-3d:hover {
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
-}
-
-/* Hover lift */
+/* Card hover-lift — a subtle rise + soft, theme-aware shadow + border warm-up.
+   Self-contained for standalone cards; when combined with .reveal (below) the
+   reveal rule's transition governs timing (broadened there to cover shadow). */
 .hover-lift {
-  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
 }
-
-.hover-lift:hover {
-  transform: translateY(-3px);
-}
+.hover-lift:hover { transform: translateY(-4px); }
+.dark  .hover-lift:hover { box-shadow: 0 18px 40px -18px rgba(0,0,0,0.62), 0 4px 12px -6px rgba(0,0,0,0.40); }
+:root  .hover-lift:hover { box-shadow: 0 18px 36px -16px rgba(0,0,0,0.16), 0 4px 12px -8px rgba(0,0,0,0.08); }
 
 /* Section fade-in on scroll */
 .section-animate {
@@ -235,9 +218,10 @@ h4, h5, h6 {
 }
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.55s cubic-bezier(0.2, 0.65, 0.3, 1),
-              transform 0.55s cubic-bezier(0.2, 0.65, 0.3, 1);
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease, border-color 0.4s ease;
   will-change: opacity, transform;
 }
 .section-animate.in-view .reveal {
@@ -251,6 +235,8 @@ h4, h5, h6 {
     transform: none !important;
     transition: none !important;
   }
+  .hover-lift { transition: none; }
+  .hover-lift:hover { transform: none; }
 }
 
 /* ── Lock-In: cinematic intro + Ferrari-style dashboard reveal ───────── */
