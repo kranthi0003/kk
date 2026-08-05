@@ -89,69 +89,78 @@ function Girl({ pose = 'joy', style }) {
   const joy = pose === 'joy', ready = pose === 'ready'
   return (
     <svg viewBox="0 0 200 230" className="bd-girl" style={style} aria-hidden="true">
-      {/* hair */}
-      <path d="M100 22c-34 0-56 26-56 60 0 28 2 44-2 72 10 6 22 8 22 8l6-42h60l6 42s12-2 22-8c-4-28-2-44-2-72 0-34-22-60-56-60z" fill="#33263f" />
-      <rect x="91" y="106" width="18" height="26" rx="8" fill="#e0ab84" />
+      {/* ponytail + bow */}
+      <path d="M140 52c16-6 32 2 38 16 7 16 1 34-10 45-6 6-14 3-13-5 2-14 3-26-2-36-4-9-12-12-13-20z" fill="#4a3355" />
+      <path d="M141 47l-14-9 2 18z" fill="#ff8fa8" />
+      <path d="M141 47l15-8-3 18z" fill="#ff8fa8" />
+      <circle cx="141" cy="47" r="6" fill="#ffb3c4" />
+
+      <rect x="92" y="112" width="16" height="24" rx="7" fill="#f0b489" />
+
       {/* arms */}
       {joy ? (
         <>
-          <path d="M64 138c-16-6-27-22-30-38" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
-          <path d="M136 138c16-6 27-22 30-38" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M68 144c-14-7-24-24-27-42" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
+          <path d="M132 144c14-7 24-24 27-42" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
         </>
       ) : ready ? (
         <>
-          <path d="M66 142c-10 12-14 28-14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
-          <path d="M136 138c15-7 24-23 26-40" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M72 146c-10 11-14 27-13 44" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
+          <path d="M134 144c14-7 22-22 24-38" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
           {/* the tomato */}
-          <circle cx="164" cy="88" r="13" fill="#e2483a" stroke="#b8362a" strokeWidth="2" />
-          <path d="M158 78q6-7 12 0q-6 3-12 0z" fill="#4caf6d" />
+          <circle cx="161" cy="96" r="12" fill="#e2483a" stroke="#b8362a" strokeWidth="2" />
+          <path d="M155 87q6-6 12 0q-6 3-12 0z" fill="#4caf6d" />
         </>
       ) : (
         <>
-          <path d="M66 142c-10 12-14 28-14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
-          <path d="M134 142c10 12 14 28 14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M72 146c-10 11-14 27-13 44" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
+          <path d="M128 146c10 11 14 27 13 44" stroke="#ffd9b8" strokeWidth="14" strokeLinecap="round" fill="none" />
         </>
       )}
+
       {/* top */}
-      <path d="M100 122c-25 0-39 15-39 39v48h78v-48c0-24-14-39-39-39z" fill="#e8654f" />
-      {/* face */}
-      <ellipse cx="100" cy="76" rx="37" ry="39" fill="#f2c9a0" />
-      <path d="M63 72c-2-28 16-46 37-46s39 18 37 46c-8-16-20-24-37-24s-29 8-37 24z" fill="#33263f" />
+      <path d="M100 128c-21 0-33 14-33 36v33c0 8 4 12 12 12h42c8 0 12-4 12-12v-33c0-22-12-36-33-36z" fill="#f47a68" />
+      <path d="M100 128c-8 0-13 3-13 3l13 14 13-14s-5-3-13-3z" fill="#ffe3d0" opacity=".5" />
+
+      {/* face + fringe */}
+      <ellipse cx="100" cy="80" rx="44" ry="43" fill="#ffd9b8" />
+      <path d="M56 78c-4-32 18-52 44-52s48 20 44 52c-3-10-6-18-10-23-10 6-24 9-38 7-12-2-20-6-25-11-6 6-11 15-15 27z" fill="#4a3355" />
+
       {/* eyes */}
       {joy ? (
         <>
-          <path d="M77 74q9-11 18 0" stroke="#33263f" strokeWidth="4.5" fill="none" strokeLinecap="round" />
-          <path d="M105 74q9-11 18 0" stroke="#33263f" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+          <path d="M73 84q9-12 18 0" stroke="#4a3355" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+          <path d="M109 84q9-12 18 0" stroke="#4a3355" strokeWidth="4.5" fill="none" strokeLinecap="round" />
         </>
       ) : (
         <>
-          <ellipse cx="86" cy="74" rx="7.5" ry="9" fill="#fff" />
-          <ellipse cx="114" cy="74" rx="7.5" ry="9" fill="#fff" />
-          <circle cx="86" cy="75" r="4.2" fill="#33263f" />
-          <circle cx="114" cy="75" r="4.2" fill="#33263f" />
-          <circle cx="87.6" cy="72.6" r="1.5" fill="#fff" />
-          <circle cx="115.6" cy="72.6" r="1.5" fill="#fff" />
-          {ready && (
-            <>
-              <path d="M77 60l16 4" stroke="#33263f" strokeWidth="3.5" strokeLinecap="round" />
-              <path d="M123 60l-16 4" stroke="#33263f" strokeWidth="3.5" strokeLinecap="round" />
-            </>
-          )}
+          <ellipse cx="82" cy="82" rx="10.5" ry="12.5" fill="#fff" />
+          <ellipse cx="118" cy="82" rx="10.5" ry="12.5" fill="#fff" />
+          <circle cx="82" cy="83" r="7" fill="#3d2b2b" />
+          <circle cx="118" cy="83" r="7" fill="#3d2b2b" />
+          <circle cx="79.5" cy="79" r="3.2" fill="#fff" />
+          <circle cx="115.5" cy="79" r="3.2" fill="#fff" />
+          <circle cx="84.5" cy="87" r="1.6" fill="#fff" opacity=".8" />
+          <circle cx="120.5" cy="87" r="1.6" fill="#fff" opacity=".8" />
+          <path d={ready ? 'M71 71q11-7 22-2' : 'M72 68q11-5 21-1'} stroke="#4a3355" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d={ready ? 'M129 71q-11-7-22-2' : 'M128 68q-11-5-21-1'} stroke="#4a3355" strokeWidth="3" fill="none" strokeLinecap="round" />
         </>
       )}
+
       {/* blush */}
-      <ellipse cx="72" cy="90" rx="8" ry="5" fill="#ef9a8e" opacity=".6" />
-      <ellipse cx="128" cy="90" rx="8" ry="5" fill="#ef9a8e" opacity=".6" />
+      <ellipse cx="66" cy="94" rx="8" ry="5.5" fill="#ff9aa0" opacity=".65" />
+      <ellipse cx="134" cy="94" rx="8" ry="5.5" fill="#ff9aa0" opacity=".65" />
+
       {/* mouth */}
       {joy ? (
         <>
-          <path d="M87 92q13 18 26 0z" fill="#8a3b3b" />
-          <path d="M92 101q8 5 16 0z" fill="#e88a8a" />
+          <path d="M89 96q11 17 22 0z" fill="#c25b5b" />
+          <path d="M93 104q7 5 14 0z" fill="#ff9aa0" />
         </>
       ) : ready ? (
-        <path d="M89 94q12 10 23 -3" stroke="#8a3b3b" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+        <path d="M93 99q8 8 15 -2" stroke="#c25b5b" strokeWidth="3.2" fill="none" strokeLinecap="round" />
       ) : (
-        <path d="M91 96q9 4 18 0" stroke="#8a3b3b" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+        <path d="M92 99q8 5 16 0" stroke="#c25b5b" strokeWidth="3.2" fill="none" strokeLinecap="round" />
       )}
     </svg>
   )
@@ -163,6 +172,8 @@ function Girl({ pose = 'joy', style }) {
 function Villain({ face, flinch, defeated, w = 150 }) {
   const smug = face === 'smug', dizzy = face === 'dizzy' || defeated
   const px = smug ? 4 : 0
+  // the top hat tips when he's hit and slides right off when he's done
+  const hat = defeated ? 'rotate(-40 100 50) translate(-30 -14)' : flinch ? 'rotate(-11 100 50) translate(-5 -9)' : ''
   return (
     <svg viewBox="0 0 200 220" width={w} height={w * 1.1} className="bd-villain" aria-hidden="true"
       style={{ transform: defeated ? 'rotate(96deg) translate(22px, 18px)' : flinch ? 'rotate(-7deg) scale(0.96)' : 'none', transition: defeated ? 'transform .8s cubic-bezier(.5,1.5,.5,1)' : 'transform .16s ease' }}>
@@ -171,48 +182,75 @@ function Villain({ face, flinch, defeated, w = 150 }) {
           <stop offset="0%" stopColor="#8b6bd6" /><stop offset="100%" stopColor="#5b3fa0" />
         </linearGradient>
       </defs>
-      <path d="M58 128c-18 22-22 56-12 80 24-10 32-32 32-32zM142 128c18 22 22 56 12 80-24-10-32-32-32-32z" fill="#3a2568" />
-      <path d="M64 40c-8-12-10-22-6-30 8 6 16 16 18 26z" fill="#f0d9a8" stroke="#c9ab72" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M136 40c8-12 10-22 6-30-8 6-16 16-18 26z" fill="#f0d9a8" stroke="#c9ab72" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M100 128c-28 0-44 18-44 44v34h88v-34c0-26-16-44-44-44z" fill="url(#bdBody)" stroke="#442d80" strokeWidth="3" />
-      <ellipse cx="42" cy="172" rx="11" ry="17" fill="#7355c4" stroke="#442d80" strokeWidth="2.5" transform={flinch ? 'rotate(-22 42 172)' : ''} />
-      <ellipse cx="158" cy="172" rx="11" ry="17" fill="#7355c4" stroke="#442d80" strokeWidth="2.5" transform={flinch ? 'rotate(22 158 172)' : ''} />
-      <path d="M100 130L83 137L92 158L100 143z" fill="#f2f5f7" />
-      <path d="M100 130L117 137L108 158L100 143z" fill="#f2f5f7" />
-      <path d="M94 140h12l-6 9z" fill="#bb3327" />
-      <path d="M100 149l-7 8 7 30 7-30z" fill="#e2483a" />
-      <rect x="122" y="168" width="20" height="26" rx="3" fill="#f2f5f7" stroke="#442d80" strokeWidth="1.6" />
-      <rect x="126" y="173" width="12" height="3.5" rx="1.7" fill="#a9b6c2" />
-      <circle cx="132" cy="185" r="4" fill="#c6d0d9" />
-      <ellipse cx="100" cy="80" rx="57" ry="53" fill="url(#bdBody)" stroke="#442d80" strokeWidth="3" />
+
+      {/* cape, with the classic red lining */}
+      <path d="M70 132c-28 12-44 42-42 78 12 3 22 1 22 1 2-30 10-54 26-71z" fill="#2a2145" />
+      <path d="M130 132c28 12 44 42 42 78-12 3-22 1-22 1-2-30-10-54-26-71z" fill="#2a2145" />
+      <path d="M70 132c-10 18-14 44-13 74l9 1c0-30 4-54 14-70z" fill="#c0392b" />
+      <path d="M130 132c10 18 14 44 13 74l-9 1c0-30-4-54-14-70z" fill="#c0392b" />
+
+      {/* arms */}
+      <ellipse cx="52" cy="176" rx="10" ry="16" fill="#7355c4" stroke="#33265e" strokeWidth="2.5" transform={flinch ? 'rotate(-24 52 176)' : ''} />
+      <ellipse cx="148" cy="176" rx="10" ry="16" fill="#7355c4" stroke="#33265e" strokeWidth="2.5" transform={flinch ? 'rotate(24 148 176)' : ''} />
+
+      {/* body + cravat */}
+      <path d="M100 134c-24 0-38 16-38 40v34h76v-34c0-24-14-40-38-40z" fill="url(#bdBody)" stroke="#33265e" strokeWidth="3" />
+      <path d="M100 136l-15 6 9 19 6-13 6 13 9-19z" fill="#f2f5f7" />
+      <circle cx="100" cy="162" r="5" fill="#c0392b" />
+
+      {/* head */}
+      <ellipse cx="100" cy="94" rx="45" ry="43" fill="#d3c6ea" stroke="#33265e" strokeWidth="3" />
+
+      {/* top hat */}
+      <g transform={hat} style={{ transition: 'transform .3s cubic-bezier(.5,1.4,.5,1)' }}>
+        <ellipse cx="100" cy="53" rx="60" ry="12" fill="#1c1b2e" />
+        <rect x="66" y="4" width="68" height="46" rx="5" fill="#1c1b2e" />
+        <rect x="66" y="35" width="68" height="11" fill="#c0392b" />
+      </g>
+
+      {/* eyes */}
       {dizzy ? (
         <>
-          <path d="M70 70l16 16M86 70l-16 16" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
-          <path d="M114 70l16 16M130 70l-16 16" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M72 74l18 18M90 74l-18 18" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M112 74l18 18M130 74l-18 18" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
         </>
       ) : (
         <>
-          <ellipse cx="78" cy="78" rx="15" ry="16" fill="#fff" />
-          <ellipse cx="122" cy="78" rx="15" ry="16" fill="#fff" />
-          <circle cx={78 + px} cy="81" r="7" fill="#2a1a52" />
-          <circle cx={122 + px} cy="81" r="7" fill="#2a1a52" />
-          <circle cx={80.5 + px} cy="78" r="2.4" fill="#fff" />
-          <circle cx={124.5 + px} cy="78" r="2.4" fill="#fff" />
-          <path d="M60 56L86 66" stroke="#33205e" strokeWidth="5.5" strokeLinecap="round" />
-          <path d="M140 56L114 66" stroke="#33205e" strokeWidth="5.5" strokeLinecap="round" />
+          <ellipse cx="82" cy="83" rx="14" ry="15" fill="#fff" />
+          <ellipse cx="122" cy="83" rx="14" ry="15" fill="#fff" />
+          <circle cx={82 + px} cy="86" r="6.5" fill="#2a1a52" />
+          <circle cx={122 + px} cy="86" r="6.5" fill="#2a1a52" />
+          <circle cx={84.5 + px} cy="83" r="2.2" fill="#fff" />
+          <circle cx={124.5 + px} cy="83" r="2.2" fill="#fff" />
+          <path d="M63 64L94 74" stroke="#1c1b2e" strokeWidth="6" strokeLinecap="round" />
+          <path d="M137 64L106 74" stroke="#1c1b2e" strokeWidth="6" strokeLinecap="round" />
         </>
       )}
+
+      {/* monocle — pops out of his eye once he's had enough */}
+      <path d="M140 92q9 16 3 28" stroke="#e8c96a" strokeWidth="2" fill="none" />
+      <circle cx={dizzy ? 146 : 122} cy={dizzy ? 124 : 83} r={dizzy ? 12 : 19} fill="none" stroke="#e8c96a" strokeWidth="3"
+        style={{ transition: 'all .35s cubic-bezier(.5,1.4,.5,1)' }} />
+
+      {/* nose */}
+      <path d="M97 96q-4 8 3 9" stroke="#a98fd6" strokeWidth="3.4" fill="none" strokeLinecap="round" />
+
+      {/* handlebar moustache */}
+      <path d="M100 112C88 105 68 106 59 113c-6 5-3 14 4 12 5-2 4-8-1-7" stroke="#1c1b2e" strokeWidth="6.5" fill="none" strokeLinecap="round" />
+      <path d="M100 112c12-7 32-6 41 1 6 5 3 14-4 12-5-2-4-8 1-7" stroke="#1c1b2e" strokeWidth="6.5" fill="none" strokeLinecap="round" />
+
+      {/* mouth */}
       {defeated ? (
-        <path d="M84 104q16 12 32 0" fill="none" stroke="#2a1a52" strokeWidth="4" strokeLinecap="round" />
+        <path d="M86 130q14 -11 28 0" fill="none" stroke="#2a1a52" strokeWidth="4" strokeLinecap="round" />
       ) : flinch ? (
-        <ellipse cx="100" cy="106" rx="11" ry="13" fill="#2a1a52" />
+        <ellipse cx="100" cy="127" rx="10" ry="11" fill="#2a1a52" />
       ) : smug ? (
         <>
-          <path d="M76 100Q100 126 124 100Q100 110 76 100" fill="#2a1a52" />
-          <path d="M105 103h7l-3.5 9z" fill="#fff" />
+          <path d="M86 124Q100 137 116 123Q100 130 86 124" fill="#2a1a52" />
+          <path d="M105 126h6l-3 7z" fill="#fff" />
         </>
       ) : (
-        <path d="M82 110q18 -13 36 0" fill="none" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
+        <path d="M85 131q15 -12 30 0" fill="none" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
       )}
     </svg>
   )
@@ -261,10 +299,10 @@ export default function Splat({ onBack }) {
     return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc) }
   }, [])
 
-  // Story auto-advance
+  // Story auto-advance — slow, so each beat has room to land
   useEffect(() => {
     if (phase !== 'story' || scene >= SCENES.length - 1) return
-    const id = setTimeout(() => setScene(s => s + 1), 4400)
+    const id = setTimeout(() => setScene(s => s + 1), 8200)
     return () => clearTimeout(id)
   }, [phase, scene])
 
@@ -527,8 +565,8 @@ export default function Splat({ onBack }) {
               )}
             </div>
 
-            <p className="font-heading text-white leading-snug mt-5 max-w-[22rem]" style={{ fontSize: 'clamp(1.25rem,5.4vw,2rem)' }}>{SCENES[scene].title}</p>
-            <p className="text-white/55 leading-relaxed mt-2.5 max-w-[21rem]" style={{ fontSize: 'clamp(.9rem,3.6vw,1.05rem)' }}>{SCENES[scene].sub}</p>
+            <p className="font-heading text-white leading-snug mt-5 max-w-[22rem] bd-line" style={{ fontSize: 'clamp(1.25rem,5.4vw,2rem)', animationDelay: '.25s' }}>{SCENES[scene].title}</p>
+            <p className="text-white/55 leading-relaxed mt-2.5 max-w-[21rem] bd-line" style={{ fontSize: 'clamp(.9rem,3.6vw,1.05rem)', animationDelay: '1.15s' }}>{SCENES[scene].sub}</p>
           </div>
 
           {scene === SCENES.length - 1 ? (
@@ -640,11 +678,13 @@ const STYLE = `
 
   @keyframes bdIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
   .bd-in { animation: bdIn .7s cubic-bezier(.22,.61,.36,1) forwards; }
-  .bd-scene { animation: bdIn .6s cubic-bezier(.22,.61,.36,1); }
+  .bd-scene { animation: bdIn .9s cubic-bezier(.22,.61,.36,1); }
+  @keyframes bdLine { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
+  .bd-line { animation: bdLine .85s cubic-bezier(.22,.61,.36,1) both; }
   @keyframes bdPopIn { 0%{opacity:0; transform:scale(.82)} 60%{transform:scale(1.05)} 100%{opacity:1; transform:scale(1)} }
   .bd-pop { animation: bdPopIn .55s cubic-bezier(.22,.61,.36,1) both; }
   @keyframes bdCreep { from{opacity:0; transform:translateX(46px)} to{opacity:1; transform:none} }
-  .bd-creep { animation: bdCreep .6s cubic-bezier(.22,.61,.36,1) both; }
+  .bd-creep { animation: bdCreep .9s cubic-bezier(.22,.61,.36,1) both; }
   @keyframes bdSpark { 0%,100%{opacity:.25; transform:translateY(4px) scale(.9)} 50%{opacity:1; transform:translateY(-8px) scale(1.08)} }
   .bd-spark { animation: bdSpark 2.6s ease-in-out infinite; }
 
@@ -690,7 +730,7 @@ const STYLE = `
   @keyframes bdTwinkle { 0%,100%{opacity:.35} 50%{opacity:.6} }
 
   @media (prefers-reduced-motion: reduce) {
-    .bd-in,.bd-scene,.bd-pop,.bd-creep { animation:none; opacity:1 !important; }
+    .bd-in,.bd-scene,.bd-pop,.bd-creep,.bd-line { animation:none; opacity:1 !important; }
     .bd-flinch,.bd-shake,.bd-combo,.bd-moon,.bd-stars,.bd-recoil,.bd-spark { animation:none; }
   }
 `
