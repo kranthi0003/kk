@@ -299,12 +299,7 @@ export default function Splat({ onBack }) {
     return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc) }
   }, [])
 
-  // Story auto-advance — slow, so each beat has room to land
-  useEffect(() => {
-    if (phase !== 'story' || scene >= SCENES.length - 1) return
-    const id = setTimeout(() => setScene(s => s + 1), 8200)
-    return () => clearTimeout(id)
-  }, [phase, scene])
+  // Story advances only on tap — no timer, so each beat can be read at any pace
 
   // ---- effects -----------------------------------------------------------
   const spawnSplat = useCallback((x, y, emoji, big) => {
@@ -572,11 +567,15 @@ export default function Splat({ onBack }) {
           {scene === SCENES.length - 1 ? (
             <button onClick={(e) => { e.stopPropagation(); startGame() }}
               className="bd-pop mt-7 rounded-full px-8 py-3.5 text-[15px] font-semibold transition-transform active:scale-95"
-              style={{ background: '#e8654f', color: '#fff', boxShadow: '0 10px 30px -8px rgba(232,101,79,.6)' }}>
+              style={{ background: '#e8654f', color: '#fff', boxShadow: '0 10px 30px -8px rgba(232,101,79,.6)', animationDelay: '1.85s' }}>
               Play 🍅
             </button>
           ) : (
-            <p className="text-white/25 text-[11px] font-mono mt-7 animate-pulse">tap to continue</p>
+            <button key={'cont' + scene} onClick={(e) => { e.stopPropagation(); setScene(s => s + 1) }}
+              className="bd-line mt-7 rounded-full px-7 py-3 text-[14px] font-medium text-white/70 transition-all active:scale-95 hover:text-white"
+              style={{ background: 'rgba(255,255,255,.07)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,.16)', animationDelay: '1.85s' }}>
+              Continue <span aria-hidden="true" style={{ marginLeft: 4 }}>→</span>
+            </button>
           )}
 
           <div className="absolute bottom-6 flex gap-1.5">
