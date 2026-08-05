@@ -4,6 +4,7 @@ import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import MatrixToggle from './MatrixToggle'
+import StockTicker from './StockTicker'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
@@ -680,6 +681,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         <div className="flex items-center gap-2">
           {/* Desktop icons */}
           <div className="hidden lg:flex items-center gap-2">
+            <StockTicker />
             <SystemStatusDot />
             <TransformationPulse labeled />
             <ToolsDropdown />

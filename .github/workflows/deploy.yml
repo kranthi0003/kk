@@ -33,6 +33,9 @@ jobs:
           # Weather Union (Zomato) hyperlocal weather — client-side key baked
           # into the bundle at build. Kept in Actions secrets, not in git.
           VITE_WEATHER_UNION_API_KEY: ${{ secrets.VITE_WEATHER_UNION_API_KEY }}
+          # Finnhub — live MSFT quote for the navbar ticker. Client-side key,
+          # injected at build from Actions secrets (never committed).
+          VITE_FINNHUB_API_KEY: ${{ secrets.VITE_FINNHUB_API_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
