@@ -48,12 +48,14 @@ export default function AdminDashboard() {
   const [tick, setTick] = useState(0)
   const channelRef = useRef(null)
 
-  // Secret shortcut: Ctrl+Shift+V or custom event
+  // Secret shortcut: Ctrl/⌘ + Shift + V (or the toggle-admin-dashboard event)
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'V') {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'V' || e.key === 'v')) {
         e.preventDefault()
         setOpen(o => !o)
+      } else if (e.key === 'Escape') {
+        setOpen(o => (o ? false : o))
       }
     }
     const handleCustom = () => setOpen(o => !o)
@@ -123,7 +125,7 @@ export default function AdminDashboard() {
               Live Visitors
               <span className="ml-1 text-sm font-mono text-green-400">{visitors.length}</span>
             </h2>
-            <p className="text-[11px] text-white/30 mt-0.5 font-mono">Ctrl+Shift+V to toggle</p>
+            <p className="text-[11px] text-white/30 mt-0.5 font-mono">⌘/Ctrl + Shift + V · Esc to close</p>
           </div>
           <button onClick={() => setOpen(false)} className="text-white/30 hover:text-white/60 transition-colors">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
