@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 
-// "The Reset" — a tiny, wholesome aim-and-shoot mini-game for someone who had a
-// rough day. A tomato cannon, and a FICTIONAL corporate-stress gremlin that
-// wanders and dodges (it can absolutely escape your shot). Never a real person.
-// Private/unlisted (#/splat). Interaction + sound + surprise over text.
+// A tiny, private story + mini-game. Three little scenes, a tomato cannon,
+// and a goodnight. The villains are entirely fictional — they stand in for
+// rudeness in general, never a real person.
 
 const TARGET_HITS = 8
 const AMMO = ['🍅', '🥚', '🍅']
@@ -18,7 +17,12 @@ const TAUNTS = [
 ]
 const REACTIONS = ['Ow!', 'Hey!', 'Not the tie!', 'Rude!', "That's… fair.", 'Okay, ow.', 'I deserve that.', 'Unprofessional!', 'Oof!', 'My badge!']
 const DODGES = ['Missed me!', 'Too slow!', 'Nice try!', 'Whoosh!', 'Gotta run — meeting!', 'Can’t catch me!']
-const INTRO_LINES = ['Hey.', 'Heard today was… a lot.', 'No advice. No quotes.', 'Just tomatoes. 🍅']
+
+const SCENES = [
+  { title: 'There’s a girl who really loves life.', sub: 'Laughs too loud. Turns ordinary days into something.' },
+  { title: 'But every good story has villains.', sub: 'The rude ones. The loud ones. The ones who forget to be kind.' },
+  { title: 'So what does she do about them?', sub: 'Simple.' },
+]
 
 // ---- tiny WebAudio synth (lazy, gesture-initialised) ---------------------
 function makeAudio() {
@@ -80,42 +84,107 @@ function makeAudio() {
   }
 }
 
-// ---- the fictional corporate-stress gremlin ------------------------------
+// ---- our hero ------------------------------------------------------------
+function Girl({ pose = 'joy', style }) {
+  const joy = pose === 'joy', ready = pose === 'ready'
+  return (
+    <svg viewBox="0 0 200 230" className="bd-girl" style={style} aria-hidden="true">
+      {/* hair */}
+      <path d="M100 22c-34 0-56 26-56 60 0 28 2 44-2 72 10 6 22 8 22 8l6-42h60l6 42s12-2 22-8c-4-28-2-44-2-72 0-34-22-60-56-60z" fill="#33263f" />
+      <rect x="91" y="106" width="18" height="26" rx="8" fill="#e0ab84" />
+      {/* arms */}
+      {joy ? (
+        <>
+          <path d="M64 138c-16-6-27-22-30-38" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M136 138c16-6 27-22 30-38" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+        </>
+      ) : ready ? (
+        <>
+          <path d="M66 142c-10 12-14 28-14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M136 138c15-7 24-23 26-40" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          {/* the tomato */}
+          <circle cx="164" cy="88" r="13" fill="#e2483a" stroke="#b8362a" strokeWidth="2" />
+          <path d="M158 78q6-7 12 0q-6 3-12 0z" fill="#4caf6d" />
+        </>
+      ) : (
+        <>
+          <path d="M66 142c-10 12-14 28-14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+          <path d="M134 142c10 12 14 28 14 44" stroke="#f2c9a0" strokeWidth="15" strokeLinecap="round" fill="none" />
+        </>
+      )}
+      {/* top */}
+      <path d="M100 122c-25 0-39 15-39 39v48h78v-48c0-24-14-39-39-39z" fill="#e8654f" />
+      {/* face */}
+      <ellipse cx="100" cy="76" rx="37" ry="39" fill="#f2c9a0" />
+      <path d="M63 72c-2-28 16-46 37-46s39 18 37 46c-8-16-20-24-37-24s-29 8-37 24z" fill="#33263f" />
+      {/* eyes */}
+      {joy ? (
+        <>
+          <path d="M77 74q9-11 18 0" stroke="#33263f" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+          <path d="M105 74q9-11 18 0" stroke="#33263f" strokeWidth="4.5" fill="none" strokeLinecap="round" />
+        </>
+      ) : (
+        <>
+          <ellipse cx="86" cy="74" rx="7.5" ry="9" fill="#fff" />
+          <ellipse cx="114" cy="74" rx="7.5" ry="9" fill="#fff" />
+          <circle cx="86" cy="75" r="4.2" fill="#33263f" />
+          <circle cx="114" cy="75" r="4.2" fill="#33263f" />
+          <circle cx="87.6" cy="72.6" r="1.5" fill="#fff" />
+          <circle cx="115.6" cy="72.6" r="1.5" fill="#fff" />
+          {ready && (
+            <>
+              <path d="M77 60l16 4" stroke="#33263f" strokeWidth="3.5" strokeLinecap="round" />
+              <path d="M123 60l-16 4" stroke="#33263f" strokeWidth="3.5" strokeLinecap="round" />
+            </>
+          )}
+        </>
+      )}
+      {/* blush */}
+      <ellipse cx="72" cy="90" rx="8" ry="5" fill="#ef9a8e" opacity=".6" />
+      <ellipse cx="128" cy="90" rx="8" ry="5" fill="#ef9a8e" opacity=".6" />
+      {/* mouth */}
+      {joy ? (
+        <>
+          <path d="M87 92q13 18 26 0z" fill="#8a3b3b" />
+          <path d="M92 101q8 5 16 0z" fill="#e88a8a" />
+        </>
+      ) : ready ? (
+        <path d="M89 94q12 10 23 -3" stroke="#8a3b3b" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+      ) : (
+        <path d="M91 96q9 4 18 0" stroke="#8a3b3b" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+      )}
+    </svg>
+  )
+}
+
+// ---- the fictional villain ----------------------------------------------
 // Cute enough to be fun, clearly a villain: horns, sly fang, angry brows,
-// tiny cape, corporate necktie + ID badge.
-function Villain({ mood, flinch, defeated }) {
-  const smug = mood === 'smug', dizzy = mood === 'dizzy' || defeated
+// tiny cape, necktie + ID badge.
+function Villain({ face, flinch, defeated, w = 150 }) {
+  const smug = face === 'smug', dizzy = face === 'dizzy' || defeated
   const px = smug ? 4 : 0
   return (
-    <svg viewBox="0 0 200 220" width="150" height="165" className="bd-villain" aria-hidden="true"
+    <svg viewBox="0 0 200 220" width={w} height={w * 1.1} className="bd-villain" aria-hidden="true"
       style={{ transform: defeated ? 'rotate(96deg) translate(22px, 18px)' : flinch ? 'rotate(-7deg) scale(0.96)' : 'none', transition: defeated ? 'transform .8s cubic-bezier(.5,1.5,.5,1)' : 'transform .16s ease' }}>
       <defs>
         <linearGradient id="bdBody" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#8b6bd6" /><stop offset="100%" stopColor="#5b3fa0" />
         </linearGradient>
       </defs>
-      {/* cape */}
       <path d="M58 128c-18 22-22 56-12 80 24-10 32-32 32-32zM142 128c18 22 22 56 12 80-24-10-32-32-32-32z" fill="#3a2568" />
-      {/* horns */}
       <path d="M64 40c-8-12-10-22-6-30 8 6 16 16 18 26z" fill="#f0d9a8" stroke="#c9ab72" strokeWidth="2" strokeLinejoin="round" />
       <path d="M136 40c8-12 10-22 6-30-8 6-16 16-18 26z" fill="#f0d9a8" stroke="#c9ab72" strokeWidth="2" strokeLinejoin="round" />
-      {/* torso */}
       <path d="M100 128c-28 0-44 18-44 44v34h88v-34c0-26-16-44-44-44z" fill="url(#bdBody)" stroke="#442d80" strokeWidth="3" />
-      {/* arms */}
       <ellipse cx="42" cy="172" rx="11" ry="17" fill="#7355c4" stroke="#442d80" strokeWidth="2.5" transform={flinch ? 'rotate(-22 42 172)' : ''} />
       <ellipse cx="158" cy="172" rx="11" ry="17" fill="#7355c4" stroke="#442d80" strokeWidth="2.5" transform={flinch ? 'rotate(22 158 172)' : ''} />
-      {/* shirt collar + necktie */}
       <path d="M100 130L83 137L92 158L100 143z" fill="#f2f5f7" />
       <path d="M100 130L117 137L108 158L100 143z" fill="#f2f5f7" />
       <path d="M94 140h12l-6 9z" fill="#bb3327" />
       <path d="M100 149l-7 8 7 30 7-30z" fill="#e2483a" />
-      {/* id badge */}
       <rect x="122" y="168" width="20" height="26" rx="3" fill="#f2f5f7" stroke="#442d80" strokeWidth="1.6" />
       <rect x="126" y="173" width="12" height="3.5" rx="1.7" fill="#a9b6c2" />
       <circle cx="132" cy="185" r="4" fill="#c6d0d9" />
-      {/* head */}
       <ellipse cx="100" cy="80" rx="57" ry="53" fill="url(#bdBody)" stroke="#442d80" strokeWidth="3" />
-      {/* eyes */}
       {dizzy ? (
         <>
           <path d="M70 70l16 16M86 70l-16 16" stroke="#2a1a52" strokeWidth="4.5" strokeLinecap="round" />
@@ -129,12 +198,10 @@ function Villain({ mood, flinch, defeated }) {
           <circle cx={122 + px} cy="81" r="7" fill="#2a1a52" />
           <circle cx={80.5 + px} cy="78" r="2.4" fill="#fff" />
           <circle cx={124.5 + px} cy="78" r="2.4" fill="#fff" />
-          {/* angry villain brows */}
           <path d="M60 56L86 66" stroke="#33205e" strokeWidth="5.5" strokeLinecap="round" />
           <path d="M140 56L114 66" stroke="#33205e" strokeWidth="5.5" strokeLinecap="round" />
         </>
       )}
-      {/* mouth */}
       {defeated ? (
         <path d="M84 104q16 12 32 0" fill="none" stroke="#2a1a52" strokeWidth="4" strokeLinecap="round" />
       ) : flinch ? (
@@ -151,8 +218,9 @@ function Villain({ mood, flinch, defeated }) {
   )
 }
 
-export default function BadDay({ onBack }) {
-  const [phase, setPhase] = useState('intro')  // intro | game | win
+export default function Splat({ onBack }) {
+  const [phase, setPhase] = useState('story')  // story | game | win
+  const [scene, setScene] = useState(0)
   const [hits, setHits] = useState(0)
   const [shots, setShots] = useState(0)
   const [combo, setCombo] = useState(0)
@@ -161,9 +229,10 @@ export default function BadDay({ onBack }) {
   const [bubble, setBubble] = useState({ text: TAUNTS[0], kind: 'taunt' })
   const [muted, setMuted] = useState(false)
   const [showHint, setShowHint] = useState(true)
+  const [vs, setVs] = useState(1)   // character scale, for small screens
 
   const arenaRef = useRef(null)
-  const villainRef = useRef(null)   // wrapper div the loop moves
+  const villainRef = useRef(null)
   const cannonRef = useRef(null)
   const audioRef = useRef(null)
   const comboTimer = useRef(null)
@@ -172,13 +241,32 @@ export default function BadDay({ onBack }) {
 
   const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  // Mutable game world (never triggers re-render).
-  const g = useRef({ x: 0, y: 0, vx: 0.18, bob: 0, dir: 1, projs: [], raf: 0, last: 0, dodgeCd: 0, dashMs: 0, dashVx: 0, hits: 0, aim: -Math.PI / 2, w: 0, h: 0 })
+  const g = useRef({ x: 0, y: 0, vx: 0.18, bob: 0, projs: [], raf: 0, last: 0, dodgeCd: 0, dashMs: 0, dashVx: 0, hits: 0, aim: -Math.PI / 2, w: 0, h: 0, vs: 1 })
 
   const audio = () => { if (!audioRef.current) audioRef.current = makeAudio(); return audioRef.current }
   const play = (k) => { if (mutedRef.current) return; const a = audio(); a.resume(); a[k] && a[k]() }
 
-  const mood = defeated ? 'dizzy' : hits >= TARGET_HITS - 2 ? 'dizzy' : hits >= TARGET_HITS * 0.4 ? 'annoyed' : 'smug'
+  const face = defeated ? 'dizzy' : hits >= TARGET_HITS - 2 ? 'dizzy' : hits >= TARGET_HITS * 0.4 ? 'annoyed' : 'smug'
+
+  // Keep characters a sensible size on phones.
+  useEffect(() => {
+    const calc = () => {
+      const w = window.innerWidth
+      const v = w < 380 ? 0.58 : w < 520 ? 0.68 : w < 760 ? 0.82 : 1
+      g.current.vs = v; setVs(v)
+    }
+    calc()
+    window.addEventListener('resize', calc)
+    window.addEventListener('orientationchange', calc)
+    return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc) }
+  }, [])
+
+  // Story auto-advance
+  useEffect(() => {
+    if (phase !== 'story' || scene >= SCENES.length - 1) return
+    const id = setTimeout(() => setScene(s => s + 1), 4400)
+    return () => clearTimeout(id)
+  }, [phase, scene])
 
   // ---- effects -----------------------------------------------------------
   const spawnSplat = useCallback((x, y, emoji, big) => {
@@ -237,40 +325,43 @@ export default function BadDay({ onBack }) {
     const s = g.current
     const rect = arena.getBoundingClientRect()
     s.w = rect.width; s.h = rect.height
-    s.x = rect.width / 2; s.y = Math.max(205, rect.height * 0.33)
+    s.x = rect.width / 2
+    s.y = Math.min(Math.max(150 * s.vs, rect.height * 0.32), rect.height - 190)
     s.projs = []; s.last = 0; s.dodgeCd = 0; s.dashMs = 0; s.dashVx = 0; s.vx = 0.18
 
-    const onResize = () => { const r = arena.getBoundingClientRect(); s.w = r.width; s.h = r.height }
+    const onResize = () => {
+      const r = arena.getBoundingClientRect(); s.w = r.width; s.h = r.height
+      s.y = Math.min(Math.max(150 * s.vs, r.height * 0.32), r.height - 190)
+      s.x = Math.min(Math.max(s.x, 40 + 76 * s.vs), r.width - (40 + 76 * s.vs))
+    }
     window.addEventListener('resize', onResize)
+    window.addEventListener('orientationchange', onResize)
 
     const step = (ts) => {
       s.raf = requestAnimationFrame(step)
       if (!s.last) s.last = ts
       const dt = Math.min(48, ts - s.last); s.last = ts
       const level = s.hits / TARGET_HITS
+      const pad = 40 + 76 * s.vs
 
       if (!defeatedRef.current) {
-        // wander — faster and twitchier as it takes hits
         const boost = 1 + level * 1.4
         if (s.dashMs > 0) {
           s.x += s.dashVx * dt   // mid-escape: it bolts sideways
           s.dashMs -= dt
         } else {
           s.x += s.vx * boost * dt
-          // occasional direction change so it isn't predictable
           if (Math.random() < 0.004 + level * 0.006) s.vx *= -1
         }
-        const pad = 90
         if (s.x < pad) { s.x = pad; s.vx = Math.abs(s.vx); s.dashVx = Math.abs(s.dashVx) }
         if (s.x > s.w - pad) { s.x = s.w - pad; s.vx = -Math.abs(s.vx); s.dashVx = -Math.abs(s.dashVx) }
         s.bob += dt * 0.003
         if (s.dodgeCd > 0) s.dodgeCd -= dt
       }
 
-      const vy = Math.sin(s.bob) * 16
+      const vy = Math.sin(s.bob) * 16 * s.vs
       if (villainRef.current) villainRef.current.style.transform = `translate(${s.x}px, ${s.y + vy}px) translate(-50%,-50%)`
 
-      // projectiles
       for (let i = s.projs.length - 1; i >= 0; i--) {
         const p = s.projs[i]
         p.vy += GRAVITY * dt
@@ -279,13 +370,13 @@ export default function BadDay({ onBack }) {
         p.rot += dt * 0.9
         p.el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%,-50%) rotate(${p.rot}deg)`
 
-        // dodge — if a shot is closing in, the gremlin may bolt sideways and escape it
+        // dodge — if a shot is closing in, it may bolt sideways and escape
         if (!defeatedRef.current && s.dodgeCd <= 0 && s.dashMs <= 0) {
-          const dx = s.x - p.x, dy = (s.y + vy) - p.y      // projectile -> villain
+          const dx = s.x - p.x, dy = (s.y + vy) - p.y
           const dist = Math.hypot(dx, dy)
-          const closing = (p.vx * dx + p.vy * dy) > 0       // actually heading at it
+          const closing = (p.vx * dx + p.vy * dy) > 0
           if (closing && dist < 215 && dist > 78 && Math.random() < 0.07 + level * 0.05) {
-            s.dashVx = (dx >= 0 ? 1 : -1) * 0.85            // sprint away from the shot
+            s.dashVx = (dx >= 0 ? 1 : -1) * 0.85
             s.dashMs = 300
             s.dodgeCd = 1500
             setBubble({ text: DODGES[(Math.random() * DODGES.length) | 0], kind: 'dodge' })
@@ -293,8 +384,7 @@ export default function BadDay({ onBack }) {
           }
         }
 
-        // hit test
-        const hitR = 62
+        const hitR = Math.max(50, 62 * s.vs)
         if (!defeatedRef.current && Math.hypot(p.x - s.x, p.y - (s.y + vy)) < hitR) {
           p.el.remove(); s.projs.splice(i, 1)
           spawnSplat(p.x, p.y, p.emoji, true)
@@ -313,7 +403,6 @@ export default function BadDay({ onBack }) {
           continue
         }
 
-        // out of bounds → miss
         if (p.y > s.h + 60 || p.x < -80 || p.x > s.w + 80 || p.y < -400) {
           if (p.y > s.h - 40 && p.x > 0 && p.x < s.w) { spawnSplat(p.x, Math.min(p.y, s.h - 12), p.emoji, false); play('miss') }
           p.el.remove(); s.projs.splice(i, 1)
@@ -324,6 +413,7 @@ export default function BadDay({ onBack }) {
     return () => {
       cancelAnimationFrame(s.raf)
       window.removeEventListener('resize', onResize)
+      window.removeEventListener('orientationchange', onResize)
       s.projs.forEach(p => p.el.remove()); s.projs = []
     }
   }, [phase, spawnSplat, triggerWin, reduced])
@@ -335,7 +425,6 @@ export default function BadDay({ onBack }) {
     const ar = arena.getBoundingClientRect()
     const cx = ar.width / 2, cy = ar.height - 46
     const ang = Math.atan2((clientY - ar.top) - cy, (clientX - ar.left) - cx)
-    // clamp so it always fires upward-ish
     const clamped = Math.max(-Math.PI * 0.94, Math.min(-Math.PI * 0.06, ang))
     g.current.aim = clamped
     cannon.style.transform = `rotate(${clamped + Math.PI / 2}rad)`
@@ -351,6 +440,7 @@ export default function BadDay({ onBack }) {
     const emoji = AMMO[(g.current.projs.length + Math.floor(Math.random() * 3)) % AMMO.length]
     const el = document.createElement('div')
     el.className = 'bd-proj'; el.textContent = emoji
+    el.style.fontSize = Math.max(22, 30 * g.current.vs) + 'px'
     arena.appendChild(el)
     const p = {
       el, emoji, rot: 0,
@@ -361,17 +451,17 @@ export default function BadDay({ onBack }) {
     }
     el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%,-50%)`
     g.current.projs.push(p)
-    // recoil
     const c = cannonRef.current
     if (c && !reduced) { c.classList.remove('bd-recoil'); void c.offsetWidth; c.classList.add('bd-recoil') }
   }, [phase, aimAt, reduced])
 
-  // Cycle taunts
   useEffect(() => {
     if (phase !== 'game' || defeated) return
     const id = setInterval(() => setBubble({ text: TAUNTS[(Math.random() * TAUNTS.length) | 0], kind: 'taunt' }), 2800)
     return () => clearInterval(id)
   }, [phase, defeated])
+
+  const startGame = () => { audio().resume(); setPhase('game') }
 
   const reset = () => {
     const s = g.current
@@ -385,33 +475,77 @@ export default function BadDay({ onBack }) {
 
   const pct = Math.min(100, Math.round((hits / TARGET_HITS) * 100))
   const accuracy = shots ? Math.round((hits / shots) * 100) : 0
+  const vw = 150 * vs, vh = 165 * vs
 
   return (
-    <div className="fixed inset-0 z-[400] overflow-hidden select-none"
+    <div className="fixed inset-0 z-[400] overflow-hidden select-none bd-root"
       style={{ background: phase === 'win' ? 'radial-gradient(120% 100% at 50% 0%, #101a3a, #070b1c 70%)' : 'radial-gradient(120% 120% at 50% 20%, #26314f, #121a2e 75%)' }}>
       <style>{STYLE}</style>
       <div className="bd-bg" />
 
-      <button onClick={onBack} title="Back" className="fixed top-4 left-4 z-30 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)', backdropFilter: 'blur(8px)' }}>
+      <button onClick={onBack} title="Back" className="fixed top-4 left-4 z-30 inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-sm text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)', backdropFilter: 'blur(8px)' }}>
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
         <span className="hidden sm:inline">Back</span>
       </button>
-      <button onClick={() => setMuted(m => !m)} aria-label={muted ? 'Unmute' : 'Mute'} title={muted ? 'Unmute' : 'Mute'} className="fixed top-4 right-4 z-30 w-9 h-9 rounded-full inline-flex items-center justify-center text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)', backdropFilter: 'blur(8px)' }}>
+      <button onClick={() => setMuted(m => !m)} aria-label={muted ? 'Unmute' : 'Mute'} title={muted ? 'Unmute' : 'Mute'} className="fixed top-4 right-4 z-30 w-10 h-10 rounded-full inline-flex items-center justify-center text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)', backdropFilter: 'blur(8px)' }}>
         {muted
           ? <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5 6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" /></svg>
           : <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5 6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14" /></svg>}
       </button>
 
-      {/* INTRO */}
-      {phase === 'intro' && (
-        <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
-          {INTRO_LINES.map((l, i) => (
-            <p key={i} className="bd-in font-heading text-white leading-tight" style={{ fontSize: i === INTRO_LINES.length - 1 ? 'clamp(1.6rem,5vw,2.6rem)' : 'clamp(1.3rem,4vw,2rem)', animationDelay: `${0.3 + i * 0.7}s`, marginBottom: '.4rem', opacity: 0 }}>{l}</p>
-          ))}
-          <button onClick={() => { audio().resume(); setPhase('game') }} className="bd-in mt-8 rounded-full px-7 py-3.5 text-[15px] font-semibold transition-transform hover:scale-105 active:scale-95" style={{ animationDelay: `${0.3 + INTRO_LINES.length * 0.7 + 0.3}s`, opacity: 0, background: '#e8654f', color: '#fff', boxShadow: '0 10px 30px -8px rgba(232,101,79,.6)' }}>
-            Load the cannon 🍅
-          </button>
-          <p className="bd-in text-white/35 text-[12px] mt-6" style={{ animationDelay: `${0.3 + INTRO_LINES.length * 0.7 + 0.6}s`, opacity: 0 }}>built this for you, after a long day.</p>
+      {/* STORY */}
+      {phase === 'story' && (
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center bd-story"
+          onClick={() => { if (scene < SCENES.length - 1) setScene(s => s + 1) }}>
+
+          <div key={scene} className="bd-scene flex flex-col items-center w-full">
+            <div className="flex items-end justify-center gap-1 sm:gap-3" style={{ minHeight: 'min(34vh, 230px)' }}>
+              {scene === 0 && (
+                <div className="relative">
+                  <Girl pose="joy" style={{ width: 'clamp(120px, 34vw, 178px)', height: 'auto' }} />
+                  {['✨', '💛', '✨', '🎈'].map((s, i) => (
+                    <span key={i} className="bd-spark absolute" style={{ left: `${[-22, 96, 8, 78][i]}%`, top: `${[6, 16, -10, -4][i]}%`, animationDelay: `${i * 0.45}s`, fontSize: 'clamp(15px,4vw,22px)' }}>{s}</span>
+                  ))}
+                </div>
+              )}
+              {scene === 1 && (
+                <>
+                  <Girl pose="watch" style={{ width: 'clamp(86px, 24vw, 128px)', height: 'auto', opacity: 0.95 }} />
+                  <div className="flex items-end -space-x-2 sm:-space-x-1">
+                    {[0, 1, 2].map(i => (
+                      <div key={i} className="bd-creep" style={{ animationDelay: `${0.15 + i * 0.28}s`, filter: `hue-rotate(${i * 42}deg)` }}>
+                        <Villain face="smug" w={[62, 78, 58][i]} />
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+              {scene === 2 && (
+                <div className="bd-pop">
+                  <Girl pose="ready" style={{ width: 'clamp(124px, 34vw, 180px)', height: 'auto' }} />
+                </div>
+              )}
+            </div>
+
+            <p className="font-heading text-white leading-snug mt-5 max-w-[22rem]" style={{ fontSize: 'clamp(1.25rem,5.4vw,2rem)' }}>{SCENES[scene].title}</p>
+            <p className="text-white/55 leading-relaxed mt-2.5 max-w-[21rem]" style={{ fontSize: 'clamp(.9rem,3.6vw,1.05rem)' }}>{SCENES[scene].sub}</p>
+          </div>
+
+          {scene === SCENES.length - 1 ? (
+            <button onClick={(e) => { e.stopPropagation(); startGame() }}
+              className="bd-pop mt-7 rounded-full px-8 py-3.5 text-[15px] font-semibold transition-transform active:scale-95"
+              style={{ background: '#e8654f', color: '#fff', boxShadow: '0 10px 30px -8px rgba(232,101,79,.6)' }}>
+              Play 🍅
+            </button>
+          ) : (
+            <p className="text-white/25 text-[11px] font-mono mt-7 animate-pulse">tap to continue</p>
+          )}
+
+          <div className="absolute bottom-6 flex gap-1.5">
+            {SCENES.map((_, i) => (
+              <span key={i} className="rounded-full transition-all" style={{ width: i === scene ? 18 : 6, height: 6, background: i === scene ? 'rgba(255,255,255,.6)' : 'rgba(255,255,255,.2)' }} />
+            ))}
+          </div>
         </div>
       )}
 
@@ -422,8 +556,7 @@ export default function BadDay({ onBack }) {
           onPointerDown={(e) => fire(e.clientX, e.clientY)}
           className="relative z-10 h-full w-full overflow-hidden bd-arena">
 
-          {/* HUD */}
-          <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[min(360px,80vw)] z-20 pointer-events-none">
+          <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[min(360px,78vw)] z-20 pointer-events-none">
             <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-white/60 mb-1.5">
               <span>Peace restored</span><span>{pct}%</span>
             </div>
@@ -433,64 +566,62 @@ export default function BadDay({ onBack }) {
             {shots > 0 && <div className="text-center text-[10px] font-mono text-white/35 mt-1.5">{hits}/{shots} hits · {accuracy}% aim</div>}
           </div>
 
-          {/* villain (moved by the loop) — box is exactly the villain, so the
-              hitbox in the game loop lines up with what you see */}
+          {/* the villain — box is exactly the sprite, so the hitbox matches */}
           <div ref={villainRef} className="absolute top-0 left-0 pointer-events-none z-10" style={{ willChange: 'transform' }}>
-            <div className="relative" style={{ width: 150, height: 165 }}>
+            <div className="relative" style={{ width: vw, height: vh }}>
               <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1.5">
                 <div className={`bd-bubble ${bubble.kind === 'reaction' ? 'bd-bubble-hit' : bubble.kind === 'dodge' ? 'bd-bubble-dodge' : ''}`}>{bubble.text}</div>
               </div>
-              <div className={flinch ? 'bd-flinch' : ''}><Villain mood={mood} flinch={flinch} defeated={defeated} /></div>
+              <div className={flinch ? 'bd-flinch' : ''}><Villain face={face} flinch={flinch} defeated={defeated} w={vw} /></div>
               <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 text-center whitespace-nowrap">
-                <div className="text-white/85 font-heading text-[13px] font-semibold tracking-wide">THE BAD DAY</div>
+                <div className="text-white/85 font-heading text-[12px] font-semibold tracking-wide">THE VILLAIN</div>
                 <div className="text-white/35 text-[9px] font-mono uppercase tracking-[.2em]">certified nuisance</div>
               </div>
             </div>
           </div>
 
-          {/* combo */}
           {combo > 1 && !defeated && (
-            <div key={combo} className="bd-combo absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none font-heading font-bold text-white" style={{ top: '16%', fontSize: 'clamp(1.4rem,5vw,2.4rem)' }}>x{combo}!</div>
+            <div key={combo} className="bd-combo absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none font-heading font-bold text-white" style={{ top: '15%', fontSize: 'clamp(1.4rem,5vw,2.4rem)' }}>x{combo}!</div>
           )}
 
-          {/* ground + cannon */}
           <div className="absolute bottom-0 left-0 right-0 h-24 z-[15] pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent, rgba(0,0,0,.35))' }} />
           <div className="absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none" style={{ bottom: '10px' }}>
             <div ref={cannonRef} className="bd-cannon" style={{ transformOrigin: '50% 78%' }}>
-              <svg viewBox="0 0 60 76" width="54" height="68" aria-hidden="true">
+              <svg viewBox="0 0 60 76" width={Math.max(46, 54 * vs)} height={Math.max(58, 68 * vs)} aria-hidden="true">
                 <rect x="23" y="2" width="14" height="44" rx="7" fill="#6b7a90" stroke="#3d4757" strokeWidth="2.5" />
                 <rect x="25.5" y="6" width="9" height="12" rx="4.5" fill="#8b9aae" />
                 <ellipse cx="30" cy="56" rx="20" ry="16" fill="#4e5a6d" stroke="#333c4a" strokeWidth="2.5" />
                 <circle cx="30" cy="56" r="7" fill="#e8654f" />
               </svg>
             </div>
-            <div className="text-center text-[9px] font-mono uppercase tracking-[.18em] text-white/30 mt-0.5">tomato cannon</div>
           </div>
 
           {showHint && (
-            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-white/50 text-[13px] font-mono animate-pulse text-center">
-              aim with your mouse · click to fire 🍅<br /><span className="text-white/30 text-[11px]">(he dodges — lead your shot)</span>
+            <div className="absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none text-white/50 font-mono animate-pulse text-center px-4" style={{ bottom: '108px', fontSize: 'clamp(11px,3.2vw,13px)' }}>
+              <span className="hidden sm:inline">aim with your mouse · click to fire 🍅</span>
+              <span className="sm:hidden">tap where you want to throw 🍅</span>
+              <br /><span className="text-white/30" style={{ fontSize: '.85em' }}>(he dodges — lead your shot)</span>
             </div>
           )}
         </div>
       )}
 
-      {/* WIN */}
+      {/* GOODNIGHT */}
       {phase === 'win' && (
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
           <div className="bd-stars" aria-hidden="true" />
-          <div className="bd-moon text-6xl mb-4" aria-hidden="true">🌙</div>
-          <h1 className="bd-in font-heading font-bold text-white leading-none mb-4" style={{ fontSize: 'clamp(2.6rem,10vw,5rem)', animationDelay: '.05s', opacity: 0 }}>You won.</h1>
-          <p className="bd-in text-white/80 leading-relaxed max-w-md" style={{ fontSize: 'clamp(1rem,2.6vw,1.25rem)', animationDelay: '.35s', opacity: 0 }}>
+          <div className="bd-moon mb-4" style={{ fontSize: 'clamp(2.6rem,11vw,3.75rem)' }} aria-hidden="true">🌙</div>
+          <h1 className="bd-in font-heading font-bold text-white leading-none mb-4" style={{ fontSize: 'clamp(2.4rem,11vw,5rem)', animationDelay: '.05s', opacity: 0 }}>You won.</h1>
+          <p className="bd-in text-white/80 leading-relaxed max-w-md" style={{ fontSize: 'clamp(.98rem,4vw,1.25rem)', animationDelay: '.35s', opacity: 0 }}>
             The world’s unfair sometimes. When it is — throw a tomato at it, and take your calm back.
           </p>
           {shots > 0 && <p className="bd-in text-white/30 text-[12px] font-mono mt-3" style={{ animationDelay: '.5s', opacity: 0 }}>{hits} hits · {shots} shots · {accuracy}% aim</p>}
-          <p className="bd-in font-heading italic text-white/55 mt-5" style={{ fontSize: 'clamp(1.05rem,2.8vw,1.35rem)', animationDelay: '.7s', opacity: 0 }}>
-            Today was hard. Tomorrow’s a clean page.<br />Go rest. 🌙
+          <p className="bd-in font-heading italic text-white/55 mt-6" style={{ fontSize: 'clamp(1.05rem,4.4vw,1.4rem)', animationDelay: '.75s', opacity: 0 }}>
+            Goodnight. Ciao.
           </p>
-          <div className="bd-in flex items-center gap-3 mt-9" style={{ animationDelay: '1.05s', opacity: 0 }}>
-            <button onClick={reset} className="rounded-full px-5 py-2.5 text-[14px] font-semibold transition-transform hover:scale-105 active:scale-95" style={{ background: '#e8654f', color: '#fff' }}>Again 🍅</button>
-            <button onClick={onBack} className="rounded-full px-5 py-2.5 text-[14px] font-medium text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)' }}>I feel lighter →</button>
+          <div className="bd-in flex flex-wrap items-center justify-center gap-3 mt-9" style={{ animationDelay: '1.05s', opacity: 0 }}>
+            <button onClick={reset} className="rounded-full px-5 py-3 text-[14px] font-semibold transition-transform active:scale-95" style={{ background: '#e8654f', color: '#fff' }}>Again 🍅</button>
+            <button onClick={onBack} className="rounded-full px-5 py-3 text-[14px] font-medium text-white/70 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,.08)' }}>I feel lighter →</button>
           </div>
         </div>
       )}
@@ -499,24 +630,36 @@ export default function BadDay({ onBack }) {
 }
 
 const STYLE = `
+  .bd-root { overscroll-behavior: none; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; }
   .bd-bg { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.55;
     background: radial-gradient(50% 40% at 20% 15%, rgba(120,150,255,.18), transparent 60%),
                 radial-gradient(50% 40% at 85% 20%, rgba(255,140,110,.15), transparent 60%); }
-  .bd-arena { cursor: crosshair; touch-action: manipulation; }
+  .bd-arena { cursor: crosshair; touch-action: none; }
+  .bd-story { cursor: pointer; touch-action: manipulation; }
+  .bd-girl { display:block; filter: drop-shadow(0 14px 26px rgba(0,0,0,.4)); }
+
   @keyframes bdIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
   .bd-in { animation: bdIn .7s cubic-bezier(.22,.61,.36,1) forwards; }
+  .bd-scene { animation: bdIn .6s cubic-bezier(.22,.61,.36,1); }
+  @keyframes bdPopIn { 0%{opacity:0; transform:scale(.82)} 60%{transform:scale(1.05)} 100%{opacity:1; transform:scale(1)} }
+  .bd-pop { animation: bdPopIn .55s cubic-bezier(.22,.61,.36,1) both; }
+  @keyframes bdCreep { from{opacity:0; transform:translateX(46px)} to{opacity:1; transform:none} }
+  .bd-creep { animation: bdCreep .6s cubic-bezier(.22,.61,.36,1) both; }
+  @keyframes bdSpark { 0%,100%{opacity:.25; transform:translateY(4px) scale(.9)} 50%{opacity:1; transform:translateY(-8px) scale(1.08)} }
+  .bd-spark { animation: bdSpark 2.6s ease-in-out infinite; }
 
   .bd-villain { display:block; filter: drop-shadow(0 12px 22px rgba(0,0,0,.45)); }
   .bd-flinch { animation: bdFlinch .19s ease; }
   @keyframes bdFlinch { 0%{transform:translateX(0)} 30%{transform:translateX(-9px)} 70%{transform:translateX(9px)} 100%{transform:translateX(0)} }
 
-  .bd-bubble { max-width:210px; margin-bottom:8px; padding:6px 12px; border-radius:14px; background:#fff; color:#26314f;
+  .bd-bubble { max-width:210px; padding:6px 12px; border-radius:14px; background:#fff; color:#26314f;
     font-size:13px; font-weight:600; position:relative; white-space:nowrap; box-shadow:0 8px 22px -8px rgba(0,0,0,.5); animation: bdBub .3s ease; }
   .bd-bubble::after { content:''; position:absolute; bottom:-5px; left:50%; transform:translateX(-50%) rotate(45deg); width:11px; height:11px; background:inherit; }
   .bd-bubble-hit { background:#ffe08a; color:#7a4a10; animation: bdPop .3s ease; }
   .bd-bubble-dodge { background:#bfe3ff; color:#134b70; }
   @keyframes bdBub { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
   @keyframes bdPop { 0%{transform:scale(.85)} 60%{transform:scale(1.12)} 100%{transform:scale(1)} }
+  @media (max-width: 520px) { .bd-bubble { font-size:11.5px; padding:5px 10px; max-width:64vw; } }
 
   .bd-proj { position:absolute; top:0; left:0; z-index:25; font-size:30px; pointer-events:none; will-change:transform;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,.4)); }
@@ -547,7 +690,7 @@ const STYLE = `
   @keyframes bdTwinkle { 0%,100%{opacity:.35} 50%{opacity:.6} }
 
   @media (prefers-reduced-motion: reduce) {
-    .bd-in { animation:none; opacity:1 !important; }
-    .bd-flinch,.bd-shake,.bd-combo,.bd-moon,.bd-stars,.bd-recoil { animation:none; }
+    .bd-in,.bd-scene,.bd-pop,.bd-creep { animation:none; opacity:1 !important; }
+    .bd-flinch,.bd-shake,.bd-combo,.bd-moon,.bd-stars,.bd-recoil,.bd-spark { animation:none; }
   }
 `

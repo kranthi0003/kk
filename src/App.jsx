@@ -63,7 +63,7 @@ const UsesPage = lazy(() => import('./components/UsesPage'))
 const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 const MusicPage = lazy(() => import('./components/MusicPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
-const BadDay = lazy(() => import('./components/BadDay'))
+const Splat = lazy(() => import('./components/Splat'))
 
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
@@ -282,11 +282,11 @@ export default function App() {
     )
   }
 
-  // The Reset — a private, unlisted throw-the-bad-day-away mini-game. Not in nav.
+  // A private, unlisted little story + mini-game. Not in nav.
   if (route === '#/splat') {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#121a2e' }}><div className="text-xs font-mono text-white/50 animate-pulse">loading…</div></div>}>
-        <BadDay onBack={() => { window.location.hash = '' }} />
+        <Splat onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
