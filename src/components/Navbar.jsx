@@ -5,7 +5,6 @@ import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import MatrixToggle from './MatrixToggle'
 import StockTicker from './StockTicker'
-import Sidecar from './Sidecar'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
@@ -694,7 +693,6 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <NavStatus />
             <MatrixToggle />
             <ThemeToggle />
-            <Sidecar />
           </div>
 
           {/* Mobile — icons + hamburger */}

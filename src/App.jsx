@@ -40,6 +40,7 @@ import QuoteIntro from './components/QuoteIntro'
 import QuoteFlip from './components/QuoteFlip'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
+import Sidecar from './components/Sidecar'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -372,6 +373,7 @@ export default function App() {
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
+      <Sidecar />
       <VisitorTracker />
       <VisitorCount />
       <AdminDashboard />
