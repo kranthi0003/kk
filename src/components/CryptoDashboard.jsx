@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { fetchBtcWallet } from '../lib/btcWallet'
 
 const BTC_ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
 const HALVING_BLOCK = 1050000 // next halving target (after 840k in 2024)
@@ -159,11 +160,11 @@ export default function CryptoDashboard() {
   const loadWallet = async () => {
     try {
       const [w, p] = await Promise.all([
-        fetch(`https://blockchain.info/rawaddr/${BTC_ADDR}?limit=0&cors=true`).then(r => r.json()),
-        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()),
+        fetchBtcWallet(BTC_ADDR),
+        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()).catch(() => null),
       ])
-      setWallet(w); setBtcPrice(p.bitcoin.usd)
-    } catch (e) { setWallet({ final_balance: 0, n_tx: 0 }); setBtcPrice(97000) }
+      setWallet(w); if (p?.bitcoin?.usd) setBtcPrice(p.bitcoin.usd)
+    } catch (e) { /* both sources down — keep prior state, don't overwrite with zeros */ }
   }
 
   // HODL removed

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { fetchBtcWallet } from '../lib/btcWallet'
 
 const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
 const SHORT = ADDR.slice(0, 6) + '···' + ADDR.slice(-4)
@@ -22,15 +23,16 @@ export default function BitcoinWallet() {
     }
 
     Promise.all([
-      fetch(`https://blockchain.info/rawaddr/${ADDR}?limit=0&cors=true`).then(r => r.json()),
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()),
+      fetchBtcWallet(ADDR),
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()).catch(() => null),
     ]).then(([wallet, price]) => {
       setData(wallet)
-      setBtcPrice(price.bitcoin.usd)
-      sessionStorage.setItem('btc_wallet', JSON.stringify({ data: wallet, price: price.bitcoin.usd, ts: Date.now() }))
+      const usd = price?.bitcoin?.usd
+      if (usd) setBtcPrice(usd)
+      sessionStorage.setItem('btc_wallet', JSON.stringify({ data: wallet, price: usd, ts: Date.now() }))
     }).catch(() => {
-      setData({ final_balance: 2697427, n_tx: 8, total_received: 2697427 })
-      setBtcPrice(97000)
+      // Both address sources are down — leave the card in its loading state
+      // ("···") rather than showing stale/placeholder numbers.
     })
   }, [])
 
@@ -87,7 +89,7 @@ export default function BitcoinWallet() {
           </div>
           <div className="px-3 py-1.5 rounded-full bg-muted/50 border border-border/20">
             <p className="text-[10px] font-mono text-muted-foreground">
-              <span className="text-foreground font-semibold">9</span> UTXOs
+              <span className="text-foreground font-semibold">{data?.utxos ?? '···'}</span> UTXOs
             </p>
           </div>
         </div>
