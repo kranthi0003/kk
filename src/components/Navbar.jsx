@@ -8,6 +8,7 @@ import StockTicker from './StockTicker'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
+import { fetchBtcWallet } from '../lib/btcWallet'
 
 
 function NavWallet() {
@@ -57,18 +58,20 @@ function WalletDropdown() {
   const prevPrice = useRef(null)
 
   useEffect(() => {
-    const cached = sessionStorage.getItem('btc_wallet')
+    const cached = sessionStorage.getItem('btc_wallet2')
     if (cached) {
       const parsed = JSON.parse(cached)
       if (Date.now() - parsed.ts < 300000) { setData(parsed.data); setBtcPrice(parsed.price); return }
     }
     Promise.all([
-      fetch(`https://blockchain.info/rawaddr/${ADDR}?limit=0&cors=true`).then(r => r.json()),
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()),
+      fetchBtcWallet(ADDR),
+      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()).catch(() => null),
     ]).then(([w, p]) => {
-      setData(w); setBtcPrice(p.bitcoin.usd)
-      sessionStorage.setItem('btc_wallet', JSON.stringify({ data: w, price: p.bitcoin.usd, ts: Date.now() }))
-    }).catch(() => { setData({ final_balance: 2697427, n_tx: 8 }); setBtcPrice(97000) })
+      setData(w)
+      const usd = p?.bitcoin?.usd
+      if (usd) setBtcPrice(usd)
+      sessionStorage.setItem('btc_wallet2', JSON.stringify({ data: w, price: usd, ts: Date.now() }))
+    }).catch(() => { /* both address sources down — keep the loading skeleton, no stale numbers */ })
   }, [])
 
   // Live price — polls every ~2s while the popup is open (it unmounts when
