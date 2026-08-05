@@ -283,7 +283,7 @@ export default function App() {
   }
 
   // A private, unlisted little story + mini-game. Not in nav.
-  if (route === '#/splat') {
+  if (route === '#/skota') {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#121a2e' }}><div className="text-xs font-mono text-white/50 animate-pulse">loading…</div></div>}>
         <Splat onBack={() => { window.location.hash = '' }} />
