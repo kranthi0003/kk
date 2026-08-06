@@ -6,7 +6,6 @@ const ACCENT = 'var(--color-brand)'
 const goPost = (slug) => { window.location.hash = `#/blog/${slug}` }
 
 function PostCard({ post }) {
-  const isBook = post.render === 'letter'
   return (
     <button onClick={() => goPost(post.slug)} className="group text-left rounded-2xl p-5 sm:p-6 transition-all w-full h-full flex flex-col relative overflow-hidden"
       style={{ background: 'color-mix(in oklab, var(--color-card) 60%, transparent)', border: '1px solid var(--color-border)' }}
@@ -14,14 +13,13 @@ function PostCard({ post }) {
       onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-border)' }}>
       <div className="flex items-center gap-2 mb-2.5">
         <span className="text-[10.5px] font-mono uppercase tracking-[0.2em]" style={{ color: ACCENT }}>{categoryLabel(post.category)}</span>
-        {isBook && <span className="text-[9px] font-mono uppercase tracking-[0.15em] px-1.5 py-0.5 rounded" style={{ color: ACCENT, background: `color-mix(in oklab, ${ACCENT} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${ACCENT} 28%, transparent)` }}>📖 Book</span>}
       </div>
       <h3 className="font-heading text-[1.35rem] leading-snug mb-1.5" style={{ fontWeight: 500 }}>{post.title}</h3>
       {post.subtitle && <p className="text-[12.5px] italic text-muted-foreground/80 mb-1.5 leading-snug">{post.subtitle}</p>}
       <p className="text-[13.5px] leading-relaxed text-muted-foreground flex-1">{post.excerpt}</p>
       <div className="flex items-center justify-between mt-4 text-[11.5px] text-muted-foreground/70 font-mono">
         <span>{formatDate(post.date)} · {post.readingMins} min</span>
-        <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform" style={{ color: ACCENT }}>{isBook ? 'Read' : 'Read'}
+        <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform" style={{ color: ACCENT }}>Read
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
         </span>
       </div>

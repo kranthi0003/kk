@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { getPost, categoryLabel, formatDate, topicsForPost, topicLabel } from '../lib/blog'
 import { DopamineArticle } from './Dopamine'
-import { ItsAlwaysHerArticle } from './ItsAlwaysHer'
 
 const ACCENT = 'var(--color-brand)'
 
@@ -153,11 +152,6 @@ export default function BlogPost({ slug, onBack }) {
     el.addEventListener('scroll', onScroll, { passive: true })
     return () => el.removeEventListener('scroll', onScroll)
   }, [])
-
-  // The book gets its own full-screen paginated (Kindle-style) reader.
-  if (post && post.render === 'letter') {
-    return <ItsAlwaysHerArticle onBack={onBack} />
-  }
 
   return (
     <div ref={scrollRef} className="fixed inset-0 z-[300] overflow-y-auto" style={{ background: 'var(--color-background)' }}>
