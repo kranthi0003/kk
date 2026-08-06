@@ -13,6 +13,30 @@ const FLAGS = {
   Germany: '🇩🇪', Portugal: '🇵🇹', Turkey: '🇹🇷',
 }
 
+// Team accent colours. Liveries change every season, so these are decorative
+// accents chosen for contrast in the list — not an official colour reference.
+const TEAM_COLOR = {
+  mercedes: '#27F4D2', ferrari: '#E8002D', mclaren: '#FF8000', red_bull: '#3671C6',
+  rb: '#6692FF', alphatauri: '#6692FF', alpine: '#FF87BC', haas: '#B6BABD',
+  williams: '#64C4FF', aston_martin: '#229971', sauber: '#52E252', alfa: '#52E252',
+  audi: '#8F9296', cadillac: '#C9A227',
+}
+const teamColor = (id) => TEAM_COLOR[id] || 'var(--color-accent)'
+
+// Shared card chrome so every Sidecar card reads as one family.
+function Shell({ icon, title, tint, right, children }) {
+  return (
+    <section className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 60%, transparent)' }}>
+      <div className="px-4 py-2.5 flex items-center gap-2 border-b" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 70%, transparent)', background: `linear-gradient(180deg, color-mix(in oklab, ${tint} 12%, transparent), transparent)` }}>
+        <span aria-hidden="true">{icon}</span>
+        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">{title}</span>
+        {right ? <span className="ml-auto">{right}</span> : null}
+      </div>
+      <div className="p-4">{children}</div>
+    </section>
+  )
+}
+
 function useCountdown(target) {
   const [now, setNow] = useState(() => Date.now())
   useEffect(() => {
@@ -60,13 +84,7 @@ function F1Card() {
   const cd = useCountdown(target)
 
   const shell = (children) => (
-    <section className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 60%, transparent)' }}>
-      <div className="px-4 py-2.5 flex items-center gap-2 border-b" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 70%, transparent)', background: 'linear-gradient(180deg, color-mix(in oklab, #e10600 12%, transparent), transparent)' }}>
-        <span aria-hidden="true">🏎️</span>
-        <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">Formula 1 · Next Race</span>
-      </div>
-      <div className="p-4">{children}</div>
-    </section>
+    <Shell icon="🏎️" title="Formula 1 · Next Race" tint="#e10600">{children}</Shell>
   )
 
   if (race === undefined) return shell(<div className="h-20 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">loading grid…</span></div>)
@@ -121,8 +139,130 @@ function F1Card() {
   )
 }
 
+function StandingsCard() {
+  const [tab, setTab] = useState('drivers')
+  const [data, setData] = useState(undefined) // undefined=loading, null=error
+  const [expanded, setExpanded] = useState(false)
+
+  useEffect(() => {
+    const cached = sessionStorage.getItem('f1_standings')
+    if (cached) {
+      try {
+        const p = JSON.parse(cached)
+        if (Date.now() - p.ts < 3600000) { setData(p.data); return }
+      } catch {}
+    }
+    let alive = true
+    const get = (u) => fetch(u, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error('bad'); return r.json() })
+    Promise.all([
+      get('https://api.jolpi.ca/ergast/f1/current/driverstandings.json'),
+      get('https://api.jolpi.ca/ergast/f1/current/constructorstandings.json'),
+    ])
+      .then(([d, c]) => {
+        if (!alive) return
+        const dl = d?.MRData?.StandingsTable?.StandingsLists?.[0]
+        const cl = c?.MRData?.StandingsTable?.StandingsLists?.[0]
+        if (!dl?.DriverStandings?.length || !cl?.ConstructorStandings?.length) throw new Error('empty')
+        const out = {
+          season: dl.season,
+          round: dl.round,
+          drivers: dl.DriverStandings.map(x => ({
+            pos: x.position,
+            name: x.Driver.familyName,
+            sub: x.Driver.code || x.Driver.givenName,
+            team: x.Constructors?.[0]?.constructorId,
+            pts: Number(x.points),
+            wins: Number(x.wins),
+          })),
+          teams: cl.ConstructorStandings.map(x => ({
+            pos: x.position,
+            name: x.Constructor.name,
+            sub: null,
+            team: x.Constructor.constructorId,
+            pts: Number(x.points),
+            wins: Number(x.wins),
+          })),
+        }
+        setData(out)
+        sessionStorage.setItem('f1_standings', JSON.stringify({ data: out, ts: Date.now() }))
+      })
+      .catch(() => { if (alive) setData(null) })
+    return () => { alive = false }
+  }, [])
+
+  const badge = data
+    ? <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ background: 'color-mix(in oklab, var(--color-foreground) 7%, transparent)', color: 'var(--color-muted-foreground)' }}>after R{data.round}</span>
+    : null
+
+  if (data === undefined) return (
+    <Shell icon="🏆" title="F1 · Championship" tint="#e10600">
+      <div className="h-24 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">counting points…</span></div>
+    </Shell>
+  )
+  if (data === null) return (
+    <Shell icon="🏆" title="F1 · Championship" tint="#e10600">
+      <div className="text-center py-2">
+        <p className="text-[13px] text-muted-foreground mb-2">Standings are unavailable right now.</p>
+        <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium" style={{ color: 'var(--color-accent)' }}>Official standings ↗</a>
+      </div>
+    </Shell>
+  )
+
+  const rows = tab === 'drivers' ? data.drivers : data.teams
+  const lead = rows[0]?.pts || 1
+  const visible = expanded ? rows : rows.slice(0, 5)
+
+  return (
+    <Shell icon="🏆" title="F1 · Championship" tint="#e10600" right={badge}>
+      {/* Drivers / Teams toggle */}
+      <div className="flex p-0.5 rounded-lg mb-3" style={{ background: 'color-mix(in oklab, var(--color-foreground) 6%, transparent)' }} role="tablist">
+        {[['drivers', 'Drivers'], ['teams', 'Teams']].map(([k, label]) => (
+          <button
+            key={k}
+            role="tab"
+            aria-selected={tab === k}
+            onClick={() => { setTab(k); setExpanded(false) }}
+            className="flex-1 text-[11.5px] font-medium py-2 rounded-[6px] transition-colors"
+            style={tab === k
+              ? { background: 'var(--color-card)', color: 'var(--color-foreground)', boxShadow: '0 1px 3px rgba(0,0,0,0.14)' }
+              : { color: 'var(--color-muted-foreground)' }}
+          >{label}</button>
+        ))}
+      </div>
+
+      <ol className="space-y-1">
+        {visible.map((r) => {
+          const c = teamColor(r.team)
+          return (
+            <li key={`${tab}-${r.pos}`} className="relative flex items-center gap-2.5 rounded-lg px-2 py-1.5 overflow-hidden">
+              {/* points bar, scaled against the leader */}
+              <span aria-hidden="true" className="absolute inset-y-0 left-0 rounded-lg" style={{ width: `${Math.max(4, (r.pts / lead) * 100)}%`, background: `color-mix(in oklab, ${c} 13%, transparent)` }} />
+              <span className="relative w-4 text-[11px] font-mono tabular-nums text-muted-foreground text-right">{r.pos}</span>
+              <span aria-hidden="true" className="relative w-[3px] h-4 rounded-full flex-shrink-0" style={{ background: c }} />
+              <span className="relative flex-1 min-w-0 flex items-baseline gap-1.5">
+                <span className="text-[13px] font-medium truncate">{r.name}</span>
+                {r.sub && <span className="text-[9.5px] font-mono text-muted-foreground/70 flex-shrink-0">{r.sub}</span>}
+              </span>
+              {r.wins > 0 && (
+                <span className="relative text-[9.5px] font-mono text-muted-foreground/70 flex-shrink-0" title={`${r.wins} win${r.wins > 1 ? 's' : ''} this season`}>🏆{r.wins}</span>
+              )}
+              <span className="relative text-[13px] font-mono font-semibold tabular-nums flex-shrink-0">{r.pts}</span>
+            </li>
+          )
+        })}
+      </ol>
+
+      {rows.length > 5 && (
+        <button onClick={() => setExpanded(v => !v)} className="w-full mt-2 text-[11.5px] font-medium py-2 rounded-lg transition-colors hover:bg-foreground/5" style={{ color: 'var(--color-accent)' }}>
+          {expanded ? 'Show less' : `Show all ${rows.length}`}
+        </button>
+      )}
+    </Shell>
+  )
+}
+
 // The card stack — append here as new cards are built.
-const CARDS = [F1Card]
+const CARDS = [F1Card, StandingsCard]
 
 export default function Sidecar() {
   const [open, setOpen] = useState(false)
@@ -130,12 +270,22 @@ export default function Sidecar() {
 
   useEffect(() => {
     if (!open) return
+    // Flip into the shown state on the next frame. requestAnimationFrame can be
+    // starved (background tab, throttled webview), which would leave the drawer
+    // parked off-screen while the page is already scroll-locked — so race it
+    // against a timer and take whichever lands first.
     const raf = requestAnimationFrame(() => setShown(true))
+    const kick = setTimeout(() => setShown(true), 50)
     const onKey = (e) => { if (e.key === 'Escape') close() }
     document.addEventListener('keydown', onKey)
     const prevOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    return () => { cancelAnimationFrame(raf); document.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow }
+    return () => {
+      cancelAnimationFrame(raf)
+      clearTimeout(kick)
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
@@ -192,7 +342,7 @@ export default function Sidecar() {
             {/* Cards */}
             <div className="flex-1 overflow-y-auto px-5 pb-6 space-y-4">
               {CARDS.map((Card, i) => <Card key={i} />)}
-              <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — standings, releases, shows…</p>
+              <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — releases, shows, launches…</p>
             </div>
           </div>
         </div>
