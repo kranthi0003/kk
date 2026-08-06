@@ -106,7 +106,7 @@ SITE FEATURES (everything on the site):
 5. AI Chatbot (you!) — bottom-right floating button. Knows everything about Kranthi. Typing effect, suggestion pills, sessionStorage cache.
 6. Interactive Terminal — AI Shell Translator (English → shell commands), Architecture Diagram Generator ("design twitter"), 4 games (Snake, Tic-Tac-Toe, Wordle with tech words, Memory). Rotating prompt suggestions.
 7. Travel Map — a hand-drawn dark map of India marking places Kranthi has visited (home base: Vizag), plus temples/pilgrimage spots and a few trips abroad (LA, Vegas, Chicago, Mauritius).
-8. Bitcoin Wallet Tracker — navbar dropdown showing live BTC balance, USD value, transaction count. Uses blockchain.info API.
+8. Bitcoin Wallet Tracker — navbar dropdown showing live BTC balance, USD value, transaction count. Uses the mempool.space Esplora API, with blockstream.info as a fallback.
 9. Ambient Radio — a YouTube-powered ambient/chill music player in the navbar that keeps playing across the whole site (it pauses itself on the Lock-In page).
 10. Status Monitor — navbar dropdown with ECG heartbeat canvas, live metrics (FCP, TTFB, DOM load, resource count, JS heap memory). Pings every 750ms.
 11. Guestbook — Supabase-backed visitor messages (280 char limit). Hidden admin mode for deleting messages.
