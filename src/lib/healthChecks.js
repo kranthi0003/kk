@@ -51,7 +51,6 @@ function imgProbe(url) {
 const SB = 'https://urfmdrhuagbgvghjolvf.supabase.co'
 const SB_KEY = 'sb_publishable_GB-5ytPAF6UkOuLpOaCHPw_6p3GrwSz'
 const GH_USER = 'kranthi0003'
-const BTC_ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
 
 // The chatbot backend: an empty-messages POST is rejected by Groq with a
 // validation error — which proves the whole proxy→Groq path is live
@@ -109,7 +108,6 @@ export const GROUPS = [
     blurb: 'Market, mempool and on-chain data',
     checks: [
       { id: 'coingecko', label: 'CoinGecko', run: () => httpProbe('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd') },
-      { id: 'chain', label: 'blockchain.info', run: () => httpProbe(`https://blockchain.info/rawaddr/${BTC_ADDR}?limit=0&cors=true`) },
       { id: 'mempool', label: 'mempool.space', run: () => httpProbe('https://mempool.space/api/v1/fees/recommended') },
       { id: 'fng', label: 'Fear & Greed', run: () => httpProbe('https://api.alternative.me/fng/?limit=1') },
     ],
