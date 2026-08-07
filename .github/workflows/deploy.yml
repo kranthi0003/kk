@@ -3,11 +3,11 @@ name: Build and Deploy
 on:
   push:
     branches: [ main ]
-  # The Sidecar's cinema card is generated at build time, so it only refreshes
-  # when the site rebuilds. A weekly run keeps the release slate current even
-  # in quiet weeks with no commits.
+  # The cinema card and the Medium/Reddit news tabs are generated at build
+  # time, so they only refresh when the site rebuilds. A daily run keeps those
+  # feeds current even in quiet weeks with no commits.
   schedule:
-    - cron: '17 4 * * 1'
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 permissions:

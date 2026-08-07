@@ -41,6 +41,31 @@ function hostFromUrl(u) {
   try { return new URL(u).hostname.replace(/^www\./, '') } catch { return '' }
 }
 
+// Medium and Reddit both refuse cross-origin reads from the browser, so those
+// two feeds are pulled at build time into a same-origin news.json instead of
+// live. One shared request serves both tabs.
+let bakedRequest = null
+
+async function fetchBaked(key) {
+  if (!bakedRequest) {
+    bakedRequest = fetch(`${import.meta.env.BASE_URL}news.json`)
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json()
+      })
+      .catch(e => { bakedRequest = null; throw e })
+  }
+  const data = await bakedRequest
+  return { items: data[key] || [], generated: new Date(data.generated).getTime() }
+}
+
+const SOURCES = [
+  { id: 'hn', name: 'Hacker News', label: 'HN', icon: '🟠', host: 'news.ycombinator.com' },
+  { id: 'devto', name: 'DEV.to', label: 'DEV', icon: '🧑‍💻', host: 'dev.to' },
+  { id: 'medium', name: 'Medium', label: 'Medium', icon: '✍️', host: 'medium.com', baked: true },
+  { id: 'reddit', name: 'Reddit', label: 'Reddit', icon: '👽', host: 'reddit.com', baked: true },
+]
+
 export default function TechNews({ side = 'right' }) {
   const [open, setOpen] = useState(false)
   const [source, setSource] = useState('hn')
@@ -51,13 +76,23 @@ export default function TechNews({ side = 'right' }) {
   const [loadedOnce, setLoadedOnce] = useState(false)
   const rootRef = useRef(null)
 
-  const load = async (src = source) => {
+  const load = async (src = source, force = false) => {
     setLoading(true)
     setErr(null)
     try {
-      const data = src === 'devto' ? await fetchDev(8) : await fetchHN(8)
-      setItems(data)
-      setUpdated(Date.now())
+      const meta = SOURCES.find(s => s.id === src)
+      if (meta?.baked) {
+        if (force) bakedRequest = null
+        const { items: rows, generated } = await fetchBaked(src)
+        setItems(rows)
+        // Show when the feed was actually built, not when it was fetched —
+        // claiming "just now" for day-old stories would be a lie.
+        setUpdated(generated)
+      } else {
+        const data = src === 'devto' ? await fetchDev(8) : await fetchHN(8)
+        setItems(data)
+        setUpdated(Date.now())
+      }
       setLoadedOnce(true)
     } catch (e) {
       setErr(e.message)
@@ -90,11 +125,7 @@ export default function TechNews({ side = 'right' }) {
     }
   }, [open])
 
-  const sources = [
-    { id: 'hn', name: 'Hacker News', icon: '🟠', host: 'news.ycombinator.com' },
-    { id: 'devto', name: 'DEV.to', icon: '🧑‍💻', host: 'dev.to' },
-  ]
-  const current = sources.find(s => s.id === source)
+  const current = SOURCES.find(s => s.id === source)
 
   const sideClasses = side === 'left' ? 'left-0' : 'right-0'
 
@@ -138,26 +169,26 @@ export default function TechNews({ side = 'right' }) {
         >
           {/* Header with source tabs */}
           <div className="flex items-center gap-1 px-2 py-2 border-b border-border/50 bg-background">
-            {sources.map(s => (
+            {SOURCES.map(s => (
               <button
                 key={s.id}
                 onClick={() => setSource(s.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg text-[12px] font-semibold transition-all ${
+                className={`flex-1 min-w-0 flex items-center justify-center gap-1 px-1.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${
                   source === s.id
                     ? 'bg-accent text-accent-foreground shadow-sm'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
                 }`}
                 title={s.name}
               >
-                <span>{s.icon}</span>
-                <span>{s.name}</span>
+                <span className="text-[11px] leading-none">{s.icon}</span>
+                <span className="truncate">{s.label}</span>
               </button>
             ))}
             <button
-              onClick={() => load(source)}
+              onClick={() => load(source, true)}
               disabled={loading}
               title="refresh"
-              className="ml-0.5 px-2 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 text-sm transition-transform disabled:opacity-40 hover:rotate-180 duration-500"
+              className="ml-0.5 px-1.5 py-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 text-sm transition-transform disabled:opacity-40 hover:rotate-180 duration-500 flex-shrink-0"
             >
               ↻
             </button>
@@ -178,7 +209,7 @@ export default function TechNews({ side = 'right' }) {
 
               {err && !loading && (
                 <div className="p-6 text-[12px] text-muted-foreground text-center">
-                  couldn't load — <button onClick={() => load(source)} className="text-accent hover:underline font-semibold">retry</button>
+                  couldn't load — <button onClick={() => load(source, true)} className="text-accent hover:underline font-semibold">retry</button>
                 </div>
               )}
 
@@ -210,9 +241,20 @@ export default function TechNews({ side = 'right' }) {
                           </div>
                         )}
                         <div className="flex items-center gap-2 mt-2 text-[10.5px] text-muted-foreground">
-                          <span className="flex items-center gap-0.5 font-semibold text-accent">▲ {item.score}</span>
-                          <span className="opacity-40">·</span>
-                          <span>💬 {item.comments}</span>
+                          {/* Only Hacker News and DEV.to expose votes and comment
+                              counts; Medium and Reddit RSS carry neither, so those
+                              show where the story came from instead of a fake 0. */}
+                          {typeof item.score === 'number' ? (
+                            <>
+                              <span className="flex items-center gap-0.5 font-semibold text-accent">▲ {item.score}</span>
+                              <span className="opacity-40">·</span>
+                              <span>💬 {item.comments}</span>
+                            </>
+                          ) : item.sub ? (
+                            <span className="font-semibold text-accent">{item.sub}</span>
+                          ) : item.tags?.length ? (
+                            <span className="font-semibold text-accent truncate max-w-[110px]">#{item.tags[0]}</span>
+                          ) : null}
                           {item.by && <><span className="opacity-40">·</span><span className="truncate max-w-[90px]">{item.by}</span></>}
                           <span className="ml-auto whitespace-nowrap opacity-80">{timeAgo(item.time)}</span>
                         </div>
@@ -229,7 +271,7 @@ export default function TechNews({ side = 'right' }) {
           </div>
 
           <div className="px-3.5 py-2 border-t border-border/50 bg-background flex items-center justify-between text-[10.5px] text-muted-foreground">
-            <span>{loading ? 'updating…' : updated ? `${items.length} stories · ${timeAgo(updated)}` : '—'}</span>
+            <span>{loading ? 'updating…' : updated ? `${items.length} stories · ${current.baked ? 'built ' : ''}${timeAgo(updated)}` : '—'}</span>
             <a href={`https://${current.host}`} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-medium">
               {current.host} →
             </a>

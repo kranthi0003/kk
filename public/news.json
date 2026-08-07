@@ -1,0 +1,187 @@
+{
+  "generated": "2026-08-07T15:37:16.470Z",
+  "reddit": [
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How much do you agree with this opinion",
+      "url": "https://www.reddit.com/r/programming/comments/1vi205l/how_much_do_you_agree_with_this_opinion/",
+      "by": "sidneysweeneysrack",
+      "time": 1786112509000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "From constraint models to playable puzzle games",
+      "url": "https://www.reddit.com/r/programming/comments/1vhxjpv/from_constraint_models_to_playable_puzzle_games/",
+      "by": "mzl",
+      "time": 1786100710000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you guys manage backups of servers?",
+      "url": "https://www.reddit.com/r/devops/comments/1vhvnf3/how_do_you_guys_manage_backups_of_servers/",
+      "by": "hronak",
+      "time": 1786094328000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Java in 2026, totally worth it",
+      "url": "https://www.reddit.com/r/programming/comments/1vhpezn/java_in_2026_totally_worth_it/",
+      "by": "OSBY_Glabay",
+      "time": 1786073317000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
+    }
+  ],
+  "medium": [
+    {
+      "title": "DP Patterns Unlocked — Coin Change II (LeetCode 518): When Unbounded Knapsack Starts Counting",
+      "url": "https://medium.com/@saachikaur19/dp-patterns-unlocked-coin-change-ii-leetcode-518-when-unbounded-knapsack-starts-counting-ef48940f3911",
+      "by": "Acchint Kaur",
+      "time": 1786116383000,
+      "tags": [
+        "coding",
+        "data-structures",
+        "algorithms"
+      ]
+    },
+    {
+      "title": "DSA Patterns Part #7 — Merge Intervals: When Sorting Solves Half the Problem",
+      "url": "https://medium.com/codetodeploy/dsa-patterns-part-7-merge-intervals-when-sorting-solves-half-the-problem-fbbe43eb64e9",
+      "by": "Kumar Gaurav",
+      "time": 1786116341000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "data-structures"
+      ]
+    },
+    {
+      "title": "Your Postmortems Are Documents Nobody Reads About Incidents That Keep Happening.",
+      "url": "https://medium.com/codex/your-postmortems-are-documents-nobody-reads-about-incidents-that-keep-happening-43414970626f",
+      "by": "Devrim Ozcay",
+      "time": 1786116288000,
+      "tags": [
+        "software-development",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Cut My AI Assistant’s Token Use by 7x With a Codebase Knowledge Graph",
+      "url": "https://kasireddysrikanth27.medium.com/i-cut-my-ai-assistants-token-use-by-7x-with-a-codebase-knowledge-graph-bcb4a0a4fa7c",
+      "by": "Kasireddysrikanth",
+      "time": 1786116208000,
+      "tags": [
+        "artificial-intelligence",
+        "llm",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The Filter I Run Before Building Anything, So I Stop Wasting Months on Things Nobody Wanted",
+      "url": "https://blog.stackademic.com/the-filter-i-run-before-building-anything-so-i-stop-wasting-months-on-things-nobody-wanted-8ef21cc06e82",
+      "by": "Devrim Ozcay",
+      "time": 1786115950000,
+      "tags": [
+        "software-development",
+        "software-architecture",
+        "programming"
+      ]
+    },
+    {
+      "title": "DP Patterns Unlocked — Coin Change I (LeetCode 322): Unbounded Knapsack Learns to Minimize",
+      "url": "https://medium.com/@saachikaur19/dp-patterns-unlocked-coin-change-i-leetcode-322-unbounded-knapsack-learns-to-minimize-a36b6ed35d10",
+      "by": "Acchint Kaur",
+      "time": 1786115790000,
+      "tags": [
+        "coding",
+        "data-structures",
+        "programming"
+      ]
+    },
+    {
+      "title": "Subnets Explained: The Networking Concept Every Cloud Engineer Should Understand",
+      "url": "https://medium.com/@shivanksingh01/subnets-explained-the-networking-concept-every-cloud-engineer-should-understand-e46635f314a0",
+      "by": "Shivank Singh",
+      "time": 1786115761000,
+      "tags": [
+        "kubernetes",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "I’m Building My Career One Small Project at a Time",
+      "url": "https://medium.com/@gvnsanjana.ds/im-building-my-career-one-small-project-at-a-time-48a821996a14",
+      "by": "Sanjana Gadamsetty",
+      "time": 1786115605000,
+      "tags": [
+        "software-development",
+        "programming",
+        "learning"
+      ]
+    },
+    {
+      "title": "DSA Patterns Part #6 — Use Fast & Slow Pointers: When Speed Reveals the Answer",
+      "url": "https://medium.com/codetodeploy/dsa-patterns-part-6-use-fast-slow-pointers-when-speed-reveals-the-answer-c05700e6b50b",
+      "by": "Kumar Gaurav",
+      "time": 1786115171000,
+      "tags": [
+        "programming",
+        "algorithms",
+        "data-structures"
+      ]
+    },
+    {
+      "title": "[Bookmark : Weekly RoundUp] Top System Design and Engineering Postmortem Series",
+      "url": "https://medium.com/coders-mojo/bookmark-weekly-roundup-top-system-design-and-engineering-postmortem-series-b434788b27a6",
+      "by": "Naina Chaturvedi",
+      "time": 1786115166000,
+      "tags": [
+        "technology",
+        "machine-learning",
+        "artificial-intelligence"
+      ]
+    }
+  ]
+}
