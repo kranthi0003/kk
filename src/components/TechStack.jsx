@@ -7,15 +7,28 @@ const skillGroups = [
   { title: 'DevOps & Tools', items: ['GitHub Actions', 'GitOps', 'CI/CD', 'Copilot', 'VSCode'] },
 ]
 
+// `date` is the real credential issue date (not the article publication date).
+// The Credly ones were read from the issuer's Open Badges API; the Microsoft
+// Learn ones came from Kranthi, since MS Learn does not expose them publicly.
+// Listed newest-first, and sorted defensively so the order survives edits.
 const certs = [
-  { name: 'AWS Solutions Architect', tag: 'SAA', slug: 'aws-saa', url: 'https://www.credly.com/badges/4528a7ce-198b-4edd-94dd-54bea26bcafd' },
-  { name: 'Couchbase Admin', tag: 'PRO', slug: 'couchbase-admin', url: 'https://www.credly.com/badges/21986ffd-3145-4312-8ed8-8f870454b7d5/public_url' },
-  { name: 'Couchbase Python', tag: 'DEV', slug: 'couchbase-python', url: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65' },
-  { name: 'Couchbase Architect', tag: 'ARCH', slug: 'couchbase-architect', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
-  { name: 'GitHub Foundations', tag: 'GH', slug: 'github-foundations', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
-  { name: 'GitHub Administration', tag: 'GH', slug: 'github-administration', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
-  { name: 'GitHub Actions', tag: 'GH', slug: 'github-actions', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
-]
+  { name: 'Claude Certified Associate', tag: 'CCA', slug: 'claude-foundations', date: '2026-08-06', url: 'https://www.credly.com/badges/e24a663a-082c-41b8-b7bf-c35e9900044a/public_url' },
+  { name: 'GitHub Actions', tag: 'GH', slug: 'github-actions', date: '2026-06-08', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
+  { name: 'GitHub Administration', tag: 'GH', slug: 'github-administration', date: '2026-05-14', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },
+  { name: 'GitHub Foundations', tag: 'GH', slug: 'github-foundations', date: '2026-04-22', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/D4C54954A4FE7D48' },
+  { name: 'Couchbase Admin', tag: 'PRO', slug: 'couchbase-admin', date: '2026-02-18', url: 'https://www.credly.com/badges/21986ffd-3145-4312-8ed8-8f870454b7d5/public_url' },
+  { name: 'Couchbase Python', tag: 'DEV', slug: 'couchbase-python', date: '2025-05-06', url: 'https://www.credly.com/badges/6351ce61-4f3f-460e-935c-5b0e89e39c65' },
+  { name: 'Couchbase Architect', tag: 'ARCH', slug: 'couchbase-architect', date: '2025-04-16', url: 'https://www.credly.com/badges/e87a7035-55d0-4612-b5b4-8dc031560433' },
+  { name: 'AWS Solutions Architect', tag: 'SAA', slug: 'aws-saa', date: '2021-06-02', url: 'https://www.credly.com/badges/4528a7ce-198b-4edd-94dd-54bea26bcafd' },
+].sort((a, b) => b.date.localeCompare(a.date))
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+// Parsed from the string rather than via new Date(), which shifts an ISO date
+// backwards a day in negative-offset timezones and would show the wrong month.
+const earnedLabel = (iso) => {
+  const [y, m] = iso.split('-')
+  return `${MONTHS[Number(m) - 1]} ${y}`
+}
 
 export default function TechStack() {
   return (
@@ -77,7 +90,11 @@ export default function TechStack() {
                 </span>
                 <button onClick={goArticle} className="flex flex-col min-w-0 flex-1 text-left" title={`Read the story: ${c.name}`}>
                   <span className="text-xs font-semibold text-foreground leading-tight truncate group-hover:text-accent transition-colors">{c.name}</span>
-                  <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">Read the story →</span>
+                  <span className="text-[10px] text-muted-foreground leading-tight mt-0.5 truncate">
+                    <span className="tabular-nums">{earnedLabel(c.date)}</span>
+                    <span className="opacity-40 mx-1">·</span>
+                    Read the story →
+                  </span>
                 </button>
                 <a href={c.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
                   className="text-[10px] text-muted-foreground hover:text-accent transition-colors flex-shrink-0 inline-flex items-center gap-0.5"

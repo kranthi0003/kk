@@ -10,6 +10,66 @@ const editNote = {
 }
 
 export const CERT_POSTS = [
+  // ------------------------------------------- Claude Certified Associate
+  {
+    slug: 'claude-foundations',
+    title: 'Claude Certified Associate — Foundations',
+    subtitle: 'Being deliberate about a tool I already used every day',
+    category: 'certs',
+    date: '2026-08-07',
+    readingMins: 5,
+    excerpt: 'Anthropic\'s associate-level credential for using Claude well: choosing the right model, writing prompts that hold up, checking the output, and knowing where the limits are.',
+    body: [
+      editNote,
+      { type: 'p', text: 'I had been using Claude daily long before I sat this exam — drafting, debugging, rubber-ducking through incidents. That is exactly why I wanted the credential. Using a tool constantly is not the same as using it deliberately, and I wanted to find the gaps between the two. [Add: the moment you realised you were prompting on autopilot.]' },
+      { type: 'p', text: 'Anthropic frames this one at client-facing and delivery practitioners: people who apply Claude to real business work, judge whether the output is actually good, pick the right product and model for the job, and use it responsibly. That framing matched how I wanted to think about it.' },
+      { type: 'facts', items: [
+        { k: 'Issuer', v: 'Anthropic' },
+        { k: 'Level', v: 'Associate' },
+        { k: 'Format', v: 'Proctored exam' },
+        { k: 'Earned', v: '6 Aug 2026' },
+        { k: 'Valid for', v: '1 year' },
+      ] },
+      { type: 'note', text: 'No question count, time limit, or price listed above — I could not find those stated on an official Anthropic page, and I would rather leave a gap than publish a guess. Everything above comes from the credential itself.' },
+      { type: 'h', text: 'What it actually certifies' },
+      { type: 'p', text: 'These are the skill areas attached to the badge by Anthropic — not my summary of them:' },
+      { type: 'list', items: [
+        'Prompt engineering — getting a useful answer on purpose rather than by luck.',
+        'Model selection — knowing which Claude model fits the task, and what you trade away.',
+        'Output evaluation — checking and refining what comes back instead of shipping it raw.',
+        'Claude Projects — giving work a persistent home with the right context loaded.',
+        'Knowledge management — feeding Claude the right material, and knowing what not to.',
+        'Workflow integration — putting it into real day-to-day work, not a side experiment.',
+        'Responsible AI — privacy, limits, and where a human has to stay in the loop.',
+        'Troubleshooting — recognising when the model is wrong and recovering.',
+      ] },
+      { type: 'h', text: 'The part that changed how I work' },
+      { type: 'p', text: 'Output evaluation. It is easy to accept a confident answer because it is well written — and a well-written wrong answer is more dangerous than an obviously bad one. Prepping for this pushed me to verify before I trust, which is the same instinct good engineering already demands. [Add: a time Claude was confidently wrong and how you caught it.]' },
+      { type: 'p', text: 'The second one was model selection. Reaching for the largest model every time is the equivalent of running every workload on the biggest instance available. Matching the model to the task is a real skill, and it is a cost and latency decision as much as a quality one.' },
+      { type: 'h', text: 'The learning path I would repeat' },
+      { type: 'steps', items: [
+        { title: 'Use it seriously for real work first', text: 'This is not a cert you should cram for cold. The questions assume you have hit the friction yourself.' },
+        { title: 'Work through Anthropic Academy', text: 'The official courses are free and map closely to how Anthropic expects the tools to be used.' },
+        { title: 'Read the prompt engineering docs properly', text: 'Not skim — properly. Most of my own bad prompts were explained somewhere in there.' },
+        { title: 'Learn the model line-up cold', text: 'Know what separates the models and when the trade-off is worth it.' },
+        { title: 'Practise being the reviewer', text: 'Take answers Claude gave you and grade them. That habit is most of what the exam is testing.' },
+      ] },
+      { type: 'h', text: 'Was it worth it?' },
+      { type: 'p', text: 'Yes — though not for the badge. It made me slower in a good way: more specific in what I ask for, more sceptical about what I get back, and clearer about the jobs I should not hand over at all. [Add your own verdict.]' },
+      { type: 'h', text: 'Resources' },
+      { type: 'resources', items: [
+        { label: 'Anthropic Academy', sub: 'the official free courses', url: 'https://anthropic.skilljar.com/' },
+        { label: 'Claude Certified Associate — Foundations', sub: 'official badge & criteria', url: 'https://www.credly.com/org/anthropic/badge/claude-certified-associate-foundations' },
+        { label: 'Prompt engineering overview', sub: 'the docs worth reading twice', url: 'https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview' },
+        { label: 'Choosing a model', sub: 'the trade-offs, from the source', url: 'https://docs.claude.com/en/docs/about-claude/models/overview' },
+        { label: 'Claude 101', sub: 'the fundamentals, plainly explained', url: 'https://support.anthropic.com/en/collections/4078531-claude-101' },
+      ] },
+      { type: 'resources', items: [
+        { label: 'Verify my credential', sub: 'issued by Anthropic via Credly', url: 'https://www.credly.com/badges/e24a663a-082c-41b8-b7bf-c35e9900044a/public_url' },
+      ] },
+    ],
+  },
+
   // ------------------------------------------------------------------ AWS SAA
   {
     slug: 'aws-saa',

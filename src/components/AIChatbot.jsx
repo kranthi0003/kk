@@ -38,13 +38,14 @@ TECHNICAL SKILLS:
 - Core: Networking (strong), Operating Systems (strong), Distributed Systems, System Design
 
 CERTIFICATIONS:
-- AWS Solutions Architect – Associate (Amazon)
+- Claude Certified Associate – Foundations (Anthropic), earned Aug 2026
+- GitHub Actions (GitHub / Microsoft)
+- GitHub Administration (GitHub / Microsoft)
+- GitHub Foundations (GitHub / Microsoft)
 - Certified Professional Administrator (Couchbase)
 - Certified Associate Python Developer (Couchbase)
 - Certified Associate Architect with Capella (Couchbase)
-- GitHub Foundations (GitHub / Microsoft)
-- GitHub Administration (GitHub / Microsoft)
-- GitHub Actions (GitHub / Microsoft)
+- AWS Solutions Architect – Associate (Amazon)
 - Currently pursuing: GHAS, GitHub Copilot certifications
 
 PROJECTS:
