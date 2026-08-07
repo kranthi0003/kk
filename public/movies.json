@@ -1,0 +1,160 @@
+{
+  "generated": "2026-08-07T15:02:01.225Z",
+  "source": "Wikipedia + Wikidata",
+  "films": [
+    {
+      "title": "Toxic",
+      "lang": "Kannada",
+      "date": "2026-08-26",
+      "precision": "day",
+      "by": "Geetu Mohandas",
+      "desc": "Upcoming Indian film by Geetu Mohandas",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg/120px-Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Toxic_(2026_film)",
+      "imdb": "https://www.imdb.com/title/tt27530512/"
+    },
+    {
+      "title": "Ramayana",
+      "lang": "Hindi",
+      "date": "2026-11-08",
+      "precision": "day",
+      "by": "Nitesh Tiwari",
+      "desc": "Upcoming Indian film by Nitesh Tiwari",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Ramayana_(2026_film)",
+      "imdb": "https://www.imdb.com/title/tt27988879/"
+    },
+    {
+      "title": "King",
+      "lang": "Hindi",
+      "date": "2026-12-24",
+      "precision": "day",
+      "by": "Siddharth Anand",
+      "desc": "Upcoming Hindi film by Siddharth Anand",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/King_%28Hindi_film%29.jpg/120px-King_%28Hindi_film%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/King_(2026_film)",
+      "imdb": "https://www.imdb.com/title/tt28228084/"
+    },
+    {
+      "title": "Varanasi",
+      "lang": "Telugu",
+      "date": null,
+      "precision": null,
+      "by": "S. S. Rajamouli",
+      "desc": "Upcoming Indian film by S. S. Rajamouli",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
+      "imdb": "https://www.imdb.com/title/tt21438726/"
+    },
+    {
+      "title": "Jailer 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Nelson Dilipkumar",
+      "desc": "Upcoming Indian film by Nelson Dilipkumar",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Jailer_2_poster.jpg/120px-Jailer_2_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Jailer_2",
+      "imdb": "https://www.imdb.com/title/tt33318732/"
+    },
+    {
+      "title": "Mirzapur",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Gurmeet Singh",
+      "desc": "Upcoming Indian film by Gurmeet Singh",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Mirzapur_%28film%29.jpg/120px-Mirzapur_%28film%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mirzapur_(film)",
+      "imdb": "https://www.imdb.com/title/tt34339725/"
+    },
+    {
+      "title": "Batwara 1947",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Rajkumar Santoshi",
+      "desc": "Upcoming Hindi film directed by Rajkumar Santoshi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Batwara_1947_film_poster.jpg/120px-Batwara_1947_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Batwara_1947",
+      "imdb": "https://www.imdb.com/title/tt29330744/"
+    },
+    {
+      "title": "Kathanar – The Wild Sorcerer",
+      "lang": "Indian",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Upcoming Indian period fantasy film",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Kathanar_-_The_Wild_Sorcerer_poster.jpg/120px-Kathanar_-_The_Wild_Sorcerer_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Kathanar_%E2%80%93_The_Wild_Sorcerer",
+      "imdb": "https://www.imdb.com/title/tt11026686/"
+    },
+    {
+      "title": "Mookuthi Amman 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Sundar C",
+      "desc": "Upcoming film by Sundar C",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Mookuthi_Amman_2.jpg/120px-Mookuthi_Amman_2.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
+      "imdb": "https://www.imdb.com/title/tt32909364/"
+    },
+    {
+      "title": "Aakasamlo Oka Tara",
+      "lang": "Telugu",
+      "date": null,
+      "precision": null,
+      "by": "Pavan Sadineni",
+      "desc": "Upcoming Indian film by Pavan Sadineni",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Aakasamlo_Oka_Tara.jpg/120px-Aakasamlo_Oka_Tara.jpg",
+      "url": "https://en.wikipedia.org/wiki/Aakasamlo_Oka_Tara",
+      "imdb": "https://www.imdb.com/title/tt33044571/"
+    },
+    {
+      "title": "Dharman",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Ashwath Marimuthu",
+      "desc": "Upcoming Indian film by Ashwath Marimuthu",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Dharman_poster.jpg/120px-Dharman_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Dharman",
+      "imdb": "https://www.imdb.com/title/tt38874778/"
+    },
+    {
+      "title": "Mandaadi",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Mathimaran Pugazhendhi",
+      "desc": "Upcoming film directed by Mathimaran Pugazhendhi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mandaadi",
+      "imdb": "https://www.imdb.com/title/tt36596965/"
+    },
+    {
+      "title": "Sardar 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "P. S. Mithran",
+      "desc": "Upcoming Indian film by P. S. Mithran",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Sardar_2",
+      "imdb": "https://www.imdb.com/title/tt28541577/"
+    },
+    {
+      "title": "Thudakkam",
+      "lang": "Malayalam",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Upcoming Indian Malayalam-language film",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Thudakkam",
+      "imdb": "https://www.imdb.com/title/tt37510017/"
+    }
+  ]
+}
