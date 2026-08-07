@@ -7,6 +7,16 @@
   "language": "en",
   "items": [
     {
+      "id": "kranthikiran:post:claude-foundations",
+      "url": "https://kranthikiran.com/#/blog/claude-foundations",
+      "title": "Claude Certified Associate — Foundations",
+      "summary": "Anthropic's associate-level credential for using Claude well: choosing the right model, writing prompts that hold up, checking the output, and knowing where the limits are.",
+      "date_published": "2026-08-07T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
       "id": "kranthikiran:post:facts-not-stories",
       "url": "https://kranthikiran.com/#/blog/facts-not-stories",
       "title": "Facts, Not Stories",

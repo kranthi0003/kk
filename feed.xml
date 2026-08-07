@@ -6,7 +6,15 @@
     <atom:link href="https://kranthikiran.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Engineering, reliability, and reflections — from kranthikiran.com</description>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2026 03:40:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 14:34:35 GMT</lastBuildDate>
+    <item>
+      <title>Claude Certified Associate — Foundations</title>
+      <link>https://kranthikiran.com/#/blog/claude-foundations</link>
+      <guid isPermaLink="false">kranthikiran:post:claude-foundations</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>Anthropic&apos;s associate-level credential for using Claude well: choosing the right model, writing prompts that hold up, checking the output, and knowing where the limits are.</description>
+    </item>
     <item>
       <title>Facts, Not Stories</title>
       <link>https://kranthikiran.com/#/blog/facts-not-stories</link>
