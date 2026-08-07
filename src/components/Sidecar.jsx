@@ -261,8 +261,131 @@ function StandingsCard() {
   )
 }
 
+// Upcoming Indian cinema. Unlike the F1 cards this one reads a static file we
+// generate at build time (scripts/gen-movies.mjs) rather than calling an API
+// live: assembling the list takes ~25 Wikipedia/Wikidata requests, which is far
+// too much to spend every time someone opens the drawer. The payoff is that the
+// fetch below is same-origin, needs no key, and works on networks where the
+// mainstream movie APIs are unreachable.
+const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+// Parse the ISO parts by hand. new Date('2026-08-26') is UTC midnight, which
+// renders as the 25th anywhere west of Greenwich — wrong day, sometimes wrong
+// month.
+function releaseLabel(date, precision) {
+  if (!date) return 'TBA'
+  const [y, m, d] = date.split('-')
+  const mon = MONTHS_SHORT[Number(m) - 1]
+  if (precision === 'year') return y
+  if (precision === 'month') return `${mon} ${y}`
+  return `${Number(d)} ${mon} ${y}`
+}
+
+function MoviesCard() {
+  const [data, setData] = useState(undefined) // undefined=loading, null=error
+  const [expanded, setExpanded] = useState(false)
+
+  useEffect(() => {
+    const cached = sessionStorage.getItem('movies_upcoming')
+    if (cached) {
+      try {
+        const p = JSON.parse(cached)
+        if (Date.now() - p.ts < 21600000) { setData(p.data); return }
+      } catch {}
+    }
+    let alive = true
+    fetch(`${import.meta.env.BASE_URL}movies.json`)
+      .then(r => { if (!r.ok) throw new Error('bad'); return r.json() })
+      .then(d => {
+        if (!alive) return
+        if (!d?.films?.length) throw new Error('empty')
+        setData(d)
+        sessionStorage.setItem('movies_upcoming', JSON.stringify({ data: d, ts: Date.now() }))
+      })
+      .catch(() => { if (alive) setData(null) })
+    return () => { alive = false }
+  }, [])
+
+  const shell = (children, right) => (
+    <Shell icon="🎬" title="Cinema · Upcoming Indian" tint="#f59e0b" right={right}>{children}</Shell>
+  )
+
+  if (data === undefined) return shell(
+    <div className="h-24 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">rolling credits…</span></div>
+  )
+  if (data === null) return shell(
+    <div className="text-center py-2">
+      <p className="text-[13px] text-muted-foreground mb-2">Couldn’t load the release slate right now.</p>
+      <a href="https://en.wikipedia.org/wiki/Category:Upcoming_Indian_films" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium" style={{ color: 'var(--color-accent)' }}>Browse on Wikipedia ↗</a>
+    </div>
+  )
+
+  const films = data.films
+  const visible = expanded ? films : films.slice(0, 5)
+  const dated = films.filter(f => f.date).length
+  const badge = dated
+    ? <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ background: 'color-mix(in oklab, var(--color-foreground) 7%, transparent)', color: 'var(--color-muted-foreground)' }}>{dated} dated</span>
+    : null
+
+  return shell(
+    <>
+      <ul className="space-y-1">
+        {visible.map((f) => (
+          <li key={f.title}>
+            <a
+              href={f.imdb || f.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 rounded-lg px-1.5 py-1.5 transition-colors hover:bg-foreground/5"
+            >
+              {f.poster ? (
+                <img
+                  src={f.poster}
+                  alt=""
+                  loading="lazy"
+                  width="36"
+                  height="52"
+                  className="w-9 h-[52px] rounded object-cover flex-shrink-0"
+                  style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)' }}
+                />
+              ) : (
+                <span aria-hidden="true" className="w-9 h-[52px] rounded flex-shrink-0 flex items-center justify-center text-[15px]" style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)' }}>🎞️</span>
+              )}
+              <span className="flex-1 min-w-0">
+                <span className="block text-[13px] font-medium truncate">{f.title}</span>
+                <span className="block text-[11px] text-muted-foreground truncate">
+                  {f.lang}{f.by ? ` · ${f.by}` : ''}
+                </span>
+              </span>
+              <span
+                className="text-[10.5px] font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded"
+                style={f.date
+                  ? { background: 'color-mix(in oklab, #f59e0b 15%, transparent)', color: 'color-mix(in oklab, #f59e0b 75%, var(--color-foreground))' }
+                  : { color: 'var(--color-muted-foreground)' }}
+              >
+                {releaseLabel(f.date, f.precision)}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {films.length > 5 && (
+        <button onClick={() => setExpanded(v => !v)} className="w-full mt-2 text-[11.5px] font-medium py-2 rounded-lg transition-colors hover:bg-foreground/5" style={{ color: 'var(--color-accent)' }}>
+          {expanded ? 'Show less' : `Show all ${films.length}`}
+        </button>
+      )}
+
+      <p className="text-[10.5px] text-muted-foreground/70 mt-2 text-center">
+        Titles and dates from Wikipedia · links go to IMDb
+      </p>
+    </>,
+    badge
+  )
+}
+
 // The card stack — append here as new cards are built.
-const CARDS = [F1Card, StandingsCard]
+const CARDS = [F1Card, StandingsCard, MoviesCard]
 
 export default function Sidecar() {
   const [open, setOpen] = useState(false)
@@ -342,7 +465,7 @@ export default function Sidecar() {
             {/* Cards */}
             <div className="flex-1 overflow-y-auto px-5 pb-6 space-y-4">
               {CARDS.map((Card, i) => <Card key={i} />)}
-              <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — releases, shows, launches…</p>
+              <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — shows, books, launches…</p>
             </div>
           </div>
         </div>

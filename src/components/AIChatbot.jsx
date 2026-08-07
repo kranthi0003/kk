@@ -128,6 +128,7 @@ RECENT ADDITIONS (2026):
 - Blog + a /now page — short essays/reflections and a snapshot of what he's focused on right now.
 - Reliability Lab — a live status & observability dashboard.
 - The greeting on the homepage rolls "hello" through many languages.
+- The Sidecar — a slide-in drawer of "things I follow", opened by a round button near the top-right. Currently holds three cards: the next Formula 1 race with a live countdown, the F1 drivers'/constructors' championship standings, and an "Upcoming Indian cinema" card listing films like Toxic, Ramayana, King and Varanasi with posters, directors and release dates (titles from Wikipedia, links go to IMDb).
 
 ACTION BAR (Line 2 of navbar, desktop only — 9 icon buttons):
 Left side:
