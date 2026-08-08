@@ -51,6 +51,18 @@ Three experiences in one site:
 
 ---
 
+## 🎨 Design System
+
+The 2026 redesign uses a conservative modern theme built around CSS variables in `src/index.css` and Tailwind token mappings in `tailwind.config.js`.
+
+- Colors: `--color-background`, `--color-card`, `--color-foreground`, `--color-muted`, `--color-accent`, `--color-secondary`, and status tokens (`success`, `warning`, `error`).
+- Layout: shared `.site-container` and `.surface-card` utilities keep spacing, glass surfaces, and responsive widths consistent.
+- Components: the primary navigation, hero, project cards, buttons, focus states, and footer consume these shared tokens.
+
+Preview locally with `npm install --legacy-peer-deps`, `npm run dev`, then test light/dark mode and mobile widths. Use `npm run build` before shipping production changes.
+
+---
+
 ## 🚀 Quick Start
 
 ```bash

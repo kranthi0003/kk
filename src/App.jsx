@@ -360,12 +360,13 @@ export default function App() {
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
       <MathBackdrop />
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <div className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
-      <main>
+      <main id="main-content">
         <Hero onResumeClick={() => setResumeOpen(true)} />
         <div className="section-animate"><QuoteFlip /></div>
         <div className="section-animate"><Experience /></div>

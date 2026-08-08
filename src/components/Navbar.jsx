@@ -667,18 +667,37 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       aria-label="Main navigation"
       ref={navRef}
     >
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center">
         {/* Left — Logo + ambient music */}
         <div className="flex items-center gap-2 sm:gap-3 mr-auto min-w-0">
-        <a href="#home" className="flex items-center group flex-shrink-0">
-          <span className="font-heading font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
+        <a href="#home" className="flex items-center gap-2 group flex-shrink-0" aria-label="Kranthi Kiran home">
+          <span className="grid h-9 w-9 place-items-center rounded-2xl bg-accent text-accent-foreground font-heading font-semibold shadow-lg shadow-accent/20 transition-transform group-hover:-translate-y-0.5">
             KK
           </span>
+          <span className="hidden sm:block text-sm font-semibold text-foreground group-hover:text-accent transition-colors">Kranthi Kiran</span>
         </a>
           <AmbientPlayer />
         </div>
 
-        {/* Center — Nav links removed for a cleaner, minimal bar */}
+        <div className="hidden xl:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 rounded-full border border-border/70 bg-card/55 px-1.5 py-1 shadow-sm backdrop-blur-xl">
+          {navLinks.map(link => {
+            const isActive = activeSection === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-3 py-1.5 text-[12px] font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-accent text-accent-foreground shadow-sm'
+                    : 'text-muted-foreground hover:bg-muted/70 hover:text-foreground'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            )
+          })}
+        </div>
 
         {/* Right side — responsive clusters, plus a discreet menu pinned far right */}
         <div className="flex items-center gap-2">
@@ -706,6 +725,8 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               onClick={() => setMobileOpen(o => !o)}
               className="p-2 rounded-lg hover:bg-muted transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 {mobileOpen ? (
@@ -723,7 +744,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
+        <div id="mobile-navigation" className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
             <div className="flex justify-center mb-1"><TransformationPulse labeled /></div>
             {navLinks.map(link => {

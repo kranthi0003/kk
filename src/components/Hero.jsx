@@ -4,32 +4,39 @@ import TypingText from './TypingText'
 import RollingGreeting from './RollingGreeting'
 
 export default function Hero({ onResumeClick }) {
+  const highlights = [
+    ['8+', 'years building reliable cloud systems'],
+    ['24/7', 'production-minded observability'],
+    ['3D', 'interactive portfolio experiences'],
+  ]
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-6 md:py-10 lg:py-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-center">
+    <section id="home" className="relative min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden">
+      <div className="site-container relative z-10 py-8 md:py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(280px,0.92fr)_1.08fr] gap-10 lg:gap-16 items-center">
 
           {/* ─── LEFT: Portrait + socials ─── */}
           <div className="flex flex-col items-center lg:items-start animate-fade-in-up">
-            <div className="relative">
-              {/* subtle gold frame matching the site's calm accent */}
-              <div className="relative rounded-2xl p-[3px]"
+            <div className="surface-card relative rounded-[2rem] p-3">
+              <div aria-hidden="true" className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-secondary/20 blur-2xl" />
+              <div aria-hidden="true" className="absolute -bottom-7 -left-7 h-28 w-28 rounded-full bg-accent/25 blur-2xl" />
+              <div className="relative rounded-[1.55rem] p-[3px]"
                 style={{
-                  background: 'linear-gradient(160deg, color-mix(in oklab, var(--color-brand) 45%, transparent), color-mix(in oklab, var(--color-border) 60%, transparent) 55%, color-mix(in oklab, var(--color-brand) 22%, transparent))',
+                  background: 'linear-gradient(160deg, color-mix(in oklab, var(--color-brand) 55%, transparent), color-mix(in oklab, var(--color-secondary) 35%, transparent), color-mix(in oklab, var(--color-border) 60%, transparent))',
                   boxShadow: '0 18px 50px -18px color-mix(in oklab, var(--color-brand) 35%, transparent)',
                 }}>
                 <img
                   src={profile}
                   alt="Kranthi Kiran"
-                  className="w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] lg:w-[340px] lg:h-[420px] object-cover rounded-[13px] block"
+                  className="w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] lg:w-[360px] lg:h-[440px] object-cover rounded-[1.35rem] block"
                 />
                 {/* faint inner highlight so the frame reads as glass, not a hard line */}
-                <div aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-[13px]"
+                <div aria-hidden="true" className="pointer-events-none absolute inset-[3px] rounded-[1.35rem]"
                   style={{ boxShadow: 'inset 0 1px 0 0 color-mix(in oklab, white 12%, transparent), inset 0 0 0 1px color-mix(in oklab, var(--color-brand) 18%, transparent)' }} />
               </div>
               <div className="absolute bottom-3 left-3">
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-medium text-foreground shadow-md" style={{ border: '1px solid color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
-                  Kranthi
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/95 backdrop-blur text-xs font-semibold text-foreground shadow-md" style={{ border: '1px solid color-mix(in oklab, var(--color-border) 55%, transparent)' }}>
+                  <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" /> Available for impact
                 </span>
               </div>
             </div>
@@ -62,8 +69,11 @@ export default function Hero({ onResumeClick }) {
 
           {/* ─── RIGHT: name, role, description, CTAs ─── */}
           <div className="text-center lg:text-left">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-accent shadow-sm backdrop-blur animate-fade-in-up">
+              Cloud reliability · distributed systems · creative tooling
+            </p>
             <h1
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl mb-3 animate-fade-in-up"
+              className="font-heading text-5xl sm:text-6xl lg:text-7xl mb-4 animate-fade-in-up"
               style={{
                 animationDelay: '0.15s',
                 fontWeight: 500,
@@ -71,8 +81,8 @@ export default function Hero({ onResumeClick }) {
                 lineHeight: 1.08,
               }}
             >
-              <span className="block font-medium text-2xl sm:text-3xl lg:text-4xl mb-1"><RollingGreeting />,</span>
-              I'm Kiran
+              <span className="block font-medium text-2xl sm:text-3xl lg:text-4xl mb-2 text-muted-foreground"><RollingGreeting />,</span>
+              Building calm systems for messy real-world scale.
             </h1>
 
             <h2
@@ -87,8 +97,8 @@ export default function Hero({ onResumeClick }) {
               />
             </h2>
 
-            <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-5 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
-              I make computers talk to each other reliably. It's less romantic than it sounds.
+            <p className="font-body text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-5 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
+              I design reliable cloud platforms, thoughtful developer experiences, and playful interactive spaces that make complex systems easier to understand.
             </p>
 
             {/* Status pill — moved down next to the CTAs */}
@@ -128,6 +138,15 @@ export default function Hero({ onResumeClick }) {
                   </svg>
                 </span>
               </button>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 animate-fade-in-up" style={{ animationDelay: '0.62s' }}>
+              {highlights.map(([value, label]) => (
+                <div key={value} className="surface-card rounded-2xl p-4 text-left">
+                  <div className="font-heading text-2xl text-foreground">{value}</div>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
