@@ -130,6 +130,8 @@ RECENT ADDITIONS (2026):
 - The greeting on the homepage rolls "hello" through many languages.
 - The Sidecar — a slide-in drawer of "things I follow", opened by a round button near the top-right. Currently holds three cards: the next Formula 1 race with a live countdown, the F1 drivers'/constructors' championship standings, and an "Upcoming Indian cinema" card listing films like Toxic, Ramayana, King and Varanasi with posters, directors and release dates (titles from Wikipedia, links go to IMDb).
 - Tech News — a dropdown in the navbar (desktop) with four tabs: Hacker News and DEV.to, which are live and refresh every five minutes, plus Medium and Reddit (r/programming, r/devops, r/kubernetes), which are baked in at build time and refresh daily.
+- The intro — the first visit in a session opens on a dark screen where a wand traces the incantation "Alohomora" in glowing letters, throwing sparks, before the light bursts and the site appears. Click, press a key, or add ?intro=1 to the URL to watch it again.
+- The 3D workspace scene and the Sidecar each have their own reload button, so a scene or card that didn't load can be refreshed on its own without reloading the page.
 
 ACTION BAR (Line 2 of navbar, desktop only — 9 icon buttons):
 Left side:

@@ -387,9 +387,23 @@ function MoviesCard() {
 // The card stack — append here as new cards are built.
 const CARDS = [F1Card, StandingsCard, MoviesCard]
 
+// Every card reads its sessionStorage entry before it fetches, so a refresh has
+// to clear these first or the remount just replays the same cached payload.
+const CARD_CACHE_KEYS = ['f1_next', 'f1_standings', 'movies_upcoming']
+
 export default function Sidecar() {
   const [open, setOpen] = useState(false)
   const [shown, setShown] = useState(false) // drives the slide animation
+  const [refreshKey, setRefreshKey] = useState(0)
+  const [refreshing, setRefreshing] = useState(false)
+
+  const refresh = () => {
+    if (refreshing) return
+    try { CARD_CACHE_KEYS.forEach(k => sessionStorage.removeItem(k)) } catch {}
+    setRefreshKey(k => k + 1)
+    setRefreshing(true)
+    setTimeout(() => setRefreshing(false), 700)
+  }
 
   useEffect(() => {
     if (!open) return
@@ -457,14 +471,32 @@ export default function Sidecar() {
                 <h2 className="font-heading text-[1.35rem] leading-tight" style={{ fontWeight: 600 }}>The Sidecar</h2>
                 <p className="text-[12px] text-muted-foreground mt-0.5">Things I follow, off the clock.</p>
               </div>
-              <button onClick={close} aria-label="Close" className="text-muted-foreground/60 hover:text-foreground transition-colors p-1 -mr-1">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
+              <div className="flex items-center gap-0.5 -mr-1">
+                <button
+                  onClick={refresh}
+                  disabled={refreshing}
+                  aria-label="Refresh cards"
+                  title="Refresh"
+                  className="text-muted-foreground/60 hover:text-foreground transition-colors p-1 disabled:opacity-50"
+                >
+                  <svg
+                    className={`w-[18px] h-[18px] ${refreshing ? 'animate-spin' : ''}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                    strokeLinecap="round" strokeLinejoin="round"
+                  >
+                    <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+                    <polyline points="21 3 21 9 15 9" />
+                  </svg>
+                </button>
+                <button onClick={close} aria-label="Close" className="text-muted-foreground/60 hover:text-foreground transition-colors p-1">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+              </div>
             </div>
 
             {/* Cards */}
             <div className="flex-1 overflow-y-auto px-5 pb-6 space-y-4">
-              {CARDS.map((Card, i) => <Card key={i} />)}
+              {CARDS.map((Card, i) => <Card key={`${refreshKey}-${i}`} />)}
               <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — shows, books, launches…</p>
             </div>
           </div>
