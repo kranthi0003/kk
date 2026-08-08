@@ -1,25 +1,39 @@
 {
-  "generated": "2026-08-07T15:39:45.962Z",
+  "generated": "2026-08-08T02:40:49.162Z",
   "reddit": [
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "Solving and benchmarking QUBO problems with Gurobi in Python",
+      "url": "https://www.reddit.com/r/programming/comments/1vija3m/solving_and_benchmarking_qubo_problems_with/",
+      "by": "Future_Ad7567",
+      "time": 1786154119000,
+      "sub": "r/programming"
     },
     {
-      "title": "How much do you agree with this opinion",
-      "url": "https://www.reddit.com/r/programming/comments/1vi205l/how_much_do_you_agree_with_this_opinion/",
-      "by": "sidneysweeneysrack",
-      "time": 1786112509000,
+      "title": "JDK 28 EA Build10 is now available for download and includes JEP 401: Value Objects (Preview) from Project Valhalla",
+      "url": "https://www.reddit.com/r/programming/comments/1vii2vi/jdk_28_ea_build10_is_now_available_for_download/",
+      "by": "davidalayachew",
+      "time": 1786150584000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Home Lab Solutions",
+      "url": "https://www.reddit.com/r/devops/comments/1viclf3/home_lab_solutions/",
+      "by": "amisaber",
+      "time": 1786136276000,
+      "sub": "r/devops"
     },
     {
       "title": "I am making a free single binary to optimize s3 read, writes and updates",
       "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
       "by": "ankush2324235",
       "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "We deleted Docker Compose from our internal platform's runtime and migrated to Kubernetes before it was too late",
+      "url": "https://www.reddit.com/r/devops/comments/1vhyiqk/we_deleted_docker_compose_from_our_internal/",
+      "by": "kdanovsky",
+      "time": 1786103661000,
       "sub": "r/devops"
     },
     {
@@ -30,25 +44,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Weekly: Share your victories thread",
       "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
       "time": 1786096817000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you guys manage backups of servers?",
-      "url": "https://www.reddit.com/r/devops/comments/1vhvnf3/how_do_you_guys_manage_backups_of_servers/",
-      "by": "hronak",
-      "time": 1786094328000,
-      "sub": "r/devops"
     },
     {
       "title": "How do you turn CNCF projects into a complete developer platform?",
@@ -58,10 +58,10 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "Java in 2026, totally worth it",
-      "url": "https://www.reddit.com/r/programming/comments/1vhpezn/java_in_2026_totally_worth_it/",
+      "title": "Why is Project Leyden Ahead of its Time?",
+      "url": "https://www.reddit.com/r/programming/comments/1vhp9ig/why_is_project_leyden_ahead_of_its_time/",
       "by": "OSBY_Glabay",
-      "time": 1786073317000,
+      "time": 1786072850000,
       "sub": "r/programming"
     },
     {
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Becoming employable: intro",
-      "url": "https://medium.com/@adithyaakp2004/becoming-employable-intro-0b6e56e06fe4",
-      "by": "sulph",
-      "time": 1786117026000,
+      "title": "WHOIS vs RDAP: What’s the Difference and Why Does It Matter?",
+      "url": "https://medium.com/@whoislogic.com/whois-vs-rdap-whats-the-difference-and-why-does-it-matter-50364d582807",
+      "by": "Whoislogic Com",
+      "time": 1786156186000,
       "tags": [
-        "journey",
-        "fresher-jobs",
-        "job-hunting"
+        "cybersecurity",
+        "data-science",
+        "technology"
       ]
     },
     {
-      "title": "Why We Built MicroLeague Sports Vol. 3",
-      "url": "https://medium.com/@esolar_18069/why-we-built-microleague-sports-vol-3-f3d7cedfed9d",
-      "by": "Eddie Solar",
-      "time": 1786116974000,
+      "title": "I am 15 and I Just Built a 4-Part Developer Ecosystem. Here is Why.",
+      "url": "https://mianabudllahdev.medium.com/i-am-15-and-i-just-built-a-4-part-developer-ecosystem-here-is-why-0417a409f5ce",
+      "by": "Abdullah Dev",
+      "time": 1786155571000,
       "tags": [
-        "web3",
-        "architecture",
-        "sports"
+        "startup",
+        "technology",
+        "software-development"
       ]
     },
     {
-      "title": "The Moment You Don’t Know Something in an Interview Is Not the Moment You Fail.",
-      "url": "https://blog.stackademic.com/the-moment-you-dont-know-something-in-an-interview-is-not-the-moment-you-fail-faafa377a100",
-      "by": "Devrim Ozcay",
-      "time": 1786116886000,
+      "title": "Post 16: Your Card Was Charged.",
+      "url": "https://medium.com/@sabbir.nit/post-16-your-card-was-charged-6e57657c1da0",
+      "by": "Sabbir Alam",
+      "time": 1786154463000,
       "tags": [
-        "software-development",
-        "coding",
-        "web-development"
-      ]
-    },
-    {
-      "title": "DSA : Day 28 | Sliding Window — Minimum Size Subarray Sum",
-      "url": "https://medium.com/@aljubinagavit/dsa-day-28-sliding-window-minimum-size-subarray-sum-6e957fe4af92",
-      "by": "Aljubina",
-      "time": 1786116661000,
-      "tags": [
-        "tech",
         "software-engineering",
-        "computer-science"
+        "backend-development",
+        "system-design-interview"
       ]
     },
     {
-      "title": "Building Scalable CI/CD Pipelines Using AWS DevOps Services",
-      "url": "https://medium.com/@cloudvidyaacademy/building-scalable-ci-cd-pipelines-using-aws-devops-services-82df06eec4d3",
-      "by": "CloudVidya Academy",
-      "time": 1786116589000,
+      "title": "I Asked AI to Review My Code for Six Months. Here’s Why It Almost Made Things Worse.",
+      "url": "https://medium.com/@nagatomopedro05/i-asked-ai-to-review-my-code-for-six-months-heres-why-it-almost-made-things-worse-415f96cc8e27",
+      "by": "Pedro Nagatomo",
+      "time": 1786154254000,
       "tags": [
-        "github",
-        "devops",
-        "ci-cd-pipeline"
-      ]
-    },
-    {
-      "title": "“Tell Me About a Time You Failed” Is the Question Most Engineers Answer With a Fake Failure.",
-      "url": "https://blog.stackademic.com/tell-me-about-a-time-you-failed-is-the-question-most-engineers-answer-with-a-fake-failure-94a5187a65c8",
-      "by": "Devrim Ozcay",
-      "time": 1786116586000,
-      "tags": [
-        "coding",
-        "programming",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "DP Patterns Unlocked — Coin Change II (LeetCode 518): When Unbounded Knapsack Starts Counting",
-      "url": "https://medium.com/@saachikaur19/dp-patterns-unlocked-coin-change-ii-leetcode-518-when-unbounded-knapsack-starts-counting-ef48940f3911",
-      "by": "Acchint Kaur",
-      "time": 1786116383000,
-      "tags": [
-        "coding",
-        "data-structures",
-        "algorithms"
-      ]
-    },
-    {
-      "title": "The Next Version Of The Best Local Coding Model Is Coming, A Deep Dive Into Qwen 3.8",
-      "url": "https://medium.com/codetodeploy/the-next-version-of-the-best-local-coding-model-is-coming-a-deep-dive-into-qwen-3-8-c38104e185fc",
-      "by": "Caspar Bannink - AI Engineer",
-      "time": 1786116355000,
-      "tags": [
-        "software-development",
-        "llm",
+        "ai-engineering",
+        "artificial-intelligence",
         "software-engineering"
       ]
     },
     {
-      "title": "DSA Patterns Part #7 — Merge Intervals: When Sorting Solves Half the Problem",
-      "url": "https://medium.com/codetodeploy/dsa-patterns-part-7-merge-intervals-when-sorting-solves-half-the-problem-fbbe43eb64e9",
-      "by": "Kumar Gaurav",
-      "time": 1786116341000,
+      "title": "Only 12 Hours Left to Enroll: GenAI for DevOps Engineers!",
+      "url": "https://devopslearning.medium.com/only-12-hours-left-to-enroll-genai-for-devops-engineers-504bf701990b",
+      "by": "Prashant Lakhera",
+      "time": 1786154206000,
       "tags": [
-        "software-engineering",
-        "programming",
-        "data-structures"
+        "llm",
+        "devops",
+        "careers"
       ]
     },
     {
-      "title": "Your Postmortems Are Documents Nobody Reads About Incidents That Keep Happening.",
-      "url": "https://medium.com/codex/your-postmortems-are-documents-nobody-reads-about-incidents-that-keep-happening-43414970626f",
-      "by": "Devrim Ozcay",
-      "time": 1786116288000,
+      "title": "The Invisible Stack Behind Every Smooth “Play” Button",
+      "url": "https://medium.com/it-chronicles/the-invisible-stack-behind-every-smooth-play-button-97b583085d53",
+      "by": "Krishna Kumar Chaturvedi",
+      "time": 1786153989000,
       "tags": [
-        "software-development",
-        "coding",
-        "programming"
+        "architecture",
+        "software-engineering",
+        "design-systems"
+      ]
+    },
+    {
+      "title": "I Ran Chaos Engineering on Our Spring Boot Microservices-Here’s What Failed First",
+      "url": "https://medium.com/design-bootcamp/i-ran-chaos-engineering-on-our-spring-boot-microservices-heres-what-failed-first-a76af08235fc",
+      "by": "FutureLens",
+      "time": 1786153972000,
+      "tags": [
+        "devops",
+        "new-writers-welcome",
+        "chaos-engineering"
+      ]
+    },
+    {
+      "title": "Stacked PRs Explained with Rahul and Priya: How They Reduce Merge Conflicts By Itanand",
+      "url": "https://itanand.medium.com/stacked-prs-explained-with-rahul-and-priya-how-they-reduce-merge-conflicts-by-itanand-17d7d9c1bfc0",
+      "by": "Anand Mohan",
+      "time": 1786153924000,
+      "tags": [
+        "itanand",
+        "new-features",
+        "stackedpr"
+      ]
+    },
+    {
+      "title": "Don’t Win the Argument. Build the Thing You’re Arguing About.",
+      "url": "https://medium.com/womenintechnology/dont-win-the-argument-build-the-thing-you-re-arguing-about-5b26d377d36d",
+      "by": "Angeline Fan",
+      "time": 1786153831000,
+      "tags": [
+        "leadership",
+        "engineering-management",
+        "women-in-tech"
+      ]
+    },
+    {
+      "title": "The Low-Key Engineer’s Guide to Finding Your Path in Tech",
+      "url": "https://medium.com/@zhangblue/the-low-key-engineers-guide-to-finding-your-path-in-tech-820841348fb7",
+      "by": "Lana Zhang",
+      "time": 1786153028000,
+      "tags": [
+        "career-advice",
+        "software-engineering",
+        "personal-growth"
       ]
     }
   ]
