@@ -36,7 +36,6 @@ import ServiceStatus from './components/ServiceStatus'
 import SystemStatus from './components/SystemStatus'
 import CronSchedule from './components/ActionsTools'
 import WeatherWidget from './components/WeatherWidget'
-import SpellIntro from './components/SpellIntro'
 import QuoteFlip from './components/QuoteFlip'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
@@ -403,7 +402,6 @@ export default function App() {
       <SystemStatus />
       <CronSchedule />
       <WeatherWidget />
-      <SpellIntro />
     </div>
     </>
   )
