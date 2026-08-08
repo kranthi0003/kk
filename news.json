@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T04:08:19.188Z",
+  "generated": "2026-08-08T04:11:52.096Z",
   "reddit": [
     {
       "title": "A shell exclamation mark is not for yelling. Be lazy. | Filip Roséen",
@@ -23,13 +23,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "I just made a helper for you and me ... mostly me",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vij3ho/i_just_made_a_helper_for_you_and_me_mostly_me/",
-      "by": "Pretend_Flower_9508",
-      "time": 1786153571000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "JDK 28 EA Build10 is now available for download and includes JEP 401: Value Objects (Preview) from Project Valhalla",
       "url": "https://www.reddit.com/r/programming/comments/1vii2vi/jdk_28_ea_build10_is_now_available_for_download/",
       "by": "davidalayachew",
@@ -37,31 +30,17 @@
       "sub": "r/programming"
     },
     {
-      "title": "How is running a small farm and architecting a Cloud-Native stack similar?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vibmhe/how_is_running_a_small_farm_and_architecting_a/",
-      "by": "SAIO94",
-      "time": 1786134004000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Home Lab Solutions",
+      "url": "https://www.reddit.com/r/devops/comments/1viclf3/home_lab_solutions/",
+      "by": "amisaber",
+      "time": 1786136276000,
       "sub": "r/devops"
     },
     {
-      "title": "GCP | Kubernetes | GKE | CI/CD Troubleshooting – Available for Freelance Support",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vi1jd5/gcp_kubernetes_gke_cicd_troubleshooting_available/",
-      "by": "vishnu_koneti",
-      "time": 1786111414000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "We deleted Docker Compose from our internal platform's runtime and migrated to Kubernetes before it was too late",
+      "url": "https://www.reddit.com/r/devops/comments/1vhyiqk/we_deleted_docker_compose_from_our_internal/",
+      "by": "kdanovsky",
+      "time": 1786103661000,
       "sub": "r/devops"
     },
     {
@@ -70,6 +49,27 @@
       "by": "jagdip",
       "time": 1786100332000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
