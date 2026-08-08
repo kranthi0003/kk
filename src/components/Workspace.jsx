@@ -1668,6 +1668,13 @@ function Player({ onNear, hotspots }) {
 // without re-rendering this component every frame.
 const SOLDIER_URL = `${import.meta.env.BASE_URL || '/'}models/soldier.glb`
 
+// Drei caches loaders by URL, and a fetch or parse that failed stays cached as
+// a failure. Remounting the scene alone would keep serving that same bad
+// entry, so a manual reload has to drop it first.
+export function clearWorkspaceAssets() {
+  try { useGLTF.clear(SOLDIER_URL) } catch {}
+}
+
 function RiggedSoldier({ speed }) {
   const group = useRef()
   const { scene, animations } = useGLTF(SOLDIER_URL)
