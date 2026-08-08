@@ -45,7 +45,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music pages |
 | 🔒 **Private pages** | Password-protected Vegas & Europe trip plans |
-| 🥚 **Easter eggs** | Konami/matrix effect, spell intro, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
+| 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
 
 ---
