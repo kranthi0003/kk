@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T04:11:52.096Z",
+  "generated": "2026-08-08T04:38:21.717Z",
   "reddit": [
     {
       "title": "A shell exclamation mark is not for yelling. Be lazy. | Filip Roséen",
@@ -23,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "I just made a helper for you and me ... mostly me",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vij3ho/i_just_made_a_helper_for_you_and_me_mostly_me/",
+      "by": "Pretend_Flower_9508",
+      "time": 1786153571000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "JDK 28 EA Build10 is now available for download and includes JEP 401: Value Objects (Preview) from Project Valhalla",
       "url": "https://www.reddit.com/r/programming/comments/1vii2vi/jdk_28_ea_build10_is_now_available_for_download/",
       "by": "davidalayachew",
@@ -30,17 +37,31 @@
       "sub": "r/programming"
     },
     {
-      "title": "Home Lab Solutions",
-      "url": "https://www.reddit.com/r/devops/comments/1viclf3/home_lab_solutions/",
-      "by": "amisaber",
-      "time": 1786136276000,
+      "title": "How is running a small farm and architecting a Cloud-Native stack similar?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vibmhe/how_is_running_a_small_farm_and_architecting_a/",
+      "by": "SAIO94",
+      "time": 1786134004000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "We deleted Docker Compose from our internal platform's runtime and migrated to Kubernetes before it was too late",
-      "url": "https://www.reddit.com/r/devops/comments/1vhyiqk/we_deleted_docker_compose_from_our_internal/",
-      "by": "kdanovsky",
-      "time": 1786103661000,
+      "title": "GCP | Kubernetes | GKE | CI/CD Troubleshooting – Available for Freelance Support",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vi1jd5/gcp_kubernetes_gke_cicd_troubleshooting_available/",
+      "by": "vishnu_koneti",
+      "time": 1786111414000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
       "sub": "r/devops"
     },
     {
@@ -49,30 +70,86 @@
       "by": "jagdip",
       "time": 1786100332000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
+    {
+      "title": "I Started with Security. I Ended Up Building Systems.",
+      "url": "https://medium.com/@hellfreak008/i-started-with-security-i-ended-up-building-systems-fb67696558bd",
+      "by": "Chandan Bhattacharya",
+      "time": 1786163386000,
+      "tags": [
+        "aws",
+        "cloud-computing",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "แถลงการณ์ทางวิชาการ: พิมพ์เขียว GSII และจริยธรรมปัญญาประดิษฐ์ในสมรภูมิรบ",
+      "url": "https://nuttananfoopun.medium.com/%E0%B9%81%E0%B8%96%E0%B8%A5%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B4%E0%B8%8A%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3-%E0%B8%9E%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B9%8C%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%A7-gsii-%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%88%E0%B8%A3%E0%B8%B4%E0%B8%A2%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9B%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B4%E0%B8%A9%E0%B8%90%E0%B9%8C%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A1%E0%B8%A3%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A3%E0%B8%9A-5ab00a00ed30",
+      "by": "Nuttanan Foopun",
+      "time": 1786163102000,
+      "tags": [
+        "machine-learning",
+        "data-science",
+        "programming"
+      ]
+    },
+    {
+      "title": "I removed 40% of the Allocations from a Go service — Here’s what actually worked",
+      "url": "https://blog.devgenius.io/i-removed-40-of-the-allocations-from-a-go-service-heres-what-actually-worked-95b88928a36e",
+      "by": "Yaninyz witty",
+      "time": 1786162585000,
+      "tags": [
+        "software-development",
+        "coding",
+        "writing"
+      ]
+    },
+    {
+      "title": "AI Slop Is Eating Your Brain",
+      "url": "https://ai.plainenglish.io/ai-slop-is-eating-your-brain-b76235f21690",
+      "by": "Dr Abdullah",
+      "time": 1786162579000,
+      "tags": [
+        "technology",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "AI Can Write the Code. Can You Still Tell When It’s Wrong?",
+      "url": "https://ai.plainenglish.io/ai-can-write-the-code-can-you-still-tell-when-its-wrong-b11cc8ce60c0",
+      "by": "Shreya Prasad",
+      "time": 1786162370000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "ai"
+      ]
+    },
+    {
+      "title": "Nobody Warned Me How Much Cloud Engineering Has Changed",
+      "url": "https://medium.com/@cultclass/nobody-warned-me-how-much-cloud-engineering-has-changed-30750ccf7cb9",
+      "by": "Mathana Mohan",
+      "time": 1786162172000,
+      "tags": [
+        "deep-learning",
+        "cloud-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Pure subscription pricing doesn’t work for AI products.",
+      "url": "https://medium.com/@vimu.j/pure-subscription-pricing-doesnt-work-for-ai-products-e7917dab1468",
+      "by": "Vimukthi Jayabahu",
+      "time": 1786162109000,
+      "tags": [
+        "social-media",
+        "full-stack-developer",
+        "software-engineering"
+      ]
+    },
     {
       "title": "Tech Courses Are Up to 50% OFF",
       "url": "https://medium.com/codetodeploy/tech-courses-are-up-to-50-off-5f44cd89a2fc",
@@ -104,83 +181,6 @@
         "python",
         "artificial-intelligence",
         "api"
-      ]
-    },
-    {
-      "title": "Altimetrik Java Backend Developer Interview Experience (5.5 Years):",
-      "url": "https://medium.com/@preetjit82/altimetrik-java-backend-developer-interview-experience-5-5-years-b079c5911abe",
-      "by": "Interview Simplified",
-      "time": 1786160591000,
-      "tags": [
-        "backend",
-        "java",
-        "programming"
-      ]
-    },
-    {
-      "title": "Deloitte SQL Interview Questions for Data Analyst (2026)",
-      "url": "https://medium.com/@preetjit82/deloitte-sql-interview-questions-for-data-analyst-2026-61e146a15c92",
-      "by": "Interview Simplified",
-      "time": 1786160537000,
-      "tags": [
-        "sql",
-        "programming",
-        "interview"
-      ]
-    },
-    {
-      "title": "From Two Days to One Command",
-      "url": "https://medium.com/@lvoliveiratec/from-two-days-to-one-command-1b22e4d373b8",
-      "by": "lucas oliveira",
-      "time": 1786160303000,
-      "tags": [
-        "terraform",
-        "devops",
-        "google-cloud-platform"
-      ]
-    },
-    {
-      "title": "Vibe Coders Copy Code. Engineers Read Licenses First.",
-      "url": "https://medium.com/@SIDjART/vibe-coders-copy-code-engineers-read-licenses-first-6cce52a124dc",
-      "by": "Sidj",
-      "time": 1786160114000,
-      "tags": [
-        "vibe-coding",
-        "open-source",
-        "software-license"
-      ]
-    },
-    {
-      "title": "82 System Design Terms Every Beginner Should Know (Explained With Real Examples)",
-      "url": "https://medium.com/@trends24/82-system-design-terms-every-beginner-should-know-explained-with-real-examples-befc91f60b1a",
-      "by": "Trends 24/7",
-      "time": 1786159861000,
-      "tags": [
-        "programming",
-        "web-development",
-        "tech"
-      ]
-    },
-    {
-      "title": "Your Coding Agent Has a Memory Problem. Storing More Won’t Fix It.",
-      "url": "https://blog.stackademic.com/your-coding-agent-has-a-memory-problem-storing-more-wont-fix-it-b819b7f93447",
-      "by": "Utkarsh Singh",
-      "time": 1786159695000,
-      "tags": [
-        "ai",
-        "github-copilot",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Efficient Proxmox VM Provisioning: Building Automated Ubuntu & Rocky Linux Cloud-Init Templates",
-      "url": "https://medium.com/@amilakothalawala/efficient-proxmox-vm-provisioning-building-automated-ubuntu-rocky-linux-cloud-init-templates-2224cb0d7a29",
-      "by": "Amila kothalawala",
-      "time": 1786159475000,
-      "tags": [
-        "virtualization",
-        "linux",
-        "proxmox"
       ]
     }
   ]
