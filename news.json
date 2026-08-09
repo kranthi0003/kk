@@ -1,12 +1,26 @@
 {
-  "generated": "2026-08-09T04:43:45.570Z",
+  "generated": "2026-08-09T09:41:15.674Z",
   "reddit": [
     {
-      "title": "Seaking genuine advice",
-      "url": "https://www.reddit.com/r/devops/comments/1vjgbcm/seaking_genuine_advice/",
-      "by": "Nervous-Honey-2695",
-      "time": 1786249948000,
-      "sub": "r/devops"
+      "title": "Assembly Hall of Shame: Racing to the bottom of CPU performance",
+      "url": "https://www.reddit.com/r/programming/comments/1vjketg/assembly_hall_of_shame_racing_to_the_bottom_of/",
+      "by": "f311a",
+      "time": 1786264024000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Reducing Graphics API Complexity: A Clean Slate Design for Modern GPUs",
+      "url": "https://www.reddit.com/r/programming/comments/1vjhctl/reducing_graphics_api_complexity_a_clean_slate/",
+      "by": "mttd",
+      "time": 1786253382000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Projets ideas for junior",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vjdx7i/projets_ideas_for_junior/",
+      "by": "Imnot-Jesus",
+      "time": 1786242462000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "A quick look at zero-knowledge proofs",
@@ -16,27 +30,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Why do experienced engineers open cloud provider support cases for customer managed resources?",
-      "url": "https://www.reddit.com/r/devops/comments/1vj88zq/why_do_experienced_engineers_open_cloud_provider/",
-      "by": "I3ootcamp",
-      "time": 1786226252000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "When does “just rebuild it” stop being safe?",
-      "url": "https://www.reddit.com/r/devops/comments/1vj7co0/when_does_just_rebuild_it_stop_being_safe/",
-      "by": "InnerBank2400",
-      "time": 1786223873000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Cloud Engineers: Which YouTube roadmap/course would you follow in 2026?",
-      "url": "https://www.reddit.com/r/devops/comments/1vj6h2l/cloud_engineers_which_youtube_roadmapcourse_would/",
-      "by": "Darshan_only",
-      "time": 1786221595000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Differential heuristics: learning about a way to optimize the A* heuristic",
       "url": "https://www.reddit.com/r/programming/comments/1vj4cdd/differential_heuristics_learning_about_a_way_to/",
       "by": "mttd",
@@ -44,143 +37,150 @@
       "sub": "r/programming"
     },
     {
-      "title": "The advantage of using program images as a flight recorder instead of relying on logs",
-      "url": "https://www.reddit.com/r/programming/comments/1vj203j/the_advantage_of_using_program_images_as_a_flight/",
-      "by": "yogthos",
-      "time": 1786210530000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "GatewayAPI/CiliumBGP and ArgoCD not able to reach upstream (gateway->argocd-svc/pod) tls connection",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vj3jin/gatewayapiciliumbgp_and_argocd_not_able_to_reach/",
+      "by": "magnizide",
+      "time": 1786214216000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "A bug sat open on my operator for three and a half years because Kubernetes had no way to express the fix",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vj388t/a_bug_sat_open_on_my_operator_for_three_and_a/",
+      "by": "Artifer",
+      "time": 1786213458000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Part 3. Your First Service Mesh: Installing Istio and Deploying an Application",
-      "url": "https://medium.com/@gupta.rajneesh2010/part-3-your-first-service-mesh-installing-istio-and-deploying-an-application-c065d1c4ea9b",
-      "by": "Rajneesh Gupta",
-      "time": 1786250076000,
+      "title": "Fixing The Harness Will Be Enough?",
+      "url": "https://medium.com/coding-nexus/fixing-the-harness-will-be-enough-d8eb7872d3bb",
+      "by": "Minervee",
+      "time": 1786267895000,
       "tags": [
-        "devops",
-        "istio",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "Part 2. Inside Istio: Understanding the Architecture Behind the Service Mesh",
-      "url": "https://medium.com/@gupta.rajneesh2010/part-2-inside-istio-understanding-the-architecture-behind-the-service-mesh-1eced2b40386",
-      "by": "Rajneesh Gupta",
-      "time": 1786250005000,
-      "tags": [
-        "service-mesh",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "Holding Revamp Went Live. Then Reality Check Hit Hard",
-      "url": "https://tech.groww.in/holding-revamp-went-live-then-reality-check-hit-hard-5574010bade0",
-      "by": "Jainnirmal",
-      "time": 1786249863000,
-      "tags": [
-        "system-design-concepts",
+        "machine-learning",
         "programming",
-        "optimization"
+        "generative-ai-tools"
       ]
     },
     {
-      "title": "Top 7 Golden Path Patterns for Platform Engineering Teams",
-      "url": "https://medium.com/devops-ai-decoded/top-7-golden-path-patterns-for-platform-engineering-teams-e0906cdbfb30",
-      "by": "Neel Shah",
-      "time": 1786249863000,
-      "tags": [
-        "ai",
-        "devops",
-        "platform-engineering"
-      ]
-    },
-    {
-      "title": "Flutter Impeller Performance: What Actually Moves the Raster Thread Now That Skia Is Gone",
-      "url": "https://medium.com/@abied.abiad/flutter-impeller-performance-what-actually-moves-the-raster-thread-now-that-skia-is-gone-4df5ec17ae7f",
-      "by": "Abdulrahman Mohamed",
-      "time": 1786249721000,
+      "title": "Open Source Contributions No Longer Prove What You Think They Prove",
+      "url": "https://medium.com/@basel.issmail/open-source-contributions-no-longer-prove-what-you-think-they-prove-dc0a885dcfc3",
+      "by": "Basel Issmail",
+      "time": 1786267337000,
       "tags": [
         "software-engineering",
-        "flutter",
-        "security"
+        "programming",
+        "open-source"
       ]
     },
     {
-      "title": "Your Team Is Shipping More Code Than Ever. Here's Why Your Incident Rate Is Also Up.",
-      "url": "https://medium.com/the-programmer/your-team-is-shipping-more-code-than-ever-heres-why-your-incident-rate-is-also-up-e81f5cfdc7c1",
-      "by": "@pramodchandrayan",
-      "time": 1786249573000,
+      "title": "Why I Chose Android Development — And What I’m Going to Learn Along the Way",
+      "url": "https://medium.com/@jainrajat254/why-i-chose-android-development-and-what-im-going-to-learn-along-the-way-8dcb147d4def",
+      "by": "jainrajat254",
+      "time": 1786267140000,
       "tags": [
-        "artificial-intelligence",
-        "technology",
-        "software-engineering"
+        "software-development",
+        "android-app-development",
+        "career-advice"
       ]
     },
     {
-      "title": "Releaning HTML from Scratch:Rebuilding My Foundation as a Developer",
-      "url": "https://medium.com/@gihinithiharaunv/releaning-html-from-scratch-rebuilding-my-foundation-as-a-developer-1490611c4358",
-      "by": "Gihini Thihara",
-      "time": 1786249343000,
+      "title": "Run GCP on your laptop- free",
+      "url": "https://medium.com/cloud-wizards/run-gcp-on-your-laptop-free-8e7d93090596",
+      "by": "Manoj Saini",
+      "time": 1786267041000,
+      "tags": [
+        "gcp",
+        "devops",
+        "cloud"
+      ]
+    },
+    {
+      "title": "I Read 20+ Core Java Books: Here Are My Top 5 Recommendations for Beginners",
+      "url": "https://medium.com/javarevisited/i-read-20-core-java-books-here-are-my-top-5-recommendations-for-beginners-59848126aaa2",
+      "by": "Soma",
+      "time": 1786266973000,
       "tags": [
         "programming",
-        "learning-to-code",
-        "html"
+        "java",
+        "software-development"
       ]
     },
     {
-      "title": "How to Vibe Code an App from Scratch (Without a Team or a Budget)",
-      "url": "https://codescaptain.medium.com/how-to-vibe-code-an-app-from-scratch-without-a-team-or-a-budget-29f70f068261",
-      "by": "Ahmet Kaptan",
-      "time": 1786248961000,
+      "title": "The Interview Question That Exposes Whether You Actually Understand Security",
+      "url": "https://medium.com/javarevisited/the-interview-question-that-exposes-whether-you-actually-understand-security-19bceab93b63",
+      "by": "Garima Agarwal",
+      "time": 1786266878000,
       "tags": [
-        "ai",
-        "software-development",
+        "password-security",
+        "cybersecurity",
         "software-engineering"
       ]
     },
     {
-      "title": "Arquitectura multitenant con NestJS y TypeORM: de una base compartida a una base por cliente",
-      "url": "https://medium.com/@samuelboada/arquitectura-multitenant-con-nestjs-y-typeorm-de-una-base-compartida-a-una-base-por-cliente-009f32c7c7f7",
-      "by": "S Boada",
-      "time": 1786248909000,
+      "title": "LLM Failures Are Systems Failures, Not Model Failures",
+      "url": "https://medium.com/@adarshvankayala/llm-failures-are-systems-failures-not-model-failures-cfa55b9e6937",
+      "by": "Adarshvankayala",
+      "time": 1786266877000,
       "tags": [
-        "typeorm",
-        "postgres-typeorm-nestjs",
-        "nestjs"
+        "llm",
+        "generative-ai-use-cases",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "APIs for Absolute Beginners: The Restaurant Kitchen Analogy",
-      "url": "https://medium.com/@tanishxdev1/apis-for-absolute-beginners-the-restaurant-kitchen-analogy-3c5f2367cd08",
-      "by": "Tanish",
-      "time": 1786248056000,
+      "title": "Why Killer Coda Is the Best Free Tool for Learning Kubernetes (And Why You’re Probably Underusing…",
+      "url": "https://medium.com/@sathishkumar.babu89/why-killer-coda-is-the-best-free-tool-for-learning-kubernetes-and-why-youre-probably-underusing-d17ec2f5a14e",
+      "by": "Sathishkumar Babu",
+      "time": 1786266797000,
       "tags": [
-        "api",
-        "beginners-guide",
-        "software-development"
+        "devops",
+        "cloud-computing",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "15 Advanced ChatGPT Prompts That Will Make You Better Than 99% of ChatGPT Users",
+      "url": "https://medium.com/@marocsofiane20/15-advanced-chatgpt-prompts-that-will-make-you-better-than-99-of-chatgpt-users-7095aa82dfa4",
+      "by": "TheSkillsGrowth",
+      "time": 1786266664000,
+      "tags": [
+        "self-improvement",
+        "data-science",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "The Internet Is Splitting Into Two Interfaces — One for Humans, One for AI Agents",
+      "url": "https://medium.com/@techmuse007/the-internet-is-splitting-into-two-interfaces-one-for-humans-one-for-ai-agents-089a767fa682",
+      "by": "Tech Muse",
+      "time": 1786266358000,
+      "tags": [
+        "future-of-the-internet",
+        "ai-agent",
+        "artificial-intelligence"
       ]
     }
   ]
