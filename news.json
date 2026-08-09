@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-08T04:38:21.717Z",
+  "generated": "2026-08-09T04:43:45.570Z",
   "reddit": [
     {
-      "title": "A shell exclamation mark is not for yelling. Be lazy. | Filip Roséen",
-      "url": "https://www.reddit.com/r/programming/comments/1vilqxz/a_shell_exclamation_mark_is_not_for_yelling_be/",
-      "by": "refp",
-      "time": 1786161479000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Here's why OOP makes a lot of sense to me.",
-      "url": "https://www.reddit.com/r/programming/comments/1vikuz4/heres_why_oop_makes_a_lot_of_sense_to_me/",
-      "by": "OSBY_Glabay",
-      "time": 1786158795000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Solving and benchmarking QUBO problems with Gurobi in Python",
-      "url": "https://www.reddit.com/r/programming/comments/1vija3m/solving_and_benchmarking_qubo_problems_with/",
-      "by": "Future_Ad7567",
-      "time": 1786154119000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I just made a helper for you and me ... mostly me",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vij3ho/i_just_made_a_helper_for_you_and_me_mostly_me/",
-      "by": "Pretend_Flower_9508",
-      "time": 1786153571000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "JDK 28 EA Build10 is now available for download and includes JEP 401: Value Objects (Preview) from Project Valhalla",
-      "url": "https://www.reddit.com/r/programming/comments/1vii2vi/jdk_28_ea_build10_is_now_available_for_download/",
-      "by": "davidalayachew",
-      "time": 1786150584000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How is running a small farm and architecting a Cloud-Native stack similar?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vibmhe/how_is_running_a_small_farm_and_architecting_a/",
-      "by": "SAIO94",
-      "time": 1786134004000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Seaking genuine advice",
+      "url": "https://www.reddit.com/r/devops/comments/1vjgbcm/seaking_genuine_advice/",
+      "by": "Nervous-Honey-2695",
+      "time": 1786249948000,
       "sub": "r/devops"
     },
     {
-      "title": "GCP | Kubernetes | GKE | CI/CD Troubleshooting – Available for Freelance Support",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vi1jd5/gcp_kubernetes_gke_cicd_troubleshooting_available/",
-      "by": "vishnu_koneti",
-      "time": 1786111414000,
+      "title": "A quick look at zero-knowledge proofs",
+      "url": "https://www.reddit.com/r/programming/comments/1vjci5d/a_quick_look_at_zeroknowledge_proofs/",
+      "by": "compilers-r-us",
+      "time": 1786238151000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Why do experienced engineers open cloud provider support cases for customer managed resources?",
+      "url": "https://www.reddit.com/r/devops/comments/1vj88zq/why_do_experienced_engineers_open_cloud_provider/",
+      "by": "I3ootcamp",
+      "time": 1786226252000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "When does “just rebuild it” stop being safe?",
+      "url": "https://www.reddit.com/r/devops/comments/1vj7co0/when_does_just_rebuild_it_stop_being_safe/",
+      "by": "InnerBank2400",
+      "time": 1786223873000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Cloud Engineers: Which YouTube roadmap/course would you follow in 2026?",
+      "url": "https://www.reddit.com/r/devops/comments/1vj6h2l/cloud_engineers_which_youtube_roadmapcourse_would/",
+      "by": "Darshan_only",
+      "time": 1786221595000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Differential heuristics: learning about a way to optimize the A* heuristic",
+      "url": "https://www.reddit.com/r/programming/comments/1vj4cdd/differential_heuristics_learning_about_a_way_to/",
+      "by": "mttd",
+      "time": 1786216180000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The advantage of using program images as a flight recorder instead of relying on logs",
+      "url": "https://www.reddit.com/r/programming/comments/1vj203j/the_advantage_of_using_program_images_as_a_flight/",
+      "by": "yogthos",
+      "time": 1786210530000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "I Started with Security. I Ended Up Building Systems.",
-      "url": "https://medium.com/@hellfreak008/i-started-with-security-i-ended-up-building-systems-fb67696558bd",
-      "by": "Chandan Bhattacharya",
-      "time": 1786163386000,
+      "title": "Part 3. Your First Service Mesh: Installing Istio and Deploying an Application",
+      "url": "https://medium.com/@gupta.rajneesh2010/part-3-your-first-service-mesh-installing-istio-and-deploying-an-application-c065d1c4ea9b",
+      "by": "Rajneesh Gupta",
+      "time": 1786250076000,
       "tags": [
-        "aws",
-        "cloud-computing",
-        "cybersecurity"
+        "devops",
+        "istio",
+        "kubernetes"
       ]
     },
     {
-      "title": "แถลงการณ์ทางวิชาการ: พิมพ์เขียว GSII และจริยธรรมปัญญาประดิษฐ์ในสมรภูมิรบ",
-      "url": "https://nuttananfoopun.medium.com/%E0%B9%81%E0%B8%96%E0%B8%A5%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B4%E0%B8%8A%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3-%E0%B8%9E%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B9%8C%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%A7-gsii-%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%88%E0%B8%A3%E0%B8%B4%E0%B8%A2%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9B%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B4%E0%B8%A9%E0%B8%90%E0%B9%8C%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A1%E0%B8%A3%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4%E0%B8%A3%E0%B8%9A-5ab00a00ed30",
-      "by": "Nuttanan Foopun",
-      "time": 1786163102000,
+      "title": "Part 2. Inside Istio: Understanding the Architecture Behind the Service Mesh",
+      "url": "https://medium.com/@gupta.rajneesh2010/part-2-inside-istio-understanding-the-architecture-behind-the-service-mesh-1eced2b40386",
+      "by": "Rajneesh Gupta",
+      "time": 1786250005000,
       "tags": [
-        "machine-learning",
-        "data-science",
-        "programming"
+        "service-mesh",
+        "kubernetes",
+        "devops"
       ]
     },
     {
-      "title": "I removed 40% of the Allocations from a Go service — Here’s what actually worked",
-      "url": "https://blog.devgenius.io/i-removed-40-of-the-allocations-from-a-go-service-heres-what-actually-worked-95b88928a36e",
-      "by": "Yaninyz witty",
-      "time": 1786162585000,
+      "title": "Holding Revamp Went Live. Then Reality Check Hit Hard",
+      "url": "https://tech.groww.in/holding-revamp-went-live-then-reality-check-hit-hard-5574010bade0",
+      "by": "Jainnirmal",
+      "time": 1786249863000,
       "tags": [
-        "software-development",
-        "coding",
-        "writing"
+        "system-design-concepts",
+        "programming",
+        "optimization"
       ]
     },
     {
-      "title": "AI Slop Is Eating Your Brain",
-      "url": "https://ai.plainenglish.io/ai-slop-is-eating-your-brain-b76235f21690",
-      "by": "Dr Abdullah",
-      "time": 1786162579000,
+      "title": "Top 7 Golden Path Patterns for Platform Engineering Teams",
+      "url": "https://medium.com/devops-ai-decoded/top-7-golden-path-patterns-for-platform-engineering-teams-e0906cdbfb30",
+      "by": "Neel Shah",
+      "time": 1786249863000,
       "tags": [
-        "technology",
         "ai",
-        "programming"
+        "devops",
+        "platform-engineering"
       ]
     },
     {
-      "title": "AI Can Write the Code. Can You Still Tell When It’s Wrong?",
-      "url": "https://ai.plainenglish.io/ai-can-write-the-code-can-you-still-tell-when-its-wrong-b11cc8ce60c0",
-      "by": "Shreya Prasad",
-      "time": 1786162370000,
+      "title": "Flutter Impeller Performance: What Actually Moves the Raster Thread Now That Skia Is Gone",
+      "url": "https://medium.com/@abied.abiad/flutter-impeller-performance-what-actually-moves-the-raster-thread-now-that-skia-is-gone-4df5ec17ae7f",
+      "by": "Abdulrahman Mohamed",
+      "time": 1786249721000,
       "tags": [
-        "software-development",
         "software-engineering",
-        "ai"
+        "flutter",
+        "security"
       ]
     },
     {
-      "title": "Nobody Warned Me How Much Cloud Engineering Has Changed",
-      "url": "https://medium.com/@cultclass/nobody-warned-me-how-much-cloud-engineering-has-changed-30750ccf7cb9",
-      "by": "Mathana Mohan",
-      "time": 1786162172000,
+      "title": "Your Team Is Shipping More Code Than Ever. Here's Why Your Incident Rate Is Also Up.",
+      "url": "https://medium.com/the-programmer/your-team-is-shipping-more-code-than-ever-heres-why-your-incident-rate-is-also-up-e81f5cfdc7c1",
+      "by": "@pramodchandrayan",
+      "time": 1786249573000,
       "tags": [
-        "deep-learning",
-        "cloud-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Pure subscription pricing doesn’t work for AI products.",
-      "url": "https://medium.com/@vimu.j/pure-subscription-pricing-doesnt-work-for-ai-products-e7917dab1468",
-      "by": "Vimukthi Jayabahu",
-      "time": 1786162109000,
-      "tags": [
-        "social-media",
-        "full-stack-developer",
+        "artificial-intelligence",
+        "technology",
         "software-engineering"
       ]
     },
     {
-      "title": "Tech Courses Are Up to 50% OFF",
-      "url": "https://medium.com/codetodeploy/tech-courses-are-up-to-50-off-5f44cd89a2fc",
-      "by": "Roobin Chettri",
-      "time": 1786161585000,
+      "title": "Releaning HTML from Scratch:Rebuilding My Foundation as a Developer",
+      "url": "https://medium.com/@gihinithiharaunv/releaning-html-from-scratch-rebuilding-my-foundation-as-a-developer-1490611c4358",
+      "by": "Gihini Thihara",
+      "time": 1786249343000,
       "tags": [
-        "technology",
-        "software-engineering",
+        "programming",
+        "learning-to-code",
+        "html"
+      ]
+    },
+    {
+      "title": "How to Vibe Code an App from Scratch (Without a Team or a Budget)",
+      "url": "https://codescaptain.medium.com/how-to-vibe-code-an-app-from-scratch-without-a-team-or-a-budget-29f70f068261",
+      "by": "Ahmet Kaptan",
+      "time": 1786248961000,
+      "tags": [
+        "ai",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Arquitectura multitenant con NestJS y TypeORM: de una base compartida a una base por cliente",
+      "url": "https://medium.com/@samuelboada/arquitectura-multitenant-con-nestjs-y-typeorm-de-una-base-compartida-a-una-base-por-cliente-009f32c7c7f7",
+      "by": "S Boada",
+      "time": 1786248909000,
+      "tags": [
+        "typeorm",
+        "postgres-typeorm-nestjs",
+        "nestjs"
+      ]
+    },
+    {
+      "title": "APIs for Absolute Beginners: The Restaurant Kitchen Analogy",
+      "url": "https://medium.com/@tanishxdev1/apis-for-absolute-beginners-the-restaurant-kitchen-analogy-3c5f2367cd08",
+      "by": "Tanish",
+      "time": 1786248056000,
+      "tags": [
+        "api",
+        "beginners-guide",
         "software-development"
-      ]
-    },
-    {
-      "title": "The 2026 FDE Roadmap: What $9B of Capital Says You Should Learn",
-      "url": "https://pub.towardsai.net/the-2026-fde-roadmap-what-9b-of-capital-says-you-should-learn-e45a78891b03",
-      "by": "Saurabh Singh",
-      "time": 1786161493000,
-      "tags": [
-        "technology",
-        "web-development",
-        "ai"
-      ]
-    },
-    {
-      "title": "Budgeting and API Costs Explained (2026): Complete Guide to AI API Pricing, Tokens & Cost…",
-      "url": "https://medium.com/@khayyamshah2007/budgeting-and-api-costs-explained-2026-complete-guide-to-ai-api-pricing-tokens-cost-622403a2a9cb",
-      "by": "Khayyamshah",
-      "time": 1786160790000,
-      "tags": [
-        "python",
-        "artificial-intelligence",
-        "api"
       ]
     }
   ]
