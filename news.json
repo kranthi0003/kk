@@ -1,6 +1,13 @@
 {
-  "generated": "2026-08-09T12:18:19.014Z",
+  "generated": "2026-08-09T13:33:49.372Z",
   "reddit": [
+    {
+      "title": "The Sentinel Object Pattern in Python",
+      "url": "https://www.reddit.com/r/programming/comments/1vjpp19/the_sentinel_object_pattern_in_python/",
+      "by": "Grouchy-Trade-7250",
+      "time": 1786281516000,
+      "sub": "r/programming"
+    },
     {
       "title": "Hungarian Assignment Algorithm: Applied Optimal Transport for Programmers",
       "url": "https://www.reddit.com/r/programming/comments/1vjndxo/hungarian_assignment_algorithm_applied_optimal/",
@@ -23,164 +30,157 @@
       "sub": "r/programming"
     },
     {
-      "title": "Projets ideas for junior",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vjdx7i/projets_ideas_for_junior/",
-      "by": "Imnot-Jesus",
-      "time": 1786242462000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A quick look at zero-knowledge proofs",
-      "url": "https://www.reddit.com/r/programming/comments/1vjci5d/a_quick_look_at_zeroknowledge_proofs/",
-      "by": "compilers-r-us",
-      "time": 1786238151000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "GatewayAPI/CiliumBGP and ArgoCD not able to reach upstream (gateway->argocd-svc/pod) tls connection",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vj3jin/gatewayapiciliumbgp_and_argocd_not_able_to_reach/",
-      "by": "magnizide",
-      "time": 1786214216000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A bug sat open on my operator for three and a half years because Kubernetes had no way to express the fix",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vj388t/a_bug_sat_open_on_my_operator_for_three_and_a/",
-      "by": "Artifer",
-      "time": 1786213458000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Seaking genuine advice",
+      "url": "https://www.reddit.com/r/devops/comments/1vjgbcm/seaking_genuine_advice/",
+      "by": "Nervous-Honey-2695",
+      "time": 1786249948000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "Why do experienced engineers open cloud provider support cases for customer managed resources?",
+      "url": "https://www.reddit.com/r/devops/comments/1vj88zq/why_do_experienced_engineers_open_cloud_provider/",
+      "by": "I3ootcamp",
+      "time": 1786226252000,
       "sub": "r/devops"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
+      "title": "When does “just rebuild it” stop being safe?",
+      "url": "https://www.reddit.com/r/devops/comments/1vj7co0/when_does_just_rebuild_it_stop_being_safe/",
+      "by": "InnerBank2400",
+      "time": 1786223873000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "How and why a Floating-Point Error Becomes a Browser Exploit",
-      "url": "https://medium.com/@dianatichy16/how-and-why-a-floating-point-error-becomes-a-browser-exploit-f325562cedbc",
-      "by": "m0ms3c",
-      "time": 1786277767000,
+      "title": "Programming Is Changing. Are You?",
+      "url": "https://medium.com/the-mock-startup/programming-is-changing-are-you-b712c70dcba4",
+      "by": "Piyush Chouhan",
+      "time": 1786282239000,
       "tags": [
-        "information-security",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AWS Site-to-Site VPN vs Direct Connect: Choosing the Right Hybrid Cloud Network",
-      "url": "https://medium.com/@sharathkumarlokesh/aws-site-to-site-vpn-vs-direct-connect-choosing-the-right-hybrid-cloud-network-e21aadddfe80",
-      "by": "SwayamOps",
-      "time": 1786277656000,
-      "tags": [
-        "hybrid-cloud",
-        "networking",
-        "aws"
-      ]
-    },
-    {
-      "title": "Amazon Comprehend: Practical NLP for AWS Workloads",
-      "url": "https://medium.com/@sanathw/amazon-comprehend-practical-nlp-for-aws-workloads-b26c6d9caacd",
-      "by": "Sanath Waghela",
-      "time": 1786277247000,
-      "tags": [
-        "architecture",
-        "devops",
-        "ai"
-      ]
-    },
-    {
-      "title": "Beyond Dynamic Proxy: A Universal Architecture for Runtime Capability Engineering",
-      "url": "https://jinlow.medium.com/beyond-dynamic-proxy-a-universal-architecture-for-runtime-capability-engineering-e0b4b74745c6",
-      "by": "JIN",
-      "time": 1786277239000,
-      "tags": [
-        "runtime-engineering",
-        "software",
-        "functional-delivery"
-      ]
-    },
-    {
-      "title": "What Actually Happens When You Type “Remote-SSH: Connect” — A Systems Teardown of VS Code Remote…",
-      "url": "https://jinlow.medium.com/what-actually-happens-when-you-type-remote-ssh-connect-a-systems-teardown-of-vs-code-remote-cc7b8585c038",
-      "by": "JIN",
-      "time": 1786277226000,
-      "tags": [
-        "system-design-interview",
-        "vscode",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AMR and the Burden on LMICs",
-      "url": "https://infinite-rita.medium.com/amr-and-the-burden-on-lmics-3bc0530bb112",
-      "by": "Ejiabor Chinweogo Rita",
-      "time": 1786277083000,
-      "tags": [
-        "biotechnology",
-        "software-engineering",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "What I’ve been reading (and watching) week ending 9 August",
-      "url": "https://jchyip.medium.com/what-ive-been-reading-and-watching-week-ending-9-august-1ab6b2dde859",
-      "by": "Jason Yip",
-      "time": 1786276861000,
-      "tags": [
-        "engineering",
-        "software-engineering",
-        "ai"
-      ]
-    },
-    {
-      "title": "Demystifying Architecture Characteristics in Modern & Cloud-Native Systems",
-      "url": "https://medium.com/@thquang2605/demystifying-architecture-characteristics-in-modern-cloud-native-systems-69ada7500e30",
-      "by": "T.N.K.TECH",
-      "time": 1786276097000,
-      "tags": [
-        "software-architecture",
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Building something for the AI job market — looking for people to join",
-      "url": "https://medium.com/@sayfessyd/building-something-for-the-ai-job-market-looking-for-people-to-join-a353c70da045",
-      "by": "Sayf Essyd",
-      "time": 1786276042000,
-      "tags": [
-        "community",
         "ai",
-        "job-search"
+        "software-development",
+        "ai-agent"
       ]
     },
     {
-      "title": "Choosing a Research Laptop When You Can’t Assume the Power Stays On",
-      "url": "https://medium.com/@dr_Bat/choosing-a-research-laptop-when-you-cant-assume-the-power-stays-on-5ebf9dd8b83f",
-      "by": "Roman Koval",
-      "time": 1786275954000,
+      "title": "Your Automated Tests Ran Overnight. What Do You Actually Know?",
+      "url": "https://medium.com/beyond-the-test-case/your-automated-tests-ran-overnight-what-do-you-actually-know-44518e786b26",
+      "by": "Aaronkwame",
+      "time": 1786282165000,
       "tags": [
-        "machine-learning",
-        "ukraine-war",
+        "test-automation",
+        "software-testing",
+        "quality-assurance"
+      ]
+    },
+    {
+      "title": "Stop Memorizing Terminal Commands. Make Your Shell Remember Them Instead.",
+      "url": "https://cloudwithazeem.medium.com/stop-memorizing-terminal-commands-make-your-shell-remember-them-instead-a67cc80dd92e",
+      "by": "Cloud With Azeem",
+      "time": 1786282095000,
+      "tags": [
+        "linux",
+        "programming",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "3 Careers That Are (Probably) Safe From AI",
+      "url": "https://medium.com/@antilogatharv/3-careers-that-are-probably-safe-from-ai-a4ea48e2ae29",
+      "by": "Atharv Mishra",
+      "time": 1786281382000,
+      "tags": [
+        "ai",
+        "product-management",
+        "ai-jobs"
+      ]
+    },
+    {
+      "title": "Expanding The Domain: From Docker To Kubernetes",
+      "url": "https://medium.com/@mahmutismail83/expanding-the-domain-from-docker-to-kubernetes-0ab67db9f664",
+      "by": "Choco",
+      "time": 1786281190000,
+      "tags": [
+        "devops",
+        "docker",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "The Toxic Side of the IT Industry: When Companies Know You’re Replaceable",
+      "url": "https://medium.com/@suvinthasushith/the-toxic-side-of-the-it-industry-when-companies-know-youre-replaceable-7ac659f6caba",
+      "by": "RootLab",
+      "time": 1786281025000,
+      "tags": [
+        "software-engineering",
+        "computer-science",
+        "technology"
+      ]
+    },
+    {
+      "title": "Feelize Your Operational Architecture: The Enterprise Guide to Workflow Automation Services",
+      "url": "https://medium.com/@perezmoises831/feelize-your-operational-architecture-the-enterprise-guide-to-workflow-automation-services-78da86f68f8e",
+      "by": "Perezmoises",
+      "time": 1786280994000,
+      "tags": [
+        "feelize",
+        "software-engineering",
+        "web-development"
+      ]
+    },
+    {
+      "title": "Extend GitHub Copilot: A Technical Deep Dive Into the Copilot SDK and Its Rust Runtime",
+      "url": "https://python.plainenglish.io/extend-github-copilot-a-technical-deep-dive-into-the-copilot-sdk-and-its-rust-runtime-f4c7423fb080",
+      "by": "Dave R - Microsoft Azure & AI M…",
+      "time": 1786280883000,
+      "tags": [
+        "software-development",
+        "github-copilot",
         "programming"
+      ]
+    },
+    {
+      "title": "Which AI Agent Should You Actually Use in 2026",
+      "url": "https://alfiestips.medium.com/which-ai-agent-should-you-actually-use-in-2026-4a4db6af3733",
+      "by": "alfiesTips",
+      "time": 1786280854000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Focus Is the New Moat: Why Building AI Fast Is Making Us Lose the Plot",
+      "url": "https://medium.com/@georgekar91/focus-is-the-new-moat-why-building-ai-fast-is-making-us-lose-the-plot-03d29d130ad2",
+      "by": "George Karapetyan",
+      "time": 1786280442000,
+      "tags": [
+        "technology",
+        "product-management",
+        "artificial-intelligence"
       ]
     }
   ]
