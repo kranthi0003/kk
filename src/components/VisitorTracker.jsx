@@ -51,7 +51,6 @@ let sharedChannel = null
 let subscriberCount = 0
 let presenceCallbacks = new Set()
 let cursorCallbacks = new Set()
-let reactionCallbacks = new Set()
 let channelReady = false
 
 export function getVisitorChannel() {
@@ -70,11 +69,6 @@ export function getVisitorChannel() {
       if (!payload || payload.id === VISITOR_ID) return
       cursorCallbacks.forEach(cb => cb(payload))
     })
-    // Reactions ride the same channel. Also registered here, before subscribe().
-    sharedChannel.on('broadcast', { event: 'reaction' }, ({ payload }) => {
-      if (!payload || payload.id === VISITOR_ID) return
-      reactionCallbacks.forEach(cb => cb(payload))
-    })
   }
   return sharedChannel
 }
@@ -91,16 +85,6 @@ export function onCursor(callback) {
 export function sendCursor(payload) {
   if (!sharedChannel || !channelReady) return
   sharedChannel.send({ type: 'broadcast', event: 'cursor', payload })
-}
-
-export function onReaction(callback) {
-  reactionCallbacks.add(callback)
-  return () => reactionCallbacks.delete(callback)
-}
-
-export function sendReaction(payload) {
-  if (!sharedChannel || !channelReady) return
-  sharedChannel.send({ type: 'broadcast', event: 'reaction', payload })
 }
 
 export function onPresenceSync(callback) {
@@ -127,7 +111,6 @@ export function unsubscribeVisitorChannel() {
     channelReady = false
     presenceCallbacks.clear()
     cursorCallbacks.clear()
-    reactionCallbacks.clear()
   }
 }
 
