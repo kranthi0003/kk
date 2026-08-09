@@ -29,6 +29,7 @@ import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
 import VisitorCount from './components/VisitorCount'
 import VisitorTracker from './components/VisitorTracker'
+import GhostCursors from './components/GhostCursors'
 import AdminDashboard from './components/AdminDashboard'
 import CryptoDashboard from './components/CryptoDashboard'
 import DevNet from './components/DevNet'
@@ -385,6 +386,7 @@ export default function App() {
       <Sidecar />
       <VisitorTracker />
       <VisitorCount />
+      <GhostCursors />
       <AdminDashboard />
       <Changelog />
       <QRvCard />
