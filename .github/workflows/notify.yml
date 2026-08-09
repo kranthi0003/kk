@@ -1,0 +1,46 @@
+name: Daily digest
+
+# Sends Kiran one WhatsApp message a day with birthdays and new guestbook
+# notes. Deliberately separate from "Build and Deploy" so a messaging failure
+# can never block a site deploy, and vice versa.
+on:
+  schedule:
+    # 03:30 UTC = 09:00 IST. GitHub runs scheduled jobs on a best-effort basis
+    # and can be some minutes late under load, which is fine for a daily digest.
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+    inputs:
+      test_send:
+        description: 'Send even when there is nothing to report (for testing)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No install step: the script uses only Node built-ins (fetch, Intl).
+      - name: Send digest
+        run: node scripts/notify.mjs
+        env:
+          # Contacts live here rather than in the repo, because the repo is public.
+          BIRTHDAYS_JSON: ${{ secrets.BIRTHDAYS_JSON }}
+          WHATSAPP_TOKEN: ${{ secrets.WHATSAPP_TOKEN }}
+          WHATSAPP_PHONE_ID: ${{ secrets.WHATSAPP_PHONE_ID }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+          WHATSAPP_TEMPLATE: ${{ vars.WHATSAPP_TEMPLATE }}
+          WHATSAPP_LANG: ${{ vars.WHATSAPP_LANG }}
+          # Set to 1 if Meta rejects multi-line template parameters.
+          WHATSAPP_FLATTEN: ${{ vars.WHATSAPP_FLATTEN }}
+          NOTIFY_TEST_SEND: ${{ inputs.test_send && '1' || '' }}
