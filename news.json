@@ -1,6 +1,13 @@
 {
-  "generated": "2026-08-09T09:41:15.674Z",
+  "generated": "2026-08-09T12:18:19.014Z",
   "reddit": [
+    {
+      "title": "Hungarian Assignment Algorithm: Applied Optimal Transport for Programmers",
+      "url": "https://www.reddit.com/r/programming/comments/1vjndxo/hungarian_assignment_algorithm_applied_optimal/",
+      "by": "DataBaeBee",
+      "time": 1786274587000,
+      "sub": "r/programming"
+    },
     {
       "title": "Assembly Hall of Shame: Racing to the bottom of CPU performance",
       "url": "https://www.reddit.com/r/programming/comments/1vjketg/assembly_hall_of_shame_racing_to_the_bottom_of/",
@@ -27,13 +34,6 @@
       "url": "https://www.reddit.com/r/programming/comments/1vjci5d/a_quick_look_at_zeroknowledge_proofs/",
       "by": "compilers-r-us",
       "time": 1786238151000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Differential heuristics: learning about a way to optimize the A* heuristic",
-      "url": "https://www.reddit.com/r/programming/comments/1vj4cdd/differential_heuristics_learning_about_a_way_to/",
-      "by": "mttd",
-      "time": 1786216180000,
       "sub": "r/programming"
     },
     {
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Fixing The Harness Will Be Enough?",
-      "url": "https://medium.com/coding-nexus/fixing-the-harness-will-be-enough-d8eb7872d3bb",
-      "by": "Minervee",
-      "time": 1786267895000,
+      "title": "How and why a Floating-Point Error Becomes a Browser Exploit",
+      "url": "https://medium.com/@dianatichy16/how-and-why-a-floating-point-error-becomes-a-browser-exploit-f325562cedbc",
+      "by": "m0ms3c",
+      "time": 1786277767000,
+      "tags": [
+        "information-security",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "AWS Site-to-Site VPN vs Direct Connect: Choosing the Right Hybrid Cloud Network",
+      "url": "https://medium.com/@sharathkumarlokesh/aws-site-to-site-vpn-vs-direct-connect-choosing-the-right-hybrid-cloud-network-e21aadddfe80",
+      "by": "SwayamOps",
+      "time": 1786277656000,
+      "tags": [
+        "hybrid-cloud",
+        "networking",
+        "aws"
+      ]
+    },
+    {
+      "title": "Amazon Comprehend: Practical NLP for AWS Workloads",
+      "url": "https://medium.com/@sanathw/amazon-comprehend-practical-nlp-for-aws-workloads-b26c6d9caacd",
+      "by": "Sanath Waghela",
+      "time": 1786277247000,
+      "tags": [
+        "architecture",
+        "devops",
+        "ai"
+      ]
+    },
+    {
+      "title": "Beyond Dynamic Proxy: A Universal Architecture for Runtime Capability Engineering",
+      "url": "https://jinlow.medium.com/beyond-dynamic-proxy-a-universal-architecture-for-runtime-capability-engineering-e0b4b74745c6",
+      "by": "JIN",
+      "time": 1786277239000,
+      "tags": [
+        "runtime-engineering",
+        "software",
+        "functional-delivery"
+      ]
+    },
+    {
+      "title": "What Actually Happens When You Type “Remote-SSH: Connect” — A Systems Teardown of VS Code Remote…",
+      "url": "https://jinlow.medium.com/what-actually-happens-when-you-type-remote-ssh-connect-a-systems-teardown-of-vs-code-remote-cc7b8585c038",
+      "by": "JIN",
+      "time": 1786277226000,
+      "tags": [
+        "system-design-interview",
+        "vscode",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "AMR and the Burden on LMICs",
+      "url": "https://infinite-rita.medium.com/amr-and-the-burden-on-lmics-3bc0530bb112",
+      "by": "Ejiabor Chinweogo Rita",
+      "time": 1786277083000,
+      "tags": [
+        "biotechnology",
+        "software-engineering",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "What I’ve been reading (and watching) week ending 9 August",
+      "url": "https://jchyip.medium.com/what-ive-been-reading-and-watching-week-ending-9-august-1ab6b2dde859",
+      "by": "Jason Yip",
+      "time": 1786276861000,
+      "tags": [
+        "engineering",
+        "software-engineering",
+        "ai"
+      ]
+    },
+    {
+      "title": "Demystifying Architecture Characteristics in Modern & Cloud-Native Systems",
+      "url": "https://medium.com/@thquang2605/demystifying-architecture-characteristics-in-modern-cloud-native-systems-69ada7500e30",
+      "by": "T.N.K.TECH",
+      "time": 1786276097000,
+      "tags": [
+        "software-architecture",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Building something for the AI job market — looking for people to join",
+      "url": "https://medium.com/@sayfessyd/building-something-for-the-ai-job-market-looking-for-people-to-join-a353c70da045",
+      "by": "Sayf Essyd",
+      "time": 1786276042000,
+      "tags": [
+        "community",
+        "ai",
+        "job-search"
+      ]
+    },
+    {
+      "title": "Choosing a Research Laptop When You Can’t Assume the Power Stays On",
+      "url": "https://medium.com/@dr_Bat/choosing-a-research-laptop-when-you-cant-assume-the-power-stays-on-5ebf9dd8b83f",
+      "by": "Roman Koval",
+      "time": 1786275954000,
       "tags": [
         "machine-learning",
-        "programming",
-        "generative-ai-tools"
-      ]
-    },
-    {
-      "title": "Open Source Contributions No Longer Prove What You Think They Prove",
-      "url": "https://medium.com/@basel.issmail/open-source-contributions-no-longer-prove-what-you-think-they-prove-dc0a885dcfc3",
-      "by": "Basel Issmail",
-      "time": 1786267337000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "open-source"
-      ]
-    },
-    {
-      "title": "Why I Chose Android Development — And What I’m Going to Learn Along the Way",
-      "url": "https://medium.com/@jainrajat254/why-i-chose-android-development-and-what-im-going-to-learn-along-the-way-8dcb147d4def",
-      "by": "jainrajat254",
-      "time": 1786267140000,
-      "tags": [
-        "software-development",
-        "android-app-development",
-        "career-advice"
-      ]
-    },
-    {
-      "title": "Run GCP on your laptop- free",
-      "url": "https://medium.com/cloud-wizards/run-gcp-on-your-laptop-free-8e7d93090596",
-      "by": "Manoj Saini",
-      "time": 1786267041000,
-      "tags": [
-        "gcp",
-        "devops",
-        "cloud"
-      ]
-    },
-    {
-      "title": "I Read 20+ Core Java Books: Here Are My Top 5 Recommendations for Beginners",
-      "url": "https://medium.com/javarevisited/i-read-20-core-java-books-here-are-my-top-5-recommendations-for-beginners-59848126aaa2",
-      "by": "Soma",
-      "time": 1786266973000,
-      "tags": [
-        "programming",
-        "java",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Interview Question That Exposes Whether You Actually Understand Security",
-      "url": "https://medium.com/javarevisited/the-interview-question-that-exposes-whether-you-actually-understand-security-19bceab93b63",
-      "by": "Garima Agarwal",
-      "time": 1786266878000,
-      "tags": [
-        "password-security",
-        "cybersecurity",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "LLM Failures Are Systems Failures, Not Model Failures",
-      "url": "https://medium.com/@adarshvankayala/llm-failures-are-systems-failures-not-model-failures-cfa55b9e6937",
-      "by": "Adarshvankayala",
-      "time": 1786266877000,
-      "tags": [
-        "llm",
-        "generative-ai-use-cases",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Why Killer Coda Is the Best Free Tool for Learning Kubernetes (And Why You’re Probably Underusing…",
-      "url": "https://medium.com/@sathishkumar.babu89/why-killer-coda-is-the-best-free-tool-for-learning-kubernetes-and-why-youre-probably-underusing-d17ec2f5a14e",
-      "by": "Sathishkumar Babu",
-      "time": 1786266797000,
-      "tags": [
-        "devops",
-        "cloud-computing",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "15 Advanced ChatGPT Prompts That Will Make You Better Than 99% of ChatGPT Users",
-      "url": "https://medium.com/@marocsofiane20/15-advanced-chatgpt-prompts-that-will-make-you-better-than-99-of-chatgpt-users-7095aa82dfa4",
-      "by": "TheSkillsGrowth",
-      "time": 1786266664000,
-      "tags": [
-        "self-improvement",
-        "data-science",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "The Internet Is Splitting Into Two Interfaces — One for Humans, One for AI Agents",
-      "url": "https://medium.com/@techmuse007/the-internet-is-splitting-into-two-interfaces-one-for-humans-one-for-ai-agents-089a767fa682",
-      "by": "Tech Muse",
-      "time": 1786266358000,
-      "tags": [
-        "future-of-the-internet",
-        "ai-agent",
-        "artificial-intelligence"
+        "ukraine-war",
+        "programming"
       ]
     }
   ]
