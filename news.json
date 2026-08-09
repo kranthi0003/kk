@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-09T13:33:49.372Z",
+  "generated": "2026-08-09T13:53:46.283Z",
   "reddit": [
     {
       "title": "The Sentinel Object Pattern in Python",
@@ -74,6 +74,61 @@
   ],
   "medium": [
     {
+      "title": "Stop Polling for Changes: 5 Real-Time Push Patterns in Spring Boot to Build a Real-Time Dashboard",
+      "url": "https://blog.stackademic.com/stop-polling-for-changes-5-real-time-push-patterns-in-spring-boot-to-build-a-real-time-dashboard-854b10b07034",
+      "by": "HabibWahid",
+      "time": 1786283091000,
+      "tags": [
+        "technology",
+        "java",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Web Platform Notes #001 — Container Queries Support for",
+      "url": "https://javascript.plainenglish.io/web-platform-notes-001-container-queries-support-for-picture-ac3735bae906",
+      "by": "cengiz ilhan",
+      "time": 1786283010000,
+      "tags": [
+        "software-engineering",
+        "software-development",
+        "web-development"
+      ]
+    },
+    {
+      "title": "Android SharedPreferences Explained - Store Small Data the Right Way",
+      "url": "https://medium.com/@AttaMuhammad16/android-sharedpreferences-explained-store-small-data-the-right-way-8acd79bc35a1",
+      "by": "Atta Muhammad",
+      "time": 1786282690000,
+      "tags": [
+        "java",
+        "android",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The Data Structure That Remembers Everything — Including Its Own Past",
+      "url": "https://medium.com/@swastikraj619/the-data-structure-that-remembers-everything-including-its-own-past-f9b1357f9978",
+      "by": "Swastik Raj",
+      "time": 1786282400000,
+      "tags": [
+        "software-development",
+        "programming",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "How Much VRAM Do You Really Need for Local AI? (2026 Buyer’s Guide)",
+      "url": "https://medium.com/@mumbamweni3/how-much-vram-do-you-really-need-for-local-ai-2026-buyers-guide-de4fecdb192f",
+      "by": "Mumbamweni",
+      "time": 1786282265000,
+      "tags": [
+        "artificial-intelligence",
+        "productivity",
+        "programming"
+      ]
+    },
+    {
       "title": "Programming Is Changing. Are You?",
       "url": "https://medium.com/the-mock-startup/programming-is-changing-are-you-b712c70dcba4",
       "by": "Piyush Chouhan",
@@ -82,17 +137,6 @@
         "ai",
         "software-development",
         "ai-agent"
-      ]
-    },
-    {
-      "title": "Your Automated Tests Ran Overnight. What Do You Actually Know?",
-      "url": "https://medium.com/beyond-the-test-case/your-automated-tests-ran-overnight-what-do-you-actually-know-44518e786b26",
-      "by": "Aaronkwame",
-      "time": 1786282165000,
-      "tags": [
-        "test-automation",
-        "software-testing",
-        "quality-assurance"
       ]
     },
     {
@@ -137,50 +181,6 @@
         "software-engineering",
         "computer-science",
         "technology"
-      ]
-    },
-    {
-      "title": "Feelize Your Operational Architecture: The Enterprise Guide to Workflow Automation Services",
-      "url": "https://medium.com/@perezmoises831/feelize-your-operational-architecture-the-enterprise-guide-to-workflow-automation-services-78da86f68f8e",
-      "by": "Perezmoises",
-      "time": 1786280994000,
-      "tags": [
-        "feelize",
-        "software-engineering",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Extend GitHub Copilot: A Technical Deep Dive Into the Copilot SDK and Its Rust Runtime",
-      "url": "https://python.plainenglish.io/extend-github-copilot-a-technical-deep-dive-into-the-copilot-sdk-and-its-rust-runtime-f4c7423fb080",
-      "by": "Dave R - Microsoft Azure & AI M…",
-      "time": 1786280883000,
-      "tags": [
-        "software-development",
-        "github-copilot",
-        "programming"
-      ]
-    },
-    {
-      "title": "Which AI Agent Should You Actually Use in 2026",
-      "url": "https://alfiestips.medium.com/which-ai-agent-should-you-actually-use-in-2026-4a4db6af3733",
-      "by": "alfiesTips",
-      "time": 1786280854000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Focus Is the New Moat: Why Building AI Fast Is Making Us Lose the Plot",
-      "url": "https://medium.com/@georgekar91/focus-is-the-new-moat-why-building-ai-fast-is-making-us-lose-the-plot-03d29d130ad2",
-      "by": "George Karapetyan",
-      "time": 1786280442000,
-      "tags": [
-        "technology",
-        "product-management",
-        "artificial-intelligence"
       ]
     }
   ]
