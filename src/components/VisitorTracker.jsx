@@ -50,6 +50,8 @@ const VISITOR_ID = crypto.randomUUID()
 let sharedChannel = null
 let subscriberCount = 0
 let presenceCallbacks = new Set()
+let cursorCallbacks = new Set()
+let channelReady = false
 
 export function getVisitorChannel() {
   if (!sharedChannel) {
@@ -60,8 +62,29 @@ export function getVisitorChannel() {
     sharedChannel.on('presence', { event: 'sync' }, () => {
       presenceCallbacks.forEach(cb => cb())
     })
+    // Cursor positions ride on broadcast, not presence: presence re-syncs the
+    // whole roster on every change, which is far too heavy for pointer moves.
+    // Bindings have to exist before subscribe(), hence registering it here.
+    sharedChannel.on('broadcast', { event: 'cursor' }, ({ payload }) => {
+      if (!payload || payload.id === VISITOR_ID) return
+      cursorCallbacks.forEach(cb => cb(payload))
+    })
   }
   return sharedChannel
+}
+
+export function getVisitorId() {
+  return VISITOR_ID
+}
+
+export function onCursor(callback) {
+  cursorCallbacks.add(callback)
+  return () => cursorCallbacks.delete(callback)
+}
+
+export function sendCursor(payload) {
+  if (!sharedChannel || !channelReady) return
+  sharedChannel.send({ type: 'broadcast', event: 'cursor', payload })
 }
 
 export function onPresenceSync(callback) {
@@ -85,7 +108,9 @@ export function unsubscribeVisitorChannel() {
     supabase.removeChannel(sharedChannel)
     sharedChannel = null
     subscriberCount = 0
+    channelReady = false
     presenceCallbacks.clear()
+    cursorCallbacks.clear()
   }
 }
 
@@ -160,7 +185,10 @@ export default function VisitorTracker() {
           .on('presence', { event: 'sync' }, () => {})
           .subscribe(async (status) => {
             if (status === 'SUBSCRIBED') {
+              channelReady = true
               await channel.track(trackData())
+            } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
+              channelReady = false
             }
           })
 
