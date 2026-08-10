@@ -1,6 +1,27 @@
 {
-  "generated": "2026-08-09T13:53:46.283Z",
+  "generated": "2026-08-10T04:51:15.387Z",
   "reddit": [
+    {
+      "title": "Looking for recommendations for similar sorts of content! (live-coding)",
+      "url": "https://www.reddit.com/r/programming/comments/1vkas2n/looking_for_recommendations_for_similar_sorts_of/",
+      "by": "CaFolg",
+      "time": 1786335767000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do you debug a specific request when the trace got sampled away?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vk2v5t/how_do_you_debug_a_specific_request_when_the/",
+      "by": "Live_Jellyfish_9024",
+      "time": 1786313475000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Kubernetes operator with golang",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vjr022/kubernetes_operator_with_golang/",
+      "by": "Individual_Twist_234",
+      "time": 1786284959000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "The Sentinel Object Pattern in Python",
       "url": "https://www.reddit.com/r/programming/comments/1vjpp19/the_sentinel_object_pattern_in_python/",
@@ -23,164 +44,143 @@
       "sub": "r/programming"
     },
     {
-      "title": "Reducing Graphics API Complexity: A Clean Slate Design for Modern GPUs",
-      "url": "https://www.reddit.com/r/programming/comments/1vjhctl/reducing_graphics_api_complexity_a_clean_slate/",
-      "by": "mttd",
-      "time": 1786253382000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Seaking genuine advice",
-      "url": "https://www.reddit.com/r/devops/comments/1vjgbcm/seaking_genuine_advice/",
-      "by": "Nervous-Honey-2695",
-      "time": 1786249948000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Why do experienced engineers open cloud provider support cases for customer managed resources?",
-      "url": "https://www.reddit.com/r/devops/comments/1vj88zq/why_do_experienced_engineers_open_cloud_provider/",
-      "by": "I3ootcamp",
-      "time": 1786226252000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "When does “just rebuild it” stop being safe?",
-      "url": "https://www.reddit.com/r/devops/comments/1vj7co0/when_does_just_rebuild_it_stop_being_safe/",
-      "by": "InnerBank2400",
-      "time": 1786223873000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "Projets ideas for junior",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vjdx7i/projets_ideas_for_junior/",
+      "by": "Imnot-Jesus",
+      "time": 1786242462000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Stop Polling for Changes: 5 Real-Time Push Patterns in Spring Boot to Build a Real-Time Dashboard",
-      "url": "https://blog.stackademic.com/stop-polling-for-changes-5-real-time-push-patterns-in-spring-boot-to-build-a-real-time-dashboard-854b10b07034",
-      "by": "HabibWahid",
-      "time": 1786283091000,
+      "title": "Technical Deep Dive: The HTTP QUERY Method (RFC 10008)",
+      "url": "https://medium.com/@ritika.builds.discovers/technical-deep-dive-the-http-query-method-rfc-10008-c6acdc05fa11",
+      "by": "Ritika Builds Discovers",
+      "time": 1786336577000,
       "tags": [
-        "technology",
-        "java",
-        "software-development"
+        "web-development",
+        "standard-tech",
+        "https"
       ]
     },
     {
-      "title": "Web Platform Notes #001 — Container Queries Support for",
-      "url": "https://javascript.plainenglish.io/web-platform-notes-001-container-queries-support-for-picture-ac3735bae906",
-      "by": "cengiz ilhan",
-      "time": 1786283010000,
+      "title": "Why AI Projects Fail Before They Even Start",
+      "url": "https://medium.com/@Segmetriqanalytics/why-ai-projects-fail-before-they-even-start-0726411e92aa",
+      "by": "SEGMETRIQ ANALYTICS LLP",
+      "time": 1786336561000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "web-development"
+        "etl",
+        "data-visualization",
+        "data-engineering"
       ]
     },
     {
-      "title": "Android SharedPreferences Explained - Store Small Data the Right Way",
-      "url": "https://medium.com/@AttaMuhammad16/android-sharedpreferences-explained-store-small-data-the-right-way-8acd79bc35a1",
-      "by": "Atta Muhammad",
-      "time": 1786282690000,
+      "title": "The Hidden Performance Killers Inside Flutter Apps",
+      "url": "https://medium.com/@savaliya.ravi.rs/the-hidden-performance-killers-inside-flutter-apps-88e211362edb",
+      "by": "Ravi Savaliya",
+      "time": 1786336561000,
       "tags": [
-        "java",
-        "android",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Data Structure That Remembers Everything — Including Its Own Past",
-      "url": "https://medium.com/@swastikraj619/the-data-structure-that-remembers-everything-including-its-own-past-f9b1357f9978",
-      "by": "Swastik Raj",
-      "time": 1786282400000,
-      "tags": [
-        "software-development",
-        "programming",
-        "computer-science"
-      ]
-    },
-    {
-      "title": "How Much VRAM Do You Really Need for Local AI? (2026 Buyer’s Guide)",
-      "url": "https://medium.com/@mumbamweni3/how-much-vram-do-you-really-need-for-local-ai-2026-buyers-guide-de4fecdb192f",
-      "by": "Mumbamweni",
-      "time": 1786282265000,
-      "tags": [
-        "artificial-intelligence",
-        "productivity",
+        "mobile-app-development",
+        "flutter",
         "programming"
       ]
     },
     {
-      "title": "Programming Is Changing. Are You?",
-      "url": "https://medium.com/the-mock-startup/programming-is-changing-are-you-b712c70dcba4",
-      "by": "Piyush Chouhan",
-      "time": 1786282239000,
+      "title": "Day 14: Sometimes Progress Means Preparing the Environment",
+      "url": "https://medium.com/@madaakhilreddy/day-14-sometimes-progress-means-preparing-the-environment-668c0c00447f",
+      "by": "Akhil Reddy",
+      "time": 1786336483000,
       "tags": [
-        "ai",
-        "software-development",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Stop Memorizing Terminal Commands. Make Your Shell Remember Them Instead.",
-      "url": "https://cloudwithazeem.medium.com/stop-memorizing-terminal-commands-make-your-shell-remember-them-instead-a67cc80dd92e",
-      "by": "Cloud With Azeem",
-      "time": 1786282095000,
-      "tags": [
-        "linux",
         "programming",
-        "software-engineering"
+        "dotnet",
+        "learning-to-code"
       ]
     },
     {
-      "title": "3 Careers That Are (Probably) Safe From AI",
-      "url": "https://medium.com/@antilogatharv/3-careers-that-are-probably-safe-from-ai-a4ea48e2ae29",
-      "by": "Atharv Mishra",
-      "time": 1786281382000,
+      "title": "Flutter CI Security Gates: Supply Chain, Performance Budget and Release Integrity",
+      "url": "https://medium.com/@abied.abiad/flutter-ci-security-gates-supply-chain-performance-budget-and-release-integrity-9e15d49b014d",
+      "by": "Abdulrahman Mohamed",
+      "time": 1786336417000,
+      "tags": [
+        "dart",
+        "mobile-security",
+        "devops"
+      ]
+    },
+    {
+      "title": "Programming Language Executive Summary: Go",
+      "url": "https://medium.com/@arturormk/programming-language-executive-summary-go-312d8659ea54",
+      "by": "Arturo R Montesinos",
+      "time": 1786336401000,
+      "tags": [
+        "ai-coding",
+        "go",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Using Shortcut To Make Multiple DAX Updates A Breeze in Power BI(.pbix included)",
+      "url": "https://medium.com/@shashanka.shekhar02/using-shortcut-to-make-multiple-dax-updates-a-breeze-in-power-bi-pbix-included-2e4e07a1c0a2",
+      "by": "Shashanka Shekhar",
+      "time": 1786336263000,
+      "tags": [
+        "data-science",
+        "programming",
+        "power-bi"
+      ]
+    },
+    {
+      "title": "Top 5 Metrics Every Platform Engineering Team Should Track",
+      "url": "https://medium.com/devops-ai-decoded/top-5-metrics-every-platform-engineering-team-should-track-6210e409e50f",
+      "by": "Neel Shah",
+      "time": 1786336263000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "platform-engineering"
+      ]
+    },
+    {
+      "title": "Understanding the Building Blocks of Modern AI Systems",
+      "url": "https://medium.com/@temoorwali/understanding-the-building-blocks-of-modern-ai-systems-2a105913836f",
+      "by": "Temoor Wali",
+      "time": 1786336251000,
       "tags": [
         "ai",
-        "product-management",
-        "ai-jobs"
+        "software-architecture",
+        "ai-agents-in-action"
       ]
     },
     {
-      "title": "Expanding The Domain: From Docker To Kubernetes",
-      "url": "https://medium.com/@mahmutismail83/expanding-the-domain-from-docker-to-kubernetes-0ab67db9f664",
-      "by": "Choco",
-      "time": 1786281190000,
+      "title": "AI Killed Stack Overflow. And It Changed How Developers Learn.",
+      "url": "https://blog.stackademic.com/ai-killed-stack-overflow-and-it-changed-how-developers-learn-6ad224ed4d64",
+      "by": "Brevis",
+      "time": 1786336221000,
       "tags": [
-        "devops",
-        "docker",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "The Toxic Side of the IT Industry: When Companies Know You’re Replaceable",
-      "url": "https://medium.com/@suvinthasushith/the-toxic-side-of-the-it-industry-when-companies-know-youre-replaceable-7ac659f6caba",
-      "by": "RootLab",
-      "time": 1786281025000,
-      "tags": [
-        "software-engineering",
-        "computer-science",
-        "technology"
+        "stackoverflow",
+        "software-development",
+        "programming"
       ]
     }
   ]
