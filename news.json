@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-10T04:51:15.387Z",
+  "generated": "2026-08-11T04:45:49.936Z",
   "reddit": [
     {
-      "title": "Looking for recommendations for similar sorts of content! (live-coding)",
-      "url": "https://www.reddit.com/r/programming/comments/1vkas2n/looking_for_recommendations_for_similar_sorts_of/",
-      "by": "CaFolg",
-      "time": 1786335767000,
+      "title": "The two branches of computing",
+      "url": "https://www.reddit.com/r/programming/comments/1vl1xfp/the_two_branches_of_computing/",
+      "by": "Manueljlin",
+      "time": 1786407140000,
       "sub": "r/programming"
     },
     {
-      "title": "How do you debug a specific request when the trace got sampled away?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vk2v5t/how_do_you_debug_a_specific_request_when_the/",
-      "by": "Live_Jellyfish_9024",
-      "time": 1786313475000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes operator with golang",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vjr022/kubernetes_operator_with_golang/",
-      "by": "Individual_Twist_234",
-      "time": 1786284959000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "The Sentinel Object Pattern in Python",
-      "url": "https://www.reddit.com/r/programming/comments/1vjpp19/the_sentinel_object_pattern_in_python/",
-      "by": "Grouchy-Trade-7250",
-      "time": 1786281516000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Hungarian Assignment Algorithm: Applied Optimal Transport for Programmers",
-      "url": "https://www.reddit.com/r/programming/comments/1vjndxo/hungarian_assignment_algorithm_applied_optimal/",
-      "by": "DataBaeBee",
-      "time": 1786274587000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Assembly Hall of Shame: Racing to the bottom of CPU performance",
-      "url": "https://www.reddit.com/r/programming/comments/1vjketg/assembly_hall_of_shame_racing_to_the_bottom_of/",
-      "by": "f311a",
-      "time": 1786264024000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Projets ideas for junior",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vjdx7i/projets_ideas_for_junior/",
-      "by": "Imnot-Jesus",
-      "time": 1786242462000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Any devops from Perth here?",
+      "url": "https://www.reddit.com/r/devops/comments/1vl14gc/any_devops_from_perth_here/",
+      "by": "gtcypher78",
+      "time": 1786405077000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "On comments",
+      "url": "https://www.reddit.com/r/programming/comments/1vkwqh0/on_comments/",
+      "by": "Jonhoo",
+      "time": 1786394529000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Optimizing an NVFP4 Blockscaled GEMM on RTX PRO 6000 Blackwell GPU (SM120)",
+      "url": "https://www.reddit.com/r/programming/comments/1vkua29/optimizing_an_nvfp4_blockscaled_gemm_on_rtx_pro/",
+      "by": "mttd",
+      "time": 1786389137000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Adapting to AI tooling in DevOps",
+      "url": "https://www.reddit.com/r/devops/comments/1vklxud/adapting_to_ai_tooling_in_devops/",
+      "by": "lostsectors_matt",
+      "time": 1786371017000,
       "sub": "r/devops"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
+      "title": "Tail-Call Interpreters in Rust",
+      "url": "https://www.reddit.com/r/programming/comments/1vkirhv/tailcall_interpreters_in_rust/",
+      "by": "jorgesgk",
+      "time": 1786363069000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Communication with non-technical people",
+      "url": "https://www.reddit.com/r/devops/comments/1vkegda/communication_with_nontechnical_people/",
+      "by": "Kinkano",
+      "time": 1786348409000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Technical Deep Dive: The HTTP QUERY Method (RFC 10008)",
-      "url": "https://medium.com/@ritika.builds.discovers/technical-deep-dive-the-http-query-method-rfc-10008-c6acdc05fa11",
-      "by": "Ritika Builds Discovers",
-      "time": 1786336577000,
+      "title": "The PowerShell One-Liners That Make Me Look Like a Wizard in Every Meeting",
+      "url": "https://medium.com/@prasantakumarroy1/the-powershell-one-liners-that-make-me-look-like-a-wizard-in-every-meeting-77f9353c1d7f",
+      "by": "Prasanta Kumar Roy",
+      "time": 1786423292000,
       "tags": [
-        "web-development",
-        "standard-tech",
-        "https"
+        "windows",
+        "programming",
+        "system-administration"
       ]
     },
     {
-      "title": "Why AI Projects Fail Before They Even Start",
-      "url": "https://medium.com/@Segmetriqanalytics/why-ai-projects-fail-before-they-even-start-0726411e92aa",
+      "title": "Building an AI-Ready Data Foundation: What CIOs Need to Know",
+      "url": "https://medium.com/@Segmetriqanalytics/building-an-ai-ready-data-foundation-what-cios-need-to-know-69c8392aedb0",
       "by": "SEGMETRIQ ANALYTICS LLP",
-      "time": 1786336561000,
+      "time": 1786422961000,
       "tags": [
-        "etl",
         "data-visualization",
-        "data-engineering"
-      ]
-    },
-    {
-      "title": "The Hidden Performance Killers Inside Flutter Apps",
-      "url": "https://medium.com/@savaliya.ravi.rs/the-hidden-performance-killers-inside-flutter-apps-88e211362edb",
-      "by": "Ravi Savaliya",
-      "time": 1786336561000,
-      "tags": [
-        "mobile-app-development",
-        "flutter",
+        "data-engineering",
         "programming"
       ]
     },
     {
-      "title": "Day 14: Sometimes Progress Means Preparing the Environment",
-      "url": "https://medium.com/@madaakhilreddy/day-14-sometimes-progress-means-preparing-the-environment-668c0c00447f",
-      "by": "Akhil Reddy",
-      "time": 1786336483000,
+      "title": "Java Multithreading Mastery #20 — Inter-Thread Communication: How Threads Talk to Each Other Using…",
+      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-20-inter-thread-communication-how-threads-talk-to-each-other-using-0c12041510b7",
+      "by": "Ayushi Malviya",
+      "time": 1786422876000,
       "tags": [
-        "programming",
-        "dotnet",
-        "learning-to-code"
+        "java",
+        "software-engineering",
+        "software-development"
       ]
     },
     {
-      "title": "Flutter CI Security Gates: Supply Chain, Performance Budget and Release Integrity",
-      "url": "https://medium.com/@abied.abiad/flutter-ci-security-gates-supply-chain-performance-budget-and-release-integrity-9e15d49b014d",
-      "by": "Abdulrahman Mohamed",
-      "time": 1786336417000,
+      "title": "Java Multithreading Mastery #19 — Atomic Variables: Thread Safety Without synchronized",
+      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-19-atomic-variables-thread-safety-without-synchronized-337902f05097",
+      "by": "Ayushi Malviya",
+      "time": 1786422823000,
       "tags": [
-        "dart",
-        "mobile-security",
+        "software-development",
+        "programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "Your AI Agent Doesn’t Need More Context. It Needs Memory.",
+      "url": "https://medium.com/@ishaqsaqib/your-ai-agent-doesnt-need-more-context-it-needs-memory-26c64cf20f58",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1786422663000,
+      "tags": [
+        "artificial-intelligence",
+        "software-development",
+        "self-improvement"
+      ]
+    },
+    {
+      "title": "DNS Records Explained: A, AAAA, CNAME, MX, TXT, NS, and SRV Records in Modern Internet…",
+      "url": "https://medium.com/@aniksikder9501/dns-records-explained-a-aaaa-cname-mx-txt-ns-and-srv-records-in-modern-internet-220e20699f0b",
+      "by": "Anik Sikder",
+      "time": 1786422663000,
+      "tags": [
+        "devops",
+        "dns",
+        "networking"
+      ]
+    },
+    {
+      "title": "Top 10 Backstage Plugins That Are Actually Useful in Production",
+      "url": "https://medium.com/devops-ai-decoded/top-10-backstage-plugins-that-are-actually-useful-in-production-171eb7c7122b",
+      "by": "Neel Shah",
+      "time": 1786422663000,
+      "tags": [
+        "technology",
+        "ai",
         "devops"
       ]
     },
     {
-      "title": "Programming Language Executive Summary: Go",
-      "url": "https://medium.com/@arturormk/programming-language-executive-summary-go-312d8659ea54",
-      "by": "Arturo R Montesinos",
-      "time": 1786336401000,
+      "title": "Event-Driven Architecture in Spring Boot: Kafka, Streams, Outbox & Production Guide",
+      "url": "https://deepawasthi.medium.com/spring-boot-event-driven-architecture-5b5a3c7f2f39",
+      "by": "Deep Awasthi",
+      "time": 1786422663000,
       "tags": [
-        "ai-coding",
-        "go",
-        "artificial-intelligence"
+        "software-engineering",
+        "java",
+        "backend-development"
       ]
     },
     {
-      "title": "Using Shortcut To Make Multiple DAX Updates A Breeze in Power BI(.pbix included)",
-      "url": "https://medium.com/@shashanka.shekhar02/using-shortcut-to-make-multiple-dax-updates-a-breeze-in-power-bi-pbix-included-2e4e07a1c0a2",
-      "by": "Shashanka Shekhar",
-      "time": 1786336263000,
+      "title": "The $40,000 Redis Mistake: Why Cloud Math Almost Cost Me My Visa SSE Loop",
+      "url": "https://bitsofanant.medium.com/the-40-000-redis-mistake-why-cloud-math-almost-cost-me-my-visa-sse-loop-aa052effb0b4",
+      "by": "Anant Singh Raghuvanshi",
+      "time": 1786422663000,
       "tags": [
-        "data-science",
-        "programming",
-        "power-bi"
+        "software-engineering",
+        "java",
+        "system-design-interview"
       ]
     },
     {
-      "title": "Top 5 Metrics Every Platform Engineering Team Should Track",
-      "url": "https://medium.com/devops-ai-decoded/top-5-metrics-every-platform-engineering-team-should-track-6210e409e50f",
-      "by": "Neel Shah",
-      "time": 1786336263000,
+      "title": "What Happens to Your IT Environment When You Go on Holiday",
+      "url": "https://medium.com/@prasantakumarroy1/what-happens-to-your-it-environment-when-you-go-on-holiday-a4178a1b05f4",
+      "by": "Prasanta Kumar Roy",
+      "time": 1786422644000,
       "tags": [
-        "cloud-computing",
         "devops",
-        "platform-engineering"
-      ]
-    },
-    {
-      "title": "Understanding the Building Blocks of Modern AI Systems",
-      "url": "https://medium.com/@temoorwali/understanding-the-building-blocks-of-modern-ai-systems-2a105913836f",
-      "by": "Temoor Wali",
-      "time": 1786336251000,
-      "tags": [
-        "ai",
-        "software-architecture",
-        "ai-agents-in-action"
-      ]
-    },
-    {
-      "title": "AI Killed Stack Overflow. And It Changed How Developers Learn.",
-      "url": "https://blog.stackademic.com/ai-killed-stack-overflow-and-it-changed-how-developers-learn-6ad224ed4d64",
-      "by": "Brevis",
-      "time": 1786336221000,
-      "tags": [
-        "stackoverflow",
-        "software-development",
-        "programming"
+        "cloud-computing",
+        "system-administration"
       ]
     }
   ]
