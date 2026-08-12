@@ -1,12 +1,40 @@
 {
-  "generated": "2026-08-12T14:20:42.910Z",
+  "generated": "2026-08-12T15:17:19.070Z",
   "reddit": [
     {
-      "title": "Vendor‑Neutral or Cloud‑Specific for Kubernetes: What’s the Better Path for a New Container Learner?",
-      "url": "https://www.reddit.com/r/devops/comments/1vmdexs/vendorneutral_or_cloudspecific_for_kubernetes/",
-      "by": "JaimeSalvaje",
-      "time": 1786539456000,
-      "sub": "r/devops"
+      "title": "How Tailscale helped discover a 16+ year old SQLite WAL-Reset bug",
+      "url": "https://www.reddit.com/r/programming/comments/1vmglvj/how_tailscale_helped_discover_a_16_year_old/",
+      "by": "callcifer",
+      "time": 1786546891000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The End of Readability?",
+      "url": "https://www.reddit.com/r/programming/comments/1vmgcaz/the_end_of_readability/",
+      "by": "belmirofss",
+      "time": 1786546313000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to Pretty-Print Your Kubernetes YAML as KYAML and Why You'd Want To",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vmfpzr/how_to_prettyprint_your_kubernetes_yaml_as_kyaml/",
+      "by": "dshurupov",
+      "time": 1786544918000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How much runtime context should an AI agent have in Kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vm9wuf/how_much_runtime_context_should_an_ai_agent_have/",
+      "by": "OwlZealousideal4779",
+      "time": 1786529206000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vm9t0o/weekly_show_off_your_new_tools_and_projects_thread/",
+      "by": "AutoModerator",
+      "time": 1786528856000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "The fastest double-to-string algorithm you’ve never heard of",
@@ -23,164 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Squeak 6.1 (a modern Smalltalk programming environment implemented in itself) was released!",
-      "url": "https://www.reddit.com/r/programming/comments/1vlqtmx/squeak_61_a_modern_smalltalk_programming/",
-      "by": "LinqLover",
-      "time": 1786475280000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "We Audited 156,808 Failed CI Runs Across Eight Open Source Repos",
-      "url": "https://www.reddit.com/r/devops/comments/1vlmbu3/we_audited_156808_failed_ci_runs_across_eight/",
-      "by": "sup_bruh_1",
-      "time": 1786465694000,
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "EU cloud provider news roundup, May–Aug 2026: KVM escape patch wave, Redis→Valkey, uneven 1.36 rollout",
-      "url": "https://www.reddit.com/r/devops/comments/1vld5jy/eu_cloud_provider_news_roundup_mayaug_2026_kvm/",
-      "by": "mixxor1337",
-      "time": 1786442376000,
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
       "sub": "r/devops"
     },
     {
-      "title": "Sydney DevOps Meetup: AI Agents and Open Source Developer Platforms on Kubernetes",
-      "url": "https://www.reddit.com/r/devops/comments/1vl8akn/sydney_devops_meetup_ai_agents_and_open_source/",
-      "by": "Waste_Bat_4525",
-      "time": 1786425503000,
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "A Note-taking Loop",
-      "url": "https://thegoldenmule.medium.com/a-note-taking-loop-b6608e57107c",
-      "by": "Benjamin Jordan",
-      "time": 1786544239000,
+      "title": "Litestar vs FastAPI: Which Framework Will Lead in 2027?",
+      "url": "https://medium.com/@komalbaparmar007/litestar-vs-fastapi-which-framework-will-lead-in-2027-bd4d77e75e2d",
+      "by": "Yamishift",
+      "time": 1786547761000,
       "tags": [
-        "programming",
-        "critical-thinking",
-        "learning"
-      ]
-    },
-    {
-      "title": "“Just Merge These PDFs” Is the Most Expensive Sentence in Software Estimation",
-      "url": "https://medium.com/@apifymcpfactory/just-merge-these-pdfs-is-the-most-expensive-sentence-in-software-estimation-e50c28384fb7",
-      "by": "Howth Technology Factory",
-      "time": 1786544161000,
-      "tags": [
-        "startup",
-        "project-management",
-        "technology"
-      ]
-    },
-    {
-      "title": "The Problem Is Sometimes in the Architecture, Not the Code",
-      "url": "https://josephyala.medium.com/the-problem-is-sometimes-in-the-architecture-not-the-code-8de4ceb057a5",
-      "by": "Joseph N. Aburu",
-      "time": 1786544038000,
-      "tags": [
-        "web-development",
-        "software-architecture",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Why Does Your Agent Still Remember That? A Field Guide to Agent Memory",
-      "url": "https://jinlow.medium.com/why-does-your-agent-still-remember-that-a-field-guide-to-agent-memory-cae02f63404d",
-      "by": "JIN",
-      "time": 1786544024000,
-      "tags": [
-        "agentic-memory",
+        "fastapi",
         "software-engineering",
-        "software-development"
+        "star-lite"
       ]
     },
     {
-      "title": "AI Ended Job Training for Junior Developers. Here’s What Replaced It.",
-      "url": "https://medium.com/@zaqpiotr/ai-ended-job-training-for-junior-developers-heres-what-replaced-it-04fd649bfee6",
-      "by": "Piotr Żak",
-      "time": 1786543990000,
+      "title": "The Guy Who Runs the Internet Uses ONE Monitor. Your 3-Screen Setup Isn’t the Flex You Think It Is.",
+      "url": "https://medium.com/@cultclass/the-guy-who-runs-the-internet-uses-one-monitor-your-3-screen-setup-isnt-the-flex-you-think-it-is-54f82d2aacf7",
+      "by": "Mathana Mohan",
+      "time": 1786547732000,
       "tags": [
-        "junior-developer",
-        "ai",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Memory Is a Decision, Not a Database",
-      "url": "https://medium.com/@praveen.ilangovan/memory-is-a-decision-not-a-database-f53aa86fed3d",
-      "by": "Praveen Ilangovan",
-      "time": 1786543802000,
-      "tags": [
-        "llm",
-        "programming",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Building a Static Load Balancer in Go",
-      "url": "https://medium.com/@martin.yordanov.official/building-a-load-balancer-in-go-4b27b38acb2a",
-      "by": "Martin Yordanov",
-      "time": 1786543773000,
-      "tags": [
-        "software-development",
+        "productivity",
         "software-engineering",
-        "golang"
-      ]
-    },
-    {
-      "title": "Issue #1. N. Kraskovskyi — A personal blog about my developments.",
-      "url": "https://medium.com/@zvonoknatan/issue-1-n-kraskovskyi-a-personal-blog-about-my-developments-426ed323336c",
-      "by": "N. Kraskovskyi",
-      "time": 1786543680000,
-      "tags": [
-        "blog",
-        "coding",
         "programming"
       ]
     },
     {
-      "title": "We Didn’t Build a Supercomputer. We Convinced 70 Machines They Already Were One.",
-      "url": "https://medium.com/@albhymatheww/we-didnt-build-a-supercomputer-we-convinced-70-machines-they-already-were-one-a8b2b6084579",
-      "by": "Albhymatheww",
-      "time": 1786543475000,
+      "title": "AI Agents vs Traditional APIs in 2026: 8 Cases Where Simpler Still Wins",
+      "url": "https://medium.com/skillstuff/ai-agents-vs-traditional-apis-in-2026-8-cases-where-simpler-still-wins-a03cc30d2e58",
+      "by": "TechByRahmat",
+      "time": 1786547486000,
       "tags": [
+        "ai-agents-in-action",
+        "software-engineering",
+        "api"
+      ]
+    },
+    {
+      "title": "You can’t charge for a feeling. Charge for the risk you absorb.",
+      "url": "https://medium.com/@patel02555/you-cant-charge-for-a-feeling-charge-for-the-risk-you-absorb-9cd4de000aba",
+      "by": "Sahil Patel",
+      "time": 1786547399000,
+      "tags": [
+        "software-engineering",
         "technology",
-        "linux",
+        "product-management"
+      ]
+    },
+    {
+      "title": "Chapter 7",
+      "url": "https://medium.com/@blackshadowteam.net/chapter-7-5b5ee70eeba6",
+      "by": "Black Shadow Team",
+      "time": 1786547150000,
+      "tags": [
+        "software-engineering",
+        "large-language-models",
+        "llm"
+      ]
+    },
+    {
+      "title": "Why I Chose Java Over Python for Enterprise GenAI (And How You Can Too)",
+      "url": "https://medium.com/@prachi.panditrao/why-i-chose-java-over-python-for-enterprise-genai-and-how-you-can-too-ad8c0d420e8d",
+      "by": "Prachi Panditrao",
+      "time": 1786547024000,
+      "tags": [
+        "generative-ai",
+        "java",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "I archived most of Github repositories today. Here is why:",
+      "url": "https://medium.com/@danielsousaoliveira77/i-archived-most-of-github-repositories-today-here-is-why-ad7b6a0fc478",
+      "by": "Daniel Sousa Oliveira",
+      "time": 1786546999000,
+      "tags": [
+        "vibe-coding",
+        "github",
         "programming"
       ]
     },
     {
-      "title": "Astra Solves Decades-Old Math Proofs, Meta Drops Muse Code, and OpenAI Eyes a $400 Smart Speaker",
-      "url": "https://medium.com/@ripudamanlko/astra-solves-decades-old-math-proofs-meta-drops-muse-code-and-openai-eyes-a-400-smart-speaker-3e4c213e0b98",
-      "by": "Ripudaman Singh",
-      "time": 1786543331000,
+      "title": "☕ 100 Days of Code — Day 15: Building a Coffee Machine with Python",
+      "url": "https://medium.com/@zubairujibrinbaba/100-days-of-code-day-15-building-a-coffee-machine-with-python-9ea4320a6c44",
+      "by": "Zubairu Jibrin Baba",
+      "time": 1786546928000,
       "tags": [
-        "robotics",
-        "artificial-intelligence",
-        "software-engineering"
+        "100daysofcode",
+        "python-programming",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Tangent Is Not the Curve (1.2)",
+      "url": "https://medium.com/@rantnrave31/the-tangent-is-not-the-curve-a0f118b68944",
+      "by": "Don Gunter",
+      "time": 1786546896000,
+      "tags": [
+        "machine-learning-ai",
+        "machine-learning",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "A Q&A on the AI Readiness Gap: Where Infrastructure Teams are Getting AI Wrong",
+      "url": "https://medium.com/spacelift/a-q-a-on-the-ai-readiness-gap-where-infrastructure-teams-are-getting-ai-wrong-a2204a688785",
+      "by": "Spacelift",
+      "time": 1786546880000,
+      "tags": [
+        "infrastructure-as-code",
+        "devops",
+        "platform-engineering"
       ]
     }
   ]

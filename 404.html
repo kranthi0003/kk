@@ -40,6 +40,13 @@
         var dark = stored ? stored === 'dark' : true; // default dark
         if (dark) document.documentElement.classList.add('dark');
         if (localStorage.getItem('matrix') === '1') document.documentElement.classList.add('matrix');
+        // The chosen accent hue drives every colour token, so it has to land
+        // before first paint too — otherwise the site flashes blue and then
+        // repaints to the user's colour.
+        var hue = localStorage.getItem('siteHue');
+        var chroma = localStorage.getItem('siteChroma');
+        if (hue !== null && hue !== '') document.documentElement.style.setProperty('--site-hue', hue);
+        if (chroma !== null && chroma !== '') document.documentElement.style.setProperty('--site-chroma', chroma);
       } catch (e) { document.documentElement.classList.add('dark'); }
     })();
   </script>
@@ -48,8 +55,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-DpUx9RiY.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-0ROVK5tW.css">
+  <script type="module" crossorigin src="/assets/index-B2hfIz4X.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BokiN7ly.css">
 </head>
 <body>
   <div id="root"></div>
