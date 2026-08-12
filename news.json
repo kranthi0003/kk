@@ -1,6 +1,20 @@
 {
-  "generated": "2026-08-12T04:54:47.734Z",
+  "generated": "2026-08-12T14:20:42.910Z",
   "reddit": [
+    {
+      "title": "Vendor‑Neutral or Cloud‑Specific for Kubernetes: What’s the Better Path for a New Container Learner?",
+      "url": "https://www.reddit.com/r/devops/comments/1vmdexs/vendorneutral_or_cloudspecific_for_kubernetes/",
+      "by": "JaimeSalvaje",
+      "time": 1786539456000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "The fastest double-to-string algorithm you’ve never heard of",
+      "url": "https://www.reddit.com/r/programming/comments/1vm65dm/the_fastest_doubletostring_algorithm_youve_never/",
+      "by": "mttd",
+      "time": 1786515939000,
+      "sub": "r/programming"
+    },
     {
       "title": "Don't Stall Me Now: Hiding Memory Latency in eBPF",
       "url": "https://www.reddit.com/r/programming/comments/1vlwzdy/dont_stall_me_now_hiding_memory_latency_in_ebpf/",
@@ -13,20 +27,6 @@
       "url": "https://www.reddit.com/r/programming/comments/1vlqtmx/squeak_61_a_modern_smalltalk_programming/",
       "by": "LinqLover",
       "time": 1786475280000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "An Inside Look at the Relay Market Powering Token Resellers and Fraud",
-      "url": "https://www.reddit.com/r/programming/comments/1vlns5j/an_inside_look_at_the_relay_market_powering_token/",
-      "by": "thisguy123123",
-      "time": 1786468794000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Mojo 1.0 is here!",
-      "url": "https://www.reddit.com/r/programming/comments/1vln7pe/mojo_10_is_here/",
-      "by": "dayanruben",
-      "time": 1786467609000,
       "sub": "r/programming"
     },
     {
@@ -74,112 +74,112 @@
   ],
   "medium": [
     {
-      "title": "GlobalLogic .NET Interview: Find the Second Largest Number",
-      "url": "https://pawan-kumawat.medium.com/globallogic-net-interview-find-the-second-largest-number-01f7804cb243",
-      "by": "Pawan Kumawat",
-      "time": 1786509946000,
+      "title": "A Note-taking Loop",
+      "url": "https://thegoldenmule.medium.com/a-note-taking-loop-b6608e57107c",
+      "by": "Benjamin Jordan",
+      "time": 1786544239000,
       "tags": [
         "programming",
+        "critical-thinking",
+        "learning"
+      ]
+    },
+    {
+      "title": "“Just Merge These PDFs” Is the Most Expensive Sentence in Software Estimation",
+      "url": "https://medium.com/@apifymcpfactory/just-merge-these-pdfs-is-the-most-expensive-sentence-in-software-estimation-e50c28384fb7",
+      "by": "Howth Technology Factory",
+      "time": 1786544161000,
+      "tags": [
+        "startup",
+        "project-management",
+        "technology"
+      ]
+    },
+    {
+      "title": "The Problem Is Sometimes in the Architecture, Not the Code",
+      "url": "https://josephyala.medium.com/the-problem-is-sometimes-in-the-architecture-not-the-code-8de4ceb057a5",
+      "by": "Joseph N. Aburu",
+      "time": 1786544038000,
+      "tags": [
+        "web-development",
+        "software-architecture",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Why Does Your Agent Still Remember That? A Field Guide to Agent Memory",
+      "url": "https://jinlow.medium.com/why-does-your-agent-still-remember-that-a-field-guide-to-agent-memory-cae02f63404d",
+      "by": "JIN",
+      "time": 1786544024000,
+      "tags": [
+        "agentic-memory",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "AI Ended Job Training for Junior Developers. Here’s What Replaced It.",
+      "url": "https://medium.com/@zaqpiotr/ai-ended-job-training-for-junior-developers-heres-what-replaced-it-04fd649bfee6",
+      "by": "Piotr Żak",
+      "time": 1786543990000,
+      "tags": [
+        "junior-developer",
+        "ai",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Memory Is a Decision, Not a Database",
+      "url": "https://medium.com/@praveen.ilangovan/memory-is-a-decision-not-a-database-f53aa86fed3d",
+      "by": "Praveen Ilangovan",
+      "time": 1786543802000,
+      "tags": [
+        "llm",
+        "programming",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "Building a Static Load Balancer in Go",
+      "url": "https://medium.com/@martin.yordanov.official/building-a-load-balancer-in-go-4b27b38acb2a",
+      "by": "Martin Yordanov",
+      "time": 1786543773000,
+      "tags": [
         "software-development",
-        "software-engineering"
+        "software-engineering",
+        "golang"
       ]
     },
     {
-      "title": "Getting to Know Rust: The Reason Behind Bun’s Migration, and Other Popular Tools",
-      "url": "https://medium.com/codex/getting-to-know-rust-the-reason-behind-buns-migration-and-other-popular-tools-398fcba9dd9b",
-      "by": "Developer Awam",
-      "time": 1786509587000,
+      "title": "Issue #1. N. Kraskovskyi — A personal blog about my developments.",
+      "url": "https://medium.com/@zvonoknatan/issue-1-n-kraskovskyi-a-personal-blog-about-my-developments-426ed323336c",
+      "by": "N. Kraskovskyi",
+      "time": 1786543680000,
       "tags": [
-        "rust",
-        "programming",
-        "web-development"
-      ]
-    },
-    {
-      "title": "How to Build a Macro (Orchestration) Agent in LangGraph: A Complete Production Guide",
-      "url": "https://medium.com/algomart/how-to-build-a-macro-orchestration-agent-in-langgraph-a-complete-production-guide-a2bc5be94eb8",
-      "by": "Yash Jain",
-      "time": 1786509460000,
-      "tags": [
-        "llm",
-        "ai-agent",
+        "blog",
+        "coding",
         "programming"
       ]
     },
     {
-      "title": "AI Starts With Better Data: How SegForge Makes Enterprise Data AI-Ready",
-      "url": "https://medium.com/@Segmetriqanalytics/ai-starts-with-better-data-how-segforge-makes-enterprise-data-ai-ready-4f3cd2878c58",
-      "by": "SEGMETRIQ ANALYTICS LLP",
-      "time": 1786509362000,
+      "title": "We Didn’t Build a Supercomputer. We Convinced 70 Machines They Already Were One.",
+      "url": "https://medium.com/@albhymatheww/we-didnt-build-a-supercomputer-we-convinced-70-machines-they-already-were-one-a8b2b6084579",
+      "by": "Albhymatheww",
+      "time": 1786543475000,
       "tags": [
-        "etl",
-        "data-science",
-        "data-engineering"
-      ]
-    },
-    {
-      "title": "Verification: Does Anyone Check the Report Before It Ships? #3",
-      "url": "https://medium.com/@agrawalayush730/verification-does-anyone-check-the-report-before-it-ships-3-28059c8f6a17",
-      "by": "Ayush Agrawal",
-      "time": 1786509214000,
-      "tags": [
-        "ai-agent",
-        "machine-learning",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "I Tested Cursor 3, Claude Code, and Gemini CLI on the Same Laravel Task — The Results Were Not What…",
-      "url": "https://sadiqueali.medium.com/i-tested-cursor-3-claude-code-and-gemini-cli-on-the-same-laravel-task-the-results-were-not-what-2af46632df20",
-      "by": "Sadique Ali",
-      "time": 1786509109000,
-      "tags": [
-        "laravel",
-        "php",
-        "programming"
-      ]
-    },
-    {
-      "title": "7 Flutter Mistakes I Would Avoid If I Started Again in 2026",
-      "url": "https://medium.com/@yashnariya003248/7-flutter-mistakes-i-would-avoid-if-i-started-again-in-2026-e51b67a0edcf",
-      "by": "Yash Nariya",
-      "time": 1786509089000,
-      "tags": [
-        "programming",
-        "flutter",
-        "dart"
-      ]
-    },
-    {
-      "title": "I Built a Full-Stack App with .NET, Angular and AI -- Here's What Actually Worked.",
-      "url": "https://medium.com/@bharat.chandera/i-built-a-full-stack-app-with-net-angular-and-ai-heres-what-actually-worked-99107fc9845c",
-      "by": "Bharat Chandera",
-      "time": 1786509063000,
-      "tags": [
-        "angular",
-        "programming",
-        "dotnet"
-      ]
-    },
-    {
-      "title": "Top 7 Reasons Your Internal Developer Portal Is Failing (And How to Fix It)",
-      "url": "https://medium.com/devops-ai-decoded/top-7-reasons-your-internal-developer-portal-is-failing-and-how-to-fix-it-f4bd2b490c87",
-      "by": "Neel Shah",
-      "time": 1786509063000,
-      "tags": [
-        "devops",
         "technology",
-        "ai"
+        "linux",
+        "programming"
       ]
     },
     {
-      "title": "7 Prompt Engineering Mistakes That Are Quietly Inflating Your OpenAI Bill",
-      "url": "https://medium.com/@luckyudbhav/7-prompt-engineering-mistakes-that-are-quietly-inflating-your-openai-bill-864f93820421",
-      "by": "Udbhav",
-      "time": 1786509063000,
+      "title": "Astra Solves Decades-Old Math Proofs, Meta Drops Muse Code, and OpenAI Eyes a $400 Smart Speaker",
+      "url": "https://medium.com/@ripudamanlko/astra-solves-decades-old-math-proofs-meta-drops-muse-code-and-openai-eyes-a-400-smart-speaker-3e4c213e0b98",
+      "by": "Ripudaman Singh",
+      "time": 1786543331000,
       "tags": [
-        "llm",
-        "python",
+        "robotics",
+        "artificial-intelligence",
         "software-engineering"
       ]
     }
