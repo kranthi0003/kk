@@ -1,53 +1,53 @@
 {
-  "generated": "2026-08-11T04:45:49.936Z",
+  "generated": "2026-08-12T04:54:47.734Z",
   "reddit": [
     {
-      "title": "The two branches of computing",
-      "url": "https://www.reddit.com/r/programming/comments/1vl1xfp/the_two_branches_of_computing/",
-      "by": "Manueljlin",
-      "time": 1786407140000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Any devops from Perth here?",
-      "url": "https://www.reddit.com/r/devops/comments/1vl14gc/any_devops_from_perth_here/",
-      "by": "gtcypher78",
-      "time": 1786405077000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "On comments",
-      "url": "https://www.reddit.com/r/programming/comments/1vkwqh0/on_comments/",
-      "by": "Jonhoo",
-      "time": 1786394529000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Optimizing an NVFP4 Blockscaled GEMM on RTX PRO 6000 Blackwell GPU (SM120)",
-      "url": "https://www.reddit.com/r/programming/comments/1vkua29/optimizing_an_nvfp4_blockscaled_gemm_on_rtx_pro/",
+      "title": "Don't Stall Me Now: Hiding Memory Latency in eBPF",
+      "url": "https://www.reddit.com/r/programming/comments/1vlwzdy/dont_stall_me_now_hiding_memory_latency_in_ebpf/",
       "by": "mttd",
-      "time": 1786389137000,
+      "time": 1786489351000,
       "sub": "r/programming"
     },
     {
-      "title": "Adapting to AI tooling in DevOps",
-      "url": "https://www.reddit.com/r/devops/comments/1vklxud/adapting_to_ai_tooling_in_devops/",
-      "by": "lostsectors_matt",
-      "time": 1786371017000,
+      "title": "Squeak 6.1 (a modern Smalltalk programming environment implemented in itself) was released!",
+      "url": "https://www.reddit.com/r/programming/comments/1vlqtmx/squeak_61_a_modern_smalltalk_programming/",
+      "by": "LinqLover",
+      "time": 1786475280000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "An Inside Look at the Relay Market Powering Token Resellers and Fraud",
+      "url": "https://www.reddit.com/r/programming/comments/1vlns5j/an_inside_look_at_the_relay_market_powering_token/",
+      "by": "thisguy123123",
+      "time": 1786468794000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Mojo 1.0 is here!",
+      "url": "https://www.reddit.com/r/programming/comments/1vln7pe/mojo_10_is_here/",
+      "by": "dayanruben",
+      "time": 1786467609000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "We Audited 156,808 Failed CI Runs Across Eight Open Source Repos",
+      "url": "https://www.reddit.com/r/devops/comments/1vlmbu3/we_audited_156808_failed_ci_runs_across_eight/",
+      "by": "sup_bruh_1",
+      "time": 1786465694000,
       "sub": "r/devops"
     },
     {
-      "title": "Tail-Call Interpreters in Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1vkirhv/tailcall_interpreters_in_rust/",
-      "by": "jorgesgk",
-      "time": 1786363069000,
-      "sub": "r/programming"
+      "title": "EU cloud provider news roundup, May–Aug 2026: KVM escape patch wave, Redis→Valkey, uneven 1.36 rollout",
+      "url": "https://www.reddit.com/r/devops/comments/1vld5jy/eu_cloud_provider_news_roundup_mayaug_2026_kvm/",
+      "by": "mixxor1337",
+      "time": 1786442376000,
+      "sub": "r/devops"
     },
     {
-      "title": "Communication with non-technical people",
-      "url": "https://www.reddit.com/r/devops/comments/1vkegda/communication_with_nontechnical_people/",
-      "by": "Kinkano",
-      "time": 1786348409000,
+      "title": "Sydney DevOps Meetup: AI Agents and Open Source Developer Platforms on Kubernetes",
+      "url": "https://www.reddit.com/r/devops/comments/1vl8akn/sydney_devops_meetup_ai_agents_and_open_source/",
+      "by": "Waste_Bat_4525",
+      "time": 1786425503000,
       "sub": "r/devops"
     },
     {
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "The PowerShell One-Liners That Make Me Look Like a Wizard in Every Meeting",
-      "url": "https://medium.com/@prasantakumarroy1/the-powershell-one-liners-that-make-me-look-like-a-wizard-in-every-meeting-77f9353c1d7f",
-      "by": "Prasanta Kumar Roy",
-      "time": 1786423292000,
+      "title": "GlobalLogic .NET Interview: Find the Second Largest Number",
+      "url": "https://pawan-kumawat.medium.com/globallogic-net-interview-find-the-second-largest-number-01f7804cb243",
+      "by": "Pawan Kumawat",
+      "time": 1786509946000,
       "tags": [
-        "windows",
         "programming",
-        "system-administration"
+        "software-development",
+        "software-engineering"
       ]
     },
     {
-      "title": "Building an AI-Ready Data Foundation: What CIOs Need to Know",
-      "url": "https://medium.com/@Segmetriqanalytics/building-an-ai-ready-data-foundation-what-cios-need-to-know-69c8392aedb0",
-      "by": "SEGMETRIQ ANALYTICS LLP",
-      "time": 1786422961000,
+      "title": "Getting to Know Rust: The Reason Behind Bun’s Migration, and Other Popular Tools",
+      "url": "https://medium.com/codex/getting-to-know-rust-the-reason-behind-buns-migration-and-other-popular-tools-398fcba9dd9b",
+      "by": "Developer Awam",
+      "time": 1786509587000,
       "tags": [
-        "data-visualization",
-        "data-engineering",
+        "rust",
+        "programming",
+        "web-development"
+      ]
+    },
+    {
+      "title": "How to Build a Macro (Orchestration) Agent in LangGraph: A Complete Production Guide",
+      "url": "https://medium.com/algomart/how-to-build-a-macro-orchestration-agent-in-langgraph-a-complete-production-guide-a2bc5be94eb8",
+      "by": "Yash Jain",
+      "time": 1786509460000,
+      "tags": [
+        "llm",
+        "ai-agent",
         "programming"
       ]
     },
     {
-      "title": "Java Multithreading Mastery #20 — Inter-Thread Communication: How Threads Talk to Each Other Using…",
-      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-20-inter-thread-communication-how-threads-talk-to-each-other-using-0c12041510b7",
-      "by": "Ayushi Malviya",
-      "time": 1786422876000,
+      "title": "AI Starts With Better Data: How SegForge Makes Enterprise Data AI-Ready",
+      "url": "https://medium.com/@Segmetriqanalytics/ai-starts-with-better-data-how-segforge-makes-enterprise-data-ai-ready-4f3cd2878c58",
+      "by": "SEGMETRIQ ANALYTICS LLP",
+      "time": 1786509362000,
       "tags": [
-        "java",
-        "software-engineering",
-        "software-development"
+        "etl",
+        "data-science",
+        "data-engineering"
       ]
     },
     {
-      "title": "Java Multithreading Mastery #19 — Atomic Variables: Thread Safety Without synchronized",
-      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-19-atomic-variables-thread-safety-without-synchronized-337902f05097",
-      "by": "Ayushi Malviya",
-      "time": 1786422823000,
+      "title": "Verification: Does Anyone Check the Report Before It Ships? #3",
+      "url": "https://medium.com/@agrawalayush730/verification-does-anyone-check-the-report-before-it-ships-3-28059c8f6a17",
+      "by": "Ayush Agrawal",
+      "time": 1786509214000,
       "tags": [
-        "software-development",
+        "ai-agent",
+        "machine-learning",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "I Tested Cursor 3, Claude Code, and Gemini CLI on the Same Laravel Task — The Results Were Not What…",
+      "url": "https://sadiqueali.medium.com/i-tested-cursor-3-claude-code-and-gemini-cli-on-the-same-laravel-task-the-results-were-not-what-2af46632df20",
+      "by": "Sadique Ali",
+      "time": 1786509109000,
+      "tags": [
+        "laravel",
+        "php",
+        "programming"
+      ]
+    },
+    {
+      "title": "7 Flutter Mistakes I Would Avoid If I Started Again in 2026",
+      "url": "https://medium.com/@yashnariya003248/7-flutter-mistakes-i-would-avoid-if-i-started-again-in-2026-e51b67a0edcf",
+      "by": "Yash Nariya",
+      "time": 1786509089000,
+      "tags": [
         "programming",
-        "coding"
+        "flutter",
+        "dart"
       ]
     },
     {
-      "title": "Your AI Agent Doesn’t Need More Context. It Needs Memory.",
-      "url": "https://medium.com/@ishaqsaqib/your-ai-agent-doesnt-need-more-context-it-needs-memory-26c64cf20f58",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1786422663000,
+      "title": "I Built a Full-Stack App with .NET, Angular and AI -- Here's What Actually Worked.",
+      "url": "https://medium.com/@bharat.chandera/i-built-a-full-stack-app-with-net-angular-and-ai-heres-what-actually-worked-99107fc9845c",
+      "by": "Bharat Chandera",
+      "time": 1786509063000,
       "tags": [
-        "artificial-intelligence",
-        "software-development",
-        "self-improvement"
+        "angular",
+        "programming",
+        "dotnet"
       ]
     },
     {
-      "title": "DNS Records Explained: A, AAAA, CNAME, MX, TXT, NS, and SRV Records in Modern Internet…",
-      "url": "https://medium.com/@aniksikder9501/dns-records-explained-a-aaaa-cname-mx-txt-ns-and-srv-records-in-modern-internet-220e20699f0b",
-      "by": "Anik Sikder",
-      "time": 1786422663000,
-      "tags": [
-        "devops",
-        "dns",
-        "networking"
-      ]
-    },
-    {
-      "title": "Top 10 Backstage Plugins That Are Actually Useful in Production",
-      "url": "https://medium.com/devops-ai-decoded/top-10-backstage-plugins-that-are-actually-useful-in-production-171eb7c7122b",
+      "title": "Top 7 Reasons Your Internal Developer Portal Is Failing (And How to Fix It)",
+      "url": "https://medium.com/devops-ai-decoded/top-7-reasons-your-internal-developer-portal-is-failing-and-how-to-fix-it-f4bd2b490c87",
       "by": "Neel Shah",
-      "time": 1786422663000,
-      "tags": [
-        "technology",
-        "ai",
-        "devops"
-      ]
-    },
-    {
-      "title": "Event-Driven Architecture in Spring Boot: Kafka, Streams, Outbox & Production Guide",
-      "url": "https://deepawasthi.medium.com/spring-boot-event-driven-architecture-5b5a3c7f2f39",
-      "by": "Deep Awasthi",
-      "time": 1786422663000,
-      "tags": [
-        "software-engineering",
-        "java",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "The $40,000 Redis Mistake: Why Cloud Math Almost Cost Me My Visa SSE Loop",
-      "url": "https://bitsofanant.medium.com/the-40-000-redis-mistake-why-cloud-math-almost-cost-me-my-visa-sse-loop-aa052effb0b4",
-      "by": "Anant Singh Raghuvanshi",
-      "time": 1786422663000,
-      "tags": [
-        "software-engineering",
-        "java",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "What Happens to Your IT Environment When You Go on Holiday",
-      "url": "https://medium.com/@prasantakumarroy1/what-happens-to-your-it-environment-when-you-go-on-holiday-a4178a1b05f4",
-      "by": "Prasanta Kumar Roy",
-      "time": 1786422644000,
+      "time": 1786509063000,
       "tags": [
         "devops",
-        "cloud-computing",
-        "system-administration"
+        "technology",
+        "ai"
+      ]
+    },
+    {
+      "title": "7 Prompt Engineering Mistakes That Are Quietly Inflating Your OpenAI Bill",
+      "url": "https://medium.com/@luckyudbhav/7-prompt-engineering-mistakes-that-are-quietly-inflating-your-openai-bill-864f93820421",
+      "by": "Udbhav",
+      "time": 1786509063000,
+      "tags": [
+        "llm",
+        "python",
+        "software-engineering"
       ]
     }
   ]
