@@ -40,6 +40,7 @@ import WeatherWidget from './components/WeatherWidget'
 import QuoteFlip from './components/QuoteFlip'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
+import SaladsTeaser from './components/SaladsTeaser'
 import Sidecar from './components/Sidecar'
 
 import WorkspaceSection from './components/WorkspaceSection'
@@ -387,6 +388,7 @@ export default function App() {
         <div className="section-animate"><AstroDitherSection /></div>
         <div className="section-animate"><TravelMap /></div>
         <div className="section-animate"><DopamineTeaser /></div>
+        <div className="section-animate"><SaladsTeaser /></div>
         <div className="section-animate"><Connect /></div>
         <div className="section-animate"><Guestbook /></div>
       </main>
