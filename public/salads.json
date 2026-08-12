@@ -1,0 +1,1472 @@
+{
+  "generated": "2026-08-12T14:18:21.853Z",
+  "source": "TheMealDB",
+  "note": "Ingredients are listed in full. Methods stay with the publishers who wrote them — every salad links to its source.",
+  "salads": [
+    {
+      "id": "53102",
+      "name": "Squid, chickpea & chorizo salad",
+      "category": "Seafood",
+      "cuisine": "Australian",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/wsu0rc1761848482.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/wsu0rc1761848482.jpg/large",
+      "ingredients": [
+        {
+          "item": "Red Pepper",
+          "qty": "4"
+        },
+        {
+          "item": "Can of chickpeas",
+          "qty": "2 400g Cans"
+        },
+        {
+          "item": "Parsley",
+          "qty": "Bunch"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1"
+        },
+        {
+          "item": "Garlic Clove",
+          "qty": "2"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "100 ml"
+        },
+        {
+          "item": "Squid",
+          "qty": "600g"
+        },
+        {
+          "item": "Chorizo",
+          "qty": "200g"
+        },
+        {
+          "item": "Lemon",
+          "qty": "Juice/zest of one"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/squid-chickpea-chorizo-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.bbcgoodfood.com/recipes/squid-chickpea-chorizo-salad",
+      "tags": []
+    },
+    {
+      "id": "53106",
+      "name": "Warm roast asparagus salad",
+      "category": "Pork",
+      "cuisine": "Australian",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/ktsws11761998344.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/ktsws11761998344.jpg/large",
+      "ingredients": [
+        {
+          "item": "Asparagus",
+          "qty": "500g"
+        },
+        {
+          "item": "Red Wine Vinegar",
+          "qty": "2 tbsp"
+        },
+        {
+          "item": "Tomato",
+          "qty": "4"
+        },
+        {
+          "item": "Extra Virgin Olive Oil",
+          "qty": "1 tbsp"
+        },
+        {
+          "item": "Streaky Bacon",
+          "qty": "12"
+        },
+        {
+          "item": "Clear Honey",
+          "qty": "1 teaspoon"
+        },
+        {
+          "item": "Jersey Royal Potatoes",
+          "qty": "16"
+        },
+        {
+          "item": "Extra Virgin Olive Oil",
+          "qty": "2 tblsp"
+        },
+        {
+          "item": "Dijon Mustard",
+          "qty": "1 teaspoon"
+        },
+        {
+          "item": "Rocket",
+          "qty": "100g"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/warm-roast-asparagus-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=pR_ZfbTxwms",
+      "tags": []
+    },
+    {
+      "id": "52960",
+      "name": "Salmon Avocado Salad",
+      "category": "Seafood",
+      "cuisine": "British",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/1549542994.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/1549542994.jpg/large",
+      "ingredients": [
+        {
+          "item": "Salmon",
+          "qty": "400g"
+        },
+        {
+          "item": "Avocado",
+          "qty": "3"
+        },
+        {
+          "item": "Cucumber",
+          "qty": "1"
+        },
+        {
+          "item": "Spinach",
+          "qty": "400g"
+        },
+        {
+          "item": "Mint",
+          "qty": "4 tbs"
+        },
+        {
+          "item": "Lime",
+          "qty": "zest and juice of 1"
+        },
+        {
+          "item": "Honey",
+          "qty": "2 tsp"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "3 tbs"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/4521/salmon-avocado-and-cucumber-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=FJiu2S0Xap0",
+      "tags": [
+        "Paleo",
+        "Keto",
+        "LowCarbs",
+        "Salad",
+        "Alcoholic",
+        "Halloween"
+      ]
+    },
+    {
+      "id": "53378",
+      "name": "Sesame Cucumber Salad",
+      "category": "Side",
+      "cuisine": "Chinese",
+      "diet": "vegan",
+      "thumb": "https://www.themealdb.com/images/media/meals/93iok31766436070.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/93iok31766436070.jpg/large",
+      "ingredients": [
+        {
+          "item": "Cucumber",
+          "qty": "2 medium"
+        },
+        {
+          "item": "Salt",
+          "qty": "1/2 tsp"
+        },
+        {
+          "item": "Sesame Seed Oil",
+          "qty": "2 tsp"
+        },
+        {
+          "item": "Rice Vinegar",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Basil Leaves",
+          "qty": "6"
+        },
+        {
+          "item": "Red Chilli Flakes",
+          "qty": "1/2 tsp"
+        },
+        {
+          "item": "Sesame Seed",
+          "qty": "2 tsp"
+        }
+      ],
+      "source": "https://www.simplyrecipes.com/recipes/sesame_cucumber_salad/",
+      "sourceHost": "simplyrecipes.com",
+      "video": "https://www.youtube.com/watch?v=q37qn81lg5c",
+      "tags": []
+    },
+    {
+      "id": "52852",
+      "name": "Tuna Nicoise",
+      "category": "Seafood",
+      "cuisine": "French",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/yypwwq1511304979.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/yypwwq1511304979.jpg/large",
+      "ingredients": [
+        {
+          "item": "Potatoes",
+          "qty": "450g"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "2 tblsp"
+        },
+        {
+          "item": "Eggs",
+          "qty": "4"
+        },
+        {
+          "item": "Red Wine Vinegar",
+          "qty": "1 tbls"
+        },
+        {
+          "item": "Capers",
+          "qty": "2 tblsp"
+        },
+        {
+          "item": "Sunflower Oil",
+          "qty": "50g"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "½"
+        },
+        {
+          "item": "Spinach",
+          "qty": "100g"
+        },
+        {
+          "item": "Tuna",
+          "qty": "400g"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/9529/winter-tuna-nioise",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=3_UAxkx0u6U",
+      "tags": []
+    },
+    {
+      "id": "53011",
+      "name": "Chicken Quinoa Greek Salad",
+      "category": "Chicken",
+      "cuisine": "Greek",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg/large",
+      "ingredients": [
+        {
+          "item": "Quinoa",
+          "qty": "225g"
+        },
+        {
+          "item": "Butter",
+          "qty": "25g"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Garlic",
+          "qty": "1 clove finely chopped"
+        },
+        {
+          "item": "Chicken Breast",
+          "qty": "400g"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "2 tbs"
+        },
+        {
+          "item": "Black Olives",
+          "qty": "Handful"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Feta",
+          "qty": "100g"
+        },
+        {
+          "item": "Mint",
+          "qty": "Chopped"
+        },
+        {
+          "item": "Lemon",
+          "qty": "Juice of 1/2"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/griddled-chicken-quinoa-greek-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=akcrkXYr61M",
+      "tags": []
+    },
+    {
+      "id": "52777",
+      "name": "Mediterranean Pasta Salad",
+      "category": "Seafood",
+      "cuisine": "Italian",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg/large",
+      "ingredients": [
+        {
+          "item": "mozzarella balls",
+          "qty": "200 g"
+        },
+        {
+          "item": "baby plum tomatoes",
+          "qty": "250 g"
+        },
+        {
+          "item": "fresh basil",
+          "qty": "1  bunch"
+        },
+        {
+          "item": "farfalle",
+          "qty": "350 g"
+        },
+        {
+          "item": "extra virgin olive oil",
+          "qty": "3  tablespoons"
+        },
+        {
+          "item": "Green Olives",
+          "qty": "40 g"
+        },
+        {
+          "item": "tuna",
+          "qty": "200 g"
+        },
+        {
+          "item": "salt",
+          "qty": "to taste"
+        },
+        {
+          "item": "pepper",
+          "qty": "to taste"
+        }
+      ],
+      "source": null,
+      "sourceHost": null,
+      "video": "https://www.youtube.com/watch?v=e52IL8zYmaE",
+      "tags": [
+        "Pasta",
+        "Baking"
+      ]
+    },
+    {
+      "id": "53309",
+      "name": "Cucumber & fennel salad",
+      "category": "Vegetarian",
+      "cuisine": "Polish",
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/ei21r61764365935.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/ei21r61764365935.jpg/large",
+      "ingredients": [
+        {
+          "item": "Cucumber",
+          "qty": "1 large"
+        },
+        {
+          "item": "Sugar",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Fennel Bulb",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Sour Cream",
+          "qty": "150ml"
+        },
+        {
+          "item": "Lemon",
+          "qty": "Juice of 1"
+        },
+        {
+          "item": "White Wine Vinegar",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Dill",
+          "qty": "Bunch"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/cucumber-fennel-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=gfNjne0AMb0",
+      "tags": []
+    },
+    {
+      "id": "53297",
+      "name": "Pomegranate salad",
+      "category": "Vegetarian",
+      "cuisine": "Polish",
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/fqpqml1764359125.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/fqpqml1764359125.jpg/large",
+      "ingredients": [
+        {
+          "item": "Olive Oil",
+          "qty": "60 ml"
+        },
+        {
+          "item": "Lemon Juice",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Honey",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Thyme",
+          "qty": "2 sprigs"
+        },
+        {
+          "item": "Baby Lettuce Leaves",
+          "qty": "100g"
+        },
+        {
+          "item": "Cherry Tomatoes",
+          "qty": "250g"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "3 chopped"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Pomegranate",
+          "qty": "1"
+        },
+        {
+          "item": "Feta",
+          "qty": "50g"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/pomegranate-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=wTqashUAid8",
+      "tags": []
+    },
+    {
+      "id": "53081",
+      "name": "Potato Salad (Olivier Salad)",
+      "category": "Vegetarian",
+      "cuisine": "Russian",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/ebvuir1699013665.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/ebvuir1699013665.jpg/large",
+      "ingredients": [
+        {
+          "item": "Potatoes",
+          "qty": "4"
+        },
+        {
+          "item": "Carrots",
+          "qty": "3"
+        },
+        {
+          "item": "Salt",
+          "qty": "1 tbs"
+        },
+        {
+          "item": "White Wine Vinegar",
+          "qty": "1/2 tbs"
+        },
+        {
+          "item": "Eggs",
+          "qty": "4"
+        },
+        {
+          "item": "Sausages",
+          "qty": "7 oz"
+        },
+        {
+          "item": "Dill",
+          "qty": "4 oz"
+        },
+        {
+          "item": "Peas",
+          "qty": "1 can"
+        },
+        {
+          "item": "Onions",
+          "qty": "4"
+        },
+        {
+          "item": "Mayonnaise",
+          "qty": "1 cup"
+        }
+      ],
+      "source": "https://www.sweetandsavorybyshinee.com/russian-potato-salad/",
+      "sourceHost": "sweetandsavorybyshinee.com",
+      "video": "https://www.youtube.com/watch?v=RnsWwHcpKiY",
+      "tags": [
+        "Salad"
+      ]
+    },
+    {
+      "id": "53157",
+      "name": "Chorizo & soft-boiled egg salad",
+      "category": "Pork",
+      "cuisine": "Spanish",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/v8eaed1763257313.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/v8eaed1763257313.jpg/large",
+      "ingredients": [
+        {
+          "item": "Baby New Potatoes",
+          "qty": "500g"
+        },
+        {
+          "item": "Egg",
+          "qty": "4"
+        },
+        {
+          "item": "Green Beans",
+          "qty": "225g"
+        },
+        {
+          "item": "Chorizo",
+          "qty": "225g"
+        },
+        {
+          "item": "Garlic Clove",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Sherry vinegar",
+          "qty": "2 tbsp"
+        },
+        {
+          "item": "Parsley",
+          "qty": "2 tbsp chopped"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/chorizo-soft-boiled-egg-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=PfAjfn5dYHE",
+      "tags": []
+    },
+    {
+      "id": "53185",
+      "name": "Chorizo & tomato salad",
+      "category": "Pork",
+      "cuisine": "Spanish",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/6cskio1763338156.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/6cskio1763338156.jpg/large",
+      "ingredients": [
+        {
+          "item": "Beef tomatoes",
+          "qty": "3"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1/2"
+        },
+        {
+          "item": "Thyme",
+          "qty": "Sprigs of fresh"
+        },
+        {
+          "item": "Sherry vinegar",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Extra Virgin Olive Oil",
+          "qty": "2 tblsp"
+        },
+        {
+          "item": "Chorizo",
+          "qty": "100g"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/chorizo-tomato-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=RFlENguMJNA",
+      "tags": []
+    },
+    {
+      "id": "53203",
+      "name": "Thai rice noodle salad",
+      "category": "Vegetarian",
+      "cuisine": "Thai",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/6g3rso1763486069.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/6g3rso1763486069.jpg/large",
+      "ingredients": [
+        {
+          "item": "Vermicelli Rice Noodles",
+          "qty": "1/2 bag"
+        },
+        {
+          "item": "Bean Sprouts",
+          "qty": "200g"
+        },
+        {
+          "item": "Lime",
+          "qty": "Zest and juice of 2"
+        },
+        {
+          "item": "Fish Sauce",
+          "qty": "2-3 tbsp"
+        },
+        {
+          "item": "Muscovado Sugar",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Lettuce",
+          "qty": "2 small"
+        },
+        {
+          "item": "Minced Pork",
+          "qty": "500g"
+        },
+        {
+          "item": "Ginger",
+          "qty": "Knob"
+        },
+        {
+          "item": "Cayenne Pepper",
+          "qty": "Pinch"
+        },
+        {
+          "item": "Sunflower Oil",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Sesame Seed",
+          "qty": "2 tblsp"
+        },
+        {
+          "item": "Oil",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Sirloin steak",
+          "qty": "4"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 sliced"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/thai-rice-noodle-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53267",
+      "name": "Aubergine couscous salad",
+      "category": "Vegetarian",
+      "cuisine": "Turkish",
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/02s6gc1763799560.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/02s6gc1763799560.jpg/large",
+      "ingredients": [
+        {
+          "item": "Aubergine",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "3  tablespoons"
+        },
+        {
+          "item": "Couscous",
+          "qty": "140g"
+        },
+        {
+          "item": "Vegetable Stock",
+          "qty": "225g"
+        },
+        {
+          "item": "Cherry Tomatoes",
+          "qty": "200g"
+        },
+        {
+          "item": "Mint",
+          "qty": "Handful"
+        },
+        {
+          "item": "Goats Cheese",
+          "qty": "100g"
+        },
+        {
+          "item": "Lemon",
+          "qty": "Juice of 1/2"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/aubergine-couscous-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/shorts/8ws2Ohy__CQ",
+      "tags": []
+    },
+    {
+      "id": "53275",
+      "name": "Sweet potato salad",
+      "category": "Vegetarian",
+      "cuisine": "Turkish",
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/z458v91763817681.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/z458v91763817681.jpg/large",
+      "ingredients": [
+        {
+          "item": "Sweet Potatoes",
+          "qty": "1200g"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Shallots",
+          "qty": "2"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "4 sliced"
+        },
+        {
+          "item": "Chives",
+          "qty": "Bunch"
+        },
+        {
+          "item": "Sherry vinegar",
+          "qty": "5 tablespoons"
+        },
+        {
+          "item": "Extra Virgin Olive Oil",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Honey",
+          "qty": "2 tablespoons"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/sweet-potato-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=RkiKSO0IuVQ",
+      "tags": []
+    },
+    {
+      "id": "53312",
+      "name": "Tangy cabbage slaw",
+      "category": "Vegetarian",
+      "cuisine": "Ukrainian",
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/e2g2r21764367568.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/e2g2r21764367568.jpg/large",
+      "ingredients": [
+        {
+          "item": "Mayonnaise",
+          "qty": "250ml"
+        },
+        {
+          "item": "Lemon",
+          "qty": "Zest and juice of 1"
+        },
+        {
+          "item": "Cider Vinegar",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Wholegrain Mustard",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Celery Salt",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "White Cabbage",
+          "qty": "1/4"
+        },
+        {
+          "item": "Red Cabbage",
+          "qty": "1/4"
+        },
+        {
+          "item": "Carrots",
+          "qty": "2"
+        },
+        {
+          "item": "Onion",
+          "qty": "1 Diced"
+        },
+        {
+          "item": "Celery",
+          "qty": "2 sliced"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/tangy-cabbage-slaw",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=oVuAky9HTlM",
+      "tags": []
+    },
+    {
+      "id": "53239",
+      "name": "Bang bang prawn salad",
+      "category": "Seafood",
+      "cuisine": "Vietnamese",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/4xcfai1763765676.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/4xcfai1763765676.jpg/large",
+      "ingredients": [
+        {
+          "item": "Rice Noodles",
+          "qty": "140g"
+        },
+        {
+          "item": "Peanut Butter",
+          "qty": "3 tablespoons"
+        },
+        {
+          "item": "Coconut Milk",
+          "qty": "4 tablespoons"
+        },
+        {
+          "item": "sweet chilli sauce",
+          "qty": "3  tablespoons"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "3 sliced thinly"
+        },
+        {
+          "item": "Cucumber",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Bean Sprouts",
+          "qty": "300g"
+        },
+        {
+          "item": "Prawns",
+          "qty": "200g"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/bang-bang-prawn-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=Na-6-lzs2wU",
+      "tags": []
+    },
+    {
+      "id": "53245",
+      "name": "Noodle bowl salad",
+      "category": "Seafood",
+      "cuisine": "Vietnamese",
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/zry07j1763779321.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/zry07j1763779321.jpg/large",
+      "ingredients": [
+        {
+          "item": "Rice Noodles",
+          "qty": "125g"
+        },
+        {
+          "item": "Sugar Snap Peas",
+          "qty": "200g"
+        },
+        {
+          "item": "Sesame Seed Oil",
+          "qty": "2 tsp"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "4 sliced"
+        },
+        {
+          "item": "Coriander",
+          "qty": "Handful"
+        },
+        {
+          "item": "Hot Smoked Flaked Salmon",
+          "qty": "150g"
+        },
+        {
+          "item": "Pretzels",
+          "qty": "To serve"
+        },
+        {
+          "item": "Soy Sauce",
+          "qty": "3  tablespoons"
+        },
+        {
+          "item": "Clear Honey",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Lemon Juice",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Ground Nut Oil",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Garlic",
+          "qty": "1 clove finely chopped"
+        },
+        {
+          "item": "Ginger",
+          "qty": "Knob"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/noodle-bowl-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=7EAdKeikJ9o",
+      "tags": []
+    },
+    {
+      "id": "53232",
+      "name": "Vietnamese chicken salad",
+      "category": "Chicken",
+      "cuisine": "Vietnamese",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/pk8wtn1763758591.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/pk8wtn1763758591.jpg/large",
+      "ingredients": [
+        {
+          "item": "Rice Noodles",
+          "qty": "140g"
+        },
+        {
+          "item": "Carrots",
+          "qty": "1"
+        },
+        {
+          "item": "Cucumber",
+          "qty": "1/2"
+        },
+        {
+          "item": "Chicken Breasts",
+          "qty": "2"
+        },
+        {
+          "item": "Radish",
+          "qty": "50g"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1/2"
+        },
+        {
+          "item": "Mint",
+          "qty": "Bunch"
+        },
+        {
+          "item": "Peanuts",
+          "qty": "25g"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Lime",
+          "qty": "Zest and juice of 1"
+        },
+        {
+          "item": "Fish Sauce",
+          "qty": "1 ½ tbsp"
+        },
+        {
+          "item": "Soy Sauce",
+          "qty": "1 ½ tbsp"
+        },
+        {
+          "item": "Sesame Seed Oil",
+          "qty": "1 ½ tbsp"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/vietnamese-chicken-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=behSkhzKpHI",
+      "tags": []
+    },
+    {
+      "id": "53237",
+      "name": "Vietnamese pork salad",
+      "category": "Pork",
+      "cuisine": "Vietnamese",
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/g7jomp1763763994.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/g7jomp1763763994.jpg/large",
+      "ingredients": [
+        {
+          "item": "Golden Caster Sugar",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Lime",
+          "qty": "Juice of 2"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Coriander",
+          "qty": "Handful"
+        },
+        {
+          "item": "Sesame Seed Oil",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Fish Sauce",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Soy Sauce",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Pork Tenderloin",
+          "qty": "500g"
+        },
+        {
+          "item": "Vegetable Oil",
+          "qty": "For brushing"
+        },
+        {
+          "item": "White Cabbage",
+          "qty": "1/4"
+        },
+        {
+          "item": "Cucumber",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Celery",
+          "qty": "5 chopped"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "3 sliced thinly"
+        },
+        {
+          "item": "Red Chilli",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Lemongrass Stalks",
+          "qty": "2 chopped"
+        },
+        {
+          "item": "Lime",
+          "qty": "Zest of 1"
+        },
+        {
+          "item": "Coriander",
+          "qty": "Handful"
+        },
+        {
+          "item": "Mint",
+          "qty": "Handful"
+        }
+      ],
+      "source": "https://www.bbcgoodfood.com/recipes/vietnamese-pork-salad",
+      "sourceHost": "bbcgoodfood.com",
+      "video": "https://www.youtube.com/watch?v=_DCJNrNTTB4",
+      "tags": []
+    },
+    {
+      "id": "53492",
+      "name": "Bulgarian Green Salad",
+      "category": "Side",
+      "cuisine": null,
+      "diet": "vegan",
+      "thumb": "https://www.themealdb.com/images/media/meals/6awyvm1782685205.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/6awyvm1782685205.jpg/large",
+      "ingredients": [
+        {
+          "item": "Lettuce",
+          "qty": "1/2"
+        },
+        {
+          "item": "Radish",
+          "qty": "7"
+        },
+        {
+          "item": "Cucumber",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Scallions",
+          "qty": "4 Chopped"
+        },
+        {
+          "item": "Salt",
+          "qty": "To taste"
+        },
+        {
+          "item": "Apple Cider Vinegar",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "1/8 cup"
+        },
+        {
+          "item": "Dill",
+          "qty": "Garnish"
+        },
+        {
+          "item": "Parsley",
+          "qty": "Garnish"
+        }
+      ],
+      "source": "https://cookinglsl.com/bulgarian-green-salad-recipe/#wprm-recipe-container-24454",
+      "sourceHost": "cookinglsl.com",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53507",
+      "name": "Cayman Style Potato Salad",
+      "category": "Side",
+      "cuisine": null,
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/q21suk1782772956.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/q21suk1782772956.jpg/large",
+      "ingredients": [
+        {
+          "item": "Potatoes",
+          "qty": "10"
+        },
+        {
+          "item": "Green Pepper",
+          "qty": "1/2"
+        },
+        {
+          "item": "Red Pepper",
+          "qty": "1/4"
+        },
+        {
+          "item": "Onion",
+          "qty": "1/2"
+        },
+        {
+          "item": "Mayonnaise",
+          "qty": "1 cup"
+        },
+        {
+          "item": "Mustard",
+          "qty": "1/4 cup"
+        },
+        {
+          "item": "Sugar",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Black Pepper",
+          "qty": "1/4 tsp"
+        },
+        {
+          "item": "Beets",
+          "qty": "1 Can"
+        },
+        {
+          "item": "Peas",
+          "qty": "1 Can"
+        },
+        {
+          "item": "Eggs",
+          "qty": "3"
+        }
+      ],
+      "source": "https://www.ourcayman.ky/en-us/about/more-about-cayman/recipes",
+      "sourceHost": "ourcayman.ky",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53555",
+      "name": "Classic Potato Salad",
+      "category": "Side",
+      "cuisine": null,
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/5q88l31784664151.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/5q88l31784664151.jpg/large",
+      "ingredients": [
+        {
+          "item": "New Potatoes",
+          "qty": "600g"
+        },
+        {
+          "item": "Asparagus",
+          "qty": "150g"
+        },
+        {
+          "item": "Chives",
+          "qty": "Bunch"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1"
+        },
+        {
+          "item": "Radish",
+          "qty": "8"
+        },
+        {
+          "item": "Creme Fraiche",
+          "qty": "1/2 cup"
+        },
+        {
+          "item": "Mayonnaise",
+          "qty": "1/2 cup"
+        },
+        {
+          "item": "Dijon Mustard",
+          "qty": "2 tsp"
+        },
+        {
+          "item": "Sugar",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Apple Cider Vinegar",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Salt",
+          "qty": "Pinch"
+        },
+        {
+          "item": "Pepper",
+          "qty": "Pinch"
+        }
+      ],
+      "source": "https://denmark.dk/people-and-culture/recipes/potato-salad/",
+      "sourceHost": "denmark.dk",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53467",
+      "name": "Liegeoise Salad",
+      "category": "Vegetarian",
+      "cuisine": null,
+      "diet": "meat",
+      "thumb": "https://www.themealdb.com/images/media/meals/ji3mho1782499823.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/ji3mho1782499823.jpg/large",
+      "ingredients": [
+        {
+          "item": "Potatoes",
+          "qty": "350g"
+        },
+        {
+          "item": "Green Beans",
+          "qty": "200g"
+        },
+        {
+          "item": "Eggs",
+          "qty": "2"
+        },
+        {
+          "item": "Bacon",
+          "qty": "125g"
+        },
+        {
+          "item": "Onion",
+          "qty": "2 tbs chopped"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "3  tablespoons"
+        },
+        {
+          "item": "White Wine Vinegar",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Mustard",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Parsley",
+          "qty": "2 tablespoons"
+        },
+        {
+          "item": "Pepper",
+          "qty": "Pinch"
+        },
+        {
+          "item": "Salt",
+          "qty": "Pinch"
+        }
+      ],
+      "source": "https://junedarville.com/salade-liegeoise.html",
+      "sourceHost": "junedarville.com",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53573",
+      "name": "Papaya salad",
+      "category": "Vegetarian",
+      "cuisine": null,
+      "diet": "vegan",
+      "thumb": "https://www.themealdb.com/images/media/meals/7ytdtz1784833420.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/7ytdtz1784833420.jpg/large",
+      "ingredients": [
+        {
+          "item": "Green Papaya",
+          "qty": "1/2"
+        },
+        {
+          "item": "Lemon Juice",
+          "qty": "1 tablespoon"
+        },
+        {
+          "item": "Salt",
+          "qty": "To taste"
+        },
+        {
+          "item": "Carrots",
+          "qty": "1"
+        },
+        {
+          "item": "Cherry Tomatoes",
+          "qty": "1 cup"
+        },
+        {
+          "item": "Spring Onions",
+          "qty": "1/2 cup"
+        },
+        {
+          "item": "Roasted Peanut",
+          "qty": "1/4 cup"
+        },
+        {
+          "item": "Garlic",
+          "qty": "1 tablespoon"
+        }
+      ],
+      "source": "https://dominicagourmet.com/green-papaya-salad-with-fried-snapper/",
+      "sourceHost": "dominicagourmet.com",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53577",
+      "name": "Sauerkraut and Fish Salad",
+      "category": "Seafood",
+      "cuisine": null,
+      "diet": "seafood",
+      "thumb": "https://www.themealdb.com/images/media/meals/2i0plx1784837241.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/2i0plx1784837241.jpg/large",
+      "ingredients": [
+        {
+          "item": "Sauerkraut",
+          "qty": "200g"
+        },
+        {
+          "item": "Smoked Haddock",
+          "qty": "100g"
+        },
+        {
+          "item": "Egg",
+          "qty": "1"
+        },
+        {
+          "item": "Rye Bread",
+          "qty": "2 sliced"
+        },
+        {
+          "item": "Oil",
+          "qty": "200g"
+        },
+        {
+          "item": "Honey",
+          "qty": "Drizzle"
+        },
+        {
+          "item": "Salt",
+          "qty": "Pinch"
+        }
+      ],
+      "source": "https://estoniancuisine.com/2021/01/09/sauerkraut-and-fish-salad-hapukapsa-kalasalat/",
+      "sourceHost": "estoniancuisine.com",
+      "video": null,
+      "tags": []
+    },
+    {
+      "id": "53491",
+      "name": "Shopska Salad",
+      "category": "Vegetarian",
+      "cuisine": null,
+      "diet": "vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/bqx8mc1782684286.jpg/small",
+      "photo": "https://www.themealdb.com/images/media/meals/bqx8mc1782684286.jpg/large",
+      "ingredients": [
+        {
+          "item": "Cucumber",
+          "qty": "1 sliced"
+        },
+        {
+          "item": "Tomatoes",
+          "qty": "3 Cups"
+        },
+        {
+          "item": "Red Onions",
+          "qty": "1/4"
+        },
+        {
+          "item": "Green Pepper",
+          "qty": "1 chopped"
+        },
+        {
+          "item": "Salt",
+          "qty": "1 tsp"
+        },
+        {
+          "item": "Olive Oil",
+          "qty": "1/4 cup"
+        },
+        {
+          "item": "Feta",
+          "qty": "1/3 cup"
+        },
+        {
+          "item": "Parsley",
+          "qty": "2 tbs chopped"
+        }
+      ],
+      "source": "https://cookinglsl.com/shopska-salad-recipe-bulgarian-tomato-and-cucumber-salad/#wprm-recipe-container-35244",
+      "sourceHost": "cookinglsl.com",
+      "video": null,
+      "tags": []
+    }
+  ]
+}

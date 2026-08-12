@@ -62,6 +62,7 @@ const Timeline = lazy(() => import('./components/Timeline'))
 const UsesPage = lazy(() => import('./components/UsesPage'))
 const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 const MusicPage = lazy(() => import('./components/MusicPage'))
+const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const Splat = lazy(() => import('./components/Splat'))
 
@@ -269,6 +270,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading music…</div></div>}>
         <MusicPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Salads — ingredient-first recipe shelf via #/salads route
+  if (route === '#/salads') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">tossing…</div></div>}>
+        <SaladsPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
