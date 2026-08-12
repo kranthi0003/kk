@@ -583,6 +583,7 @@ function SidecarMenu() {
   const items = [
     { label: 'Vegas', emoji: '🎰', hash: '#/vegas' },
     { label: 'Europe', emoji: '❄️', hash: '#/europe' },
+    { label: 'Salads', emoji: '🥗', hash: '#/salads' },
   ]
   const go = (hash) => { setOpen(false); window.location.hash = hash }
 
