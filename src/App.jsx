@@ -65,6 +65,7 @@ const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 const MusicPage = lazy(() => import('./components/MusicPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
+const OneMonth = lazy(() => import('./components/OneMonth'))
 const Splat = lazy(() => import('./components/Splat'))
 
 function MobileBanner() {
@@ -289,6 +290,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <AllTheBest onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // One month — a private, unlisted note (shared directly by link). Not in nav.
+  if (route === '#/onemonth') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b1024' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(174,196,255,0.5)' }}>loading…</div></div>}>
+        <OneMonth onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
