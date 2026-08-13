@@ -7,6 +7,7 @@ import React, { createContext, useContext, useEffect, useRef, useState, useCallb
 // API (licensing/ads handled by YouTube). Auto-advances through the list, loops.
 
 export const TRACKS = [
+  { id: 'nYEoxne_20Y', title: 'Neela Nilave',      by: 'Kapil Kapilan · RDX' },
   { id: 'R8egmh5dWzo', title: 'Feel So Close',     by: 'Calvin Harris' },
   { id: '47dtFZ8CFo8', title: 'Safe and Sound',    by: 'Capital Cities' },
   { id: 'DOT1LmQbFFA', title: 'Weightless',       by: 'Martin Garrix & Arijit Singh' },
