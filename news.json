@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T04:03:13.481Z",
+  "generated": "2026-08-13T04:46:53.299Z",
   "reddit": [
     {
       "title": "Programming smart pathing in Starcraft 2",
@@ -23,13 +23,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Kubernetes completions for labels",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vmowx3/kubernetes_completions_for_labels/",
-      "by": "Electronic_Bad_2046",
-      "time": 1786564825000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "Linus Torvalds Explains What Makes Linux So Fast",
       "url": "https://www.reddit.com/r/programming/comments/1vmoddq/linus_torvalds_explains_what_makes_linux_so_fast/",
       "by": "Rechenplaner",
@@ -37,150 +30,157 @@
       "sub": "r/programming"
     },
     {
-      "title": "Inherited a cluster where workload identity is just long-lived secrets, fixing it right.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vmmymh/inherited_a_cluster_where_workload_identity_is/",
-      "by": "Mangwe_Tanser",
-      "time": 1786560499000,
+      "title": "Has anyone looked at RapidFort's curated libraries as a Chainguard alternative?",
+      "url": "https://www.reddit.com/r/devops/comments/1vmo871/has_anyone_looked_at_rapidforts_curated_libraries/",
+      "by": "Serious-Equal-6764",
+      "time": 1786563295000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Deploying docker-compose.yml",
+      "url": "https://www.reddit.com/r/devops/comments/1vmjm45/deploying_dockercomposeyml/",
+      "by": "aress1605",
+      "time": 1786553397000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Cheapest server for a school project",
+      "url": "https://www.reddit.com/r/devops/comments/1vmgrns/cheapest_server_for_a_school_project/",
+      "by": "Old-Broccoli-4704",
+      "time": 1786547225000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Stupidest reason why Kiali worked in sandbox but not in dev",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vmhkoq/stupidest_reason_why_kiali_worked_in_sandbox_but/",
-      "by": "Kuebic",
-      "time": 1786548998000,
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Unsloth Desktop Puts Local AI Training and Inference in the Same App",
-      "url": "https://medium.com/@PowerUpSkills/unsloth-desktop-puts-local-ai-training-and-inference-in-the-same-app-428b54bad1b1",
-      "by": "Jannis",
-      "time": 1786593064000,
+      "title": "Building a “Human-in-the-Loop” AI Publishing Pipeline with Claude Desktop, MCP, and Slack",
+      "url": "https://medium.com/@TAKU-RD-M365-AI/building-a-human-in-the-loop-ai-publishing-pipeline-with-claude-desktop-mcp-and-slack-3da9b7be61cb",
+      "by": "Taku: Japan, Market, Tech, Auto…",
+      "time": 1786596129000,
       "tags": [
-        "llm",
+        "artificial-intelligence",
         "software-engineering",
-        "software-development"
+        "claude"
       ]
     },
     {
-      "title": "The hidden database Pool settings Quietly slowing down Your Go API",
-      "url": "https://medium.com/codex/the-hidden-database-pool-settings-quietly-slowing-down-your-go-api-b8074f95240b",
-      "by": "Yaninyz witty",
-      "time": 1786592817000,
+      "title": "Your Spring Boot API Is Fast at 100 Users. What Happens at 10,000?",
+      "url": "https://medium.com/@ersumit077/your-spring-boot-api-is-fast-at-100-users-what-happens-at-10-000-0838650b697b",
+      "by": "Crack Java Interview - Coding,…",
+      "time": 1786596102000,
       "tags": [
-        "writing",
-        "programming",
-        "golang"
+        "backend-development",
+        "java",
+        "design-systems"
       ]
     },
     {
-      "title": "Baru Belajar Python? Yuk Mulai dari print() di Google Colab",
-      "url": "https://medium.com/@alsyakanaya07/baru-belajar-python-yuk-mulai-dari-print-di-google-colab-009a3cf5eb3a",
-      "by": "Alsya Kanaya Dzikra",
-      "time": 1786592716000,
+      "title": "10 Simple MATLAB Lessons That Transform the Way You Code",
+      "url": "https://medium.com/@nicolakattan/10-simple-matlab-lessons-that-transform-the-way-you-code-511f0e2b8a46",
+      "by": "Nicola Kattan",
+      "time": 1786595715000,
       "tags": [
-        "python",
+        "prompt-engineering",
+        "engineering",
+        "matlab"
+      ]
+    },
+    {
+      "title": "How Database Indexing Actually Works | B-Trees, Slow COUNT(*), and the Trade-off Nobody Warns You…",
+      "url": "https://medium.com/@singh.piyush/how-database-indexing-actually-works-b-trees-slow-count-and-the-trade-off-nobody-warns-you-a4d5d5142586",
+      "by": "Piyush Kumar Singh",
+      "time": 1786595693000,
+      "tags": [
+        "sql",
+        "software-engineering",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Redis Output Caching in ASP.NET Core: Speed Without the Stale-Data Trap",
+      "url": "https://medium.com/@bharat.chandera/redis-output-caching-in-asp-net-core-speed-without-the-stale-data-trap-e4cadbbbfd08",
+      "by": "Bharat Chandera",
+      "time": 1786595691000,
+      "tags": [
         "programming",
+        "redis",
+        "aspnetcore"
+      ]
+    },
+    {
+      "title": "The Next Billion-Dollar AI Opportunity Isn’t Writing Code. It’s Reviewing AI’s Code.",
+      "url": "https://medium.com/lets-code-future/the-next-billion-dollar-ai-opportunity-isnt-writing-code-it-s-reviewing-ai-s-code-e1f44a63d3f3",
+      "by": "TechTales",
+      "time": 1786595621000,
+      "tags": [
+        "artificial-intelligence",
+        "ai-agent",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Complete Guide to Maven & Gradle for Spring Boot Engineers",
+      "url": "https://deepawasthi.medium.com/spring-boot-maven-gradle-a703e15a28f8",
+      "by": "Deep Awasthi",
+      "time": 1786595467000,
+      "tags": [
+        "software-development",
+        "java",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "Centralized Logging Framework in Oracle PL/SQL | Best of mrcaption49 | 704",
+      "url": "https://medium.com/@pranavsb699/centralized-logging-framework-in-oracle-pl-sql-best-of-mrcaption49-704-e77812c81a38",
+      "by": "Pranav Bakare",
+      "time": 1786595463000,
+      "tags": [
+        "mrcaption49",
+        "data-science",
         "coding"
       ]
     },
     {
-      "title": "Systeme.io Review: Is This All-in-One Marketing Platform Worth It?",
-      "url": "https://medium.com/@mikekalpak/systeme-io-review-is-this-all-in-one-marketing-platform-worth-it-f3fd7d95f8bc",
-      "by": "Mike Miller",
-      "time": 1786592709000,
+      "title": "Top 10 CI/CD Pipeline Best Practices for 2026",
+      "url": "https://medium.com/devops-ai-decoded/top-10-ci-cd-pipeline-best-practices-for-2026-c1cd9248a042",
+      "by": "Neel Shah",
+      "time": 1786595463000,
       "tags": [
-        "design",
-        "programming",
-        "life"
+        "devops",
+        "ai",
+        "ci-cd-pipeline"
       ]
     },
     {
-      "title": "The $20 AI Coding Stack: Can Cheap Models Replace a $200 Subscription?",
-      "url": "https://medium.com/@anil.futuristic/the-20-ai-coding-stack-can-cheap-models-replace-a-200-subscription-1178cc41b26c",
-      "by": "Anil Sharma",
-      "time": 1786592697000,
+      "title": "AI Is Making Software Cheap to Build. Trust Is Still Expensive.",
+      "url": "https://manishsaini74.medium.com/ai-is-making-software-cheap-to-build-trust-is-still-expensive-d48e9a72392a",
+      "by": "Manish Saini",
+      "time": 1786595463000,
       "tags": [
-        "ai-coding",
-        "ai-agent",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "We Built a 24/7 AI Customer Service Agent That Actually Resolves Tickets, Not Just Deflects Them",
-      "url": "https://medium.com/@dextra_labs/we-built-a-24-7-ai-customer-service-agent-that-actually-resolves-tickets-not-just-deflects-them-89a61012db9d",
-      "by": "Dextra Labs",
-      "time": 1786592577000,
-      "tags": [
-        "ai-agent",
-        "technology",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "The Art of System Debugging: From Continuous Pod Evictions on Kubernetes Nodes to a Filesystem…",
-      "url": "https://medium.com/@deepakgts2/the-art-of-system-debugging-from-continuous-pod-evictions-on-kubernetes-nodes-to-a-filesystem-c8318f1c81d6",
-      "by": "deepak kr",
-      "time": 1786592282000,
-      "tags": [
-        "observability",
-        "systems-thinking",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "寫了等於沒寫：用 Claude Code 建立 Issue 驗收標準的自動化閉環",
-      "url": "https://medium.com/@wpypy8/%E5%AF%AB%E4%BA%86%E7%AD%89%E6%96%BC%E6%B2%92%E5%AF%AB-%E7%94%A8-claude-code-%E5%BB%BA%E7%AB%8B-issue-%E9%A9%97%E6%94%B6%E6%A8%99%E6%BA%96%E7%9A%84%E8%87%AA%E5%8B%95%E5%8C%96%E9%96%89%E7%92%B0-d1499f092561",
-      "by": "樂樂",
-      "time": 1786592155000,
-      "tags": [
-        "ai-flow",
         "software-engineering",
-        "productivity"
-      ]
-    },
-    {
-      "title": "Hugging Face’s Open Voice-Agent Stack: The Hard Part Is Interruption, Not Speech",
-      "url": "https://medium.com/@pankaj_pandey/hugging-faces-open-voice-agent-stack-the-hard-part-is-interruption-not-speech-29570eabc2a6",
-      "by": "Pankaj",
-      "time": 1786592136000,
-      "tags": [
-        "ai-voice-agent",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "How to Monitor a Crypto Wallet in Real Time with Tokenview API",
-      "url": "https://tokenview.medium.com/how-to-monitor-a-crypto-wallet-in-real-time-with-tokenview-api-9751ba9f47a3",
-      "by": "Tokenview.io",
-      "time": 1786592066000,
-      "tags": [
-        "cryptocurrency",
-        "web3",
-        "crypto-wallet"
+        "vibe-coding",
+        "quality-assurance"
       ]
     }
   ]
