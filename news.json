@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-12T15:17:19.070Z",
+  "generated": "2026-08-13T02:03:49.800Z",
   "reddit": [
     {
-      "title": "How Tailscale helped discover a 16+ year old SQLite WAL-Reset bug",
-      "url": "https://www.reddit.com/r/programming/comments/1vmglvj/how_tailscale_helped_discover_a_16_year_old/",
-      "by": "callcifer",
-      "time": 1786546891000,
+      "title": "Programming smart pathing in Starcraft 2",
+      "url": "https://www.reddit.com/r/programming/comments/1vmvxdz/programming_smart_pathing_in_starcraft_2/",
+      "by": "LaughNgamez",
+      "time": 1786581895000,
       "sub": "r/programming"
     },
     {
-      "title": "The End of Readability?",
-      "url": "https://www.reddit.com/r/programming/comments/1vmgcaz/the_end_of_readability/",
-      "by": "belmirofss",
-      "time": 1786546313000,
+      "title": "Degradability",
+      "url": "https://www.reddit.com/r/programming/comments/1vmssvs/degradability/",
+      "by": "fagnerbrack",
+      "time": 1786573853000,
       "sub": "r/programming"
     },
     {
-      "title": "How to Pretty-Print Your Kubernetes YAML as KYAML and Why You'd Want To",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vmfpzr/how_to_prettyprint_your_kubernetes_yaml_as_kyaml/",
-      "by": "dshurupov",
-      "time": 1786544918000,
-      "sub": "r/kubernetes"
+      "title": "Node.js creator liberates Durable Objects from Cloudflare",
+      "url": "https://www.reddit.com/r/programming/comments/1vmrnni/nodejs_creator_liberates_durable_objects_from/",
+      "by": "stronghup",
+      "time": 1786571123000,
+      "sub": "r/programming"
     },
     {
-      "title": "How much runtime context should an AI agent have in Kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vm9wuf/how_much_runtime_context_should_an_ai_agent_have/",
-      "by": "OwlZealousideal4779",
-      "time": 1786529206000,
-      "sub": "r/kubernetes"
+      "title": "Linus Torvalds Explains What Makes Linux So Fast",
+      "url": "https://www.reddit.com/r/programming/comments/1vmoddq/linus_torvalds_explains_what_makes_linux_so_fast/",
+      "by": "Rechenplaner",
+      "time": 1786563618000,
+      "sub": "r/programming"
     },
     {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vm9t0o/weekly_show_off_your_new_tools_and_projects_thread/",
+      "title": "Has anyone looked at RapidFort's curated libraries as a Chainguard alternative?",
+      "url": "https://www.reddit.com/r/devops/comments/1vmo871/has_anyone_looked_at_rapidforts_curated_libraries/",
+      "by": "Serious-Equal-6764",
+      "time": 1786563295000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Deploying docker-compose.yml",
+      "url": "https://www.reddit.com/r/devops/comments/1vmjm45/deploying_dockercomposeyml/",
+      "by": "aress1605",
+      "time": 1786553397000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Cheapest server for a school project",
+      "url": "https://www.reddit.com/r/devops/comments/1vmgrns/cheapest_server_for_a_school_project/",
+      "by": "Old-Broccoli-4704",
+      "time": 1786547225000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1786528856000,
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "The fastest double-to-string algorithm you’ve never heard of",
-      "url": "https://www.reddit.com/r/programming/comments/1vm65dm/the_fastest_doubletostring_algorithm_youve_never/",
-      "by": "mttd",
-      "time": 1786515939000,
-      "sub": "r/programming"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Don't Stall Me Now: Hiding Memory Latency in eBPF",
-      "url": "https://www.reddit.com/r/programming/comments/1vlwzdy/dont_stall_me_now_hiding_memory_latency_in_ebpf/",
-      "by": "mttd",
-      "time": 1786489351000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Litestar vs FastAPI: Which Framework Will Lead in 2027?",
-      "url": "https://medium.com/@komalbaparmar007/litestar-vs-fastapi-which-framework-will-lead-in-2027-bd4d77e75e2d",
-      "by": "Yamishift",
-      "time": 1786547761000,
+      "title": "MCP vs APIs: What’s the Difference, and When Should You Use Each?",
+      "url": "https://medium.com/@seyedrumaiz/mcp-vs-apis-whats-the-difference-and-when-should-you-use-each-9e7e633f2c05",
+      "by": "Seyed Rumaiz",
+      "time": 1786586006000,
       "tags": [
-        "fastapi",
-        "software-engineering",
-        "star-lite"
-      ]
-    },
-    {
-      "title": "The Guy Who Runs the Internet Uses ONE Monitor. Your 3-Screen Setup Isn’t the Flex You Think It Is.",
-      "url": "https://medium.com/@cultclass/the-guy-who-runs-the-internet-uses-one-monitor-your-3-screen-setup-isnt-the-flex-you-think-it-is-54f82d2aacf7",
-      "by": "Mathana Mohan",
-      "time": 1786547732000,
-      "tags": [
-        "productivity",
-        "software-engineering",
-        "programming"
-      ]
-    },
-    {
-      "title": "AI Agents vs Traditional APIs in 2026: 8 Cases Where Simpler Still Wins",
-      "url": "https://medium.com/skillstuff/ai-agents-vs-traditional-apis-in-2026-8-cases-where-simpler-still-wins-a03cc30d2e58",
-      "by": "TechByRahmat",
-      "time": 1786547486000,
-      "tags": [
-        "ai-agents-in-action",
+        "artificial-intelligence",
         "software-engineering",
         "api"
       ]
     },
     {
-      "title": "You can’t charge for a feeling. Charge for the risk you absorb.",
-      "url": "https://medium.com/@patel02555/you-cant-charge-for-a-feeling-charge-for-the-risk-you-absorb-9cd4de000aba",
-      "by": "Sahil Patel",
-      "time": 1786547399000,
+      "title": "In DevOps, networking is the backbone of continuous deployment.",
+      "url": "https://medium.com/@palloti10x/in-devops-networking-is-the-backbone-of-continuous-deployment-150e54b739b1",
+      "by": "EZEOBI CHINECHEREM JUDE",
+      "time": 1786585965000,
       "tags": [
-        "software-engineering",
-        "technology",
-        "product-management"
-      ]
-    },
-    {
-      "title": "Chapter 7",
-      "url": "https://medium.com/@blackshadowteam.net/chapter-7-5b5ee70eeba6",
-      "by": "Black Shadow Team",
-      "time": 1786547150000,
-      "tags": [
-        "software-engineering",
-        "large-language-models",
-        "llm"
-      ]
-    },
-    {
-      "title": "Why I Chose Java Over Python for Enterprise GenAI (And How You Can Too)",
-      "url": "https://medium.com/@prachi.panditrao/why-i-chose-java-over-python-for-enterprise-genai-and-how-you-can-too-ad8c0d420e8d",
-      "by": "Prachi Panditrao",
-      "time": 1786547024000,
-      "tags": [
-        "generative-ai",
-        "java",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "I archived most of Github repositories today. Here is why:",
-      "url": "https://medium.com/@danielsousaoliveira77/i-archived-most-of-github-repositories-today-here-is-why-ad7b6a0fc478",
-      "by": "Daniel Sousa Oliveira",
-      "time": 1786546999000,
-      "tags": [
-        "vibe-coding",
-        "github",
-        "programming"
-      ]
-    },
-    {
-      "title": "☕ 100 Days of Code — Day 15: Building a Coffee Machine with Python",
-      "url": "https://medium.com/@zubairujibrinbaba/100-days-of-code-day-15-building-a-coffee-machine-with-python-9ea4320a6c44",
-      "by": "Zubairu Jibrin Baba",
-      "time": 1786546928000,
-      "tags": [
-        "100daysofcode",
-        "python-programming",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Tangent Is Not the Curve (1.2)",
-      "url": "https://medium.com/@rantnrave31/the-tangent-is-not-the-curve-a0f118b68944",
-      "by": "Don Gunter",
-      "time": 1786546896000,
-      "tags": [
-        "machine-learning-ai",
-        "machine-learning",
-        "computer-science"
-      ]
-    },
-    {
-      "title": "A Q&A on the AI Readiness Gap: Where Infrastructure Teams are Getting AI Wrong",
-      "url": "https://medium.com/spacelift/a-q-a-on-the-ai-readiness-gap-where-infrastructure-teams-are-getting-ai-wrong-a2204a688785",
-      "by": "Spacelift",
-      "time": 1786546880000,
-      "tags": [
-        "infrastructure-as-code",
         "devops",
-        "platform-engineering"
+        "platform-engineering",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "How I Closed Three Skill Gaps With One Real System Instead of Three Fake Ones",
+      "url": "https://medium.com/@SakshiChavan/how-i-closed-three-skill-gaps-with-one-real-system-instead-of-three-fake-ones-cc84004a0eb1",
+      "by": "Sakshi Chavan",
+      "time": 1786585758000,
+      "tags": [
+        "java",
+        "angular",
+        "web-development"
+      ]
+    },
+    {
+      "title": "FFai is ffmpeg’s AI baby",
+      "url": "https://talmondrlm.medium.com/ffai-is-ffmpegs-ai-baby-3e6d759494b4",
+      "by": "Tim Almond",
+      "time": 1786584793000,
+      "tags": [
+        "media",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "Java Has Sealed Types. Now Give Them Prisms.",
+      "url": "https://medium.com/heap-wire/java-has-sealed-types-now-give-them-prisms-3c354a4af7fa",
+      "by": "Jitin Kayyala",
+      "time": 1786584661000,
+      "tags": [
+        "functional-programming",
+        "technology",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Too Big to Handshake",
+      "url": "https://levelup.gitconnected.com/too-big-to-handshake-07eb34ab8263",
+      "by": "David Lee",
+      "time": 1786584602000,
+      "tags": [
+        "cybersecurity",
+        "linux",
+        "technology"
+      ]
+    },
+    {
+      "title": "Comments Are Not a Substitute for Good Code",
+      "url": "https://medium.com/@scosmexs/comments-are-not-a-substitute-for-good-code-0107f0d81bf4",
+      "by": "Sebastiao Cosme Agostinho",
+      "time": 1786584046000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "[RustGuide] 7.1 Package, Crate, and Module Definitions",
+      "url": "https://medium.com/@stanyin64/rustguide-7-1-package-crate-and-module-definitions-ee9f68e91b2a",
+      "by": "Stan Yin",
+      "time": 1786582861000,
+      "tags": [
+        "programming",
+        "rust",
+        "rust-programming-language"
+      ]
+    },
+    {
+      "title": "Setting Up a Local Enterprise Data Lab on macOS (Part 5):",
+      "url": "https://medium.com/@froilan.sia/setting-up-a-local-enterprise-data-lab-on-macos-part-5-f8880e4f85d9",
+      "by": "Froilan Sia",
+      "time": 1786582775000,
+      "tags": [
+        "database",
+        "data-migration",
+        "devops"
+      ]
+    },
+    {
+      "title": "I Built a Free In-Browser SQL Practice Tool for Interview Prep (No Signup)",
+      "url": "https://medium.com/@techlexiconapp/i-built-a-free-in-browser-sql-practice-tool-for-interview-prep-no-signup-1b42c90ff973",
+      "by": "TechLexicon",
+      "time": 1786582726000,
+      "tags": [
+        "coding-interviews",
+        "programming",
+        "software-engineering"
       ]
     }
   ]
