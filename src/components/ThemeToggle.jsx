@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { DEFAULT_CHROMA, DEFAULT_HUE, PRESETS, paintTheme, readTheme, resetTheme, saveTheme, swatch } from '../lib/theme'
+import { DEFAULT_CHROMA, DEFAULT_HUE, PRESETS, isDiscoOn, paintTheme, readTheme, resetTheme, saveTheme, setDisco, swatch } from '../lib/theme'
+import { setMatrix } from '../lib/matrix'
 
 /* Theme control.
    The sphere shows the current site colour. Hovering it (or clicking, for
@@ -36,6 +37,7 @@ export default function ThemeToggle({ onRapidClick }) {
   const closeTimer = useRef(null)
 
   const [open, setOpen] = useState(false)
+  const [disco, setDiscoState] = useState(isDiscoOn)
   const [{ hue, chroma }, setTheme] = useState(() => readTheme())
   const [dark, setDark] = useState(() => {
     if (typeof window === 'undefined') return true
@@ -65,6 +67,22 @@ export default function ThemeToggle({ onRapidClick }) {
   }, [open])
 
   useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current) }, [])
+
+  // The two ThemeToggle instances (desktop + mobile) must agree.
+  useEffect(() => {
+    const onDisco = (e) => setDiscoState(!!e.detail?.on)
+    window.addEventListener('site-disco-change', onDisco)
+    return () => window.removeEventListener('site-disco-change', onDisco)
+  }, [])
+
+  const toggleDisco = () => {
+    const next = !disco
+    // Matrix mode pins literal green tokens that outrank the hue, so disco
+    // would silently do nothing while it's on. Stand it down.
+    if (next) setMatrix(false)
+    setDisco(next)
+    setDiscoState(next)
+  }
 
   const hoverOpen = () => {
     if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null }
@@ -125,6 +143,8 @@ export default function ThemeToggle({ onRapidClick }) {
 
   const startDrag = (e) => {
     e.preventDefault()
+    // Touching the wheel means taking manual control back off the disco.
+    if (disco) { setDisco(false); setDiscoState(false) }
     draggingRef.current = true
     const h = hueFromEvent(e)
     if (h !== null) { setTheme(t => ({ ...t, hue: h })); paintTheme(h, chroma) }
@@ -150,11 +170,17 @@ export default function ThemeToggle({ onRapidClick }) {
     paintTheme(hue, c)
   }
 
-  const pick = (p) => { setTheme({ hue: p.hue, chroma: p.chroma }); saveTheme(p.hue, p.chroma) }
-  const reset = () => { setTheme({ hue: DEFAULT_HUE, chroma: DEFAULT_CHROMA }); resetTheme() }
+  const pick = (p) => {
+    if (disco) { setDisco(false); setDiscoState(false) }
+    setTheme({ hue: p.hue, chroma: p.chroma }); saveTheme(p.hue, p.chroma)
+  }
+  const reset = () => {
+    if (disco) { setDisco(false); setDiscoState(false) }
+    setTheme({ hue: DEFAULT_HUE, chroma: DEFAULT_CHROMA }); resetTheme()
+  }
 
   const knob = hueToXY(hue)
-  const isDefault = hue === DEFAULT_HUE && chroma === DEFAULT_CHROMA
+  const isDefault = hue === DEFAULT_HUE && chroma === DEFAULT_CHROMA && !disco
 
   return (
     <div ref={wrapRef} className="relative" onMouseEnter={hoverOpen} onMouseLeave={hoverClose}>
@@ -183,7 +209,7 @@ export default function ThemeToggle({ onRapidClick }) {
         <div
           className="absolute top-full right-0 mt-2 rounded-2xl z-50 animate-fade-in-up p-4"
           style={{
-            width: 212,
+            width: 224,
             background: 'var(--color-card)',
             boxShadow: 'inset 0 0 0 1px var(--color-border), 0 20px 50px -12px rgba(0,0,0,0.6)',
           }}
@@ -224,6 +250,7 @@ export default function ThemeToggle({ onRapidClick }) {
                   left: knob.x, top: knob.y,
                   width: 16, height: 16, transform: 'translate(-50%, -50%)',
                   background: swatch(hue, chroma, dark),
+                  opacity: disco ? 0.3 : 1,
                   boxShadow: '0 0 0 2.5px var(--color-card), 0 0 0 4px color-mix(in oklab, var(--color-foreground) 35%, transparent)',
                 }}
               />
@@ -261,14 +288,14 @@ export default function ThemeToggle({ onRapidClick }) {
           </label>
 
           {/* Presets */}
-          <div className="flex flex-wrap gap-1.5 mb-3">
+          <div className="grid grid-cols-8 gap-1 mb-3">
             {PRESETS.map(p => (
               <button
                 key={p.name}
                 onClick={() => pick(p)}
                 title={p.name}
                 aria-label={p.name}
-                className="w-5 h-5 rounded-full transition-transform hover:scale-110"
+                className="w-[18px] h-[18px] rounded-full transition-transform hover:scale-110"
                 style={{
                   background: swatch(p.hue, p.chroma, dark),
                   boxShadow: hue === p.hue
@@ -280,7 +307,9 @@ export default function ThemeToggle({ onRapidClick }) {
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono text-muted-foreground/70 tabular-nums">hue {hue}&deg;</span>
+            <span className="text-[10px] font-mono text-muted-foreground/70 tabular-nums">
+              {disco ? 'disco' : `hue ${hue}\u00b0`}
+            </span>
             <button
               onClick={reset}
               disabled={isDefault}
@@ -289,6 +318,24 @@ export default function ThemeToggle({ onRapidClick }) {
               Reset
             </button>
           </div>
+
+          {/* YOLO — hands the hue over to a CSS animation until you take it back. */}
+          <button
+            onClick={toggleDisco}
+            aria-pressed={disco}
+            title={disco ? 'Stop the disco' : 'Full disco mode'}
+            className="mt-3 w-full rounded-xl py-2 text-[11px] font-bold uppercase tracking-[0.22em] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+            style={disco ? {
+              color: 'oklch(18% 0 0)',
+              backgroundImage: 'linear-gradient(90deg, oklch(75% 0.2 0), oklch(78% 0.2 60), oklch(78% 0.2 140), oklch(75% 0.2 220), oklch(72% 0.2 300), oklch(75% 0.2 360))',
+            } : {
+              color: 'var(--color-foreground)',
+              backgroundImage: 'none',
+              boxShadow: 'inset 0 0 0 1px var(--color-border)',
+            }}
+          >
+            {disco ? 'Disco on \u00b7 stop' : 'YOLO'}
+          </button>
         </div>
       )}
     </div>
