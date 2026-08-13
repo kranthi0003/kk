@@ -882,6 +882,7 @@ html.disco {
      .disco-beams      a fan of hard-edged beams swinging like moving heads
      .disco-speckles   mirror-ball scatter
      .disco-beat       the 2Hz flash (see the safety note at the top)
+     .disco-blinders   left/right wall washes, alternating on the same grid
    `screen` is what keeps this readable: screen(text, light) can never be
    darker than the text was, so light copy stays light while the near-black
    room underneath lights right up. */
@@ -988,10 +989,68 @@ html.disco .disco-lights {
   100% { opacity: 0; }
 }
 
+/* Side blinders — hard on/off wall washes that ping-pong left to right.
+   ::before is the left fixture, ::after the right.
+
+   The rate is the whole design here. Each side runs a 1s cycle and the
+   right one is offset by exactly half of it, so the two alternate and a
+   flash lands somewhere on screen every 0.5s. That is the same 0.5s grid
+   the beat already uses, and because every period is a multiple of 0.5s
+   and all of them start the moment the class lands, they stay phase
+   locked — the blinders fire *with* the beat rather than in between it.
+   So this adds a whole new pair of lights without adding a single flash
+   per second: still 2/s against the WCAG limit of 3.
+
+   Keep any future light on a multiple of 0.5s for the same reason. */
+.disco-blinders {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+}
+.disco-blinders::before,
+.disco-blinders::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  filter: blur(22px);
+  opacity: 0;
+  animation: disco-blink 1s infinite;
+}
+/* Wall washes, not pools: the fixture sits at the very edge of the frame
+   and throws light inward, so the bright core has to land on-screen. A
+   radial gradient centred off-canvas just leaves a dim smear. */
+.disco-blinders::before {
+  left: 0;
+  background: linear-gradient(to right,
+    oklch(92% 0.3 calc(var(--site-hue) + 40)) 0,
+    oklch(80% 0.3 calc(var(--site-hue) + 40) / 0.72) 26%,
+    transparent 78%);
+}
+.disco-blinders::after {
+  right: 0;
+  background: linear-gradient(to left,
+    oklch(92% 0.3 calc(var(--site-hue) + 200)) 0,
+    oklch(80% 0.3 calc(var(--site-hue) + 200) / 0.72) 26%,
+    transparent 78%);
+  /* Negative delay starts it already half a cycle in, so the right side
+     is lit while the left is dark, from the very first beat. */
+  animation-delay: -0.5s;
+}
+@keyframes disco-blink {
+  0%      { opacity: 0.95; }
+  15%     { opacity: 0.95; }
+  15.01%  { opacity: 0; }
+  100%    { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .disco-lights::before, .disco-lights::after { animation-duration: 45s; }
   .disco-beams   { animation-duration: 30s; }
   .disco-speckles { animation-duration: 90s; }
-  /* No pulsing at all for anyone who asked not to be moved. */
+  /* No pulsing at all for anyone who asked not to be moved. Both the
+     beat and the blinders stop blinking and just sit on dimly. */
   .disco-beat    { animation: none; opacity: 0.1; }
+  .disco-blinders::before, .disco-blinders::after { animation: none; opacity: 0.18; }
 }

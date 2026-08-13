@@ -380,6 +380,7 @@ export default function App() {
         <span className="disco-beams" />
         <span className="disco-speckles" />
         <span className="disco-beat" />
+        <span className="disco-blinders" />
       </div>
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
