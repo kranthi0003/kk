@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T04:46:53.299Z",
+  "generated": "2026-08-13T04:55:46.913Z",
   "reddit": [
     {
       "title": "Programming smart pathing in Starcraft 2",
@@ -74,6 +74,17 @@
   ],
   "medium": [
     {
+      "title": "Still stuck choosing the right AI path?",
+      "url": "https://medium.com/@bilal693startup/still-stuck-choosing-the-right-ai-path-b2a158269444",
+      "by": "Bilalstartup",
+      "time": 1786596365000,
+      "tags": [
+        "ai",
+        "education",
+        "devops"
+      ]
+    },
+    {
       "title": "Building a “Human-in-the-Loop” AI Publishing Pipeline with Claude Desktop, MCP, and Slack",
       "url": "https://medium.com/@TAKU-RD-M365-AI/building-a-human-in-the-loop-ai-publishing-pipeline-with-claude-desktop-mcp-and-slack-3da9b7be61cb",
       "by": "Taku: Japan, Market, Tech, Auto…",
@@ -93,6 +104,39 @@
         "backend-development",
         "java",
         "design-systems"
+      ]
+    },
+    {
+      "title": "Claude Cracked the 41.6% Wall on Riemann's Zeros — I Counted 138,069 and All Were on the Line",
+      "url": "https://pub.towardsai.net/claude-cracked-the-41-6-wall-on-riemanns-zeros-i-counted-138-069-and-all-were-on-the-line-abd2d9fd2bdb",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1786596004000,
+      "tags": [
+        "mathematics",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "Roles and Permissions in Laravel + Vue + Tailwind: The Complete Full-Stack Implementation",
+      "url": "https://sadiqueali.medium.com/roles-and-permissions-in-laravel-vue-tailwind-the-complete-full-stack-implementation-7fb5eccf1532",
+      "by": "Sadique Ali",
+      "time": 1786595831000,
+      "tags": [
+        "programming",
+        "php",
+        "javascript"
+      ]
+    },
+    {
+      "title": "Stop Writing Analytics Strings in Flutter — Generate Everything from a Single YAML File",
+      "url": "https://medium.com/@savaliya.ravi.rs/stop-writing-analytics-strings-in-flutter-generate-everything-from-a-single-yaml-file-deb90276504c",
+      "by": "Ravi Savaliya",
+      "time": 1786595761000,
+      "tags": [
+        "flutter",
+        "analytics",
+        "flutter-app-development"
       ]
     },
     {
@@ -119,7 +163,7 @@
     },
     {
       "title": "Redis Output Caching in ASP.NET Core: Speed Without the Stale-Data Trap",
-      "url": "https://medium.com/@bharat.chandera/redis-output-caching-in-asp-net-core-speed-without-the-stale-data-trap-e4cadbbbfd08",
+      "url": "https://medium.com/c-sharp-programming/redis-output-caching-in-asp-net-core-speed-without-the-stale-data-trap-e4cadbbbfd08",
       "by": "Bharat Chandera",
       "time": 1786595691000,
       "tags": [
@@ -137,50 +181,6 @@
         "artificial-intelligence",
         "ai-agent",
         "software-engineering"
-      ]
-    },
-    {
-      "title": "The Complete Guide to Maven & Gradle for Spring Boot Engineers",
-      "url": "https://deepawasthi.medium.com/spring-boot-maven-gradle-a703e15a28f8",
-      "by": "Deep Awasthi",
-      "time": 1786595467000,
-      "tags": [
-        "software-development",
-        "java",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "Centralized Logging Framework in Oracle PL/SQL | Best of mrcaption49 | 704",
-      "url": "https://medium.com/@pranavsb699/centralized-logging-framework-in-oracle-pl-sql-best-of-mrcaption49-704-e77812c81a38",
-      "by": "Pranav Bakare",
-      "time": 1786595463000,
-      "tags": [
-        "mrcaption49",
-        "data-science",
-        "coding"
-      ]
-    },
-    {
-      "title": "Top 10 CI/CD Pipeline Best Practices for 2026",
-      "url": "https://medium.com/devops-ai-decoded/top-10-ci-cd-pipeline-best-practices-for-2026-c1cd9248a042",
-      "by": "Neel Shah",
-      "time": 1786595463000,
-      "tags": [
-        "devops",
-        "ai",
-        "ci-cd-pipeline"
-      ]
-    },
-    {
-      "title": "AI Is Making Software Cheap to Build. Trust Is Still Expensive.",
-      "url": "https://manishsaini74.medium.com/ai-is-making-software-cheap-to-build-trust-is-still-expensive-d48e9a72392a",
-      "by": "Manish Saini",
-      "time": 1786595463000,
-      "tags": [
-        "software-engineering",
-        "vibe-coding",
-        "quality-assurance"
       ]
     }
   ]

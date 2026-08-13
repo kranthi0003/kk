@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T04:45:42.558Z",
+  "generated": "2026-08-13T04:54:54.738Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -47,6 +47,17 @@
       "imdb": "https://www.imdb.com/title/tt21438726/"
     },
     {
+      "title": "Batwara 1947",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Rajkumar Santoshi",
+      "desc": "Upcoming Hindi film directed by Rajkumar Santoshi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Batwara_1947_film_poster.jpg/120px-Batwara_1947_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Batwara_1947",
+      "imdb": "https://www.imdb.com/title/tt29330744/"
+    },
+    {
       "title": "Jailer 2",
       "lang": "Tamil",
       "date": null,
@@ -67,17 +78,6 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Mirzapur_%28film%29.jpg/120px-Mirzapur_%28film%29.jpg",
       "url": "https://en.wikipedia.org/wiki/Mirzapur_(film)",
       "imdb": "https://www.imdb.com/title/tt34339725/"
-    },
-    {
-      "title": "Batwara 1947",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": "Rajkumar Santoshi",
-      "desc": "Upcoming Hindi film directed by Rajkumar Santoshi",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Batwara_1947_film_poster.jpg/120px-Batwara_1947_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Batwara_1947",
-      "imdb": "https://www.imdb.com/title/tt29330744/"
     },
     {
       "title": "Kathanar – The Wild Sorcerer",
