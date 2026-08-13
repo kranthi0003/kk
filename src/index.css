@@ -791,3 +791,98 @@ section h2.font-heading { font-weight: 500; }
   border-color: var(--color-border);
 }
 
+
+/* ---------------------------------------------------------------------
+   Disco mode (the YOLO button)
+
+   --site-hue and --site-chroma are registered as <number> so the browser
+   can interpolate them; that turns disco into a real CSS animation on the
+   compositor instead of a JS rAF loop resetting a variable every frame.
+   Animations also outrank inline styles in the cascade, which is what lets
+   this take over the hue the user picked and hand it straight back when
+   the class is removed.
+
+   Deliberately a smooth continuous hue rotation, never a strobe or flash —
+   rapid flashing is a genuine photosensitivity hazard.
+   --------------------------------------------------------------------- */
+@property --site-hue {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 250;
+}
+@property --site-chroma {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+@keyframes disco-hue {
+  from { --site-hue: 0; }
+  to   { --site-hue: 360; }
+}
+@keyframes disco-pump {
+  0%, 100% { --site-chroma: 1.05; }
+  50%      { --site-chroma: 1.45; }
+}
+
+html.disco {
+  animation: disco-hue 7s linear infinite, disco-pump 1.9s ease-in-out infinite;
+}
+
+/* The user pressed the button on purpose, so don't kill it outright —
+   slow it to a drift. */
+@media (prefers-reduced-motion: reduce) {
+  html.disco { animation-duration: 40s, 11s; }
+}
+
+/* Disco lights — soft colour pools sweeping over the page.
+   The three pools sit 120deg apart on the wheel, so there are always three
+   different colours in the room rather than one tint, and they all ride the
+   same rotating --site-hue. `screen` blending only ever lightens, which is
+   why text stays readable underneath instead of being muddied. */
+.disco-lights {
+  position: fixed;
+  inset: -25%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0s linear 0.9s;
+  /* screen only ever lightens, so light text on the dark theme stays legible.
+     In light mode that would be invisible against white, so flip to multiply,
+     which only ever darkens and keeps dark text legible. Each mode uses the
+     blend that cannot hurt its own text colour. */
+  mix-blend-mode: screen;
+}
+html:not(.dark) .disco-lights {
+  mix-blend-mode: multiply;
+}
+html.disco .disco-lights {
+  opacity: 0.42;
+  visibility: visible;
+  transition: opacity 0.9s ease, visibility 0s;
+}
+.disco-lights::before,
+.disco-lights::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  filter: blur(70px);
+  background:
+    radial-gradient(circle at 22% 28%, oklch(56% 0.28 var(--site-hue)) 0, transparent 40%),
+    radial-gradient(circle at 79% 24%, oklch(56% 0.28 calc(var(--site-hue) + 120)) 0, transparent 36%),
+    radial-gradient(circle at 54% 80%, oklch(56% 0.28 calc(var(--site-hue) + 240)) 0, transparent 38%);
+  animation: disco-sweep 9s ease-in-out infinite alternate;
+}
+.disco-lights::after {
+  animation-duration: 13.5s;
+  animation-direction: alternate-reverse;
+  opacity: 0.75;
+}
+@keyframes disco-sweep {
+  from { transform: translate3d(-6%, -4%, 0) scale(1) rotate(0deg); }
+  to   { transform: translate3d(7%, 5%, 0) scale(1.18) rotate(22deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .disco-lights::before, .disco-lights::after { animation-duration: 45s, 60s; }
+}

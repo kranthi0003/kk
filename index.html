@@ -47,6 +47,7 @@
         var chroma = localStorage.getItem('siteChroma');
         if (hue !== null && hue !== '') document.documentElement.style.setProperty('--site-hue', hue);
         if (chroma !== null && chroma !== '') document.documentElement.style.setProperty('--site-chroma', chroma);
+        if (localStorage.getItem('siteDisco') === '1') document.documentElement.classList.add('disco');
       } catch (e) { document.documentElement.classList.add('dark'); }
     })();
   </script>

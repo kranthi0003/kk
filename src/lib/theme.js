@@ -14,6 +14,7 @@ export const DEFAULT_CHROMA = 1
 
 const HUE_KEY = 'siteHue'
 const CHROMA_KEY = 'siteChroma'
+const DISCO_KEY = 'siteDisco'
 
 // A few starting points, so the picker isn't a cold start. Names are the hue
 // as it actually renders on the site, not the raw colour-wheel name.
@@ -67,6 +68,22 @@ export function saveTheme(hue, chroma) {
 
 export function resetTheme() {
   saveTheme(DEFAULT_HUE, DEFAULT_CHROMA)
+}
+
+// Disco mode. The actual animation lives in CSS (html.disco) — all this does
+// is flip the class, because a CSS animation of --site-hue is both smoother
+// and cheaper than driving it from JS, and it outranks the inline hue in the
+// cascade so the user's own colour is handed straight back when it stops.
+export function isDiscoOn() {
+  if (typeof window === 'undefined') return false
+  try { return localStorage.getItem(DISCO_KEY) === '1' } catch { return false }
+}
+
+export function setDisco(on) {
+  if (typeof document === 'undefined') return
+  document.documentElement.classList.toggle('disco', !!on)
+  try { localStorage.setItem(DISCO_KEY, on ? '1' : '0') } catch {}
+  try { window.dispatchEvent(new CustomEvent('site-disco-change', { detail: { on: !!on } })) } catch {}
 }
 
 // A swatch of a given hue for the picker UI, matched to the current mode so

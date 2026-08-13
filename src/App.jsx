@@ -375,6 +375,8 @@ export default function App() {
       <MobileBanner />
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
+      {/* Purely decorative; invisible unless html.disco is set. */}
+      <div className="disco-lights" aria-hidden="true" />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
