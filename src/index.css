@@ -802,8 +802,11 @@ section h2.font-heading { font-weight: 500; }
    this take over the hue the user picked and hand it straight back when
    the class is removed.
 
-   Deliberately a smooth continuous hue rotation, never a strobe or flash —
-   rapid flashing is a genuine photosensitivity hazard.
+   On flashing: there IS a beat flash in here, because a pub has one. It is
+   deliberately pinned to 2Hz (0.5s period, 120bpm). WCAG 2.3.1 allows up to
+   three general flashes per second, so this sits under the threshold with
+   room to spare, and it pulses between colours rather than black-to-white so
+   the luminance swing stays moderate. Do not speed this up past 3Hz.
    --------------------------------------------------------------------- */
 @property --site-hue {
   syntax: '<number>';
@@ -815,18 +818,56 @@ section h2.font-heading { font-weight: 500; }
   inherits: true;
   initial-value: 1;
 }
+/* Beam fan angle. Registered so it can be animated — a conic-gradient's
+   `from` angle is not interpolatable otherwise, and rotating the element
+   instead would swing the beams around the element's centre rather than
+   around the fixture above the top of the screen. */
+@property --disco-beam {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
 
 @keyframes disco-hue {
   from { --site-hue: 0; }
   to   { --site-hue: 360; }
 }
 @keyframes disco-pump {
-  0%, 100% { --site-chroma: 1.05; }
-  50%      { --site-chroma: 1.45; }
+  0%, 100% { --site-chroma: 1.2; }
+  50%      { --site-chroma: 1.8; }
 }
 
 html.disco {
-  animation: disco-hue 7s linear infinite, disco-pump 1.9s ease-in-out infinite;
+  animation: disco-hue 3.6s linear infinite, disco-pump 0.9s ease-in-out infinite;
+}
+
+/* LIGHTS OUT.
+   A light show needs a dark room — beams are invisible in a lit one — so
+   pressing YOLO kills the house lights whatever theme the visitor was in.
+   Every token is overridden here rather than by toggling the .dark class,
+   so React's theme state is never fought with and the visitor's own
+   light/dark choice is still sitting underneath, untouched, for when the
+   music stops. html.disco is (0,1,1), which outranks both :root and .dark.
+   Foreground stays high-lightness so the screen-blended lights below can
+   only ever wash *towards* it, never away from it. */
+html.disco {
+  --color-background: oklch(7% calc(0.03 * var(--site-chroma)) var(--site-hue));
+  --color-foreground: oklch(96% calc(0.02 * var(--site-chroma)) var(--site-hue));
+  --color-card: oklch(11% calc(0.04 * var(--site-chroma)) var(--site-hue));
+  --color-card-foreground: oklch(96% calc(0.02 * var(--site-chroma)) var(--site-hue));
+  --color-muted: oklch(15% calc(0.04 * var(--site-chroma)) var(--site-hue));
+  --color-muted-foreground: oklch(78% calc(0.04 * var(--site-chroma)) var(--site-hue));
+  --color-accent: oklch(82% calc(0.20 * var(--site-chroma)) var(--site-hue));
+  --color-brand: oklch(76% calc(0.26 * var(--site-chroma)) var(--site-hue));
+  --color-accent-foreground: oklch(9% calc(0.03 * var(--site-chroma)) var(--site-hue));
+  --color-border: oklch(26% calc(0.07 * var(--site-chroma)) var(--site-hue));
+  --color-primary: oklch(96% calc(0.02 * var(--site-chroma)) var(--site-hue));
+  --color-primary-foreground: oklch(9% calc(0.03 * var(--site-chroma)) var(--site-hue));
+  --chart-1: oklch(80% calc(0.22 * var(--site-chroma)) var(--site-hue));
+  --chart-2: oklch(78% calc(0.22 * var(--site-chroma)) calc(var(--site-hue) - 110));
+  --chart-3: oklch(82% calc(0.22 * var(--site-chroma)) calc(var(--site-hue) + 150));
+  color-scheme: dark;
+  background-color: var(--color-background);
 }
 
 /* The user pressed the button on purpose, so don't kill it outright —
@@ -835,54 +876,122 @@ html.disco {
   html.disco { animation-duration: 40s, 11s; }
 }
 
-/* Disco lights — soft colour pools sweeping over the page.
-   The three pools sit 120deg apart on the wheel, so there are always three
-   different colours in the room rather than one tint, and they all ride the
-   same rotating --site-hue. `screen` blending only ever lightens, which is
-   why text stays readable underneath instead of being muddied. */
+/* THE RIG.
+   Four layers, all screen-blended so they can only ever add light:
+     ::before/::after  colour wash pools, three hues 120deg apart
+     .disco-beams      a fan of hard-edged beams swinging like moving heads
+     .disco-speckles   mirror-ball scatter
+     .disco-beat       the 2Hz flash (see the safety note at the top)
+   `screen` is what keeps this readable: screen(text, light) can never be
+   darker than the text was, so light copy stays light while the near-black
+   room underneath lights right up. */
 .disco-lights {
   position: fixed;
-  inset: -25%;
+  inset: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.9s ease, visibility 0s linear 0.9s;
-  /* screen only ever lightens, so light text on the dark theme stays legible.
-     In light mode that would be invisible against white, so flip to multiply,
-     which only ever darkens and keeps dark text legible. Each mode uses the
-     blend that cannot hurt its own text colour. */
+  transition: opacity 0.7s ease, visibility 0s linear 0.7s;
   mix-blend-mode: screen;
 }
-html:not(.dark) .disco-lights {
-  mix-blend-mode: multiply;
-}
 html.disco .disco-lights {
-  opacity: 0.42;
+  /* Held below 1 so there is always some headroom between the washed
+     background and the muted body copy sitting on top of it. */
+  opacity: 0.8;
   visibility: visible;
-  transition: opacity 0.9s ease, visibility 0s;
+  transition: opacity 0.7s ease, visibility 0s;
 }
+
+/* Colour wash — the room fills with three colours at once rather than
+   one tint, because they sit 120deg apart on the wheel and all ride the
+   same rotating --site-hue. */
 .disco-lights::before,
 .disco-lights::after {
   content: '';
   position: absolute;
-  inset: 0;
-  filter: blur(70px);
+  inset: -25%;
+  filter: blur(60px);
   background:
-    radial-gradient(circle at 22% 28%, oklch(56% 0.28 var(--site-hue)) 0, transparent 40%),
-    radial-gradient(circle at 79% 24%, oklch(56% 0.28 calc(var(--site-hue) + 120)) 0, transparent 36%),
-    radial-gradient(circle at 54% 80%, oklch(56% 0.28 calc(var(--site-hue) + 240)) 0, transparent 38%);
-  animation: disco-sweep 9s ease-in-out infinite alternate;
+    radial-gradient(circle at 22% 28%, oklch(62% 0.32 var(--site-hue)) 0, transparent 42%),
+    radial-gradient(circle at 79% 24%, oklch(62% 0.32 calc(var(--site-hue) + 120)) 0, transparent 38%),
+    radial-gradient(circle at 54% 80%, oklch(62% 0.32 calc(var(--site-hue) + 240)) 0, transparent 40%);
+  animation: disco-sweep 4.2s ease-in-out infinite alternate;
 }
 .disco-lights::after {
-  animation-duration: 13.5s;
+  animation-duration: 6.4s;
   animation-direction: alternate-reverse;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 @keyframes disco-sweep {
-  from { transform: translate3d(-6%, -4%, 0) scale(1) rotate(0deg); }
-  to   { transform: translate3d(7%, 5%, 0) scale(1.18) rotate(22deg); }
+  from { transform: translate3d(-9%, -6%, 0) scale(1) rotate(0deg); }
+  to   { transform: translate3d(10%, 7%, 0) scale(1.28) rotate(30deg); }
 }
+
+/* Moving heads. The cone apex sits just above the top edge, so the beams
+   fan down into the room and swing side to side together. Hard colour
+   stops (not a smooth ramp) are what give them defined edges. */
+.disco-beams {
+  position: absolute;
+  inset: -30% -40% -10%;
+  filter: blur(7px);
+  mix-blend-mode: screen;
+  background: conic-gradient(from var(--disco-beam) at 50% -6%,
+    transparent 0deg 128deg,
+    oklch(74% 0.33 var(--site-hue) / 0.55) 128deg 133deg,
+    transparent 133deg 150deg,
+    oklch(74% 0.33 calc(var(--site-hue) + 120)) 150deg 155deg,
+    transparent 155deg 172deg,
+    oklch(74% 0.33 calc(var(--site-hue) + 240) / 0.5) 172deg 177deg,
+    transparent 177deg 194deg,
+    oklch(74% 0.33 calc(var(--site-hue) + 60)) 194deg 199deg,
+    transparent 199deg 216deg,
+    oklch(74% 0.33 calc(var(--site-hue) + 180) / 0.5) 216deg 221deg,
+    transparent 221deg 360deg);
+  animation: disco-swing 3.1s ease-in-out infinite alternate;
+}
+@keyframes disco-swing {
+  from { --disco-beam: -15deg; }
+  to   { --disco-beam: 15deg; }
+}
+
+/* Mirror ball — a rotating grid of specks. Oversized and centred so the
+   rotation never drags an empty corner into view. */
+.disco-speckles {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  background-image: radial-gradient(circle, oklch(92% 0.2 var(--site-hue)) 0 1.6px, transparent 2.6px);
+  background-size: 54px 54px;
+  animation: disco-spin 16s linear infinite;
+}
+@keyframes disco-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* The beat. 0.5s period = 120bpm = 2 flashes per second, deliberately
+   under the WCAG limit of three. Decays fast so it reads as a hit rather
+   than a square-wave strobe. */
+.disco-beat {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(ellipse 120% 80% at 50% 0%,
+    oklch(84% 0.28 var(--site-hue)) 0, transparent 72%);
+  animation: disco-beat 0.5s ease-out infinite;
+}
+@keyframes disco-beat {
+  0%   { opacity: 0.5; }
+  22%  { opacity: 0.06; }
+  100% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .disco-lights::before, .disco-lights::after { animation-duration: 45s, 60s; }
+  .disco-lights::before, .disco-lights::after { animation-duration: 45s; }
+  .disco-beams   { animation-duration: 30s; }
+  .disco-speckles { animation-duration: 90s; }
+  /* No pulsing at all for anyone who asked not to be moved. */
+  .disco-beat    { animation: none; opacity: 0.1; }
 }
