@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T02:03:49.800Z",
+  "generated": "2026-08-13T02:54:18.602Z",
   "reddit": [
     {
       "title": "Programming smart pathing in Starcraft 2",
@@ -23,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Kubernetes completions for labels",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vmowx3/kubernetes_completions_for_labels/",
+      "by": "Electronic_Bad_2046",
+      "time": 1786564825000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "Linus Torvalds Explains What Makes Linux So Fast",
       "url": "https://www.reddit.com/r/programming/comments/1vmoddq/linus_torvalds_explains_what_makes_linux_so_fast/",
       "by": "Rechenplaner",
@@ -30,157 +37,150 @@
       "sub": "r/programming"
     },
     {
-      "title": "Has anyone looked at RapidFort's curated libraries as a Chainguard alternative?",
-      "url": "https://www.reddit.com/r/devops/comments/1vmo871/has_anyone_looked_at_rapidforts_curated_libraries/",
-      "by": "Serious-Equal-6764",
-      "time": 1786563295000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Deploying docker-compose.yml",
-      "url": "https://www.reddit.com/r/devops/comments/1vmjm45/deploying_dockercomposeyml/",
-      "by": "aress1605",
-      "time": 1786553397000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Cheapest server for a school project",
-      "url": "https://www.reddit.com/r/devops/comments/1vmgrns/cheapest_server_for_a_school_project/",
-      "by": "Old-Broccoli-4704",
-      "time": 1786547225000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "Inherited a cluster where workload identity is just long-lived secrets, fixing it right.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vmmymh/inherited_a_cluster_where_workload_identity_is/",
+      "by": "Mangwe_Tanser",
+      "time": 1786560499000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "Stupidest reason why Kiali worked in sandbox but not in dev",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vmhkoq/stupidest_reason_why_kiali_worked_in_sandbox_but/",
+      "by": "Kuebic",
+      "time": 1786548998000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "MCP vs APIs: What’s the Difference, and When Should You Use Each?",
-      "url": "https://medium.com/@seyedrumaiz/mcp-vs-apis-whats-the-difference-and-when-should-you-use-each-9e7e633f2c05",
-      "by": "Seyed Rumaiz",
-      "time": 1786586006000,
+      "title": "The Engineer Who Always Had the Right Answer vs. The One Who Asked the Right Question",
+      "url": "https://medium.com/javarevisited/the-engineer-who-always-had-the-right-answer-vs-the-one-who-asked-the-right-question-9d9cc596a4ad",
+      "by": "Production Systems By Devrim",
+      "time": 1786589371000,
       "tags": [
-        "artificial-intelligence",
+        "software-development",
         "software-engineering",
-        "api"
+        "software-architecture"
       ]
     },
     {
-      "title": "In DevOps, networking is the backbone of continuous deployment.",
-      "url": "https://medium.com/@palloti10x/in-devops-networking-is-the-backbone-of-continuous-deployment-150e54b739b1",
-      "by": "EZEOBI CHINECHEREM JUDE",
-      "time": 1786585965000,
-      "tags": [
-        "devops",
-        "platform-engineering",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "How I Closed Three Skill Gaps With One Real System Instead of Three Fake Ones",
-      "url": "https://medium.com/@SakshiChavan/how-i-closed-three-skill-gaps-with-one-real-system-instead-of-three-fake-ones-cc84004a0eb1",
-      "by": "Sakshi Chavan",
-      "time": 1786585758000,
+      "title": "7 Java Libraries That Made My Coding Faster in 2026",
+      "url": "https://javascript.plainenglish.io/7-java-libraries-that-made-my-coding-faster-in-2026-849de6097962",
+      "by": "Maria Ali",
+      "time": 1786589311000,
       "tags": [
         "java",
-        "angular",
-        "web-development"
+        "data-science",
+        "coding"
       ]
     },
     {
-      "title": "FFai is ffmpeg’s AI baby",
-      "url": "https://talmondrlm.medium.com/ffai-is-ffmpegs-ai-baby-3e6d759494b4",
-      "by": "Tim Almond",
-      "time": 1786584793000,
+      "title": "Your Cron Job Failed. You Just Don’t Know It Yet.",
+      "url": "https://amberanand.medium.com/your-cron-job-failed-you-just-dont-know-it-yet-23d278eba2c8",
+      "by": "Amber Anand",
+      "time": 1786589239000,
       "tags": [
-        "media",
-        "ai",
+        "devops",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "أفضل 10 أصول مجانية لتسريع ألعاب Unity في 2026",
+      "url": "https://fadyali.medium.com/%D8%A3%D9%81%D8%B6%D9%84-10-%D8%A3%D8%B5%D9%88%D9%84-%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9-%D9%84%D8%AA%D8%B3%D8%B1%D9%8A%D8%B9-%D8%A3%D9%84%D8%B9%D8%A7%D8%A8-unity-%D9%81%D9%8A-2026-31cccfeea2a2",
+      "by": "Fady",
+      "time": 1786589138000,
+      "tags": [
+        "indiedev",
+        "unity",
         "programming"
       ]
     },
     {
-      "title": "Java Has Sealed Types. Now Give Them Prisms.",
-      "url": "https://medium.com/heap-wire/java-has-sealed-types-now-give-them-prisms-3c354a4af7fa",
-      "by": "Jitin Kayyala",
-      "time": 1786584661000,
+      "title": "7 Next-Generation Python Libraries Every Developer Should Know",
+      "url": "https://levelup.gitconnected.com/7-next-generation-python-libraries-every-developer-should-know-b71df64c9871",
+      "by": "Maria Ali",
+      "time": 1786588980000,
       "tags": [
-        "functional-programming",
-        "technology",
-        "software-development"
+        "python-programming",
+        "data-science",
+        "coding"
       ]
     },
     {
-      "title": "Too Big to Handshake",
-      "url": "https://levelup.gitconnected.com/too-big-to-handshake-07eb34ab8263",
-      "by": "David Lee",
-      "time": 1786584602000,
+      "title": ".NET Core Interview Questions That Test Real-World Development Skills",
+      "url": "https://medium.com/@preetjit82/net-core-interview-questions-that-test-real-world-development-skills-6fd47d9e3c96",
+      "by": "Interview Simplified",
+      "time": 1786588862000,
       "tags": [
-        "cybersecurity",
-        "linux",
-        "technology"
-      ]
-    },
-    {
-      "title": "Comments Are Not a Substitute for Good Code",
-      "url": "https://medium.com/@scosmexs/comments-are-not-a-substitute-for-good-code-0107f0d81bf4",
-      "by": "Sebastiao Cosme Agostinho",
-      "time": 1786584046000,
-      "tags": [
-        "software-engineering",
+        "interview-questions",
         "programming",
-        "software-development"
+        "dotnet"
       ]
     },
     {
-      "title": "[RustGuide] 7.1 Package, Crate, and Module Definitions",
-      "url": "https://medium.com/@stanyin64/rustguide-7-1-package-crate-and-module-definitions-ee9f68e91b2a",
-      "by": "Stan Yin",
-      "time": 1786582861000,
+      "title": "Java Interview Questions & Answers Every Java Developer Should Know",
+      "url": "https://medium.com/@preetjit82/java-interview-questions-answers-every-java-developer-should-know-3d237d16491f",
+      "by": "Interview Simplified",
+      "time": 1786588807000,
       "tags": [
+        "java",
+        "jobs",
+        "interview"
+      ]
+    },
+    {
+      "title": "Navigate Python’s Rapidly Evolving Ecosystem With the Libraries, Tools, and AI Workflows That…",
+      "url": "https://levelup.gitconnected.com/navigate-pythons-rapidly-evolving-ecosystem-with-the-libraries-tools-and-ai-workflows-that-8dd4c827f3e3",
+      "by": "Arfa",
+      "time": 1786588590000,
+      "tags": [
+        "python",
         "programming",
-        "rust",
-        "rust-programming-language"
+        "data-science"
       ]
     },
     {
-      "title": "Setting Up a Local Enterprise Data Lab on macOS (Part 5):",
-      "url": "https://medium.com/@froilan.sia/setting-up-a-local-enterprise-data-lab-on-macos-part-5-f8880e4f85d9",
-      "by": "Froilan Sia",
-      "time": 1786582775000,
+      "title": "SQL vs NoSQL in 2026: The Ultimate Guide to Choosing the Right Database",
+      "url": "https://medium.com/@zenlinker/sql-vs-nosql-in-2026-the-ultimate-guide-to-choosing-the-right-database-51f2774706dc",
+      "by": "Chirag Garg (ZenLinker)",
+      "time": 1786588561000,
       "tags": [
-        "database",
-        "data-migration",
-        "devops"
+        "database-design",
+        "sql",
+        "backend-development"
       ]
     },
     {
-      "title": "I Built a Free In-Browser SQL Practice Tool for Interview Prep (No Signup)",
-      "url": "https://medium.com/@techlexiconapp/i-built-a-free-in-browser-sql-practice-tool-for-interview-prep-no-signup-1b42c90ff973",
-      "by": "TechLexicon",
-      "time": 1786582726000,
+      "title": "Everything Worth Learning in Python This Year, From Modern Libraries to AI-Driven Development",
+      "url": "https://levelup.gitconnected.com/everything-worth-learning-in-python-this-year-from-modern-libraries-to-ai-driven-development-59ff0ffab26a",
+      "by": "Arfa",
+      "time": 1786588389000,
       "tags": [
-        "coding-interviews",
-        "programming",
-        "software-engineering"
+        "coding",
+        "data-science",
+        "python-programming"
       ]
     }
   ]
