@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-13T04:54:54.738Z",
+  "generated": "2026-08-13T08:46:46.060Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -124,6 +124,17 @@
       "imdb": "https://www.imdb.com/title/tt38874778/"
     },
     {
+      "title": "Maatrubhumi: May War Rest in Peace",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Apoorva Lakhia",
+      "desc": "Upcoming Indian film by Apoorva Lakhia",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
+      "imdb": "https://www.imdb.com/title/tt27610832/"
+    },
+    {
       "title": "Mandaadi",
       "lang": "Tamil",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Sardar_2",
       "imdb": "https://www.imdb.com/title/tt28541577/"
-    },
-    {
-      "title": "Thudakkam",
-      "lang": "Malayalam",
-      "date": null,
-      "precision": null,
-      "by": "Jude Anthany Joseph",
-      "desc": "2026 film by Jude Anthany Joseph",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Thudakkam",
-      "imdb": "https://www.imdb.com/title/tt37510017/"
     }
   ]
 }

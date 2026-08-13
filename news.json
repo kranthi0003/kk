@@ -1,6 +1,27 @@
 {
-  "generated": "2026-08-13T04:55:46.913Z",
+  "generated": "2026-08-13T08:47:44.536Z",
   "reddit": [
+    {
+      "title": "Looking for feedback on first attempt at setting up hosting and CI/CD for a fullstack .NET and React app with PostgreSQL database, hosted on Github using Github Actions.",
+      "url": "https://www.reddit.com/r/devops/comments/1vn4tdm/looking_for_feedback_on_first_attempt_at_setting/",
+      "by": "muccy_",
+      "time": 1786609486000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Switching to devops",
+      "url": "https://www.reddit.com/r/devops/comments/1vn4t9q/switching_to_devops/",
+      "by": "Hot-Campaign-5103",
+      "time": 1786609474000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Amazon Q is saving me these days otherwise I will be having a hard time using AWS services",
+      "url": "https://www.reddit.com/r/devops/comments/1vn3ypi/amazon_q_is_saving_me_these_days_otherwise_i_will/",
+      "by": "anishghimire",
+      "time": 1786606473000,
+      "sub": "r/devops"
+    },
     {
       "title": "Programming smart pathing in Starcraft 2",
       "url": "https://www.reddit.com/r/programming/comments/1vmvxdz/programming_smart_pathing_in_starcraft_2/",
@@ -23,31 +44,10 @@
       "sub": "r/programming"
     },
     {
-      "title": "Linus Torvalds Explains What Makes Linux So Fast",
-      "url": "https://www.reddit.com/r/programming/comments/1vmoddq/linus_torvalds_explains_what_makes_linux_so_fast/",
-      "by": "Rechenplaner",
-      "time": 1786563618000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Has anyone looked at RapidFort's curated libraries as a Chainguard alternative?",
       "url": "https://www.reddit.com/r/devops/comments/1vmo871/has_anyone_looked_at_rapidforts_curated_libraries/",
       "by": "Serious-Equal-6764",
       "time": 1786563295000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Deploying docker-compose.yml",
-      "url": "https://www.reddit.com/r/devops/comments/1vmjm45/deploying_dockercomposeyml/",
-      "by": "aress1605",
-      "time": 1786553397000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Cheapest server for a school project",
-      "url": "https://www.reddit.com/r/devops/comments/1vmgrns/cheapest_server_for_a_school_project/",
-      "by": "Old-Broccoli-4704",
-      "time": 1786547225000,
       "sub": "r/devops"
     },
     {
@@ -74,113 +74,112 @@
   ],
   "medium": [
     {
-      "title": "Still stuck choosing the right AI path?",
-      "url": "https://medium.com/@bilal693startup/still-stuck-choosing-the-right-ai-path-b2a158269444",
-      "by": "Bilalstartup",
-      "time": 1786596365000,
+      "title": "Building InfraPilot, an AI SRE-Assistant for Automated Incident Analysis",
+      "url": "https://medium.com/@sidcodeshere/building-infrapilot-an-ai-sre-assistant-for-automated-incident-analysis-07d9ced1cccf",
+      "by": "Siddhant Srivastava",
+      "time": 1786610183000,
       "tags": [
-        "ai",
-        "education",
-        "devops"
+        "devops",
+        "observability",
+        "incident-response"
       ]
     },
     {
-      "title": "Building a “Human-in-the-Loop” AI Publishing Pipeline with Claude Desktop, MCP, and Slack",
-      "url": "https://medium.com/@TAKU-RD-M365-AI/building-a-human-in-the-loop-ai-publishing-pipeline-with-claude-desktop-mcp-and-slack-3da9b7be61cb",
-      "by": "Taku: Japan, Market, Tech, Auto…",
-      "time": 1786596129000,
+      "title": "Elon Musk Launched Grok 4.6 — Here’s What It Means for Your AI Startup",
+      "url": "https://priyadarshisanjay.medium.com/elon-musk-launched-grok-4-6-heres-what-it-means-for-your-ai-startup-c7d0ccf69a95",
+      "by": "Sanjay Priyadarshi",
+      "time": 1786610097000,
       "tags": [
         "artificial-intelligence",
-        "software-engineering",
-        "claude"
+        "entrepreneurship",
+        "startup"
       ]
     },
     {
-      "title": "Your Spring Boot API Is Fast at 100 Users. What Happens at 10,000?",
-      "url": "https://medium.com/@ersumit077/your-spring-boot-api-is-fast-at-100-users-what-happens-at-10-000-0838650b697b",
-      "by": "Crack Java Interview - Coding,…",
-      "time": 1786596102000,
+      "title": "MLM Software Development Company in Murshidabad | Grow Your Direct Selling Business with Smart MLM…",
+      "url": "https://medium.com/@sh6_73475/mlm-software-development-company-in-murshidabad-grow-your-direct-selling-business-with-smart-mlm-fff9dafdf58a",
+      "by": "shallu",
+      "time": 1786610035000,
       "tags": [
-        "backend-development",
-        "java",
-        "design-systems"
+        "software-development",
+        "software-engineering"
       ]
     },
     {
-      "title": "Claude Cracked the 41.6% Wall on Riemann's Zeros — I Counted 138,069 and All Were on the Line",
-      "url": "https://pub.towardsai.net/claude-cracked-the-41-6-wall-on-riemanns-zeros-i-counted-138-069-and-all-were-on-the-line-abd2d9fd2bdb",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1786596004000,
+      "title": "Your competitor launched a new Facebook ad 3 days ago. Did you notice?",
+      "url": "https://medium.com/@0xgollum/your-competitor-launched-a-new-facebook-ad-3-days-ago-did-you-notice-f7115c7375ee",
+      "by": "0xGollum",
+      "time": 1786609983000,
       "tags": [
-        "mathematics",
-        "artificial-intelligence",
-        "programming"
+        "automation",
+        "marketing",
+        "software-engineering"
       ]
     },
     {
-      "title": "Roles and Permissions in Laravel + Vue + Tailwind: The Complete Full-Stack Implementation",
-      "url": "https://sadiqueali.medium.com/roles-and-permissions-in-laravel-vue-tailwind-the-complete-full-stack-implementation-7fb5eccf1532",
-      "by": "Sadique Ali",
-      "time": 1786595831000,
+      "title": "6 Python Libraries That Make Coding Feel Effortless",
+      "url": "https://python.plainenglish.io/6-python-libraries-that-make-coding-feel-effortless-4c0f4dc8452f",
+      "by": "Abdul Hanan Python",
+      "time": 1786609961000,
       "tags": [
-        "programming",
-        "php",
+        "python-programming",
+        "data-science",
         "javascript"
       ]
     },
     {
-      "title": "Stop Writing Analytics Strings in Flutter — Generate Everything from a Single YAML File",
-      "url": "https://medium.com/@savaliya.ravi.rs/stop-writing-analytics-strings-in-flutter-generate-everything-from-a-single-yaml-file-deb90276504c",
-      "by": "Ravi Savaliya",
-      "time": 1786595761000,
+      "title": "Manual Testing vs Automation Testing – A Beginner’s Guide",
+      "url": "https://medium.com/@pornimaskulkarni2004/manual-testing-vs-automation-testing-a-beginners-guide-78f11bf5b75e",
+      "by": "Pornimaskulkarni",
+      "time": 1786609805000,
       "tags": [
-        "flutter",
-        "analytics",
-        "flutter-app-development"
+        "automation-testing",
+        "software-testing",
+        "selenium"
       ]
     },
     {
-      "title": "10 Simple MATLAB Lessons That Transform the Way You Code",
-      "url": "https://medium.com/@nicolakattan/10-simple-matlab-lessons-that-transform-the-way-you-code-511f0e2b8a46",
-      "by": "Nicola Kattan",
-      "time": 1786595715000,
+      "title": "DAILY SPRING DEVOTIONAL.",
+      "url": "https://medium.com/@DailySpringDevotional/daily-spring-devotional-a5c2d5434e48",
+      "by": "DEBORAH CHINEDU",
+      "time": 1786609761000,
       "tags": [
-        "prompt-engineering",
-        "engineering",
-        "matlab"
+        "self-improvement",
+        "technology",
+        "data-science"
       ]
     },
     {
-      "title": "How Database Indexing Actually Works | B-Trees, Slow COUNT(*), and the Trade-off Nobody Warns You…",
-      "url": "https://medium.com/@singh.piyush/how-database-indexing-actually-works-b-trees-slow-count-and-the-trade-off-nobody-warns-you-a4d5d5142586",
-      "by": "Piyush Kumar Singh",
-      "time": 1786595693000,
+      "title": "DevOps Pipeline Performance Analysis Using Power BI",
+      "url": "https://medium.com/@siddheshvasav/devops-pipeline-performance-analysis-using-power-bi-51c5fb4ae23f",
+      "by": "Siddheshvasav",
+      "time": 1786609674000,
       "tags": [
-        "sql",
-        "software-engineering",
-        "backend-development"
+        "ci-cd-pipeline",
+        "power-bi",
+        "devops"
       ]
     },
     {
-      "title": "Redis Output Caching in ASP.NET Core: Speed Without the Stale-Data Trap",
-      "url": "https://medium.com/c-sharp-programming/redis-output-caching-in-asp-net-core-speed-without-the-stale-data-trap-e4cadbbbfd08",
-      "by": "Bharat Chandera",
-      "time": 1786595691000,
+      "title": "Why NVIDIA’s NOOA Might Render Traditional Agent Frameworks Obsolete",
+      "url": "https://medium.com/@vikrantdheer/why-nvidias-nooa-might-render-traditional-agent-frameworks-obsolete-ac41537961a6",
+      "by": "Vikrant Dheer",
+      "time": 1786609524000,
       "tags": [
-        "programming",
-        "redis",
-        "aspnetcore"
+        "python",
+        "ai-agent",
+        "coding"
       ]
     },
     {
-      "title": "The Next Billion-Dollar AI Opportunity Isn’t Writing Code. It’s Reviewing AI’s Code.",
-      "url": "https://medium.com/lets-code-future/the-next-billion-dollar-ai-opportunity-isnt-writing-code-it-s-reviewing-ai-s-code-e1f44a63d3f3",
-      "by": "TechTales",
-      "time": 1786595621000,
+      "title": "What Are Embeddings?",
+      "url": "https://anushkabuildsai.medium.com/what-are-embeddings-fb44d225703f",
+      "by": "Anushka Pal",
+      "time": 1786609285000,
       "tags": [
         "artificial-intelligence",
-        "ai-agent",
-        "software-engineering"
+        "ai",
+        "data-science"
       ]
     }
   ]
