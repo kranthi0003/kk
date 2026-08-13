@@ -376,7 +376,11 @@ export default function App() {
       <ScrollProgress />
       <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
       {/* Purely decorative; invisible unless html.disco is set. */}
-      <div className="disco-lights" aria-hidden="true" />
+      <div className="disco-lights" aria-hidden="true">
+        <span className="disco-beams" />
+        <span className="disco-speckles" />
+        <span className="disco-beat" />
+      </div>
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
