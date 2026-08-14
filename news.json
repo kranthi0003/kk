@@ -1,185 +1,186 @@
 {
-  "generated": "2026-08-13T08:47:44.536Z",
+  "generated": "2026-08-14T04:55:18.819Z",
   "reddit": [
     {
-      "title": "Looking for feedback on first attempt at setting up hosting and CI/CD for a fullstack .NET and React app with PostgreSQL database, hosted on Github using Github Actions.",
-      "url": "https://www.reddit.com/r/devops/comments/1vn4tdm/looking_for_feedback_on_first_attempt_at_setting/",
-      "by": "muccy_",
-      "time": 1786609486000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Switching to devops",
-      "url": "https://www.reddit.com/r/devops/comments/1vn4t9q/switching_to_devops/",
-      "by": "Hot-Campaign-5103",
-      "time": 1786609474000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Amazon Q is saving me these days otherwise I will be having a hard time using AWS services",
-      "url": "https://www.reddit.com/r/devops/comments/1vn3ypi/amazon_q_is_saving_me_these_days_otherwise_i_will/",
-      "by": "anishghimire",
-      "time": 1786606473000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Programming smart pathing in Starcraft 2",
-      "url": "https://www.reddit.com/r/programming/comments/1vmvxdz/programming_smart_pathing_in_starcraft_2/",
-      "by": "LaughNgamez",
-      "time": 1786581895000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Degradability",
-      "url": "https://www.reddit.com/r/programming/comments/1vmssvs/degradability/",
-      "by": "fagnerbrack",
-      "time": 1786573853000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Node.js creator liberates Durable Objects from Cloudflare",
-      "url": "https://www.reddit.com/r/programming/comments/1vmrnni/nodejs_creator_liberates_durable_objects_from/",
-      "by": "stronghup",
-      "time": 1786571123000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Has anyone looked at RapidFort's curated libraries as a Chainguard alternative?",
-      "url": "https://www.reddit.com/r/devops/comments/1vmo871/has_anyone_looked_at_rapidforts_curated_libraries/",
-      "by": "Serious-Equal-6764",
-      "time": 1786563295000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "Why have a separate Admin container, and how should admins/DBAs securely access the database?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vnvo56/why_have_a_separate_admin_container_and_how/",
+      "by": "Wide_Impact_9392",
+      "time": 1786677014000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "START",
+      "url": "https://www.reddit.com/r/programming/comments/1vnodfg/start/",
+      "by": "WheelOk4703",
+      "time": 1786657596000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "NP-overrated",
+      "url": "https://www.reddit.com/r/programming/comments/1vnkrhc/npoverrated/",
+      "by": "ngruhn",
+      "time": 1786649387000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Witamy w TechodemyX! Zadawaj pytania, dziel się spostrzeżeniami, rozwiązuj problemy, dyskutuj o trendach! 🚀",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vng3kt/witamy_w_techodemyx_zadawaj_pytania_dziel_się/",
+      "by": "DealMoist",
+      "time": 1786639511000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
+      "title": "Argo For Kubernetes: From Argo CD to Workflows and Image Updater | A complete Guide",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vndgd3/argo_for_kubernetes_from_argo_cd_to_workflows_and/",
+      "by": "Kindly-Hawk",
+      "time": 1786633862000,
       "sub": "r/kubernetes"
+    },
+    {
+      "title": "State-of-the-art Bytecode Interpreters in Java by Yudi Zheng",
+      "url": "https://www.reddit.com/r/programming/comments/1vnckbr/stateoftheart_bytecode_interpreters_in_java_by/",
+      "by": "grashalm01",
+      "time": 1786631933000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Every KCD and KubeCon co-located day currently scheduled, with dates and organiser links",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vnc2sm/every_kcd_and_kubecon_colocated_day_currently/",
+      "by": "Willing-Lettuce-5937",
+      "time": 1786630820000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Building InfraPilot, an AI SRE-Assistant for Automated Incident Analysis",
-      "url": "https://medium.com/@sidcodeshere/building-infrapilot-an-ai-sre-assistant-for-automated-incident-analysis-07d9ced1cccf",
-      "by": "Siddhant Srivastava",
-      "time": 1786610183000,
+      "title": "Your Microservices Passed Every Test. So Why Did the Application Still Break?",
+      "url": "https://venkatad.medium.com/your-microservices-passed-every-test-so-why-did-the-application-still-break-f6acdc1d10d0",
+      "by": "Venkata",
+      "time": 1786683138000,
       "tags": [
-        "devops",
-        "observability",
-        "incident-response"
+        "software-testing",
+        "api",
+        "system-design-interview"
       ]
     },
     {
-      "title": "Elon Musk Launched Grok 4.6 — Here’s What It Means for Your AI Startup",
-      "url": "https://priyadarshisanjay.medium.com/elon-musk-launched-grok-4-6-heres-what-it-means-for-your-ai-startup-c7d0ccf69a95",
-      "by": "Sanjay Priyadarshi",
-      "time": 1786610097000,
+      "title": "Do You Really Need container_name in Docker Compose?",
+      "url": "https://medium.com/@ritanshbagal/do-you-really-need-container-name-in-docker-compose-7af633a84e71",
+      "by": "Ritansh Bagal",
+      "time": 1786682316000,
+      "tags": [
+        "docker-compose",
+        "devops",
+        "docker"
+      ]
+    },
+    {
+      "title": "The 9 Things I Learned to Improve My Agentic Development",
+      "url": "https://medium.com/@anantgoyal2000/the-9-things-i-learned-to-improve-my-agentic-development-ab8b87bcee05",
+      "by": "Anant Goyal",
+      "time": 1786682169000,
       "tags": [
         "artificial-intelligence",
-        "entrepreneurship",
-        "startup"
+        "claude-code",
+        "agentic-workflow"
       ]
     },
     {
-      "title": "MLM Software Development Company in Murshidabad | Grow Your Direct Selling Business with Smart MLM…",
-      "url": "https://medium.com/@sh6_73475/mlm-software-development-company-in-murshidabad-grow-your-direct-selling-business-with-smart-mlm-fff9dafdf58a",
-      "by": "shallu",
-      "time": 1786610035000,
+      "title": "Do zero ao cluster: Terraform, Ansible e catorze operadores que não podem ser desinstalados",
+      "url": "https://medium.com/@lesomora/do-zero-ao-cluster-terraform-ansible-e-catorze-operadores-que-n%C3%A3o-podem-ser-desinstalados-f3f831b680a6",
+      "by": "Leonardo Souza",
+      "time": 1786682149000,
       "tags": [
-        "software-development",
-        "software-engineering"
+        "ansible",
+        "devops",
+        "kubernetes"
       ]
     },
     {
-      "title": "Your competitor launched a new Facebook ad 3 days ago. Did you notice?",
-      "url": "https://medium.com/@0xgollum/your-competitor-launched-a-new-facebook-ad-3-days-ago-did-you-notice-f7115c7375ee",
-      "by": "0xGollum",
-      "time": 1786609983000,
+      "title": "7 Python Tricks That Will Instantly Make You Look Like a Senior Developer",
+      "url": "https://medium.com/@shubhamnalawade037/7-python-tricks-that-will-instantly-make-you-look-like-a-senior-developer-043f144e16e3",
+      "by": "The Dialectic",
+      "time": 1786681993000,
       "tags": [
-        "automation",
-        "marketing",
-        "software-engineering"
+        "coding",
+        "web-development",
+        "python"
       ]
     },
     {
-      "title": "6 Python Libraries That Make Coding Feel Effortless",
-      "url": "https://python.plainenglish.io/6-python-libraries-that-make-coding-feel-effortless-4c0f4dc8452f",
-      "by": "Abdul Hanan Python",
-      "time": 1786609961000,
+      "title": "The Complete Guide to SQL Window Functions",
+      "url": "https://medium.com/@NusratGulbarga_data_analyst/the-complete-guide-to-sql-window-functions-168867f5c862",
+      "by": "Nusrat Gulbarga",
+      "time": 1786681866000,
       "tags": [
-        "python-programming",
+        "sql",
         "data-science",
-        "javascript"
+        "programming"
       ]
     },
     {
-      "title": "Manual Testing vs Automation Testing – A Beginner’s Guide",
-      "url": "https://medium.com/@pornimaskulkarni2004/manual-testing-vs-automation-testing-a-beginners-guide-78f11bf5b75e",
-      "by": "Pornimaskulkarni",
-      "time": 1786609805000,
+      "title": "Top 5 GitOps Patterns Every Platform Engineer Should Know",
+      "url": "https://medium.com/devops-ai-decoded/top-5-gitops-patterns-every-platform-engineer-should-know-ebdb9640c648",
+      "by": "Neel Shah",
+      "time": 1786681862000,
       "tags": [
-        "automation-testing",
-        "software-testing",
-        "selenium"
+        "devops",
+        "gitops",
+        "technology"
       ]
     },
     {
-      "title": "DAILY SPRING DEVOTIONAL.",
-      "url": "https://medium.com/@DailySpringDevotional/daily-spring-devotional-a5c2d5434e48",
-      "by": "DEBORAH CHINEDU",
-      "time": 1786609761000,
+      "title": "Why Automation Is the Backbone of Modern DevOps Practices",
+      "url": "https://medium.com/@Invensis_Learning/why-automation-is-the-backbone-of-modern-devops-practices-99a76cbd92bb",
+      "by": "Invensis Learning",
+      "time": 1786681561000,
       "tags": [
-        "self-improvement",
-        "technology",
-        "data-science"
-      ]
-    },
-    {
-      "title": "DevOps Pipeline Performance Analysis Using Power BI",
-      "url": "https://medium.com/@siddheshvasav/devops-pipeline-performance-analysis-using-power-bi-51c5fb4ae23f",
-      "by": "Siddheshvasav",
-      "time": 1786609674000,
-      "tags": [
-        "ci-cd-pipeline",
-        "power-bi",
+        "cloud-computing",
+        "software-development",
         "devops"
       ]
     },
     {
-      "title": "Why NVIDIA’s NOOA Might Render Traditional Agent Frameworks Obsolete",
-      "url": "https://medium.com/@vikrantdheer/why-nvidias-nooa-might-render-traditional-agent-frameworks-obsolete-ac41537961a6",
-      "by": "Vikrant Dheer",
-      "time": 1786609524000,
+      "title": "I Was the Copy-Paste Between My AI Agents. Then They Stopped Needing Me.",
+      "url": "https://medium.com/@yhocotw31016/i-was-the-copy-paste-between-my-ai-agents-then-they-stopped-needing-me-9378fb812a2f",
+      "by": "Joel",
+      "time": 1786681421000,
       "tags": [
-        "python",
         "ai-agent",
-        "coding"
+        "programming",
+        "developer-tools"
       ]
     },
     {
-      "title": "What Are Embeddings?",
-      "url": "https://anushkabuildsai.medium.com/what-are-embeddings-fb44d225703f",
-      "by": "Anushka Pal",
-      "time": 1786609285000,
+      "title": "You Can’t Unit Test a Guess",
+      "url": "https://medium.com/cloudqa/you-cant-unit-test-a-guess-904f156cfbf3",
+      "by": "Aryan Nair",
+      "time": 1786681085000,
       "tags": [
         "artificial-intelligence",
-        "ai",
-        "data-science"
+        "software-testing",
+        "llm"
       ]
     }
   ]
