@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T15:01:22.510Z",
+  "generated": "2026-08-15T15:30:41.272Z",
   "reddit": [
     {
       "title": "How Google’s Linux cgroups Helps AWS and Azure Save Billions",
@@ -9,13 +9,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Nexus OSS Alternatives",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
-      "by": "k8s_maestro",
-      "time": 1786792262000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "[ Removed by Reddit ]",
       "url": "https://www.reddit.com/r/programming/comments/1vp0215/removed_by_reddit/",
       "by": "Ok_Discount2715",
@@ -23,18 +16,25 @@
       "sub": "r/programming"
     },
     {
-      "title": "Second image location",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vosbrh/second_image_location/",
-      "by": "Either_Vermicelli_82",
-      "time": 1786765523000,
-      "sub": "r/kubernetes"
+      "title": "How do you test CI pipelines?",
+      "url": "https://www.reddit.com/r/devops/comments/1voki1m/how_do_you_test_ci_pipelines/",
+      "by": "Mysterious_Prune415",
+      "time": 1786743839000,
+      "sub": "r/devops"
     },
     {
-      "title": "Software tester here. Employer recommended I get the c-k-a. Possible?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vorz4v/software_tester_here_employer_recommended_i_get/",
-      "by": "-Terrible-Bite-",
-      "time": 1786764443000,
-      "sub": "r/kubernetes"
+      "title": "How do you actually diagnose a CI integration-test failure when the root cause isn't obvious?",
+      "url": "https://www.reddit.com/r/devops/comments/1vojtkx/how_do_you_actually_diagnose_a_ci_integrationtest/",
+      "by": "VisualNatural617",
+      "time": 1786742215000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How does your team do automated deployments to linux devices in the field?",
+      "url": "https://www.reddit.com/r/devops/comments/1vogxlo/how_does_your_team_do_automated_deployments_to/",
+      "by": "GongtingLover",
+      "time": 1786735595000,
+      "sub": "r/devops"
     },
     {
       "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
@@ -51,136 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "5 AI Projects Every Beginner Should Build",
-      "url": "https://medium.com/@tumealvin09/5-ai-projects-every-beginner-should-build-e8aa11b09b72",
-      "by": "Alvin Tume",
-      "time": 1786805827000,
+      "title": "Your Laptop Has Gigabytes of RAM. So Why Does Your Program Still Run Out of Memory?",
+      "url": "https://medium.com/@muruganantham52524/your-laptop-has-gigabytes-of-ram-so-why-does-your-program-still-run-out-of-memory-ea24686fba5c",
+      "by": "Er.Muruganantham",
+      "time": 1786807271000,
       "tags": [
-        "productivity",
-        "python",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "I Aced the System Design Round and Still Got Rejected. It Was the Behavioral Round That Killed Me.",
-      "url": "https://blog.stackademic.com/i-aced-the-system-design-round-and-still-got-rejected-it-was-the-behavioral-round-that-killed-me-5be65b50b7ad",
-      "by": "Backend Engineer By Devrim",
-      "time": 1786805804000,
-      "tags": [
-        "programming",
-        "software-development",
-        "python"
-      ]
-    },
-    {
-      "title": "I Got “Not Yet Staff” Feedback Three Times Before I Figured Out What It Actually Meant",
-      "url": "https://blog.stackademic.com/i-got-not-yet-staff-feedback-three-times-before-i-figured-out-what-it-actually-meant-ea947c52629b",
-      "by": "Backend Engineer By Devrim",
-      "time": 1786805704000,
-      "tags": [
-        "software-development",
-        "programming",
+        "java",
+        "c-programming",
         "software-engineering"
       ]
     },
     {
-      "title": "NVIDIA’s Object-Oriented Agents: What Changes When an AI Agent Becomes a Python Object?",
-      "url": "https://medium.com/@pankaj_pandey/nvidias-object-oriented-agents-what-changes-when-an-ai-agent-becomes-a-python-object-6f94131e7374",
-      "by": "Pankaj",
-      "time": 1786805462000,
+      "title": "Next.js Image Optimization in 2026: next/image v4, AVIF by Default, and the Config Changes Teams…",
+      "url": "https://medium.com/@jsmanifest/next-js-image-optimization-in-2026-next-image-v4-avif-by-default-and-the-config-changes-teams-ad531dac606f",
+      "by": "jsmanifest",
+      "time": 1786807200000,
       "tags": [
-        "software-engineering",
-        "ai-agent",
-        "agentic-ai"
+        "programming",
+        "typescript",
+        "web-development"
       ]
     },
     {
-      "title": "Our AI coding bill is under $50 a developer. The number wasn’t the hard part.",
-      "url": "https://medium.com/@vallabhsangale7/our-ai-coding-bill-is-under-50-a-developer-the-number-wasnt-the-hard-part-f8cc92b0f02f",
-      "by": "Smart Tech Circuit",
-      "time": 1786805461000,
+      "title": "It’s Not Your Code. It’s the Machine Underneath It.",
+      "url": "https://blog.stackademic.com/its-not-your-code-it-s-the-machine-underneath-it-444f3b887343",
+      "by": "Production Systems By Devrim",
+      "time": 1786806960000,
       "tags": [
-        "ai",
+        "coding",
         "software-engineering",
         "programming"
       ]
     },
     {
-      "title": "He Asked for a License Change. They Never Replied. So He Replaced Them.",
-      "url": "https://canartuc.medium.com/he-asked-for-a-license-change-they-never-replied-so-he-replaced-them-c7c4765ce6e1",
-      "by": "Can Artuc",
-      "time": 1786805401000,
-      "tags": [
-        "linux",
-        "technology",
-        "open-source"
-      ]
-    },
-    {
-      "title": "The Only Kubernetes Architecture Guide You Need — Part 2: Running AI Workloads at Scale",
-      "url": "https://medium.com/devops-ai-decoded/the-only-kubernetes-architecture-guide-you-need-part-2-running-ai-workloads-at-scale-cbdbbceaf3de",
-      "by": "Jay Sadhu",
-      "time": 1786805099000,
-      "tags": [
-        "aws",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "How Our Future Looks With AI: A Developer’s Perspective",
-      "url": "https://medium.com/@jordannebartolome/how-our-future-looks-with-ai-a-developers-perspective-03f882fd2f4b",
-      "by": "Jordanne Bartolome",
-      "time": 1786804840000,
+      "title": "Your Container Keeps Restarting Itself. That’s Not Random. That’s a Message.",
+      "url": "https://blog.stackademic.com/your-container-keeps-restarting-itself-thats-not-random-that-s-a-message-29dfcee9d97c",
+      "by": "Production Systems By Devrim",
+      "time": 1786806887000,
       "tags": [
         "software-development",
-        "web-development",
-        "ai"
+        "docker-compose",
+        "programming"
       ]
     },
     {
-      "title": "Should I Stick With Software Engineering After Multiple Firings?",
-      "url": "https://medium.com/@codesculpturersh/should-i-stick-with-software-engineering-after-multiple-firings-1a71fe8b7f67",
-      "by": "CodeSculptorX",
-      "time": 1786804582000,
+      "title": "Your Spring Boot App Isn’t Slow. Your Database Connection Pool Is.",
+      "url": "https://gainjavaknowledge.medium.com/your-spring-boot-app-isnt-slow-your-database-connection-pool-is-8cdd5601e3bc",
+      "by": "Real World Java",
+      "time": 1786806790000,
       "tags": [
-        "tech-career",
+        "spring-boot",
         "software-engineering",
-        "personal-growth"
+        "performance"
       ]
     },
     {
-      "title": "Good Engineers Fail System Design Interviews for the Dumbest Possible Reason",
-      "url": "https://blog.stackademic.com/good-engineers-fail-system-design-interviews-for-the-dumbest-possible-reason-c59f9c77f5da",
-      "by": "Production Engineering By Devrim",
-      "time": 1786804494000,
+      "title": "Your Kubernetes Cluster Says Everything’s Green. Your Users Say Otherwise.",
+      "url": "https://blog.stackademic.com/your-kubernetes-cluster-says-everythings-green-your-users-say-otherwise-999cccb50157",
+      "by": "Senior Engineer By Devrim",
+      "time": 1786806787000,
       "tags": [
-        "java",
-        "programming",
+        "software-engineering",
+        "kubernetes",
         "software-development"
+      ]
+    },
+    {
+      "title": "PostgreSQL Just Paged You. Here’s the Mistake Everyone Makes in the First Five Minutes.",
+      "url": "https://blog.stackademic.com/postgresql-just-paged-you-heres-the-mistake-everyone-makes-in-the-first-five-minutes-64e917a786bb",
+      "by": "Senior Engineer By Devrim",
+      "time": 1786806712000,
+      "tags": [
+        "software-architecture",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Redis Is Down. Your Whole App Just Found Out It Was Never Actually Fault-Tolerant.",
+      "url": "https://medium.com/codeelevation/redis-is-down-your-whole-app-just-found-out-it-was-never-actually-fault-tolerant-fbc102c9e5aa",
+      "by": "Engineering Notes By Devrim",
+      "time": 1786806562000,
+      "tags": [
+        "software-engineering",
+        "coding",
+        "redis"
+      ]
+    },
+    {
+      "title": "Cut Your Claude Code Bill 50 Percent Without Changing Your Code",
+      "url": "https://medium.com/@y.raj1457/cut-your-claude-code-bill-50-percent-without-changing-your-code-79f14210cc68",
+      "by": "Yashraj Behera",
+      "time": 1786806527000,
+      "tags": [
+        "developer-tools",
+        "claude",
+        "programming"
+      ]
+    },
+    {
+      "title": "Microservices: Building Applications as Independent, Communicating Services",
+      "url": "https://medium.com/@rhutu.takle/microservices-building-applications-as-independent-communicating-services-3028bb8032b6",
+      "by": "Rhuturaj Takle",
+      "time": 1786806514000,
+      "tags": [
+        "learning",
+        "programming",
+        "microservices"
       ]
     }
   ]
