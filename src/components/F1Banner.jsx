@@ -88,7 +88,7 @@ export default function F1Button() {
       href="#/f1"
       aria-label={title}
       title={title}
-      className="group f1btn fixed top-[8.75rem] right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
+      className="group f1btn fixed top-36 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
     >
       {raceWeek && (
         <span

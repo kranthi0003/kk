@@ -3,10 +3,15 @@ import React, { useEffect, useState } from 'react'
 /* ------------------------------------------------------------------ *
  * The cricket button — third in the rail, under the Sidecar and F1.
  *
- * The control is already a circle, so it may as well be the ball: red
- * leather with the seam stitched across it. That gets the subject across
- * without a label, and it reads as clearly at 48px as the chequered ring
- * does on the F1 button next to it.
+ * The first version of this was a photoreal red leather ball. It was the
+ * only skeuomorphic thing in the rail, and worse, it was hardcoded red —
+ * so it ignored the site hue the colour picker sets and clashed the moment
+ * the theme moved off red. This follows the Sidecar instead: a flat disc
+ * built from theme tokens with a stroked line icon, so it recolours with
+ * everything else.
+ *
+ * Stumps rather than a ball, because a ball inside a round button is just
+ * a circle in a circle. Nothing else in the world looks like stumps.
  *
  * It fetches cricket-now.json — a couple of hundred bytes written by the
  * same generator as the page — purely for the tooltip and for a green pip
@@ -18,32 +23,31 @@ import React, { useEffect, useState } from 'react'
 const CACHE_KEY = 'cricket_now'
 const CACHE_TTL = 3600000 // an hour, matching the other buttons
 
-// A cricket ball: leather with a light source top-left, and the seam bowed
-// across the face. Two faint guide lines with a dashed line between them is
-// what makes it stitching rather than a stripe.
-function Ball({ className = '' }) {
+// Three stumps with the bails resting across them. The bails are a separate
+// group so they can be knocked askew on hover. The gap over the middle stump
+// is what makes them two bails instead of one long line.
+function Stumps({ className = '' }) {
   return (
-    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <defs>
-        <radialGradient id="ckb" cx="34%" cy="28%" r="78%">
-          <stop offset="0%" stopColor="#C8332C" />
-          <stop offset="55%" stopColor="#9E1F1C" />
-          <stop offset="100%" stopColor="#5E100F" />
-        </radialGradient>
-      </defs>
-      <circle cx="24" cy="24" r="24" fill="url(#ckb)" />
-      <g stroke="#F6EFE4" fill="none" strokeLinecap="round">
-        <path d="M16.5 3.4C25 12 25 36 16.5 44.6" strokeWidth="1" opacity=".45" />
-        <path d="M23.5 3.4C32 12 32 36 23.5 44.6" strokeWidth="1" opacity=".45" />
-        <path
-          d="M20 3.2C28.6 12 28.6 36 20 44.8"
-          strokeWidth="2.4"
-          strokeDasharray="1.5 3.6"
-          opacity=".95"
-        />
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <g className="ckbtn-stumps">
+        <path d="M7.2 9.6v10.8" />
+        <path d="M12 9.6v10.8" />
+        <path d="M16.8 9.6v10.8" />
       </g>
-      {/* The sheen on the polished side, which is what the seam divides. */}
-      <ellipse cx="15" cy="15" rx="9" ry="7" fill="#fff" opacity=".1" transform="rotate(-28 15 15)" />
+      {/* Thinner than the stumps, with a real gap over the middle one —
+          otherwise the three caps and the bail merge into a single bar. */}
+      <g className="ckbtn-bails" strokeWidth="1.5">
+        <path d="M6.6 6.9h3.9" />
+        <path d="M13.5 6.9h3.9" />
+      </g>
     </svg>
   )
 }
@@ -99,7 +103,7 @@ export default function CricketButton() {
       href="#/cricket"
       aria-label={title}
       title={title}
-      className="group ckbtn fixed top-[12.5rem] right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
+      className="group ckbtn fixed top-52 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
     >
       {playing && (
         <span
@@ -109,22 +113,29 @@ export default function CricketButton() {
         />
       )}
 
-      <Ball className="ckbtn-ball w-12 h-12" />
+      <Stumps className="ckbtn-icon w-7 h-7" />
 
       <style>{`
         .ckbtn {
-          background: #5E100F;
-          box-shadow: 0 8px 24px -6px rgba(0,0,0,.75);
-          transition: transform .2s ease, box-shadow .25s ease;
+          background: var(--color-card);
+          border: 1px solid var(--color-border);
+          color: var(--color-accent);
+          box-shadow: 0 8px 24px -6px rgba(0,0,0,.45);
+          transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
         }
-        .ckbtn-ball {
-          transition: transform .6s cubic-bezier(.22,.61,.36,1);
+        .ckbtn-bails {
+          transform-origin: 12px 6.9px;
+          transition: transform .45s cubic-bezier(.22,.61,.36,1);
         }
-        .ckbtn:hover { box-shadow: 0 10px 26px -6px rgba(161,30,30,.55); }
-        .ckbtn:hover .ckbtn-ball { transform: rotate(38deg); }
+        .ckbtn:hover {
+          border-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
+          box-shadow: 0 10px 26px -6px color-mix(in oklab, var(--color-accent) 45%, transparent);
+        }
+        /* Bowled: the bails get clipped off the top. */
+        .ckbtn:hover .ckbtn-bails { transform: translate(1.5px, -2.4px) rotate(12deg); }
         @media (prefers-reduced-motion: reduce) {
-          .ckbtn-ball { transition: none; }
-          .ckbtn:hover .ckbtn-ball { transform: none; }
+          .ckbtn-bails { transition: none; }
+          .ckbtn:hover .ckbtn-bails { transform: none; }
         }
       `}</style>
     </a>
