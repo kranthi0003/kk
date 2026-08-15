@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T12:14:19.544Z",
+  "generated": "2026-08-15T13:18:20.983Z",
   "reddit": [
     {
       "title": "Nexus OSS Alternatives",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "90% of Developers Don’t Understand How Database Transactions Fail in Real Applications",
-      "url": "https://medium.com/skillstuff/90-of-developers-dont-understand-how-database-transactions-fail-in-real-applications-cbb780625348",
-      "by": "CodeByUmar",
-      "time": 1786795606000,
+      "title": "11/18-The Global Rules Every New Project Should Have-Make it observable",
+      "url": "https://vdelacou.medium.com/11-18-the-global-rules-every-new-project-should-have-make-it-observable-b13e66e5ef31",
+      "by": "Vincent Delacourt",
+      "time": 1786799661000,
       "tags": [
-        "programming",
-        "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "I Replaced One Python Library – and My Entire Workflow Got Better",
-      "url": "https://medium.com/codetodeploy/i-replaced-one-python-library-and-my-entire-workflow-got-better-0ec9ec050854",
-      "by": "Abdul Hanan Python",
-      "time": 1786795389000,
-      "tags": [
-        "python-programming",
-        "javascript",
-        "python"
-      ]
-    },
-    {
-      "title": "Mengatasi Uang Jajan Cepat Habis dengan Bot Telegram AI (No-Code)",
-      "url": "https://medium.com/@yandri.nahason22/mengatasi-uang-jajan-cepat-habis-dengan-bot-telegram-ai-no-code-1ea9caaef474",
-      "by": "YANDRI NAHASON TARIGAN",
-      "time": 1786795372000,
-      "tags": [
-        "programming",
-        "technology",
-        "finance"
-      ]
-    },
-    {
-      "title": "Bridging the Probabilistic Deterministic Divide: Architecting Asynchronous Multi-Threaded Agentic…",
-      "url": "https://pub.towardsai.net/bridging-the-probabilistic-deterministic-divide-architecting-asynchronous-multi-threaded-agentic-77abdd5cede8",
-      "by": "Rotaze Software",
-      "time": 1786795261000,
-      "tags": [
-        "software-development",
-        "ai",
+        "sre",
+        "observability",
         "software-engineering"
       ]
     },
     {
-      "title": "Clean Code",
-      "url": "https://medium.com/@dra.m.rdeveloper1995/clean-code-fe5f971d7e42",
-      "by": "Amir Shoeibi Omrani",
-      "time": 1786794177000,
+      "title": "PostgreSQL 17 High Availability with pg_auto_failover",
+      "url": "https://medium.com/@cccybercrow/postgresql-17-high-availability-with-pg-auto-failover-e3f8ba7263e9",
+      "by": "Cyb3rCr0wCC",
+      "time": 1786799095000,
       "tags": [
-        "software-engineering",
-        "web-development",
+        "database",
+        "devops",
+        "postgresql"
+      ]
+    },
+    {
+      "title": "From Dashboards to Actions: Wiring Azure OpenAI Into Blazor Controls",
+      "url": "https://medium.com/codetodeploy/from-dashboards-to-actions-wiring-azure-openai-into-blazor-controls-5df249cbb82d",
+      "by": "Dave R - Microsoft Azure & AI M…",
+      "time": 1786798631000,
+      "tags": [
+        "artificial-intelligence",
+        "azure",
+        "blazor"
+      ]
+    },
+    {
+      "title": "I Force-Pushed to Main. Here’s What Happened Next.",
+      "url": "https://medium.com/codeelevation/i-force-pushed-to-main-heres-what-happened-next-fab56be01919",
+      "by": "Devrim Ozcay- Backend Engineer",
+      "time": 1786798626000,
+      "tags": [
+        "coding",
+        "software-development",
         "programming"
       ]
     },
     {
-      "title": "How to Remove AI Watermarks From Claude Text (And What Works)",
-      "url": "https://divadsanders.medium.com/how-to-remove-ai-watermarks-from-claude-text-and-what-works-eb80d6c03362",
-      "by": "Divad",
-      "time": 1786794061000,
+      "title": "The Database Just Died. You Have 10 Minutes Before Everyone Panics.",
+      "url": "https://blog.stackademic.com/the-database-just-died-you-have-10-minutes-before-everyone-panics-9cca99092115",
+      "by": "Devrim Ozcay- Backend Engineer",
+      "time": 1786798530000,
       "tags": [
-        "artificial-intelligence",
-        "programming",
-        "productivity"
+        "sql",
+        "database",
+        "programming"
       ]
     },
     {
-      "title": "Inside a Four-Agent AI Pipeline: How AI Agents Can Help Banks Free Up Regulatory Capital",
-      "url": "https://medium.com/@venu140998/inside-a-four-agent-ai-pipeline-how-ai-agents-can-help-banks-free-up-regulatory-capital-99e1dece5076",
-      "by": "Venu",
-      "time": 1786793886000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "fintech"
-      ]
-    },
-    {
-      "title": "Map and Set in JavaScript",
-      "url": "https://mrmadhukar.medium.com/map-and-set-in-javascript-ad86089fc9b1",
-      "by": "Mr Madhukar",
-      "time": 1786793765000,
+      "title": "The AI Tech Stack: LangChain Explained — Chains, Agents, Tools, Memory & RAG (Complete Guide 2026)",
+      "url": "https://medium.com/@khayyamshah2007/the-ai-tech-stack-langchain-explained-chains-agents-tools-memory-rag-complete-guide-2026-5147f24c7233",
+      "by": "Khayyamshah",
+      "time": 1786798472000,
       "tags": [
         "programming",
-        "es6",
-        "javascript"
+        "python",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Function Declaration vs Function Expression: What’s the Difference?",
-      "url": "https://mrmadhukar.medium.com/function-declaration-vs-function-expression-whats-the-difference-f6c66c7ea70f",
-      "by": "Mr Madhukar",
-      "time": 1786793749000,
+      "title": "Why System-Level Programming Feels More Fun Than Full-Stack Development(web)",
+      "url": "https://medium.com/@atifwrite/why-system-level-programming-feels-more-fun-than-full-stack-development-web-94a8faa8c840",
+      "by": "Atif",
+      "time": 1786798074000,
       "tags": [
-        "programming",
-        "coding",
-        "web-development"
+        "computer-security",
+        "operating-systems",
+        "software-engineering"
       ]
     },
     {
-      "title": "Master MLOps Course | MLOps Online Training",
-      "url": "https://medium.com/@vamsivisualpath408/master-mlops-course-mlops-online-training-84c513226708",
-      "by": "vamsi visualpath",
-      "time": 1786793712000,
+      "title": "‎I invested a huge portion of my savings about $850,000 USD to fake investment scheme, I soon…",
+      "url": "https://medium.com/@cm4341257/i-invested-a-huge-portion-of-my-savings-about-850-000-usd-to-fake-investment-scheme-i-soon-93f9a7fa8ca1",
+      "by": "Cm",
+      "time": 1786797976000,
       "tags": [
-        "higher-education",
-        "artificial-intelligence",
-        "python"
+        "cryptocurrency",
+        "business",
+        "programming"
+      ]
+    },
+    {
+      "title": "12 Rules to Learn to Code",
+      "url": "https://medium.com/@anugupta7273/12-rules-to-learn-to-code-ee32529b4711",
+      "by": "IM_DINO",
+      "time": 1786797857000,
+      "tags": [
+        "trending",
+        "clean-code",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Got Tired of Driving Home to Run One kubectl Command, So I Put Kubernetes on My Phone",
+      "url": "https://medium.com/@richardpham201/i-got-tired-of-driving-home-to-run-one-kubectl-command-so-i-put-kubernetes-on-my-phone-9e9d0f0a9928",
+      "by": "Richardpham",
+      "time": 1786797686000,
+      "tags": [
+        "operations",
+        "kubernetes",
+        "devops"
       ]
     }
   ]
