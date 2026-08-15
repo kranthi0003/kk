@@ -1,26 +1,40 @@
 {
-  "generated": "2026-08-15T10:24:50.648Z",
+  "generated": "2026-08-15T11:30:23.656Z",
   "reddit": [
     {
-      "title": "How do you test CI pipelines?",
-      "url": "https://www.reddit.com/r/devops/comments/1voki1m/how_do_you_test_ci_pipelines/",
-      "by": "Mysterious_Prune415",
-      "time": 1786743839000,
-      "sub": "r/devops"
+      "title": "Nexus OSS Alternatives",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
+      "by": "k8s_maestro",
+      "time": 1786792262000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How do you actually diagnose a CI integration-test failure when the root cause isn't obvious?",
-      "url": "https://www.reddit.com/r/devops/comments/1vojtkx/how_do_you_actually_diagnose_a_ci_integrationtest/",
-      "by": "VisualNatural617",
-      "time": 1786742215000,
-      "sub": "r/devops"
+      "title": "[ Removed by Reddit ]",
+      "url": "https://www.reddit.com/r/programming/comments/1vp0215/removed_by_reddit/",
+      "by": "Ok_Discount2715",
+      "time": 1786792107000,
+      "sub": "r/programming"
     },
     {
-      "title": "How does your team do automated deployments to linux devices in the field?",
-      "url": "https://www.reddit.com/r/devops/comments/1vogxlo/how_does_your_team_do_automated_deployments_to/",
-      "by": "GongtingLover",
-      "time": 1786735595000,
-      "sub": "r/devops"
+      "title": "Second image location",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vosbrh/second_image_location/",
+      "by": "Either_Vermicelli_82",
+      "time": 1786765523000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Software tester here. Employer recommended I get the c-k-a. Possible?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vorz4v/software_tester_here_employer_recommended_i_get/",
+      "by": "-Terrible-Bite-",
+      "time": 1786764443000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Small YAML habit that's saved me a few production headaches",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1voflmt/small_yaml_habit_thats_saved_me_a_few_production/",
+      "by": "honor-5192",
+      "time": 1786732673000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
@@ -30,13 +44,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "NetAudit – CLI tool for network audits that plays nicely with scripts, CI/CD, and monitoring",
-      "url": "https://www.reddit.com/r/devops/comments/1vocygj/netaudit_cli_tool_for_network_audits_that_plays/",
-      "by": "netforge201",
-      "time": 1786726936000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Coding Magic the Gathering in C# - PART ONE - Why Build A Card Game in WinForms",
       "url": "https://www.reddit.com/r/programming/comments/1vo8qw5/coding_magic_the_gathering_in_c_part_one_why/",
       "by": "nickproud",
@@ -44,143 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Building a toy language in C++: Adding variables",
-      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
-      "by": "Xaneris47",
-      "time": 1786713172000,
-      "sub": "r/programming"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Post-training alone took GLM-5.3 from 4.6 to 28.3 on Terminal Bench 3.0",
-      "url": "https://medium.com/@mehmet.ozel2701/post-training-alone-took-glm-5-3-from-4-6-to-28-3-on-terminal-bench-3-0-8e4648948417",
-      "by": "Mehmet Özel",
-      "time": 1786788665000,
+      "title": "Nobody Warned Me How Much Software Development Would Change Me",
+      "url": "https://medium.com/@tayfun.kendiroglu20/nobody-warned-me-how-much-software-development-would-change-me-b64da7786298",
+      "by": "Tayfun Kendiroglu",
+      "time": 1786793144000,
       "tags": [
-        "artificial-intelligence",
-        "programming",
-        "llm"
-      ]
-    },
-    {
-      "title": "Affiliate Marketing with AI: A Beginner’s Guide to Building an Online Income Stream",
-      "url": "https://medium.com/@sandeeprav7773/affiliate-marketing-with-ai-a-beginners-guide-to-building-an-online-income-stream-402cb29a0ee6",
-      "by": "Sandeeprav",
-      "time": 1786788613000,
-      "tags": [
-        "artificial-intelligence",
-        "affiliate-marketing",
+        "personal-development",
+        "careers",
         "programming"
       ]
     },
     {
-      "title": "When Docker Failed",
-      "url": "https://medium.com/@raghavsaini2511/when-docker-failed-0952c7dae385",
-      "by": "Raghavendra Saini",
-      "time": 1786788276000,
+      "title": "Software Engineer to AI Engineer! (Best Move)",
+      "url": "https://medium.com/@CodeWithMasood/software-engineer-to-ai-engineer-best-move-5535d5f23088",
+      "by": "CodeWithMasood",
+      "time": 1786792800000,
       "tags": [
-        "software-development",
-        "docker",
-        "postgresql"
-      ]
-    },
-    {
-      "title": "Qwen3.8–27B with NVIDIA GTX 3090: Best Time To Be Alive",
-      "url": "https://medium.com/coding-nexus/qwen3-8-27b-with-nvidia-gtx-3090-best-time-to-be-alive-c9d5c595c313",
-      "by": "Jatin Prasad",
-      "time": 1786788271000,
-      "tags": [
-        "entrepreneurship",
         "programming",
+        "software-engineering",
         "ai-agent"
       ]
     },
     {
-      "title": "AI Isn’t Magic: How I’m Starting to Understand It",
-      "url": "https://medium.com/@aaravtripathy0/ai-isnt-magic-how-i-m-starting-to-understand-it-007d3a2ab58a",
-      "by": "Aaravtripathy",
-      "time": 1786788226000,
+      "title": "Stop Learning Every AI Framework. These 6 Actually Matter in 2026",
+      "url": "https://towardsdev.com/stop-learning-every-ai-framework-these-6-actually-matter-in-2026-1f560710d36d",
+      "by": "Mohammad Shoeb",
+      "time": 1786792788000,
       "tags": [
-        "artificial-intelligence",
-        "ai",
-        "education"
+        "cloud-computing",
+        "programming",
+        "dotnet"
       ]
     },
     {
-      "title": "How to Add Projectile Trails in Unreal Engine 5",
-      "url": "https://medium.com/@fulton_shaun/how-to-add-projectile-trails-in-unreal-engine-5-d60fbf4eb7ca",
-      "by": "Shaun Fulton",
-      "time": 1786788063000,
+      "title": "Oracle SQL Performance Troubleshooting: AWR → ASH → DBMS_XPLAN → ADDM | Best of mrcaption49 | 705",
+      "url": "https://medium.com/@pranavsb699/oracle-sql-performance-troubleshooting-awr-ash-dbms-xplan-addm-best-of-mrcaption49-705-ca1f6a8983bd",
+      "by": "Pranav Bakare",
+      "time": 1786792538000,
       "tags": [
-        "game-development",
-        "tutorial",
-        "programming"
+        "data-science",
+        "mrcaption49",
+        "database"
       ]
     },
     {
-      "title": "Beyond the Silicon Memory Wall: The Volumetric Memory Coil and the Dawn of Topological Computing",
-      "url": "https://zachbobby8.medium.com/beyond-the-silicon-memory-wall-the-volumetric-memory-coil-and-the-dawn-of-topological-computing-a217379dc146",
-      "by": "Möbius Braid",
-      "time": 1786787958000,
+      "title": "Go Is Easy. Keeping a Go Service Honest in Production Is Hard.",
+      "url": "https://medium.com/@sarkarbikram90/go-is-easy-keeping-a-go-service-honest-in-production-is-hard-95b492901737",
+      "by": "Bikram Sarkar",
+      "time": 1786792499000,
       "tags": [
-        "machine-learning",
-        "deep-learning",
-        "programming"
+        "software-engineering",
+        "go",
+        "golang"
       ]
     },
     {
-      "title": "How to master at PR Reviews for Senior Devs",
-      "url": "https://azeynalli1990.medium.com/how-to-master-at-pr-reviews-for-senior-devs-85ce4b9ca7d3",
-      "by": "Ali Zeynalli",
-      "time": 1786787761000,
+      "title": "Before You Hire an IT Agency, Try This: Post Your Project and Compare Your Options",
+      "url": "https://c2creview.medium.com/before-you-hire-an-it-agency-try-this-post-your-project-and-compare-your-options-8399919918b8",
+      "by": "C2C Review",
+      "time": 1786792453000,
       "tags": [
         "software-development",
+        "web-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "What If You Didn’t Have to Search for the Perfect IT Agency? Let Agencies Come to You",
+      "url": "https://c2creview.medium.com/what-if-you-didnt-have-to-search-for-the-perfect-it-agency-let-agencies-come-to-you-66e405d03f16",
+      "by": "C2C Review",
+      "time": 1786792096000,
+      "tags": [
         "software-engineering",
-        "software"
+        "software-development",
+        "post-a-project"
       ]
     },
     {
-      "title": "3 Open Source Coding Agent Harnesses I Actually Used in 2026",
-      "url": "https://poornaprakashsr.medium.com/3-open-source-coding-agent-harnesses-i-actually-used-in-2026-ce9bcdbcba0a",
-      "by": "S Poorna Prakash",
-      "time": 1786787185000,
+      "title": "I Initially Thought DeepSeek V4-Pro-0813 Was Just Another Model Update",
+      "url": "https://medium.com/@pengfei20140701/i-initially-thought-deepseek-v4-pro-0813-was-just-another-model-update-2b40329fe9fa",
+      "by": "Pengfei",
+      "time": 1786792079000,
       "tags": [
-        "developer-tools",
         "programming",
-        "ai"
+        "ai",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "What is happening at Meta?",
-      "url": "https://amjohnphilip.medium.com/what-is-happening-at-meta-0565e675e75f",
-      "by": "John Philip",
-      "time": 1786787180000,
+      "title": "How Do Apps Work with Algorithms?",
+      "url": "https://medium.com/@maiwega/how-do-apps-work-with-algorithms-24f4cfc1bdac",
+      "by": "AYOADE Ibrahim",
+      "time": 1786792067000,
       "tags": [
-        "software",
-        "programming",
-        "ai"
+        "coding",
+        "technology",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Claude Opus 5 Wins Every Benchmark, So Why Do Developers Want Opus 4.8 Back?",
+      "url": "https://medium.com/@jamilxt/claude-opus-5-wins-every-benchmark-so-why-do-developers-want-opus-4-8-back-9cd345ec42f2",
+      "by": "jamilxt",
+      "time": 1786791917000,
+      "tags": [
+        "claude",
+        "ai",
+        "ai-agent"
       ]
     }
   ]
