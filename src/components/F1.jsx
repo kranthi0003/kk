@@ -10,9 +10,10 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
  * to load can never trap someone on a blank screen.
  *
  * The film is AMD's Radeon PRO x Blender showcase for the Mercedes-AMG
- * Petronas F1 Team, cut between two pure-black frames so it loops without a
- * seam once the page is open, and re-encoded to 1280x720 (21.9MB -> 4.8MB).
- * It is credited in full at the foot of the page.
+ * Petronas F1 Team, cut between two pure-black frames and re-encoded to
+ * 1280x720 (21.9MB -> 4.8MB). It runs once and holds on that closing black
+ * frame, which leaves the title sitting on black rather than on a loop
+ * nobody asked to watch twice. It is credited in full at the foot of the page.
  *
  * Data is hybrid: f1.json ships with the build so the page is useful the
  * instant it paints, then the standings are re-fetched live and swapped in.
@@ -148,20 +149,10 @@ export default function F1({ onBack }) {
   const [reduced, setReduced] = useState(false)
   const videoRef = useRef(null)
 
+  // The film runs exactly once. When it ends it holds on its closing black
+  // frame, so the hero settles into a still backdrop for the title.
   const openPage = useCallback(() => {
-    setStage((s) => {
-      if (s === 'open') return s
-      const v = videoRef.current
-      if (v) {
-        // From here the film is wallpaper, so let it run round again.
-        v.loop = true
-        if (v.ended) {
-          v.currentTime = 0
-          v.play().catch(() => {})
-        }
-      }
-      return 'open'
-    })
+    setStage('open')
     setTitleIn(true)
   }, [])
 
@@ -304,6 +295,12 @@ export default function F1({ onBack }) {
     if (v.currentTime >= v.duration - TITLE_LEAD) setTitleIn(true)
   }, [])
 
+  // The film is over: unlock the page and let the control offer a replay.
+  const onEnded = useCallback(() => {
+    setPlaying(false)
+    openPage()
+  }, [openPage])
+
   const toggleSound = useCallback(() => {
     const v = videoRef.current
     if (!v) return
@@ -317,8 +314,10 @@ export default function F1({ onBack }) {
   const togglePlay = useCallback(() => {
     const v = videoRef.current
     if (!v) return
-    if (v.paused) v.play().catch(() => {})
-    else v.pause()
+    if (v.paused) {
+      if (v.ended) v.currentTime = 0 // a finished film should replay, not sit
+      v.play().catch(() => {})
+    } else v.pause()
   }, [])
 
   const nextRace = useMemo(() => {
@@ -380,7 +379,7 @@ export default function F1({ onBack }) {
           preload="auto"
           autoPlay={!reduced}
           onTimeUpdate={onTimeUpdate}
-          onEnded={openPage}
+          onEnded={onEnded}
           onError={openPage}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
@@ -389,17 +388,10 @@ export default function F1({ onBack }) {
 
         <div className="f1-hero-inner">
           <div className={`f1-title${titleIn ? ' f1-title-in' : ''}`}>
-            <div className="f1-eyebrow">
-              {data?.season || ''} Season{data?.round ? ` · Round ${data.round}` : ''}
-            </div>
             <h1 className="f1-h1">
               Formula&nbsp;1
               <span className="f1-h1-kerb" aria-hidden="true" />
             </h1>
-            <p className="f1-lede">
-              Eight world titles, a hybrid era, and a grid that still argues about it.
-              The championship as it stands tonight.
-            </p>
           </div>
 
           {stage === 'open' && (
@@ -773,15 +765,10 @@ export default function F1({ onBack }) {
         }
         .f1-title-in { opacity: 1; transform: none; filter: none; }
 
-        .f1-eyebrow {
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
-          color: rgba(255,255,255,.6); margin-bottom: .9rem;
-        }
         .f1-h1 {
           position: relative; display: inline-block;
           font-weight: 500; font-size: clamp(3rem, 13vw, 7rem); line-height: .95; color: #fff;
-          margin-bottom: 1.15rem; text-shadow: 0 2px 40px rgba(0,0,0,.5);
+          margin-bottom: 0; text-shadow: 0 2px 40px rgba(0,0,0,.5);
         }
         .f1-h1-kerb {
           display: block; height: 4px; margin-top: .55rem; border-radius: 2px;
@@ -790,10 +777,6 @@ export default function F1({ onBack }) {
           transition: transform 1.4s cubic-bezier(.22,.61,.36,1) .5s;
         }
         .f1-title-in .f1-h1-kerb { transform: scaleX(1); }
-        .f1-lede {
-          max-width: 30rem; margin: 0 auto;
-          font-size: clamp(.95rem, 2.4vw, 1.1rem); line-height: 1.65; color: rgba(255,255,255,.72);
-        }
 
         .f1-cue {
           position: absolute; bottom: 2.25rem; display: inline-flex; flex-direction: column;
