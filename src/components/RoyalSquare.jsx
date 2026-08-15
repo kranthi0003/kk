@@ -67,6 +67,39 @@ const PhoneIcon = <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3
 const NavIcon = <><polygon points="3 11 22 2 13 21 11 13 3 11" /></>
 const StarIcon = <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
 
+const RS_STYLE = `
+.rs-map { position: relative; display: block; }
+/* Google's keyless embed centres on the coordinates but never draws a marker,
+   so we place our own at dead centre. The iframe is deliberately made
+   non-interactive: it keeps the pin permanently accurate (a dragged map would
+   leave the overlay pointing at the wrong place) and stops the embed from
+   hijacking page scroll on touch devices. Tapping opens the real listing. */
+.rs-pin {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 18px; height: 18px;
+}
+.rs-pin i {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: #e8453c; border: 2.5px solid #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.45);
+}
+.rs-pin b {
+  position: absolute; inset: -11px; border-radius: 50%;
+  border: 2px solid rgba(232,69,60,0.55);
+  animation: rsPulse 2.4s ease-out infinite;
+}
+@keyframes rsPulse {
+  0%   { transform: scale(0.55); opacity: 0.9; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs-pin b { animation: none; opacity: 0.5; transform: scale(1); }
+}
+`
+
 function Empty({ children }) {
   return (
     <div className="rounded-xl border border-dashed border-border/70 px-4 py-8 text-center">
@@ -188,6 +221,7 @@ export default function RoyalSquare({ onBack }) {
 
   return shell(
     <>
+      <style>{RS_STYLE}</style>
       <header className="mb-6">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground/60">
@@ -256,15 +290,25 @@ export default function RoyalSquare({ onBack }) {
       {tab === 'overview' && (
         <div className="space-y-8">
           <section>
-            <div className="rounded-xl overflow-hidden border border-border">
+            <a href={loc.mapsUrl || directionsUrl} target="_blank" rel="noopener noreferrer"
+              aria-label={`Open ${data.name} in Google Maps`}
+              className="rs-map group rounded-xl overflow-hidden border border-border
+                focus:outline-none focus:ring-2 focus:ring-foreground/40">
               <iframe
                 title={`Map showing ${data.name}`}
                 src={mapSrc}
                 loading="lazy"
+                tabIndex={-1}
+                aria-hidden="true"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-[260px] sm:h-[320px] block border-0"
+                className="w-full h-[260px] sm:h-[320px] block border-0 pointer-events-none"
               />
-            </div>
+              <span className="rs-pin"><b /><i /></span>
+              <span className="absolute bottom-2.5 right-2.5 rounded-md bg-black/70 text-white
+                px-2 py-1 text-[11px] font-medium opacity-90 group-hover:opacity-100 transition-opacity">
+                Open in Maps
+              </span>
+            </a>
             <div className="flex items-start gap-2.5 mt-3">
               <span className="text-muted-foreground/60 mt-0.5"><Icon d={PinIcon} /></span>
               <div>
