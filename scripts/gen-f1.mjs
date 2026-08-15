@@ -117,17 +117,54 @@ function mapResult(r) {
 }
 
 async function generate() {
-  const [ds, cs, sched, last] = await Promise.all([
+  const [ds, cs, sched, last, wins, poles] = await Promise.all([
     get(`${SEASON}/driverstandings`),
     get(`${SEASON}/constructorstandings`),
     get(`${SEASON}/races`),
     // A season that hasn't started yet has no "last" race; that is not fatal.
     get(`${SEASON}/last/results`).catch(() => null),
+    // Winner and pole-sitter of every round run so far. Both are extras: if
+    // either call fails the page simply shows a thinner season summary.
+    get(`${SEASON}/results/1`).catch(() => null),
+    get(`${SEASON}/qualifying/1`).catch(() => null),
   ])
 
   const dsList = ds.StandingsTable.StandingsLists[0]
   const csList = cs.StandingsTable.StandingsLists[0]
-  const races = (sched.RaceTable.Races || []).map(mapRace)
+
+  const winByRound = new Map()
+  for (const r of wins?.RaceTable?.Races || []) {
+    const w = r.Results?.find((x) => x.position === '1')
+    if (w) {
+      winByRound.set(r.round, {
+        last: w.Driver.familyName,
+        code: w.Driver.code || w.Driver.familyName.slice(0, 3).toUpperCase(),
+        team: w.Constructor.name,
+        teamId: w.Constructor.constructorId,
+      })
+    }
+  }
+
+  const poleByRound = new Map()
+  for (const r of poles?.RaceTable?.Races || []) {
+    // This endpoint can return more than the pole sitter, so match on position
+    // rather than trusting the first row.
+    const p = r.QualifyingResults?.find((x) => x.position === '1')
+    if (p) {
+      poleByRound.set(r.round, {
+        last: p.Driver.familyName,
+        code: p.Driver.code || p.Driver.familyName.slice(0, 3).toUpperCase(),
+        teamId: p.Constructor.constructorId,
+        time: p.Q3 || p.Q2 || p.Q1 || '',
+      })
+    }
+  }
+
+  const races = (sched.RaceTable.Races || []).map((r) => ({
+    ...mapRace(r),
+    winner: winByRound.get(r.round) || null,
+    pole: poleByRound.get(r.round) || null,
+  }))
   const lastRace = mapResult(last?.RaceTable?.Races?.[0])
 
   return {
