@@ -1,54 +1,54 @@
 {
-  "generated": "2026-08-14T04:55:18.819Z",
+  "generated": "2026-08-15T04:27:20.967Z",
   "reddit": [
     {
-      "title": "Why have a separate Admin container, and how should admins/DBAs securely access the database?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vnvo56/why_have_a_separate_admin_container_and_how/",
-      "by": "Wide_Impact_9392",
-      "time": 1786677014000,
+      "title": "Second image location",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vosbrh/second_image_location/",
+      "by": "Either_Vermicelli_82",
+      "time": 1786765523000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "START",
-      "url": "https://www.reddit.com/r/programming/comments/1vnodfg/start/",
-      "by": "WheelOk4703",
-      "time": 1786657596000,
+      "title": "Software tester here. Employer recommended I get the c-k-a. Possible?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vorz4v/software_tester_here_employer_recommended_i_get/",
+      "by": "-Terrible-Bite-",
+      "time": 1786764443000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Small YAML habit that's saved me a few production headaches",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1voflmt/small_yaml_habit_thats_saved_me_a_few_production/",
+      "by": "honor-5192",
+      "time": 1786732673000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What's the Kubernetes/OpenShift mistake you see beginners make most often?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vofjx8/whats_the_kubernetesopenshift_mistake_you_see/",
+      "by": "honor-5192",
+      "time": 1786732573000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
+      "url": "https://www.reddit.com/r/programming/comments/1vof05i/kernel_context_switch_costs_and_spin_locks_in/",
+      "by": "Happycodeine",
+      "time": 1786731413000,
       "sub": "r/programming"
     },
     {
-      "title": "NP-overrated",
-      "url": "https://www.reddit.com/r/programming/comments/1vnkrhc/npoverrated/",
-      "by": "ngruhn",
-      "time": 1786649387000,
+      "title": "Coding Magic the Gathering in C# - PART ONE - Why Build A Card Game in WinForms",
+      "url": "https://www.reddit.com/r/programming/comments/1vo8qw5/coding_magic_the_gathering_in_c_part_one_why/",
+      "by": "nickproud",
+      "time": 1786717548000,
       "sub": "r/programming"
     },
     {
-      "title": "Witamy w TechodemyX! Zadawaj pytania, dziel się spostrzeżeniami, rozwiązuj problemy, dyskutuj o trendach! 🚀",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vng3kt/witamy_w_techodemyx_zadawaj_pytania_dziel_się/",
-      "by": "DealMoist",
-      "time": 1786639511000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Argo For Kubernetes: From Argo CD to Workflows and Image Updater | A complete Guide",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vndgd3/argo_for_kubernetes_from_argo_cd_to_workflows_and/",
-      "by": "Kindly-Hawk",
-      "time": 1786633862000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "State-of-the-art Bytecode Interpreters in Java by Yudi Zheng",
-      "url": "https://www.reddit.com/r/programming/comments/1vnckbr/stateoftheart_bytecode_interpreters_in_java_by/",
-      "by": "grashalm01",
-      "time": 1786631933000,
+      "title": "Building a toy language in C++: Adding variables",
+      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
+      "by": "Xaneris47",
+      "time": 1786713172000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Every KCD and KubeCon co-located day currently scheduled, with dates and organiser links",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vnc2sm/every_kcd_and_kubecon_colocated_day_currently/",
-      "by": "Willing-Lettuce-5937",
-      "time": 1786630820000,
-      "sub": "r/kubernetes"
     },
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Your Microservices Passed Every Test. So Why Did the Application Still Break?",
-      "url": "https://venkatad.medium.com/your-microservices-passed-every-test-so-why-did-the-application-still-break-f6acdc1d10d0",
-      "by": "Venkata",
-      "time": 1786683138000,
+      "title": "Raft Doesn’t Prevent Split Votes",
+      "url": "https://medium.com/@harshkasana05/raft-doesnt-prevent-split-votes-c9e17868a9d9",
+      "by": "Harsh Kasana",
+      "time": 1786767602000,
       "tags": [
-        "software-testing",
-        "api",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "Do You Really Need container_name in Docker Compose?",
-      "url": "https://medium.com/@ritanshbagal/do-you-really-need-container-name-in-docker-compose-7af633a84e71",
-      "by": "Ritansh Bagal",
-      "time": 1786682316000,
-      "tags": [
-        "docker-compose",
-        "devops",
-        "docker"
-      ]
-    },
-    {
-      "title": "The 9 Things I Learned to Improve My Agentic Development",
-      "url": "https://medium.com/@anantgoyal2000/the-9-things-i-learned-to-improve-my-agentic-development-ab8b87bcee05",
-      "by": "Anant Goyal",
-      "time": 1786682169000,
-      "tags": [
-        "artificial-intelligence",
-        "claude-code",
-        "agentic-workflow"
-      ]
-    },
-    {
-      "title": "Do zero ao cluster: Terraform, Ansible e catorze operadores que não podem ser desinstalados",
-      "url": "https://medium.com/@lesomora/do-zero-ao-cluster-terraform-ansible-e-catorze-operadores-que-n%C3%A3o-podem-ser-desinstalados-f3f831b680a6",
-      "by": "Leonardo Souza",
-      "time": 1786682149000,
-      "tags": [
-        "ansible",
-        "devops",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "7 Python Tricks That Will Instantly Make You Look Like a Senior Developer",
-      "url": "https://medium.com/@shubhamnalawade037/7-python-tricks-that-will-instantly-make-you-look-like-a-senior-developer-043f144e16e3",
-      "by": "The Dialectic",
-      "time": 1786681993000,
-      "tags": [
-        "coding",
-        "web-development",
-        "python"
-      ]
-    },
-    {
-      "title": "The Complete Guide to SQL Window Functions",
-      "url": "https://medium.com/@NusratGulbarga_data_analyst/the-complete-guide-to-sql-window-functions-168867f5c862",
-      "by": "Nusrat Gulbarga",
-      "time": 1786681866000,
-      "tags": [
-        "sql",
-        "data-science",
+        "distributed-systems",
+        "design-systems",
         "programming"
       ]
     },
     {
-      "title": "Top 5 GitOps Patterns Every Platform Engineer Should Know",
-      "url": "https://medium.com/devops-ai-decoded/top-5-gitops-patterns-every-platform-engineer-should-know-ebdb9640c648",
-      "by": "Neel Shah",
-      "time": 1786681862000,
+      "title": "The Infrastructure Architecture Decision I Got Wrong — And What I’d Do Differently",
+      "url": "https://medium.com/@prasantakumarroy1/the-infrastructure-architecture-decision-i-got-wrong-and-what-id-do-differently-efee0af5b6c4",
+      "by": "Prasanta Kumar Roy",
+      "time": 1786766869000,
+      "tags": [
+        "system-administration",
+        "programming",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "500 Days of Writing About Infrastructure. Here’s What I’ve Learned About Sharing Knowledge.",
+      "url": "https://medium.com/@prasantakumarroy1/500-days-of-writing-about-infrastructure-heres-what-i-ve-learned-about-sharing-knowledge-638daad442b4",
+      "by": "Prasanta Kumar Roy",
+      "time": 1786766848000,
+      "tags": [
+        "windows",
+        "cloud-computing",
+        "programming"
+      ]
+    },
+    {
+      "title": "[LevelCode] Repetition Is Not Corroboration",
+      "url": "https://generativeai.pub/levelcode-repetition-is-not-corroboration-4d6eb441e889",
+      "by": "Sergii Demianchuk",
+      "time": 1786766591000,
+      "tags": [
+        "developer-tools",
+        "cybersecurity",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "7 Open Source Repositories Powering the Next Generation of AI Agents, Autonomous Systems, and…",
+      "url": "https://medium.com/@jamall_mahmoudi/7-open-source-repositories-powering-the-next-generation-of-ai-agents-autonomous-systems-and-c93d9242bec4",
+      "by": "Jamal Mahmoudi",
+      "time": 1786766478000,
       "tags": [
         "devops",
-        "gitops",
-        "technology"
-      ]
-    },
-    {
-      "title": "Why Automation Is the Backbone of Modern DevOps Practices",
-      "url": "https://medium.com/@Invensis_Learning/why-automation-is-the-backbone-of-modern-devops-practices-99a76cbd92bb",
-      "by": "Invensis Learning",
-      "time": 1786681561000,
-      "tags": [
-        "cloud-computing",
-        "software-development",
-        "devops"
-      ]
-    },
-    {
-      "title": "I Was the Copy-Paste Between My AI Agents. Then They Stopped Needing Me.",
-      "url": "https://medium.com/@yhocotw31016/i-was-the-copy-paste-between-my-ai-agents-then-they-stopped-needing-me-9378fb812a2f",
-      "by": "Joel",
-      "time": 1786681421000,
-      "tags": [
         "ai-agent",
-        "programming",
-        "developer-tools"
+        "software-development"
       ]
     },
     {
-      "title": "You Can’t Unit Test a Guess",
-      "url": "https://medium.com/cloudqa/you-cant-unit-test-a-guess-904f156cfbf3",
-      "by": "Aryan Nair",
-      "time": 1786681085000,
+      "title": "DevOps Interview Questions — Prepare for Your Next Interview",
+      "url": "https://cloudbloggeracademy.medium.com/devops-interview-questions-prepare-for-your-next-interview-3b52424fec3f",
+      "by": "Cloud Blogger Academy",
+      "time": 1786766376000,
       "tags": [
-        "artificial-intelligence",
-        "software-testing",
-        "llm"
+        "interview",
+        "software-engineering",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "90% of Developers Can’t Answer These Spring Boot Interview Questions",
+      "url": "https://medium.com/@preetjit82/90-of-developers-cant-answer-these-spring-boot-interview-questions-c05909b19993",
+      "by": "Interview Simplified",
+      "time": 1786766040000,
+      "tags": [
+        "programming",
+        "jobs",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "Testing, CI/CD, Debugging & Behavioral Interview Questions: 10 Questions",
+      "url": "https://medium.com/@preetjit82/testing-ci-cd-debugging-behavioral-interview-questions-10-questions-e0e52db033a9",
+      "by": "Interview Simplified",
+      "time": 1786765993000,
+      "tags": [
+        "programming",
+        "interview-questions",
+        "ci-cd-pipeline"
+      ]
+    },
+    {
+      "title": "The Secret Behind Students Who Get Multiple Job Offers",
+      "url": "https://medium.com/@skillsitacademyfaculty/the-secret-behind-students-who-get-multiple-job-offers-14577dc208f0",
+      "by": "skillsitacademy faculty",
+      "time": 1786765041000,
+      "tags": [
+        "programming-languages",
+        "python-classes-in-pune",
+        "java"
+      ]
+    },
+    {
+      "title": "I Asked AI to Optimize My Spring Boot API. The First Solution Made It Worse.",
+      "url": "https://medium.com/@kaurharjeet122/i-asked-ai-to-optimize-my-spring-boot-api-the-first-solution-made-it-worse-4ae9b9410336",
+      "by": "Java Interview",
+      "time": 1786764981000,
+      "tags": [
+        "software-engineering",
+        "performance-optimization",
+        "java"
       ]
     }
   ]
