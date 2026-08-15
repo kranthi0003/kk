@@ -1,13 +1,6 @@
 {
-  "generated": "2026-08-15T13:18:20.983Z",
+  "generated": "2026-08-15T13:32:44.242Z",
   "reddit": [
-    {
-      "title": "Nexus OSS Alternatives",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
-      "by": "k8s_maestro",
-      "time": 1786792262000,
-      "sub": "r/kubernetes"
-    },
     {
       "title": "[ Removed by Reddit ]",
       "url": "https://www.reddit.com/r/programming/comments/1vp0215/removed_by_reddit/",
@@ -16,25 +9,25 @@
       "sub": "r/programming"
     },
     {
-      "title": "Second image location",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vosbrh/second_image_location/",
-      "by": "Either_Vermicelli_82",
-      "time": 1786765523000,
-      "sub": "r/kubernetes"
+      "title": "How do you test CI pipelines?",
+      "url": "https://www.reddit.com/r/devops/comments/1voki1m/how_do_you_test_ci_pipelines/",
+      "by": "Mysterious_Prune415",
+      "time": 1786743839000,
+      "sub": "r/devops"
     },
     {
-      "title": "Software tester here. Employer recommended I get the c-k-a. Possible?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vorz4v/software_tester_here_employer_recommended_i_get/",
-      "by": "-Terrible-Bite-",
-      "time": 1786764443000,
-      "sub": "r/kubernetes"
+      "title": "How do you actually diagnose a CI integration-test failure when the root cause isn't obvious?",
+      "url": "https://www.reddit.com/r/devops/comments/1vojtkx/how_do_you_actually_diagnose_a_ci_integrationtest/",
+      "by": "VisualNatural617",
+      "time": 1786742215000,
+      "sub": "r/devops"
     },
     {
-      "title": "Small YAML habit that's saved me a few production headaches",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1voflmt/small_yaml_habit_thats_saved_me_a_few_production/",
-      "by": "honor-5192",
-      "time": 1786732673000,
-      "sub": "r/kubernetes"
+      "title": "How does your team do automated deployments to linux devices in the field?",
+      "url": "https://www.reddit.com/r/devops/comments/1vogxlo/how_does_your_team_do_automated_deployments_to/",
+      "by": "GongtingLover",
+      "time": 1786735595000,
+      "sub": "r/devops"
     },
     {
       "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
@@ -51,28 +44,90 @@
       "sub": "r/programming"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "Building a toy language in C++: Adding variables",
+      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
+      "by": "Xaneris47",
+      "time": 1786713172000,
+      "sub": "r/programming"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
+    {
+      "title": "The JavaScript Tool I Added to My App That Made Background Jobs Feel Instant",
+      "url": "https://medium.com/@SulemanSafdar/the-javascript-tool-i-added-to-my-app-that-made-background-jobs-feel-instant-d0e75c217fb9",
+      "by": "Suleman Safdar",
+      "time": 1786800361000,
+      "tags": [
+        "money",
+        "business",
+        "programming"
+      ]
+    },
+    {
+      "title": "Day 3  Kubernetes Pods Deep Dive",
+      "url": "https://medium.com/@vinoji2005/day-3-kubernetes-pods-deep-dive-a512176cc425",
+      "by": "Vinoth Subbiah",
+      "time": 1786800122000,
+      "tags": [
+        "site-reliability-engineer",
+        "k8s",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "I Reviewed 500+ Golang Repositories. Everyone Made These Same Mistakes.",
+      "url": "https://bytemedaily.medium.com/i-reviewed-500-golang-repositories-everyone-made-these-same-mistakes-e1a7368ef4e7",
+      "by": "Byte Me Daily",
+      "time": 1786800061000,
+      "tags": [
+        "software-development",
+        "technology",
+        "life-lessons"
+      ]
+    },
+    {
+      "title": "7 High-Paying Online Jobs You Can Do At Night",
+      "url": "https://medium.com/@themoneyonline_27237/7-high-paying-online-jobs-you-can-do-at-night-0783665dde88",
+      "by": "Business Hustle",
+      "time": 1786799734000,
+      "tags": [
+        "data-science",
+        "technology",
+        "programming"
+      ]
+    },
+    {
+      "title": "12/18-The Global Rules Every New Project Should Have-No black boxes",
+      "url": "https://vdelacou.medium.com/12-18-the-global-rules-every-new-project-should-have-no-black-boxes-b3d2f2612bcb",
+      "by": "Vincent Delacourt",
+      "time": 1786799667000,
+      "tags": [
+        "programming",
+        "technical-writing",
+        "software-engineering"
+      ]
+    },
     {
       "title": "11/18-The Global Rules Every New Project Should Have-Make it observable",
       "url": "https://vdelacou.medium.com/11-18-the-global-rules-every-new-project-should-have-make-it-observable-b13e66e5ef31",
@@ -126,61 +181,6 @@
         "sql",
         "database",
         "programming"
-      ]
-    },
-    {
-      "title": "The AI Tech Stack: LangChain Explained — Chains, Agents, Tools, Memory & RAG (Complete Guide 2026)",
-      "url": "https://medium.com/@khayyamshah2007/the-ai-tech-stack-langchain-explained-chains-agents-tools-memory-rag-complete-guide-2026-5147f24c7233",
-      "by": "Khayyamshah",
-      "time": 1786798472000,
-      "tags": [
-        "programming",
-        "python",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Why System-Level Programming Feels More Fun Than Full-Stack Development(web)",
-      "url": "https://medium.com/@atifwrite/why-system-level-programming-feels-more-fun-than-full-stack-development-web-94a8faa8c840",
-      "by": "Atif",
-      "time": 1786798074000,
-      "tags": [
-        "computer-security",
-        "operating-systems",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "‎I invested a huge portion of my savings about $850,000 USD to fake investment scheme, I soon…",
-      "url": "https://medium.com/@cm4341257/i-invested-a-huge-portion-of-my-savings-about-850-000-usd-to-fake-investment-scheme-i-soon-93f9a7fa8ca1",
-      "by": "Cm",
-      "time": 1786797976000,
-      "tags": [
-        "cryptocurrency",
-        "business",
-        "programming"
-      ]
-    },
-    {
-      "title": "12 Rules to Learn to Code",
-      "url": "https://medium.com/@anugupta7273/12-rules-to-learn-to-code-ee32529b4711",
-      "by": "IM_DINO",
-      "time": 1786797857000,
-      "tags": [
-        "trending",
-        "clean-code",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Got Tired of Driving Home to Run One kubectl Command, So I Put Kubernetes on My Phone",
-      "url": "https://medium.com/@richardpham201/i-got-tired-of-driving-home-to-run-one-kubectl-command-so-i-put-kubernetes-on-my-phone-9e9d0f0a9928",
-      "by": "Richardpham",
-      "time": 1786797686000,
-      "tags": [
-        "operations",
-        "kubernetes",
-        "devops"
       ]
     }
   ]
