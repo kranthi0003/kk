@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T14:40:17.797Z",
+  "generated": "2026-08-15T15:01:22.510Z",
   "reddit": [
     {
       "title": "How Google’s Linux cgroups Helps AWS and Azure Save Billions",
@@ -74,6 +74,94 @@
   ],
   "medium": [
     {
+      "title": "5 AI Projects Every Beginner Should Build",
+      "url": "https://medium.com/@tumealvin09/5-ai-projects-every-beginner-should-build-e8aa11b09b72",
+      "by": "Alvin Tume",
+      "time": 1786805827000,
+      "tags": [
+        "productivity",
+        "python",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "I Aced the System Design Round and Still Got Rejected. It Was the Behavioral Round That Killed Me.",
+      "url": "https://blog.stackademic.com/i-aced-the-system-design-round-and-still-got-rejected-it-was-the-behavioral-round-that-killed-me-5be65b50b7ad",
+      "by": "Backend Engineer By Devrim",
+      "time": 1786805804000,
+      "tags": [
+        "programming",
+        "software-development",
+        "python"
+      ]
+    },
+    {
+      "title": "I Got “Not Yet Staff” Feedback Three Times Before I Figured Out What It Actually Meant",
+      "url": "https://blog.stackademic.com/i-got-not-yet-staff-feedback-three-times-before-i-figured-out-what-it-actually-meant-ea947c52629b",
+      "by": "Backend Engineer By Devrim",
+      "time": 1786805704000,
+      "tags": [
+        "software-development",
+        "programming",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "NVIDIA’s Object-Oriented Agents: What Changes When an AI Agent Becomes a Python Object?",
+      "url": "https://medium.com/@pankaj_pandey/nvidias-object-oriented-agents-what-changes-when-an-ai-agent-becomes-a-python-object-6f94131e7374",
+      "by": "Pankaj",
+      "time": 1786805462000,
+      "tags": [
+        "software-engineering",
+        "ai-agent",
+        "agentic-ai"
+      ]
+    },
+    {
+      "title": "Our AI coding bill is under $50 a developer. The number wasn’t the hard part.",
+      "url": "https://medium.com/@vallabhsangale7/our-ai-coding-bill-is-under-50-a-developer-the-number-wasnt-the-hard-part-f8cc92b0f02f",
+      "by": "Smart Tech Circuit",
+      "time": 1786805461000,
+      "tags": [
+        "ai",
+        "software-engineering",
+        "programming"
+      ]
+    },
+    {
+      "title": "He Asked for a License Change. They Never Replied. So He Replaced Them.",
+      "url": "https://canartuc.medium.com/he-asked-for-a-license-change-they-never-replied-so-he-replaced-them-c7c4765ce6e1",
+      "by": "Can Artuc",
+      "time": 1786805401000,
+      "tags": [
+        "linux",
+        "technology",
+        "open-source"
+      ]
+    },
+    {
+      "title": "The Only Kubernetes Architecture Guide You Need — Part 2: Running AI Workloads at Scale",
+      "url": "https://medium.com/devops-ai-decoded/the-only-kubernetes-architecture-guide-you-need-part-2-running-ai-workloads-at-scale-cbdbbceaf3de",
+      "by": "Jay Sadhu",
+      "time": 1786805099000,
+      "tags": [
+        "aws",
+        "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "How Our Future Looks With AI: A Developer’s Perspective",
+      "url": "https://medium.com/@jordannebartolome/how-our-future-looks-with-ai-a-developers-perspective-03f882fd2f4b",
+      "by": "Jordanne Bartolome",
+      "time": 1786804840000,
+      "tags": [
+        "software-development",
+        "web-development",
+        "ai"
+      ]
+    },
+    {
       "title": "Should I Stick With Software Engineering After Multiple Firings?",
       "url": "https://medium.com/@codesculpturersh/should-i-stick-with-software-engineering-after-multiple-firings-1a71fe8b7f67",
       "by": "CodeSculptorX",
@@ -93,94 +181,6 @@
         "java",
         "programming",
         "software-development"
-      ]
-    },
-    {
-      "title": "I Said “We’ll Use Kafka” in a Staff Interview. The Interviewer Destroyed Me in 45 Seconds.",
-      "url": "https://blog.stackademic.com/i-said-well-use-kafka-in-a-staff-interview-the-interviewer-destroyed-me-in-45-seconds-866fced2cb46",
-      "by": "Production Engineering By Devrim",
-      "time": 1786804385000,
-      "tags": [
-        "programming",
-        "software",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Why Your API Is Slow Even When CPU Is Fine",
-      "url": "https://blog.stackademic.com/why-your-api-is-slow-even-when-cpu-is-fine-8f07a66022e4",
-      "by": "Devrim Ozcay- Software And Prod…",
-      "time": 1786804102000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "Your Deploy Passed Every Test. Production Still Died. Here’s Why.",
-      "url": "https://blog.stackademic.com/your-deploy-passed-every-test-production-still-died-heres-why-7937b6131950",
-      "by": "Devrim Ozcay- Software And Prod…",
-      "time": 1786803985000,
-      "tags": [
-        "coding",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "From Writing Essays to Writing Code: HUMSS Graduate to Computer Engineer",
-      "url": "https://medium.com/@jordannebartolome/from-writing-essays-to-writing-code-humss-graduate-to-computer-engineer-f506c472669d",
-      "by": "Jordanne Bartolome",
-      "time": 1786803980000,
-      "tags": [
-        "software-development",
-        "software-engineering",
-        "career-change"
-      ]
-    },
-    {
-      "title": "Linux System Programming with Go, Part 3 — Working with File Descriptors",
-      "url": "https://medium.com/@vladimirvivien/linux-system-programming-with-go-part-3-working-with-file-descriptors-4330351627dc",
-      "by": "Vladimir Vivien",
-      "time": 1786803900000,
-      "tags": [
-        "programming",
-        "golang",
-        "linux"
-      ]
-    },
-    {
-      "title": "Belajar Load Balancing (Round Robin)Via Docker Localhost",
-      "url": "https://medium.com/@nickyfajaelani2/belajar-load-balancing-round-robin-via-docker-localhost-e0ca7f7519ea",
-      "by": "NickyFajaelani",
-      "time": 1786803880000,
-      "tags": [
-        "devops",
-        "round-robin-algorithm",
-        "load-balancing-algorithm"
-      ]
-    },
-    {
-      "title": "The Essential Leadership Guide for the Age of Intelligence.",
-      "url": "https://medium.com/@TheShadowObserver/the-essential-leadership-guide-for-the-age-of-intelligence-dba49d56f054",
-      "by": "The Shadow Observer",
-      "time": 1786803628000,
-      "tags": [
-        "business",
-        "leadership",
-        "programming"
-      ]
-    },
-    {
-      "title": "20 Things to Have Claude Do Before Launching Your App",
-      "url": "https://medium.com/first-dollar/20-things-to-have-claude-do-before-launching-your-app-7d69b983ee44",
-      "by": "Minhal Nawaz",
-      "time": 1786803520000,
-      "tags": [
-        "claude-code",
-        "data-security",
-        "claude"
       ]
     }
   ]
