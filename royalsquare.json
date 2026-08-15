@@ -1,0 +1,99 @@
+{
+  "_readme": "Content for the #/royalsquare page. Edit this file to update the page — no code changes needed. Set sampleContent to false once the notices/bills/services/events below are real.",
+
+  "sampleContent": true,
+
+  "name": "Sai Royal Square Apartments",
+  "nameLocal": "సాయి రాయల్ స్క్వేర్ అపార్ట్‌మెంట్స్",
+  "tagline": "Home, and everything that keeps it running.",
+
+  "location": {
+    "line1": "R85R+WM5, SBI Colony",
+    "line2": "Pothinamallayya Palem, Bakkanapalem",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "pincode": "530048",
+    "plusCode": "R85R+WM5",
+    "lat": 17.8097659,
+    "lng": 83.3391532,
+    "mapsUrl": "https://maps.app.goo.gl/XyNn1eSy8HCMxzeQ6",
+    "rating": 4.6
+  },
+
+  "landmarks": [
+    { "name": "St. Ann's CBSE School", "hint": "Closest well-known landmark — we're a short way south-west of it." },
+    { "name": "80 Feet Road", "hint": "Main road to the north. Turn onto SBI Colony Road from here." },
+    { "name": "SBI Colony Road", "hint": "The road the colony is named after — we're just off it." },
+    { "name": "B1 Aqua Sports", "hint": "On SBI Colony Road, useful if you're coming from the west." },
+    { "name": "Bakkanapalem Road", "hint": "Runs north from 80 Feet Road, on the western side." }
+  ],
+
+  "gettingHere": [
+    "Head for PM Palem (Pothinamallayya Palem) and get onto 80 Feet Road.",
+    "Turn into SBI Colony Road — St. Ann's CBSE School is the landmark to aim for.",
+    "The building is a short way in, on Street 3. Look for the name board.",
+    "If a driver is lost, the Plus Code R85R+WM5 drops a pin exactly on the building."
+  ],
+
+  "amenities": [
+    "Lift",
+    "Power backup",
+    "Covered parking",
+    "24x7 security",
+    "CCTV",
+    "Borewell + municipal water",
+    "Terrace access",
+    "Rainwater harvesting"
+  ],
+
+  "notices": [
+    {
+      "date": "2026-08-12",
+      "title": "Overhead tank cleaning",
+      "body": "Water supply will be off between 10am and 2pm while both overhead tanks are cleaned. Please store what you need the night before.",
+      "pinned": true
+    },
+    {
+      "date": "2026-08-08",
+      "title": "Lift AMC service visit",
+      "body": "The lift will be out of service for roughly two hours in the morning for its quarterly maintenance check."
+    },
+    {
+      "date": "2026-08-01",
+      "title": "Parking slots re-marked",
+      "body": "Slot numbers in the basement have been repainted. Please park only in your allotted slot."
+    }
+  ],
+
+  "bills": [
+    { "label": "Monthly maintenance", "amount": 2500, "period": "August 2026", "due": "2026-08-10", "status": "paid" },
+    { "label": "Common area electricity", "amount": 640, "period": "August 2026", "due": "2026-08-20", "status": "due" },
+    { "label": "Water tanker (shared)", "amount": 300, "period": "August 2026", "due": "2026-08-20", "status": "due" },
+    { "label": "Generator diesel", "amount": 450, "period": "July 2026", "due": "2026-07-25", "status": "paid" }
+  ],
+
+  "maintenance": [
+    { "title": "Corridor light flickering — 2nd floor", "raised": "2026-08-11", "status": "open" },
+    { "title": "Basement seepage near pillar B", "raised": "2026-08-05", "status": "in-progress" },
+    { "title": "Main gate latch repaired", "raised": "2026-07-28", "status": "done" }
+  ],
+
+  "services": [
+    { "name": "Security desk", "role": "Main gate", "phone": "" },
+    { "name": "Plumber", "role": "On call", "phone": "" },
+    { "name": "Electrician", "role": "On call", "phone": "" },
+    { "name": "Water tanker", "role": "Supply", "phone": "" },
+    { "name": "Gas agency", "role": "Cylinder booking", "phone": "" },
+    { "name": "Housekeeping", "role": "Common areas", "phone": "" },
+    { "name": "Association secretary", "role": "Escalations", "phone": "" }
+  ],
+
+  "events": [
+    { "date": "2026-08-26", "title": "Ganesh Chaturthi", "body": "Pandal in the parking area. Setup from the evening before — volunteers welcome." },
+    { "date": "2026-09-14", "title": "Association meeting", "body": "Quarterly meeting on the terrace. Agenda circulated a week ahead." },
+    { "date": "2026-11-08", "title": "Diwali", "body": "Common area lighting and rangoli. Please keep crackers away from parked vehicles." },
+    { "date": "2027-01-14", "title": "Sankranti", "body": "Muggu competition in the morning, lunch together afterwards." }
+  ],
+
+  "photos": []
+}

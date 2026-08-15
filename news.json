@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T04:27:20.967Z",
+  "generated": "2026-08-15T09:15:22.242Z",
   "reddit": [
     {
       "title": "Second image location",
@@ -74,113 +74,112 @@
   ],
   "medium": [
     {
-      "title": "Raft Doesn’t Prevent Split Votes",
-      "url": "https://medium.com/@harshkasana05/raft-doesnt-prevent-split-votes-c9e17868a9d9",
-      "by": "Harsh Kasana",
-      "time": 1786767602000,
+      "title": "10 JavaScript Mistakes That Are Killing Your Code",
+      "url": "https://habtesoft.medium.com/10-javascript-mistakes-that-are-killing-your-code-55a670b620b1",
+      "by": "habtesoft",
+      "time": 1786784463000,
       "tags": [
-        "distributed-systems",
-        "design-systems",
-        "programming"
+        "coding",
+        "javascript",
+        "nodejs"
       ]
     },
     {
-      "title": "The Infrastructure Architecture Decision I Got Wrong — And What I’d Do Differently",
-      "url": "https://medium.com/@prasantakumarroy1/the-infrastructure-architecture-decision-i-got-wrong-and-what-id-do-differently-efee0af5b6c4",
-      "by": "Prasanta Kumar Roy",
-      "time": 1786766869000,
+      "title": "Kubernetes RBAC — Controlling Access Inside Your EKS Cluster",
+      "url": "https://engr-syedusmanahmad.medium.com/kubernetes-rbac-controlling-access-inside-your-eks-cluster-49fc5db55848",
+      "by": "Syedusmanahmad",
+      "time": 1786784463000,
       "tags": [
-        "system-administration",
-        "programming",
-        "cloud-computing"
+        "rbac",
+        "k8s",
+        "devops"
       ]
     },
     {
-      "title": "500 Days of Writing About Infrastructure. Here’s What I’ve Learned About Sharing Knowledge.",
-      "url": "https://medium.com/@prasantakumarroy1/500-days-of-writing-about-infrastructure-heres-what-i-ve-learned-about-sharing-knowledge-638daad442b4",
-      "by": "Prasanta Kumar Roy",
-      "time": 1786766848000,
+      "title": "The “Mini-CEO” Myth and Other Product Management Delusions.",
+      "url": "https://taniasadeh.medium.com/the-mini-ceo-myth-and-other-product-management-delusions-d648fc2060a3",
+      "by": "Tania Sadeh",
+      "time": 1786784293000,
       "tags": [
-        "windows",
-        "cloud-computing",
-        "programming"
-      ]
-    },
-    {
-      "title": "[LevelCode] Repetition Is Not Corroboration",
-      "url": "https://generativeai.pub/levelcode-repetition-is-not-corroboration-4d6eb441e889",
-      "by": "Sergii Demianchuk",
-      "time": 1786766591000,
-      "tags": [
-        "developer-tools",
-        "cybersecurity",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "7 Open Source Repositories Powering the Next Generation of AI Agents, Autonomous Systems, and…",
-      "url": "https://medium.com/@jamall_mahmoudi/7-open-source-repositories-powering-the-next-generation-of-ai-agents-autonomous-systems-and-c93d9242bec4",
-      "by": "Jamal Mahmoudi",
-      "time": 1786766478000,
-      "tags": [
-        "devops",
-        "ai-agent",
-        "software-development"
-      ]
-    },
-    {
-      "title": "DevOps Interview Questions — Prepare for Your Next Interview",
-      "url": "https://cloudbloggeracademy.medium.com/devops-interview-questions-prepare-for-your-next-interview-3b52424fec3f",
-      "by": "Cloud Blogger Academy",
-      "time": 1786766376000,
-      "tags": [
-        "interview",
+        "leadership",
         "software-engineering",
-        "cloud-computing"
+        "product-development"
       ]
     },
     {
-      "title": "90% of Developers Can’t Answer These Spring Boot Interview Questions",
-      "url": "https://medium.com/@preetjit82/90-of-developers-cant-answer-these-spring-boot-interview-questions-c05909b19993",
-      "by": "Interview Simplified",
-      "time": 1786766040000,
+      "title": "Profiled My CI Pipeline After Switching to Rust-Based Tools",
+      "url": "https://medium.com/codetodeploy/profiled-my-ci-pipeline-after-switching-to-rust-based-tools-7f8629f6e8fa",
+      "by": "Dr.Michael",
+      "time": 1786784264000,
       "tags": [
+        "coding",
         "programming",
-        "jobs",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "Testing, CI/CD, Debugging & Behavioral Interview Questions: 10 Questions",
-      "url": "https://medium.com/@preetjit82/testing-ci-cd-debugging-behavioral-interview-questions-10-questions-e0e52db033a9",
-      "by": "Interview Simplified",
-      "time": 1786765993000,
-      "tags": [
-        "programming",
-        "interview-questions",
         "ci-cd-pipeline"
       ]
     },
     {
-      "title": "The Secret Behind Students Who Get Multiple Job Offers",
-      "url": "https://medium.com/@skillsitacademyfaculty/the-secret-behind-students-who-get-multiple-job-offers-14577dc208f0",
-      "by": "skillsitacademy faculty",
-      "time": 1786765041000,
+      "title": "Prometheus + External Grafana: Wiring Up Monitoring for Production",
+      "url": "https://jason-chen-0604.medium.com/prometheus-external-grafana-wiring-up-monitoring-for-production-0f821ef6a9f2",
+      "by": "陳昶仲",
+      "time": 1786783773000,
       "tags": [
-        "programming-languages",
-        "python-classes-in-pune",
-        "java"
+        "k3",
+        "grafana",
+        "kubernetes"
       ]
     },
     {
-      "title": "I Asked AI to Optimize My Spring Boot API. The First Solution Made It Worse.",
-      "url": "https://medium.com/@kaurharjeet122/i-asked-ai-to-optimize-my-spring-boot-api-the-first-solution-made-it-worse-4ae9b9410336",
-      "by": "Java Interview",
-      "time": 1786764981000,
+      "title": "DevOps Beyond the Buzzword: How Culture, Architecture and Automation Enable Enterprise Agility",
+      "url": "https://medium.com/@kobiamaureen5/devops-beyond-the-buzzword-how-culture-architecture-and-automation-enable-enterprise-agility-4b5acf7e986a",
+      "by": "Maureen Kobia",
+      "time": 1786783638000,
+      "tags": [
+        "devops",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "Your Agent Framework Should Be an Event Log, Not a Message List",
+      "url": "https://medium.com/@sebuzdugan/your-agent-framework-should-be-an-event-log-not-a-message-list-56e07175b3ae",
+      "by": "Sebastian Buzdugan",
+      "time": 1786783631000,
       "tags": [
         "software-engineering",
-        "performance-optimization",
-        "java"
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Qwen3.8's 27B Is Cheating: It Sees Images Its 88x Bigger Flagship Cannot",
+      "url": "https://pub.towardsai.net/qwen3-8s-27b-is-cheating-it-sees-images-its-88x-bigger-flagship-cannot-2e3d5c645c6b",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1786783543000,
+      "tags": [
+        "machine-learning",
+        "technology",
+        "large-language-models"
+      ]
+    },
+    {
+      "title": "Building an Intelligent Invoice Processing Platform — Part 2: Building Our First OCR Pipeline",
+      "url": "https://ranjanravi.medium.com/building-an-intelligent-invoice-processing-platform-part-2-building-our-first-ocr-pipeline-fde2be3270dc",
+      "by": "Ravi Ranjan",
+      "time": 1786782992000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Le stage qui a tout changé dans ma façon de démarrer un projet",
+      "url": "https://adelredjemi.medium.com/le-stage-qui-a-tout-chang%C3%A9-dans-ma-fa%C3%A7on-de-d%C3%A9marrer-un-projet-7422b78ab134",
+      "by": "Adel REDJEMI",
+      "time": 1786782661000,
+      "tags": [
+        "internships",
+        "career-development",
+        "web-development"
       ]
     }
   ]
