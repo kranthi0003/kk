@@ -6,7 +6,7 @@
     <atom:link href="https://kranthikiran.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Engineering, reliability, and reflections — from kranthikiran.com</description>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Aug 2026 09:38:08 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 10:23:53 GMT</lastBuildDate>
     <item>
       <title>Claude Certified Associate — Foundations</title>
       <link>https://kranthikiran.com/#/blog/claude-foundations</link>
@@ -104,7 +104,7 @@
       <description>The architect track pulls the admin and developer views together: sizing, services, replication topology, and designing for failure. My path through it.</description>
     </item>
     <item>
-      <title>Phone. Porn. Sugar.</title>
+      <title>Dopamine</title>
       <link>https://kranthikiran.com/#/blog/cheap-dopamine</link>
       <guid isPermaLink="false">kranthikiran:post:cheap-dopamine</guid>
       <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
