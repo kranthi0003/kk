@@ -1,6 +1,20 @@
 {
-  "generated": "2026-08-15T14:11:46.971Z",
+  "generated": "2026-08-15T14:40:17.797Z",
   "reddit": [
+    {
+      "title": "How Google’s Linux cgroups Helps AWS and Azure Save Billions",
+      "url": "https://www.reddit.com/r/programming/comments/1vp44wa/how_googles_linux_cgroups_helps_aws_and_azure/",
+      "by": "Ok_Stomach6651",
+      "time": 1786803706000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Nexus OSS Alternatives",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
+      "by": "k8s_maestro",
+      "time": 1786792262000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "[ Removed by Reddit ]",
       "url": "https://www.reddit.com/r/programming/comments/1vp0215/removed_by_reddit/",
@@ -9,25 +23,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "How do you test CI pipelines?",
-      "url": "https://www.reddit.com/r/devops/comments/1voki1m/how_do_you_test_ci_pipelines/",
-      "by": "Mysterious_Prune415",
-      "time": 1786743839000,
-      "sub": "r/devops"
+      "title": "Second image location",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vosbrh/second_image_location/",
+      "by": "Either_Vermicelli_82",
+      "time": 1786765523000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How do you actually diagnose a CI integration-test failure when the root cause isn't obvious?",
-      "url": "https://www.reddit.com/r/devops/comments/1vojtkx/how_do_you_actually_diagnose_a_ci_integrationtest/",
-      "by": "VisualNatural617",
-      "time": 1786742215000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How does your team do automated deployments to linux devices in the field?",
-      "url": "https://www.reddit.com/r/devops/comments/1vogxlo/how_does_your_team_do_automated_deployments_to/",
-      "by": "GongtingLover",
-      "time": 1786735595000,
-      "sub": "r/devops"
+      "title": "Software tester here. Employer recommended I get the c-k-a. Possible?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vorz4v/software_tester_here_employer_recommended_i_get/",
+      "by": "-Terrible-Bite-",
+      "time": 1786764443000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
@@ -44,143 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Building a toy language in C++: Adding variables",
-      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
-      "by": "Xaneris47",
-      "time": 1786713172000,
-      "sub": "r/programming"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "If You Don’t Know These Design Patterns in the AI Era, You’ll Slowly Fall Behind",
-      "url": "https://medium.com/@letslearnnow/if-you-dont-know-these-design-patterns-in-the-ai-era-you-ll-slowly-fall-behind-7646ed5eb709",
-      "by": "Lets Learn Now",
-      "time": 1786802761000,
+      "title": "Should I Stick With Software Engineering After Multiple Firings?",
+      "url": "https://medium.com/@codesculpturersh/should-i-stick-with-software-engineering-after-multiple-firings-1a71fe8b7f67",
+      "by": "CodeSculptorX",
+      "time": 1786804582000,
       "tags": [
-        "software-architecture",
-        "microservices",
-        "design-thinking"
-      ]
-    },
-    {
-      "title": "An AI Judge Read My Repo and Found My Dead Code",
-      "url": "https://srikanth2314.medium.com/an-ai-judge-read-my-repo-and-found-my-dead-code-656407924e32",
-      "by": "Srikanth Reddy",
-      "time": 1786802464000,
-      "tags": [
-        "ai-agent",
-        "claude-code",
-        "hackathons"
-      ]
-    },
-    {
-      "title": "AI coding agents are creating more code than DevOps teams can safely ship",
-      "url": "https://levelup.gitconnected.com/ai-coding-agents-are-creating-more-code-than-devops-teams-can-safely-ship-d66f5b619f71",
-      "by": "",
-      "time": 1786802256000,
-      "tags": [
-        "ai",
+        "tech-career",
         "software-engineering",
-        "technology"
+        "personal-growth"
       ]
     },
     {
-      "title": "Stop Writing Unit Tests. They’re Making You Slower in 2026.",
-      "url": "https://sa82912045.medium.com/stop-writing-unit-tests-theyre-making-you-slower-in-2026-94ae59ea2073",
-      "by": "Saad Ahmed",
-      "time": 1786801985000,
+      "title": "Good Engineers Fail System Design Interviews for the Dumbest Possible Reason",
+      "url": "https://blog.stackademic.com/good-engineers-fail-system-design-interviews-for-the-dumbest-possible-reason-c59f9c77f5da",
+      "by": "Production Engineering By Devrim",
+      "time": 1786804494000,
       "tags": [
-        "testing",
-        "software-engineering",
-        "python"
+        "java",
+        "programming",
+        "software-development"
       ]
     },
     {
-      "title": "The Problem Nobody’s Solved: \"Will I Actually Get a Ride at 7AM?\"",
-      "url": "https://medium.com/@zeobserver/the-problem-nobodys-solved-will-i-actually-get-a-ride-at-7am-e886260b3e67",
-      "by": "Observer",
-      "time": 1786801941000,
-      "tags": [
-        "artificial-intelligence",
-        "technology",
-        "life"
-      ]
-    },
-    {
-      "title": "Postgres Is Eating Your Entire Backend Stack",
-      "url": "https://cloudwithazeem.medium.com/postgres-is-eating-your-entire-backend-stack-8d619a134d66",
-      "by": "Cloud With Azeem",
-      "time": 1786801658000,
-      "tags": [
-        "database",
-        "system-architecture",
-        "backend"
-      ]
-    },
-    {
-      "title": "Context Engineering Makes AI Behave Like Software That Works",
-      "url": "https://drpicox.medium.com/context-engineering-makes-ai-behave-like-software-that-works-2adc0c4c7706",
-      "by": "David Rodenas PhD",
-      "time": 1786801561000,
-      "tags": [
-        "software-engineering",
-        "context-engineering",
-        "clean-context"
-      ]
-    },
-    {
-      "title": "The Deep Iteration: How Experienced Programmers Actually Build with AI",
-      "url": "https://manterapj.medium.com/the-deep-iteration-how-experienced-programmers-actually-build-with-ai-6b595c780f60",
-      "by": "Pankaj Yadav",
-      "time": 1786801488000,
+      "title": "I Said “We’ll Use Kafka” in a Staff Interview. The Interviewer Destroyed Me in 45 Seconds.",
+      "url": "https://blog.stackademic.com/i-said-well-use-kafka-in-a-staff-interview-the-interviewer-destroyed-me-in-45-seconds-866fced2cb46",
+      "by": "Production Engineering By Devrim",
+      "time": 1786804385000,
       "tags": [
         "programming",
-        "software-development",
-        "productivity"
+        "software",
+        "software-development"
       ]
     },
     {
-      "title": "9 AI Skills That Will Make You Harder to Replace",
-      "url": "https://medium.com/skillstuff/9-ai-skills-that-will-make-you-harder-to-replace-4f8ff7058d1c",
-      "by": "Masaood",
-      "time": 1786801481000,
+      "title": "Why Your API Is Slow Even When CPU Is Fine",
+      "url": "https://blog.stackademic.com/why-your-api-is-slow-even-when-cpu-is-fine-8f07a66022e4",
+      "by": "Devrim Ozcay- Software And Prod…",
+      "time": 1786804102000,
       "tags": [
-        "artificial-intelligence",
-        "web-development",
+        "software-engineering",
+        "software-development",
         "programming"
       ]
     },
     {
-      "title": "Stop Building Side Projects. They’re Worthless in 2026.",
-      "url": "https://sa82912045.medium.com/stop-building-side-projects-theyre-worthless-in-2026-683f8211c7d8",
-      "by": "Saad Ahmed",
-      "time": 1786801367000,
+      "title": "Your Deploy Passed Every Test. Production Still Died. Here’s Why.",
+      "url": "https://blog.stackademic.com/your-deploy-passed-every-test-production-still-died-heres-why-7937b6131950",
+      "by": "Devrim Ozcay- Software And Prod…",
+      "time": 1786803985000,
       "tags": [
-        "job-search",
-        "career-advice",
-        "ai"
+        "coding",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "From Writing Essays to Writing Code: HUMSS Graduate to Computer Engineer",
+      "url": "https://medium.com/@jordannebartolome/from-writing-essays-to-writing-code-humss-graduate-to-computer-engineer-f506c472669d",
+      "by": "Jordanne Bartolome",
+      "time": 1786803980000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "career-change"
+      ]
+    },
+    {
+      "title": "Linux System Programming with Go, Part 3 — Working with File Descriptors",
+      "url": "https://medium.com/@vladimirvivien/linux-system-programming-with-go-part-3-working-with-file-descriptors-4330351627dc",
+      "by": "Vladimir Vivien",
+      "time": 1786803900000,
+      "tags": [
+        "programming",
+        "golang",
+        "linux"
+      ]
+    },
+    {
+      "title": "Belajar Load Balancing (Round Robin)Via Docker Localhost",
+      "url": "https://medium.com/@nickyfajaelani2/belajar-load-balancing-round-robin-via-docker-localhost-e0ca7f7519ea",
+      "by": "NickyFajaelani",
+      "time": 1786803880000,
+      "tags": [
+        "devops",
+        "round-robin-algorithm",
+        "load-balancing-algorithm"
+      ]
+    },
+    {
+      "title": "The Essential Leadership Guide for the Age of Intelligence.",
+      "url": "https://medium.com/@TheShadowObserver/the-essential-leadership-guide-for-the-age-of-intelligence-dba49d56f054",
+      "by": "The Shadow Observer",
+      "time": 1786803628000,
+      "tags": [
+        "business",
+        "leadership",
+        "programming"
+      ]
+    },
+    {
+      "title": "20 Things to Have Claude Do Before Launching Your App",
+      "url": "https://medium.com/first-dollar/20-things-to-have-claude-do-before-launching-your-app-7d69b983ee44",
+      "by": "Minhal Nawaz",
+      "time": 1786803520000,
+      "tags": [
+        "claude-code",
+        "data-security",
+        "claude"
       ]
     }
   ]
