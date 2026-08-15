@@ -66,6 +66,7 @@ const MusicPage = lazy(() => import('./components/MusicPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
+const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const Splat = lazy(() => import('./components/Splat'))
 
 function MobileBanner() {
@@ -281,6 +282,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">tossing…</div></div>}>
         <SaladsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Royal Square — the apartment page (location, notices, bills, services, events)
+  if (route === '#/royalsquare') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">opening the gate…</div></div>}>
+        <RoyalSquare onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
