@@ -513,13 +513,20 @@ export default function Cricket({ onBack }) {
           font-size: 11px; color: var(--ck-dim);
         }
 
-        /* A cricket ball rather than a kerb: leather red, white stitching. */
+        /* The mown outfield with a painted crease along the top. The first
+           version of this was a red band with white stitching — meant as a
+           ball seam, but a thin red-and-white striped bar is a racing kerb
+           no matter what you call it, and it dragged the F1 page onto this
+           one. Green on green with a crease line can only be cricket. */
         .ck-seam {
-          height: 6px;
+          height: 14px;
+          border-top: 1px solid rgba(240,245,241,.5);
           background:
-            repeating-linear-gradient(90deg, transparent 0 9px, rgba(255,255,255,.85) 9px 15px),
-            var(--ck-ball);
-          opacity: .9;
+            repeating-linear-gradient(90deg,
+              rgba(255,255,255,.06) 0 16px,
+              rgba(0,0,0,.11) 30px 46px,
+              rgba(255,255,255,.06) 60px),
+            linear-gradient(180deg, rgba(53,185,108,.22), rgba(53,185,108,0));
         }
 
         .ck-state {
