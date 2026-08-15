@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T11:30:23.656Z",
+  "generated": "2026-08-15T12:14:19.544Z",
   "reddit": [
     {
       "title": "Nexus OSS Alternatives",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Nobody Warned Me How Much Software Development Would Change Me",
-      "url": "https://medium.com/@tayfun.kendiroglu20/nobody-warned-me-how-much-software-development-would-change-me-b64da7786298",
-      "by": "Tayfun Kendiroglu",
-      "time": 1786793144000,
+      "title": "90% of Developers Don’t Understand How Database Transactions Fail in Real Applications",
+      "url": "https://medium.com/skillstuff/90-of-developers-dont-understand-how-database-transactions-fail-in-real-applications-cbb780625348",
+      "by": "CodeByUmar",
+      "time": 1786795606000,
       "tags": [
-        "personal-development",
-        "careers",
+        "programming",
+        "technology",
+        "software-development"
+      ]
+    },
+    {
+      "title": "I Replaced One Python Library – and My Entire Workflow Got Better",
+      "url": "https://medium.com/codetodeploy/i-replaced-one-python-library-and-my-entire-workflow-got-better-0ec9ec050854",
+      "by": "Abdul Hanan Python",
+      "time": 1786795389000,
+      "tags": [
+        "python-programming",
+        "javascript",
+        "python"
+      ]
+    },
+    {
+      "title": "Mengatasi Uang Jajan Cepat Habis dengan Bot Telegram AI (No-Code)",
+      "url": "https://medium.com/@yandri.nahason22/mengatasi-uang-jajan-cepat-habis-dengan-bot-telegram-ai-no-code-1ea9caaef474",
+      "by": "YANDRI NAHASON TARIGAN",
+      "time": 1786795372000,
+      "tags": [
+        "programming",
+        "technology",
+        "finance"
+      ]
+    },
+    {
+      "title": "Bridging the Probabilistic Deterministic Divide: Architecting Asynchronous Multi-Threaded Agentic…",
+      "url": "https://pub.towardsai.net/bridging-the-probabilistic-deterministic-divide-architecting-asynchronous-multi-threaded-agentic-77abdd5cede8",
+      "by": "Rotaze Software",
+      "time": 1786795261000,
+      "tags": [
+        "software-development",
+        "ai",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Clean Code",
+      "url": "https://medium.com/@dra.m.rdeveloper1995/clean-code-fe5f971d7e42",
+      "by": "Amir Shoeibi Omrani",
+      "time": 1786794177000,
+      "tags": [
+        "software-engineering",
+        "web-development",
         "programming"
       ]
     },
     {
-      "title": "Software Engineer to AI Engineer! (Best Move)",
-      "url": "https://medium.com/@CodeWithMasood/software-engineer-to-ai-engineer-best-move-5535d5f23088",
-      "by": "CodeWithMasood",
-      "time": 1786792800000,
+      "title": "How to Remove AI Watermarks From Claude Text (And What Works)",
+      "url": "https://divadsanders.medium.com/how-to-remove-ai-watermarks-from-claude-text-and-what-works-eb80d6c03362",
+      "by": "Divad",
+      "time": 1786794061000,
       "tags": [
+        "artificial-intelligence",
         "programming",
-        "software-engineering",
-        "ai-agent"
+        "productivity"
       ]
     },
     {
-      "title": "Stop Learning Every AI Framework. These 6 Actually Matter in 2026",
-      "url": "https://towardsdev.com/stop-learning-every-ai-framework-these-6-actually-matter-in-2026-1f560710d36d",
-      "by": "Mohammad Shoeb",
-      "time": 1786792788000,
-      "tags": [
-        "cloud-computing",
-        "programming",
-        "dotnet"
-      ]
-    },
-    {
-      "title": "Oracle SQL Performance Troubleshooting: AWR → ASH → DBMS_XPLAN → ADDM | Best of mrcaption49 | 705",
-      "url": "https://medium.com/@pranavsb699/oracle-sql-performance-troubleshooting-awr-ash-dbms-xplan-addm-best-of-mrcaption49-705-ca1f6a8983bd",
-      "by": "Pranav Bakare",
-      "time": 1786792538000,
-      "tags": [
-        "data-science",
-        "mrcaption49",
-        "database"
-      ]
-    },
-    {
-      "title": "Go Is Easy. Keeping a Go Service Honest in Production Is Hard.",
-      "url": "https://medium.com/@sarkarbikram90/go-is-easy-keeping-a-go-service-honest-in-production-is-hard-95b492901737",
-      "by": "Bikram Sarkar",
-      "time": 1786792499000,
+      "title": "Inside a Four-Agent AI Pipeline: How AI Agents Can Help Banks Free Up Regulatory Capital",
+      "url": "https://medium.com/@venu140998/inside-a-four-agent-ai-pipeline-how-ai-agents-can-help-banks-free-up-regulatory-capital-99e1dece5076",
+      "by": "Venu",
+      "time": 1786793886000,
       "tags": [
         "software-engineering",
-        "go",
-        "golang"
+        "artificial-intelligence",
+        "fintech"
       ]
     },
     {
-      "title": "Before You Hire an IT Agency, Try This: Post Your Project and Compare Your Options",
-      "url": "https://c2creview.medium.com/before-you-hire-an-it-agency-try-this-post-your-project-and-compare-your-options-8399919918b8",
-      "by": "C2C Review",
-      "time": 1786792453000,
-      "tags": [
-        "software-development",
-        "web-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "What If You Didn’t Have to Search for the Perfect IT Agency? Let Agencies Come to You",
-      "url": "https://c2creview.medium.com/what-if-you-didnt-have-to-search-for-the-perfect-it-agency-let-agencies-come-to-you-66e405d03f16",
-      "by": "C2C Review",
-      "time": 1786792096000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "post-a-project"
-      ]
-    },
-    {
-      "title": "I Initially Thought DeepSeek V4-Pro-0813 Was Just Another Model Update",
-      "url": "https://medium.com/@pengfei20140701/i-initially-thought-deepseek-v4-pro-0813-was-just-another-model-update-2b40329fe9fa",
-      "by": "Pengfei",
-      "time": 1786792079000,
+      "title": "Map and Set in JavaScript",
+      "url": "https://mrmadhukar.medium.com/map-and-set-in-javascript-ad86089fc9b1",
+      "by": "Mr Madhukar",
+      "time": 1786793765000,
       "tags": [
         "programming",
-        "ai",
-        "artificial-intelligence"
+        "es6",
+        "javascript"
       ]
     },
     {
-      "title": "How Do Apps Work with Algorithms?",
-      "url": "https://medium.com/@maiwega/how-do-apps-work-with-algorithms-24f4cfc1bdac",
-      "by": "AYOADE Ibrahim",
-      "time": 1786792067000,
+      "title": "Function Declaration vs Function Expression: What’s the Difference?",
+      "url": "https://mrmadhukar.medium.com/function-declaration-vs-function-expression-whats-the-difference-f6c66c7ea70f",
+      "by": "Mr Madhukar",
+      "time": 1786793749000,
       "tags": [
+        "programming",
         "coding",
-        "technology",
-        "software-engineering"
+        "web-development"
       ]
     },
     {
-      "title": "Claude Opus 5 Wins Every Benchmark, So Why Do Developers Want Opus 4.8 Back?",
-      "url": "https://medium.com/@jamilxt/claude-opus-5-wins-every-benchmark-so-why-do-developers-want-opus-4-8-back-9cd345ec42f2",
-      "by": "jamilxt",
-      "time": 1786791917000,
+      "title": "Master MLOps Course | MLOps Online Training",
+      "url": "https://medium.com/@vamsivisualpath408/master-mlops-course-mlops-online-training-84c513226708",
+      "by": "vamsi visualpath",
+      "time": 1786793712000,
       "tags": [
-        "claude",
-        "ai",
-        "ai-agent"
+        "higher-education",
+        "artificial-intelligence",
+        "python"
       ]
     }
   ]
