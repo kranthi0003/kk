@@ -67,6 +67,7 @@ const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
+const F1 = lazy(() => import('./components/F1'))
 const Splat = lazy(() => import('./components/Splat'))
 
 function MobileBanner() {
@@ -291,6 +292,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">opening the gate…</div></div>}>
         <RoyalSquare onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // F1 — a cinematic hero over the live championship (standings, calendar, countdown)
+  if (route === '#/f1') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">forming up on the grid…</div></div>}>
+        <F1 onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

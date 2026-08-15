@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "postbuild": "cp dist/index.html dist/404.html && node scripts/gen-feed.mjs && node scripts/gen-movies.mjs && node scripts/gen-news.mjs && node scripts/gen-salads.mjs"
+    "postbuild": "cp dist/index.html dist/404.html && node scripts/gen-feed.mjs && node scripts/gen-movies.mjs && node scripts/gen-news.mjs && node scripts/gen-salads.mjs && node scripts/gen-f1.mjs"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
