@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T13:32:44.242Z",
+  "generated": "2026-08-15T14:11:46.971Z",
   "reddit": [
     {
       "title": "[ Removed by Reddit ]",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "The JavaScript Tool I Added to My App That Made Background Jobs Feel Instant",
-      "url": "https://medium.com/@SulemanSafdar/the-javascript-tool-i-added-to-my-app-that-made-background-jobs-feel-instant-d0e75c217fb9",
-      "by": "Suleman Safdar",
-      "time": 1786800361000,
+      "title": "If You Don’t Know These Design Patterns in the AI Era, You’ll Slowly Fall Behind",
+      "url": "https://medium.com/@letslearnnow/if-you-dont-know-these-design-patterns-in-the-ai-era-you-ll-slowly-fall-behind-7646ed5eb709",
+      "by": "Lets Learn Now",
+      "time": 1786802761000,
       "tags": [
-        "money",
-        "business",
-        "programming"
+        "software-architecture",
+        "microservices",
+        "design-thinking"
       ]
     },
     {
-      "title": "Day 3  Kubernetes Pods Deep Dive",
-      "url": "https://medium.com/@vinoji2005/day-3-kubernetes-pods-deep-dive-a512176cc425",
-      "by": "Vinoth Subbiah",
-      "time": 1786800122000,
+      "title": "An AI Judge Read My Repo and Found My Dead Code",
+      "url": "https://srikanth2314.medium.com/an-ai-judge-read-my-repo-and-found-my-dead-code-656407924e32",
+      "by": "Srikanth Reddy",
+      "time": 1786802464000,
       "tags": [
-        "site-reliability-engineer",
-        "k8s",
-        "kubernetes"
+        "ai-agent",
+        "claude-code",
+        "hackathons"
       ]
     },
     {
-      "title": "I Reviewed 500+ Golang Repositories. Everyone Made These Same Mistakes.",
-      "url": "https://bytemedaily.medium.com/i-reviewed-500-golang-repositories-everyone-made-these-same-mistakes-e1a7368ef4e7",
-      "by": "Byte Me Daily",
-      "time": 1786800061000,
+      "title": "AI coding agents are creating more code than DevOps teams can safely ship",
+      "url": "https://levelup.gitconnected.com/ai-coding-agents-are-creating-more-code-than-devops-teams-can-safely-ship-d66f5b619f71",
+      "by": "",
+      "time": 1786802256000,
       "tags": [
-        "software-development",
-        "technology",
-        "life-lessons"
+        "ai",
+        "software-engineering",
+        "technology"
       ]
     },
     {
-      "title": "7 High-Paying Online Jobs You Can Do At Night",
-      "url": "https://medium.com/@themoneyonline_27237/7-high-paying-online-jobs-you-can-do-at-night-0783665dde88",
-      "by": "Business Hustle",
-      "time": 1786799734000,
+      "title": "Stop Writing Unit Tests. They’re Making You Slower in 2026.",
+      "url": "https://sa82912045.medium.com/stop-writing-unit-tests-theyre-making-you-slower-in-2026-94ae59ea2073",
+      "by": "Saad Ahmed",
+      "time": 1786801985000,
       "tags": [
-        "data-science",
-        "technology",
-        "programming"
+        "testing",
+        "software-engineering",
+        "python"
       ]
     },
     {
-      "title": "12/18-The Global Rules Every New Project Should Have-No black boxes",
-      "url": "https://vdelacou.medium.com/12-18-the-global-rules-every-new-project-should-have-no-black-boxes-b3d2f2612bcb",
-      "by": "Vincent Delacourt",
-      "time": 1786799667000,
-      "tags": [
-        "programming",
-        "technical-writing",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "11/18-The Global Rules Every New Project Should Have-Make it observable",
-      "url": "https://vdelacou.medium.com/11-18-the-global-rules-every-new-project-should-have-make-it-observable-b13e66e5ef31",
-      "by": "Vincent Delacourt",
-      "time": 1786799661000,
-      "tags": [
-        "sre",
-        "observability",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "PostgreSQL 17 High Availability with pg_auto_failover",
-      "url": "https://medium.com/@cccybercrow/postgresql-17-high-availability-with-pg-auto-failover-e3f8ba7263e9",
-      "by": "Cyb3rCr0wCC",
-      "time": 1786799095000,
-      "tags": [
-        "database",
-        "devops",
-        "postgresql"
-      ]
-    },
-    {
-      "title": "From Dashboards to Actions: Wiring Azure OpenAI Into Blazor Controls",
-      "url": "https://medium.com/codetodeploy/from-dashboards-to-actions-wiring-azure-openai-into-blazor-controls-5df249cbb82d",
-      "by": "Dave R - Microsoft Azure & AI M…",
-      "time": 1786798631000,
+      "title": "The Problem Nobody’s Solved: \"Will I Actually Get a Ride at 7AM?\"",
+      "url": "https://medium.com/@zeobserver/the-problem-nobodys-solved-will-i-actually-get-a-ride-at-7am-e886260b3e67",
+      "by": "Observer",
+      "time": 1786801941000,
       "tags": [
         "artificial-intelligence",
-        "azure",
-        "blazor"
+        "technology",
+        "life"
       ]
     },
     {
-      "title": "I Force-Pushed to Main. Here’s What Happened Next.",
-      "url": "https://medium.com/codeelevation/i-force-pushed-to-main-heres-what-happened-next-fab56be01919",
-      "by": "Devrim Ozcay- Backend Engineer",
-      "time": 1786798626000,
+      "title": "Postgres Is Eating Your Entire Backend Stack",
+      "url": "https://cloudwithazeem.medium.com/postgres-is-eating-your-entire-backend-stack-8d619a134d66",
+      "by": "Cloud With Azeem",
+      "time": 1786801658000,
       "tags": [
-        "coding",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Database Just Died. You Have 10 Minutes Before Everyone Panics.",
-      "url": "https://blog.stackademic.com/the-database-just-died-you-have-10-minutes-before-everyone-panics-9cca99092115",
-      "by": "Devrim Ozcay- Backend Engineer",
-      "time": 1786798530000,
-      "tags": [
-        "sql",
         "database",
+        "system-architecture",
+        "backend"
+      ]
+    },
+    {
+      "title": "Context Engineering Makes AI Behave Like Software That Works",
+      "url": "https://drpicox.medium.com/context-engineering-makes-ai-behave-like-software-that-works-2adc0c4c7706",
+      "by": "David Rodenas PhD",
+      "time": 1786801561000,
+      "tags": [
+        "software-engineering",
+        "context-engineering",
+        "clean-context"
+      ]
+    },
+    {
+      "title": "The Deep Iteration: How Experienced Programmers Actually Build with AI",
+      "url": "https://manterapj.medium.com/the-deep-iteration-how-experienced-programmers-actually-build-with-ai-6b595c780f60",
+      "by": "Pankaj Yadav",
+      "time": 1786801488000,
+      "tags": [
+        "programming",
+        "software-development",
+        "productivity"
+      ]
+    },
+    {
+      "title": "9 AI Skills That Will Make You Harder to Replace",
+      "url": "https://medium.com/skillstuff/9-ai-skills-that-will-make-you-harder-to-replace-4f8ff7058d1c",
+      "by": "Masaood",
+      "time": 1786801481000,
+      "tags": [
+        "artificial-intelligence",
+        "web-development",
         "programming"
+      ]
+    },
+    {
+      "title": "Stop Building Side Projects. They’re Worthless in 2026.",
+      "url": "https://sa82912045.medium.com/stop-building-side-projects-theyre-worthless-in-2026-683f8211c7d8",
+      "by": "Saad Ahmed",
+      "time": 1786801367000,
+      "tags": [
+        "job-search",
+        "career-advice",
+        "ai"
       ]
     }
   ]
