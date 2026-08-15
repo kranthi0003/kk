@@ -822,7 +822,6 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes' } },
     { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>, label: 'Royal Square', onClick: () => { window.location.hash = '#/royalsquare' } },
-    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 15h3l2-4h7l3 4h5"/><path d="M5 15v2h3v-2"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/><path d="M9 11l1.5-3H15l1.5 3"/></svg>, label: 'Formula 1', onClick: () => { window.location.hash = '#/f1' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')

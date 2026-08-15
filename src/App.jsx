@@ -42,6 +42,7 @@ import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
 import SaladsTeaser from './components/SaladsTeaser'
 import Sidecar from './components/Sidecar'
+import F1Banner from './components/F1Banner'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -433,6 +434,7 @@ export default function App() {
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
       <Sidecar />
+      <F1Banner />
       <VisitorTracker />
       <VisitorCount />
       <GhostCursors />
