@@ -43,6 +43,7 @@ import DopamineTeaser from './components/DopamineTeaser'
 import SaladsTeaser from './components/SaladsTeaser'
 import Sidecar from './components/Sidecar'
 import F1Banner from './components/F1Banner'
+import CricketButton from './components/CricketButton'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -69,6 +70,7 @@ const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
+const Cricket = lazy(() => import('./components/Cricket'))
 const Splat = lazy(() => import('./components/Splat'))
 
 function MobileBanner() {
@@ -306,6 +308,15 @@ export default function App() {
     )
   }
 
+  // Cricket — India's standing, the tours on now and how the week finished
+  if (route === '#/cricket') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">taking guard…</div></div>}>
+        <Cricket onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
   // All the best — a private, unlisted note (shared directly by link). Not in nav.
   if (route === '#/allthebest') {
     return (
@@ -435,6 +446,7 @@ export default function App() {
       <AIChatbot />
       <Sidecar />
       <F1Banner />
+      <CricketButton />
       <VisitorTracker />
       <VisitorCount />
       <GhostCursors />
