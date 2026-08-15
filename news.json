@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T09:15:22.242Z",
+  "generated": "2026-08-15T09:39:22.853Z",
   "reddit": [
     {
       "title": "Second image location",
@@ -74,6 +74,83 @@
   ],
   "medium": [
     {
+      "title": "Terraform and AWS: Automating EC2 Infrastructure with Infrastructure as Code",
+      "url": "https://medium.com/@olajideadedayo230/terraform-and-aws-automating-ec2-infrastructure-with-infrastructure-as-code-a2398bdf8293",
+      "by": "Olajideadedayo",
+      "time": 1786785752000,
+      "tags": [
+        "infrastructure-as-code",
+        "cloud-computing",
+        "terraform"
+      ]
+    },
+    {
+      "title": "The React Folder Structure Nobody Teaches Juniors",
+      "url": "https://alixaprodev.medium.com/the-react-folder-structure-nobody-teaches-juniors-45802c556846",
+      "by": "H. Ali",
+      "time": 1786785632000,
+      "tags": [
+        "programming",
+        "front-end-development",
+        "react"
+      ]
+    },
+    {
+      "title": "Interview Diaries #02: From AWS Services to Architecture",
+      "url": "https://medium.com/@megha.work108/interview-diaries-02-from-aws-services-to-architecture-f836ec2c0132",
+      "by": "Megha Shivhare",
+      "time": 1786785584000,
+      "tags": [
+        "aws",
+        "cloud",
+        "interview"
+      ]
+    },
+    {
+      "title": "I Built a Fitness App, Then Made an Instagram Page Just to Get Roasted — Best Decision I Made",
+      "url": "https://medium.com/@jade.cub.000/i-built-a-fitness-app-then-made-an-instagram-page-just-to-get-roasted-best-decision-i-made-caf5fb3b3789",
+      "by": "Ahmad Abdur Rehman",
+      "time": 1786785460000,
+      "tags": [
+        "product-design",
+        "programming",
+        "self-improvement"
+      ]
+    },
+    {
+      "title": "AI Won’t Replace Programmers. But Programmers Who Use AI Wisely Will Move Faster.",
+      "url": "https://medium.com/@arvindverma021/ai-wont-replace-programmers-but-programmers-who-use-ai-wisely-will-move-faster-c5ecba35831b",
+      "by": "Arvind Verma",
+      "time": 1786785368000,
+      "tags": [
+        "kubernetes",
+        "docker",
+        "ai"
+      ]
+    },
+    {
+      "title": "Building an On-Premise DNS Failover System with pfSense and a Custom Python Service",
+      "url": "https://medium.com/@sasansaljoughiavval/building-an-on-premise-dns-failover-system-with-pfsense-and-a-custom-python-service-9e76d56b74ad",
+      "by": "Sasan saljoughi avval",
+      "time": 1786784988000,
+      "tags": [
+        "system-administrator",
+        "devops",
+        "python"
+      ]
+    },
+    {
+      "title": "Scaling Web Scraping & Multi-Accounting with Modern Residential Proxies from $0.5/GB",
+      "url": "https://medium.com/@bifrostnetwork624/scaling-web-scraping-multi-accounting-with-modern-residential-proxies-from-0-5-gb-8f95214b1fb3",
+      "by": "Bifrostnetwork",
+      "time": 1786784603000,
+      "tags": [
+        "python",
+        "web-scraping",
+        "technology"
+      ]
+    },
+    {
       "title": "10 JavaScript Mistakes That Are Killing Your Code",
       "url": "https://habtesoft.medium.com/10-javascript-mistakes-that-are-killing-your-code-55a670b620b1",
       "by": "habtesoft",
@@ -104,82 +181,6 @@
         "leadership",
         "software-engineering",
         "product-development"
-      ]
-    },
-    {
-      "title": "Profiled My CI Pipeline After Switching to Rust-Based Tools",
-      "url": "https://medium.com/codetodeploy/profiled-my-ci-pipeline-after-switching-to-rust-based-tools-7f8629f6e8fa",
-      "by": "Dr.Michael",
-      "time": 1786784264000,
-      "tags": [
-        "coding",
-        "programming",
-        "ci-cd-pipeline"
-      ]
-    },
-    {
-      "title": "Prometheus + External Grafana: Wiring Up Monitoring for Production",
-      "url": "https://jason-chen-0604.medium.com/prometheus-external-grafana-wiring-up-monitoring-for-production-0f821ef6a9f2",
-      "by": "陳昶仲",
-      "time": 1786783773000,
-      "tags": [
-        "k3",
-        "grafana",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "DevOps Beyond the Buzzword: How Culture, Architecture and Automation Enable Enterprise Agility",
-      "url": "https://medium.com/@kobiamaureen5/devops-beyond-the-buzzword-how-culture-architecture-and-automation-enable-enterprise-agility-4b5acf7e986a",
-      "by": "Maureen Kobia",
-      "time": 1786783638000,
-      "tags": [
-        "devops",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "Your Agent Framework Should Be an Event Log, Not a Message List",
-      "url": "https://medium.com/@sebuzdugan/your-agent-framework-should-be-an-event-log-not-a-message-list-56e07175b3ae",
-      "by": "Sebastian Buzdugan",
-      "time": 1786783631000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Qwen3.8's 27B Is Cheating: It Sees Images Its 88x Bigger Flagship Cannot",
-      "url": "https://pub.towardsai.net/qwen3-8s-27b-is-cheating-it-sees-images-its-88x-bigger-flagship-cannot-2e3d5c645c6b",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1786783543000,
-      "tags": [
-        "machine-learning",
-        "technology",
-        "large-language-models"
-      ]
-    },
-    {
-      "title": "Building an Intelligent Invoice Processing Platform — Part 2: Building Our First OCR Pipeline",
-      "url": "https://ranjanravi.medium.com/building-an-intelligent-invoice-processing-platform-part-2-building-our-first-ocr-pipeline-fde2be3270dc",
-      "by": "Ravi Ranjan",
-      "time": 1786782992000,
-      "tags": [
-        "machine-learning",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Le stage qui a tout changé dans ma façon de démarrer un projet",
-      "url": "https://adelredjemi.medium.com/le-stage-qui-a-tout-chang%C3%A9-dans-ma-fa%C3%A7on-de-d%C3%A9marrer-un-projet-7422b78ab134",
-      "by": "Adel REDJEMI",
-      "time": 1786782661000,
-      "tags": [
-        "internships",
-        "career-development",
-        "web-development"
       ]
     }
   ]
