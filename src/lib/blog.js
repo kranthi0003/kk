@@ -153,8 +153,8 @@ export const POSTS = [
   },
   {
     slug: 'cheap-dopamine',
-    title: 'Phone. Porn. Sugar.',
-    subtitle: 'The science of cheap dopamine',
+    title: 'Dopamine',
+    subtitle: 'Phone, porn, sugar — one hijacked circuit',
     category: 'mind',
     date: '2026-06-27',
     readingMins: 7,
