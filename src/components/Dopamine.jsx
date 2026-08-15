@@ -254,9 +254,9 @@ export function DopamineArticle() {
         {/* Hero */}
         <header className="min-h-[78vh] flex flex-col items-center justify-center text-center px-5">
           <Reveal>
-            <Eyebrow color={DOPA}>The science of cheap dopamine</Eyebrow>
+            <Eyebrow color={DOPA}>Phone · Porn · Sugar</Eyebrow>
             <h1 className="font-heading leading-[1.04] mb-6" style={{ fontWeight: 500, fontSize: 'clamp(2.6rem,9vw,5rem)' }}>
-              Phone.<br />Porn.<br />Sugar.
+              Dopamine
             </h1>
             <p className="max-w-md mx-auto text-[clamp(1rem,2.4vw,1.2rem)] leading-relaxed text-muted-foreground">
               Three habits that feel unrelated. One reward circuit they all hijack. Here is exactly how it works — and how it lets go.
