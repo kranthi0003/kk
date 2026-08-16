@@ -1,40 +1,33 @@
 {
-  "generated": "2026-08-15T15:30:41.272Z",
+  "generated": "2026-08-16T04:28:23.442Z",
   "reddit": [
     {
-      "title": "How Google’s Linux cgroups Helps AWS and Azure Save Billions",
-      "url": "https://www.reddit.com/r/programming/comments/1vp44wa/how_googles_linux_cgroups_helps_aws_and_azure/",
-      "by": "Ok_Stomach6651",
-      "time": 1786803706000,
-      "sub": "r/programming"
+      "title": "Haven't used anything but K8s for deployment for years now? Just me?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vpg4io/havent_used_anything_but_k8s_for_deployment_for/",
+      "by": "isaackogan",
+      "time": 1786833168000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "[ Removed by Reddit ]",
-      "url": "https://www.reddit.com/r/programming/comments/1vp0215/removed_by_reddit/",
-      "by": "Ok_Discount2715",
-      "time": 1786792107000,
-      "sub": "r/programming"
+      "title": "Kubernetes the hard way tutorial - feedback",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vpd91j/kubernetes_the_hard_way_tutorial_feedback/",
+      "by": "BA_toaster",
+      "time": 1786825723000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How do you test CI pipelines?",
-      "url": "https://www.reddit.com/r/devops/comments/1voki1m/how_do_you_test_ci_pipelines/",
-      "by": "Mysterious_Prune415",
-      "time": 1786743839000,
-      "sub": "r/devops"
+      "title": "Commitless GitOps",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vp9hg8/commitless_gitops/",
+      "by": "reavessm",
+      "time": 1786816656000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How do you actually diagnose a CI integration-test failure when the root cause isn't obvious?",
-      "url": "https://www.reddit.com/r/devops/comments/1vojtkx/how_do_you_actually_diagnose_a_ci_integrationtest/",
-      "by": "VisualNatural617",
-      "time": 1786742215000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How does your team do automated deployments to linux devices in the field?",
-      "url": "https://www.reddit.com/r/devops/comments/1vogxlo/how_does_your_team_do_automated_deployments_to/",
-      "by": "GongtingLover",
-      "time": 1786735595000,
-      "sub": "r/devops"
+      "title": "Nexus OSS Alternatives",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
+      "by": "k8s_maestro",
+      "time": 1786792262000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
@@ -51,136 +44,143 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
+      "title": "Building a toy language in C++: Adding variables",
+      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
+      "by": "Xaneris47",
+      "time": 1786713172000,
+      "sub": "r/programming"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Your Laptop Has Gigabytes of RAM. So Why Does Your Program Still Run Out of Memory?",
-      "url": "https://medium.com/@muruganantham52524/your-laptop-has-gigabytes-of-ram-so-why-does-your-program-still-run-out-of-memory-ea24686fba5c",
-      "by": "Er.Muruganantham",
-      "time": 1786807271000,
+      "title": "The Notebook of a Future AI Engineer #4",
+      "url": "https://medium.com/@anuskapalit2004/the-notebook-of-a-future-ai-engineer-4-a30390fe6c9a",
+      "by": "Anuskapalit",
+      "time": 1786853144000,
+      "tags": [
+        "software-engineering",
+        "self-improvement",
+        "college"
+      ]
+    },
+    {
+      "title": "Failure Domains Prevent Bigger Failures",
+      "url": "https://medium.com/@darshitanjaria/failure-domains-prevent-bigger-failures-738764ca5c90",
+      "by": "Darshit Anjaria",
+      "time": 1786852863000,
+      "tags": [
+        "cloud-computing",
+        "cloud-services",
+        "best-practices"
+      ]
+    },
+    {
+      "title": "Spring Boot Interview Questions for Senior, Staff, and Architect Roles: Production-Level Scenarios…",
+      "url": "https://medium.com/@preetjit82/spring-boot-interview-questions-for-senior-staff-and-architect-roles-production-level-scenarios-ba03ab1f8a6d",
+      "by": "Interview Simplified",
+      "time": 1786852755000,
+      "tags": [
+        "interview-questions",
+        "jobs",
+        "programming"
+      ]
+    },
+    {
+      "title": "Today’s Interview Experience: Java Backend Developer",
+      "url": "https://medium.com/@preetjit82/todays-interview-experience-java-backend-developer-fcb1f1fbffb7",
+      "by": "Interview Simplified",
+      "time": 1786852704000,
       "tags": [
         "java",
-        "c-programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Next.js Image Optimization in 2026: next/image v4, AVIF by Default, and the Config Changes Teams…",
-      "url": "https://medium.com/@jsmanifest/next-js-image-optimization-in-2026-next-image-v4-avif-by-default-and-the-config-changes-teams-ad531dac606f",
-      "by": "jsmanifest",
-      "time": 1786807200000,
-      "tags": [
         "programming",
-        "typescript",
-        "web-development"
+        "jobs"
       ]
     },
     {
-      "title": "It’s Not Your Code. It’s the Machine Underneath It.",
-      "url": "https://blog.stackademic.com/its-not-your-code-it-s-the-machine-underneath-it-444f3b887343",
-      "by": "Production Systems By Devrim",
-      "time": 1786806960000,
+      "title": "PA11 Nylon for Harsh Environments: The Datasheet Is Only the Starting Point",
+      "url": "https://medium.com/@fabnow3d/pa11-nylon-for-harsh-environments-the-datasheet-is-only-the-starting-point-99df3a77969f",
+      "by": "fabnow3d",
+      "time": 1786852519000,
       "tags": [
-        "coding",
+        "3d-printing",
         "software-engineering",
-        "programming"
+        "additive-manufacturing"
       ]
     },
     {
-      "title": "Your Container Keeps Restarting Itself. That’s Not Random. That’s a Message.",
-      "url": "https://blog.stackademic.com/your-container-keeps-restarting-itself-thats-not-random-that-s-a-message-29dfcee9d97c",
-      "by": "Production Systems By Devrim",
-      "time": 1786806887000,
-      "tags": [
-        "software-development",
-        "docker-compose",
-        "programming"
-      ]
-    },
-    {
-      "title": "Your Spring Boot App Isn’t Slow. Your Database Connection Pool Is.",
-      "url": "https://gainjavaknowledge.medium.com/your-spring-boot-app-isnt-slow-your-database-connection-pool-is-8cdd5601e3bc",
-      "by": "Real World Java",
-      "time": 1786806790000,
-      "tags": [
-        "spring-boot",
-        "software-engineering",
-        "performance"
-      ]
-    },
-    {
-      "title": "Your Kubernetes Cluster Says Everything’s Green. Your Users Say Otherwise.",
-      "url": "https://blog.stackademic.com/your-kubernetes-cluster-says-everythings-green-your-users-say-otherwise-999cccb50157",
-      "by": "Senior Engineer By Devrim",
-      "time": 1786806787000,
+      "title": "Kubernetes Explained: The One Loop That Runs Everything",
+      "url": "https://medium.com/@rupeshksinghmit/kubernetes-explained-the-one-loop-that-runs-everything-5087d5790d9e",
+      "by": "RK Singh",
+      "time": 1786852272000,
       "tags": [
         "software-engineering",
-        "kubernetes",
+        "cloud-native",
+        "containers"
+      ]
+    },
+    {
+      "title": "Day 23: How to Fork a Git Repository in Gitea",
+      "url": "https://medium.com/@yashvikothari/day-23-how-to-fork-a-git-repository-in-gitea-6147b5b6bc2b",
+      "by": "Yashvi Kothari",
+      "time": 1786852016000,
+      "tags": [
+        "gitea",
+        "linux",
+        "git"
+      ]
+    },
+    {
+      "title": "Why I Stopped Choosing AI Coding Tools by Benchmark Rankings",
+      "url": "https://medium.com/@marsdiscovery123/why-i-stopped-choosing-ai-coding-tools-by-benchmark-rankings-f068735371e3",
+      "by": "marsdiscovery",
+      "time": 1786851990000,
+      "tags": [
+        "productivity",
+        "developer-tools",
         "software-development"
       ]
     },
     {
-      "title": "PostgreSQL Just Paged You. Here’s the Mistake Everyone Makes in the First Five Minutes.",
-      "url": "https://blog.stackademic.com/postgresql-just-paged-you-heres-the-mistake-everyone-makes-in-the-first-five-minutes-64e917a786bb",
-      "by": "Senior Engineer By Devrim",
-      "time": 1786806712000,
+      "title": "ZeroDay Vulnerabilities & ShiftLeft Security: A Practical DevSecOps Guide",
+      "url": "https://iampankajaswal.medium.com/zeroday-vulnerabilities-shiftleft-security-a-practical-devsecops-guide-15b5ce6eeb36",
+      "by": "Pankaj Aswal",
+      "time": 1786851061000,
       "tags": [
-        "software-architecture",
-        "software-development",
-        "software-engineering"
+        "technology",
+        "security",
+        "devops"
       ]
     },
     {
-      "title": "Redis Is Down. Your Whole App Just Found Out It Was Never Actually Fault-Tolerant.",
-      "url": "https://medium.com/codeelevation/redis-is-down-your-whole-app-just-found-out-it-was-never-actually-fault-tolerant-fbc102c9e5aa",
-      "by": "Engineering Notes By Devrim",
-      "time": 1786806562000,
+      "title": "Day 22: Clone Git Repository on Storage Server-The Safe DevOps Way",
+      "url": "https://medium.com/@yashvikothari/day-22-clone-git-repository-on-storage-server-the-safe-devops-way-4757ffb8fb17",
+      "by": "Yashvi Kothari",
+      "time": 1786851061000,
       "tags": [
-        "software-engineering",
-        "coding",
-        "redis"
-      ]
-    },
-    {
-      "title": "Cut Your Claude Code Bill 50 Percent Without Changing Your Code",
-      "url": "https://medium.com/@y.raj1457/cut-your-claude-code-bill-50-percent-without-changing-your-code-79f14210cc68",
-      "by": "Yashraj Behera",
-      "time": 1786806527000,
-      "tags": [
-        "developer-tools",
-        "claude",
-        "programming"
-      ]
-    },
-    {
-      "title": "Microservices: Building Applications as Independent, Communicating Services",
-      "url": "https://medium.com/@rhutu.takle/microservices-building-applications-as-independent-communicating-services-3028bb8032b6",
-      "by": "Rhuturaj Takle",
-      "time": 1786806514000,
-      "tags": [
-        "learning",
-        "programming",
-        "microservices"
+        "servers",
+        "storage",
+        "devops"
       ]
     }
   ]
