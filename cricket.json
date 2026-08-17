@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16T04:28:29.401Z",
+  "generated": "2026-08-17T04:29:16.854Z",
   "season": "2026",
   "sources": [
     {
@@ -45,8 +45,8 @@
         "pos": 4,
         "code": "IND",
         "team": "India",
-        "matches": 25,
-        "points": 2600,
+        "matches": 26,
+        "points": 2714,
         "rating": 104
       },
       {
@@ -69,16 +69,16 @@
         "pos": 7,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 16,
-        "points": 1118,
+        "matches": 19,
+        "points": 1427,
         "rating": 75
       },
       {
         "pos": 8,
         "code": "WIN",
         "team": "West Indies",
-        "matches": 24,
-        "points": 1425,
+        "matches": 27,
+        "points": 2008,
         "rating": 74
       },
       {
@@ -728,6 +728,27 @@
       "status": "upcoming"
     },
     {
+      "start": "2026-09-13",
+      "name": "India against Afghanistan in India",
+      "home": "AFG",
+      "homeName": "Afghanistan",
+      "away": "IND",
+      "awayName": "India",
+      "formats": {
+        "test": null,
+        "odi": null,
+        "t20i": {
+          "matches": 3,
+          "result": null,
+          "played": 0
+        }
+      },
+      "played": 0,
+      "scheduled": 3,
+      "ends": "2026-09-22",
+      "status": "upcoming"
+    },
+    {
       "start": "2026-09-15",
       "name": "Sri Lanka in England",
       "home": "ENG",
@@ -750,6 +771,27 @@
       "played": 0,
       "scheduled": 6,
       "ends": "2026-10-03",
+      "status": "upcoming"
+    },
+    {
+      "start": "2026-09-15",
+      "name": "Australia in Zimbabwe",
+      "home": "ZIM",
+      "homeName": "Zimbabwe",
+      "away": "AUS",
+      "awayName": "Australia",
+      "formats": {
+        "test": null,
+        "odi": {
+          "matches": 3,
+          "result": null,
+          "played": 0
+        },
+        "t20i": null
+      },
+      "played": 0,
+      "scheduled": 3,
+      "ends": "2026-09-27",
       "status": "upcoming"
     }
   ],

@@ -1,53 +1,53 @@
 {
-  "generated": "2026-08-16T04:28:23.442Z",
+  "generated": "2026-08-17T04:29:13.882Z",
   "reddit": [
     {
-      "title": "Haven't used anything but K8s for deployment for years now? Just me?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vpg4io/havent_used_anything_but_k8s_for_deployment_for/",
-      "by": "isaackogan",
-      "time": 1786833168000,
+      "title": "AI SRE for K8s: what’s actually working vs. what’s hype?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vqe0la/ai_sre_for_k8s_whats_actually_working_vs_whats/",
+      "by": "braundmeier",
+      "time": 1786928543000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Kubernetes the hard way tutorial - feedback",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vpd91j/kubernetes_the_hard_way_tutorial_feedback/",
-      "by": "BA_toaster",
-      "time": 1786825723000,
+      "title": "EKS w Fargate EC2 Spot or EKS w ECS Fargate SPOT",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vq6wda/eks_w_fargate_ec2_spot_or_eks_w_ecs_fargate_spot/",
+      "by": "Spiritual_Bee_637",
+      "time": 1786910209000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Commitless GitOps",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vp9hg8/commitless_gitops/",
-      "by": "reavessm",
-      "time": 1786816656000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Nexus OSS Alternatives",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vp03q7/nexus_oss_alternatives/",
-      "by": "k8s_maestro",
-      "time": 1786792262000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kernel Context Switch Costs And Spin Locks In Perf Profile: A Practical Study",
-      "url": "https://www.reddit.com/r/programming/comments/1vof05i/kernel_context_switch_costs_and_spin_locks_in/",
-      "by": "Happycodeine",
-      "time": 1786731413000,
+      "title": "Pony's Arena Allocator",
+      "url": "https://www.reddit.com/r/programming/comments/1vq4rr0/ponys_arena_allocator/",
+      "by": "Bassfaceapollo",
+      "time": 1786905218000,
       "sub": "r/programming"
     },
     {
-      "title": "Coding Magic the Gathering in C# - PART ONE - Why Build A Card Game in WinForms",
-      "url": "https://www.reddit.com/r/programming/comments/1vo8qw5/coding_magic_the_gathering_in_c_part_one_why/",
-      "by": "nickproud",
-      "time": 1786717548000,
+      "title": "Protobuf finally has LSP support. You’re welcome. · Buf",
+      "url": "https://www.reddit.com/r/programming/comments/1vq4pbv/protobuf_finally_has_lsp_support_youre_welcome_buf/",
+      "by": "esiy0676",
+      "time": 1786905062000,
       "sub": "r/programming"
     },
     {
-      "title": "Building a toy language in C++: Adding variables",
-      "url": "https://www.reddit.com/r/programming/comments/1vo6xrh/building_a_toy_language_in_c_adding_variables/",
-      "by": "Xaneris47",
-      "time": 1786713172000,
+      "title": "I let an LLM propose K8s remedation actions,but not execute them - built a deterministic safety veto instead",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vq3ot9/i_let_an_llm_propose_k8s_remedation_actionsbut/",
+      "by": "AdNervous7615",
+      "time": 1786902792000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Flux Repository Structure - Multi Environments/Projects",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vq2q74/flux_repository_structure_multi/",
+      "by": "TheDevOpsGuy123",
+      "time": 1786900565000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Linux Storage 101: Drives, Partitions, and Mounts",
+      "url": "https://www.reddit.com/r/programming/comments/1vq17rg/linux_storage_101_drives_partitions_and_mounts/",
+      "by": "iximiuz",
+      "time": 1786897030000,
       "sub": "r/programming"
     },
     {
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "The Notebook of a Future AI Engineer #4",
-      "url": "https://medium.com/@anuskapalit2004/the-notebook-of-a-future-ai-engineer-4-a30390fe6c9a",
-      "by": "Anuskapalit",
-      "time": 1786853144000,
+      "title": "Exploring the Nexus of AI & QA: Weekly Insights — 03/08/2026 to 16/08/2026",
+      "url": "https://medium.com/ai-qa-nexus/exploring-the-nexus-of-ai-qa-weekly-insights-03-08-2026-to-16-08-2026-3309f0a4a2ba",
+      "by": "Suresh Madhusanka Rodrigo",
+      "time": 1786940332000,
       "tags": [
+        "devops",
+        "software-development",
+        "javascript"
+      ]
+    },
+    {
+      "title": "The Beginner’s Guide to Smarter MATLAB Learning",
+      "url": "https://medium.com/@nicolakattan/the-beginners-guide-to-smarter-matlab-learning-f075e09dbebb",
+      "by": "Nicola Kattan",
+      "time": 1786940317000,
+      "tags": [
+        "data-engineering",
         "software-engineering",
-        "self-improvement",
-        "college"
+        "engineering"
       ]
     },
     {
-      "title": "Failure Domains Prevent Bigger Failures",
-      "url": "https://medium.com/@darshitanjaria/failure-domains-prevent-bigger-failures-738764ca5c90",
-      "by": "Darshit Anjaria",
-      "time": 1786852863000,
+      "title": "https://www.py-spark-sql.com/",
+      "url": "https://medium.com/@skandala199/https-www-py-spark-sql-com-b5313ea844a9",
+      "by": "Skandala",
+      "time": 1786939877000,
       "tags": [
-        "cloud-computing",
-        "cloud-services",
-        "best-practices"
+        "programming",
+        "data-engineering",
+        "python-programming"
       ]
     },
     {
-      "title": "Spring Boot Interview Questions for Senior, Staff, and Architect Roles: Production-Level Scenarios…",
-      "url": "https://medium.com/@preetjit82/spring-boot-interview-questions-for-senior-staff-and-architect-roles-production-level-scenarios-ba03ab1f8a6d",
+      "title": "Honeywell QA API Tester Interview Experience",
+      "url": "https://medium.com/@preetjit82/honeywell-qa-api-tester-interview-experience-17abfcac1aa6",
       "by": "Interview Simplified",
-      "time": 1786852755000,
+      "time": 1786939806000,
       "tags": [
-        "interview-questions",
         "jobs",
+        "interview",
         "programming"
       ]
     },
     {
-      "title": "Today’s Interview Experience: Java Backend Developer",
-      "url": "https://medium.com/@preetjit82/todays-interview-experience-java-backend-developer-fcb1f1fbffb7",
+      "title": "Lead Data Engineer Interview: 10 Premium Scenario-Based Questions",
+      "url": "https://medium.com/@preetjit82/lead-data-engineer-interview-10-premium-scenario-based-questions-8918806066fc",
       "by": "Interview Simplified",
-      "time": 1786852704000,
+      "time": 1786939756000,
       "tags": [
-        "java",
         "programming",
+        "data-engineer",
         "jobs"
       ]
     },
     {
-      "title": "PA11 Nylon for Harsh Environments: The Datasheet Is Only the Starting Point",
-      "url": "https://medium.com/@fabnow3d/pa11-nylon-for-harsh-environments-the-datasheet-is-only-the-starting-point-99df3a77969f",
-      "by": "fabnow3d",
-      "time": 1786852519000,
+      "title": "C# params Collections: The Small Feature That Can Change How You Design APIs",
+      "url": "https://medium.com/@shemeenasrawther/c-params-collections-the-small-feature-that-can-change-how-you-design-apis-f4a0343273be",
+      "by": "ShemeenaS Rawther",
+      "time": 1786939288000,
       "tags": [
-        "3d-printing",
-        "software-engineering",
-        "additive-manufacturing"
+        "dotnet",
+        "csharp",
+        "programming"
       ]
     },
     {
-      "title": "Kubernetes Explained: The One Loop That Runs Everything",
-      "url": "https://medium.com/@rupeshksinghmit/kubernetes-explained-the-one-loop-that-runs-everything-5087d5790d9e",
-      "by": "RK Singh",
-      "time": 1786852272000,
+      "title": "Stop using init() to Configure your Go Application",
+      "url": "https://blog.devgenius.io/stop-using-init-to-configure-your-go-application-e13cddf41c7a",
+      "by": "Yaninyz witty",
+      "time": 1786939261000,
       "tags": [
-        "software-engineering",
-        "cloud-native",
-        "containers"
-      ]
-    },
-    {
-      "title": "Day 23: How to Fork a Git Repository in Gitea",
-      "url": "https://medium.com/@yashvikothari/day-23-how-to-fork-a-git-repository-in-gitea-6147b5b6bc2b",
-      "by": "Yashvi Kothari",
-      "time": 1786852016000,
-      "tags": [
-        "gitea",
-        "linux",
-        "git"
-      ]
-    },
-    {
-      "title": "Why I Stopped Choosing AI Coding Tools by Benchmark Rankings",
-      "url": "https://medium.com/@marsdiscovery123/why-i-stopped-choosing-ai-coding-tools-by-benchmark-rankings-f068735371e3",
-      "by": "marsdiscovery",
-      "time": 1786851990000,
-      "tags": [
-        "productivity",
-        "developer-tools",
+        "programming",
+        "backend",
         "software-development"
       ]
     },
     {
-      "title": "ZeroDay Vulnerabilities & ShiftLeft Security: A Practical DevSecOps Guide",
-      "url": "https://iampankajaswal.medium.com/zeroday-vulnerabilities-shiftleft-security-a-practical-devsecops-guide-15b5ce6eeb36",
-      "by": "Pankaj Aswal",
-      "time": 1786851061000,
+      "title": "I Built 3 Python Security Tools in a Month. Here’s What I Actually Learned.",
+      "url": "https://medium.com/@chandeshgunawardena/i-built-3-python-security-tools-in-a-month-heres-what-i-actually-learned-175eec925b1a",
+      "by": "Chandeshgunawardena",
+      "time": 1786938890000,
       "tags": [
-        "technology",
-        "security",
-        "devops"
+        "cybersecurity",
+        "python-programming",
+        "career-change"
       ]
     },
     {
-      "title": "Day 22: Clone Git Repository on Storage Server-The Safe DevOps Way",
-      "url": "https://medium.com/@yashvikothari/day-22-clone-git-repository-on-storage-server-the-safe-devops-way-4757ffb8fb17",
-      "by": "Yashvi Kothari",
-      "time": 1786851061000,
+      "title": "How I Used Prometheus and Grafana to Debug an LLM API",
+      "url": "https://medium.com/@athar.22012000/how-i-used-prometheus-and-grafana-to-debug-an-llm-api-0f2b19dde56e",
+      "by": "Athar",
+      "time": 1786938195000,
       "tags": [
-        "servers",
-        "storage",
-        "devops"
+        "observability",
+        "devops",
+        "prometheus"
+      ]
+    },
+    {
+      "title": "Two Screens, One Ad Slot. Every Bug After That Was An Ownership Bug.",
+      "url": "https://bobde-yagyesh.medium.com/two-screens-one-ad-slot-every-bug-after-that-was-an-ownership-bug-abbac3dbb818",
+      "by": "Yagyesh Bobde",
+      "time": 1786938150000,
+      "tags": [
+        "startup",
+        "programming",
+        "react-native"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16T04:27:12.520Z",
+  "generated": "2026-08-17T04:28:16.102Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -47,17 +47,6 @@
       "imdb": "https://www.imdb.com/title/tt21438726/"
     },
     {
-      "title": "Jailer 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Nelson Dilipkumar",
-      "desc": "Upcoming Indian film by Nelson Dilipkumar",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Jailer_2_poster.jpg/120px-Jailer_2_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Jailer_2",
-      "imdb": "https://www.imdb.com/title/tt33318732/"
-    },
-    {
       "title": "Mirzapur",
       "lang": "Hindi",
       "date": null,
@@ -67,6 +56,17 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Mirzapur_%28film%29.jpg/120px-Mirzapur_%28film%29.jpg",
       "url": "https://en.wikipedia.org/wiki/Mirzapur_(film)",
       "imdb": "https://www.imdb.com/title/tt34339725/"
+    },
+    {
+      "title": "Jailer 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Nelson Dilipkumar",
+      "desc": "Upcoming Indian film by Nelson Dilipkumar",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Jailer_2_poster.jpg/120px-Jailer_2_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Jailer_2",
+      "imdb": "https://www.imdb.com/title/tt33318732/"
     },
     {
       "title": "Kathanar – The Wild Sorcerer",
