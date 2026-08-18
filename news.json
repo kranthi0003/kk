@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-17T04:29:13.882Z",
+  "generated": "2026-08-18T04:27:44.621Z",
   "reddit": [
     {
-      "title": "AI SRE for K8s: what’s actually working vs. what’s hype?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vqe0la/ai_sre_for_k8s_whats_actually_working_vs_whats/",
-      "by": "braundmeier",
-      "time": 1786928543000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "EKS w Fargate EC2 Spot or EKS w ECS Fargate SPOT",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vq6wda/eks_w_fargate_ec2_spot_or_eks_w_ecs_fargate_spot/",
-      "by": "Spiritual_Bee_637",
-      "time": 1786910209000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Pony's Arena Allocator",
-      "url": "https://www.reddit.com/r/programming/comments/1vq4rr0/ponys_arena_allocator/",
-      "by": "Bassfaceapollo",
-      "time": 1786905218000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Protobuf finally has LSP support. You’re welcome. · Buf",
-      "url": "https://www.reddit.com/r/programming/comments/1vq4pbv/protobuf_finally_has_lsp_support_youre_welcome_buf/",
-      "by": "esiy0676",
-      "time": 1786905062000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I let an LLM propose K8s remedation actions,but not execute them - built a deterministic safety veto instead",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vq3ot9/i_let_an_llm_propose_k8s_remedation_actionsbut/",
-      "by": "AdNervous7615",
-      "time": 1786902792000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Flux Repository Structure - Multi Environments/Projects",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vq2q74/flux_repository_structure_multi/",
-      "by": "TheDevOpsGuy123",
-      "time": 1786900565000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Linux Storage 101: Drives, Partitions, and Mounts",
-      "url": "https://www.reddit.com/r/programming/comments/1vq17rg/linux_storage_101_drives_partitions_and_mounts/",
-      "by": "iximiuz",
-      "time": 1786897030000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Thinking of building an open-source \"pre-triage\" bot for 3 AM PagerDuty alerts. Would you actually use this?",
+      "url": "https://www.reddit.com/r/devops/comments/1vrewf6/thinking_of_building_an_opensource_pretriage_bot/",
+      "by": "Interesting-Art-7267",
+      "time": 1787027088000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "What if YOU Could Add Your Own Features to a Language?",
+      "url": "https://www.reddit.com/r/programming/comments/1vrb433/what_if_you_could_add_your_own_features_to_a/",
+      "by": "quasar_tree",
+      "time": 1787016310000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "YouTube API tutorial - view count auto updates in the title and thumbnail",
+      "url": "https://www.reddit.com/r/programming/comments/1vra96k/youtube_api_tutorial_view_count_auto_updates_in/",
+      "by": "jarreed0",
+      "time": 1787014009000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Can Haskell Become a Great Language for Data Science?",
+      "url": "https://www.reddit.com/r/programming/comments/1vqyt0y/can_haskell_become_a_great_language_for_data/",
+      "by": "IcyAnywhere9603",
+      "time": 1786987764000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do you decide what to investigate next during a production latency incident",
+      "url": "https://www.reddit.com/r/devops/comments/1vqwy5f/how_do_you_decide_what_to_investigate_next_during/",
+      "by": "HawtBeagle",
+      "time": 1786984004000,
       "sub": "r/devops"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
+      "title": "Fixing broken Datadog APM gaps",
+      "url": "https://www.reddit.com/r/devops/comments/1vquhco/fixing_broken_datadog_apm_gaps/",
+      "by": "JayDee2306",
+      "time": 1786978196000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Tough morning @ GitHub...",
+      "url": "https://www.reddit.com/r/devops/comments/1vqugrv/tough_morning_github/",
+      "by": "p33k4y",
+      "time": 1786978161000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Exploring the Nexus of AI & QA: Weekly Insights — 03/08/2026 to 16/08/2026",
-      "url": "https://medium.com/ai-qa-nexus/exploring-the-nexus-of-ai-qa-weekly-insights-03-08-2026-to-16-08-2026-3309f0a4a2ba",
-      "by": "Suresh Madhusanka Rodrigo",
-      "time": 1786940332000,
+      "title": "Your  Tag Is More Complicated Than You Think: It Can Overflow Itself",
+      "url": "https://er-raj-aryan.medium.com/your-img-tag-is-more-complicated-than-you-think-it-can-overflow-itself-464153ccbfc8",
+      "by": "Er Raj Aryan",
+      "time": 1787026666000,
       "tags": [
-        "devops",
+        "css",
         "software-development",
-        "javascript"
+        "web-development"
       ]
     },
     {
-      "title": "The Beginner’s Guide to Smarter MATLAB Learning",
-      "url": "https://medium.com/@nicolakattan/the-beginners-guide-to-smarter-matlab-learning-f075e09dbebb",
-      "by": "Nicola Kattan",
-      "time": 1786940317000,
+      "title": "How Confidently Claude Can Be Wrong",
+      "url": "https://pub.towardsai.net/how-confidently-claude-can-be-wrong-25262f8370fc",
+      "by": "Rohan Mistry",
+      "time": 1787026654000,
       "tags": [
-        "data-engineering",
-        "software-engineering",
-        "engineering"
+        "machine-learning",
+        "claude",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "https://www.py-spark-sql.com/",
-      "url": "https://medium.com/@skandala199/https-www-py-spark-sql-com-b5313ea844a9",
-      "by": "Skandala",
-      "time": 1786939877000,
+      "title": "I Gave Claude 3.7 Sonnet and DeepSeek R1 the Same Coding Challenge. The Winner Surprised Me.",
+      "url": "https://medium.com/@anil.futuristic/i-gave-claude-3-7-sonnet-and-deepseek-r1-the-same-coding-challenge-the-winner-surprised-me-3f105d6e076d",
+      "by": "Anil Sharma",
+      "time": 1787026325000,
       "tags": [
-        "programming",
-        "data-engineering",
-        "python-programming"
+        "claude-ai",
+        "artificial-intelligence",
+        "software-engineering"
       ]
     },
     {
-      "title": "Honeywell QA API Tester Interview Experience",
-      "url": "https://medium.com/@preetjit82/honeywell-qa-api-tester-interview-experience-17abfcac1aa6",
+      "title": "Top 10 DevOps Engineer Interview Questions",
+      "url": "https://medium.com/@preetjit82/top-10-devops-engineer-interview-questions-5c9dbcd05bc2",
       "by": "Interview Simplified",
-      "time": 1786939806000,
+      "time": 1787026276000,
       "tags": [
         "jobs",
-        "interview",
+        "interview-questions",
         "programming"
       ]
     },
     {
-      "title": "Lead Data Engineer Interview: 10 Premium Scenario-Based Questions",
-      "url": "https://medium.com/@preetjit82/lead-data-engineer-interview-10-premium-scenario-based-questions-8918806066fc",
+      "title": "HSBC Data Analyst Interview: 15 Questions",
+      "url": "https://medium.com/@preetjit82/hsbc-data-analyst-interview-15-questions-a1d5f2d11d36",
       "by": "Interview Simplified",
-      "time": 1786939756000,
+      "time": 1787026223000,
       "tags": [
-        "programming",
-        "data-engineer",
-        "jobs"
+        "data-analyst",
+        "jobs",
+        "interview-questions"
       ]
     },
     {
-      "title": "C# params Collections: The Small Feature That Can Change How You Design APIs",
-      "url": "https://medium.com/@shemeenasrawther/c-params-collections-the-small-feature-that-can-change-how-you-design-apis-f4a0343273be",
-      "by": "ShemeenaS Rawther",
-      "time": 1786939288000,
+      "title": "Why your Go Pagination strategy Gets slower on every page",
+      "url": "https://medium.com/codex/why-your-go-pagination-strategy-gets-slower-on-every-page-3b94b810d9a4",
+      "by": "Yaninyz witty",
+      "time": 1787026205000,
       "tags": [
-        "dotnet",
-        "csharp",
+        "coding",
+        "writing",
         "programming"
       ]
     },
     {
-      "title": "Stop using init() to Configure your Go Application",
-      "url": "https://blog.devgenius.io/stop-using-init-to-configure-your-go-application-e13cddf41c7a",
-      "by": "Yaninyz witty",
-      "time": 1786939261000,
+      "title": "Laravel LazyCollection and cursor(): Process 1 Million Database Rows Without Killing Your Server",
+      "url": "https://sadiqueali.medium.com/laravel-lazycollection-and-cursor-process-1-million-database-rows-without-killing-your-server-22c69ae6066a",
+      "by": "Sadique Ali",
+      "time": 1787026172000,
       "tags": [
-        "programming",
-        "backend",
-        "software-development"
+        "php",
+        "api",
+        "programming"
       ]
     },
     {
-      "title": "I Built 3 Python Security Tools in a Month. Here’s What I Actually Learned.",
-      "url": "https://medium.com/@chandeshgunawardena/i-built-3-python-security-tools-in-a-month-heres-what-i-actually-learned-175eec925b1a",
-      "by": "Chandeshgunawardena",
-      "time": 1786938890000,
+      "title": "How Authenticator Apps Generate Codes Without Internet",
+      "url": "https://bhavycodes.medium.com/how-authenticator-apps-generate-codes-without-internet-3d15955cb045",
+      "by": "Bhavy Ladani",
+      "time": 1787025705000,
       "tags": [
-        "cybersecurity",
-        "python-programming",
-        "career-change"
+        "software-development",
+        "software-engineering",
+        "cybersecurity"
       ]
     },
     {
-      "title": "How I Used Prometheus and Grafana to Debug an LLM API",
-      "url": "https://medium.com/@athar.22012000/how-i-used-prometheus-and-grafana-to-debug-an-llm-api-0f2b19dde56e",
-      "by": "Athar",
-      "time": 1786938195000,
+      "title": "Slice vs Array in Go: The Difference Nobody Explains Properly",
+      "url": "https://pratiksha3101.medium.com/slice-vs-array-in-go-the-difference-nobody-explains-properly-1e6301a8a528",
+      "by": "Prateeksha",
+      "time": 1787025688000,
       "tags": [
-        "observability",
-        "devops",
-        "prometheus"
+        "golang",
+        "golang-slices",
+        "programming"
       ]
     },
     {
-      "title": "Two Screens, One Ad Slot. Every Bug After That Was An Ownership Bug.",
-      "url": "https://bobde-yagyesh.medium.com/two-screens-one-ad-slot-every-bug-after-that-was-an-ownership-bug-abbac3dbb818",
-      "by": "Yagyesh Bobde",
-      "time": 1786938150000,
+      "title": "Uptime",
+      "url": "https://medium.com/@m-hamzak/uptime-cef22f142c8a",
+      "by": "Muhammad Hamza Khalid",
+      "time": 1787025662000,
       "tags": [
-        "startup",
-        "programming",
-        "react-native"
+        "short-story",
+        "life",
+        "programming"
       ]
     }
   ]
