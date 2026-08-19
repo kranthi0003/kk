@@ -361,6 +361,9 @@ export default function F1({ onBack }) {
 
   return (
     <div className="f1-root">
+      {/* Page atmosphere: carbon weave and team ambience. Purely decorative. */}
+      <div className="f1-bg" aria-hidden="true" />
+
       <button onClick={onBack} title="Back" className="f1-back">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -732,7 +735,7 @@ export default function F1({ onBack }) {
         .f1-root {
           --f1-red: #E10600;
           --f1-bg: #0A0A0C;
-          --f1-card: #14141A;
+          --f1-card: rgba(20,20,26,.80);
           --f1-line: #26262F;
           --f1-fg: #F3F3F6;
           --f1-dim: #9A9AA6;
@@ -742,6 +745,32 @@ export default function F1({ onBack }) {
           color: var(--f1-fg);
         }
 
+        /* Fixed backdrop so the page never falls back to flat black. */
+        .f1-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+        /* Team ambience over a graded base. The kerb motif is already carried by
+           the section dividers, so this layer stays atmospheric rather than graphic. */
+        .f1-bg::before {
+          content: ''; position: absolute; inset: 0;
+          background:
+            radial-gradient(56% 40% at 12% 4%,   rgba(225,6,0,.17),   transparent 62%),
+            radial-gradient(50% 40% at 88% 30%,  rgba(0,210,190,.09), transparent 64%),
+            radial-gradient(60% 38% at 8% 72%,   rgba(0,210,190,.07), transparent 66%),
+            radial-gradient(70% 45% at 78% 96%,  rgba(225,6,0,.13),   transparent 68%),
+            linear-gradient(180deg, #08080B 0%, #0C0C11 48%, #09090D 100%);
+        }
+
+        /* Carbon-fibre twill, a hint of slipstream, and grain to kill banding. */
+        .f1-bg::after {
+          content: ''; position: absolute; inset: 0; opacity: .6;
+          background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E"),
+            repeating-linear-gradient(101deg, transparent 0 118px, rgba(255,255,255,.014) 118px 122px, transparent 122px 250px),
+            repeating-linear-gradient(45deg,  rgba(255,255,255,.021) 0 2px, transparent 2px 4px),
+            repeating-linear-gradient(-45deg, rgba(255,255,255,.021) 0 2px, transparent 2px 4px);
+          background-size: 180px 180px, auto, 4px 4px, 4px 4px;
+        }
+
         /* Hero */
         .f1-hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; }
         .f1-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -749,7 +778,7 @@ export default function F1({ onBack }) {
           position: absolute; inset: 0; pointer-events: none;
           background:
             radial-gradient(120% 80% at 50% 60%, transparent 35%, rgba(0,0,0,.55) 100%),
-            linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.1) 30%, rgba(0,0,0,.45) 72%, var(--f1-bg) 100%);
+            linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.1) 30%, rgba(0,0,0,.45) 72%, #08080B 100%);
         }
         .f1-hero-inner {
           position: relative; z-index: 2; height: 100%;
@@ -831,7 +860,7 @@ export default function F1({ onBack }) {
         @keyframes f1Pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(225,6,0,.5) } 50% { box-shadow: 0 0 0 10px rgba(225,6,0,0) } }
 
         /* Details */
-        .f1-details { position: relative; z-index: 2; background: var(--f1-bg); }
+        .f1-details { position: relative; z-index: 2; }
         .f1-state { height: 8rem; display: flex; align-items: center; justify-content: center; color: var(--f1-dim); font-size: 13px; }
         .f1-kerb { height: 6px; background: repeating-linear-gradient(135deg, var(--f1-red) 0 14px, #fff 14px 28px); opacity: .85; }
 
