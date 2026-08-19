@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-18T04:27:44.621Z",
+  "generated": "2026-08-19T04:28:13.782Z",
   "reddit": [
     {
-      "title": "Thinking of building an open-source \"pre-triage\" bot for 3 AM PagerDuty alerts. Would you actually use this?",
-      "url": "https://www.reddit.com/r/devops/comments/1vrewf6/thinking_of_building_an_opensource_pretriage_bot/",
-      "by": "Interesting-Art-7267",
-      "time": 1787027088000,
-      "sub": "r/devops"
+      "title": "Nodes as VMs on 1 machine",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vsaiug/nodes_as_vms_on_1_machine/",
+      "by": "Not-Jody",
+      "time": 1787108915000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "What if YOU Could Add Your Own Features to a Language?",
-      "url": "https://www.reddit.com/r/programming/comments/1vrb433/what_if_you_could_add_your_own_features_to_a/",
-      "by": "quasar_tree",
-      "time": 1787016310000,
+      "title": "[ Removed by Reddit ]",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vs8ipp/removed_by_reddit/",
+      "by": "Pretend_Cry_1690",
+      "time": 1787103427000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Pandoc: What survives markup conversion?",
+      "url": "https://www.reddit.com/r/programming/comments/1vs61br/pandoc_what_survives_markup_conversion/",
+      "by": "dereuromark",
+      "time": 1787096895000,
       "sub": "r/programming"
     },
     {
-      "title": "YouTube API tutorial - view count auto updates in the title and thumbnail",
-      "url": "https://www.reddit.com/r/programming/comments/1vra96k/youtube_api_tutorial_view_count_auto_updates_in/",
-      "by": "jarreed0",
-      "time": 1787014009000,
+      "title": "Three Silent Failures Between You and Sidecar Injection",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vs1eyh/three_silent_failures_between_you_and_sidecar/",
+      "by": "Character-Level5250",
+      "time": 1787085789000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I fell down a debugging rabbit hole",
+      "url": "https://www.reddit.com/r/programming/comments/1vs0umj/i_fell_down_a_debugging_rabbit_hole/",
+      "by": "santiagobustelo",
+      "time": 1787084546000,
       "sub": "r/programming"
     },
     {
-      "title": "Can Haskell Become a Great Language for Data Science?",
-      "url": "https://www.reddit.com/r/programming/comments/1vqyt0y/can_haskell_become_a_great_language_for_data/",
-      "by": "IcyAnywhere9603",
-      "time": 1786987764000,
+      "title": "I unearthed my Am29000 C compiler and web browser from 1999. It still can surf through the emulator",
+      "url": "https://www.reddit.com/r/programming/comments/1vs06if/i_unearthed_my_am29000_c_compiler_and_web_browser/",
+      "by": "nanochess",
+      "time": 1787083114000,
       "sub": "r/programming"
     },
     {
-      "title": "How do you decide what to investigate next during a production latency incident",
-      "url": "https://www.reddit.com/r/devops/comments/1vqwy5f/how_do_you_decide_what_to_investigate_next_during/",
-      "by": "HawtBeagle",
-      "time": 1786984004000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Fixing broken Datadog APM gaps",
-      "url": "https://www.reddit.com/r/devops/comments/1vquhco/fixing_broken_datadog_apm_gaps/",
-      "by": "JayDee2306",
-      "time": 1786978196000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Tough morning @ GitHub...",
-      "url": "https://www.reddit.com/r/devops/comments/1vqugrv/tough_morning_github/",
-      "by": "p33k4y",
-      "time": 1786978161000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "title": "Weekly: Questions and advice",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vrksfx/weekly_questions_and_advice/",
       "by": "AutoModerator",
-      "time": 1786096817000,
+      "time": 1787047207000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Your  Tag Is More Complicated Than You Think: It Can Overflow Itself",
-      "url": "https://er-raj-aryan.medium.com/your-img-tag-is-more-complicated-than-you-think-it-can-overflow-itself-464153ccbfc8",
-      "by": "Er Raj Aryan",
-      "time": 1787026666000,
+      "title": "Vue Watchers Explained Properly: When to Use watch, watchEffect, and When You Should Use Neither",
+      "url": "https://sadiqueali.medium.com/vue-watchers-explained-properly-when-to-use-watch-watcheffect-and-when-you-should-use-neither-8ba735863275",
+      "by": "Sadique Ali",
+      "time": 1787113118000,
       "tags": [
-        "css",
-        "software-development",
-        "web-development"
+        "vuejs",
+        "web-development",
+        "programming"
       ]
     },
     {
-      "title": "How Confidently Claude Can Be Wrong",
-      "url": "https://pub.towardsai.net/how-confidently-claude-can-be-wrong-25262f8370fc",
-      "by": "Rohan Mistry",
-      "time": 1787026654000,
+      "title": "Technical Business Analyst — 10 Premium Interview Questions",
+      "url": "https://medium.com/@preetjit82/technical-business-analyst-10-premium-interview-questions-fa9f7bb9659b",
+      "by": "Interview Simplified",
+      "time": 1787112901000,
       "tags": [
-        "machine-learning",
-        "claude",
-        "artificial-intelligence"
+        "data-analysis",
+        "interview",
+        "programming"
       ]
     },
     {
-      "title": "I Gave Claude 3.7 Sonnet and DeepSeek R1 the Same Coding Challenge. The Winner Surprised Me.",
-      "url": "https://medium.com/@anil.futuristic/i-gave-claude-3-7-sonnet-and-deepseek-r1-the-same-coding-challenge-the-winner-surprised-me-3f105d6e076d",
-      "by": "Anil Sharma",
-      "time": 1787026325000,
+      "title": "These Go routers Are overrated — Use these instead",
+      "url": "https://blog.devgenius.io/these-go-routers-are-overrated-use-these-instead-e74a5e210c75",
+      "by": "Yaninyz witty",
+      "time": 1787112670000,
       "tags": [
-        "claude-ai",
+        "writing",
+        "programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "From Demo to Production: 5 LangChain4j Pitfalls You Can’t Skip",
+      "url": "https://medium.com/@coolercoder/from-demo-to-production-5-langchain4j-pitfalls-you-cant-skip-9e69900e207b",
+      "by": "Ray Hu",
+      "time": 1787112655000,
+      "tags": [
+        "programming",
         "artificial-intelligence",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "11 Practical Strategies to Prepare for Data Engineering Interviews and Get More Opportunities",
+      "url": "https://medium.com/@preetjit82/11-practical-strategies-to-prepare-for-data-engineering-interviews-and-get-more-opportunities-59c1f5ea52b3",
+      "by": "Interview Simplified",
+      "time": 1787112653000,
+      "tags": [
+        "programming",
+        "interview-questions",
+        "interview"
+      ]
+    },
+    {
+      "title": "How I Ran 30 Users From One EC2 Instance — Each With Their Own Registered Outbound IP",
+      "url": "https://medium.com/@abhishektiwari342123/how-i-ran-30-users-from-one-ec2-instance-each-with-their-own-registered-outbound-ip-e2a2aa7ab98a",
+      "by": "Abhishek Tiwari",
+      "time": 1787112580000,
+      "tags": [
+        "aws",
+        "networking",
+        "linux"
+      ]
+    },
+    {
+      "title": "Apache Kafka in Production: Common Mistakes and Best Practices",
+      "url": "https://medium.com/@ronomahedi/apache-kafka-in-production-common-mistakes-and-best-practices-004b079020ec",
+      "by": "Abul Kalam Azad",
+      "time": 1787112513000,
+      "tags": [
+        "best-practices",
+        "devops",
         "software-engineering"
       ]
     },
     {
-      "title": "Top 10 DevOps Engineer Interview Questions",
-      "url": "https://medium.com/@preetjit82/top-10-devops-engineer-interview-questions-5c9dbcd05bc2",
-      "by": "Interview Simplified",
-      "time": 1787026276000,
+      "title": "I Tested Dozens of Python Tools for AI Automation — These 5 Kept Surviving",
+      "url": "https://levelup.gitconnected.com/i-tested-dozens-of-python-tools-for-ai-automation-these-5-kept-surviving-2b96584afaeb",
+      "by": "Maria Ali",
+      "time": 1787112250000,
       "tags": [
-        "jobs",
-        "interview-questions",
+        "technology",
+        "python-programming",
         "programming"
       ]
     },
     {
-      "title": "HSBC Data Analyst Interview: 15 Questions",
-      "url": "https://medium.com/@preetjit82/hsbc-data-analyst-interview-15-questions-a1d5f2d11d36",
-      "by": "Interview Simplified",
-      "time": 1787026223000,
+      "title": "A Software Engineer’s Guide to NGINX: From “localhost:8080” to Production Architecture",
+      "url": "https://medium.com/@dilhan9g/a-software-engineers-guide-to-nginx-from-localhost-8080-to-production-architecture-17f594b4e86d",
+      "by": "Suresh Dilhan",
+      "time": 1787112249000,
       "tags": [
-        "data-analyst",
-        "jobs",
-        "interview-questions"
+        "web-development",
+        "devops",
+        "architecture"
       ]
     },
     {
-      "title": "Why your Go Pagination strategy Gets slower on every page",
-      "url": "https://medium.com/codex/why-your-go-pagination-strategy-gets-slower-on-every-page-3b94b810d9a4",
-      "by": "Yaninyz witty",
-      "time": 1787026205000,
+      "title": "“I Can’t Code, I’m Just a Vibe Coder!” AI-Built App Goes Viral, $100M Company Wants Him—He Panics…",
+      "url": "https://medium.com/codeelevation/i-cant-code-i-m-just-a-vibe-coder-ai-built-app-goes-viral-100m-company-wants-him-he-panics-9c20647d82ed",
+      "by": "Dylan Cooper",
+      "time": 1787111918000,
       "tags": [
-        "coding",
-        "writing",
-        "programming"
-      ]
-    },
-    {
-      "title": "Laravel LazyCollection and cursor(): Process 1 Million Database Rows Without Killing Your Server",
-      "url": "https://sadiqueali.medium.com/laravel-lazycollection-and-cursor-process-1-million-database-rows-without-killing-your-server-22c69ae6066a",
-      "by": "Sadique Ali",
-      "time": 1787026172000,
-      "tags": [
-        "php",
-        "api",
-        "programming"
-      ]
-    },
-    {
-      "title": "How Authenticator Apps Generate Codes Without Internet",
-      "url": "https://bhavycodes.medium.com/how-authenticator-apps-generate-codes-without-internet-3d15955cb045",
-      "by": "Bhavy Ladani",
-      "time": 1787025705000,
-      "tags": [
-        "software-development",
-        "software-engineering",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "Slice vs Array in Go: The Difference Nobody Explains Properly",
-      "url": "https://pratiksha3101.medium.com/slice-vs-array-in-go-the-difference-nobody-explains-properly-1e6301a8a528",
-      "by": "Prateeksha",
-      "time": 1787025688000,
-      "tags": [
-        "golang",
-        "golang-slices",
-        "programming"
-      ]
-    },
-    {
-      "title": "Uptime",
-      "url": "https://medium.com/@m-hamzak/uptime-cef22f142c8a",
-      "by": "Muhammad Hamza Khalid",
-      "time": 1787025662000,
-      "tags": [
-        "short-story",
-        "life",
-        "programming"
+        "vibe-coding",
+        "technology",
+        "llm"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T04:27:49.882Z",
+  "generated": "2026-08-19T04:28:18.638Z",
   "season": "2026",
   "sources": [
     {
@@ -704,7 +704,7 @@
       "played": 0,
       "scheduled": 3,
       "ends": "2026-09-09",
-      "status": "upcoming"
+      "status": "live"
     },
     {
       "start": "2026-09-09",
@@ -796,6 +796,198 @@
     }
   ],
   "recent": [
+    {
+      "date": "2026-08-18",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Europe Qualifier C",
+      "teams": [
+        "Finland",
+        "Luxembourg"
+      ],
+      "winner": "Finland",
+      "margin": "73 runs",
+      "method": null,
+      "venue": "Tikkurila Cricket Ground",
+      "city": "Vantaa",
+      "international": true
+    },
+    {
+      "date": "2026-08-18",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Europe Qualifier C",
+      "teams": [
+        "Bulgaria",
+        "Spain"
+      ],
+      "winner": "Spain",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Tikkurila Cricket Ground",
+      "city": "Vantaa",
+      "international": true
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "CWC Challenge League",
+      "teams": [
+        "Tanzania",
+        "Italy"
+      ],
+      "winner": "Italy",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "University of Dar-es-Salaam Ground 1",
+      "city": "Dar-es-Salaam",
+      "international": true
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "CWC Challenge League",
+      "teams": [
+        "Uganda",
+        "Bahrain"
+      ],
+      "winner": "Bahrain",
+      "margin": "4 wickets",
+      "method": null,
+      "venue": "University of Dar-es-Salaam Ground 2",
+      "city": "Dar-es-Salaam",
+      "international": true
+    },
+    {
+      "date": "2026-08-18",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Europe Qualifier C",
+      "teams": [
+        "Greece",
+        "Germany"
+      ],
+      "winner": "Germany",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Kerava National Cricket Ground",
+      "city": "Kerava",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Colombo Cricket Club",
+        "Nugegoda Sports Welfare Club"
+      ],
+      "winner": "Colombo Cricket Club",
+      "margin": "24 runs",
+      "method": null,
+      "venue": "Colombo Cricket Club Ground",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Kurunegala Youth Cricket Club",
+        "Ace Capital Cricket Club"
+      ],
+      "winner": "Ace Capital Cricket Club",
+      "margin": "5 wickets",
+      "method": null,
+      "venue": "Welagedara Stadium, Kurunegala",
+      "city": "Kurunegala",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Tamil Union Cricket and Athletic Club",
+        "Moors Sports Club"
+      ],
+      "winner": "Moors Sports Club",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "P Sara Oval, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Burgher Recreation Club",
+        "Police Sports Club"
+      ],
+      "winner": "Police Sports Club",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Police Park Ground, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Badureliya Sports Club",
+        "Sinhalese Sports Club"
+      ],
+      "winner": "Sinhalese Sports Club",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Nondescripts Cricket Club Ground, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Colts Cricket Club",
+        "Nondescripts Cricket Club"
+      ],
+      "winner": "Colts Cricket Club",
+      "margin": "78 runs",
+      "method": null,
+      "venue": "Colts Cricket Club Ground, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-18",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Europe Qualifier C",
+      "teams": [
+        "Czech Republic",
+        "Israel"
+      ],
+      "winner": "Israel",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Kerava National Cricket Ground",
+      "city": "Kerava",
+      "international": false
+    },
     {
       "date": "2026-08-17",
       "type": "T20",
@@ -1501,70 +1693,6 @@
       "international": false
     },
     {
-      "date": "2026-08-14",
-      "type": "ODM",
-      "gender": "male",
-      "event": "Major Clubs Limited Over Tournament",
-      "teams": [
-        "Panadura Sports Club",
-        "Moors Sports Club"
-      ],
-      "winner": null,
-      "margin": "no result",
-      "method": null,
-      "venue": "Panadura Esplanade",
-      "city": "Panadura",
-      "international": false
-    },
-    {
-      "date": "2026-08-14",
-      "type": "ODM",
-      "gender": "male",
-      "event": "Major Clubs Limited Over Tournament",
-      "teams": [
-        "Police Sports Club",
-        "Sinhalese Sports Club"
-      ],
-      "winner": "Police Sports Club",
-      "margin": "62 runs",
-      "method": "D/L",
-      "venue": "Police Park Ground, Colombo",
-      "city": "Colombo",
-      "international": false
-    },
-    {
-      "date": "2026-08-14",
-      "type": "ODM",
-      "gender": "male",
-      "event": "Major Clubs Limited Over Tournament",
-      "teams": [
-        "Colts Cricket Club",
-        "Badureliya Sports Club"
-      ],
-      "winner": "Colts Cricket Club",
-      "margin": "29 runs",
-      "method": null,
-      "venue": "Surrey Village, Maggona",
-      "city": "Maggona",
-      "international": false
-    },
-    {
-      "date": "2026-08-14",
-      "type": "ODM",
-      "gender": "male",
-      "event": "Major Clubs Limited Over Tournament",
-      "teams": [
-        "Bloomfield Cricket and Athletic Club",
-        "Nondescripts Cricket Club"
-      ],
-      "winner": "Nondescripts Cricket Club",
-      "margin": "4 wickets",
-      "method": "D/L",
-      "venue": "Bloomfield Cricket and Athletic Club Ground, Colombo",
-      "city": "Colombo",
-      "international": false
-    },
-    {
       "date": "2026-08-13",
       "type": "ODI",
       "gender": "male",
@@ -1595,22 +1723,6 @@
       "venue": "Amini Park, Port Moresby",
       "city": "Port Moresby",
       "international": true
-    },
-    {
-      "date": "2026-08-13",
-      "type": "T20",
-      "gender": "male",
-      "event": "Caribbean Premier League",
-      "teams": [
-        "Jamaica Kingsmen",
-        "Guyana Amazon Warriors"
-      ],
-      "winner": "Guyana Amazon Warriors",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Sabina Park, Kingston, Jamaica",
-      "city": "Kingston",
-      "international": false
     },
     {
       "date": "2026-08-12",
@@ -1675,54 +1787,6 @@
       "venue": "TCA Oval, Blantyre",
       "city": "Blantyre",
       "international": true
-    },
-    {
-      "date": "2026-08-12",
-      "type": "T20",
-      "gender": "female",
-      "event": "The Hundred Women's Competition",
-      "teams": [
-        "Welsh Fire",
-        "London Spirit"
-      ],
-      "winner": "Welsh Fire",
-      "margin": "15 runs",
-      "method": null,
-      "venue": "Sophia Gardens, Cardiff",
-      "city": "Cardiff",
-      "international": false
-    },
-    {
-      "date": "2026-08-12",
-      "type": "T20",
-      "gender": "female",
-      "event": "The Hundred Women's Competition",
-      "teams": [
-        "MI London",
-        "Birmingham Phoenix"
-      ],
-      "winner": "Birmingham Phoenix",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Edgbaston, Birmingham",
-      "city": "Birmingham",
-      "international": false
-    },
-    {
-      "date": "2026-08-12",
-      "type": "T20",
-      "gender": "male",
-      "event": "The Hundred Men's Competition",
-      "teams": [
-        "London Spirit",
-        "Welsh Fire"
-      ],
-      "winner": "London Spirit",
-      "margin": "6 runs",
-      "method": null,
-      "venue": "Sophia Gardens, Cardiff",
-      "city": "Cardiff",
-      "international": false
     },
     {
       "date": "2026-08-11",
@@ -2170,70 +2234,6 @@
       "method": null,
       "venue": "Gymkhana Club Ground, Nairobi",
       "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-07-30",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's T20 Quadrangular Series (in Namibia)",
-      "teams": [
-        "Hong Kong",
-        "Tanzania"
-      ],
-      "winner": "Tanzania",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Namibia Cricket Ground, Windhoek",
-      "city": "Windhoek",
-      "international": true
-    },
-    {
-      "date": "2026-07-30",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's T20 Quadrangular Series (in Namibia)",
-      "teams": [
-        "Uganda",
-        "Namibia"
-      ],
-      "winner": "Uganda",
-      "margin": "17 runs",
-      "method": null,
-      "venue": "Namibia Cricket Ground, Windhoek",
-      "city": "Windhoek",
-      "international": true
-    },
-    {
-      "date": "2026-07-30",
-      "type": "T20",
-      "gender": "male",
-      "event": "ECA Men's European Cup",
-      "teams": [
-        "Austria",
-        "Romania"
-      ],
-      "winner": "Romania",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
-      "city": "Ilfov County",
-      "international": true
-    },
-    {
-      "date": "2026-07-30",
-      "type": "T20",
-      "gender": "male",
-      "event": "ECA Men's European Cup",
-      "teams": [
-        "France",
-        "Romania"
-      ],
-      "winner": "France",
-      "margin": "4 runs",
-      "method": null,
-      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
-      "city": "Ilfov County",
       "international": true
     }
   ]

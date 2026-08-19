@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T04:26:52.261Z",
+  "generated": "2026-08-19T04:27:03.665Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -12,6 +12,28 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg/120px-Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Toxic_(2026_film)",
       "imdb": "https://www.imdb.com/title/tt27530512/"
+    },
+    {
+      "title": "Winkle Twinkle",
+      "lang": "Indian",
+      "date": "2026-09-04",
+      "precision": "day",
+      "by": "Srijit Mukherji",
+      "desc": "Upcoming film by Srijit Mukherji",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Winkle_Twinkle.jpg/120px-Winkle_Twinkle.jpg",
+      "url": "https://en.wikipedia.org/wiki/Winkle_Twinkle",
+      "imdb": "https://www.imdb.com/title/tt35473512/"
+    },
+    {
+      "title": "Emperor vs Sarat Chandra",
+      "lang": "Indian",
+      "date": "2026-10-16",
+      "precision": "day",
+      "by": "Srijit Mukherji",
+      "desc": "Upcoming film by Srijit Mukherji",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/Emperor_vs_Sarat_Chandra_poster.jpg/120px-Emperor_vs_Sarat_Chandra_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Emperor_vs_Sarat_Chandra",
+      "imdb": "https://www.imdb.com/title/tt38090791/"
     },
     {
       "title": "Ramayana",
@@ -133,28 +155,6 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
       "url": "https://en.wikipedia.org/wiki/Mandaadi",
       "imdb": "https://www.imdb.com/title/tt36596965/"
-    },
-    {
-      "title": "Sardar 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "P. S. Mithran",
-      "desc": "Upcoming Indian film by P. S. Mithran",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Sardar_2",
-      "imdb": "https://www.imdb.com/title/tt28541577/"
-    },
-    {
-      "title": "Thudakkam",
-      "lang": "Malayalam",
-      "date": null,
-      "precision": null,
-      "by": "Jude Anthany Joseph",
-      "desc": "2026 film by Jude Anthany Joseph",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Thudakkam",
-      "imdb": "https://www.imdb.com/title/tt37510017/"
     }
   ]
 }
