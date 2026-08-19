@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T04:28:13.782Z",
+  "generated": "2026-08-19T05:21:16.115Z",
   "reddit": [
     {
       "title": "Nodes as VMs on 1 machine",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Vue Watchers Explained Properly: When to Use watch, watchEffect, and When You Should Use Neither",
-      "url": "https://sadiqueali.medium.com/vue-watchers-explained-properly-when-to-use-watch-watcheffect-and-when-you-should-use-neither-8ba735863275",
-      "by": "Sadique Ali",
-      "time": 1787113118000,
-      "tags": [
-        "vuejs",
-        "web-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "Technical Business Analyst — 10 Premium Interview Questions",
-      "url": "https://medium.com/@preetjit82/technical-business-analyst-10-premium-interview-questions-fa9f7bb9659b",
-      "by": "Interview Simplified",
-      "time": 1787112901000,
-      "tags": [
-        "data-analysis",
-        "interview",
-        "programming"
-      ]
-    },
-    {
-      "title": "These Go routers Are overrated — Use these instead",
-      "url": "https://blog.devgenius.io/these-go-routers-are-overrated-use-these-instead-e74a5e210c75",
-      "by": "Yaninyz witty",
-      "time": 1787112670000,
-      "tags": [
-        "writing",
-        "programming",
-        "coding"
-      ]
-    },
-    {
-      "title": "From Demo to Production: 5 LangChain4j Pitfalls You Can’t Skip",
-      "url": "https://medium.com/@coolercoder/from-demo-to-production-5-langchain4j-pitfalls-you-cant-skip-9e69900e207b",
-      "by": "Ray Hu",
-      "time": 1787112655000,
+      "title": "How to Prompt AI for Quantum Algorithms in Qiskit Without Getting Syntax Errors",
+      "url": "https://medium.com/@ellklymamba/how-to-prompt-ai-for-quantum-algorithms-in-qiskit-without-getting-syntax-errors-96be5e883899",
+      "by": "Mohsin faraz",
+      "time": 1787116086000,
       "tags": [
         "programming",
-        "artificial-intelligence",
-        "ai-agent"
+        "quantum-computing",
+        "quantum-ai"
       ]
     },
     {
-      "title": "11 Practical Strategies to Prepare for Data Engineering Interviews and Get More Opportunities",
-      "url": "https://medium.com/@preetjit82/11-practical-strategies-to-prepare-for-data-engineering-interviews-and-get-more-opportunities-59c1f5ea52b3",
-      "by": "Interview Simplified",
-      "time": 1787112653000,
+      "title": "Python Generators for Data Engineers: Why yield Matters When Data Gets Large",
+      "url": "https://medium.com/@skandala199/python-generators-for-data-engineers-why-yield-matters-when-data-gets-large-5ae5de666163",
+      "by": "Skandala",
+      "time": 1787116021000,
       "tags": [
-        "programming",
-        "interview-questions",
-        "interview"
-      ]
-    },
-    {
-      "title": "How I Ran 30 Users From One EC2 Instance — Each With Their Own Registered Outbound IP",
-      "url": "https://medium.com/@abhishektiwari342123/how-i-ran-30-users-from-one-ec2-instance-each-with-their-own-registered-outbound-ip-e2a2aa7ab98a",
-      "by": "Abhishek Tiwari",
-      "time": 1787112580000,
-      "tags": [
-        "aws",
-        "networking",
-        "linux"
-      ]
-    },
-    {
-      "title": "Apache Kafka in Production: Common Mistakes and Best Practices",
-      "url": "https://medium.com/@ronomahedi/apache-kafka-in-production-common-mistakes-and-best-practices-004b079020ec",
-      "by": "Abul Kalam Azad",
-      "time": 1787112513000,
-      "tags": [
-        "best-practices",
-        "devops",
+        "python",
+        "data-engineering",
         "software-engineering"
       ]
     },
     {
-      "title": "I Tested Dozens of Python Tools for AI Automation — These 5 Kept Surviving",
-      "url": "https://levelup.gitconnected.com/i-tested-dozens-of-python-tools-for-ai-automation-these-5-kept-surviving-2b96584afaeb",
-      "by": "Maria Ali",
-      "time": 1787112250000,
+      "title": "Stop Asking Whether SLA Is “Good Enough” for Prototyping",
+      "url": "https://medium.com/@fabnow3d/stop-asking-whether-sla-is-good-enough-for-prototyping-802deab3b36a",
+      "by": "fabnow3d",
+      "time": 1787115856000,
       "tags": [
-        "technology",
-        "python-programming",
+        "industrial-design",
+        "product-development",
+        "3d-printing"
+      ]
+    },
+    {
+      "title": "Kubernetes & Terraform with AI Training & Placement in Electronic City, Bangalore",
+      "url": "https://medium.com/@richuemexo/kubernetes-terraform-with-ai-training-placement-in-electronic-city-bangalore-ff5752a2687a",
+      "by": "Richuemexo",
+      "time": 1787115843000,
+      "tags": [
+        "kubernetes",
+        "terraform",
+        "devops"
+      ]
+    },
+    {
+      "title": "I Solved 652 LeetCode Problems and These Are the 5 Things That Mattered",
+      "url": "https://medium.com/illumination/i-solved-652-leetcode-problems-and-these-are-the-5-things-that-mattered-48404a4b09ec",
+      "by": "Shreyas Naphad",
+      "time": 1787115824000,
+      "tags": [
+        "data-science",
+        "software-development",
         "programming"
       ]
     },
     {
-      "title": "A Software Engineer’s Guide to NGINX: From “localhost:8080” to Production Architecture",
-      "url": "https://medium.com/@dilhan9g/a-software-engineers-guide-to-nginx-from-localhost-8080-to-production-architecture-17f594b4e86d",
-      "by": "Suresh Dilhan",
-      "time": 1787112249000,
+      "title": "Why I Run My Postgres on a microVM Now",
+      "url": "https://medium.com/@malaviyadhruv05/why-i-run-my-postgres-on-a-microvm-now-edb01ff9748b",
+      "by": "illogical_people",
+      "time": 1787115769000,
       "tags": [
-        "web-development",
-        "devops",
-        "architecture"
+        "database",
+        "postgres",
+        "devops"
       ]
     },
     {
-      "title": "“I Can’t Code, I’m Just a Vibe Coder!” AI-Built App Goes Viral, $100M Company Wants Him—He Panics…",
-      "url": "https://medium.com/codeelevation/i-cant-code-i-m-just-a-vibe-coder-ai-built-app-goes-viral-100m-company-wants-him-he-panics-9c20647d82ed",
-      "by": "Dylan Cooper",
-      "time": 1787111918000,
+      "title": "Everyone I See Started Using Buzz — But What Is It Exactly, and How Do You Set It Up With a Relay?",
+      "url": "https://medium.com/@oswaldshiloo/everyone-i-see-started-using-buzz-but-what-is-it-exactly-and-how-do-you-set-it-up-with-a-relay-992079ee84b6",
+      "by": "Oswald Shilo",
+      "time": 1787115716000,
       "tags": [
-        "vibe-coding",
+        "agents",
+        "buzz",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Lovable already scans your app. What does that actually prove?",
+      "url": "https://medium.com/beyond-localhost/lovable-already-scans-your-app-what-does-that-actually-prove-8b931a0aeea3",
+      "by": "jacob perks",
+      "time": 1787115662000,
+      "tags": [
+        "saas",
+        "application-security",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "AI and the Exploitation Economy",
+      "url": "https://the-architect-ds.medium.com/ai-and-the-exploitation-economy-9189207e9c7c",
+      "by": "The_Architect",
+      "time": 1787115661000,
+      "tags": [
+        "programming",
         "technology",
-        "llm"
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Why Your Distributed System Needs Backpressure",
+      "url": "https://codingplainenglish.medium.com/why-your-distributed-system-needs-backpressure-34ab7733f065",
+      "by": "Abhinav",
+      "time": 1787115361000,
+      "tags": [
+        "software-development",
+        "programming",
+        "technology"
       ]
     }
   ]

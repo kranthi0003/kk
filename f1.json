@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T04:28:16.515Z",
+  "generated": "2026-08-19T05:21:18.281Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -369,8 +369,18 @@
       "country": "Australia",
       "start": "2026-03-08T04:00:00Z",
       "date": "2026-03-08",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Russell",
+        "code": "RUS",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:18.518"
+      }
     },
     {
       "round": 2,
@@ -380,8 +390,18 @@
       "country": "China",
       "start": "2026-03-15T07:00:00Z",
       "date": "2026-03-15",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:32.064"
+      }
     },
     {
       "round": 3,
@@ -391,8 +411,18 @@
       "country": "Japan",
       "start": "2026-03-29T05:00:00Z",
       "date": "2026-03-29",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:28.778"
+      }
     },
     {
       "round": 4,
@@ -402,8 +432,18 @@
       "country": "USA",
       "start": "2026-05-03T20:00:00Z",
       "date": "2026-05-03",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:27.798"
+      }
     },
     {
       "round": 5,
@@ -413,8 +453,18 @@
       "country": "Canada",
       "start": "2026-05-24T20:00:00Z",
       "date": "2026-05-24",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:12.578"
+      }
     },
     {
       "round": 6,
@@ -424,8 +474,18 @@
       "country": "Monaco",
       "start": "2026-06-07T13:00:00Z",
       "date": "2026-06-07",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:12.051"
+      }
     },
     {
       "round": 7,
@@ -435,8 +495,18 @@
       "country": "Spain",
       "start": "2026-06-14T13:00:00Z",
       "date": "2026-06-14",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Hamilton",
+        "code": "HAM",
+        "team": "Ferrari",
+        "teamId": "ferrari"
+      },
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:14.679"
+      }
     },
     {
       "round": 8,
@@ -446,8 +516,18 @@
       "country": "Austria",
       "start": "2026-06-28T13:00:00Z",
       "date": "2026-06-28",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Russell",
+        "code": "RUS",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:06.113"
+      }
     },
     {
       "round": 9,
@@ -457,8 +537,18 @@
       "country": "UK",
       "start": "2026-07-05T14:00:00Z",
       "date": "2026-07-05",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Leclerc",
+        "code": "LEC",
+        "team": "Ferrari",
+        "teamId": "ferrari"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:28.111"
+      }
     },
     {
       "round": 10,
@@ -468,8 +558,18 @@
       "country": "Belgium",
       "start": "2026-07-19T13:00:00Z",
       "date": "2026-07-19",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes"
+      },
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:44.361"
+      }
     },
     {
       "round": 11,
@@ -479,8 +579,18 @@
       "country": "Hungary",
       "start": "2026-07-26T13:00:00Z",
       "date": "2026-07-26",
-      "winner": null,
-      "pole": null
+      "winner": {
+        "last": "Norris",
+        "code": "NOR",
+        "team": "McLaren",
+        "teamId": "mclaren"
+      },
+      "pole": {
+        "last": "Norris",
+        "code": "NOR",
+        "teamId": "mclaren",
+        "time": "1:17.207"
+      }
     },
     {
       "round": 12,
