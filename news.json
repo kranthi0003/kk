@@ -1,19 +1,26 @@
 {
-  "generated": "2026-08-19T05:21:16.115Z",
+  "generated": "2026-08-19T06:23:44.837Z",
   "reddit": [
     {
-      "title": "Nodes as VMs on 1 machine",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vsaiug/nodes_as_vms_on_1_machine/",
-      "by": "Not-Jody",
-      "time": 1787108915000,
-      "sub": "r/kubernetes"
+      "title": "CKS Exam Experience 2026: What Helped, What Didn’t, and the Mistake That Cost Me Time",
+      "url": "https://www.reddit.com/r/devops/comments/1vse3p3/cks_exam_experience_2026_what_helped_what_didnt/",
+      "by": "root0ps",
+      "time": 1787119931000,
+      "sub": "r/devops"
     },
     {
-      "title": "[ Removed by Reddit ]",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vs8ipp/removed_by_reddit/",
-      "by": "Pretend_Cry_1690",
-      "time": 1787103427000,
-      "sub": "r/kubernetes"
+      "title": "New to DevOps/AWS CodePipeline - Could Someone Help Me Understand Our Setup?",
+      "url": "https://www.reddit.com/r/devops/comments/1vsdwg0/new_to_devopsaws_codepipeline_could_someone_help/",
+      "by": "No-Heat-1958",
+      "time": 1787119267000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What are the best Wiz alternatives for mid sized company?",
+      "url": "https://www.reddit.com/r/devops/comments/1vsda9s/what_are_the_best_wiz_alternatives_for_mid_sized/",
+      "by": "Successful-Bat9218",
+      "time": 1787117265000,
+      "sub": "r/devops"
     },
     {
       "title": "Pandoc: What survives markup conversion?",
@@ -23,18 +30,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Three Silent Failures Between You and Sidecar Injection",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vs1eyh/three_silent_failures_between_you_and_sidecar/",
-      "by": "Character-Level5250",
-      "time": 1787085789000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "I fell down a debugging rabbit hole",
       "url": "https://www.reddit.com/r/programming/comments/1vs0umj/i_fell_down_a_debugging_rabbit_hole/",
       "by": "santiagobustelo",
       "time": 1787084546000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Is learning arch really worth it for devops",
+      "url": "https://www.reddit.com/r/devops/comments/1vs0hlc/is_learning_arch_really_worth_it_for_devops/",
+      "by": "Strong-Interview45",
+      "time": 1787083757000,
+      "sub": "r/devops"
     },
     {
       "title": "I unearthed my Am29000 C compiler and web browser from 1999. It still can surf through the emulator",
@@ -44,143 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Questions and advice",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vrksfx/weekly_questions_and_advice/",
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1787047207000,
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "How to Prompt AI for Quantum Algorithms in Qiskit Without Getting Syntax Errors",
-      "url": "https://medium.com/@ellklymamba/how-to-prompt-ai-for-quantum-algorithms-in-qiskit-without-getting-syntax-errors-96be5e883899",
-      "by": "Mohsin faraz",
-      "time": 1787116086000,
+      "title": "TypeScript Exclude and Extract in Depth: Filtering Union Types for Real API Contracts",
+      "url": "https://medium.com/@jsmanifest/typescript-exclude-and-extract-in-depth-filtering-union-types-for-real-api-contracts-f6b9b8248d3b",
+      "by": "jsmanifest",
+      "time": 1787120560000,
       "tags": [
         "programming",
-        "quantum-computing",
-        "quantum-ai"
+        "front-end-development",
+        "typescript"
       ]
     },
     {
-      "title": "Python Generators for Data Engineers: Why yield Matters When Data Gets Large",
-      "url": "https://medium.com/@skandala199/python-generators-for-data-engineers-why-yield-matters-when-data-gets-large-5ae5de666163",
-      "by": "Skandala",
-      "time": 1787116021000,
+      "title": "Getting to Know NativePHP’s MCP Server: Your AI Agent Now Understands SuperNative",
+      "url": "https://towardsdev.com/getting-to-know-nativephps-mcp-server-your-ai-agent-now-understands-supernative-cdac0e6d8c44",
+      "by": "Developer Awam",
+      "time": 1787120478000,
       "tags": [
-        "python",
-        "data-engineering",
-        "software-engineering"
+        "laravel",
+        "php",
+        "mobile-app-development"
       ]
     },
     {
-      "title": "Stop Asking Whether SLA Is “Good Enough” for Prototyping",
-      "url": "https://medium.com/@fabnow3d/stop-asking-whether-sla-is-good-enough-for-prototyping-802deab3b36a",
-      "by": "fabnow3d",
-      "time": 1787115856000,
+      "title": "Using float4 to fix uncoalesced writes in a CUDA matmul",
+      "url": "https://medium.com/@aniketm2598/using-float4-to-fix-uncoalesced-writes-in-a-cuda-matmul-01ed5ba8fa45",
+      "by": "Aniket Maheshwari",
+      "time": 1787120358000,
       "tags": [
-        "industrial-design",
-        "product-development",
-        "3d-printing"
-      ]
-    },
-    {
-      "title": "Kubernetes & Terraform with AI Training & Placement in Electronic City, Bangalore",
-      "url": "https://medium.com/@richuemexo/kubernetes-terraform-with-ai-training-placement-in-electronic-city-bangalore-ff5752a2687a",
-      "by": "Richuemexo",
-      "time": 1787115843000,
-      "tags": [
-        "kubernetes",
-        "terraform",
-        "devops"
-      ]
-    },
-    {
-      "title": "I Solved 652 LeetCode Problems and These Are the 5 Things That Mattered",
-      "url": "https://medium.com/illumination/i-solved-652-leetcode-problems-and-these-are-the-5-things-that-mattered-48404a4b09ec",
-      "by": "Shreyas Naphad",
-      "time": 1787115824000,
-      "tags": [
-        "data-science",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "Why I Run My Postgres on a microVM Now",
-      "url": "https://medium.com/@malaviyadhruv05/why-i-run-my-postgres-on-a-microvm-now-edb01ff9748b",
-      "by": "illogical_people",
-      "time": 1787115769000,
-      "tags": [
-        "database",
-        "postgres",
-        "devops"
-      ]
-    },
-    {
-      "title": "Everyone I See Started Using Buzz — But What Is It Exactly, and How Do You Set It Up With a Relay?",
-      "url": "https://medium.com/@oswaldshiloo/everyone-i-see-started-using-buzz-but-what-is-it-exactly-and-how-do-you-set-it-up-with-a-relay-992079ee84b6",
-      "by": "Oswald Shilo",
-      "time": 1787115716000,
-      "tags": [
-        "agents",
-        "buzz",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Lovable already scans your app. What does that actually prove?",
-      "url": "https://medium.com/beyond-localhost/lovable-already-scans-your-app-what-does-that-actually-prove-8b931a0aeea3",
-      "by": "jacob perks",
-      "time": 1787115662000,
-      "tags": [
-        "saas",
-        "application-security",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AI and the Exploitation Economy",
-      "url": "https://the-architect-ds.medium.com/ai-and-the-exploitation-economy-9189207e9c7c",
-      "by": "The_Architect",
-      "time": 1787115661000,
-      "tags": [
+        "machine-learning",
         "programming",
+        "cuda"
+      ]
+    },
+    {
+      "title": "10 Free Online Tools Every Developer Should Bookmark in 2026",
+      "url": "https://medium.com/@bsorathiya64/10-free-online-tools-every-developer-should-bookmark-in-2026-8134ea73d47d",
+      "by": "Bsorathiya",
+      "time": 1787120358000,
+      "tags": [
         "technology",
-        "artificial-intelligence"
+        "web-development",
+        "coding"
       ]
     },
     {
-      "title": "Why Your Distributed System Needs Backpressure",
-      "url": "https://codingplainenglish.medium.com/why-your-distributed-system-needs-backpressure-34ab7733f065",
-      "by": "Abhinav",
-      "time": 1787115361000,
+      "title": "Partition vs Shard vs Partition Key: Understanding Data Distribution",
+      "url": "https://medium.com/@rajatraghav7797/partition-vs-shard-vs-partition-key-understanding-data-distribution-7c5c9e1242a1",
+      "by": "Rajat Kumar",
+      "time": 1787120250000,
       "tags": [
-        "software-development",
         "programming",
-        "technology"
+        "backend-development",
+        "database"
+      ]
+    },
+    {
+      "title": "Delaying a Refactor Is Sometimes the Right Call",
+      "url": "https://medium.com/@aigenneguraha/delaying-a-refactor-is-sometimes-the-right-call-cd2879a3b655",
+      "by": "Agung Nugroho",
+      "time": 1787120038000,
+      "tags": [
+        "programming",
+        "software-architecture",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Day I Realized AI Was Changing More Than Just Technology",
+      "url": "https://medium.com/@khalidkhan3398/the-day-i-realized-ai-was-changing-more-than-just-technology-e5f8cc15dd9f",
+      "by": "Kristen Belly",
+      "time": 1787120001000,
+      "tags": [
+        "ai",
+        "software-engineering",
+        "entrepreneurship"
+      ]
+    },
+    {
+      "title": "Stop Looping Over Your Database Calls: What Batching Taught Me About Scale",
+      "url": "https://medium.com/@wwwdeepak/stop-looping-over-your-database-calls-what-batching-taught-me-about-scale-7f798010a2e8",
+      "by": "Deepak",
+      "time": 1787119508000,
+      "tags": [
+        "software",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "AI Integrated Classroom",
+      "url": "https://medium.com/@sweaty.phd/ai-integrated-classroom-fc9cf7ff04ff",
+      "by": "Alexander Katrompas, PhD",
+      "time": 1787119483000,
+      "tags": [
+        "teaching-and-learning",
+        "generative-ai-use-cases",
+        "ai"
+      ]
+    },
+    {
+      "title": "Stop Just Using the Cloud — Learn How to Build on It",
+      "url": "https://medium.com/@syedrazayahoo1/stop-just-using-the-cloud-learn-how-to-build-on-it-59afd478a047",
+      "by": "Syedrazayahoo",
+      "time": 1787119473000,
+      "tags": [
+        "azure",
+        "aws",
+        "devops"
       ]
     }
   ]
