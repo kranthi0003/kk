@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import {
   lsGet, lsSet, todayKey, localKey,
   PLAN, SCHEDULED_DAYS, workoutLabelForDay, ytUrl,
+  PROGRAM, programWeek, satCardioFor, stepTargetFor, INTENSITY, PROGRESSION, CHECKIN,
   thisWeekDates, dayCompletion, workoutDoneForDate, cumulativeStats,
   lockin, isClockedIn, clockIn, clockInAt, clockInStreak, longestClockInStreak,
   totalClockIns, daySummary, weekAdherence, lifetimeTotals,
@@ -43,11 +44,21 @@ const HABITS = [
   { key: 'nojunk', emoji: '🚫', label: 'No junk / liquid cals', sub: 'the single biggest belly + skin driver' },
 ]
 
+// Steps ramp during the 8-week block, so week 1 doesn't demand 10K on day one.
+function habitsForWeek(pw) {
+  if (pw.status !== 'active') return HABITS
+  const target = stepTargetFor(pw.week)
+  if (target === '9–10K') return HABITS
+  return HABITS.map(h => h.key === 'steps'
+    ? { ...h, label: `${target} steps`, sub: `week ${pw.week} target — builds to 10K by week 4` }
+    : h)
+}
+
 const STEPS_SPLIT = [
-  ['Morning walk', '~3,500'],
-  ['After lunch (10 min)', '~2,000'],
-  ['Evening walk', '~3,500'],
-  ['Incidental (stairs, errands)', '~1,000'],
+  ['Normal daily movement', '~3,000'],
+  ['Morning treadmill', '~2,500'],
+  ['Work breaks', '~1,500'],
+  ['Evening walk', '~3,000'],
 ]
 
 const NUTRITION_RULES = [
@@ -60,8 +71,9 @@ const NUTRITION_RULES = [
 ]
 
 const MILESTONES = [
-  ['Aug — Month 1', 'Lock the habits: clock in daily · 6 lifts/wk · 10k steps · SPF every morning'],
-  ['Sep–Oct — Month 2–3', 'Deficit biting — belly visibly flatter, face de-bloats, skin clearer'],
+  ['Aug 24 — Block starts', 'Foundation: learn the movements · 2 sets · 6–8K steps · clock in daily'],
+  ['Sep — Weeks 3–6', 'Full volume and real load. Deficit biting — belly flatter, face de-bloats, skin clearer'],
+  ['Oct 18 🎯', 'End of the 8-week block, and the appearance it was built for'],
   ['Nov–Dec — Month 4–5', 'Lean & defined — clothes fit different, energy + confidence up'],
   ['Jan 31 🏆', 'Six months, no misses. Lowest body fat, glowing skin. You won.'],
 ]
@@ -315,6 +327,8 @@ function TodayTab({ lk, go }) {
 
   const now = new Date()
   const lift = workoutLabelForDay(now.getDay())
+  const pw = useMemo(programWeek, [])
+  const habits = useMemo(() => habitsForWeek(pw), [pw])
   const s = useMemo(() => daySummary(tk), [tk, tick, clocked, day])
   const streak = useMemo(() => clockInStreak(), [clocked, tick])
 
@@ -327,9 +341,9 @@ function TodayTab({ lk, go }) {
     { key: 'skincare', emoji: '✨', label: 'Skincare AM + PM', tab: 'skincare',
       done: s.skin === 2, detail: `${s.skin}/2 done` },
   ]
-  const habitsDone = HABITS.filter(h => day[h.key]).length
+  const habitsDone = habits.filter(h => day[h.key]).length
   const pillarsDone = pillars.filter(p => p.done).length
-  const dayWon = clocked && pillarsDone === 3 && habitsDone === HABITS.length
+  const dayWon = clocked && pillarsDone === 3 && habitsDone === habits.length
 
   // this week strip (green = clocked-in day)
   const week = thisWeekDates()
@@ -388,7 +402,7 @@ function TodayTab({ lk, go }) {
           ))}
         </div>
         <div className="space-y-2">
-          {HABITS.map(h => {
+          {habits.map(h => {
             const done = !!day[h.key]
             return (
               <button key={h.key} onClick={() => toggle(h.key)}
@@ -428,7 +442,7 @@ function TodayTab({ lk, go }) {
         <div className="flex gap-2.5 mt-3">
           <Stat value={streak} label="clock-in streak" />
           <Stat value={`${pillarsDone}/3`} label="pillars today" />
-          <Stat value={`${habitsDone}/${HABITS.length}`} label="habits today" />
+          <Stat value={`${habitsDone}/${habits.length}`} label="habits today" />
         </div>
       </Card>
 
@@ -436,7 +450,7 @@ function TodayTab({ lk, go }) {
       <Card title="🕮 Your daily rhythm" sub="The order that makes it effortless.">
         <ol className="space-y-1.5 text-[13px] text-foreground">
           <li>🌅 <b>Wake</b> — water, cleanser + vitamin C + moisturiser + <b>SPF</b></li>
-          <li>🚶 <b>Morning walk</b> (~3,500 steps) + clock in</li>
+          <li>🚶 <b>Morning walk or treadmill</b> (~2,500 steps) + clock in</li>
           <li>🍽️ <b>Meal 1</b> (~11 AM) — protein + salad</li>
           <li>🏋️ <b>Train</b> — today: {s.rest ? 'rest / easy walk' : (lift || 'workout')}</li>
           <li>🍽️ <b>Meal 2</b> (~6 PM) — protein + veg</li>
@@ -602,8 +616,101 @@ function PostureCard() {
   )
 }
 
+// ---- where you are inside the 8-week block, and what this fortnight asks for
+function BlockBanner({ pw }) {
+  const p = pw.phase
+  const fmt = (d, o) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', o)
+  const startLabel = fmt(PROGRAM.start, { weekday: 'short', day: 'numeric', month: 'short' })
+  const endLabel = fmt(PROGRAM.end, { day: 'numeric', month: 'short' })
+
+  if (pw.status === 'upcoming') {
+    return (
+      <Card
+        title={`🗓️ ${PROGRAM.label}`}
+        sub={PROGRAM.goal}
+        right={<span className="text-[10.5px] text-muted-foreground whitespace-nowrap">→ {PROGRAM.target}</span>}>
+        <div className="flex items-center gap-3 rounded-xl border px-3.5 py-3"
+          style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 26%, var(--color-border))', background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)' }}>
+          <div className="text-center leading-none">
+            <div className="font-heading text-2xl font-bold tabular-nums" style={{ color: ACCENT }}>{pw.daysUntil}</div>
+            <div className="text-[9.5px] uppercase tracking-wide text-muted-foreground mt-1">day{pw.daysUntil === 1 ? '' : 's'}</div>
+          </div>
+          <div className="min-w-0 text-[12.5px] text-foreground leading-snug">
+            Week 1 starts <b>{startLabel}</b>.
+            <span className="text-muted-foreground"> Until then: keep walking, set your dumbbells up, and watch the form videos below so nothing is new on day one.</span>
+          </div>
+        </div>
+
+        <div className="mt-3.5 space-y-1.5">
+          {PROGRAM.phases.map(ph => (
+            <div key={ph.id} className="flex flex-col sm:flex-row sm:items-baseline gap-x-3 gap-y-0.5 rounded-lg px-3 py-2"
+              style={{ background: 'color-mix(in oklab, var(--chart-1) 5%, transparent)' }}>
+              <div className="flex items-baseline gap-3">
+                <span className="text-[10px] tabular-nums text-muted-foreground w-10 flex-shrink-0">wk {ph.weeks.join('–')}</span>
+                <span className="text-[12.5px] font-medium text-foreground sm:w-36 sm:flex-shrink-0">{ph.name}</span>
+              </div>
+              <span className="text-[11.5px] text-muted-foreground pl-[3.25rem] sm:pl-0 min-w-0">{ph.sets} · {ph.steps}</span>
+            </div>
+          ))}
+        </div>
+        <Note>Eight weeks, ending {endLabel}. Four lifts, one cardio day, one mobility day, one full rest day — every week.</Note>
+      </Card>
+    )
+  }
+
+  const rows = [
+    ['Sets', p.sets],
+    ['Effort', p.rpe],
+    ['Steps', `${stepTargetFor(pw.week)} / day`],
+    ['Cardio', p.cardio],
+  ]
+
+  return (
+    <Card
+      title={`🗓️ ${PROGRAM.label}`}
+      sub={PROGRAM.goal}
+      right={<span className="text-[10.5px] text-muted-foreground whitespace-nowrap">→ {PROGRAM.target}</span>}>
+      <div className="flex items-baseline justify-between mb-2">
+        <span className="text-[13px] font-medium text-foreground">
+          {pw.status === 'done' ? 'Block complete 🏆' : <>Week {pw.week} of {pw.total} · <span style={{ color: ACCENT }}>{p.name}</span></>}
+        </span>
+        <span className="text-[11px] text-muted-foreground tabular-nums">{pw.pct}%</span>
+      </div>
+      <ProgressBar pct={pw.pct} />
+
+      {/* week strip — 8 cells, current one lit */}
+      <div className="grid grid-cols-8 gap-1 mt-3">
+        {Array.from({ length: PROGRAM.weeks }, (_, i) => i + 1).map(w => {
+          const cur = w === pw.week && pw.status === 'active'
+          const past = w < pw.week || pw.status === 'done'
+          return (
+            <div key={w} className="rounded-md py-1 text-center text-[10px] tabular-nums transition-colors"
+              style={{
+                background: cur ? ACCENT : past ? 'color-mix(in oklab, var(--chart-1) 18%, transparent)' : 'transparent',
+                color: cur ? 'var(--color-background)' : past ? 'var(--color-foreground)' : 'var(--color-muted-foreground)',
+                boxShadow: cur || past ? 'none' : 'inset 0 0 0 1px var(--color-border)',
+                fontWeight: cur ? 700 : 400,
+              }}>{w}</div>
+          )
+        })}
+      </div>
+
+      <div className="grid grid-cols-2 gap-x-4 gap-y-2 mt-3.5">
+        {rows.map(([k, v]) => (
+          <div key={k} className="min-w-0">
+            <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{k}</div>
+            <div className="text-[12.5px] text-foreground leading-snug">{v}</div>
+          </div>
+        ))}
+      </div>
+      <Note>{p.aim} — {p.note}</Note>
+    </Card>
+  )
+}
+
 function GymTab() {
   const week = useMemo(thisWeekDates, [])
+  const pw = useMemo(programWeek, [])
   const initial = Math.max(0, week.findIndex(d => d.isToday))
   const [sel, setSel] = useState(initial)
   const day = week[sel]
@@ -623,17 +730,22 @@ function GymTab() {
   const done = plan.exercises.filter(e => log[e.id]).length
   const pct = total ? Math.round((done / total) * 100) : 0
   const labels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+  // During weeks 1–2 the plan says drop to 2 sets on most lifts.
+  const easing = pw.status === 'active' && pw.week <= 2
+  const sat = satCardioFor(pw.status === 'upcoming' ? 1 : pw.week)
 
   return (
     <>
-      <Card title="🏠 Home gym" sub="Everything here needs only adjustable dumbbells + a bench. Train Mon–Sat, rest Sunday.">
+      <BlockBanner pw={pw} />
+
+      <Card title="🏠 Home gym" sub="Dumbbells, a bench and the treadmill. Four lifts a week, one real cardio day, one mobility day, one day off.">
         <div className="flex flex-wrap gap-2">
           <Pill>🏋️ Adjustable dumbbells</Pill>
           <Pill>🪑 Flat / incline bench</Pill>
+          <Pill>🏃 Treadmill</Pill>
           <Pill>🧘 A mat</Pill>
-          <Pill>⏱️ 45–60 min</Pill>
         </div>
-        <Note>Every exercise has a <b className="text-foreground">▶ Form</b> link — tap it to watch the technique before your first set. Good form = results without injury.</Note>
+        <Note>Every exercise has a <b className="text-foreground">▶ Form</b> link — watch it before your first set. Good form is what makes this work without hurting you.</Note>
       </Card>
 
       <PostureCard />
@@ -661,7 +773,7 @@ function GymTab() {
       <Card title={`${plan.day} — ${plan.name}`} sub={plan.focus} right={<span className="text-[10.5px] text-muted-foreground whitespace-nowrap">{plan.equip}</span>}>
         {plan.rest ? (
           <>
-            <div className="text-[13px] text-muted-foreground mb-3">Rest day — {plan.cardio}. No weights. Muscle grows on rest days, not in the gym.</div>
+            <div className="text-[13px] text-muted-foreground mb-3">Rest day — {plan.cardio}. No workout needed. Recovery is part of the program, not a break from it.</div>
             <div className="space-y-2">
               {plan.exercises.map(ex => (
                 <div key={ex.id} className="flex items-center justify-between gap-3 rounded-xl border px-3 py-2.5"
@@ -674,6 +786,13 @@ function GymTab() {
           </>
         ) : (
           <>
+            {easing && (
+              <div className="rounded-xl border px-3 py-2 mb-3 text-[12px] leading-snug"
+                style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 30%, transparent)', background: 'color-mix(in oklab, var(--chart-1) 8%, transparent)' }}>
+                <b className="text-foreground">Week {pw.week} — do 2 sets, not 3</b>
+                <span className="text-muted-foreground"> on the main lifts. Full volume starts in week 3.</span>
+              </div>
+            )}
             <div className="flex items-center justify-between mb-2">
               <span className="text-[12px] text-muted-foreground tabular-nums">{done}/{total} done · {pct}%</span>
               <button onClick={() => setAll(done !== total)} className="text-[11px] font-medium" style={{ color: ACCENT }}>
@@ -685,26 +804,93 @@ function GymTab() {
               {plan.exercises.map(ex => {
                 const checked = !!log[ex.id]
                 return (
-                  <div key={ex.id} className="w-full flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-colors"
+                  <div key={ex.id} className="w-full flex items-start gap-3 rounded-xl border px-3 py-2.5 transition-colors"
                     style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 14%, var(--color-border))', background: checked ? 'color-mix(in oklab, var(--chart-1) 10%, transparent)' : 'transparent' }}>
-                    <button onClick={() => toggle(ex.id)} className="flex items-center gap-3 flex-1 min-w-0 text-left">
-                      <span className="w-5 h-5 rounded-md flex-shrink-0 flex items-center justify-center"
+                    <button onClick={() => toggle(ex.id)} className="flex items-start gap-3 flex-1 min-w-0 text-left">
+                      <span className="w-5 h-5 mt-0.5 rounded-md flex-shrink-0 flex items-center justify-center"
                         style={{ background: checked ? ACCENT : 'transparent', boxShadow: checked ? 'none' : 'inset 0 0 0 2px var(--color-muted-foreground)' }}>
                         {checked && <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="var(--color-background)" strokeWidth={3.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
                       </span>
-                      <span className="flex-1 min-w-0 flex items-baseline justify-between gap-2">
-                        <span className={`text-[13px] ${checked ? 'text-muted-foreground line-through' : 'text-foreground'}`}>{ex.name}</span>
-                        <span className="text-[11px] text-muted-foreground whitespace-nowrap">{ex.sr}</span>
+                      <span className="flex-1 min-w-0">
+                        <span className="flex items-baseline justify-between gap-2">
+                          <span className={`text-[13px] ${checked ? 'text-muted-foreground line-through' : 'text-foreground'}`}>{ex.name}</span>
+                          <span className="text-[11px] text-muted-foreground whitespace-nowrap tabular-nums">{ex.sr}</span>
+                        </span>
+                        {(ex.cue || ex.restTime) && !checked && (
+                          <span className="block text-[11px] text-muted-foreground leading-snug mt-1">
+                            {ex.cue}
+                            {ex.cue && ex.restTime && ex.restTime !== '—' && ' '}
+                            {ex.restTime && ex.restTime !== '—' && <span className="whitespace-nowrap opacity-80">· rest {ex.restTime}</span>}
+                          </span>
+                        )}
                       </span>
                     </button>
-                    {ex.yt && ytLink(ex.yt)}
+                    {ex.yt && <span className="mt-0.5">{ytLink(ex.yt)}</span>}
                   </div>
                 )
               })}
             </div>
           </>
         )}
-        <Note>🏃 Cardio: {plan.cardio}</Note>
+        <Note>🏃 {plan.cardio} · <b>{stepTargetFor(pw.status === 'upcoming' ? 1 : pw.week)} steps</b> today</Note>
+      </Card>
+
+      {/* Saturday scales with the block, so spell it out when Saturday is selected */}
+      {plan.day === 'Sat' && (
+        <Card title="🏃 Saturday treadmill" sub={`Week ${pw.status === 'upcoming' ? 1 : pw.week} target — this is the session that builds your base.`}>
+          <div className="flex items-baseline gap-2">
+            <span className="text-2xl font-semibold text-foreground tabular-nums">{sat.mins}</span>
+            <span className="text-[12px] text-muted-foreground">this week</span>
+          </div>
+          <div className="text-[13px] text-muted-foreground mt-1.5">{sat.detail}</div>
+          <table className="w-full text-[12.5px] mt-3">
+            <tbody>
+              {PROGRAM.satCardio.map(s => {
+                const cur = s === sat
+                return (
+                  <tr key={s.mins} className="border-t border-border/40 first:border-t-0">
+                    <td className="py-1.5 pr-3 whitespace-nowrap" style={{ color: cur ? ACCENT : 'var(--color-muted-foreground)', fontWeight: cur ? 600 : 400 }}>
+                      Weeks {s.weeks[0]}–{s.weeks[1]}
+                    </td>
+                    <td className="py-1.5 tabular-nums" style={{ color: cur ? 'var(--color-foreground)' : 'var(--color-muted-foreground)' }}>{s.mins}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <Note>You never have to run continuously. 5 min walk → 5 min jog → 2 min walk → repeat is a perfectly good session.</Note>
+        </Card>
+      )}
+
+      <Card title="🌡️ How hard to run" sub="Forget speed — your comfortable pace is not anyone else's. Use the talk test.">
+        <div className="space-y-2">
+          {INTENSITY.map(z => (
+            <div key={z.id} className="rounded-xl border px-3 py-2.5" style={{ borderColor: 'var(--color-border)' }}>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-[13px] font-medium text-foreground">{z.name}</span>
+                <span className="text-[10.5px] text-muted-foreground whitespace-nowrap">{z.use}</span>
+              </div>
+              <div className="text-[12px] text-muted-foreground mt-0.5">{z.test}</div>
+            </div>
+          ))}
+        </div>
+        <Note>Most of your treadmill work should sit in <b className="text-foreground">easy / moderate</b>. Monday and Thursday are easy on purpose — do not exhaust yourself before leg day.</Note>
+      </Card>
+
+      <Card title="📈 Picking your dumbbell weight" sub={PROGRESSION.method}>
+        <div className="text-[13px] text-muted-foreground">{PROGRESSION.rule}</div>
+        <table className="w-full text-[12.5px] mt-3">
+          <tbody>
+            {PROGRESSION.example.map(([when, reps, why]) => (
+              <tr key={when} className="border-t border-border/40 first:border-t-0">
+                <td className="py-1.5 pr-3 text-muted-foreground whitespace-nowrap align-top">{when}</td>
+                <td className="py-1.5 pr-3 text-foreground tabular-nums whitespace-nowrap align-top">{reps}</td>
+                <td className="py-1.5 text-muted-foreground">{why}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Note>{PROGRESSION.rpe}</Note>
       </Card>
 
       <Note>Check off each exercise as you finish — your week &amp; all-time numbers update on the <b className="text-foreground">Monitor</b> tab.</Note>
@@ -1217,13 +1403,18 @@ function PlaylistTab() {
 function ProgressTab() {
   const [weights, setWeights] = useState(() => lsGet('weights', []))
   const [input, setInput] = useState('')
+  const [waist, setWaist] = useState('')
+  const pw = useMemo(programWeek, [])
 
   const saveWeight = () => {
     const v = parseFloat(input)
-    if (!v) return
+    const w = parseFloat(waist)
+    if (!v && !w) return
     const tk = todayKey()
-    const next = weights.filter(w => w.date !== tk).concat({ date: tk, kg: v }).sort((a, b) => a.date < b.date ? -1 : 1)
-    setWeights(next); lsSet('weights', next); setInput('')
+    const prior = weights.find(x => x.date === tk) || {}
+    const entry = { date: tk, kg: v || prior.kg || null, cm: w || prior.cm || null }
+    const next = weights.filter(x => x.date !== tk).concat(entry).sort((a, b) => a.date < b.date ? -1 : 1)
+    setWeights(next); lsSet('weights', next); setInput(''); setWaist('')
   }
 
   const exportBackup = () => {
@@ -1249,15 +1440,19 @@ function ProgressTab() {
 
   return (
     <>
-      <Card title="⚖️ Weekly weigh-in" sub="Same morning each week, before food. Judge the monthly trend, not daily noise.">
-        <div className="flex gap-2 items-center">
-          <input type="number" step="0.1" value={input} onChange={e => setInput(e.target.value)} placeholder="kg"
-            className="w-24 rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground outline-none"
+      <Card title="⚖️ Weekly check-in" sub="Same morning each week, before food. Waist is the honest one — weight lies for weeks at a time.">
+        <div className="flex flex-wrap gap-2 items-center">
+          <input type="number" step="0.1" value={input} onChange={e => setInput(e.target.value)} placeholder="weight kg"
+            className="w-28 rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground outline-none"
+            style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 20%, var(--color-border))' }} />
+          <input type="number" step="0.1" value={waist} onChange={e => setWaist(e.target.value)} placeholder="waist cm"
+            className="w-28 rounded-lg border bg-transparent px-3 py-2 text-sm text-foreground outline-none"
             style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 20%, var(--color-border))' }} />
           <button onClick={saveWeight}
             className="rounded-lg px-4 py-2 text-sm font-medium"
-            style={{ background: ACCENT, color: 'var(--color-background)' }}>Log weight</button>
+            style={{ background: ACCENT, color: 'var(--color-background)' }}>Log</button>
         </div>
+        <p className="text-[11px] text-muted-foreground mt-2">Measure the waist at the navel, standing relaxed — don't suck in.</p>
         {rows.length > 0 && (
           <table className="w-full text-[13px] mt-3">
             <thead>
@@ -1265,24 +1460,78 @@ function ProgressTab() {
                 <th className="text-left font-medium py-1.5">Date</th>
                 <th className="text-left font-medium py-1.5">Weight</th>
                 <th className="text-left font-medium py-1.5">Δ</th>
+                <th className="text-left font-medium py-1.5">Waist</th>
+                <th className="text-left font-medium py-1.5">Δ</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((w, i) => {
-                const prev = rows[i + 1]
-                const delta = prev ? +(w.kg - prev.kg).toFixed(1) : null
-                const color = delta === null ? 'var(--color-muted-foreground)' : delta <= 0 ? ACCENT : 'var(--destructive)'
+                const prevKg = rows.slice(i + 1).find(r => r.kg != null)
+                const prevCm = rows.slice(i + 1).find(r => r.cm != null)
+                const dKg = w.kg != null && prevKg ? +(w.kg - prevKg.kg).toFixed(1) : null
+                const dCm = w.cm != null && prevCm ? +(w.cm - prevCm.cm).toFixed(1) : null
+                const col = d => d === null ? 'var(--color-muted-foreground)' : d <= 0 ? ACCENT : 'var(--destructive)'
+                const fmt = d => d === null ? '—' : `${d <= 0 ? '▼' : '▲'} ${Math.abs(d)}`
                 return (
                   <tr key={w.date} className="border-t border-border/40">
                     <td className="py-2 text-muted-foreground">{w.date}</td>
-                    <td className="py-2 text-foreground">{w.kg} kg</td>
-                    <td className="py-2" style={{ color }}>{delta === null ? '—' : `${delta <= 0 ? '▼' : '▲'} ${Math.abs(delta)}`}</td>
+                    <td className="py-2 text-foreground">{w.kg != null ? `${w.kg} kg` : '—'}</td>
+                    <td className="py-2" style={{ color: col(dKg) }}>{fmt(dKg)}</td>
+                    <td className="py-2 text-foreground">{w.cm != null ? `${w.cm} cm` : '—'}</td>
+                    <td className="py-2" style={{ color: col(dCm) }}>{fmt(dCm)}</td>
                   </tr>
                 )
               })}
             </tbody>
           </table>
         )}
+      </Card>
+
+      <Card title="📋 What to log" sub="Sunday morning, same routine every week — takes two minutes.">
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="rounded-xl border p-3"
+            style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 16%, var(--color-border))' }}>
+            <div className="text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground mb-2">Every week</div>
+            <ul className="space-y-1.5">
+              {CHECKIN.weekly.map(t => (
+                <li key={t} className="flex gap-2 text-[13px] text-foreground leading-snug">
+                  <span style={{ color: ACCENT }}>·</span>{t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border p-3"
+            style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 16%, var(--color-border))' }}>
+            <div className="text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground mb-2">Every 4 weeks</div>
+            <ul className="space-y-1.5">
+              {CHECKIN.monthly.map(t => (
+                <li key={t} className="flex gap-2 text-[13px] text-foreground leading-snug">
+                  <span style={{ color: ACCENT }}>·</span>{t}
+                </li>
+              ))}
+            </ul>
+            {pw.status === 'active' && (
+              <p className="text-[11px] text-muted-foreground mt-2">
+                You're in week {pw.week}{[4, 8].includes(pw.week) ? ' — photo week.' : `. Next photo set: week ${pw.week < 4 ? 4 : 8}.`}
+              </p>
+            )}
+          </div>
+        </div>
+        <Note>{CHECKIN.note}</Note>
+      </Card>
+
+      <Card title="🧭 What actually decides this" sub="In order. If a week goes sideways, fix from the top down.">
+        <ol className="space-y-2">
+          {PROGRAM.priorities.map((p, i) => (
+            <li key={p} className="flex gap-3 items-start">
+              <span className="w-5 h-5 rounded-md flex-shrink-0 grid place-items-center text-[11px] font-bold mt-px"
+                style={{ background: i === 0 ? ACCENT : 'color-mix(in oklab, var(--chart-1) 14%, transparent)', color: i === 0 ? 'var(--color-background)' : 'var(--color-foreground)' }}>
+                {i + 1}
+              </span>
+              <span className="text-[13px] text-foreground leading-snug">{p}</span>
+            </li>
+          ))}
+        </ol>
       </Card>
 
       <Card title="🎯 The 6-month arc" sub="Aug 2026 → Jan 2027. What each stretch should feel like.">
@@ -1296,7 +1545,7 @@ function ProgressTab() {
             ))}
           </tbody>
         </table>
-        <Note>📸 Take progress photos every 2 weeks (front/side). The mirror lies day-to-day; photos don't.</Note>
+        <Note>📸 Photos and tape every 4 weeks — see <b>What to log</b> above. The mirror lies day-to-day; photos don't.</Note>
       </Card>
 
       <Card title="⚙️ Data" sub="Everything saves automatically in this browser. Add the site to your phone home screen.">
