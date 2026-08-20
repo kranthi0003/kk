@@ -1,6 +1,13 @@
 {
-  "generated": "2026-08-20T15:55:11.212Z",
+  "generated": "2026-08-20T16:35:20.394Z",
   "reddit": [
+    {
+      "title": ".github/workflows/main.yml · Workflow runs · hops1010-cmyk/vis-kuber01",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtnez4/githubworkflowsmainyml_workflow_runs/",
+      "by": "Reasonable-You4548",
+      "time": 1787241357000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "TypeScript : Migrate repo to TypeScript 7",
       "url": "https://www.reddit.com/r/programming/comments/1vtn0qa/typescript_migrate_repo_to_typescript_7/",
@@ -16,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "How do you handle session recording for kubectl debug in production?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtmj76/how_do_you_handle_session_recording_for_kubectl/",
+      "by": "KidCannabis501",
+      "time": 1787239428000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "Music theory for programmers",
       "url": "https://www.reddit.com/r/programming/comments/1vtm44m/music_theory_for_programmers/",
       "by": "lukehaas",
@@ -23,11 +37,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Supply chain attack on arrayref",
-      "url": "https://www.reddit.com/r/programming/comments/1vtm22r/supply_chain_attack_on_arrayref/",
-      "by": "Successful_Bowl2564",
-      "time": 1787238352000,
-      "sub": "r/programming"
+      "title": "Tips for choosing a load balancer for your enterprise",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtl0r3/tips_for_choosing_a_load_balancer_for_your/",
+      "by": "TeamHAProxy",
+      "time": 1787235981000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: This Week I Learned (TWIL?) thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtf4qz/weekly_this_week_i_learned_twil_thread/",
+      "by": "AutoModerator",
+      "time": 1787220011000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -49,138 +70,117 @@
       "by": "jagdip",
       "time": 1786100332000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Using Jenkins to Trigger AWS Lambda Functions",
-      "url": "https://medium.com/@bhagirath00/using-jenkins-to-trigger-aws-lambda-functions-f95d62097b0b",
-      "by": "Patel Bhagirath",
-      "time": 1787240661000,
+      "title": "Why Legacy Systems Are Becoming the Biggest Bottleneck for Real-Time AI",
+      "url": "https://medium.com/@haleyybailey/why-legacy-systems-are-becoming-the-biggest-bottleneck-for-real-time-ai-2dbdfb800d0c",
+      "by": "Hailey",
+      "time": 1787243461000,
       "tags": [
-        "devops",
-        "jenkins",
-        "aws-lambda"
+        "architecture",
+        "cloud",
+        "ai"
       ]
     },
     {
-      "title": "Everyone secures the MCP tool call. The leak is in tools/list.",
-      "url": "https://medium.com/@ashish.chaudhary008/everyone-secures-the-mcp-tool-call-the-leak-is-in-tools-list-1eba9a223344",
-      "by": "Ashish Chaudhary",
-      "time": 1787240482000,
+      "title": "Five scripts to help with your software dependency review",
+      "url": "https://tedspence.com/five-scripts-to-help-with-your-software-dependency-review-5906213b99e5",
+      "by": "Ted Spence",
+      "time": 1787243323000,
       "tags": [
-        "model-context-protocol",
-        "programming",
+        "dotnet",
+        "npm",
+        "nodejs"
+      ]
+    },
+    {
+      "title": "I Didn’t Type This Tool. I Decided It.",
+      "url": "https://mohansagark.medium.com/i-didnt-type-this-tool-i-decided-it-29871f8b4561",
+      "by": "Mohan Sagar",
+      "time": 1787243241000,
+      "tags": [
+        "ai-agent",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "All three agents ended green. One of them deleted the tests.",
+      "url": "https://medium.com/@ashish.chaudhary008/all-three-agents-ended-green-one-of-them-deleted-the-tests-cee42bd5a0d9",
+      "by": "Ashish Chaudhary",
+      "time": 1787243111000,
+      "tags": [
+        "software-engineering",
+        "ai-agent",
         "cybersecurity"
       ]
     },
     {
-      "title": "5 Things I Would Stop Doing as a Developer in 2026",
-      "url": "https://medium.com/skillstuff/5-things-i-would-stop-doing-as-a-developer-in-2026-b08dadb2849c",
-      "by": "Shayan Khan",
-      "time": 1787240431000,
+      "title": "My 30-Minute Daily Routine to Stay Focused as a Software Engineer",
+      "url": "https://medium.com/illumination/my-30-minute-daily-routine-to-stay-focused-as-a-software-engineer-35a9b7139959",
+      "by": "Talat Waheed",
+      "time": 1787243099000,
       "tags": [
-        "programming",
-        "software-development",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Top integrations to use with IcePanel",
-      "url": "https://icepanel.medium.com/top-integrations-to-use-with-icepanel-109f9460982d",
-      "by": "IcePanel",
-      "time": 1787240429000,
-      "tags": [
-        "c4-model",
-        "software-engineering",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "Python Linters Don’t Make Code Better. They Make Rules Consistent.",
-      "url": "https://medium.com/@thedevnotebook/python-linter-rules-make-code-worse-f039fc19e232",
-      "by": "The Dev Notebook",
-      "time": 1787240394000,
-      "tags": [
-        "clean-code",
-        "software-engineering",
-        "python"
-      ]
-    },
-    {
-      "title": "Confessions of a Naïve Programmer (9)",
-      "url": "https://medium.com/@saulis.vladas/confessions-of-a-na%C3%AFve-programmer-9-a5f919f11e9f",
-      "by": "Vladas Saulis",
-      "time": 1787240343000,
-      "tags": [
-        "software-development",
-        "life",
-        "24"
-      ]
-    },
-    {
-      "title": "DevOps Consulting Services UAE",
-      "url": "https://medium.com/@aegoognu/devops-consulting-services-uae-423f45810161",
-      "by": "Aegoognu",
-      "time": 1787240337000,
-      "tags": [
-        "microsoft",
-        "devops",
-        "consulting"
-      ]
-    },
-    {
-      "title": "AG-UI Is Solving a Problem You Didn’t Know Your Agent Had",
-      "url": "https://medium.com/@shweta.t2703/ag-ui-is-solving-a-problem-you-didnt-know-your-agent-had-a63dd643954c",
-      "by": "Shweta Thakur",
-      "time": 1787240259000,
-      "tags": [
-        "software-architecture",
-        "programming",
+        "self-improvement",
+        "coding",
         "software-engineering"
       ]
     },
     {
-      "title": "Day 23: AI Agents Don’t Need More Intelligence — They Need Better Engineering",
-      "url": "https://medium.com/@eziah1393/day-23-ai-agents-dont-need-more-intelligence-they-need-better-engineering-5ab3caedb6a4",
-      "by": "Eziah",
-      "time": 1787240242000,
+      "title": "Why OpenJDK Is Saying “No” to AI-Generated Contributions",
+      "url": "https://medium.com/@khmerlux8878/why-openjdk-is-saying-no-to-ai-generated-contributions-ae04df6beb70",
+      "by": "Khmerlux",
+      "time": 1787243014000,
       "tags": [
-        "ai-engineering",
-        "software-engineering",
-        "machine-learning"
+        "programming",
+        "javascript",
+        "open-source"
       ]
     },
     {
-      "title": "pinq-doq: How We Manage AI Coding Standards From One Place",
-      "url": "https://medium.com/@bartikyunuscan/pinq-doq-how-we-manage-ai-coding-standards-from-one-place-24de8b80523b",
-      "by": "Yunuscan Bartık",
-      "time": 1787240238000,
+      "title": "Your First AI Agent in C# — Without Becoming an AI Expert",
+      "url": "https://medium.com/@mohsho10/your-first-ai-agent-in-c-without-becoming-an-ai-expert-48af082bbbc9",
+      "by": "Mohammad Shoeb",
+      "time": 1787242584000,
       "tags": [
-        "artificial-intelligence",
+        "dotnet",
+        "programming",
+        "csharp"
+      ]
+    },
+    {
+      "title": "AI Isn’t Replacing Developers. It’s Retiring Their Doubt.",
+      "url": "https://medium.com/@naishasaxena2310/ai-isnt-replacing-developers-it-s-retiring-their-doubt-dc2676c62776",
+      "by": "Naisha Saxena",
+      "time": 1787242199000,
+      "tags": [
+        "technology",
+        "productivity",
+        "programming"
+      ]
+    },
+    {
+      "title": "CCAR-F vs CCA-F: which is the real Claude Certified Architect — Foundations exam code?",
+      "url": "https://medium.com/@chimsmcginty/ccar-f-vs-cca-f-which-is-the-real-claude-certified-architect-foundations-exam-code-276490363de8",
+      "by": "Josh",
+      "time": 1787242014000,
+      "tags": [
+        "ai",
+        "anthropic-claude",
+        "programming"
+      ]
+    },
+    {
+      "title": "Microservices Were the Biggest Mistake in Modern Backend Engineering",
+      "url": "https://medium.com/@optimzationking2/microservices-were-the-biggest-mistake-in-modern-backend-engineering-9c075ada0f42",
+      "by": "TheOptimizationKing",
+      "time": 1787241861000,
+      "tags": [
+        "programming",
         "software-development",
-        "software-engineering"
+        "technology"
       ]
     }
   ]
