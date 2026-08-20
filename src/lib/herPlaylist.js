@@ -68,7 +68,7 @@ function loadAPI() {
   })
 }
 
-export function createHerPlaylist({ onTrack, onFail } = {}) {
+export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
   let player = null
   let host = null
   let fade = null
@@ -77,11 +77,14 @@ export function createHerPlaylist({ onTrack, onFail } = {}) {
   let alt = 0        // index into that track's candidate ids
   let wanted = false // does the listener currently want sound
   let heard = false  // has a note actually reached the listener yet
+  let muted = false  // playing, but silent, waiting for permission to be heard
+  let byGesture = false // did a click start this, or did we start it ourselves
   let dead = false
   let building = false
 
   const announce = () => {
     try { onTrack && onTrack(wanted ? HER_TRACKS[track] : null) } catch {}
+    try { onMuted && onMuted(wanted && muted) } catch {}
   }
 
   const stopFade = () => { if (fade) { clearInterval(fade); fade = null } }
@@ -133,6 +136,55 @@ export function createHerPlaylist({ onTrack, onFail } = {}) {
     cue(ms)
   }
 
+  // Every browser refuses to start audible sound on its own — that's the whole
+  // autoplay policy, and it exists for good reasons. But muted playback is
+  // always allowed. So the song genuinely starts by itself, silently, and the
+  // first time she touches the page at all we lift the mute and fade the sound
+  // up. She never has to go looking for a play button.
+  //
+  // Note that scroll and wheel do not count as "user activation" under the
+  // spec, only pointer/touch/key events do. We listen for scroll anyway because
+  // on a touchscreen the touchstart that begins a scroll does count, and by the
+  // time the scroll event fires we usually already have permission.
+  const GESTURES = ['pointerdown', 'touchstart', 'keydown', 'click', 'wheel', 'scroll']
+  let armed = false
+
+  const tryUnmute = () => {
+    if (!player || !wanted || !muted || dead) return
+    try {
+      setVol(0)
+      player.unMute()
+      player.playVideo()
+    } catch { return }
+    // unMute() can be ignored when the browser still hasn't granted us
+    // activation, so confirm rather than assume, and stay armed if it refused.
+    setTimeout(() => {
+      if (!player || dead || !muted) return
+      let stillMuted = true
+      try { stillMuted = player.isMuted() } catch {}
+      if (stillMuted) return
+      muted = false
+      heard = true
+      disarm()
+      announce()
+      fadeTo(TARGET_VOL, FIRST_FADE)
+    }, 220)
+  }
+
+  const disarm = () => {
+    if (!armed) return
+    armed = false
+    GESTURES.forEach((g) => { try { window.removeEventListener(g, tryUnmute, true) } catch {} })
+  }
+
+  const arm = () => {
+    if (armed || dead) return
+    armed = true
+    GESTURES.forEach((g) => {
+      try { window.addEventListener(g, tryUnmute, { capture: true, passive: true }) } catch {}
+    })
+  }
+
   // A candidate that won't play in an embed: try the next upload of the same
   // song, and only give up on the song once they're all gone.
   let consecutiveFailures = 0
@@ -164,17 +216,31 @@ export function createHerPlaylist({ onTrack, onFail } = {}) {
     player = new window.YT.Player(host, {
       videoId: HER_TRACKS[0].ids[0],
       playerVars: {
-        autoplay: 0, controls: 0, disablekb: 1, fs: 0,
+        // mute:1 is what makes unattended autoplay legal. If a click started
+        // us we lift it immediately in onReady, so nobody notices.
+        autoplay: 0, mute: 1, controls: 0, disablekb: 1, fs: 0,
         modestbranding: 1, playsinline: 1, rel: 0, iv_load_policy: 3,
       },
       events: {
         onReady: (e) => {
           setVol(0)
-          if (wanted) { try { e.target.playVideo() } catch {}; announce(); fadeTo(TARGET_VOL, FIRST_FADE) }
+          if (!wanted) return
+          try { e.target.mute(); e.target.playVideo() } catch {}
+          if (byGesture) {
+            // A click is all the permission a browser needs.
+            muted = false
+            try { e.target.unMute() } catch {}
+            announce()
+            fadeTo(TARGET_VOL, FIRST_FADE)
+          } else {
+            muted = true
+            announce()
+            arm()
+          }
         },
         onStateChange: (e) => {
           const YT = window.YT
-          if (e.data === YT.PlayerState.PLAYING) { consecutiveFailures = 0; heard = true }
+          if (e.data === YT.PlayerState.PLAYING) { consecutiveFailures = 0; if (!muted) heard = true }
           else if (e.data === YT.PlayerState.ENDED) { alt = 0; skipTrack(NEXT_FADE) }
         },
         onError: () => { if (wanted) onDeadVideo() },
@@ -186,19 +252,46 @@ export function createHerPlaylist({ onTrack, onFail } = {}) {
   return {
     tracks: HER_TRACKS,
 
+    // Begin on our own, silently, and wait for permission to be heard.
+    autostart() {
+      if (player || dead) return
+      wanted = true
+      byGesture = false
+      build()
+    },
+
+    // Begin because someone asked for it — no muting, no waiting.
     start() {
       wanted = true
+      byGesture = true
       if (!player) { build(); return true }
+      if (muted) { muted = false; try { player.unMute() } catch {} }
       let started = 0
       try { started = player.getCurrentTime() || 0 } catch {}
       try { player.playVideo() } catch {}
+      disarm()
       announce()
-      fadeTo(TARGET_VOL, started > 0 ? NEXT_FADE : FIRST_FADE)
+      fadeTo(TARGET_VOL, started > 0 && heard ? NEXT_FADE : FIRST_FADE)
       return true
+    },
+
+    // Lift the mute now, because they asked rather than because they scrolled.
+    // If this is the first thing they'll actually hear, give it the slow fade.
+    unmute() {
+      if (!player || !muted) return
+      const first = !heard
+      muted = false
+      heard = true
+      disarm()
+      try { setVol(0); player.unMute(); player.playVideo() } catch {}
+      announce()
+      fadeTo(TARGET_VOL, first ? FIRST_FADE : NEXT_FADE)
     },
 
     stop() {
       wanted = false
+      muted = false
+      disarm()
       announce()
       fadeTo(0, OUT_FADE, () => { try { player && player.pauseVideo() } catch {} })
     },
@@ -212,12 +305,13 @@ export function createHerPlaylist({ onTrack, onFail } = {}) {
     resume() {
       if (!wanted || !player) return
       try { player.playVideo() } catch {}
-      fadeTo(TARGET_VOL, NEXT_FADE)
+      if (!muted) fadeTo(TARGET_VOL, NEXT_FADE)
     },
 
     destroy() {
       dead = true
       wanted = false
+      disarm()
       stopFade()
       try { player && player.destroy() } catch {}
       try { host && host.remove() } catch {}
