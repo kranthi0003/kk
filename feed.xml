@@ -6,7 +6,15 @@
     <atom:link href="https://kranthikiran.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Engineering, reliability, and reflections — from kranthikiran.com</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 10:52:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 12:19:06 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Copilot</title>
+      <link>https://kranthikiran.com/#/blog/github-copilot</link>
+      <guid isPermaLink="false">kranthikiran:post:github-copilot</guid>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <category>Certifications</category>
+      <description>GH-300 — prompt engineering, context crafting, data handling, content exclusions and responsible use. The exam on the assistant that is now part of how I work.</description>
+    </item>
     <item>
       <title>Claude Certified Associate — Foundations</title>
       <link>https://kranthikiran.com/#/blog/claude-foundations</link>

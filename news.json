@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20T10:53:48.145Z",
+  "generated": "2026-08-20T12:20:20.780Z",
   "reddit": [
     {
       "title": "LEMON: A universal eBPF-based volatile memory acquisition tool for modern android devices and hardened linux systems",
@@ -23,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Weekly: This Week I Learned (TWIL?) thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtf4qz/weekly_this_week_i_learned_twil_thread/",
+      "by": "AutoModerator",
+      "time": 1787220011000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "Canvas Browser",
       "url": "https://www.reddit.com/r/programming/comments/1vtebqq/canvas_browser/",
       "by": "Webfuse",
@@ -30,157 +37,150 @@
       "sub": "r/programming"
     },
     {
-      "title": "Cloud sovereignty is starting to become an architecture problem",
-      "url": "https://www.reddit.com/r/devops/comments/1vtadgo/cloud_sovereignty_is_starting_to_become_an/",
+      "title": "AWS EKS | EKS Access Entry - How large organizations handle EKS Access?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtd0th/aws_eks_eks_access_entry_how_large_organizations/",
+      "by": "Basic_Let7303",
+      "time": 1787212507000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What does cloud sovereignty actually mean for Kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vta4t2/what_does_cloud_sovereignty_actually_mean_for/",
       "by": "No-Income-2235",
-      "time": 1787203402000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How aggressively should non-prod AWS environments be shut down?",
-      "url": "https://www.reddit.com/r/devops/comments/1vt8qui/how_aggressively_should_nonprod_aws_environments/",
-      "by": "whispered_word12",
-      "time": 1787198331000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "When should a small Node service stop accepting work during shutdown?",
-      "url": "https://www.reddit.com/r/devops/comments/1vt8pmf/when_should_a_small_node_service_stop_accepting/",
-      "by": "UkrMalt",
-      "time": 1787198228000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "time": 1787202620000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Java is Dead (And Oracle Just Pulled the Plug)",
-      "url": "https://medium.com/the-tech-notes/java-is-dead-and-oracle-just-pulled-the-plug-dd533bbadde0",
-      "by": "Oz",
-      "time": 1787222936000,
+      "title": "Angular 22: When to Use Signals, RxJS, or Both",
+      "url": "https://codewithbilal.medium.com/angular-22-when-to-use-signals-rxjs-or-both-9507927bb59e",
+      "by": "Code with Bilal",
+      "time": 1787227661000,
       "tags": [
-        "java",
+        "web-development",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Go Rejected This Method for Five Years — Its Own Team Had Been Using It for Six",
+      "url": "https://pub.huizhou92.com/go-rejected-this-method-for-five-years-its-own-team-had-been-using-it-for-six-3c33fafd71ac",
+      "by": "huizhou92",
+      "time": 1787227655000,
+      "tags": [
+        "software-development",
         "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Infrastructure as Code with AWS CloudFormation: From Manual Clicks to Repeatable Infrastructure",
-      "url": "https://medium.com/@sharathkumarlokesh/infrastructure-as-code-with-aws-cloudformation-from-manual-clicks-to-repeatable-infrastructure-e8302e2aa93d",
-      "by": "SwayamOps",
-      "time": 1787222669000,
-      "tags": [
-        "cloud-engineering",
-        "cloudformation",
-        "infrastructure-as-code"
-      ]
-    },
-    {
-      "title": "Containerizing a Full-Stack MERN App with Docker: A Beginner’s Complete Guide",
-      "url": "https://umar-devops.medium.com/containerizing-a-full-stack-mern-app-with-docker-a-beginners-complete-guide-c58732623eee",
-      "by": "Muhammad Umar Khan-Devops",
-      "time": 1787222627000,
-      "tags": [
-        "docker",
-        "devops",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "Java Multithreading Mastery #26 — Fixed vs Cached vs Single Thread Executor",
-      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-26-fixed-vs-cached-vs-single-thread-executor-edf49e68b498",
-      "by": "Ayushi Malviya",
-      "time": 1787222503000,
-      "tags": [
-        "programming",
-        "software-engineering",
-        "java"
-      ]
-    },
-    {
-      "title": "Security Advantages of Bespoke Software in 2026: Why Custom-Built Wins Against Cyber Threats",
-      "url": "https://medium.com/@sahil.khurana775/https-innostax-com-blog-security-advantages-of-bespoke-software-9f08eb3254ba",
-      "by": "Sahil Khurana",
-      "time": 1787222469000,
-      "tags": [
-        "innostax",
-        "devops",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Foolproof approach for setting up C++ on your Windows Machine without WSL: 2026 edition",
-      "url": "https://medium.com/@mohanarc/the-foolproof-approach-for-setting-up-c-on-your-windows-machine-without-wsl-2026-edition-988b34f63a03",
-      "by": "Mohana Roy Chowdhury",
-      "time": 1787222461000,
-      "tags": [
-        "windows",
-        "coding",
-        "cplusplus"
-      ]
-    },
-    {
-      "title": "Data Types in Programming.",
-      "url": "https://medium.com/@doreamonnobi651/data-types-in-programming-a9877f4966e5",
-      "by": "Anandapu Vyshnavi",
-      "time": 1787222186000,
-      "tags": [
-        "computer-science",
-        "data-type",
         "programming"
       ]
     },
     {
-      "title": "I Built an AI QA AutomationAgent with Playwright MCP to Solved problem “It Works on My Machine”",
-      "url": "https://medium.com/@kuldeeppal981/i-built-an-ai-qa-automationagent-with-playwright-mcp-to-solved-problem-it-works-on-my-machine-9d1017d79cd7",
-      "by": "Kuldeeppal",
-      "time": 1787222042000,
+      "title": "Why Prompt Engineering Is the Most Underrated Skill of 2026\nThe $672 Million Skill Nobody’s Talking…",
+      "url": "https://medium.com/@kurmianuj239/why-prompt-engineering-is-the-most-underrated-skill-of-2026-the-672-million-skill-nobodys-talking-beab5eae1b01",
+      "by": "Anuj Kurmi",
+      "time": 1787227398000,
       "tags": [
-        "software-testing",
-        "automation",
+        "technology",
+        "artificial-intelligence",
+        "ai"
+      ]
+    },
+    {
+      "title": "The Process Was Legit — But It Was Running at the Wrong Time",
+      "url": "https://medium.com/nextgenthreat/the-process-was-legit-but-it-was-running-at-the-wrong-time-124955419aa4",
+      "by": "Faruk Ahmed",
+      "time": 1787227263000,
+      "tags": [
+        "linux",
+        "cybersecurity",
+        "information-security"
+      ]
+    },
+    {
+      "title": "AI Agent Memory: Why Your Coding Assistant Forgets Everything (And How to Fix It)",
+      "url": "https://medium.com/@hello_63455/ai-agent-memory-why-your-coding-assistant-forgets-everything-and-how-to-fix-it-8d8e1257013d",
+      "by": "Infeld_ai",
+      "time": 1787227261000,
+      "tags": [
+        "productivity",
+        "ai-agent",
+        "aritificial-intelligence"
+      ]
+    },
+    {
+      "title": "Why Design Patterns Matter More Now That AI Writes Code",
+      "url": "https://medium.com/@aistory0611/why-design-patterns-matter-more-now-that-ai-writes-code-8f0fb521f702",
+      "by": "SauravNova",
+      "time": 1787227072000,
+      "tags": [
+        "business",
+        "software-development",
+        "ai"
+      ]
+    },
+    {
+      "title": "The Augmented Flow: Disrupting Corporate Upskilling with Multimodal Vision Agents",
+      "url": "https://nickbortolotti.medium.com/the-augmented-flow-disrupting-corporate-upskilling-with-multimodal-vision-agents-8d868a3a970b",
+      "by": "Nicolas Bortolotti",
+      "time": 1787227031000,
+      "tags": [
+        "future-of-work",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "The AI Code Review Paradox: When More Review Creates Less Trust",
+      "url": "https://medium.com/@codzee.io/the-ai-code-review-paradox-when-more-review-creates-less-trust-52aecb2cc131",
+      "by": "Codzee.io",
+      "time": 1787227003000,
+      "tags": [
+        "ai",
+        "ai-code-review",
         "software-development"
       ]
     },
     {
-      "title": "Kubernetes vs Docker: The Practical Guide to Architecture, Trade-Offs, and Real-World Use",
-      "url": "https://medium.com/@FullStackSoftwareDeveloper/kubernetes-vs-docker-the-practical-guide-to-architecture-trade-offs-and-real-world-use-e8d1c9b16966",
-      "by": "Ankita Patel",
-      "time": 1787221996000,
+      "title": "Your Test Suite Grew Up and Got a New Name",
+      "url": "https://medium.com/ai-native-engineer/your-test-suite-grew-up-and-got-a-new-name-4185850e33f3",
+      "by": "Valerie",
+      "time": 1787226954000,
       "tags": [
-        "k8s",
-        "devops",
-        "docker"
+        "software-engineering",
+        "eval",
+        "software-testing"
       ]
     },
     {
-      "title": "Stop Paging on Noise: Designing Meaningful CloudWatch Alarms Without Alert Fatigue",
-      "url": "https://medium.com/@sharathkumarlokesh/stop-paging-on-noise-designing-meaningful-cloudwatch-alarms-without-alert-fatigue-048b62fccf84",
-      "by": "SwayamOps",
-      "time": 1787221947000,
+      "title": "The Best Playwright Resources You Should Bookmark in 2026",
+      "url": "https://medium.com/@svetlana.tretjakova/the-best-playwright-resources-you-should-bookmark-in-2026-acf18016f1d2",
+      "by": "Svetlana Tretjakova",
+      "time": 1787226767000,
       "tags": [
-        "observability",
-        "devops",
-        "sre"
+        "test-automation",
+        "playwright-test",
+        "programming"
       ]
     }
   ]

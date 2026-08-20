@@ -7,6 +7,16 @@
   "language": "en",
   "items": [
     {
+      "id": "kranthikiran:post:github-copilot",
+      "url": "https://kranthikiran.com/#/blog/github-copilot",
+      "title": "GitHub Copilot",
+      "summary": "GH-300 — prompt engineering, context crafting, data handling, content exclusions and responsible use. The exam on the assistant that is now part of how I work.",
+      "date_published": "2026-08-20T00:00:00.000Z",
+      "tags": [
+        "Certifications"
+      ]
+    },
+    {
       "id": "kranthikiran:post:claude-foundations",
       "url": "https://kranthikiran.com/#/blog/claude-foundations",
       "title": "Claude Certified Associate — Foundations",
