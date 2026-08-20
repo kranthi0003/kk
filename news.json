@@ -1,19 +1,40 @@
 {
-  "generated": "2026-08-20T04:28:19.363Z",
+  "generated": "2026-08-20T04:53:47.255Z",
   "reddit": [
+    {
+      "title": "How aggressively should non-prod AWS environments be shut down?",
+      "url": "https://www.reddit.com/r/devops/comments/1vt8qui/how_aggressively_should_nonprod_aws_environments/",
+      "by": "whispered_word12",
+      "time": 1787198331000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "When should a small Node service stop accepting work during shutdown?",
+      "url": "https://www.reddit.com/r/devops/comments/1vt8pmf/when_should_a_small_node_service_stop_accepting/",
+      "by": "UkrMalt",
+      "time": 1787198228000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Backend here seeking some insights",
+      "url": "https://www.reddit.com/r/devops/comments/1vt6t5a/backend_here_seeking_some_insights/",
+      "by": "Spicy_O_licorice",
+      "time": 1787192759000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Ansible tip for begginer",
+      "url": "https://www.reddit.com/r/devops/comments/1vt3nu6/ansible_tip_for_begginer/",
+      "by": "Ra_daid",
+      "time": 1787184368000,
+      "sub": "r/devops"
+    },
     {
       "title": "Turns are Better than Radians",
       "url": "https://www.reddit.com/r/programming/comments/1vt2lzu/turns_are_better_than_radians/",
       "by": "Iamsodarncool",
       "time": 1787181728000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Merge several small k3s clusters into single one.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vt23b1/merge_several_small_k3s_clusters_into_single_one/",
-      "by": "Opening-Gear-8214",
-      "time": 1787180459000,
-      "sub": "r/kubernetes"
     },
     {
       "title": "The Design and Evolution of io_uring by Jens Axboe",
@@ -30,49 +51,72 @@
       "sub": "r/programming"
     },
     {
-      "title": "Modern Enterprise Architecture: Architecting for Outcomes • Simon Rohrer",
-      "url": "https://www.reddit.com/r/programming/comments/1vskw18/modern_enterprise_architecture_architecting_for/",
-      "by": "goto-con",
-      "time": 1787142109000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes and VLANs",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vsks9n/kubernetes_and_vlans/",
-      "by": "lief91",
-      "time": 1787141822000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vsi1yb/weekly_show_off_your_new_tools_and_projects_thread/",
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1787133646000,
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
+    {
+      "title": "Repository Pattern Explained With Real-World Flutter Examples",
+      "url": "https://medium.com/@savaliya.ravi.rs/repository-pattern-explained-with-real-world-flutter-examples-673780d612b5",
+      "by": "Ravi Savaliya",
+      "time": 1787200561000,
+      "tags": [
+        "flutter",
+        "repositories",
+        "flutter-app-development"
+      ]
+    },
+    {
+      "title": "Data Structures in Java: The Complete Engineering Guide from Arrays to Graphs",
+      "url": "https://deepawasthi.medium.com/data-structures-in-java-2b9ea3b45fea",
+      "by": "Deep Awasthi",
+      "time": 1787200264000,
+      "tags": [
+        "software-development",
+        "java",
+        "programming"
+      ]
+    },
+    {
+      "title": "Cline as an AI Harness: Running Open-Weight Models as Coding Agents",
+      "url": "https://medium.com/algomart/cline-as-an-ai-harness-running-open-weight-models-as-coding-agents-d11d90e6962f",
+      "by": "Yash Jain",
+      "time": 1787200264000,
+      "tags": [
+        "llm",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "#7: Your QuerySet Runs the Same Query Four Times",
+      "url": "https://medium.com/backend-engineers-club/7-your-queryset-runs-the-same-query-four-times-68b52266b977",
+      "by": "Anas Issath",
+      "time": 1787200264000,
+      "tags": [
+        "software-engineering",
+        "python",
+        "django-orm"
+      ]
+    },
     {
       "title": "Infosys DevOps Interview Experience: Round 1 Questions and Detailed Preparation Guide",
       "url": "https://medium.com/@preetjit82/infosys-devops-interview-experience-round-1-questions-and-detailed-preparation-guide-037684f2fb52",
@@ -93,6 +137,17 @@
         "dot-net-developers",
         "software-development",
         "aspnetcore"
+      ]
+    },
+    {
+      "title": "₹1 Crore, No Wife, No Kids, No Debt. Can You Really Retire at 27 in India?",
+      "url": "https://medium.com/@kanishks772/1-crore-no-wife-no-kids-no-debt-can-you-really-retire-at-27-in-india-8a2eedbda32a",
+      "by": "The Latency Gambler",
+      "time": 1787199454000,
+      "tags": [
+        "corporate-culture",
+        "retirement",
+        "software-engineering"
       ]
     },
     {
@@ -126,61 +181,6 @@
         "mobile",
         "programming",
         "ai"
-      ]
-    },
-    {
-      "title": "Machine Learning Demystified: A Beginner’s Guide",
-      "url": "https://medium.com/@purva.thakare1125/machine-learning-demystified-a-beginners-guide-711765c6f697",
-      "by": "Purva Thakare",
-      "time": 1787198764000,
-      "tags": [
-        "programming",
-        "machine-learning",
-        "technology"
-      ]
-    },
-    {
-      "title": "72% of QA Teams Use AI. 15% Have Actually Scaled It.",
-      "url": "https://medium.com/cloudqa/72-of-qa-teams-use-ai-15-have-actually-scaled-it-e7d64ccce11f",
-      "by": "Aryan Nair",
-      "time": 1787198520000,
-      "tags": [
-        "artificial-intelligence",
-        "software-testing",
-        "engineering-leadership"
-      ]
-    },
-    {
-      "title": "How to Become Job-Ready in DevOps/Cloud in 45 Days (Real Project-Based Roadmap)",
-      "url": "https://medium.com/@sre-devops-interview/how-to-become-job-ready-in-devops-cloud-in-45-days-real-project-based-roadmap-ed32ec3fb4d4",
-      "by": "Tanishq Arora",
-      "time": 1787198462000,
-      "tags": [
-        "site-reliability-engineer",
-        "software-engineering",
-        "sre"
-      ]
-    },
-    {
-      "title": "Debugging a Kubernetes LoadBalancer Stuck in  on Docker Desktop + Kind",
-      "url": "https://medium.com/@ritanshbagal/debugging-a-kubernetes-loadbalancer-stuck-in-pending-on-docker-desktop-kind-659553534de3",
-      "by": "Ritansh Bagal",
-      "time": 1787198449000,
-      "tags": [
-        "kubernetes",
-        "docker",
-        "devops"
-      ]
-    },
-    {
-      "title": "Memahami Strategi Trunk-Based Development",
-      "url": "https://medium.com/@nickyfajaelani2/memahami-strategi-trunk-based-development-03ac6213a98d",
-      "by": "NickyFajaelani",
-      "time": 1787197886000,
-      "tags": [
-        "branching-strategy",
-        "git",
-        "git-merge"
       ]
     }
   ]
