@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
 import { useAmbient } from './AmbientContext'
 import { createRaga } from '../lib/ambientRaga'
+import { createHerPlaylist } from '../lib/herPlaylist'
 
 // A private, unlisted long-form note. Shared directly via #/her.
 //
@@ -19,8 +20,13 @@ import { createRaga } from '../lib/ambientRaga'
 // chapter's blocks. Roman letters, WhatsApp style. They're meant for the
 // peaks only — one per chapter at most, or they stop feeling like peaks.
 
-const ROSE = '#c0868c'
-const ROSE_DEEP = '#a2666e'
+// Text colours are solid rather than translucent: alpha over a gradient makes
+// the real contrast unpredictable, and the earlier translucent ink measured
+// 5.5:1 against the paper, which is thin for something this long to read.
+const ROSE = '#c2566e'       // accents, rail, marks
+const ROSE_DEEP = '#a03a55'  // pull-quotes, Telugu, eyebrows — 6.0:1
+const INK = '#413634'        // body — 10.4:1
+const INK_STRONG = '#241d1c' // beats — 15.1:1
 
 const CHAPTERS = [
   {
@@ -223,8 +229,11 @@ export default function Her({ onBack }) {
   const [ticks, setTicks] = useState([])
   const [activeTick, setActiveTick] = useState(-1)
   const [music, setMusic] = useState(false)
+  const [nowPlaying, setNowPlaying] = useState(null)
   const reduced = useRef(false)
+  const player = useRef(null)
   const raga = useRef(null)
+  const usingRaga = useRef(false)
   const ambient = useAmbient()
 
   useEffect(() => {
@@ -240,21 +249,49 @@ export default function Her({ onBack }) {
     return () => ambient?.setSuppressed?.(false)
   }, [ambient])
 
-  useEffect(() => () => { raga.current?.destroy?.() }, [])
+  useEffect(() => () => {
+    player.current?.destroy?.()
+    raga.current?.destroy?.()
+  }, [])
+
+  // Three songs, his choice, played in order. If YouTube can't give us any of
+  // them — every upload taken down, embeds blocked on the network — drop back
+  // to the generated raga rather than leaving the page silent.
+  const fallbackToRaga = useCallback(() => {
+    if (!raga.current) raga.current = createRaga()
+    if (raga.current.start()) { usingRaga.current = true; setMusic(true) }
+    else { usingRaga.current = false; setMusic(false) }
+    setNowPlaying(null)
+  }, [])
 
   const toggleMusic = useCallback(() => {
-    if (!raga.current) raga.current = createRaga()
-    if (music) { raga.current.stop(); setMusic(false) }
-    else if (raga.current.start()) setMusic(true)
-  }, [music])
+    if (music) {
+      if (usingRaga.current) raga.current?.stop()
+      else player.current?.stop()
+      setMusic(false)
+      setNowPlaying(null)
+      return
+    }
+    if (usingRaga.current) {
+      if (raga.current?.start()) setMusic(true)
+      return
+    }
+    if (!player.current) {
+      player.current = createHerPlaylist({ onTrack: setNowPlaying, onFail: fallbackToRaga })
+    }
+    if (player.current.start()) setMusic(true)
+  }, [music, fallbackToRaga])
 
   // Stop when the tab goes away, resume when it comes back — but only if the
   // music was on to begin with.
   useEffect(() => {
     if (!music) return
     const onVis = () => {
-      if (document.hidden) raga.current?.stop()
-      else raga.current?.start()
+      if (usingRaga.current) {
+        if (document.hidden) raga.current?.stop()
+        else raga.current?.start()
+      } else if (document.hidden) player.current?.pause()
+      else player.current?.resume()
     }
     document.addEventListener('visibilitychange', onVis)
     return () => document.removeEventListener('visibilitychange', onVis)
@@ -362,10 +399,14 @@ export default function Her({ onBack }) {
       </button>
 
       <button onClick={toggleMusic} className={'her-chip her-music' + (music ? ' is-on' : '')}
-        title={music ? 'Turn the music off' : 'Turn the music on'}
+        title={music
+          ? (nowPlaying ? `${nowPlaying.title} — ${nowPlaying.artist}. Turn the music off` : 'Turn the music off')
+          : 'Turn the music on'}
         aria-pressed={music}>
         <span className="her-bars" aria-hidden="true"><i /><i /><i /></span>
-        <span className="hidden sm:inline">{music ? 'Music on' : 'Music'}</span>
+        <span className="hidden sm:inline her-np">
+          {music ? (nowPlaying ? nowPlaying.title : 'Music on') : 'Music'}
+        </span>
       </button>
 
       {/* Mobile: a hairline of progress across the very top. */}
@@ -424,15 +465,18 @@ export default function Her({ onBack }) {
 }
 
 const HER_STYLE = `
-  /* Warm paper, not a screen. Blush at the top, a little sage low on the left
-     and the faintest lilac on the right, over an ivory base. */
+  /* Warm paper, not a screen. The colour is pushed out to the edges and
+     corners so the middle — where every line of text actually sits — stays
+     bright and easy to read. */
   .her-root {
     background:
-      radial-gradient(62% 40% at 50% 0%, rgba(228,193,193,0.38) 0%, transparent 64%),
-      radial-gradient(52% 36% at 4% 86%, rgba(198,212,197,0.30) 0%, transparent 68%),
-      radial-gradient(46% 34% at 98% 42%, rgba(219,205,222,0.26) 0%, transparent 70%),
-      linear-gradient(176deg, #fdfaf8 0%, #faf4f0 46%, #f7f0ec 100%);
-    color: rgba(74,66,62,0.82);
+      radial-gradient(48% 30% at 50% -4%,  rgba(246,176,190,0.46) 0%, transparent 70%),
+      radial-gradient(40% 30% at -8% 18%,  rgba(252,206,168,0.42) 0%, transparent 72%),
+      radial-gradient(40% 32% at 108% 44%, rgba(204,184,240,0.36) 0%, transparent 72%),
+      radial-gradient(46% 30% at -6% 86%,  rgba(164,214,190,0.38) 0%, transparent 72%),
+      radial-gradient(40% 26% at 106% 94%, rgba(248,186,196,0.36) 0%, transparent 72%),
+      linear-gradient(176deg, #fffdfc 0%, #fdf7f4 52%, #fbf2ee 100%);
+    color: ${INK};
     -webkit-font-smoothing: antialiased;
   }
   .her-root::-webkit-scrollbar { width: 0; height: 0; }
@@ -440,10 +484,10 @@ const HER_STYLE = `
 
   /* The faintest tooth, so the background reads as paper rather than a flat fill. */
   .her-grain {
-    position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: 0.55;
+    position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: 0.5;
     background-image:
-      radial-gradient(rgba(120,96,90,0.030) 1px, transparent 1px),
-      radial-gradient(rgba(120,96,90,0.020) 1px, transparent 1px);
+      radial-gradient(rgba(120,90,86,0.028) 1px, transparent 1px),
+      radial-gradient(rgba(120,90,86,0.018) 1px, transparent 1px);
     background-size: 3px 3px, 7px 7px;
     background-position: 0 0, 2px 3px;
   }
@@ -455,20 +499,22 @@ const HER_STYLE = `
     font-family: 'Sora', system-ui, sans-serif;
     font-size: 0.8rem; font-weight: 500;
     color: ${ROSE_DEEP};
-    background: rgba(255,255,255,0.72);
-    border: 1px solid rgba(192,134,140,0.24);
-    box-shadow: 0 2px 14px rgba(150,110,110,0.08);
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(194,86,110,0.28);
+    box-shadow: 0 2px 14px rgba(150,70,85,0.10);
     backdrop-filter: blur(10px);
     transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
   }
-  .her-chip:hover { transform: translateY(-1px); background: rgba(255,255,255,0.92); box-shadow: 0 5px 20px rgba(150,110,110,0.14); }
+  .her-chip:hover { transform: translateY(-1px); background: #fff; box-shadow: 0 5px 20px rgba(150,70,85,0.18); }
   .her-back { left: 1rem; }
   .her-music { right: 1rem; }
-  .her-music.is-on { background: rgba(192,134,140,0.14); border-color: rgba(192,134,140,0.42); }
+  .her-music.is-on { background: rgba(194,86,110,0.16); border-color: rgba(194,86,110,0.5); }
+  /* Track titles vary in length; keep the chip from stretching across the page. */
+  .her-np { max-width: 11rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   /* Three little bars that only move while the music is actually playing. */
   .her-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 11px; }
-  .her-bars > i { width: 2px; height: 4px; border-radius: 1px; background: currentColor; opacity: 0.65; }
+  .her-bars > i { width: 2px; height: 4px; border-radius: 1px; background: currentColor; opacity: 0.7; }
   .her-music.is-on .her-bars > i { animation: herBar 1.25s ease-in-out infinite; opacity: 1; }
   .her-music.is-on .her-bars > i:nth-child(2) { animation-delay: 0.18s; }
   .her-music.is-on .her-bars > i:nth-child(3) { animation-delay: 0.36s; }
@@ -479,11 +525,11 @@ const HER_STYLE = `
 
   .her-topbar {
     position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 25;
-    background: rgba(120,96,90,0.07);
+    background: rgba(120,90,86,0.08);
   }
   .her-topbar > span {
     display: block; height: 100%;
-    background: linear-gradient(90deg, rgba(192,134,140,0.4), ${ROSE});
+    background: linear-gradient(90deg, rgba(194,86,110,0.5), ${ROSE});
   }
   @media (min-width: 1024px) { .her-topbar { display: none; } }
 
@@ -493,28 +539,28 @@ const HER_STYLE = `
       display: block; position: fixed; z-index: 25;
       left: 3.25rem; top: 16vh; bottom: 16vh; width: 1px;
     }
-    .her-rail-track { position: absolute; inset: 0; background: rgba(120,96,90,0.12); }
+    .her-rail-track { position: absolute; inset: 0; background: rgba(120,90,86,0.16); }
     .her-rail-fill {
       position: absolute; top: 0; left: 0; width: 1px;
-      background: linear-gradient(180deg, rgba(192,134,140,0.35), ${ROSE});
+      background: linear-gradient(180deg, rgba(194,86,110,0.45), ${ROSE});
     }
     .her-tick { position: absolute; left: 0; transform: translateY(-50%); }
     .her-tick > i {
       position: absolute; left: -2.5px; top: -2.5px;
       width: 5px; height: 5px; border-radius: 50%;
-      background: rgba(120,96,90,0.2);
+      background: rgba(120,90,86,0.26);
       transition: background 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
     }
     .her-tick > em {
       position: absolute; left: 0.9rem; top: -0.52rem;
       font-family: 'JetBrains Mono', monospace; font-style: normal;
       font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-      white-space: nowrap; color: rgba(74,66,62,0.3);
+      white-space: nowrap; color: rgba(65,54,52,0.52);
       transition: color 0.45s ease;
     }
     .her-tick.is-on > i {
       background: ${ROSE}; transform: scale(1.5);
-      box-shadow: 0 0 0 4px rgba(192,134,140,0.14);
+      box-shadow: 0 0 0 4px rgba(194,86,110,0.18);
     }
     .her-tick.is-on > em { color: ${ROSE_DEEP}; }
   }
@@ -532,28 +578,28 @@ const HER_STYLE = `
   .her-ripple > i {
     position: absolute; top: 0; left: 0;
     width: 22px; height: 22px; margin: -11px 0 0 -11px;
-    border-radius: 50%; border: 1px solid rgba(192,134,140,0.5);
+    border-radius: 50%; border: 1px solid rgba(194,86,110,0.62);
     opacity: 0; animation: herRipple 5s cubic-bezier(.16,.7,.3,1) both;
   }
   .her-ripple > i:nth-child(2) { animation-delay: 0.7s; }
   .her-ripple > i:nth-child(3) { animation-delay: 1.4s; }
   @keyframes herRipple {
-    0%   { opacity: 0;    transform: scale(0.2); }
-    18%  { opacity: 0.75; }
-    100% { opacity: 0;    transform: scale(15); }
+    0%   { opacity: 0;   transform: scale(0.2); }
+    18%  { opacity: 0.8; }
+    100% { opacity: 0;   transform: scale(15); }
   }
 
   .her-open > :not(.her-ripple) { opacity: 0; animation: herRise 1.4s cubic-bezier(.22,.61,.36,1) forwards; }
   .her-open-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase;
-    color: rgba(162,102,110,0.7); margin-bottom: 1.6rem;
+    color: ${ROSE_DEEP}; margin-bottom: 1.6rem;
     animation-delay: 3.4s;
   }
   .her-title {
     font-family: 'Newsreader', Georgia, serif; font-weight: 300;
     font-size: clamp(3rem, 15vw, 7.5rem); line-height: 0.95; letter-spacing: -0.02em;
-    background: linear-gradient(100deg, #b0757f 0%, ${ROSE} 42%, #caa08f 68%, #b0757f 100%);
+    background: linear-gradient(100deg, #8f2f4c 0%, ${ROSE} 38%, #d9705f 64%, #a03a55 100%);
     background-size: 200% auto;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
@@ -563,18 +609,18 @@ const HER_STYLE = `
     margin-top: 1.9rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: clamp(10px, 2.6vw, 12px); letter-spacing: 0.3em;
-    color: rgba(74,66,62,0.42);
+    color: rgba(65,54,52,0.76);
     animation-delay: 4.4s;
   }
   .her-scroll { margin-top: 4.5rem; display: block; animation-delay: 5.1s; }
   .her-scroll > i {
     display: block; width: 1px; height: 46px;
-    background: linear-gradient(180deg, rgba(192,134,140,0.6), transparent);
+    background: linear-gradient(180deg, ${ROSE}, transparent);
     animation: herDrop 2.8s ease-in-out infinite;
   }
   @keyframes herDrop {
-    0%, 100% { opacity: 0.25; transform: translateY(-5px); }
-    50%      { opacity: 0.9; transform: translateY(5px); }
+    0%, 100% { opacity: 0.3; transform: translateY(-5px); }
+    50%      { opacity: 1;   transform: translateY(5px); }
   }
   @keyframes herRise {
     from { opacity: 0; transform: translateY(16px); }
@@ -589,35 +635,35 @@ const HER_STYLE = `
   .her-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(162,102,110,0.78);
+    color: ${ROSE_DEEP};
     margin-bottom: 2.4rem; padding-bottom: 0.9rem;
-    border-bottom: 1px solid rgba(192,134,140,0.2);
+    border-bottom: 1px solid rgba(194,86,110,0.26);
   }
 
   .her-p, .her-beat, .her-em, .her-close, .her-list, .her-te {
-    font-family: 'Newsreader', Georgia, serif; font-weight: 300;
+    font-family: 'Newsreader', Georgia, serif; font-weight: 400;
   }
   .her-p {
-    font-size: clamp(1.08rem, 2.9vw, 1.26rem); line-height: 1.88;
-    margin: 0 0 1.55rem; color: rgba(74,66,62,0.82);
+    font-size: clamp(1.12rem, 3vw, 1.3rem); line-height: 1.86;
+    margin: 0 0 1.55rem; color: ${INK};
   }
   .her-beat {
-    font-size: clamp(1.18rem, 3.4vw, 1.45rem); line-height: 1.62;
-    margin: 0 0 1.55rem; color: rgba(56,48,45,0.96);
+    font-size: clamp(1.2rem, 3.4vw, 1.48rem); line-height: 1.62;
+    margin: 0 0 1.55rem; color: ${INK_STRONG};
   }
   .her-list { list-style: none; margin: 0 0 1.8rem; padding: 0; }
   .her-list li {
     position: relative; padding-left: 1.5rem; margin-bottom: 1rem;
-    font-size: clamp(1.05rem, 2.8vw, 1.2rem); line-height: 1.74;
-    color: rgba(74,66,62,0.84);
+    font-size: clamp(1.08rem, 2.9vw, 1.24rem); line-height: 1.74;
+    color: ${INK};
   }
   .her-list li::before {
     content: ''; position: absolute; left: 0; top: 0.74em;
-    width: 0.7rem; height: 1px; background: rgba(192,134,140,0.7);
+    width: 0.7rem; height: 1px; background: ${ROSE};
   }
 
   .her-em {
-    font-style: italic;
+    font-weight: 300; font-style: italic;
     font-size: clamp(1.5rem, 5.2vw, 2.15rem); line-height: 1.42;
     margin: 2.9rem 0 2.9rem; text-align: center;
     color: ${ROSE_DEEP};
@@ -627,32 +673,32 @@ const HER_STYLE = `
      peaks, gets more air than anything else, and takes a small mark above it
      so it reads as the line the paragraph was walking towards. */
   .her-te {
-    font-style: italic;
-    font-size: clamp(1.3rem, 4.6vw, 1.85rem); line-height: 1.62;
+    font-weight: 300; font-style: italic;
+    font-size: clamp(1.32rem, 4.6vw, 1.88rem); line-height: 1.62;
     margin: 3.4rem 0 3.4rem; text-align: center;
     color: ${ROSE_DEEP};
   }
   .her-te::before {
     content: ''; display: block; width: 4px; height: 4px; border-radius: 50%;
     margin: 0 auto 1.6rem; background: ${ROSE};
-    box-shadow: 0 0 0 5px rgba(192,134,140,0.13);
+    box-shadow: 0 0 0 5px rgba(194,86,110,0.16);
   }
 
   .her-close {
-    font-style: italic;
+    font-weight: 300; font-style: italic;
     font-size: clamp(1.55rem, 5.6vw, 2.35rem); line-height: 1.38;
     margin: 2.4rem 0 0; text-align: center;
-    background: linear-gradient(100deg, #b0757f 0%, ${ROSE} 50%, #c99b8e 100%);
+    background: linear-gradient(100deg, #8f2f4c 0%, ${ROSE} 48%, #d9705f 100%);
     background-size: 200% auto;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
   }
 
-  .her-p em, .her-beat em, .her-list em { font-style: italic; color: rgba(56,48,45,0.94); }
+  .her-p em, .her-beat em, .her-list em { font-style: italic; color: ${INK_STRONG}; }
 
   .her-rule {
     display: block; width: 2.6rem; height: 1px; margin: 2.6rem auto;
-    background: rgba(192,134,140,0.4);
+    background: rgba(194,86,110,0.5);
   }
 
   /* ---- the reel ---- */
@@ -660,9 +706,9 @@ const HER_STYLE = `
   .her-reel-frame {
     position: relative; aspect-ratio: 9 / 16; overflow: hidden;
     border-radius: 1.1rem;
-    background: rgba(120,96,90,0.06);
-    border: 1px solid rgba(192,134,140,0.24);
-    box-shadow: 0 10px 30px rgba(150,110,110,0.14);
+    background: rgba(120,90,86,0.07);
+    border: 1px solid rgba(194,86,110,0.3);
+    box-shadow: 0 10px 30px rgba(150,70,85,0.18);
   }
   .her-reel-frame > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .her-reel-frame > button {
@@ -680,8 +726,8 @@ const HER_STYLE = `
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
     width: 3.1rem; height: 3.1rem; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.9); color: ${ROSE_DEEP};
-    box-shadow: 0 4px 18px rgba(80,50,50,0.28);
+    background: rgba(255,255,255,0.94); color: ${ROSE_DEEP};
+    box-shadow: 0 4px 18px rgba(80,40,45,0.32);
     transition: transform 0.25s ease;
   }
   .her-reel-play > svg { width: 1.5rem; height: 1.5rem; margin-left: 2px; }
@@ -690,7 +736,7 @@ const HER_STYLE = `
     margin-top: 0.85rem; text-align: center;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(74,66,62,0.4); line-height: 1.7;
+    color: rgba(65,54,52,0.72); line-height: 1.7;
   }
 
   .her-rv { opacity: 0; transform: translateY(14px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.22,.61,.36,1); }
@@ -703,16 +749,16 @@ const HER_STYLE = `
     font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
     color: ${ROSE_DEEP};
     padding: 0.7rem 1.4rem; border-radius: 999px;
-    border: 1px solid rgba(192,134,140,0.32);
-    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(194,86,110,0.38);
+    background: rgba(255,255,255,0.6);
     transition: background 0.25s ease, transform 0.25s ease;
   }
-  .her-again:hover { background: rgba(192,134,140,0.12); transform: translateY(-1px); }
+  .her-again:hover { background: rgba(194,86,110,0.14); transform: translateY(-1px); }
   .her-foot-note {
     margin-top: 2.2rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(74,66,62,0.24);
+    color: rgba(65,54,52,0.5);
   }
 
   @media (prefers-reduced-motion: reduce) {
