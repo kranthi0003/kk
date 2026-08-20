@@ -78,6 +78,10 @@ function mapRace(r) {
     circuit: r.Circuit.circuitName,
     locality: r.Circuit.Location.locality,
     country: r.Circuit.Location.country,
+    // Real coordinates from Ergast, so the calendar map plots actual circuits
+    // rather than hand-typed guesses.
+    lat: Number(r.Circuit.Location.lat),
+    lng: Number(r.Circuit.Location.long),
     // Ergast splits these; the page needs one instant it can count down to.
     // Races without a published time are treated as midday UTC.
     start: r.time ? `${r.date}T${r.time.replace('Z', '')}Z` : `${r.date}T12:00:00Z`,

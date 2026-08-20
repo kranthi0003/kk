@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import WORLD from '../lib/world-outline.json'
 
 /* ------------------------------------------------------------------ *
  * #/f1 — the film first, then the championship.
@@ -282,6 +283,175 @@ function Row({ pos, color, name, sub, points, wins, pct, lead }) {
       {wins > 0 && <span className="f1-wins">{wins}W</span>}
       <span className="f1-pts">{points}</span>
     </div>
+  )
+}
+
+/* ── The calendar map ──────────────────────────────────────────────────────
+ * An equirectangular world, cropped to the band the season actually visits so
+ * there is no dead polar space. Circuit coordinates are the real ones Ergast
+ * publishes, not hand-typed guesses.
+ */
+const MAP_W = 1000, MAP_H = 420
+const LAT_TOP = 72, LAT_BOT = -54
+const mapX = (lng) => ((lng + 180) / 360) * MAP_W
+const mapY = (lat) => ((LAT_TOP - lat) / (LAT_TOP - LAT_BOT)) * MAP_H
+
+// One combined path for the whole world: 251 separate <path> nodes would cost
+// far more than the string does.
+const WORLD_D = WORLD.p
+  .map((poly) => poly
+    .map((ring) => ring
+      .map(([lng, lat], i) => `${i ? 'L' : 'M'}${mapX(lng).toFixed(1)} ${mapY(lat).toFixed(1)}`)
+      .join('') + 'Z')
+    .join(''))
+  .join('')
+
+function CalendarMap({ races, nextRound, done }) {
+  const [sel, setSel] = useState(null)
+  const pts = useMemo(
+    () => races.map((r) => ({ ...r, x: mapX(r.lng), y: mapY(r.lat), past: done.has(r.round) })),
+    [races, done]
+  )
+  // Faint arcs in round order, so the season reads as one long journey.
+  const hops = useMemo(() => pts.slice(1).map((b, i) => {
+    const a = pts[i]
+    const lift = Math.min(64, Math.hypot(b.x - a.x, b.y - a.y) * 0.2)
+    return {
+      round: b.round,
+      past: b.past,
+      d: `M${a.x.toFixed(1)} ${a.y.toFixed(1)}Q${((a.x + b.x) / 2).toFixed(1)} ${(((a.y + b.y) / 2) - lift).toFixed(1)} ${b.x.toFixed(1)} ${b.y.toFixed(1)}`,
+    }
+  }), [pts])
+
+  const active = pts.find((p) => p.round === sel) || pts.find((p) => p.round === nextRound) || pts[0]
+
+  return (
+    <div className="f1-map-wrap">
+      <svg className="f1-map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img"
+           aria-label={`World map of the ${races.length}-round calendar. Every round is also listed below.`}>
+        <path d={WORLD_D} className="f1-map-land" />
+        {hops.map((h) => (
+          <path key={h.round} d={h.d} className={`f1-hop${h.past ? ' f1-hop-past' : ''}`} />
+        ))}
+        {pts.map((p) => (
+          <g key={p.round} className="f1-pin" onMouseEnter={() => setSel(p.round)} onClick={() => setSel(p.round)}>
+            {/* A generous invisible target: the visible dot is far too small to hit. */}
+            <circle cx={p.x} cy={p.y} r="18" fill="transparent" />
+            {p.round === nextRound && <circle cx={p.x} cy={p.y} r="10" className="f1-pin-halo" />}
+            <circle
+              cx={p.x} cy={p.y} r={p.round === active.round ? 7.5 : 5}
+              className={`f1-pin-dot${p.past ? ' f1-pin-past' : ''}${p.round === nextRound ? ' f1-pin-next' : ''}${p.round === active.round ? ' f1-pin-on' : ''}`}
+            />
+          </g>
+        ))}
+      </svg>
+
+      {active && (
+        <div className="f1-map-read">
+          <span className="f1-pos">{active.round}</span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[14.5px] leading-tight truncate">{active.name}</span>
+            <span className="f1-sub block truncate">
+              {active.locality}, {active.country}
+              {active.winner && <><span className="f1-dot">·</span>won by <b style={{ color: teamColor(active.winner.teamId) }}>{active.winner.last}</b></>}
+            </span>
+          </span>
+          <span className="f1-cal-date">{fmtDate(active.start)}</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ── Who can still win it ──────────────────────────────────────────────────
+ * The elimination maths every broadcast puts up mid-season: a driver is out
+ * once the points still on the table cannot close their gap to the leader.
+ */
+const WIN_POINTS = 25
+
+function TitleMath({ drivers, roundsLeft }) {
+  const avail = roundsLeft * WIN_POINTS
+  const leader = drivers[0]
+  const rows = drivers.map((d) => ({ ...d, reach: d.points + avail }))
+  const alive = rows.filter((d) => d.reach >= leader.points)
+  const scale = leader.points + avail
+  const shown = alive.slice(0, 8)
+
+  return (
+    <>
+      <div className="f1-math-head">
+        <span><b>{avail}</b> still on the table</span>
+        <span className="f1-dot">·</span>
+        {rows.length > alive.length
+          ? <><span><b>{alive.length}</b> can still catch {leader.last}</span><span className="f1-dot">·</span><span>{rows.length - alive.length} out</span></>
+          : <span>nobody is mathematically out yet</span>}
+      </div>
+
+      <div className="f1-math">
+        {/* Everything left of this line is already banked; the ghost bar is what
+            is still theoretically reachable. */}
+        <span className="f1-math-line" style={{ left: `${(leader.points / scale) * 100}%` }} aria-hidden="true" />
+        {shown.map((d) => (
+          <div key={d.code} className="f1-math-row">
+            <span className="f1-math-name" style={{ color: teamColor(d.teamId) }}>{d.last}</span>
+            <span className="f1-math-track">
+              <span className="f1-math-reach" style={{ width: `${(d.reach / scale) * 100}%`, background: teamColor(d.teamId) }} />
+              <span className="f1-math-have" style={{ width: `${(d.points / scale) * 100}%`, background: teamColor(d.teamId) }} />
+            </span>
+            <span className="f1-math-pts">{d.points}</span>
+          </div>
+        ))}
+      </div>
+      <p className="f1-note mt-3.5">Solid is banked, faded is the most they could still reach. Counts {WIN_POINTS} for a win; sprint points aren't in the schedule feed.</p>
+    </>
+  )
+}
+
+/* ── Pole to win ───────────────────────────────────────────────────────────
+ * Whether starting first actually converts, which is the argument about
+ * track position that runs all season.
+ */
+function PoleStats({ races }) {
+  const rows = useMemo(() => {
+    const by = {}
+    const grab = (d) => (by[d.code] ||= { code: d.code, last: d.last, teamId: d.teamId, poles: 0, wins: 0, conv: 0 })
+    races.forEach((r) => {
+      if (r.winner) grab(r.winner).wins++
+      if (r.pole) grab(r.pole).poles++
+      if (r.winner && r.pole && r.winner.code === r.pole.code) grab(r.pole).conv++
+    })
+    return Object.values(by).sort((a, b) => (b.poles - a.poles) || (b.wins - a.wins))
+  }, [races])
+
+  const withPole = races.filter((r) => r.winner && r.pole)
+  const fromPole = withPole.filter((r) => r.winner.code === r.pole.code).length
+  const pct = withPole.length ? Math.round((fromPole / withPole.length) * 100) : 0
+
+  return (
+    <>
+      <div className="f1-conv">
+        <span className="f1-conv-big">{fromPole}<i>/{withPole.length}</i></span>
+        <span className="f1-conv-say">races won from pole — <b>{pct}%</b> converted</span>
+      </div>
+      <div className="space-y-1">
+        <div className="f1-pw f1-pw-head">
+          <span className="f1-stripe" style={{ background: 'transparent' }} aria-hidden="true" />
+          <span className="min-w-0 flex-1" />
+          <span className="f1-pw-cell">poles</span>
+          <span className="f1-pw-cell">wins</span>
+          <span className="f1-pw-cell">from pole</span>
+        </div>
+        {rows.map((d) => (
+          <div key={d.code} className="f1-pw">
+            <span className="f1-stripe" style={{ background: teamColor(d.teamId) }} aria-hidden="true" />
+            <span className="min-w-0 flex-1 text-[14.5px] font-medium truncate">{d.last}</span>
+            <span className="f1-pw-cell"><b>{d.poles}</b></span>
+            <span className="f1-pw-cell"><b>{d.wins}</b></span>
+            <span className={`f1-pw-cell${d.conv ? ' f1-pw-hit' : ''}`}><b>{d.conv}</b></span>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 
@@ -764,6 +934,16 @@ export default function F1({ onBack }) {
                 </Shell>
               )}
 
+              {/* Who can still win it */}
+              {data.drivers.length > 1 && roundsLeft > 0 && (
+                <Shell>
+                  <Reveal>
+                    <SectionTitle note={`${roundsLeft} to go`}>Who can still win it</SectionTitle>
+                    <TitleMath drivers={data.drivers} roundsLeft={roundsLeft} />
+                  </Reveal>
+                </Shell>
+              )}
+
               <Kerb />
 
               {/* Season so far */}
@@ -796,6 +976,16 @@ export default function F1({ onBack }) {
                 </Shell>
               )}
 
+              {/* Pole to win */}
+              {done.some((r) => r.winner && r.pole) && (
+                <Shell>
+                  <Reveal>
+                    <SectionTitle note="does track position pay?">Pole to win</SectionTitle>
+                    <PoleStats races={done} />
+                  </Reveal>
+                </Shell>
+              )}
+
               {/* Last time out */}
               {data.lastRace && (
                 <Shell>
@@ -822,6 +1012,20 @@ export default function F1({ onBack }) {
                         Fastest lap — {data.lastRace.fastestLap.driver} {data.lastRace.fastestLap.time}
                       </p>
                     )}
+                  </Reveal>
+                </Shell>
+              )}
+
+              {/* Where the season goes */}
+              {data.races.every((r) => typeof r.lat === 'number') && (
+                <Shell>
+                  <Reveal>
+                    <SectionTitle note={`${new Set(data.races.map((r) => r.country)).size} countries`}>Where the season goes</SectionTitle>
+                    <CalendarMap
+                      races={data.races}
+                      nextRound={nextRace?.round}
+                      done={new Set(done.map((r) => r.round))}
+                    />
                   </Reveal>
                 </Shell>
               )}
@@ -1102,6 +1306,49 @@ export default function F1({ onBack }) {
         .f1-cal-next { background: var(--f1-card); border-color: var(--f1-red); }
         .f1-cal-date { flex-shrink: 0; font-family: ui-monospace, monospace; font-size: 12px; color: var(--f1-dim); }
 
+        /* Who can still win it */
+        .f1-math-head { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; font-size: 12.5px; color: var(--f1-dim); margin-bottom: .875rem; }
+        .f1-math-head b { color: var(--f1-fg); font-weight: 600; }
+        .f1-math { position: relative; display: flex; flex-direction: column; gap: .4rem; }
+        .f1-math-line { position: absolute; top: -.2rem; bottom: -.2rem; width: 1px; background: rgba(243,243,246,.34); z-index: 2; pointer-events: none; }
+        .f1-math-line::after { content: ''; position: absolute; top: -3px; left: -2px; width: 5px; height: 5px; border-radius: 50%; background: rgba(243,243,246,.55); }
+        .f1-math-row { display: flex; align-items: center; gap: .625rem; }
+        .f1-math-name { flex: 0 0 5.5rem; font-size: 13px; font-weight: 600; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .f1-math-track { position: relative; flex: 1 1 auto; height: .6rem; border-radius: 3px; background: rgba(255,255,255,.05); overflow: hidden; }
+        .f1-math-reach { position: absolute; inset: 0 auto 0 0; opacity: .22; transition: width .6s cubic-bezier(.22,1,.36,1); }
+        .f1-math-have { position: absolute; inset: 0 auto 0 0; border-radius: 3px; transition: width .6s cubic-bezier(.22,1,.36,1); }
+        .f1-math-pts { flex: 0 0 2.25rem; text-align: right; font-family: ui-monospace, monospace; font-size: 12px; color: var(--f1-dim); }
+        @media (max-width: 479px) { .f1-math-name { flex-basis: 4.25rem; font-size: 12px } }
+
+        /* Pole to win */
+        .f1-conv { display: flex; align-items: baseline; gap: .625rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .f1-conv-big { font-family: ui-monospace, monospace; font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -.03em; color: var(--f1-red); }
+        .f1-conv-big i { font-style: normal; font-size: 18px; color: var(--f1-dim); }
+        .f1-conv-say { font-size: 13px; color: var(--f1-dim); }
+        .f1-conv-say b { color: var(--f1-fg); font-weight: 600; }
+        .f1-pw { display: flex; align-items: center; gap: .75rem; padding: .5rem .875rem; border-radius: .5rem; border: 1px solid transparent; }
+        .f1-pw:hover { border-color: var(--f1-line); background: var(--f1-card); }
+        .f1-pw-cell { flex: 0 0 4.5rem; text-align: right; white-space: nowrap; font-size: 11px; letter-spacing: .04em; color: var(--f1-dim); }
+        .f1-pw-cell b { font-family: ui-monospace, monospace; font-size: 13.5px; font-weight: 700; color: rgba(243,243,246,.7); }
+        .f1-pw-head { padding-top: 0; padding-bottom: .2rem; }
+        .f1-pw-head:hover { border-color: transparent; background: none; }
+        .f1-pw-hit b { color: var(--f1-red); }
+        @media (max-width: 479px) { .f1-pw-cell { flex-basis: 3.2rem; font-size: 9.5px } }
+
+        /* Where the season goes */
+        .f1-map-wrap { border: 1px solid var(--f1-line); border-radius: .75rem; background: rgba(10,10,14,.5); overflow: hidden; }
+        .f1-map { display: block; width: 100%; height: auto; }
+        .f1-map-land { fill: rgba(255,255,255,.085); stroke: rgba(255,255,255,.16); stroke-width: .7; }
+        .f1-hop { fill: none; stroke: var(--f1-red); stroke-width: 1; opacity: .26; }
+        .f1-hop-past { stroke: rgba(255,255,255,.5); opacity: .13; }
+        .f1-pin { cursor: pointer; }
+        .f1-pin-dot { fill: var(--f1-red); stroke: var(--f1-bg); stroke-width: 1.5; transition: r .18s ease; }
+        .f1-pin-past { fill: #6B6B78; }
+        .f1-pin-on { stroke: var(--f1-fg); }
+        .f1-pin-halo { fill: none; stroke: var(--f1-red); stroke-width: 1.5; transform-origin: center; transform-box: fill-box; animation: f1-ping 2.4s ease-out infinite; }
+        @keyframes f1-ping { 0% { transform: scale(.55); opacity: .9 } 100% { transform: scale(1.9); opacity: 0 } }
+        .f1-map-read { display: flex; align-items: center; gap: .75rem; padding: .625rem .875rem; border-top: 1px solid var(--f1-line); background: var(--f1-card); }
+
         /* Credits */
         .f1-credits { border-top: 1px solid var(--f1-line); padding-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
         .f1-credits p { font-size: 12px; line-height: 1.7; color: var(--f1-dim); }
@@ -1113,6 +1360,8 @@ export default function F1({ onBack }) {
           .f1-h1-kerb { transition: none; transform: scaleX(1); }
           .f1-bob, .f1-sound-prompt { animation: none; }
           .f1-bar, .f1-track-fill, .f1-mate-fill { transition: none; }
+          .f1-math-reach, .f1-math-have { transition: none; }
+          .f1-pin-halo { animation: none; opacity: .5; }
         }
       `}</style>
     </div>
