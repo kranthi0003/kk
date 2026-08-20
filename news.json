@@ -1,6 +1,41 @@
 {
-  "generated": "2026-08-20T04:53:47.255Z",
+  "generated": "2026-08-20T09:43:45.243Z",
   "reddit": [
+    {
+      "title": "Canvas Browser",
+      "url": "https://www.reddit.com/r/programming/comments/1vtebqq/canvas_browser/",
+      "by": "Webfuse",
+      "time": 1787217204000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Reclaim the terminal",
+      "url": "https://www.reddit.com/r/programming/comments/1vtd0tw/reclaim_the_terminal/",
+      "by": "norman-complete",
+      "time": 1787212509000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Ian Goodfellow on how he created GANs",
+      "url": "https://www.reddit.com/r/programming/comments/1vtc7e8/ian_goodfellow_on_how_he_created_gans/",
+      "by": "existential_ducks",
+      "time": 1787209592000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "flex: 1 and flex: 1 1 auto are not interchangeable when the parent has no definite height",
+      "url": "https://www.reddit.com/r/programming/comments/1vtbrzy/flex_1_and_flex_1_1_auto_are_not_interchangeable/",
+      "by": "HolidayChard9706",
+      "time": 1787208141000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Cloud sovereignty is starting to become an architecture problem",
+      "url": "https://www.reddit.com/r/devops/comments/1vtadgo/cloud_sovereignty_is_starting_to_become_an/",
+      "by": "No-Income-2235",
+      "time": 1787203402000,
+      "sub": "r/devops"
+    },
     {
       "title": "How aggressively should non-prod AWS environments be shut down?",
       "url": "https://www.reddit.com/r/devops/comments/1vt8qui/how_aggressively_should_nonprod_aws_environments/",
@@ -14,41 +49,6 @@
       "by": "UkrMalt",
       "time": 1787198228000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Backend here seeking some insights",
-      "url": "https://www.reddit.com/r/devops/comments/1vt6t5a/backend_here_seeking_some_insights/",
-      "by": "Spicy_O_licorice",
-      "time": 1787192759000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Ansible tip for begginer",
-      "url": "https://www.reddit.com/r/devops/comments/1vt3nu6/ansible_tip_for_begginer/",
-      "by": "Ra_daid",
-      "time": 1787184368000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Turns are Better than Radians",
-      "url": "https://www.reddit.com/r/programming/comments/1vt2lzu/turns_are_better_than_radians/",
-      "by": "Iamsodarncool",
-      "time": 1787181728000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The Design and Evolution of io_uring by Jens Axboe",
-      "url": "https://www.reddit.com/r/programming/comments/1vt19vc/the_design_and_evolution_of_io_uring_by_jens_axboe/",
-      "by": "cdb_11",
-      "time": 1787178465000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The Pit of Success - An Interview with Rico Mariani",
-      "url": "https://www.reddit.com/r/programming/comments/1vsuy5o/the_pit_of_success_an_interview_with_rico_mariani/",
-      "by": "cdb_11",
-      "time": 1787164393000,
-      "sub": "r/programming"
     },
     {
       "title": "Weekly: Share your victories thread",
@@ -74,113 +74,111 @@
   ],
   "medium": [
     {
-      "title": "Repository Pattern Explained With Real-World Flutter Examples",
-      "url": "https://medium.com/@savaliya.ravi.rs/repository-pattern-explained-with-real-world-flutter-examples-673780d612b5",
-      "by": "Ravi Savaliya",
-      "time": 1787200561000,
+      "title": "Monolithic vs Microservices: Which Architecture Wins in 2026? [Detailed Breakdown]",
+      "url": "https://medium.com/@EvangelistApps/monolithic-vs-microservices-which-architecture-wins-in-2026-detailed-breakdown-8e093e75ddc5",
+      "by": "Evangelist Apps",
+      "time": 1787218780000,
       "tags": [
-        "flutter",
-        "repositories",
-        "flutter-app-development"
-      ]
-    },
-    {
-      "title": "Data Structures in Java: The Complete Engineering Guide from Arrays to Graphs",
-      "url": "https://deepawasthi.medium.com/data-structures-in-java-2b9ea3b45fea",
-      "by": "Deep Awasthi",
-      "time": 1787200264000,
-      "tags": [
+        "microservices",
         "software-development",
-        "java",
-        "programming"
-      ]
-    },
-    {
-      "title": "Cline as an AI Harness: Running Open-Weight Models as Coding Agents",
-      "url": "https://medium.com/algomart/cline-as-an-ai-harness-running-open-weight-models-as-coding-agents-d11d90e6962f",
-      "by": "Yash Jain",
-      "time": 1787200264000,
-      "tags": [
-        "llm",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "#7: Your QuerySet Runs the Same Query Four Times",
-      "url": "https://medium.com/backend-engineers-club/7-your-queryset-runs-the-same-query-four-times-68b52266b977",
-      "by": "Anas Issath",
-      "time": 1787200264000,
-      "tags": [
-        "software-engineering",
-        "python",
-        "django-orm"
-      ]
-    },
-    {
-      "title": "Infosys DevOps Interview Experience: Round 1 Questions and Detailed Preparation Guide",
-      "url": "https://medium.com/@preetjit82/infosys-devops-interview-experience-round-1-questions-and-detailed-preparation-guide-037684f2fb52",
-      "by": "Interview Simplified",
-      "time": 1787199556000,
-      "tags": [
-        "interview-questions",
-        "devops",
-        "programming"
-      ]
-    },
-    {
-      "title": ".NET 11 Preview 7 Explained: New Features, Improvements and What Developers Need to Know",
-      "url": "https://gohulan.medium.com/net-11-preview-7-explained-new-features-improvements-and-what-developers-need-to-know-edda5d7fa984",
-      "by": "Somanathan Gohulan",
-      "time": 1787199549000,
-      "tags": [
-        "dot-net-developers",
-        "software-development",
-        "aspnetcore"
-      ]
-    },
-    {
-      "title": "₹1 Crore, No Wife, No Kids, No Debt. Can You Really Retire at 27 in India?",
-      "url": "https://medium.com/@kanishks772/1-crore-no-wife-no-kids-no-debt-can-you-really-retire-at-27-in-india-8a2eedbda32a",
-      "by": "The Latency Gambler",
-      "time": 1787199454000,
-      "tags": [
-        "corporate-culture",
-        "retirement",
         "software-engineering"
       ]
     },
     {
-      "title": "Laravel Soft Deletes in 2026: Everything You Think You Know Is Probably Incomplete",
-      "url": "https://sadiqueali.medium.com/laravel-soft-deletes-in-2026-everything-you-think-you-know-is-probably-incomplete-7e0841aefffd",
-      "by": "Sadique Ali",
-      "time": 1787199389000,
+      "title": "Indexing on Solana in Rust: Streaming, Decoding, and Proving Completeness",
+      "url": "https://medium.com/@shauryajha35/indexing-on-solana-in-rust-streaming-decoding-and-proving-completeness-982812209b2b",
+      "by": "Shaurya",
+      "time": 1787218451000,
       "tags": [
-        "web-development",
-        "php",
-        "api"
-      ]
-    },
-    {
-      "title": "The 10 System Design Questions I Saw Again and Again in 15 Interviews",
-      "url": "https://medium.com/@preetjit82/the-10-system-design-questions-i-saw-again-and-again-in-15-interviews-e2bc8092611d",
-      "by": "Interview Simplified",
-      "time": 1787199157000,
-      "tags": [
-        "design",
-        "jobs",
+        "blockchain",
+        "rust",
         "programming"
       ]
     },
     {
-      "title": "Flutter API Error Handling: From Failure to User-Friendly State",
-      "url": "https://pongployappdev.medium.com/flutter-api-error-handling-from-failure-to-user-friendly-state-c47a5ac138a6",
-      "by": "PongPloyDev Petrung",
-      "time": 1787198850000,
+      "title": "10 Python Libraries That Make You Formidable as a Solo Developer",
+      "url": "https://python.plainenglish.io/10-python-libraries-that-make-you-formidable-as-a-solo-developer-9da9899230c4",
+      "by": "Malik Matloob",
+      "time": 1787218289000,
       "tags": [
-        "mobile",
+        "developer-tools",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "Why Your Kubernetes Cluster Isn’t Ready for AI Workloads — And What Breaks First in Production",
+      "url": "https://prateeksrivastav598.medium.com/why-your-kubernetes-cluster-isnt-ready-for-ai-workloads-and-what-breaks-first-in-production-dc907d45a807",
+      "by": "Prateek Srivastava",
+      "time": 1787217973000,
+      "tags": [
+        "sre",
+        "llm",
+        "devops"
+      ]
+    },
+    {
+      "title": "Best MLM Software Development Company in Gonda — Smart, Secure & Scalable Solutions",
+      "url": "https://medium.com/@sh6_22834/best-mlm-software-development-company-in-gonda-smart-secure-scalable-solutions-e2e089636190",
+      "by": "shallu",
+      "time": 1787217911000,
+      "tags": [
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Claude Code Has 50+ Slash Commands Exist — But You Only Need These 12",
+      "url": "https://medium.com/technology-hits/claude-code-has-50-slash-commands-exist-but-you-only-need-these-12-5b06b53ef66f",
+      "by": "Ashiq Fury",
+      "time": 1787217848000,
+      "tags": [
+        "claude-code",
+        "ai-coding",
+        "productivity"
+      ]
+    },
+    {
+      "title": "FastAPI for Beginners: The Framework That Made Me Fall in Love With Backend Development Again",
+      "url": "https://medium.com/@digitalascent160/fastapi-for-beginners-the-framework-that-made-me-fall-in-love-with-backend-development-again-5c6b8b725ffa",
+      "by": "Ascent Software Training Instit…",
+      "time": 1787217841000,
+      "tags": [
         "programming",
-        "ai"
+        "data",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "Rise of Solo Engineer Teams",
+      "url": "https://urgo.medium.com/rise-of-solo-engineer-teams-a0dfd8d2826a",
+      "by": "Ürgo Ringo",
+      "time": 1787217712000,
+      "tags": [
+        "engineering-culture",
+        "software-engineering",
+        "engineering-management"
+      ]
+    },
+    {
+      "title": "MLM Software in Mirzapur — Powerful Solutions for Modern Network Marketing Businesses",
+      "url": "https://medium.com/@sh5_98617/mlm-software-in-mirzapur-powerful-solutions-for-modern-network-marketing-businesses-bb8541ef864f",
+      "by": "shallu",
+      "time": 1787217597000,
+      "tags": [
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Geometry of Backpressure: Diagnosing Distributed Systems with Little’s Law",
+      "url": "https://medium.com/@vivek.babu/the-geometry-of-backpressure-diagnosing-distributed-systems-with-littles-law-8dfd0bd00e76",
+      "by": "Vivek Babu",
+      "time": 1787217494000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "architecture"
       ]
     }
   ]
