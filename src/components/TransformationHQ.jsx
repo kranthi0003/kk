@@ -1453,6 +1453,35 @@ function ProgressTab() {
             style={{ background: ACCENT, color: 'var(--color-background)' }}>Log</button>
         </div>
         <p className="text-[11px] text-muted-foreground mt-2">Measure the waist at the navel, standing relaxed — don't suck in.</p>
+
+        {(() => {
+          const g = PROGRAM.weightGoal
+          const latest = [...weights].reverse().find(w => w.kg != null)
+          const inRange = latest && latest.kg <= g.to[1] && latest.kg >= g.to[0]
+          const below = latest && latest.kg < g.to[0]
+          return (
+            <div className="mt-3 rounded-xl border px-3.5 py-3"
+              style={{ borderColor: 'color-mix(in oklab, var(--chart-1) 22%, var(--color-border))', background: 'color-mix(in oklab, var(--chart-1) 6%, transparent)' }}>
+              <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Target for this block</span>
+                <span className="text-[12.5px] text-foreground tabular-nums">
+                  {g.fromLabel} <span className="text-muted-foreground">→</span> <b style={{ color: ACCENT }}>{g.toLabel}</b>
+                </span>
+              </div>
+              {latest && (
+                <div className="text-[12px] text-foreground mt-1.5 tabular-nums">
+                  Latest <b>{latest.kg} kg</b>
+                  <span className="text-muted-foreground">
+                    {inRange ? ' — inside the target range.'
+                      : below ? ' — below the range. Hold here and keep lifting.'
+                      : ` — ${(latest.kg - g.to[1]).toFixed(1)} kg to the top of the range.`}
+                  </span>
+                </div>
+              )}
+              <p className="text-[11px] text-muted-foreground mt-1.5 leading-relaxed">{g.note}</p>
+            </div>
+          )
+        })()}
         {rows.length > 0 && (
           <table className="w-full text-[13px] mt-3">
             <thead>
