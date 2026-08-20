@@ -340,7 +340,7 @@ export default function App() {
   // Her — a private, unlisted long-form note (shared directly by link). Not in nav.
   if (route === '#/her') {
     return (
-      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b0a09' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(224,184,119,0.45)' }}>loading…</div></div>}>
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#fbf7f4' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(162,102,110,0.5)' }}>loading…</div></div>}>
         <Her onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
