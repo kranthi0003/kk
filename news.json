@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-19T06:23:44.837Z",
+  "generated": "2026-08-20T04:28:19.363Z",
   "reddit": [
     {
-      "title": "CKS Exam Experience 2026: What Helped, What Didn’t, and the Mistake That Cost Me Time",
-      "url": "https://www.reddit.com/r/devops/comments/1vse3p3/cks_exam_experience_2026_what_helped_what_didnt/",
-      "by": "root0ps",
-      "time": 1787119931000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "New to DevOps/AWS CodePipeline - Could Someone Help Me Understand Our Setup?",
-      "url": "https://www.reddit.com/r/devops/comments/1vsdwg0/new_to_devopsaws_codepipeline_could_someone_help/",
-      "by": "No-Heat-1958",
-      "time": 1787119267000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What are the best Wiz alternatives for mid sized company?",
-      "url": "https://www.reddit.com/r/devops/comments/1vsda9s/what_are_the_best_wiz_alternatives_for_mid_sized/",
-      "by": "Successful-Bat9218",
-      "time": 1787117265000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Pandoc: What survives markup conversion?",
-      "url": "https://www.reddit.com/r/programming/comments/1vs61br/pandoc_what_survives_markup_conversion/",
-      "by": "dereuromark",
-      "time": 1787096895000,
+      "title": "Turns are Better than Radians",
+      "url": "https://www.reddit.com/r/programming/comments/1vt2lzu/turns_are_better_than_radians/",
+      "by": "Iamsodarncool",
+      "time": 1787181728000,
       "sub": "r/programming"
     },
     {
-      "title": "I fell down a debugging rabbit hole",
-      "url": "https://www.reddit.com/r/programming/comments/1vs0umj/i_fell_down_a_debugging_rabbit_hole/",
-      "by": "santiagobustelo",
-      "time": 1787084546000,
+      "title": "Merge several small k3s clusters into single one.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vt23b1/merge_several_small_k3s_clusters_into_single_one/",
+      "by": "Opening-Gear-8214",
+      "time": 1787180459000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "The Design and Evolution of io_uring by Jens Axboe",
+      "url": "https://www.reddit.com/r/programming/comments/1vt19vc/the_design_and_evolution_of_io_uring_by_jens_axboe/",
+      "by": "cdb_11",
+      "time": 1787178465000,
       "sub": "r/programming"
     },
     {
-      "title": "Is learning arch really worth it for devops",
-      "url": "https://www.reddit.com/r/devops/comments/1vs0hlc/is_learning_arch_really_worth_it_for_devops/",
-      "by": "Strong-Interview45",
-      "time": 1787083757000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I unearthed my Am29000 C compiler and web browser from 1999. It still can surf through the emulator",
-      "url": "https://www.reddit.com/r/programming/comments/1vs06if/i_unearthed_my_am29000_c_compiler_and_web_browser/",
-      "by": "nanochess",
-      "time": 1787083114000,
+      "title": "The Pit of Success - An Interview with Rico Mariani",
+      "url": "https://www.reddit.com/r/programming/comments/1vsuy5o/the_pit_of_success_an_interview_with_rico_mariani/",
+      "by": "cdb_11",
+      "time": 1787164393000,
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "title": "Modern Enterprise Architecture: Architecting for Outcomes • Simon Rohrer",
+      "url": "https://www.reddit.com/r/programming/comments/1vskw18/modern_enterprise_architecture_architecting_for/",
+      "by": "goto-con",
+      "time": 1787142109000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Kubernetes and VLANs",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vsks9n/kubernetes_and_vlans/",
+      "by": "lief91",
+      "time": 1787141822000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vsi1yb/weekly_show_off_your_new_tools_and_projects_thread/",
       "by": "AutoModerator",
-      "time": 1786096817000,
+      "time": 1787133646000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "TypeScript Exclude and Extract in Depth: Filtering Union Types for Real API Contracts",
-      "url": "https://medium.com/@jsmanifest/typescript-exclude-and-extract-in-depth-filtering-union-types-for-real-api-contracts-f6b9b8248d3b",
-      "by": "jsmanifest",
-      "time": 1787120560000,
+      "title": "Infosys DevOps Interview Experience: Round 1 Questions and Detailed Preparation Guide",
+      "url": "https://medium.com/@preetjit82/infosys-devops-interview-experience-round-1-questions-and-detailed-preparation-guide-037684f2fb52",
+      "by": "Interview Simplified",
+      "time": 1787199556000,
       "tags": [
-        "programming",
-        "front-end-development",
-        "typescript"
+        "interview-questions",
+        "devops",
+        "programming"
       ]
     },
     {
-      "title": "Getting to Know NativePHP’s MCP Server: Your AI Agent Now Understands SuperNative",
-      "url": "https://towardsdev.com/getting-to-know-nativephps-mcp-server-your-ai-agent-now-understands-supernative-cdac0e6d8c44",
-      "by": "Developer Awam",
-      "time": 1787120478000,
+      "title": ".NET 11 Preview 7 Explained: New Features, Improvements and What Developers Need to Know",
+      "url": "https://gohulan.medium.com/net-11-preview-7-explained-new-features-improvements-and-what-developers-need-to-know-edda5d7fa984",
+      "by": "Somanathan Gohulan",
+      "time": 1787199549000,
       "tags": [
-        "laravel",
-        "php",
-        "mobile-app-development"
-      ]
-    },
-    {
-      "title": "Using float4 to fix uncoalesced writes in a CUDA matmul",
-      "url": "https://medium.com/@aniketm2598/using-float4-to-fix-uncoalesced-writes-in-a-cuda-matmul-01ed5ba8fa45",
-      "by": "Aniket Maheshwari",
-      "time": 1787120358000,
-      "tags": [
-        "machine-learning",
-        "programming",
-        "cuda"
-      ]
-    },
-    {
-      "title": "10 Free Online Tools Every Developer Should Bookmark in 2026",
-      "url": "https://medium.com/@bsorathiya64/10-free-online-tools-every-developer-should-bookmark-in-2026-8134ea73d47d",
-      "by": "Bsorathiya",
-      "time": 1787120358000,
-      "tags": [
-        "technology",
-        "web-development",
-        "coding"
-      ]
-    },
-    {
-      "title": "Partition vs Shard vs Partition Key: Understanding Data Distribution",
-      "url": "https://medium.com/@rajatraghav7797/partition-vs-shard-vs-partition-key-understanding-data-distribution-7c5c9e1242a1",
-      "by": "Rajat Kumar",
-      "time": 1787120250000,
-      "tags": [
-        "programming",
-        "backend-development",
-        "database"
-      ]
-    },
-    {
-      "title": "Delaying a Refactor Is Sometimes the Right Call",
-      "url": "https://medium.com/@aigenneguraha/delaying-a-refactor-is-sometimes-the-right-call-cd2879a3b655",
-      "by": "Agung Nugroho",
-      "time": 1787120038000,
-      "tags": [
-        "programming",
-        "software-architecture",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Day I Realized AI Was Changing More Than Just Technology",
-      "url": "https://medium.com/@khalidkhan3398/the-day-i-realized-ai-was-changing-more-than-just-technology-e5f8cc15dd9f",
-      "by": "Kristen Belly",
-      "time": 1787120001000,
-      "tags": [
-        "ai",
-        "software-engineering",
-        "entrepreneurship"
-      ]
-    },
-    {
-      "title": "Stop Looping Over Your Database Calls: What Batching Taught Me About Scale",
-      "url": "https://medium.com/@wwwdeepak/stop-looping-over-your-database-calls-what-batching-taught-me-about-scale-7f798010a2e8",
-      "by": "Deepak",
-      "time": 1787119508000,
-      "tags": [
-        "software",
+        "dot-net-developers",
         "software-development",
-        "software-engineering"
+        "aspnetcore"
       ]
     },
     {
-      "title": "AI Integrated Classroom",
-      "url": "https://medium.com/@sweaty.phd/ai-integrated-classroom-fc9cf7ff04ff",
-      "by": "Alexander Katrompas, PhD",
-      "time": 1787119483000,
+      "title": "Laravel Soft Deletes in 2026: Everything You Think You Know Is Probably Incomplete",
+      "url": "https://sadiqueali.medium.com/laravel-soft-deletes-in-2026-everything-you-think-you-know-is-probably-incomplete-7e0841aefffd",
+      "by": "Sadique Ali",
+      "time": 1787199389000,
       "tags": [
-        "teaching-and-learning",
-        "generative-ai-use-cases",
+        "web-development",
+        "php",
+        "api"
+      ]
+    },
+    {
+      "title": "The 10 System Design Questions I Saw Again and Again in 15 Interviews",
+      "url": "https://medium.com/@preetjit82/the-10-system-design-questions-i-saw-again-and-again-in-15-interviews-e2bc8092611d",
+      "by": "Interview Simplified",
+      "time": 1787199157000,
+      "tags": [
+        "design",
+        "jobs",
+        "programming"
+      ]
+    },
+    {
+      "title": "Flutter API Error Handling: From Failure to User-Friendly State",
+      "url": "https://pongployappdev.medium.com/flutter-api-error-handling-from-failure-to-user-friendly-state-c47a5ac138a6",
+      "by": "PongPloyDev Petrung",
+      "time": 1787198850000,
+      "tags": [
+        "mobile",
+        "programming",
         "ai"
       ]
     },
     {
-      "title": "Stop Just Using the Cloud — Learn How to Build on It",
-      "url": "https://medium.com/@syedrazayahoo1/stop-just-using-the-cloud-learn-how-to-build-on-it-59afd478a047",
-      "by": "Syedrazayahoo",
-      "time": 1787119473000,
+      "title": "Machine Learning Demystified: A Beginner’s Guide",
+      "url": "https://medium.com/@purva.thakare1125/machine-learning-demystified-a-beginners-guide-711765c6f697",
+      "by": "Purva Thakare",
+      "time": 1787198764000,
       "tags": [
-        "azure",
-        "aws",
+        "programming",
+        "machine-learning",
+        "technology"
+      ]
+    },
+    {
+      "title": "72% of QA Teams Use AI. 15% Have Actually Scaled It.",
+      "url": "https://medium.com/cloudqa/72-of-qa-teams-use-ai-15-have-actually-scaled-it-e7d64ccce11f",
+      "by": "Aryan Nair",
+      "time": 1787198520000,
+      "tags": [
+        "artificial-intelligence",
+        "software-testing",
+        "engineering-leadership"
+      ]
+    },
+    {
+      "title": "How to Become Job-Ready in DevOps/Cloud in 45 Days (Real Project-Based Roadmap)",
+      "url": "https://medium.com/@sre-devops-interview/how-to-become-job-ready-in-devops-cloud-in-45-days-real-project-based-roadmap-ed32ec3fb4d4",
+      "by": "Tanishq Arora",
+      "time": 1787198462000,
+      "tags": [
+        "site-reliability-engineer",
+        "software-engineering",
+        "sre"
+      ]
+    },
+    {
+      "title": "Debugging a Kubernetes LoadBalancer Stuck in  on Docker Desktop + Kind",
+      "url": "https://medium.com/@ritanshbagal/debugging-a-kubernetes-loadbalancer-stuck-in-pending-on-docker-desktop-kind-659553534de3",
+      "by": "Ritansh Bagal",
+      "time": 1787198449000,
+      "tags": [
+        "kubernetes",
+        "docker",
         "devops"
+      ]
+    },
+    {
+      "title": "Memahami Strategi Trunk-Based Development",
+      "url": "https://medium.com/@nickyfajaelani2/memahami-strategi-trunk-based-development-03ac6213a98d",
+      "by": "NickyFajaelani",
+      "time": 1787197886000,
+      "tags": [
+        "branching-strategy",
+        "git",
+        "git-merge"
       ]
     }
   ]
