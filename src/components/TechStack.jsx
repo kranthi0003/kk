@@ -12,6 +12,7 @@ const skillGroups = [
 // Learn ones came from Kranthi, since MS Learn does not expose them publicly.
 // Listed newest-first, and sorted defensively so the order survives edits.
 const certs = [
+  { name: 'GitHub Copilot', tag: 'GH', slug: 'github-copilot', date: '2026-08-20', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/C753C701068CFDAA' },
   { name: 'Claude Certified Associate', tag: 'CCA', slug: 'claude-foundations', date: '2026-08-06', url: 'https://www.credly.com/badges/e24a663a-082c-41b8-b7bf-c35e9900044a/public_url' },
   { name: 'GitHub Actions', tag: 'GH', slug: 'github-actions', date: '2026-06-08', url: 'https://learn.microsoft.com/en-us/users/KranthiAkkumahanthi-6332/credentials/AF357DA2107EC50B' },
   { name: 'GitHub Administration', tag: 'GH', slug: 'github-administration', date: '2026-05-14', url: 'https://learn.microsoft.com/en-us/users/kranthiakkumahanthi-6332/credentials/34edb692ae79316e' },

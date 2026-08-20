@@ -13,6 +13,7 @@ const GROUPS = [
     status: 'Earned',
     color: '#67c98c',
     items: [
+      { name: 'GitHub Copilot', slug: 'github-copilot', when: 'Aug 2026' },
       { name: 'Claude Certified Associate — Foundations', slug: 'claude-foundations', when: 'Aug 2026' },
       { name: 'GitHub Actions', slug: 'github-actions', when: 'Jun 2026' },
       { name: 'GitHub Administration', slug: 'github-administration', when: 'May 2026' },
