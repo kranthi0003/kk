@@ -69,6 +69,7 @@ const MusicPage = lazy(() => import('./components/MusicPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
+const Her = lazy(() => import('./components/Her'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
@@ -332,6 +333,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b1024' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(174,196,255,0.5)' }}>loading…</div></div>}>
         <OneMonth onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Her — a private, unlisted long-form note (shared directly by link). Not in nav.
+  if (route === '#/her') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b0a09' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(224,184,119,0.45)' }}>loading…</div></div>}>
+        <Her onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
