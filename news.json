@@ -1,53 +1,53 @@
 {
-  "generated": "2026-08-20T15:02:42.246Z",
+  "generated": "2026-08-20T15:55:11.212Z",
   "reddit": [
     {
-      "title": "Removing a key from a file doesn't remove it from your repo. How are you handling history scanning?",
-      "url": "https://www.reddit.com/r/devops/comments/1vtjxzu/removing_a_key_from_a_file_doesnt_remove_it_from/",
-      "by": "Chris__Codes",
-      "time": 1787233510000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "An open-source self-hosted network operations platform for ALE OmniSwitch environments",
-      "url": "https://www.reddit.com/r/programming/comments/1vtjc5h/an_opensource_selfhosted_network_operations/",
-      "by": "Psychological-Top938",
-      "time": 1787232013000,
+      "title": "TypeScript : Migrate repo to TypeScript 7",
+      "url": "https://www.reddit.com/r/programming/comments/1vtn0qa/typescript_migrate_repo_to_typescript_7/",
+      "by": "mariuz",
+      "time": 1787240481000,
       "sub": "r/programming"
     },
     {
-      "title": "Modern Computer Architecture & Organization • Jim Ledin & Maciej «MJ» Jedrzejewski • GOTO 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1vtijql/modern_computer_architecture_organization_jim/",
-      "by": "goto-con",
-      "time": 1787230039000,
+      "title": "Generic Methods in Go 1.27",
+      "url": "https://www.reddit.com/r/programming/comments/1vtmrxk/generic_methods_in_go_127/",
+      "by": "ErneuerbareEnergien",
+      "time": 1787239947000,
       "sub": "r/programming"
     },
     {
-      "title": "Quake Shareware, a CD-ROM just a little too full - Fabien Sanglard",
-      "url": "https://www.reddit.com/r/programming/comments/1vtih22/quake_shareware_a_cdrom_just_a_little_too_full/",
-      "by": "NXGZ",
-      "time": 1787229842000,
+      "title": "Music theory for programmers",
+      "url": "https://www.reddit.com/r/programming/comments/1vtm44m/music_theory_for_programmers/",
+      "by": "lukehaas",
+      "time": 1787238483000,
       "sub": "r/programming"
     },
     {
-      "title": "AI-generated code detection in CI/CD — looking for approaches and real-world experience",
-      "url": "https://www.reddit.com/r/devops/comments/1vtgslx/aigenerated_code_detection_in_cicd_looking_for/",
-      "by": "Ancient_Mango_1576",
-      "time": 1787225190000,
+      "title": "Supply chain attack on arrayref",
+      "url": "https://www.reddit.com/r/programming/comments/1vtm22r/supply_chain_attack_on_arrayref/",
+      "by": "Successful_Bowl2564",
+      "time": 1787238352000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "Cloud sovereignty is starting to become an architecture problem",
-      "url": "https://www.reddit.com/r/devops/comments/1vtadgo/cloud_sovereignty_is_starting_to_become_an/",
-      "by": "No-Income-2235",
-      "time": 1787203402000,
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
       "sub": "r/devops"
     },
     {
-      "title": "How aggressively should non-prod AWS environments be shut down?",
-      "url": "https://www.reddit.com/r/devops/comments/1vt8qui/how_aggressively_should_nonprod_aws_environments/",
-      "by": "whispered_word12",
-      "time": 1787198331000,
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
       "sub": "r/devops"
     },
     {
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "working hard is the slowest path to success",
-      "url": "https://medium.com/@iiprathamyadav/working-hard-is-the-slowest-path-to-success-6b625a12e46e",
-      "by": "Pratham Yadav",
-      "time": 1787237640000,
+      "title": "Using Jenkins to Trigger AWS Lambda Functions",
+      "url": "https://medium.com/@bhagirath00/using-jenkins-to-trigger-aws-lambda-functions-f95d62097b0b",
+      "by": "Patel Bhagirath",
+      "time": 1787240661000,
       "tags": [
-        "this-happened-to-me",
-        "psychology",
-        "success"
+        "devops",
+        "jenkins",
+        "aws-lambda"
       ]
     },
     {
-      "title": "MCP resolvió cómo escalar, y ahora tiene que resolver cómo no exponerse",
-      "url": "https://medium.com/@aguspaturlanne/mcp-resolvi%C3%B3-c%C3%B3mo-escalar-y-ahora-tiene-que-resolver-c%C3%B3mo-no-exponerse-69b05f53fe7b",
-      "by": "Agustin Paturlanne",
-      "time": 1787237558000,
+      "title": "Everyone secures the MCP tool call. The leak is in tools/list.",
+      "url": "https://medium.com/@ashish.chaudhary008/everyone-secures-the-mcp-tool-call-the-leak-is-in-tools-list-1eba9a223344",
+      "by": "Ashish Chaudhary",
+      "time": 1787240482000,
       "tags": [
-        "mcp-server",
-        "ai-agent",
+        "model-context-protocol",
+        "programming",
         "cybersecurity"
       ]
     },
     {
-      "title": "pinq-doq: AI Kodlama Standartlarını Nasıl Tek Yerden Yönetiyoruz?",
-      "url": "https://medium.com/@bartikyunuscan/pinq-doq-ai-kodlama-standartlar%C4%B1n%C4%B1-nas%C4%B1l-tek-yerden-y%C3%B6netiyoruz-3e30a68e7148",
-      "by": "Yunuscan Bartık",
-      "time": 1787237474000,
+      "title": "5 Things I Would Stop Doing as a Developer in 2026",
+      "url": "https://medium.com/skillstuff/5-things-i-would-stop-doing-as-a-developer-in-2026-b08dadb2849c",
+      "by": "Shayan Khan",
+      "time": 1787240431000,
       "tags": [
-        "devops",
-        "artificial-intelligence",
-        "claude-code"
+        "programming",
+        "software-development",
+        "web-development"
       ]
     },
     {
-      "title": "NumPy Unpacked: From Arrays to Powerful Operations",
-      "url": "https://medium.com/@pavanijambulri08/numpy-unpacked-from-arrays-to-powerful-operations-83c201599632",
-      "by": "Pavanijambulri",
-      "time": 1787237179000,
+      "title": "Top integrations to use with IcePanel",
+      "url": "https://icepanel.medium.com/top-integrations-to-use-with-icepanel-109f9460982d",
+      "by": "IcePanel",
+      "time": 1787240429000,
       "tags": [
-        "data-analysis",
-        "programming",
+        "c4-model",
+        "software-engineering",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Python Linters Don’t Make Code Better. They Make Rules Consistent.",
+      "url": "https://medium.com/@thedevnotebook/python-linter-rules-make-code-worse-f039fc19e232",
+      "by": "The Dev Notebook",
+      "time": 1787240394000,
+      "tags": [
+        "clean-code",
+        "software-engineering",
         "python"
       ]
     },
     {
-      "title": "C# init vs private set: What Should You Use?",
-      "url": "https://medium.com/@hafsatariq277/c-init-vs-private-set-what-should-you-use-71507cb86406",
-      "by": "Hafsatariq",
-      "time": 1787236969000,
+      "title": "Confessions of a Naïve Programmer (9)",
+      "url": "https://medium.com/@saulis.vladas/confessions-of-a-na%C3%AFve-programmer-9-a5f919f11e9f",
+      "by": "Vladas Saulis",
+      "time": 1787240343000,
       "tags": [
-        "csharp",
         "software-development",
-        "dotnet"
+        "life",
+        "24"
       ]
     },
     {
-      "title": "10 Uncomfortable Truths Senior Developers Don’t Tell You",
-      "url": "https://medium.com/@codePeasant/10-uncomfortable-truths-senior-developers-dont-tell-you-679809a202e0",
-      "by": "Code Peasant",
-      "time": 1787236323000,
+      "title": "DevOps Consulting Services UAE",
+      "url": "https://medium.com/@aegoognu/devops-consulting-services-uae-423f45810161",
+      "by": "Aegoognu",
+      "time": 1787240337000,
       "tags": [
+        "microsoft",
+        "devops",
+        "consulting"
+      ]
+    },
+    {
+      "title": "AG-UI Is Solving a Problem You Didn’t Know Your Agent Had",
+      "url": "https://medium.com/@shweta.t2703/ag-ui-is-solving-a-problem-you-didnt-know-your-agent-had-a63dd643954c",
+      "by": "Shweta Thakur",
+      "time": 1787240259000,
+      "tags": [
+        "software-architecture",
         "programming",
-        "career-advice",
-        "developer-experience"
+        "software-engineering"
       ]
     },
     {
-      "title": "Why Programming Is the Closest Thing to Magic We Have",
-      "url": "https://medium.com/@ngs777736/why-programming-is-the-closest-thing-to-magic-we-have-29263753e6bf",
-      "by": "- AMEEN -",
-      "time": 1787235907000,
+      "title": "Day 23: AI Agents Don’t Need More Intelligence — They Need Better Engineering",
+      "url": "https://medium.com/@eziah1393/day-23-ai-agents-dont-need-more-intelligence-they-need-better-engineering-5ab3caedb6a4",
+      "by": "Eziah",
+      "time": 1787240242000,
       "tags": [
-        "programming",
-        "benefits-of-programming",
-        "c-programming-basics"
-      ]
-    },
-    {
-      "title": "Article 2 — We Made It Faster. It Got Worse.",
-      "url": "https://medium.com/@gurvinder372/article-2-we-made-it-faster-it-got-worse-75895de64a9e",
-      "by": "Gurvinder Pal Singh",
-      "time": 1787235782000,
-      "tags": [
+        "ai-engineering",
         "software-engineering",
-        "office-culture",
-        "short-story"
+        "machine-learning"
       ]
     },
     {
-      "title": "Sudo vs Root: What’s the Difference?",
-      "url": "https://asepsayyad007.medium.com/sudo-vs-root-whats-the-difference-7eb8a90c1a4e",
-      "by": "Asep Sayyad",
-      "time": 1787235755000,
+      "title": "pinq-doq: How We Manage AI Coding Standards From One Place",
+      "url": "https://medium.com/@bartikyunuscan/pinq-doq-how-we-manage-ai-coding-standards-from-one-place-24de8b80523b",
+      "by": "Yunuscan Bartık",
+      "time": 1787240238000,
       "tags": [
-        "servers",
-        "linux-tutorial",
-        "linux"
-      ]
-    },
-    {
-      "title": "The AI Project Cliff: Re-Engineering System Design Patterns for Autonomous Agent Runtimes",
-      "url": "https://medium.com/@jassi1203/the-ai-project-cliff-re-engineering-system-design-patterns-for-autonomous-agent-runtimes-d2045e1c8509",
-      "by": "Jasbir Singh",
-      "time": 1787235570000,
-      "tags": [
-        "tech-trends",
-        "software-engineering",
-        "design-systems"
+        "artificial-intelligence",
+        "software-development",
+        "software-engineering"
       ]
     }
   ]
