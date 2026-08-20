@@ -230,6 +230,7 @@ export default function Her({ onBack }) {
   const [activeTick, setActiveTick] = useState(-1)
   const [music, setMusic] = useState(false)
   const [nowPlaying, setNowPlaying] = useState(null)
+  const [silent, setSilent] = useState(false) // playing, but not yet audible
   const reduced = useRef(false)
   const player = useRef(null)
   const raga = useRef(null)
@@ -264,23 +265,54 @@ export default function Her({ onBack }) {
     setNowPlaying(null)
   }, [])
 
+  const ensurePlayer = useCallback(() => {
+    if (!player.current) {
+      player.current = createHerPlaylist({
+        onTrack: setNowPlaying,
+        onMuted: setSilent,
+        onFail: fallbackToRaga,
+      })
+    }
+    return player.current
+  }, [fallbackToRaga])
+
+  // The music starts on its own. It has to begin muted — every browser refuses
+  // unattended sound, and rightly so — and then lifts the mute at her first
+  // touch, tap or scroll, so she never has to go and find a play button.
+  //
+  // If she has already turned it off once this visit, leave it off. Being
+  // switched on again by a page you deliberately quietened is obnoxious.
+  useEffect(() => {
+    let off = false
+    try { off = sessionStorage.getItem('her_music_off') === '1' } catch {}
+    if (off) return
+    const p = ensurePlayer()
+    p.autostart()
+    setMusic(true)
+  }, [ensurePlayer])
+
   const toggleMusic = useCallback(() => {
+    // Started but still silent: the useful thing is sound, not a pause.
+    if (music && silent && !usingRaga.current) {
+      player.current?.unmute()
+      return
+    }
     if (music) {
       if (usingRaga.current) raga.current?.stop()
       else player.current?.stop()
       setMusic(false)
       setNowPlaying(null)
+      setSilent(false)
+      try { sessionStorage.setItem('her_music_off', '1') } catch {}
       return
     }
+    try { sessionStorage.removeItem('her_music_off') } catch {}
     if (usingRaga.current) {
       if (raga.current?.start()) setMusic(true)
       return
     }
-    if (!player.current) {
-      player.current = createHerPlaylist({ onTrack: setNowPlaying, onFail: fallbackToRaga })
-    }
-    if (player.current.start()) setMusic(true)
-  }, [music, fallbackToRaga])
+    if (ensurePlayer().start()) setMusic(true)
+  }, [music, silent, ensurePlayer])
 
   // Stop when the tab goes away, resume when it comes back — but only if the
   // music was on to begin with.
@@ -398,14 +430,15 @@ export default function Her({ onBack }) {
         <span className="hidden sm:inline">Back</span>
       </button>
 
-      <button onClick={toggleMusic} className={'her-chip her-music' + (music ? ' is-on' : '')}
-        title={music
-          ? (nowPlaying ? `${nowPlaying.title} — ${nowPlaying.artist}. Turn the music off` : 'Turn the music off')
-          : 'Turn the music on'}
-        aria-pressed={music}>
+      <button onClick={toggleMusic}
+        className={'her-chip her-music' + (music && !silent ? ' is-on' : '') + (silent ? ' is-silent' : '')}
+        title={!music ? 'Turn the music on'
+          : silent ? 'Tap for sound'
+          : (nowPlaying ? `${nowPlaying.title} — ${nowPlaying.artist}. Pause` : 'Pause the music')}
+        aria-pressed={music && !silent}>
         <span className="her-bars" aria-hidden="true"><i /><i /><i /></span>
         <span className="hidden sm:inline her-np">
-          {music ? (nowPlaying ? nowPlaying.title : 'Music on') : 'Music'}
+          {!music ? 'Music' : silent ? 'Tap for sound' : (nowPlaying ? nowPlaying.title : 'Music on')}
         </span>
       </button>
 
@@ -509,6 +542,13 @@ const HER_STYLE = `
   .her-back { left: 1rem; }
   .her-music { right: 1rem; }
   .her-music.is-on { background: rgba(194,86,110,0.16); border-color: rgba(194,86,110,0.5); }
+  /* Waiting for permission to be heard: breathe, so it reads as an invitation
+     rather than as something already playing. */
+  .her-music.is-silent { animation: herWaiting 2.6s ease-in-out infinite; }
+  @keyframes herWaiting {
+    0%, 100% { border-color: rgba(194,86,110,0.28); }
+    50%      { border-color: rgba(194,86,110,0.7); }
+  }
   /* Track titles vary in length; keep the chip from stretching across the page. */
   .her-np { max-width: 11rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
