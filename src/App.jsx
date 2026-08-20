@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import TravelMap from './components/TravelMap'
 import Terminal from './components/Terminal'
+import PromptDemo from './components/PromptDemo'
 import Connect from './components/Contact'
 import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
@@ -430,6 +431,7 @@ export default function App() {
         <div className="section-animate"><QuoteFlip /></div>
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
+        <div className="section-animate"><PromptDemo /></div>
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><About /></div>
         <div className="section-animate"><Terminal /></div>
