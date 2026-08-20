@@ -1,6 +1,13 @@
 {
-  "generated": "2026-08-20T17:27:43.401Z",
+  "generated": "2026-08-20T17:44:13.970Z",
   "reddit": [
+    {
+      "title": "Rebuilding the Linux microVM stack on Apple Silicon",
+      "url": "https://www.reddit.com/r/programming/comments/1vtq4qt/rebuilding_the_linux_microvm_stack_on_apple/",
+      "by": "Shot-Reporter-2443",
+      "time": 1787247253000,
+      "sub": "r/programming"
+    },
     {
       "title": "Building certgrep.sh: a free CT search engine",
       "url": "https://www.reddit.com/r/programming/comments/1vtpng5/building_certgrepsh_a_free_ct_search_engine/",
@@ -9,11 +16,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "Building an Observability Pane",
-      "url": "https://www.reddit.com/r/devops/comments/1vtnl2t/building_an_observability_pane/",
-      "by": "JayDee2306",
-      "time": 1787241709000,
-      "sub": "r/devops"
+      "title": ".github/workflows/main.yml · Workflow runs · hops1010-cmyk/vis-kuber01",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtnez4/githubworkflowsmainyml_workflow_runs/",
+      "by": "Reasonable-You4548",
+      "time": 1787241357000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "TypeScript : Migrate repo to TypeScript 7",
@@ -30,49 +37,119 @@
       "sub": "r/programming"
     },
     {
-      "title": "Music theory for programmers",
-      "url": "https://www.reddit.com/r/programming/comments/1vtm44m/music_theory_for_programmers/",
-      "by": "lukehaas",
-      "time": 1787238483000,
-      "sub": "r/programming"
+      "title": "How do you handle session recording for kubectl debug in production?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtmj76/how_do_you_handle_session_recording_for_kubectl/",
+      "by": "KidCannabis501",
+      "time": 1787239428000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Removing a key from a file doesn't remove it from your repo. How are you handling history scanning?",
-      "url": "https://www.reddit.com/r/devops/comments/1vtjxzu/removing_a_key_from_a_file_doesnt_remove_it_from/",
-      "by": "Chris__Codes",
-      "time": 1787233510000,
+      "title": "Tips for choosing a load balancer for your enterprise",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vtl0r3/tips_for_choosing_a_load_balancer_for_your/",
+      "by": "TeamHAProxy",
+      "time": 1787235981000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "AI-generated code detection in CI/CD — looking for approaches and real-world experience",
-      "url": "https://www.reddit.com/r/devops/comments/1vtgslx/aigenerated_code_detection_in_cicd_looking_for/",
-      "by": "Ancient_Mango_1576",
-      "time": 1787225190000,
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
       "sub": "r/devops"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
+    {
+      "title": "He Committed Gofmt Before Go Was Public. Sixteen Years Later He Said He’d Use a Different Tool.",
+      "url": "https://medium.com/programmers-career/he-committed-gofmt-before-go-was-public-sixteen-years-later-he-said-hed-use-a-different-tool-2f2d0b82d0c9",
+      "by": "Wesley Wei",
+      "time": 1787247661000,
+      "tags": [
+        "coding",
+        "programming",
+        "productivity"
+      ]
+    },
+    {
+      "title": "Seniors Use These 7 Kotlin Features Differently",
+      "url": "https://trricho.medium.com/seniors-use-these-7-kotlin-features-differently-013f7ac916c8",
+      "by": "Prakash Sharma",
+      "time": 1787247518000,
+      "tags": [
+        "android",
+        "mobile-app-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "JWT + Zustand + Axios: Cut Auth Boilerplate 60%",
+      "url": "https://medium.com/@coolercoder/jwt-zustand-axios-cut-auth-boilerplate-60-e8a69d8632e4",
+      "by": "Ray Hu",
+      "time": 1787247473000,
+      "tags": [
+        "javascript",
+        "web-development",
+        "react"
+      ]
+    },
+    {
+      "title": "502.How to Securely Grant a User Access to an Amazon S3 Bucket",
+      "url": "https://medium.com/@venkatvk46/502-how-to-securely-grant-a-user-access-to-an-amazon-s3-bucket-837175444da4",
+      "by": "Venkatramanan C S",
+      "time": 1787247430000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "technology"
+      ]
+    },
+    {
+      "title": "Project Corsa: Porting TypeScript Compiler to Go at Microsoft",
+      "url": "https://medium.com/@0s.and.1s/project-corsa-porting-typescript-compiler-to-go-at-microsoft-b11825bfdb3b",
+      "by": "0s & 1s",
+      "time": 1787247340000,
+      "tags": [
+        "golang",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "8 HTML Mistakes Beginners Make (And How to Fix Them)",
+      "url": "https://medium.com/@khuzeemajaved/8-html-mistakes-beginners-make-and-how-to-fix-them-0582d58b7696",
+      "by": "Khuzeema Javed",
+      "time": 1787247070000,
+      "tags": [
+        "beginner",
+        "programming",
+        "html"
+      ]
+    },
+    {
+      "title": "NVIDIA GPU Monitoring on Ubuntu with DCGM Exporter, Prometheus & Grafana: Complete Step-by-Step…",
+      "url": "https://deepops.medium.com/nvidia-gpu-monitoring-on-ubuntu-with-dcgm-exporter-prometheus-grafana-complete-step-by-step-1e87b0d91c2f",
+      "by": "Deependrasingh kushvaha",
+      "time": 1787246886000,
+      "tags": [
+        "devops",
+        "grafana",
+        "linux"
+      ]
+    },
     {
       "title": "NVIDIA NeMo Switchyard: Cut LLM Costs 44% With Smart Routing",
       "url": "https://medium.com/@coolercoder/nvidia-nemo-switchyard-cut-llm-costs-44-with-smart-routing-a14acf5179af",
@@ -96,91 +173,14 @@
       ]
     },
     {
-      "title": "How to Kill the Deployment Bottleneck in One Day: A Guide for the Solo Ops Engineer",
-      "url": "https://medium.com/@nicholasthoni/how-to-kill-the-deployment-bottleneck-in-one-day-a-guide-for-the-solo-ops-engineer-620cdb3bb90a",
-      "by": "Nicholas Thoni",
-      "time": 1787246173000,
+      "title": "Every ‘How to Become an AI Engineer’ Guide in 2026 Is Teaching the Same Wrong Curriculum",
+      "url": "https://pub.towardsai.net/every-how-to-become-an-ai-engineer-guide-in-2026-is-teaching-the-same-wrong-curriculum-87f4dd881556",
+      "by": "“The AI Engineer”",
+      "time": 1787246203000,
       "tags": [
-        "devops",
-        "kubernetes",
-        "platform-engineering"
-      ]
-    },
-    {
-      "title": "Linux Administration: Umask and Special Permissions (SetUID, SetGID, Sticky Bit)",
-      "url": "https://medium.com/@hjkim6321/linux-administration-umask-and-special-permissions-setuid-setgid-sticky-bit-3ee87ad04eca",
-      "by": "Hyunjae",
-      "time": 1787246009000,
-      "tags": [
-        "red-hat",
-        "linux",
-        "devops"
-      ]
-    },
-    {
-      "title": "La DGFiP trace chaque consultation depuis 2004. Encore faut-il que quelqu’un lise.",
-      "url": "https://medium.com/@raphaellondner/la-dgfip-trace-chaque-consultation-depuis-2004-encore-faut-il-que-quelquun-lise-22f7f920feff",
-      "by": "Raphael Londner",
-      "time": 1787245899000,
-      "tags": [
-        "france",
-        "privacy",
-        "cryptocurrency"
-      ]
-    },
-    {
-      "title": "Python",
-      "url": "https://medium.com/@shivaannagiri/python-5476dc75ffe3",
-      "by": "Shivaannagiri",
-      "time": 1787245630000,
-      "tags": [
-        "python",
-        "programming",
-        "python-programming"
-      ]
-    },
-    {
-      "title": "In commercial freight logistics, a Rate Confirmation (Ratecon) serves as the legally binding…",
-      "url": "https://medium.com/@zamansharifzamansharif5/in-commercial-freight-logistics-a-rate-confirmation-ratecon-serves-as-the-legally-binding-4f33d24574b1",
-      "by": "Dispatch Mastery",
-      "time": 1787245628000,
-      "tags": [
-        "work",
-        "programming",
-        "business"
-      ]
-    },
-    {
-      "title": "Unlocking Rust’s Secret Powers: 15 Attributes You’ll Wish You Knew Sooner!",
-      "url": "https://medium.com/@anshusinghal703/unlocking-rusts-secret-powers-15-attributes-you-ll-wish-you-knew-sooner-0eb898ab8c1b",
-      "by": "Anshu Singhal",
-      "time": 1787245486000,
-      "tags": [
-        "rust-programming-language",
-        "rust",
-        "medium"
-      ]
-    },
-    {
-      "title": "Our summer interns, in their own words",
-      "url": "https://blankslatetech.medium.com/our-summer-interns-in-their-own-words-392a213df028",
-      "by": "Blank Slate",
-      "time": 1787245449000,
-      "tags": [
-        "software-engineering",
-        "internships",
-        "computationalneuroscience"
-      ]
-    },
-    {
-      "title": "I’m 50-Something and Deliberately Stepping Down the Ladder",
-      "url": "https://medium.com/@johnedwardwallace/im-50-something-and-deliberately-stepping-down-the-ladder-8e43024b7c70",
-      "by": "John Wallace",
-      "time": 1787245279000,
-      "tags": [
-        "artificial-intelligence",
         "career-advice",
-        "software-engineering"
+        "software-engineering",
+        "ai-engineering"
       ]
     }
   ]
