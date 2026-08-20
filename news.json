@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-20T12:20:20.780Z",
+  "generated": "2026-08-20T14:49:51.428Z",
   "reddit": [
     {
-      "title": "LEMON: A universal eBPF-based volatile memory acquisition tool for modern android devices and hardened linux systems",
-      "url": "https://www.reddit.com/r/programming/comments/1vtfxb4/lemon_a_universal_ebpfbased_volatile_memory/",
-      "by": "throwaway16830261",
-      "time": 1787222565000,
+      "title": "Removing a key from a file doesn't remove it from your repo. How are you handling history scanning?",
+      "url": "https://www.reddit.com/r/devops/comments/1vtjxzu/removing_a_key_from_a_file_doesnt_remove_it_from/",
+      "by": "Chris__Codes",
+      "time": 1787233510000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "An open-source self-hosted network operations platform for ALE OmniSwitch environments",
+      "url": "https://www.reddit.com/r/programming/comments/1vtjc5h/an_opensource_selfhosted_network_operations/",
+      "by": "Psychological-Top938",
+      "time": 1787232013000,
       "sub": "r/programming"
     },
     {
-      "title": "How good old SWR masks slow Node.js SSR",
-      "url": "https://www.reddit.com/r/programming/comments/1vtfr84/how_good_old_swr_masks_slow_nodejs_ssr/",
-      "by": "vanbrosh",
-      "time": 1787222024000,
+      "title": "Modern Computer Architecture & Organization • Jim Ledin & Maciej «MJ» Jedrzejewski • GOTO 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1vtijql/modern_computer_architecture_organization_jim/",
+      "by": "goto-con",
+      "time": 1787230039000,
       "sub": "r/programming"
     },
     {
-      "title": "A study of privacy-related data collected by Android apps",
-      "url": "https://www.reddit.com/r/programming/comments/1vtfeqw/a_study_of_privacyrelated_data_collected_by/",
-      "by": "throwaway16830261",
-      "time": 1787220897000,
+      "title": "Quake Shareware, a CD-ROM just a little too full - Fabien Sanglard",
+      "url": "https://www.reddit.com/r/programming/comments/1vtih22/quake_shareware_a_cdrom_just_a_little_too_full/",
+      "by": "NXGZ",
+      "time": 1787229842000,
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: This Week I Learned (TWIL?) thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vtf4qz/weekly_this_week_i_learned_twil_thread/",
-      "by": "AutoModerator",
-      "time": 1787220011000,
-      "sub": "r/kubernetes"
+      "title": "AI-generated code detection in CI/CD — looking for approaches and real-world experience",
+      "url": "https://www.reddit.com/r/devops/comments/1vtgslx/aigenerated_code_detection_in_cicd_looking_for/",
+      "by": "Ancient_Mango_1576",
+      "time": 1787225190000,
+      "sub": "r/devops"
     },
     {
-      "title": "Canvas Browser",
-      "url": "https://www.reddit.com/r/programming/comments/1vtebqq/canvas_browser/",
-      "by": "Webfuse",
-      "time": 1787217204000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "AWS EKS | EKS Access Entry - How large organizations handle EKS Access?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vtd0th/aws_eks_eks_access_entry_how_large_organizations/",
-      "by": "Basic_Let7303",
-      "time": 1787212507000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "What does cloud sovereignty actually mean for Kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vta4t2/what_does_cloud_sovereignty_actually_mean_for/",
+      "title": "Cloud sovereignty is starting to become an architecture problem",
+      "url": "https://www.reddit.com/r/devops/comments/1vtadgo/cloud_sovereignty_is_starting_to_become_an/",
       "by": "No-Income-2235",
-      "time": 1787202620000,
+      "time": 1787203402000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How aggressively should non-prod AWS environments be shut down?",
+      "url": "https://www.reddit.com/r/devops/comments/1vt8qui/how_aggressively_should_nonprod_aws_environments/",
+      "by": "whispered_word12",
+      "time": 1787198331000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Angular 22: When to Use Signals, RxJS, or Both",
-      "url": "https://codewithbilal.medium.com/angular-22-when-to-use-signals-rxjs-or-both-9507927bb59e",
-      "by": "Code with Bilal",
-      "time": 1787227661000,
+      "title": "10 Uncomfortable Truths Senior Developers Don’t Tell You",
+      "url": "https://medium.com/@codePeasant/10-uncomfortable-truths-senior-developers-dont-tell-you-679809a202e0",
+      "by": "Code Peasant",
+      "time": 1787236323000,
       "tags": [
-        "web-development",
-        "software-development",
-        "software-engineering"
+        "programming",
+        "career-advice",
+        "developer-experience"
       ]
     },
     {
-      "title": "Go Rejected This Method for Five Years — Its Own Team Had Been Using It for Six",
-      "url": "https://pub.huizhou92.com/go-rejected-this-method-for-five-years-its-own-team-had-been-using-it-for-six-3c33fafd71ac",
-      "by": "huizhou92",
-      "time": 1787227655000,
+      "title": "Why Programming Is the Closest Thing to Magic We Have",
+      "url": "https://medium.com/@ngs777736/why-programming-is-the-closest-thing-to-magic-we-have-29263753e6bf",
+      "by": "- AMEEN -",
+      "time": 1787235907000,
       "tags": [
-        "software-development",
-        "technology",
+        "programming",
+        "benefits-of-programming",
+        "c-programming-basics"
+      ]
+    },
+    {
+      "title": "Article 2 — We Made It Faster. It Got Worse.",
+      "url": "https://medium.com/@gurvinder372/article-2-we-made-it-faster-it-got-worse-75895de64a9e",
+      "by": "Gurvinder Pal Singh",
+      "time": 1787235782000,
+      "tags": [
+        "software-engineering",
+        "office-culture",
+        "short-story"
+      ]
+    },
+    {
+      "title": "Sudo vs Root: What’s the Difference?",
+      "url": "https://asepsayyad007.medium.com/sudo-vs-root-whats-the-difference-7eb8a90c1a4e",
+      "by": "Asep Sayyad",
+      "time": 1787235755000,
+      "tags": [
+        "servers",
+        "linux-tutorial",
+        "linux"
+      ]
+    },
+    {
+      "title": "The AI Project Cliff: Re-Engineering System Design Patterns for Autonomous Agent Runtimes",
+      "url": "https://medium.com/@jassi1203/the-ai-project-cliff-re-engineering-system-design-patterns-for-autonomous-agent-runtimes-d2045e1c8509",
+      "by": "Jasbir Singh",
+      "time": 1787235570000,
+      "tags": [
+        "tech-trends",
+        "software-engineering",
+        "design-systems"
+      ]
+    },
+    {
+      "title": "Somewhere Between “Great Idea” and “It’s Shipped” Is a Product Designer",
+      "url": "https://medium.com/@dharinivwork21/somewhere-between-great-idea-and-its-shipped-is-a-product-designer-fb9b8291ef1f",
+      "by": "Dharinivwork",
+      "time": 1787235518000,
+      "tags": [
+        "design",
+        "product-design",
+        "calmness"
+      ]
+    },
+    {
+      "title": "CSS Transitions & Animations: Making a Page Feel Alive",
+      "url": "https://medium.com/@ishwaryagopinathan/css-transitions-animations-making-a-page-feel-alive-2e60bc22b6eb",
+      "by": "Ishwarya Gopinathan",
+      "time": 1787235270000,
+      "tags": [
+        "animation",
+        "css",
+        "web-development"
+      ]
+    },
+    {
+      "title": "What actually happens when you call an api?",
+      "url": "https://medium.com/@victaasel/what-actually-happens-when-you-call-an-api-186dff608ade",
+      "by": "Victor Asel",
+      "time": 1787235181000,
+      "tags": [
+        "software-engineering",
+        "backend-development",
         "programming"
       ]
     },
     {
-      "title": "Why Prompt Engineering Is the Most Underrated Skill of 2026\nThe $672 Million Skill Nobody’s Talking…",
-      "url": "https://medium.com/@kurmianuj239/why-prompt-engineering-is-the-most-underrated-skill-of-2026-the-672-million-skill-nobodys-talking-beab5eae1b01",
-      "by": "Anuj Kurmi",
-      "time": 1787227398000,
+      "title": "Understanding Caches and Memory Hierarchy",
+      "url": "https://medium.com/@avcilarfatima06/understanding-caches-and-memory-hierarchy-0a64bbee4120",
+      "by": "Fatıma Avcılar",
+      "time": 1787235050000,
       "tags": [
-        "technology",
-        "artificial-intelligence",
-        "ai"
+        "hardware",
+        "computer-science",
+        "computer-architecture"
       ]
     },
     {
-      "title": "The Process Was Legit — But It Was Running at the Wrong Time",
-      "url": "https://medium.com/nextgenthreat/the-process-was-legit-but-it-was-running-at-the-wrong-time-124955419aa4",
-      "by": "Faruk Ahmed",
-      "time": 1787227263000,
+      "title": "PHPUnit | stubs vs mocks",
+      "url": "https://medium.com/@chuxsohl/phpunit-stubs-vs-mocks-b2b3c82204d5",
+      "by": "Grat",
+      "time": 1787235046000,
       "tags": [
-        "linux",
-        "cybersecurity",
-        "information-security"
-      ]
-    },
-    {
-      "title": "AI Agent Memory: Why Your Coding Assistant Forgets Everything (And How to Fix It)",
-      "url": "https://medium.com/@hello_63455/ai-agent-memory-why-your-coding-assistant-forgets-everything-and-how-to-fix-it-8d8e1257013d",
-      "by": "Infeld_ai",
-      "time": 1787227261000,
-      "tags": [
-        "productivity",
-        "ai-agent",
-        "aritificial-intelligence"
-      ]
-    },
-    {
-      "title": "Why Design Patterns Matter More Now That AI Writes Code",
-      "url": "https://medium.com/@aistory0611/why-design-patterns-matter-more-now-that-ai-writes-code-8f0fb521f702",
-      "by": "SauravNova",
-      "time": 1787227072000,
-      "tags": [
-        "business",
-        "software-development",
-        "ai"
-      ]
-    },
-    {
-      "title": "The Augmented Flow: Disrupting Corporate Upskilling with Multimodal Vision Agents",
-      "url": "https://nickbortolotti.medium.com/the-augmented-flow-disrupting-corporate-upskilling-with-multimodal-vision-agents-8d868a3a970b",
-      "by": "Nicolas Bortolotti",
-      "time": 1787227031000,
-      "tags": [
-        "future-of-work",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "The AI Code Review Paradox: When More Review Creates Less Trust",
-      "url": "https://medium.com/@codzee.io/the-ai-code-review-paradox-when-more-review-creates-less-trust-52aecb2cc131",
-      "by": "Codzee.io",
-      "time": 1787227003000,
-      "tags": [
-        "ai",
-        "ai-code-review",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Your Test Suite Grew Up and Got a New Name",
-      "url": "https://medium.com/ai-native-engineer/your-test-suite-grew-up-and-got-a-new-name-4185850e33f3",
-      "by": "Valerie",
-      "time": 1787226954000,
-      "tags": [
-        "software-engineering",
-        "eval",
-        "software-testing"
-      ]
-    },
-    {
-      "title": "The Best Playwright Resources You Should Bookmark in 2026",
-      "url": "https://medium.com/@svetlana.tretjakova/the-best-playwright-resources-you-should-bookmark-in-2026-acf18016f1d2",
-      "by": "Svetlana Tretjakova",
-      "time": 1787226767000,
-      "tags": [
-        "test-automation",
-        "playwright-test",
-        "programming"
+        "testing",
+        "programming",
+        "phpunit"
       ]
     }
   ]
