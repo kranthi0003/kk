@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20T14:49:51.428Z",
+  "generated": "2026-08-20T15:02:42.246Z",
   "reddit": [
     {
       "title": "Removing a key from a file doesn't remove it from your repo. How are you handling history scanning?",
@@ -74,6 +74,61 @@
   ],
   "medium": [
     {
+      "title": "working hard is the slowest path to success",
+      "url": "https://medium.com/@iiprathamyadav/working-hard-is-the-slowest-path-to-success-6b625a12e46e",
+      "by": "Pratham Yadav",
+      "time": 1787237640000,
+      "tags": [
+        "this-happened-to-me",
+        "psychology",
+        "success"
+      ]
+    },
+    {
+      "title": "MCP resolvió cómo escalar, y ahora tiene que resolver cómo no exponerse",
+      "url": "https://medium.com/@aguspaturlanne/mcp-resolvi%C3%B3-c%C3%B3mo-escalar-y-ahora-tiene-que-resolver-c%C3%B3mo-no-exponerse-69b05f53fe7b",
+      "by": "Agustin Paturlanne",
+      "time": 1787237558000,
+      "tags": [
+        "mcp-server",
+        "ai-agent",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "pinq-doq: AI Kodlama Standartlarını Nasıl Tek Yerden Yönetiyoruz?",
+      "url": "https://medium.com/@bartikyunuscan/pinq-doq-ai-kodlama-standartlar%C4%B1n%C4%B1-nas%C4%B1l-tek-yerden-y%C3%B6netiyoruz-3e30a68e7148",
+      "by": "Yunuscan Bartık",
+      "time": 1787237474000,
+      "tags": [
+        "devops",
+        "artificial-intelligence",
+        "claude-code"
+      ]
+    },
+    {
+      "title": "NumPy Unpacked: From Arrays to Powerful Operations",
+      "url": "https://medium.com/@pavanijambulri08/numpy-unpacked-from-arrays-to-powerful-operations-83c201599632",
+      "by": "Pavanijambulri",
+      "time": 1787237179000,
+      "tags": [
+        "data-analysis",
+        "programming",
+        "python"
+      ]
+    },
+    {
+      "title": "C# init vs private set: What Should You Use?",
+      "url": "https://medium.com/@hafsatariq277/c-init-vs-private-set-what-should-you-use-71507cb86406",
+      "by": "Hafsatariq",
+      "time": 1787236969000,
+      "tags": [
+        "csharp",
+        "software-development",
+        "dotnet"
+      ]
+    },
+    {
       "title": "10 Uncomfortable Truths Senior Developers Don’t Tell You",
       "url": "https://medium.com/@codePeasant/10-uncomfortable-truths-senior-developers-dont-tell-you-679809a202e0",
       "by": "Code Peasant",
@@ -126,61 +181,6 @@
         "tech-trends",
         "software-engineering",
         "design-systems"
-      ]
-    },
-    {
-      "title": "Somewhere Between “Great Idea” and “It’s Shipped” Is a Product Designer",
-      "url": "https://medium.com/@dharinivwork21/somewhere-between-great-idea-and-its-shipped-is-a-product-designer-fb9b8291ef1f",
-      "by": "Dharinivwork",
-      "time": 1787235518000,
-      "tags": [
-        "design",
-        "product-design",
-        "calmness"
-      ]
-    },
-    {
-      "title": "CSS Transitions & Animations: Making a Page Feel Alive",
-      "url": "https://medium.com/@ishwaryagopinathan/css-transitions-animations-making-a-page-feel-alive-2e60bc22b6eb",
-      "by": "Ishwarya Gopinathan",
-      "time": 1787235270000,
-      "tags": [
-        "animation",
-        "css",
-        "web-development"
-      ]
-    },
-    {
-      "title": "What actually happens when you call an api?",
-      "url": "https://medium.com/@victaasel/what-actually-happens-when-you-call-an-api-186dff608ade",
-      "by": "Victor Asel",
-      "time": 1787235181000,
-      "tags": [
-        "software-engineering",
-        "backend-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "Understanding Caches and Memory Hierarchy",
-      "url": "https://medium.com/@avcilarfatima06/understanding-caches-and-memory-hierarchy-0a64bbee4120",
-      "by": "Fatıma Avcılar",
-      "time": 1787235050000,
-      "tags": [
-        "hardware",
-        "computer-science",
-        "computer-architecture"
-      ]
-    },
-    {
-      "title": "PHPUnit | stubs vs mocks",
-      "url": "https://medium.com/@chuxsohl/phpunit-stubs-vs-mocks-b2b3c82204d5",
-      "by": "Grat",
-      "time": 1787235046000,
-      "tags": [
-        "testing",
-        "programming",
-        "phpunit"
       ]
     }
   ]
