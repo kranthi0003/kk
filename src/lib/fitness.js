@@ -36,6 +36,9 @@ export const PROGRAM = {
   label: '8-Week Block',
   goal: 'Lose fat while building muscle · wider shoulders, stronger legs, better posture, real cardio base.',
   target: 'October',
+  // The block's actual outcome target — strength first, scale second.
+  weightGoal: { from: 74.5, to: [70, 72], fromLabel: '74–75 kg', toLabel: '70–72 kg',
+    note: 'Finish noticeably stronger and more muscular — not just lighter. Chasing the scale down fast costs you the muscle.' },
   // Rank order that actually decides the result. Cardio is last on purpose.
   priorities: [
     'Nutrition — the calorie deficit',
