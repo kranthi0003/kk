@@ -103,6 +103,154 @@ function useCountdown(iso) {
 
 const Kerb = () => <div className="f1-kerb" aria-hidden="true" />
 
+/* ---------------------------------------------------------------------------
+ * Backdrop stickers. Hand-drawn line art rather than photography, so there is
+ * nothing to fetch and nothing to license. They sit behind the content in the
+ * margins the 3xl column leaves empty.
+ * ------------------------------------------------------------------------ */
+
+const SK = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }
+
+// Top-down car: front wing, nose, tub, sidepods, rear wing.
+const SkCar = () => (
+  <svg viewBox="0 0 200 330" {...SK}>
+    <path d="M34 27h132M41 16h118M34 27V11M166 27V11M41 16v11M159 16v11" />
+    <path d="M92 27l-4 52M108 27l4 52" />
+    <rect x="16" y="66" width="30" height="54" rx="7" />
+    <rect x="154" y="66" width="30" height="54" rx="7" />
+    <path d="M46 80l42 9M46 108l42-9M154 80l-42 9M154 108l-42-9" />
+    <path d="M88 79l-4 71-10 46h52l-10-46-4-71z" />
+    <path d="M86 129a16 16 0 0 1 28 0M100 113v-9" />
+    <ellipse cx="100" cy="141" rx="13" ry="18" />
+    <path d="M84 150l-22 15-2 45 14-14M116 150l22 15 2 45-14-14" />
+    <path d="M74 196l8 55h36l8-55M100 159v92" />
+    <rect x="14" y="212" width="32" height="57" rx="7" />
+    <rect x="154" y="212" width="32" height="57" rx="7" />
+    <path d="M46 227l36 6M46 255l36-6M154 227l-36 6M154 255l-36-6" />
+    <path d="M44 289h112M44 301h112M44 289v16M156 289v16M82 251l4 38M118 251l-4 38" />
+  </svg>
+)
+
+// The five lights, on their gantry.
+const SkLights = () => (
+  <svg viewBox="0 0 210 96" {...SK}>
+    <path d="M100 18V4M60 4h90" />
+    <rect x="8" y="18" width="194" height="62" rx="9" />
+    {[38, 79, 120, 161].map((x) => <path key={x} d={`M${x} 18v62`} />)}
+    {[23, 64, 105, 146, 187].map((x) => (
+      <g key={x}>
+        <circle cx={x} cy="38" r="8.5" />
+        <circle cx={x} cy="61" r="8.5" />
+      </g>
+    ))}
+  </svg>
+)
+
+// A circuit. Not a real one -- a plausible layout with the things that make a
+// track legible: a long main straight, an esses complex and a top hairpin.
+const SkCircuit = () => (
+  <svg viewBox="0 0 290 210" {...SK}>
+    <path d="M46 186h168q38 0 38-34v-20q0-24-24-26l-32 4q-24 2-20-18t26-24l42-12q18-6 14-24t-24-16l-84 10q-22 2-28-10t-22-6l-34 10q-26 8-28 36l2 58q2 30-10 40t-4 20q6 10 20 8z" />
+    <path d="M112 177v18" strokeWidth="3.6" />
+    <path d="M126 178v16" strokeWidth="1.5" opacity=".65" />
+  </svg>
+)
+
+// Slick with a compound band on the sidewall.
+const SkTyre = () => (
+  <svg viewBox="0 0 164 164" {...SK}>
+    <circle cx="82" cy="82" r="72" />
+    <circle cx="82" cy="82" r="61" strokeWidth="3.5" />
+    <circle cx="82" cy="82" r="36" />
+    <circle cx="82" cy="82" r="11" />
+    {[0, 60, 120, 180, 240, 300].map((a) => {
+      const r = (a * Math.PI) / 180
+      return (
+        <path
+          key={a}
+          d={`M${82 + 12 * Math.cos(r)} ${82 + 12 * Math.sin(r)}L${82 + 34 * Math.cos(r)} ${82 + 34 * Math.sin(r)}`}
+        />
+      )
+    })}
+  </svg>
+)
+
+// A speed trace: hard on the straights, off the throttle through the corners.
+const SkTelemetry = () => (
+  <svg viewBox="0 0 320 128" {...SK}>
+    <path d="M8 116h304M8 116V12" strokeWidth="1.6" opacity=".6" />
+    {[40, 104, 168, 232, 288].map((x) => <path key={x} d={`M${x} 116v6`} strokeWidth="1.6" opacity=".6" />)}
+    <path d="M8 96c14-40 26-58 40-58s18 34 30 46 22-30 34-42 20 44 32 52 24-46 36-56 22 40 34 48 20-24 32-38 22 6 34 10" strokeWidth="2.4" />
+  </svg>
+)
+
+// Rear wing, seen from behind: two planes, endplates and the mounting pylons.
+const SkWing = () => (
+  <svg viewBox="0 0 200 116" {...SK}>
+    <path d="M24 14l18-6v92l-18 6zM176 14l-18-6v92l18 6z" />
+    <path d="M42 26q58-10 116 0v18q-58-10-116 0z" />
+    <path d="M42 58q58-8 116 0v14q-58-8-116 0z" />
+    <path d="M88 72v26M112 72v26M74 98h52" />
+  </svg>
+)
+
+// Chequered flag. The only sticker that fills rather than strokes.
+const SkFlag = () => (
+  <svg viewBox="0 0 176 128" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M18 12v108" strokeLinecap="round" />
+    <g stroke="none" fill="currentColor" opacity=".6">
+      {Array.from({ length: 5 }, (_, r) =>
+        Array.from({ length: 6 }, (_, c) =>
+          (r + c) % 2 === 0 ? (
+            <rect key={`${r}-${c}`} x={24 + c * 25} y={16 + r * 17 + c * 2.4} width="25" height="17" />
+          ) : null
+        )
+      )}
+    </g>
+    <path d="M24 16l150 12M24 101l150 12" opacity=".55" strokeLinecap="round" />
+  </svg>
+)
+
+/* Placement is proportional so it survives the page growing as race data lands.
+   Widths and offsets keep every rotated shape inside the 256px gutter, and the
+   two sides alternate so nothing ever stacks up on one edge. */
+const STICKERS = [
+  { Art: SkCar,       top: '2.5%', side: 'left',  off: 18, w: 170, tone: 'red',   rot: -6 },
+  { Art: SkLights,    top: '7%',   side: 'right', off: 22, w: 185, tone: 'white', rot: 5 },
+  { Art: SkCircuit,   top: '12%',  side: 'left',  off: 14, w: 200, tone: 'teal',  rot: 7 },
+  { Art: SkTelemetry, top: '17%',  side: 'right', off: 20, w: 205, tone: 'red',   rot: 0 },
+  { Art: SkTyre,      top: '22%',  side: 'left',  off: 45, w: 135, tone: 'white', rot: 0 },
+  { Art: SkWing,      top: '27%',  side: 'right', off: 26, w: 180, tone: 'teal',  rot: -5 },
+  { Art: SkFlag,      top: '32%',  side: 'left',  off: 36, w: 148, tone: 'white', rot: 8 },
+  { Art: SkCar,       top: '37%',  side: 'right', off: 22, w: 160, tone: 'red',   rot: 173 },
+  { Art: SkTelemetry, top: '43%',  side: 'left',  off: 22, w: 200, tone: 'teal',  rot: 0 },
+  { Art: SkCircuit,   top: '48%',  side: 'right', off: 16, w: 195, tone: 'white', rot: -9 },
+  { Art: SkLights,    top: '53%',  side: 'left',  off: 24, w: 180, tone: 'red',   rot: -4 },
+  { Art: SkTyre,      top: '58%',  side: 'right', off: 50, w: 125, tone: 'teal',  rot: 0 },
+  { Art: SkWing,      top: '63%',  side: 'left',  off: 28, w: 175, tone: 'white', rot: 4 },
+  { Art: SkTelemetry, top: '68%',  side: 'right', off: 24, w: 200, tone: 'red',   rot: 0 },
+  { Art: SkCar,       top: '73%',  side: 'left',  off: 20, w: 165, tone: 'teal',  rot: 5 },
+  { Art: SkFlag,      top: '78%',  side: 'right', off: 34, w: 145, tone: 'white', rot: -7 },
+  { Art: SkCircuit,   top: '83%',  side: 'left',  off: 12, w: 205, tone: 'red',   rot: 8 },
+  { Art: SkLights,    top: '88%',  side: 'right', off: 26, w: 175, tone: 'teal',  rot: 4 },
+  { Art: SkTyre,      top: '92%',  side: 'left',  off: 46, w: 130, tone: 'white', rot: 0 },
+  { Art: SkCar,       top: '96%',  side: 'right', off: 26, w: 155, tone: 'red',   rot: 175 },
+]
+
+const Stickers = () => (
+  <div className="f1-stickers" aria-hidden="true">
+    {STICKERS.map(({ Art, top, side, off, w, tone, rot }, i) => (
+      <span
+        key={i}
+        className={`f1-sticker f1-sk-${tone}`}
+        style={{ top, [side]: `${off}px`, width: `${w}px`, transform: `rotate(${rot}deg)` }}
+      >
+        <Art />
+      </span>
+    ))}
+  </div>
+)
+
 const Shell = ({ children, id }) => (
   <section id={id} className="max-w-3xl mx-auto px-5 sm:px-6 py-7 sm:py-9">
     {children}
@@ -363,6 +511,7 @@ export default function F1({ onBack }) {
     <div className="f1-root">
       {/* Page atmosphere: carbon weave and team ambience. Purely decorative. */}
       <div className="f1-bg" aria-hidden="true" />
+      <Stickers />
 
       <button onClick={onBack} title="Back" className="f1-back">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
@@ -770,6 +919,21 @@ export default function F1({ onBack }) {
             repeating-linear-gradient(-45deg, rgba(255,255,255,.021) 0 2px, transparent 2px 4px);
           background-size: 180px 180px, auto, 4px 4px, 4px 4px;
         }
+
+        /* Line-art stickers. They scroll with the page, starting below the film,
+           and live in the gutter beside the content column. Below 1280px that
+           gutter is too narrow to hold them without crowding the text, so they
+           are simply not rendered. */
+        .f1-stickers {
+          position: absolute; left: 0; right: 0; top: 100svh; bottom: 0;
+          z-index: 1; pointer-events: none; overflow: hidden; display: none;
+        }
+        @media (min-width: 1280px) { .f1-stickers { display: block } }
+        .f1-sticker { position: absolute; display: block; }
+        .f1-sticker svg { width: 100%; height: auto; display: block; }
+        .f1-sk-red   { color: #E10600; opacity: .15; }
+        .f1-sk-white { color: #FFFFFF; opacity: .085; }
+        .f1-sk-teal  { color: #00D2BE; opacity: .12; }
 
         /* Hero */
         .f1-hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; }
