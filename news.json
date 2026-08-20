@@ -1,32 +1,32 @@
 {
-  "generated": "2026-08-20T09:43:45.243Z",
+  "generated": "2026-08-20T10:53:48.145Z",
   "reddit": [
+    {
+      "title": "LEMON: A universal eBPF-based volatile memory acquisition tool for modern android devices and hardened linux systems",
+      "url": "https://www.reddit.com/r/programming/comments/1vtfxb4/lemon_a_universal_ebpfbased_volatile_memory/",
+      "by": "throwaway16830261",
+      "time": 1787222565000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How good old SWR masks slow Node.js SSR",
+      "url": "https://www.reddit.com/r/programming/comments/1vtfr84/how_good_old_swr_masks_slow_nodejs_ssr/",
+      "by": "vanbrosh",
+      "time": 1787222024000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A study of privacy-related data collected by Android apps",
+      "url": "https://www.reddit.com/r/programming/comments/1vtfeqw/a_study_of_privacyrelated_data_collected_by/",
+      "by": "throwaway16830261",
+      "time": 1787220897000,
+      "sub": "r/programming"
+    },
     {
       "title": "Canvas Browser",
       "url": "https://www.reddit.com/r/programming/comments/1vtebqq/canvas_browser/",
       "by": "Webfuse",
       "time": 1787217204000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Reclaim the terminal",
-      "url": "https://www.reddit.com/r/programming/comments/1vtd0tw/reclaim_the_terminal/",
-      "by": "norman-complete",
-      "time": 1787212509000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Ian Goodfellow on how he created GANs",
-      "url": "https://www.reddit.com/r/programming/comments/1vtc7e8/ian_goodfellow_on_how_he_created_gans/",
-      "by": "existential_ducks",
-      "time": 1787209592000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "flex: 1 and flex: 1 1 auto are not interchangeable when the parent has no definite height",
-      "url": "https://www.reddit.com/r/programming/comments/1vtbrzy/flex_1_and_flex_1_1_auto_are_not_interchangeable/",
-      "by": "HolidayChard9706",
-      "time": 1787208141000,
       "sub": "r/programming"
     },
     {
@@ -74,111 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Monolithic vs Microservices: Which Architecture Wins in 2026? [Detailed Breakdown]",
-      "url": "https://medium.com/@EvangelistApps/monolithic-vs-microservices-which-architecture-wins-in-2026-detailed-breakdown-8e093e75ddc5",
-      "by": "Evangelist Apps",
-      "time": 1787218780000,
+      "title": "Java is Dead (And Oracle Just Pulled the Plug)",
+      "url": "https://medium.com/the-tech-notes/java-is-dead-and-oracle-just-pulled-the-plug-dd533bbadde0",
+      "by": "Oz",
+      "time": 1787222936000,
       "tags": [
-        "microservices",
-        "software-development",
-        "software-engineering"
+        "java",
+        "technology",
+        "software-development"
       ]
     },
     {
-      "title": "Indexing on Solana in Rust: Streaming, Decoding, and Proving Completeness",
-      "url": "https://medium.com/@shauryajha35/indexing-on-solana-in-rust-streaming-decoding-and-proving-completeness-982812209b2b",
-      "by": "Shaurya",
-      "time": 1787218451000,
+      "title": "Infrastructure as Code with AWS CloudFormation: From Manual Clicks to Repeatable Infrastructure",
+      "url": "https://medium.com/@sharathkumarlokesh/infrastructure-as-code-with-aws-cloudformation-from-manual-clicks-to-repeatable-infrastructure-e8302e2aa93d",
+      "by": "SwayamOps",
+      "time": 1787222669000,
       "tags": [
-        "blockchain",
-        "rust",
-        "programming"
+        "cloud-engineering",
+        "cloudformation",
+        "infrastructure-as-code"
       ]
     },
     {
-      "title": "10 Python Libraries That Make You Formidable as a Solo Developer",
-      "url": "https://python.plainenglish.io/10-python-libraries-that-make-you-formidable-as-a-solo-developer-9da9899230c4",
-      "by": "Malik Matloob",
-      "time": 1787218289000,
+      "title": "Containerizing a Full-Stack MERN App with Docker: A Beginner’s Complete Guide",
+      "url": "https://umar-devops.medium.com/containerizing-a-full-stack-mern-app-with-docker-a-beginners-complete-guide-c58732623eee",
+      "by": "Muhammad Umar Khan-Devops",
+      "time": 1787222627000,
       "tags": [
-        "developer-tools",
-        "software-development",
-        "programming"
+        "docker",
+        "devops",
+        "cloud-computing"
       ]
     },
     {
-      "title": "Why Your Kubernetes Cluster Isn’t Ready for AI Workloads — And What Breaks First in Production",
-      "url": "https://prateeksrivastav598.medium.com/why-your-kubernetes-cluster-isnt-ready-for-ai-workloads-and-what-breaks-first-in-production-dc907d45a807",
-      "by": "Prateek Srivastava",
-      "time": 1787217973000,
-      "tags": [
-        "sre",
-        "llm",
-        "devops"
-      ]
-    },
-    {
-      "title": "Best MLM Software Development Company in Gonda — Smart, Secure & Scalable Solutions",
-      "url": "https://medium.com/@sh6_22834/best-mlm-software-development-company-in-gonda-smart-secure-scalable-solutions-e2e089636190",
-      "by": "shallu",
-      "time": 1787217911000,
-      "tags": [
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Claude Code Has 50+ Slash Commands Exist — But You Only Need These 12",
-      "url": "https://medium.com/technology-hits/claude-code-has-50-slash-commands-exist-but-you-only-need-these-12-5b06b53ef66f",
-      "by": "Ashiq Fury",
-      "time": 1787217848000,
-      "tags": [
-        "claude-code",
-        "ai-coding",
-        "productivity"
-      ]
-    },
-    {
-      "title": "FastAPI for Beginners: The Framework That Made Me Fall in Love With Backend Development Again",
-      "url": "https://medium.com/@digitalascent160/fastapi-for-beginners-the-framework-that-made-me-fall-in-love-with-backend-development-again-5c6b8b725ffa",
-      "by": "Ascent Software Training Instit…",
-      "time": 1787217841000,
+      "title": "Java Multithreading Mastery #26 — Fixed vs Cached vs Single Thread Executor",
+      "url": "https://medium.com/@ayushi200malviya/java-multithreading-mastery-26-fixed-vs-cached-vs-single-thread-executor-edf49e68b498",
+      "by": "Ayushi Malviya",
+      "time": 1787222503000,
       "tags": [
         "programming",
-        "data",
-        "computer-science"
-      ]
-    },
-    {
-      "title": "Rise of Solo Engineer Teams",
-      "url": "https://urgo.medium.com/rise-of-solo-engineer-teams-a0dfd8d2826a",
-      "by": "Ürgo Ringo",
-      "time": 1787217712000,
-      "tags": [
-        "engineering-culture",
         "software-engineering",
-        "engineering-management"
+        "java"
       ]
     },
     {
-      "title": "MLM Software in Mirzapur — Powerful Solutions for Modern Network Marketing Businesses",
-      "url": "https://medium.com/@sh5_98617/mlm-software-in-mirzapur-powerful-solutions-for-modern-network-marketing-businesses-bb8541ef864f",
-      "by": "shallu",
-      "time": 1787217597000,
+      "title": "Security Advantages of Bespoke Software in 2026: Why Custom-Built Wins Against Cyber Threats",
+      "url": "https://medium.com/@sahil.khurana775/https-innostax-com-blog-security-advantages-of-bespoke-software-9f08eb3254ba",
+      "by": "Sahil Khurana",
+      "time": 1787222469000,
       "tags": [
-        "software-development",
-        "software-engineering"
+        "innostax",
+        "devops",
+        "software-development"
       ]
     },
     {
-      "title": "The Geometry of Backpressure: Diagnosing Distributed Systems with Little’s Law",
-      "url": "https://medium.com/@vivek.babu/the-geometry-of-backpressure-diagnosing-distributed-systems-with-littles-law-8dfd0bd00e76",
-      "by": "Vivek Babu",
-      "time": 1787217494000,
+      "title": "The Foolproof approach for setting up C++ on your Windows Machine without WSL: 2026 edition",
+      "url": "https://medium.com/@mohanarc/the-foolproof-approach-for-setting-up-c-on-your-windows-machine-without-wsl-2026-edition-988b34f63a03",
+      "by": "Mohana Roy Chowdhury",
+      "time": 1787222461000,
       "tags": [
-        "software-development",
-        "software-engineering",
-        "architecture"
+        "windows",
+        "coding",
+        "cplusplus"
+      ]
+    },
+    {
+      "title": "Data Types in Programming.",
+      "url": "https://medium.com/@doreamonnobi651/data-types-in-programming-a9877f4966e5",
+      "by": "Anandapu Vyshnavi",
+      "time": 1787222186000,
+      "tags": [
+        "computer-science",
+        "data-type",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Built an AI QA AutomationAgent with Playwright MCP to Solved problem “It Works on My Machine”",
+      "url": "https://medium.com/@kuldeeppal981/i-built-an-ai-qa-automationagent-with-playwright-mcp-to-solved-problem-it-works-on-my-machine-9d1017d79cd7",
+      "by": "Kuldeeppal",
+      "time": 1787222042000,
+      "tags": [
+        "software-testing",
+        "automation",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Kubernetes vs Docker: The Practical Guide to Architecture, Trade-Offs, and Real-World Use",
+      "url": "https://medium.com/@FullStackSoftwareDeveloper/kubernetes-vs-docker-the-practical-guide-to-architecture-trade-offs-and-real-world-use-e8d1c9b16966",
+      "by": "Ankita Patel",
+      "time": 1787221996000,
+      "tags": [
+        "k8s",
+        "devops",
+        "docker"
+      ]
+    },
+    {
+      "title": "Stop Paging on Noise: Designing Meaningful CloudWatch Alarms Without Alert Fatigue",
+      "url": "https://medium.com/@sharathkumarlokesh/stop-paging-on-noise-designing-meaningful-cloudwatch-alarms-without-alert-fatigue-048b62fccf84",
+      "by": "SwayamOps",
+      "time": 1787221947000,
+      "tags": [
+        "observability",
+        "devops",
+        "sre"
       ]
     }
   ]
