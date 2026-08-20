@@ -1,4 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
+import { useAmbient } from './AmbientContext'
+import { createRaga } from '../lib/ambientRaga'
 
 // A private, unlisted long-form note. Shared directly via #/her.
 //
@@ -6,17 +8,20 @@ import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from
 // timeline: a rail down the left fills as you read, and the anchor years sit
 // on it at their true scroll positions rather than at guessed percentages.
 //
-// The opening holds a single point of warm light for a few seconds and then
-// lets it go — which is the whole story in one gesture, before any words.
+// The palette is warm paper rather than the dark of the rest of the site —
+// blush, ivory and a little sage, with dusty rose for anything that needs to
+// carry weight. The page should feel like a letter, not a terminal.
+//
+// The opening is a single ripple that spreads and settles, which is the line
+// the first chapter ends on: the way water closes over a stone.
 //
 // TO ADD A TELUGU LINE: drop  { t: 'te', text: '...' }  anywhere in a
 // chapter's blocks. Roman letters, WhatsApp style. They're meant for the
 // peaks only — one per chapter at most, or they stop feeling like peaks.
 
-const AMBER = '#e0b877'
+const ROSE = '#c0868c'
+const ROSE_DEEP = '#a2666e'
 
-// t: 'p' prose · 'beat' a short line that gets its own air · 'em' a pull-quote
-// · 'rule' a divider. `anchor` marks a chapter as a tick on the rail.
 const CHAPTERS = [
   {
     id: 'c-2021',
@@ -160,6 +165,8 @@ const CHAPTERS = [
         'And now — which is the first time I have actually had any say in it.',
       ] },
       { t: 'p', text: 'So I am going to use it. As gently as I know how.' },
+      { t: 'te', text: 'Okaru chepparu… nachithey cheppeyamani.' },
+      { t: 'video', id: 'IHs8J7blJlQ', caption: 'Charles Leclerc, to a fan who asked him what to do' },
       { t: 'em', text: 'I like you. I would like to see where this goes.' },
       { t: 'p', text: 'That is the whole sentence. There is nothing underneath it. Not _I waited, so you owe me something._ Not a declaration, not a demand, nothing you have to answer today or answer at all.' },
       { t: 'p', text: 'And if the answer is no, then it is no — genuinely, with no hard feelings and nothing awkward left for you to manage. I would rather have asked than spend another five years being someone who almost did.' },
@@ -181,20 +188,80 @@ function rich(text) {
   return text.split(/_([^_]+)_/g).map((s, i) => (i % 2 ? <em key={i}>{s}</em> : s))
 }
 
+// The reel loads as a still first and only pulls in YouTube's player when it
+// is actually clicked. That keeps the page quiet — no third-party script, no
+// autoplay fighting the music — and means the embed costs nothing to anyone
+// who scrolls straight past it.
+function Reel({ id, caption }) {
+  const [live, setLive] = useState(false)
+  return (
+    <div className="her-rv her-reel">
+      <div className="her-reel-frame">
+        {live ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`}
+            title={caption || 'Clip'} loading="lazy" allowFullScreen
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          />
+        ) : (
+          <button type="button" onClick={() => setLive(true)} aria-label="Play the clip">
+            <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" />
+            <span className="her-reel-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z" /></svg>
+            </span>
+          </button>
+        )}
+      </div>
+      {caption ? <p className="her-reel-cap">{caption}</p> : null}
+    </div>
+  )
+}
+
 export default function Her({ onBack }) {
   const rootRef = useRef(null)
   const [progress, setProgress] = useState(0)
   const [ticks, setTicks] = useState([])
   const [activeTick, setActiveTick] = useState(-1)
+  const [music, setMusic] = useState(false)
   const reduced = useRef(false)
+  const raga = useRef(null)
+  const ambient = useAmbient()
 
   useEffect(() => {
     reduced.current = typeof window !== 'undefined'
       && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   }, [])
 
+  // The site-wide radio plays licensed tracks across every route. A pop song
+  // over this page would be the wrong thing entirely, so hold it while we're
+  // here and hand it back on the way out.
+  useEffect(() => {
+    ambient?.setSuppressed?.(true)
+    return () => ambient?.setSuppressed?.(false)
+  }, [ambient])
+
+  useEffect(() => () => { raga.current?.destroy?.() }, [])
+
+  const toggleMusic = useCallback(() => {
+    if (!raga.current) raga.current = createRaga()
+    if (music) { raga.current.stop(); setMusic(false) }
+    else if (raga.current.start()) setMusic(true)
+  }, [music])
+
+  // Stop when the tab goes away, resume when it comes back — but only if the
+  // music was on to begin with.
+  useEffect(() => {
+    if (!music) return
+    const onVis = () => {
+      if (document.hidden) raga.current?.stop()
+      else raga.current?.start()
+    }
+    document.addEventListener('visibilitychange', onVis)
+    return () => document.removeEventListener('visibilitychange', onVis)
+  }, [music])
+
   // Place the rail ticks at each anchor chapter's true position in the
-  // document, so the dates on the rail line up with the text beside them.
+  // document, so the years on the rail line up with the text beside them.
   const measure = useCallback(() => {
     const root = rootRef.current
     if (!root) return
@@ -239,21 +306,44 @@ export default function Her({ onBack }) {
   }, [progress, ticks])
 
   // Reveal blocks as they come into view. Reduced motion shows everything.
+  //
+  // A hard flick can move the scroll further in one frame than the observer
+  // reports on, and a block that jumps from below the fold to above it may
+  // never register as intersecting — which would leave text permanently
+  // invisible. So the observer handles the normal case, and the scroll handler
+  // sweeps up anything it missed.
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
-    const nodes = root.querySelectorAll('.her-rv')
+    const all = () => root.querySelectorAll('.her-rv:not(.is-in)')
+
     if (reduced.current || !('IntersectionObserver' in window)) {
-      nodes.forEach((n) => n.classList.add('is-in'))
+      all().forEach((n) => n.classList.add('is-in'))
       return
     }
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target) }
       })
     }, { root, rootMargin: '0px 0px -12% 0px', threshold: 0.08 })
-    nodes.forEach((n) => io.observe(n))
-    return () => io.disconnect()
+    root.querySelectorAll('.her-rv').forEach((n) => io.observe(n))
+
+    let raf = 0
+    const sweep = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        const missed = all()
+        if (!missed.length) return
+        const h = root.clientHeight
+        missed.forEach((n) => {
+          if (n.getBoundingClientRect().top < h * 0.92) { n.classList.add('is-in'); io.unobserve(n) }
+        })
+      })
+    }
+    root.addEventListener('scroll', sweep, { passive: true })
+    return () => { io.disconnect(); root.removeEventListener('scroll', sweep); if (raf) cancelAnimationFrame(raf) }
   }, [])
 
   const toTop = () => rootRef.current?.scrollTo({ top: 0, behavior: reduced.current ? 'auto' : 'smooth' })
@@ -264,11 +354,18 @@ export default function Her({ onBack }) {
 
       <div className="her-grain" aria-hidden="true" />
 
-      <button onClick={onBack} title="Back" className="her-back">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
+      <button onClick={onBack} title="Back" className="her-chip her-back">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
         <span className="hidden sm:inline">Back</span>
+      </button>
+
+      <button onClick={toggleMusic} className={'her-chip her-music' + (music ? ' is-on' : '')}
+        title={music ? 'Turn the music off' : 'Turn the music on'}
+        aria-pressed={music}>
+        <span className="her-bars" aria-hidden="true"><i /><i /><i /></span>
+        <span className="hidden sm:inline">{music ? 'Music on' : 'Music'}</span>
       </button>
 
       {/* Mobile: a hairline of progress across the very top. */}
@@ -287,15 +384,13 @@ export default function Her({ onBack }) {
         ))}
       </div>
 
-      {/* Opening — the light holds for a few seconds, then goes. */}
+      {/* Opening — a ripple spreads and settles. */}
       <header className="her-open">
-        <span className="her-spark" aria-hidden="true" />
+        <span className="her-ripple" aria-hidden="true"><i /><i /><i /></span>
         <p className="her-open-eyebrow">A true story, still going</p>
         <h1 className="her-title">Five&nbsp;Years</h1>
         <p className="her-open-dates">2021 &nbsp;—&nbsp; 13 July 2026</p>
-        <span className="her-scroll" aria-hidden="true">
-          <i />
-        </span>
+        <span className="her-scroll" aria-hidden="true"><i /></span>
       </header>
 
       <main className="her-body">
@@ -304,7 +399,8 @@ export default function Her({ onBack }) {
             <p className="her-rv her-eyebrow">{c.eyebrow}</p>
             {c.blocks.map((b, i) => {
               if (b.t === 'rule') return <span key={i} className="her-rv her-rule" aria-hidden="true" />
-              if (b.t === 'te') return <p key={i} className="her-rv her-te" lang="te">{b.text}</p>
+              if (b.t === 'video') return <Reel key={i} id={b.id} caption={b.caption} />
+              if (b.t === 'te') return <p key={i} className="her-rv her-te">{b.text}</p>
               if (b.t === 'em') return <p key={i} className="her-rv her-em">{rich(b.text)}</p>
               if (b.t === 'beat') return <p key={i} className="her-rv her-beat">{rich(b.text)}</p>
               if (b.t === 'close') return <p key={i} className="her-rv her-close">{rich(b.text)}</p>
@@ -328,48 +424,66 @@ export default function Her({ onBack }) {
 }
 
 const HER_STYLE = `
+  /* Warm paper, not a screen. Blush at the top, a little sage low on the left
+     and the faintest lilac on the right, over an ivory base. */
   .her-root {
     background:
-      radial-gradient(58% 38% at 50% 0%, rgba(224,184,119,0.10) 0%, transparent 64%),
-      radial-gradient(48% 34% at 8% 82%, rgba(150,98,60,0.09) 0%, transparent 66%),
-      linear-gradient(178deg, #0b0a09 0%, #100e0c 46%, #0a0908 100%);
-    color: rgba(240,234,224,0.82);
+      radial-gradient(62% 40% at 50% 0%, rgba(228,193,193,0.38) 0%, transparent 64%),
+      radial-gradient(52% 36% at 4% 86%, rgba(198,212,197,0.30) 0%, transparent 68%),
+      radial-gradient(46% 34% at 98% 42%, rgba(219,205,222,0.26) 0%, transparent 70%),
+      linear-gradient(176deg, #fdfaf8 0%, #faf4f0 46%, #f7f0ec 100%);
+    color: rgba(74,66,62,0.82);
     -webkit-font-smoothing: antialiased;
   }
   .her-root::-webkit-scrollbar { width: 0; height: 0; }
   .her-root { scrollbar-width: none; }
 
-  /* A faint warm tooth over everything, so the flat black reads like paper. */
+  /* The faintest tooth, so the background reads as paper rather than a flat fill. */
   .her-grain {
-    position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: 0.5;
+    position: fixed; inset: 0; pointer-events: none; z-index: 2; opacity: 0.55;
     background-image:
-      radial-gradient(rgba(255,238,214,0.030) 1px, transparent 1px),
-      radial-gradient(rgba(255,238,214,0.022) 1px, transparent 1px);
+      radial-gradient(rgba(120,96,90,0.030) 1px, transparent 1px),
+      radial-gradient(rgba(120,96,90,0.020) 1px, transparent 1px);
     background-size: 3px 3px, 7px 7px;
     background-position: 0 0, 2px 3px;
   }
 
-  .her-back {
-    position: fixed; top: 1rem; left: 1rem; z-index: 30;
-    display: inline-flex; align-items: center; gap: 0.375rem;
-    padding: 0.375rem 0.75rem; border-radius: 999px;
-    font-size: 0.875rem; font-weight: 500;
-    color: rgba(238,228,212,0.8);
-    background: rgba(255,255,255,0.045);
-    border: 1px solid rgba(224,184,119,0.20);
-    backdrop-filter: blur(8px);
-    transition: transform 0.2s ease, background 0.2s ease;
+  .her-chip {
+    position: fixed; top: 1rem; z-index: 30;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.44rem 0.85rem; border-radius: 999px;
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: 0.8rem; font-weight: 500;
+    color: ${ROSE_DEEP};
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(192,134,140,0.24);
+    box-shadow: 0 2px 14px rgba(150,110,110,0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
   }
-  .her-back:hover { transform: scale(1.05); background: rgba(255,255,255,0.08); }
+  .her-chip:hover { transform: translateY(-1px); background: rgba(255,255,255,0.92); box-shadow: 0 5px 20px rgba(150,110,110,0.14); }
+  .her-back { left: 1rem; }
+  .her-music { right: 1rem; }
+  .her-music.is-on { background: rgba(192,134,140,0.14); border-color: rgba(192,134,140,0.42); }
+
+  /* Three little bars that only move while the music is actually playing. */
+  .her-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 11px; }
+  .her-bars > i { width: 2px; height: 4px; border-radius: 1px; background: currentColor; opacity: 0.65; }
+  .her-music.is-on .her-bars > i { animation: herBar 1.25s ease-in-out infinite; opacity: 1; }
+  .her-music.is-on .her-bars > i:nth-child(2) { animation-delay: 0.18s; }
+  .her-music.is-on .her-bars > i:nth-child(3) { animation-delay: 0.36s; }
+  @keyframes herBar {
+    0%, 100% { height: 3px; }
+    50%      { height: 11px; }
+  }
 
   .her-topbar {
     position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 25;
-    background: rgba(255,255,255,0.05);
+    background: rgba(120,96,90,0.07);
   }
   .her-topbar > span {
     display: block; height: 100%;
-    background: linear-gradient(90deg, rgba(224,184,119,0.35), ${AMBER});
-    box-shadow: 0 0 12px rgba(224,184,119,0.5);
+    background: linear-gradient(90deg, rgba(192,134,140,0.4), ${ROSE});
   }
   @media (min-width: 1024px) { .her-topbar { display: none; } }
 
@@ -379,31 +493,30 @@ const HER_STYLE = `
       display: block; position: fixed; z-index: 25;
       left: 3.25rem; top: 16vh; bottom: 16vh; width: 1px;
     }
-    .her-rail-track { position: absolute; inset: 0; background: rgba(255,255,255,0.08); }
+    .her-rail-track { position: absolute; inset: 0; background: rgba(120,96,90,0.12); }
     .her-rail-fill {
       position: absolute; top: 0; left: 0; width: 1px;
-      background: linear-gradient(180deg, rgba(224,184,119,0.25), ${AMBER});
-      box-shadow: 0 0 14px rgba(224,184,119,0.45);
+      background: linear-gradient(180deg, rgba(192,134,140,0.35), ${ROSE});
     }
     .her-tick { position: absolute; left: 0; transform: translateY(-50%); }
     .her-tick > i {
       position: absolute; left: -2.5px; top: -2.5px;
       width: 5px; height: 5px; border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+      background: rgba(120,96,90,0.2);
       transition: background 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
     }
     .her-tick > em {
       position: absolute; left: 0.9rem; top: -0.52rem;
       font-family: 'JetBrains Mono', monospace; font-style: normal;
       font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-      white-space: nowrap; color: rgba(240,234,224,0.24);
+      white-space: nowrap; color: rgba(74,66,62,0.3);
       transition: color 0.45s ease;
     }
     .her-tick.is-on > i {
-      background: ${AMBER}; transform: scale(1.5);
-      box-shadow: 0 0 12px rgba(224,184,119,0.75);
+      background: ${ROSE}; transform: scale(1.5);
+      box-shadow: 0 0 0 4px rgba(192,134,140,0.14);
     }
-    .her-tick.is-on > em { color: rgba(224,184,119,0.85); }
+    .her-tick.is-on > em { color: ${ROSE_DEEP}; }
   }
 
   /* ---- opening ---- */
@@ -413,49 +526,51 @@ const HER_STYLE = `
     align-items: center; justify-content: center; text-align: center;
     padding: 5rem 1.5rem 4rem;
   }
-  /* The few seconds: arrives, holds, and is gone before the title settles. */
-  .her-spark {
-    position: absolute; top: 50%; left: 50%; width: 6px; height: 6px;
-    margin: -3px 0 0 -3px; border-radius: 50%; background: #fff5e2;
-    box-shadow: 0 0 22px 6px rgba(255,224,170,0.7), 0 0 60px 18px rgba(224,184,119,0.28);
-    opacity: 0; animation: herSpark 4.6s ease-in-out 0.35s both;
+
+  /* A stone dropped in water: three rings spread out and the surface settles. */
+  .her-ripple { position: absolute; top: 50%; left: 50%; width: 0; height: 0; }
+  .her-ripple > i {
+    position: absolute; top: 0; left: 0;
+    width: 22px; height: 22px; margin: -11px 0 0 -11px;
+    border-radius: 50%; border: 1px solid rgba(192,134,140,0.5);
+    opacity: 0; animation: herRipple 5s cubic-bezier(.16,.7,.3,1) both;
   }
-  @keyframes herSpark {
-    0%   { opacity: 0; transform: scale(0.2); }
-    12%  { opacity: 1; transform: scale(1); }
-    46%  { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(2.6); }
+  .her-ripple > i:nth-child(2) { animation-delay: 0.7s; }
+  .her-ripple > i:nth-child(3) { animation-delay: 1.4s; }
+  @keyframes herRipple {
+    0%   { opacity: 0;    transform: scale(0.2); }
+    18%  { opacity: 0.75; }
+    100% { opacity: 0;    transform: scale(15); }
   }
 
-  .her-open > :not(.her-spark) { opacity: 0; animation: herRise 1.3s cubic-bezier(.22,.61,.36,1) forwards; }
+  .her-open > :not(.her-ripple) { opacity: 0; animation: herRise 1.4s cubic-bezier(.22,.61,.36,1) forwards; }
   .her-open-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase;
-    color: rgba(224,184,119,0.5); margin-bottom: 1.6rem;
-    animation-delay: 3.5s;
+    color: rgba(162,102,110,0.7); margin-bottom: 1.6rem;
+    animation-delay: 3.4s;
   }
   .her-title {
     font-family: 'Newsreader', Georgia, serif; font-weight: 300;
     font-size: clamp(3rem, 15vw, 7.5rem); line-height: 0.95; letter-spacing: -0.02em;
-    background: linear-gradient(100deg, #fff6e8 0%, ${AMBER} 40%, #fff6e8 62%, #d8ab6d 100%);
-    background-size: 220% auto;
+    background: linear-gradient(100deg, #b0757f 0%, ${ROSE} 42%, #caa08f 68%, #b0757f 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
-    text-shadow: 0 14px 60px rgba(224,184,119,0.14);
-    animation-delay: 3.9s;
+    animation-delay: 3.8s;
   }
   .her-open-dates {
     margin-top: 1.9rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: clamp(10px, 2.6vw, 12px); letter-spacing: 0.3em;
-    color: rgba(240,234,224,0.4);
-    animation-delay: 4.5s;
+    color: rgba(74,66,62,0.42);
+    animation-delay: 4.4s;
   }
-  .her-scroll { margin-top: 4.5rem; display: block; animation-delay: 5.2s; }
+  .her-scroll { margin-top: 4.5rem; display: block; animation-delay: 5.1s; }
   .her-scroll > i {
     display: block; width: 1px; height: 46px;
-    background: linear-gradient(180deg, rgba(224,184,119,0.55), transparent);
-    animation: herDrop 2.6s ease-in-out infinite;
+    background: linear-gradient(180deg, rgba(192,134,140,0.6), transparent);
+    animation: herDrop 2.8s ease-in-out infinite;
   }
   @keyframes herDrop {
     0%, 100% { opacity: 0.25; transform: translateY(-5px); }
@@ -468,111 +583,143 @@ const HER_STYLE = `
 
   /* ---- body ---- */
   .her-body { position: relative; z-index: 3; padding: 0 1.5rem 0; }
-  .her-chapter {
-    max-width: 34rem; margin: 0 auto;
-    padding: 4.5rem 0 1rem;
-  }
+  .her-chapter { max-width: 34rem; margin: 0 auto; padding: 4.5rem 0 1rem; }
   @media (min-width: 640px) { .her-chapter { padding: 6.5rem 0 1.5rem; } }
 
   .her-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(224,184,119,0.62);
+    color: rgba(162,102,110,0.78);
     margin-bottom: 2.4rem; padding-bottom: 0.9rem;
-    border-bottom: 1px solid rgba(224,184,119,0.14);
+    border-bottom: 1px solid rgba(192,134,140,0.2);
   }
 
-  .her-p, .her-beat, .her-em, .her-close, .her-list {
+  .her-p, .her-beat, .her-em, .her-close, .her-list, .her-te {
     font-family: 'Newsreader', Georgia, serif; font-weight: 300;
   }
   .her-p {
-    font-size: clamp(1.08rem, 2.9vw, 1.26rem); line-height: 1.85;
-    margin: 0 0 1.55rem; color: rgba(240,234,224,0.78);
+    font-size: clamp(1.08rem, 2.9vw, 1.26rem); line-height: 1.88;
+    margin: 0 0 1.55rem; color: rgba(74,66,62,0.82);
   }
   .her-beat {
-    font-size: clamp(1.18rem, 3.4vw, 1.45rem); line-height: 1.6;
-    margin: 0 0 1.55rem; color: rgba(248,242,232,0.95);
+    font-size: clamp(1.18rem, 3.4vw, 1.45rem); line-height: 1.62;
+    margin: 0 0 1.55rem; color: rgba(56,48,45,0.96);
   }
   .her-list { list-style: none; margin: 0 0 1.8rem; padding: 0; }
   .her-list li {
     position: relative; padding-left: 1.5rem; margin-bottom: 1rem;
-    font-size: clamp(1.05rem, 2.8vw, 1.2rem); line-height: 1.72;
-    color: rgba(240,234,224,0.8);
+    font-size: clamp(1.05rem, 2.8vw, 1.2rem); line-height: 1.74;
+    color: rgba(74,66,62,0.84);
   }
   .her-list li::before {
-    content: ''; position: absolute; left: 0; top: 0.72em;
-    width: 0.7rem; height: 1px; background: rgba(224,184,119,0.55);
+    content: ''; position: absolute; left: 0; top: 0.74em;
+    width: 0.7rem; height: 1px; background: rgba(192,134,140,0.7);
   }
 
   .her-em {
     font-style: italic;
-    font-size: clamp(1.5rem, 5.2vw, 2.15rem); line-height: 1.4;
+    font-size: clamp(1.5rem, 5.2vw, 2.15rem); line-height: 1.42;
     margin: 2.9rem 0 2.9rem; text-align: center;
-    color: #f0d5a8; text-shadow: 0 0 34px rgba(224,184,119,0.24);
+    color: ${ROSE_DEEP};
   }
+
+  /* Telugu, WhatsApp style — Roman letters, not the script. It sits at the
+     peaks, gets more air than anything else, and takes a small mark above it
+     so it reads as the line the paragraph was walking towards. */
+  .her-te {
+    font-style: italic;
+    font-size: clamp(1.3rem, 4.6vw, 1.85rem); line-height: 1.62;
+    margin: 3.4rem 0 3.4rem; text-align: center;
+    color: ${ROSE_DEEP};
+  }
+  .her-te::before {
+    content: ''; display: block; width: 4px; height: 4px; border-radius: 50%;
+    margin: 0 auto 1.6rem; background: ${ROSE};
+    box-shadow: 0 0 0 5px rgba(192,134,140,0.13);
+  }
+
   .her-close {
     font-style: italic;
-    font-size: clamp(1.55rem, 5.6vw, 2.35rem); line-height: 1.36;
+    font-size: clamp(1.55rem, 5.6vw, 2.35rem); line-height: 1.38;
     margin: 2.4rem 0 0; text-align: center;
-    background: linear-gradient(100deg, #fff6e8 0%, ${AMBER} 48%, #fff6e8 100%);
+    background: linear-gradient(100deg, #b0757f 0%, ${ROSE} 50%, #c99b8e 100%);
     background-size: 200% auto;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
   }
 
-  /* Telugu, WhatsApp-style — Roman letters, not the script. It sits at the
-     peaks, gets more air than anything else, and takes a small lamp above it
-     so it reads as the line the paragraph was walking towards. */
-  .her-te {
-    font-family: 'Newsreader', Georgia, serif; font-weight: 300; font-style: italic;
-    font-size: clamp(1.3rem, 4.6vw, 1.85rem); line-height: 1.6;
-    margin: 3.4rem 0 3.4rem; text-align: center;
-    color: #f2d9ac; text-shadow: 0 0 40px rgba(224,184,119,0.22);
-  }
-  .her-te::before {
-    content: ''; display: block; width: 3px; height: 3px; border-radius: 50%;
-    margin: 0 auto 1.6rem; background: ${AMBER};
-    box-shadow: 0 0 14px 3px rgba(224,184,119,0.55);
-  }
-
-  .her-p em, .her-beat em, .her-list em {
-    font-style: italic; color: rgba(246,238,226,0.94);
-  }
+  .her-p em, .her-beat em, .her-list em { font-style: italic; color: rgba(56,48,45,0.94); }
 
   .her-rule {
     display: block; width: 2.6rem; height: 1px; margin: 2.6rem auto;
-    background: rgba(224,184,119,0.3);
+    background: rgba(192,134,140,0.4);
+  }
+
+  /* ---- the reel ---- */
+  .her-reel { margin: 2.6rem auto 3rem; max-width: 15.5rem; }
+  .her-reel-frame {
+    position: relative; aspect-ratio: 9 / 16; overflow: hidden;
+    border-radius: 1.1rem;
+    background: rgba(120,96,90,0.06);
+    border: 1px solid rgba(192,134,140,0.24);
+    box-shadow: 0 10px 30px rgba(150,110,110,0.14);
+  }
+  .her-reel-frame > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .her-reel-frame > button {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    padding: 0; border: 0; background: none; cursor: pointer;
+  }
+  /* hqdefault is 4:3 with letterbox bars; scaling up crops them off a 9:16 frame. */
+  .her-reel-frame img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transform: scale(1.42);
+    transition: transform 0.5s ease;
+  }
+  .her-reel-frame > button:hover img { transform: scale(1.5); }
+  .her-reel-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 3.1rem; height: 3.1rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.9); color: ${ROSE_DEEP};
+    box-shadow: 0 4px 18px rgba(80,50,50,0.28);
+    transition: transform 0.25s ease;
+  }
+  .her-reel-play > svg { width: 1.5rem; height: 1.5rem; margin-left: 2px; }
+  .her-reel-frame > button:hover .her-reel-play { transform: translate(-50%,-50%) scale(1.08); }
+  .her-reel-cap {
+    margin-top: 0.85rem; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(74,66,62,0.4); line-height: 1.7;
   }
 
   .her-rv { opacity: 0; transform: translateY(14px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.22,.61,.36,1); }
   .her-rv.is-in { opacity: 1; transform: none; }
 
   /* ---- footer ---- */
-  .her-foot {
-    max-width: 34rem; margin: 0 auto;
-    padding: 6rem 0 7rem; text-align: center;
-  }
+  .her-foot { max-width: 34rem; margin: 0 auto; padding: 6rem 0 7rem; text-align: center; }
   .her-again {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-    color: rgba(224,184,119,0.7);
+    color: ${ROSE_DEEP};
     padding: 0.7rem 1.4rem; border-radius: 999px;
-    border: 1px solid rgba(224,184,119,0.24);
-    background: rgba(255,255,255,0.02);
-    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    border: 1px solid rgba(192,134,140,0.32);
+    background: rgba(255,255,255,0.5);
+    transition: background 0.25s ease, transform 0.25s ease;
   }
-  .her-again:hover { background: rgba(224,184,119,0.1); color: #f4dcb4; transform: scale(1.04); }
+  .her-again:hover { background: rgba(192,134,140,0.12); transform: translateY(-1px); }
   .her-foot-note {
     margin-top: 2.2rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(240,234,224,0.18);
+    color: rgba(74,66,62,0.24);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .her-spark { animation: none; opacity: 0; }
-    .her-open > :not(.her-spark) { animation: none; opacity: 1; transform: none; }
+    .her-ripple > i { animation: none; opacity: 0; }
+    .her-open > :not(.her-ripple) { animation: none; opacity: 1; transform: none; }
     .her-scroll > i { animation: none; opacity: 0.5; }
     .her-rv { opacity: 1; transform: none; transition: none; }
+    .her-music.is-on .her-bars > i { animation: none; height: 7px; }
   }
 `
