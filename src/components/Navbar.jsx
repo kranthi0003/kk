@@ -55,6 +55,7 @@ function WalletDropdown() {
   const BTC = '#f7931a'
   const [dir, setDir] = useState('flat')
   const [pop, setPop] = useState(0)
+  const [open24h, setOpen24h] = useState(null)
   const prevPrice = useRef(null)
 
   useEffect(() => {
@@ -99,9 +100,70 @@ function WalletDropdown() {
     return () => { alive = false; clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
   }, [])
 
+  // What the price was 24h ago. Fetching the *open* rather than a ready-made
+  // percentage lets the figure recompute against the live price on every tick,
+  // so it stays honest instead of freezing at whatever it was when the popup
+  // opened. Coinbase first, to match the primary source of the live price.
+  useEffect(() => {
+    let alive = true
+    const CACHE = 'btc_open24h'
+
+    const read = () => {
+      try {
+        const c = JSON.parse(sessionStorage.getItem(CACHE) || 'null')
+        if (c && Date.now() - c.ts < 300000 && Number.isFinite(c.open)) return c.open
+      } catch {}
+      return null
+    }
+
+    const getOpen = async () => {
+      try {
+        const r = await fetch('https://api.exchange.coinbase.com/products/BTC-USD/stats')
+        if (r.ok) { const o = parseFloat((await r.json()).open); if (Number.isFinite(o) && o > 0) return o }
+      } catch {}
+      try {
+        const r = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT')
+        if (r.ok) { const o = parseFloat((await r.json()).openPrice); if (Number.isFinite(o) && o > 0) return o }
+      } catch {}
+      // Last resort: CoinGecko gives the percentage, not the open, so work
+      // backwards from the price it quotes alongside it.
+      try {
+        const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')
+        if (r.ok) {
+          const b = (await r.json())?.bitcoin
+          const p = b?.usd, ch = b?.usd_24h_change
+          if (Number.isFinite(p) && Number.isFinite(ch) && ch > -100) {
+            const o = p / (1 + ch / 100)
+            if (Number.isFinite(o) && o > 0) return o
+          }
+        }
+      } catch {}
+      return null
+    }
+
+    const load = async () => {
+      if (typeof document !== 'undefined' && document.hidden) return
+      const o = await getOpen()
+      if (!alive || o == null) return
+      setOpen24h(o)
+      try { sessionStorage.setItem(CACHE, JSON.stringify({ open: o, ts: Date.now() })) } catch {}
+    }
+
+    const cached = read()
+    if (cached != null) setOpen24h(cached)
+    else load()
+
+    // The window rolls forward, so refresh it occasionally.
+    const id = setInterval(load, 300000)
+    return () => { alive = false; clearInterval(id) }
+  }, [])
+
   const loading = !data
   const btc = data ? (data.final_balance / 1e8).toFixed(8) : null
   const usd = data && btcPrice ? (data.final_balance / 1e8) * btcPrice : null
+  // The wallet holds only BTC, so the price's 24h move is also the balance's.
+  const chg24 = open24h && btcPrice ? ((btcPrice - open24h) / open24h) * 100 : null
+  const up24 = chg24 != null && chg24 >= 0
   const fmtUsd = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
   const copy = () => { navigator.clipboard.writeText(ADDR); setCopied(true); setTimeout(() => setCopied(false), 1800) }
 
@@ -158,6 +220,28 @@ function WalletDropdown() {
               <span style={{ color: BTC }}>{btc} BTC</span>
               {dir !== 'flat' && <span style={{ color: dir === 'up' ? '#22c55e' : '#ef4444' }}>{dir === 'up' ? '▲' : '▼'}</span>}
             </div>
+
+            {/* Where it sits against 24 hours ago. Labelled, because the little
+                arrow above it is a per-tick flicker and means something else. */}
+            {chg24 != null && (
+              <div className="mt-2 flex justify-center">
+                <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10.5px] font-mono font-medium tabular-nums"
+                  style={{
+                    color: up24 ? '#22c55e' : '#ef4444',
+                    background: up24 ? 'rgba(34,197,94,0.10)' : 'rgba(239,68,68,0.10)',
+                    boxShadow: `inset 0 0 0 1px ${up24 ? 'rgba(34,197,94,0.28)' : 'rgba(239,68,68,0.28)'}`,
+                  }}>
+                  <span>{up24 ? '▲' : '▼'}</span>
+                  <span>{up24 ? '+' : '−'}{Math.abs(chg24).toFixed(2)}%</span>
+                  {usd != null && (
+                    <span style={{ opacity: 0.75 }}>
+                      {up24 ? '+' : '−'}${fmtUsd(Math.abs(usd - usd / (1 + chg24 / 100)))}
+                    </span>
+                  )}
+                  <span className="text-muted-foreground" style={{ opacity: 0.9 }}>24h</span>
+                </span>
+              </div>
+            )}
           </>
         )}
       </div>
