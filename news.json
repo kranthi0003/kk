@@ -1,6 +1,34 @@
 {
-  "generated": "2026-08-20T17:44:13.970Z",
+  "generated": "2026-08-21T04:28:50.696Z",
   "reddit": [
+    {
+      "title": "The August 17 outage, and the work ahead",
+      "url": "https://www.reddit.com/r/programming/comments/1vttlns/the_august_17_outage_and_the_work_ahead/",
+      "by": "Successful_Bowl2564",
+      "time": 1787254506000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Distributed Consensus on S3",
+      "url": "https://www.reddit.com/r/programming/comments/1vts80v/distributed_consensus_on_s3/",
+      "by": "mipscc",
+      "time": 1787251707000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do you guys feel about pulp project?",
+      "url": "https://www.reddit.com/r/devops/comments/1vts6zf/how_do_you_guys_feel_about_pulp_project/",
+      "by": "Intel-C2",
+      "time": 1787251646000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Officially a KubeAstronaut Now",
+      "url": "https://www.reddit.com/r/devops/comments/1vtq63d/officially_a_kubeastronaut_now/",
+      "by": "root0ps",
+      "time": 1787247335000,
+      "sub": "r/devops"
+    },
     {
       "title": "Rebuilding the Linux microVM stack on Apple Silicon",
       "url": "https://www.reddit.com/r/programming/comments/1vtq4qt/rebuilding_the_linux_microvm_stack_on_apple/",
@@ -16,171 +44,143 @@
       "sub": "r/programming"
     },
     {
-      "title": ".github/workflows/main.yml · Workflow runs · hops1010-cmyk/vis-kuber01",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vtnez4/githubworkflowsmainyml_workflow_runs/",
-      "by": "Reasonable-You4548",
-      "time": 1787241357000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "TypeScript : Migrate repo to TypeScript 7",
-      "url": "https://www.reddit.com/r/programming/comments/1vtn0qa/typescript_migrate_repo_to_typescript_7/",
-      "by": "mariuz",
-      "time": 1787240481000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Generic Methods in Go 1.27",
-      "url": "https://www.reddit.com/r/programming/comments/1vtmrxk/generic_methods_in_go_127/",
-      "by": "ErneuerbareEnergien",
-      "time": 1787239947000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How do you handle session recording for kubectl debug in production?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vtmj76/how_do_you_handle_session_recording_for_kubectl/",
-      "by": "KidCannabis501",
-      "time": 1787239428000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Tips for choosing a load balancer for your enterprise",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vtl0r3/tips_for_choosing_a_load_balancer_for_your/",
-      "by": "TeamHAProxy",
-      "time": 1787235981000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "Building an Observability Pane",
+      "url": "https://www.reddit.com/r/devops/comments/1vtnl2t/building_an_observability_pane/",
+      "by": "JayDee2306",
+      "time": 1787241709000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "He Committed Gofmt Before Go Was Public. Sixteen Years Later He Said He’d Use a Different Tool.",
-      "url": "https://medium.com/programmers-career/he-committed-gofmt-before-go-was-public-sixteen-years-later-he-said-hed-use-a-different-tool-2f2d0b82d0c9",
-      "by": "Wesley Wei",
-      "time": 1787247661000,
+      "title": "Anthropic Deleted 80% of Claude Code’s System Prompt. Nothing Got Worse.",
+      "url": "https://medium.com/ai-architecture-and-engineering/anthropic-deleted-80-of-claude-codes-system-prompt-nothing-got-worse-6bfa30c6110b",
+      "by": "EdibleByte",
+      "time": 1787286507000,
+      "tags": [
+        "education",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Mastering SwiftUI Tables: Best Practices for Handling Big Data in iOS",
+      "url": "https://medium.com/@kost9klinov/mastering-swiftui-tables-best-practices-for-handling-big-data-in-ios-18108b1c9351",
+      "by": "Константин Клинов",
+      "time": 1787286424000,
+      "tags": [
+        "swiftui",
+        "swiftlang",
+        "ios-development"
+      ]
+    },
+    {
+      "title": "Why Neural Networks Fell Off (And Why Statisticians Were Right to Doubt Them)",
+      "url": "https://fahadthedatascientist.medium.com/why-neural-networks-fell-off-and-why-statisticians-were-right-to-doubt-them-b8816b85ef24",
+      "by": "Data Saint Consulting Inc",
+      "time": 1787286356000,
+      "tags": [
+        "artificial-neural-network",
+        "machine-learning",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "LRU Cache in Python: From O(1) Lookups to Async Production Systems",
+      "url": "https://ygsh0816.medium.com/lru-cache-in-python-from-o-1-lookups-to-async-production-systems-29a3c6237808",
+      "by": "Yogesh Kumar",
+      "time": 1787285862000,
+      "tags": [
+        "software-engineering",
+        "software-development",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "DevOps Engineer First-Round Interview: 20 Real-World Questions",
+      "url": "https://medium.com/@preetjit82/devops-engineer-first-round-interview-20-real-world-questions-883590a676e3",
+      "by": "Interview Simplified",
+      "time": 1787285796000,
+      "tags": [
+        "programming",
+        "devops",
+        "jobs"
+      ]
+    },
+    {
+      "title": "Single Source of Truth",
+      "url": "https://medium.com/@skyRocket_QingYun/single-source-of-truth-b9a12bf3f1a9",
+      "by": "The Owl, the Chihuahua, and the…",
+      "time": 1787285783000,
+      "tags": [
+        "best-practices",
+        "clean-code",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Secret Math Behind Google Authenticator (And Why It Works Even Offline)",
+      "url": "https://medium.com/@nandakishorep/the-secret-math-behind-google-authenticator-and-why-it-works-even-offline-a91b97125a66",
+      "by": "Nandakishore P",
+      "time": 1787285609000,
+      "tags": [
+        "security",
+        "software-engineering",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "These 10 JVM Problems Can Quietly Destroy Your Spring Boot Performance",
+      "url": "https://medium.com/@gaddamnaveen192/these-10-jvm-problems-can-quietly-destroy-your-spring-boot-performance-4f13fa95740e",
+      "by": "Gaddam.Naveen",
+      "time": 1787285515000,
+      "tags": [
+        "microservices",
+        "software-engineering",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "How I Built an AI-Powered Grammar Correction System with BERT and T5",
+      "url": "https://medium.com/@kamrulhasansojib19/how-i-built-an-ai-powered-grammar-correction-system-with-bert-and-t5-51888b09075c",
+      "by": "Kamrul Hasan Sojib",
+      "time": 1787285488000,
+      "tags": [
+        "mechine-learning",
+        "programming",
+        "nlp"
+      ]
+    },
+    {
+      "title": "Code License: Why Does It Matter?",
+      "url": "https://medium.com/the-silicon/code-license-why-does-it-matter-f084dc567c1c",
+      "by": "David Endy",
+      "time": 1787285472000,
       "tags": [
         "coding",
-        "programming",
-        "productivity"
-      ]
-    },
-    {
-      "title": "Seniors Use These 7 Kotlin Features Differently",
-      "url": "https://trricho.medium.com/seniors-use-these-7-kotlin-features-differently-013f7ac916c8",
-      "by": "Prakash Sharma",
-      "time": 1787247518000,
-      "tags": [
-        "android",
-        "mobile-app-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "JWT + Zustand + Axios: Cut Auth Boilerplate 60%",
-      "url": "https://medium.com/@coolercoder/jwt-zustand-axios-cut-auth-boilerplate-60-e8a69d8632e4",
-      "by": "Ray Hu",
-      "time": 1787247473000,
-      "tags": [
-        "javascript",
-        "web-development",
-        "react"
-      ]
-    },
-    {
-      "title": "502.How to Securely Grant a User Access to an Amazon S3 Bucket",
-      "url": "https://medium.com/@venkatvk46/502-how-to-securely-grant-a-user-access-to-an-amazon-s3-bucket-837175444da4",
-      "by": "Venkatramanan C S",
-      "time": 1787247430000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "technology"
-      ]
-    },
-    {
-      "title": "Project Corsa: Porting TypeScript Compiler to Go at Microsoft",
-      "url": "https://medium.com/@0s.and.1s/project-corsa-porting-typescript-compiler-to-go-at-microsoft-b11825bfdb3b",
-      "by": "0s & 1s",
-      "time": 1787247340000,
-      "tags": [
-        "golang",
         "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "8 HTML Mistakes Beginners Make (And How to Fix Them)",
-      "url": "https://medium.com/@khuzeemajaved/8-html-mistakes-beginners-make-and-how-to-fix-them-0582d58b7696",
-      "by": "Khuzeema Javed",
-      "time": 1787247070000,
-      "tags": [
-        "beginner",
-        "programming",
-        "html"
-      ]
-    },
-    {
-      "title": "NVIDIA GPU Monitoring on Ubuntu with DCGM Exporter, Prometheus & Grafana: Complete Step-by-Step…",
-      "url": "https://deepops.medium.com/nvidia-gpu-monitoring-on-ubuntu-with-dcgm-exporter-prometheus-grafana-complete-step-by-step-1e87b0d91c2f",
-      "by": "Deependrasingh kushvaha",
-      "time": 1787246886000,
-      "tags": [
-        "devops",
-        "grafana",
-        "linux"
-      ]
-    },
-    {
-      "title": "NVIDIA NeMo Switchyard: Cut LLM Costs 44% With Smart Routing",
-      "url": "https://medium.com/@coolercoder/nvidia-nemo-switchyard-cut-llm-costs-44-with-smart-routing-a14acf5179af",
-      "by": "Ray Hu",
-      "time": 1787246812000,
-      "tags": [
-        "programming",
-        "ai-agent",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Redis Hit Rate Is 99%, but Database CPU Is at 100% — Who’s Behind This?",
-      "url": "https://medium.com/javarevisited/redis-hit-rate-is-99-but-database-cpu-is-at-100-whos-behind-this-490f5e6769dc",
-      "by": "Umesh Kumar Yadav",
-      "time": 1787246504000,
-      "tags": [
-        "java",
-        "redis",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Every ‘How to Become an AI Engineer’ Guide in 2026 Is Teaching the Same Wrong Curriculum",
-      "url": "https://pub.towardsai.net/every-how-to-become-an-ai-engineer-guide-in-2026-is-teaching-the-same-wrong-curriculum-87f4dd881556",
-      "by": "“The AI Engineer”",
-      "time": 1787246203000,
-      "tags": [
-        "career-advice",
-        "software-engineering",
-        "ai-engineering"
+        "programming"
       ]
     }
   ]
