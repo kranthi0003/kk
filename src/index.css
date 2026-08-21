@@ -225,10 +225,25 @@ h4, h5, h6 {
    its position in the stack via --rail-i, and the maths does the rest,
    so the gaps can never drift apart again. */
 :root {
-  --rail-size: clamp(2.35rem, 8.6vmin, 3rem);
-  --rail-gap: clamp(0.5rem, 2vmin, 1rem);
-  --rail-top: clamp(4rem, 8.5vh, 5rem);
+  /* How many buttons are in the rail. The sizing below divides the
+     available height by this, so adding a button can never push the stack
+     off the bottom of a short screen — it just tightens the rail. */
+  --rail-count: 9;
+  --rail-top: clamp(3.25rem, 8.5vh, 5rem);
   --rail-right: clamp(0.7rem, 3vw, 1.5rem);
+
+  /* Height the rail is allowed to occupy. dvh so a mobile browser's
+     collapsing chrome doesn't leave the last button under the URL bar;
+     the vh line above it is the fallback for anything that lacks dvh. */
+  --rail-avail: calc(100vh - var(--rail-top) - 1.25rem);
+  --rail-avail: calc(100dvh - var(--rail-top) - 1.25rem);
+  --rail-slot: calc(var(--rail-avail) / var(--rail-count));
+
+  /* Never bigger than 48px, never bigger than 8.6vmin so it answers the
+     shape of the screen, never bigger than its share of the height — and
+     never so small it stops being a touch target. */
+  --rail-size: max(1.55rem, min(3rem, 8.6vmin, var(--rail-slot) / 1.33));
+  --rail-gap: calc(var(--rail-size) * 0.33);
 }
 
 .rail-btn {
@@ -292,6 +307,22 @@ h4, h5, h6 {
 .rail-tint:hover {
   border-color: color-mix(in oklab, var(--tint) 55%, transparent);
   box-shadow: 0 10px 26px -6px color-mix(in oklab, var(--tint) 35%, transparent);
+}
+
+/* Work in progress. Amber, and at the opposite corner from the live pip,
+   so "still being built" can't be mistaken for "something's on right
+   now". Deliberately not animated — it's a state, not activity. */
+.rail-wip::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: max(0.5rem, 20%);
+  height: max(0.5rem, 20%);
+  border-radius: 999px;
+  background: #E0A33C;
+  border: 2px solid var(--color-background);
+  z-index: 10;
 }
 
 /* Section fade-in on scroll */
