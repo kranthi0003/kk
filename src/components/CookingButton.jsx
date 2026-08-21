@@ -12,10 +12,11 @@ import React from 'react'
  * hardcoded count would drift the moment the generator picked up a new
  * recipe. So the label says what the page is and nothing that can rot.
  *
- * The green is the same #4ade80 the salads page uses for its own accent,
- * so the button is a preview of where it goes rather than a generic food
- * icon. Filled, not stroked: a hairline bowl read as switched off next to
- * the F1 button.
+ * The green is the salads page's own accent, softened, so the button is
+ * a preview of where it goes rather than a generic food icon. Filled,
+ * not stroked: a hairline bowl read as switched off next to the F1
+ * button. It briefly became a bright green disc, which overshot — the
+ * green now tints the site's card colour and fills the bowl instead.
  * ------------------------------------------------------------------ */
 
 // A shallow bowl with a sprig over it. The bowl is an arc rather than a
@@ -55,24 +56,17 @@ export default function CookingButton() {
       href="#/salads"
       aria-label={title}
       title={title}
-      className="group ckgbtn rail-btn shadow-lg"
-      style={{ '--rail-i': 4 }}
+      className="group ckgbtn rail-btn rail-tint"
+      style={{ '--rail-i': 4, '--tint': '#6FCF97' }}
     >
       {/* Steam over the bowl, as three short strokes around the rim. */}
       <svg className="ckgbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <circle cx="27" cy="27" r="24.6" stroke="#0F2A19" strokeWidth="2.6" opacity=".55" />
-        <circle cx="27" cy="27" r="24.6" stroke="#BBF7D0" strokeWidth="2.6" strokeLinecap="round" strokeDasharray="7 24" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="6 22" opacity=".6" />
       </svg>
 
       <Bowl className="ckgbtn-icon rail-ico" />
 
       <style>{`
-        .ckgbtn {
-          background: radial-gradient(circle at 32% 26%, #5FE996 0%, #34C46B 48%, #17864A 100%);
-          color: #06301B;
-          box-shadow: 0 8px 24px -6px rgba(23,134,74,.55);
-        }
-        .ckgbtn:hover { box-shadow: 0 10px 26px -6px rgba(74,222,128,.55); }
         .ckgbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
         .ckgbtn:hover .ckgbtn-rim { transform: rotate(30deg); }
         /* The sprig leans, like something dropped in and settling. */
