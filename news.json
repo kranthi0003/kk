@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21T13:57:46.397Z",
+  "generated": "2026-08-21T14:25:46.781Z",
   "reddit": [
     {
       "title": "Managing AWS policies in terraform",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Apple Spun Out a Smartphone Company Before the iPhone",
-      "url": "https://pub.huizhou92.com/apple-spun-out-a-smartphone-company-before-the-iphone-78b4f734b695",
-      "by": "huizhou92",
-      "time": 1787319768000,
+      "title": "The Kubernetes Interview Question That Exposed How Little I Understood About Production",
+      "url": "https://blog.stackademic.com/the-kubernetes-interview-question-that-exposed-how-little-i-understood-about-production-58682aa8e00e",
+      "by": "SYSTEM DESIGN AND PRODUCTION BY…",
+      "time": 1787321953000,
       "tags": [
-        "iphone",
-        "apple",
-        "technology"
-      ]
-    },
-    {
-      "title": "Why Build With Next.js If React Is Already Available?",
-      "url": "https://medium.com/@arunjawlia/why-build-with-next-js-if-react-is-already-available-10873fd30c3f",
-      "by": "Arun Jawlia",
-      "time": 1787319661000,
-      "tags": [
-        "web-development",
         "coding",
-        "programming"
+        "software-engineering",
+        "software-development"
       ]
     },
     {
-      "title": "Jetpack Compose LazyColumn Crash: “measure is called on a deactivated node” — Root Cause and Fix",
-      "url": "https://medium.com/@swarnsinghaulakh/jetpack-compose-lazycolumn-crash-measure-is-called-on-a-deactivated-node-root-cause-and-fix-f09eff7b5c84",
-      "by": "Swaran Singh Aulakh",
-      "time": 1787319661000,
+      "title": "I Tried Four Bug-Reporting Extensions on the Same Nasty Bug. Only One Helped Me Fix It.",
+      "url": "https://adityatiwariblogs.medium.com/i-tried-four-bug-reporting-extensions-on-the-same-nasty-bug-only-one-helped-me-fix-it-18eea68c9590",
+      "by": "Aditya Kumar Tiwari",
+      "time": 1787321612000,
       "tags": [
-        "debugging",
-        "kotlin",
-        "android-development"
+        "quality-assurance",
+        "software-testing",
+        "debugging"
       ]
     },
     {
-      "title": "What Really Happens When You Copy and Paste an Image",
-      "url": "https://medium.com/@sathwick.p7/what-really-happens-when-you-copy-and-paste-an-image-611c1382d612",
-      "by": "sathwick",
-      "time": 1787319081000,
+      "title": "I Ran Kimi K3’s 2.8 Trillion-Parameter Model on a 4GB GPU.",
+      "url": "https://medium.com/data-science-collective/i-ran-kimi-k3s-2-8-trillion-parameter-model-on-a-4gb-gpu-1fed3fc69b42",
+      "by": "Programming with me",
+      "time": 1787321500000,
       "tags": [
-        "software-development",
-        "computer-science",
-        "software-engineering"
+        "programming",
+        "gpu",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Why the Best AI Users Will Not Be the Best Prompt Writers",
-      "url": "https://medium.com/@Artiscribe/why-the-best-ai-users-will-not-be-the-best-prompt-writers-620b5de69701",
-      "by": "Artiscribe",
-      "time": 1787319077000,
+      "title": "My API Was Fast. Production Still Took It Down.",
+      "url": "https://medium.com/javarevisited/my-api-was-fast-production-still-took-it-down-cc01f4485efb",
+      "by": "Production Systems By Devrim",
+      "time": 1787321206000,
       "tags": [
-        "artificial-intelligence",
+        "coding",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Okay So … Coding Is Solved. Now What?",
+      "url": "https://levelup.gitconnected.com/okay-so-coding-is-solved-now-what-5171f2a56cfd",
+      "by": "Akshat Tiwari",
+      "time": 1787321118000,
+      "tags": [
+        "ai",
+        "programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "Business Logic Bugs Hide in the Gaps Between Requests",
+      "url": "https://medium.com/@0xAbhiSec/business-logic-bugs-hide-in-the-gaps-between-requests-abb46dfddc88",
+      "by": "0xAbhiSec",
+      "time": 1787321066000,
+      "tags": [
+        "bug-hunting",
+        "software-engineering",
+        "web-security"
+      ]
+    },
+    {
+      "title": "The Rise of Agentic AI: How Self-Sustaining Software is Disrupting the Tech Landscape Essay",
+      "url": "https://medium.com/@fatima80nadir/the-rise-of-agentic-ai-how-self-sustaining-software-is-disrupting-the-tech-landscape-essay-25c5a030e2ce",
+      "by": "Fatima",
+      "time": 1787320864000,
+      "tags": [
         "technology",
+        "automation",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "JavaScript Can Finally Process Iterators Without Creating Arrays",
+      "url": "https://medium.com/@shailendrakawadkar/javascript-can-finally-process-iterators-without-creating-arrays-343113a4639a",
+      "by": "Shailendra kawadkar",
+      "time": 1787320863000,
+      "tags": [
+        "front-end-development",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Niyə bu qədər çox ixtisas var? IT ixtisasları arasında fərqlər nələrdir?",
+      "url": "https://medium.com/@samirrhashimov/niy%C9%99-bu-q%C9%99d%C9%99r-%C3%A7ox-ixtisas-var-it-ixtisaslar%C4%B1-aras%C4%B1nda-f%C9%99rql%C9%99r-n%C9%99l%C9%99rdir-c5adf0d7323c",
+      "by": "Samir Hashimov",
+      "time": 1787320863000,
+      "tags": [
+        "computer-science",
+        "programming",
         "education"
       ]
     },
     {
-      "title": "207,000 to 1,400: Why Developers Stopped Asking Stack Overflow",
-      "url": "https://medium.com/@thedevnotebook/stack-overflow-questions-decline-ai-ffa849f023be",
-      "by": "The Dev Notebook",
-      "time": 1787319061000,
+      "title": "Idempotency in Distributed Systems: How to Prevent Duplicate Operations",
+      "url": "https://medium.com/@ronomahedi/idempotency-in-distributed-systems-how-to-prevent-duplicate-operations-095297cc90c5",
+      "by": "Abul Kalam Azad",
+      "time": 1787320863000,
       "tags": [
-        "technology",
-        "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Your Code Isn’t a Product Until Someone Else Can Use It",
-      "url": "https://medium.com/@vinayakgalande6/your-code-isnt-a-product-until-someone-else-can-use-it-f99d157e90d7",
-      "by": "Vinayakgalande",
-      "time": 1787319061000,
-      "tags": [
-        "software-engineering",
-        "cloud-computing",
-        "devops"
-      ]
-    },
-    {
-      "title": "Time Complexity vs Space Complexity: A Beginner’s Guide.",
-      "url": "https://medium.com/@aadidesh71/time-complexity-vs-space-complexity-a-beginners-guide-c33014bb7b76",
-      "by": "Aditya Deshpande",
-      "time": 1787318960000,
-      "tags": [
-        "space-complexity",
-        "sad",
-        "programming"
-      ]
-    },
-    {
-      "title": "JavaScript Isn’t Hard — Understanding What Actually Makes It Difficult",
-      "url": "https://javascript.plainenglish.io/javascript-isnt-hard-understanding-what-actually-makes-it-difficult-fed0627526cf",
-      "by": "Ahmad",
-      "time": 1787318949000,
-      "tags": [
-        "programming",
-        "javascript",
-        "javascript-tips"
-      ]
-    },
-    {
-      "title": "How We Built Astro Magic: Deterministic Computation Behind AI-Powered Esoterics",
-      "url": "https://medium.com/@duodecim61/how-we-built-astro-magic-deterministic-computation-behind-ai-powered-esoterics-e1e466c6509e",
-      "by": "Ivan Shpak",
-      "time": 1787318859000,
-      "tags": [
-        "system-architecture",
-        "software-engineering",
-        "artificial-intelligence-m"
+        "idempotency",
+        "distributed-systems",
+        "backend"
       ]
     }
   ]
