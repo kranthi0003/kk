@@ -1,12 +1,12 @@
 {
-  "generated": "2026-08-21T13:35:47.457Z",
+  "generated": "2026-08-21T13:49:20.215Z",
   "reddit": [
     {
-      "title": "Managing AWS policies in terraform",
-      "url": "https://www.reddit.com/r/devops/comments/1vuel71/managing_aws_policies_in_terraform/",
-      "by": "mkmrproper",
-      "time": 1787314189000,
-      "sub": "r/devops"
+      "title": "What would tell a vibe learner of k8s",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vudp0f/what_would_tell_a_vibe_learner_of_k8s/",
+      "by": "tanzy96_",
+      "time": 1787311671000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Embedding models benchmark for code duplication detection",
@@ -23,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Migrated Laravel & MySQL to a Production-Ready EKS Cluster",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vucbqr/migrated_laravel_mysql_to_a_productionready_eks/",
+      "by": "Bee_rus-444",
+      "time": 1787307488000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "The Accidental Application Runtime: when a Go service quietly becomes more than an HTTP server",
       "url": "https://www.reddit.com/r/programming/comments/1vucb28/the_accidental_application_runtime_when_a_go/",
       "by": "Michael-F-Bryan",
@@ -30,49 +37,97 @@
       "sub": "r/programming"
     },
     {
-      "title": "I actually enjoy my job, I just hate the way deadlines are set",
-      "url": "https://www.reddit.com/r/devops/comments/1vu7ejw/i_actually_enjoy_my_job_i_just_hate_the_way/",
-      "by": "throwaway-well",
-      "time": 1787290550000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How do you guys feel about pulp project?",
-      "url": "https://www.reddit.com/r/devops/comments/1vts6zf/how_do_you_guys_feel_about_pulp_project/",
-      "by": "Intel-C2",
-      "time": 1787251646000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Officially a KubeAstronaut Now",
-      "url": "https://www.reddit.com/r/devops/comments/1vtq63d/officially_a_kubeastronaut_now/",
-      "by": "root0ps",
-      "time": 1787247335000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vubzlu/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1786096817000,
+      "time": 1787306427000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "How do you scope a Kubernetes penetration test when the infrastructure uses dynamic IPs?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vu92ql/how_do_you_scope_a_kubernetes_penetration_test/",
+      "by": "One-Geologist7960",
+      "time": 1787296206000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
+    {
+      "title": "Apple Spun Out a Smartphone Company Before the iPhone",
+      "url": "https://pub.huizhou92.com/apple-spun-out-a-smartphone-company-before-the-iphone-78b4f734b695",
+      "by": "huizhou92",
+      "time": 1787319768000,
+      "tags": [
+        "iphone",
+        "apple",
+        "technology"
+      ]
+    },
+    {
+      "title": "Why Build With Next.js If React Is Already Available?",
+      "url": "https://medium.com/@arunjawlia/why-build-with-next-js-if-react-is-already-available-10873fd30c3f",
+      "by": "Arun Jawlia",
+      "time": 1787319661000,
+      "tags": [
+        "web-development",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "What Really Happens When You Copy and Paste an Image",
+      "url": "https://medium.com/@sathwick.p7/what-really-happens-when-you-copy-and-paste-an-image-611c1382d612",
+      "by": "sathwick",
+      "time": 1787319081000,
+      "tags": [
+        "software-development",
+        "computer-science",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Why the Best AI Users Will Not Be the Best Prompt Writers",
+      "url": "https://medium.com/@Artiscribe/why-the-best-ai-users-will-not-be-the-best-prompt-writers-620b5de69701",
+      "by": "Artiscribe",
+      "time": 1787319077000,
+      "tags": [
+        "artificial-intelligence",
+        "technology",
+        "education"
+      ]
+    },
+    {
+      "title": "207,000 to 1,400: Why Developers Stopped Asking Stack Overflow",
+      "url": "https://medium.com/@thedevnotebook/stack-overflow-questions-decline-ai-ffa849f023be",
+      "by": "The Dev Notebook",
+      "time": 1787319061000,
+      "tags": [
+        "technology",
+        "programming",
+        "software-engineering"
+      ]
+    },
     {
       "title": "Your Code Isn’t a Product Until Someone Else Can Use It",
       "url": "https://medium.com/@vinayakgalande6/your-code-isnt-a-product-until-someone-else-can-use-it-f99d157e90d7",
@@ -107,79 +162,25 @@
       ]
     },
     {
-      "title": "I Benchmarked 12 Go Web Frameworks So You Don’t Have To",
-      "url": "https://bytemedaily.medium.com/i-benchmarked-12-go-web-frameworks-so-you-dont-have-to-2673982adcea",
-      "by": "Byte Me Daily",
-      "time": 1787318761000,
+      "title": "How We Built Astro Magic: Deterministic Computation Behind AI-Powered Esoterics",
+      "url": "https://medium.com/@duodecim61/how-we-built-astro-magic-deterministic-computation-behind-ai-powered-esoterics-e1e466c6509e",
+      "by": "Ivan Shpak",
+      "time": 1787318859000,
       "tags": [
-        "golang",
-        "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Your Subagents Never Sent That Output to the Model. Your Laptop Was Holding All of It Anyway.",
-      "url": "https://medium.com/@AkhilAIWorld/your-subagents-never-sent-that-output-to-the-model-your-laptop-was-holding-all-of-it-anyway-d554eeb1a8c5",
-      "by": "Akhil",
-      "time": 1787318460000,
-      "tags": [
-        "ai-agent",
-        "claude-ai",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "# Project Ideas to Stand Out",
-      "url": "https://medium.com/@neeleshp212/project-ideas-to-stand-out-d808948264b9",
-      "by": "Neelesh Kurmi",
-      "time": 1787318458000,
-      "tags": [
+        "system-architecture",
         "software-engineering",
-        "project-ideas"
+        "artificial-intelligence-m"
       ]
     },
     {
-      "title": "Scaling your second automation is harder than your first",
-      "url": "https://medium.com/@vlad.koval/scaling-your-second-automation-is-harder-than-your-first-e26df2853916",
-      "by": "Vlad Koval",
-      "time": 1787318182000,
+      "title": "Everyone Gets a Superintelligence.",
+      "url": "https://thedigitalshipwright.com/everyone-gets-a-superintelligence-42a180b470c7",
+      "by": "Andres Alos",
+      "time": 1787318834000,
       "tags": [
+        "leadership",
         "ai",
-        "automation",
-        "productivity"
-      ]
-    },
-    {
-      "title": "React Custom Hooks Explained: How to Write Cleaner, Reusable Code in 2026",
-      "url": "https://medium.com/@ArunprakashS/react-custom-hooks-explained-how-to-write-cleaner-reusable-code-in-2026-496d7dfa2670",
-      "by": "Arunprakash",
-      "time": 1787318157000,
-      "tags": [
-        "react",
-        "coding",
-        "javascript"
-      ]
-    },
-    {
-      "title": "Terraform Foundations: How a Text File Becomes an AWS Account",
-      "url": "https://medium.com/@paolo.alberca/terraform-foundations-how-a-text-file-becomes-an-aws-account-21ac8ace0a9d",
-      "by": "Paolo Alberca",
-      "time": 1787318122000,
-      "tags": [
-        "terraform",
-        "aws",
-        "devops"
-      ]
-    },
-    {
-      "title": "MoneyTender: What a Money Type Should Make Impossible",
-      "url": "https://medium.com/@uraniumkid30/moneytender-what-a-money-type-should-make-impossible-74d33944c0af",
-      "by": "christopher okoro",
-      "time": 1787317873000,
-      "tags": [
-        "fintech",
-        "software-development",
-        "python"
+        "artificial-intelligence"
       ]
     }
   ]
