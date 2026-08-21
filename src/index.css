@@ -211,6 +211,67 @@ h4, h5, h6 {
 .dark  .hover-lift:hover { box-shadow: 0 18px 40px -18px rgba(0,0,0,0.62), 0 4px 12px -6px rgba(0,0,0,0.40); }
 :root  .hover-lift:hover { box-shadow: 0 18px 36px -16px rgba(0,0,0,0.16), 0 4px 12px -8px rgba(0,0,0,0.08); }
 
+/* The right-hand rail --------------------------------------------------
+   Sidecar, F1, cricket, music, cooking. They used to be five components
+   each hardcoding its own `w-12 h-12 top-N right-6`, which meant the
+   spacing was a set of magic numbers that had to be kept in agreement by
+   hand, and the buttons stayed 48px however small the screen got — on a
+   short landscape phone the stack ran off the bottom.
+
+   Geometry now lives here once. Size is driven by `vmin`, which follows
+   the *smaller* side of the viewport, so the rail responds to the shape
+   of the screen and not just its width: it shrinks on a narrow portrait
+   phone and on a short landscape one alike. Each button only declares
+   its position in the stack via --rail-i, and the maths does the rest,
+   so the gaps can never drift apart again. */
+:root {
+  --rail-size: clamp(2.35rem, 8.6vmin, 3rem);
+  --rail-gap: clamp(0.5rem, 2vmin, 1rem);
+  --rail-top: clamp(4rem, 8.5vh, 5rem);
+  --rail-right: clamp(0.7rem, 3vw, 1.5rem);
+}
+
+.rail-btn {
+  position: fixed;
+  z-index: 50;
+  right: var(--rail-right);
+  top: calc(var(--rail-top) + var(--rail-i, 0) * (var(--rail-size) + var(--rail-gap)));
+  width: var(--rail-size);
+  height: var(--rail-size);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.rail-btn:hover { transform: scale(1.06); }
+
+/* Icons are a share of the button rather than a fixed pixel size, so they
+   keep their proportions as the rail scales. */
+.rail-ico { width: 58%; height: 58%; }
+
+/* The live pip scales too, or it swamps a shrunken button. */
+.rail-pip {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: max(0.55rem, 22%);
+  height: max(0.55rem, 22%);
+  border-radius: 999px;
+  border: 2px solid var(--color-background);
+  z-index: 10;
+}
+
+/* Decorative rims (the F1 chequer, the cricket seam) sit just outside the
+   disc, so they're sized relative to it rather than in pixels. Kept below
+   the pip, which otherwise gets painted over by a rim drawn after it. */
+.rail-rim {
+  position: absolute;
+  inset: -6%;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Section fade-in on scroll */
 .section-animate {
   opacity: 0;

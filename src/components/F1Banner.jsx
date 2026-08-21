@@ -88,11 +88,12 @@ export default function F1Button() {
       href="#/f1"
       aria-label={title}
       title={title}
-      className="group f1btn fixed top-36 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
+      className="group f1btn rail-btn shadow-lg"
+      style={{ '--rail-i': 1 }}
     >
       {raceWeek && (
         <span
-          className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-background animate-pulse z-10"
+          className="rail-pip animate-pulse"
           style={{ background: '#E10600' }}
           aria-hidden="true"
         />
@@ -102,13 +103,13 @@ export default function F1Button() {
           squares punched out of it — a black-on-dark chequer just disappears
           into the page and reads as a dashed border. Two rows offset by one
           square is what makes it a flag rather than a dotted line. */}
-      <svg className="f1btn-ring" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+      <svg className="f1btn-ring rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <circle cx="27" cy="27" r="24.5" stroke="#fff" strokeWidth="4.4" />
         <circle cx="27" cy="27" r="25.6" stroke="#0A0A0C" strokeWidth="2.2" strokeDasharray="8.042 8.042" transform="rotate(-90 27 27)" />
         <circle cx="27" cy="27" r="23.4" stroke="#0A0A0C" strokeWidth="2.2" strokeDasharray="7.351 7.351" strokeDashoffset="7.351" transform="rotate(-90 27 27)" />
       </svg>
 
-      <F1Mark className="w-10 transition-transform group-hover:translate-x-0.5" />
+      <F1Mark className="f1btn-mark transition-transform group-hover:translate-x-0.5" />
 
       <style>{`
         .f1btn {
@@ -116,11 +117,9 @@ export default function F1Button() {
           box-shadow: 0 8px 24px -6px rgba(0,0,0,.75);
           transition: transform .2s ease, box-shadow .25s ease;
         }
-        .f1btn-ring {
-          position: absolute; inset: -3px;
-          pointer-events: none;
-          transition: transform .5s cubic-bezier(.22,.61,.36,1);
-        }
+        /* The mark is a share of the button so it scales with the rail. */
+        .f1btn-mark { width: 82%; }
+        .f1btn-ring { transition: transform .5s cubic-bezier(.22,.61,.36,1); }
         .f1btn:hover { box-shadow: 0 10px 26px -6px rgba(225,6,0,.5); }
         .f1btn:hover .f1btn-ring { transform: rotate(27deg); }
         @media (prefers-reduced-motion: reduce) {
