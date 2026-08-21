@@ -12,8 +12,12 @@ import React, { useEffect, useState } from 'react'
  *
  * The red is deliberately fixed rather than themed, on the same grounds
  * as the F1 button beside it: a cricket ball is red the way a chequered
- * flag is black and white. It is an identity, not a decoration, and the
- * white stumps keep the contrast high whatever hue the site is set to.
+ * flag is black and white. It is an identity, not a decoration.
+ *
+ * It is not, however, a saturated disc. A pillarbox-red circle sat on
+ * top of a page whose surfaces are near-neutral and read as a sticker.
+ * The red now tints the site's own card colour and carries the stumps
+ * and the seam, which is enough to say cricket without shouting.
  *
  * It fetches cricket-now.json — a couple of hundred bytes written by the
  * same generator as the page — purely for the tooltip and for a green pip
@@ -105,8 +109,8 @@ export default function CricketButton() {
       href="#/cricket"
       aria-label={title}
       title={title}
-      className="group ckbtn rail-btn shadow-lg"
-      style={{ '--rail-i': 2 }}
+      className="group ckbtn rail-btn rail-tint"
+      style={{ '--rail-i': 2, '--tint': '#D4626B' }}
     >
       {playing && (
         <span
@@ -120,27 +124,19 @@ export default function CricketButton() {
           sitting across it. Two offset rows of dashes is what reads as
           stitching rather than as a dotted border. */}
       <svg className="ckbtn-seam rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <circle cx="27" cy="27" r="24.6" stroke="#F4E9DC" strokeWidth="1.5" opacity=".85" />
-        <circle cx="27" cy="27" r="24.6" stroke="#F4E9DC" strokeWidth="3.4" strokeDasharray="2.4 5.1" />
-        <circle cx="27" cy="27" r="21.9" stroke="#8E1420" strokeWidth="1.6" opacity=".55" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="1.2" opacity=".3" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3" strokeDasharray="2.4 5.1" opacity=".72" />
       </svg>
 
       <Stumps className="ckbtn-icon rail-ico" />
 
       <style>{`
-        .ckbtn {
-          /* Off-centre highlight so it sits like a ball under a light
-             rather than like a flat red circle. */
-          background: radial-gradient(circle at 34% 28%, #D1414A 0%, #B3202B 46%, #7E121C 100%);
-          color: #FFF7EE;
-          box-shadow: 0 8px 24px -6px rgba(126,18,28,.55);
-        }
+
         .ckbtn-bails {
           transform-origin: 12px 6.9px;
           transition: transform .45s cubic-bezier(.22,.61,.36,1);
         }
         .ckbtn-seam { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
-        .ckbtn:hover { box-shadow: 0 10px 26px -6px rgba(179,32,43,.6); }
         /* The ball turns, the way it does off the seam. */
         .ckbtn:hover .ckbtn-seam { transform: rotate(38deg); }
         /* Bowled: the bails get clipped off the top. */

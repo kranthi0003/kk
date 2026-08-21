@@ -14,9 +14,11 @@ import { useAmbient } from './AmbientContext'
  * playing is a fact we hold in memory — asking the network would be both
  * slower and less accurate.
  *
- * The rim is a spectrum, and it only turns while something is actually
- * playing. That keeps the button honest: the motion is the state, not
- * decoration, and a still ring means a silent radio.
+ * The rim only turns while something is actually playing. That keeps the
+ * button honest: the motion is the state, not decoration, and a still
+ * rim means a silent radio. It was a four-stop rainbow for a while,
+ * which was louder than anything else on the page; it's now a single
+ * soft violet, and the movement does the work the colour was doing.
  * ------------------------------------------------------------------ */
 
 // A beamed pair of notes, drawn as solid shapes rather than thin strokes —
@@ -52,8 +54,8 @@ export default function MusicButton() {
       href="#/music"
       aria-label={title}
       title={title}
-      className={'group msbtn rail-btn shadow-lg' + (playing ? ' is-playing' : '')}
-      style={{ '--rail-i': 3 }}
+      className={'group msbtn rail-btn rail-tint' + (playing ? ' is-playing' : '')}
+      style={{ '--rail-i': 3, '--tint': '#A78BE0' }}
     >
       {playing && (
         <span
@@ -63,28 +65,15 @@ export default function MusicButton() {
         />
       )}
 
-      {/* The spectrum rim. It spins only while the radio is playing. */}
+      {/* A broken rim, so there's something to see turning. It spins only
+          while the radio is playing. */}
       <svg className="msbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="msbtn-spec" x1="0" y1="0" x2="54" y2="54" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#FF8A3D" />
-            <stop offset=".34" stopColor="#FF3D77" />
-            <stop offset=".68" stopColor="#8A5CFF" />
-            <stop offset="1" stopColor="#31D0F5" />
-          </linearGradient>
-        </defs>
-        <circle cx="27" cy="27" r="24.6" stroke="url(#msbtn-spec)" strokeWidth="3.4" strokeLinecap="round" strokeDasharray="118 36" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="30 14" opacity=".7" />
       </svg>
 
       <Note className="msbtn-icon rail-ico" />
 
       <style>{`
-        .msbtn {
-          background: radial-gradient(circle at 32% 26%, #34204F 0%, #1B1030 52%, #0E0819 100%);
-          color: #FFFFFF;
-          box-shadow: 0 8px 24px -6px rgba(90,40,160,.5);
-        }
-        .msbtn:hover { box-shadow: 0 10px 26px -6px rgba(255,61,119,.5); }
         .msbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
         .msbtn:hover .msbtn-rim { transform: rotate(34deg); }
         /* Turning = playing. A still rim means the radio is off. */
