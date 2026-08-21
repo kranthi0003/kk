@@ -57,11 +57,11 @@ export default function CookingButton() {
       aria-label={title}
       title={title}
       className="group ckgbtn rail-btn rail-tint"
-      style={{ '--rail-i': 4, '--tint': '#6FCF97' }}
+      style={{ '--rail-i': 4, '--tint': '#7EDCA5' }}
     >
       {/* Steam over the bowl, as three short strokes around the rim. */}
       <svg className="ckgbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="6 22" opacity=".6" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeDasharray="7 13" opacity=".9" />
       </svg>
 
       <Bowl className="ckgbtn-icon rail-ico" />
