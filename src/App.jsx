@@ -45,6 +45,8 @@ import SaladsTeaser from './components/SaladsTeaser'
 import Sidecar from './components/Sidecar'
 import F1Banner from './components/F1Banner'
 import CricketButton from './components/CricketButton'
+import MusicButton from './components/MusicButton'
+import CookingButton from './components/CookingButton'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -459,6 +461,8 @@ export default function App() {
       <Sidecar />
       <F1Banner />
       <CricketButton />
+      <MusicButton />
+      <CookingButton />
       <VisitorTracker />
       <VisitorCount />
       <GhostCursors />
