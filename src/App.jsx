@@ -47,6 +47,7 @@ import F1Banner from './components/F1Banner'
 import CricketButton from './components/CricketButton'
 import MusicButton from './components/MusicButton'
 import CookingButton from './components/CookingButton'
+import { MoviesRailButton, PhotographyRailButton, BrandsRailButton, OmscsRailButton } from './components/RailButtons'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -68,6 +69,10 @@ const Timeline = lazy(() => import('./components/Timeline'))
 const UsesPage = lazy(() => import('./components/UsesPage'))
 const KnowledgeBase = lazy(() => import('./components/KnowledgeBase'))
 const MusicPage = lazy(() => import('./components/MusicPage'))
+const MoviesPage = lazy(() => import('./components/MoviesPage'))
+const PhotographyPage = lazy(() => import('./components/PhotographyPage'))
+const BrandsPage = lazy(() => import('./components/BrandsPage'))
+const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -294,6 +299,42 @@ export default function App() {
     )
   }
 
+  // Films — upcoming releases, from the same movies.json the Sidecar reads
+  if (route === '#/movies') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <MoviesPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Pictures — placeholder until there are photographs to put in it
+  if (route === '#/photos') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <PhotographyPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Brands — placeholder; this one gets written by hand, not generated
+  if (route === '#/brands') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <BrandsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // OMSCS — the plan, honestly labelled as a plan
+  if (route === '#/omscs') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <OmscsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
   // Royal Square — the apartment page (location, notices, bills, services, events)
   if (route === '#/royalsquare') {
     return (
@@ -463,6 +504,10 @@ export default function App() {
       <CricketButton />
       <MusicButton />
       <CookingButton />
+      <MoviesRailButton />
+      <PhotographyRailButton />
+      <BrandsRailButton />
+      <OmscsRailButton />
       <VisitorTracker />
       <VisitorCount />
       <GhostCursors />
