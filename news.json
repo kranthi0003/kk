@@ -1,6 +1,20 @@
 {
-  "generated": "2026-08-21T04:28:50.696Z",
+  "generated": "2026-08-21T05:51:45.069Z",
   "reddit": [
+    {
+      "title": "I actually enjoy my job, I just hate the way deadlines are set",
+      "url": "https://www.reddit.com/r/devops/comments/1vu7ejw/i_actually_enjoy_my_job_i_just_hate_the_way/",
+      "by": "throwaway-well",
+      "time": 1787290550000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Vsiink share, attempt, request for commentsish",
+      "url": "https://www.reddit.com/r/programming/comments/1vu6moo/vsiink_share_attempt_request_for_commentsish/",
+      "by": "Singularity_Warrant0",
+      "time": 1787288075000,
+      "sub": "r/programming"
+    },
     {
       "title": "The August 17 outage, and the work ahead",
       "url": "https://www.reddit.com/r/programming/comments/1vttlns/the_august_17_outage_and_the_work_ahead/",
@@ -28,20 +42,6 @@
       "by": "root0ps",
       "time": 1787247335000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Rebuilding the Linux microVM stack on Apple Silicon",
-      "url": "https://www.reddit.com/r/programming/comments/1vtq4qt/rebuilding_the_linux_microvm_stack_on_apple/",
-      "by": "Shot-Reporter-2443",
-      "time": 1787247253000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Building certgrep.sh: a free CT search engine",
-      "url": "https://www.reddit.com/r/programming/comments/1vtpng5/building_certgrepsh_a_free_ct_search_engine/",
-      "by": "JDBHub",
-      "time": 1787246198000,
-      "sub": "r/programming"
     },
     {
       "title": "Building an Observability Pane",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Anthropic Deleted 80% of Claude Code’s System Prompt. Nothing Got Worse.",
-      "url": "https://medium.com/ai-architecture-and-engineering/anthropic-deleted-80-of-claude-codes-system-prompt-nothing-got-worse-6bfa30c6110b",
-      "by": "EdibleByte",
-      "time": 1787286507000,
+      "title": "What Cluster Ready Actually Means",
+      "url": "https://medium.com/@kania_74354/what-cluster-ready-actually-means-6d0ab83f9616",
+      "by": "Christoph",
+      "time": 1787291130000,
       "tags": [
-        "education",
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Mastering SwiftUI Tables: Best Practices for Handling Big Data in iOS",
-      "url": "https://medium.com/@kost9klinov/mastering-swiftui-tables-best-practices-for-handling-big-data-in-ios-18108b1c9351",
-      "by": "Константин Клинов",
-      "time": 1787286424000,
-      "tags": [
-        "swiftui",
-        "swiftlang",
-        "ios-development"
-      ]
-    },
-    {
-      "title": "Why Neural Networks Fell Off (And Why Statisticians Were Right to Doubt Them)",
-      "url": "https://fahadthedatascientist.medium.com/why-neural-networks-fell-off-and-why-statisticians-were-right-to-doubt-them-b8816b85ef24",
-      "by": "Data Saint Consulting Inc",
-      "time": 1787286356000,
-      "tags": [
-        "artificial-neural-network",
-        "machine-learning",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "LRU Cache in Python: From O(1) Lookups to Async Production Systems",
-      "url": "https://ygsh0816.medium.com/lru-cache-in-python-from-o-1-lookups-to-async-production-systems-29a3c6237808",
-      "by": "Yogesh Kumar",
-      "time": 1787285862000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "DevOps Engineer First-Round Interview: 20 Real-World Questions",
-      "url": "https://medium.com/@preetjit82/devops-engineer-first-round-interview-20-real-world-questions-883590a676e3",
-      "by": "Interview Simplified",
-      "time": 1787285796000,
-      "tags": [
-        "programming",
         "devops",
-        "jobs"
+        "kubernetes-cluster",
+        "sre"
       ]
     },
     {
-      "title": "Single Source of Truth",
-      "url": "https://medium.com/@skyRocket_QingYun/single-source-of-truth-b9a12bf3f1a9",
-      "by": "The Owl, the Chihuahua, and the…",
-      "time": 1787285783000,
+      "title": "Refactoring a Flutter Monolith: How to Evolve Architecture Without Rewriting Everything",
+      "url": "https://medium.com/fludev/refactoring-a-flutter-monolith-how-to-evolve-architecture-without-rewriting-everything-bd08492de019",
+      "by": "Developer Hub",
+      "time": 1787290861000,
       "tags": [
-        "best-practices",
-        "clean-code",
+        "dart",
+        "technology",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Your Spring Boot Logs Are Lying: 9 Observability Mistakes That Hide Production Bugs",
+      "url": "https://medium.com/@ShantKhayalian/your-spring-boot-logs-are-lying-9-observability-mistakes-that-hide-production-bugs-8b36a1b5ad39",
+      "by": "Shant Khayalian",
+      "time": 1787290694000,
+      "tags": [
+        "java",
+        "programming",
+        "opentelemetry"
+      ]
+    },
+    {
+      "title": "DevOps vs Full Stack Development: Which is Better for Freshers?",
+      "url": "https://medium.com/codetodeploy/devops-vs-full-stack-development-which-is-better-for-freshers-3edb2286bfa1",
+      "by": "IT Training Institute",
+      "time": 1787290589000,
+      "tags": [
+        "devops-tool",
+        "devops",
+        "devops-training"
+      ]
+    },
+    {
+      "title": "I Built and Documented My First REST API with Flask",
+      "url": "https://medium.com/@detechnicalwriter/i-built-and-documented-my-first-rest-api-with-flask-7195a6c9f8a6",
+      "by": "Esther",
+      "time": 1787290547000,
+      "tags": [
+        "rest-api",
+        "devops",
+        "python"
+      ]
+    },
+    {
+      "title": "The Message Queue Mistake That Silently Lost Production Data",
+      "url": "https://medium.com/skillstuff/the-message-queue-mistake-that-silently-lost-production-data-377897475651",
+      "by": "CodeByUmar",
+      "time": 1787290436000,
+      "tags": [
+        "programming",
+        "software-development",
+        "technology"
+      ]
+    },
+    {
+      "title": "AI in SDLC Is Not About Writing Code Faster. It’s About Rethinking How Software Gets Built.",
+      "url": "https://systango.medium.com/ai-in-sdlc-is-not-about-writing-code-faster-its-about-rethinking-how-software-gets-built-30ee788c4c7e",
+      "by": "Systango",
+      "time": 1787290272000,
+      "tags": [
+        "software-development",
+        "ai-sdlc",
         "software-engineering"
       ]
     },
     {
-      "title": "The Secret Math Behind Google Authenticator (And Why It Works Even Offline)",
-      "url": "https://medium.com/@nandakishorep/the-secret-math-behind-google-authenticator-and-why-it-works-even-offline-a91b97125a66",
-      "by": "Nandakishore P",
-      "time": 1787285609000,
+      "title": "String vs StringBuilder vs StringBuffer in Java: Which One Should You Use?",
+      "url": "https://medium.com/@mrunalioza4004/string-vs-stringbuilder-vs-stringbuffer-in-java-which-one-should-you-use-809cbee830c8",
+      "by": "TheBackendDiary",
+      "time": 1787290261000,
       "tags": [
-        "security",
-        "software-engineering",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "These 10 JVM Problems Can Quietly Destroy Your Spring Boot Performance",
-      "url": "https://medium.com/@gaddamnaveen192/these-10-jvm-problems-can-quietly-destroy-your-spring-boot-performance-4f13fa95740e",
-      "by": "Gaddam.Naveen",
-      "time": 1787285515000,
-      "tags": [
-        "microservices",
-        "software-engineering",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "How I Built an AI-Powered Grammar Correction System with BERT and T5",
-      "url": "https://medium.com/@kamrulhasansojib19/how-i-built-an-ai-powered-grammar-correction-system-with-bert-and-t5-51888b09075c",
-      "by": "Kamrul Hasan Sojib",
-      "time": 1787285488000,
-      "tags": [
-        "mechine-learning",
-        "programming",
-        "nlp"
-      ]
-    },
-    {
-      "title": "Code License: Why Does It Matter?",
-      "url": "https://medium.com/the-silicon/code-license-why-does-it-matter-f084dc567c1c",
-      "by": "David Endy",
-      "time": 1787285472000,
-      "tags": [
-        "coding",
         "software-development",
-        "programming"
+        "coding",
+        "java"
+      ]
+    },
+    {
+      "title": "Pandas, PySpark or Polars: The Dataframe Decision",
+      "url": "https://medium.com/@krthiak/pandas-pyspark-or-polars-the-dataframe-decision-0d722d66a4f3",
+      "by": "Karthik",
+      "time": 1787290255000,
+      "tags": [
+        "technology",
+        "software-development",
+        "data-engineering"
+      ]
+    },
+    {
+      "title": "How to calculate cube roots in your head",
+      "url": "https://medium.com/think-art/how-to-calculate-cube-roots-in-your-head-e343ff52b574",
+      "by": "Thanushan Sivapatham",
+      "time": 1787290208000,
+      "tags": [
+        "mathematics",
+        "technology",
+        "data-science"
       ]
     }
   ]
