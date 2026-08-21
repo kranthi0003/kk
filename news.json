@@ -1,6 +1,13 @@
 {
-  "generated": "2026-08-21T14:36:50.575Z",
+  "generated": "2026-08-21T15:30:46.119Z",
   "reddit": [
+    {
+      "title": "Looking for input from Enterprise Architects",
+      "url": "https://www.reddit.com/r/devops/comments/1vuji02/looking_for_input_from_enterprise_architects/",
+      "by": "Glittering_Pepper575",
+      "time": 1787326024000,
+      "sub": "r/devops"
+    },
     {
       "title": "Managing AWS policies in terraform",
       "url": "https://www.reddit.com/r/devops/comments/1vuel71/managing_aws_policies_in_terraform/",
@@ -44,13 +51,6 @@
       "sub": "r/devops"
     },
     {
-      "title": "Officially a KubeAstronaut Now",
-      "url": "https://www.reddit.com/r/devops/comments/1vtq63d/officially_a_kubeastronaut_now/",
-      "by": "root0ps",
-      "time": 1787247335000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Weekly: Share your victories thread",
       "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "I Built a Free IT Asset Inventory System Using Only PowerShell and Excel",
-      "url": "https://medium.com/@prasantakumarroy1/i-built-a-free-it-asset-inventory-system-using-only-powershell-and-excel-fa8c38ff2f25",
-      "by": "Prasanta Kumar Roy",
-      "time": 1787322886000,
+      "title": "JSON in Python — All You Need To Know",
+      "url": "https://python.plainenglish.io/json-in-python-all-you-need-to-know-8e547d280fec",
+      "by": "Filip Kosowski",
+      "time": 1787326031000,
       "tags": [
-        "system-administration",
-        "windows",
-        "cloud-computing"
+        "programming",
+        "software-engineering",
+        "python"
       ]
     },
     {
-      "title": "The Windows Event IDs Every Sysadmin Should Know By Heart",
-      "url": "https://medium.com/@prasantakumarroy1/the-windows-event-ids-every-sysadmin-should-know-by-heart-7bd12ca3be52",
-      "by": "Prasanta Kumar Roy",
-      "time": 1787322879000,
+      "title": "I Reverse Engineered Plants vs. Zombies to Answer One Very Specific Question",
+      "url": "https://medium.com/@jizoskasa/i-reverse-engineered-plants-vs-zombies-to-answer-one-very-specific-question-557637a68a3e",
+      "by": "Joshua Kasa",
+      "time": 1787325937000,
       "tags": [
-        "cloud-computing",
         "programming",
+        "videogames",
+        "game-development"
+      ]
+    },
+    {
+      "title": "I Used AI to Build a Website as a Beginner Developer — Here’s What I Learned",
+      "url": "https://medium.com/@maddienmary7/i-used-ai-to-build-a-website-as-a-beginner-developer-heres-what-i-learned-0c70ab2873f9",
+      "by": "olamilekan ayomide",
+      "time": 1787325888000,
+      "tags": [
+        "web-development",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "TypeScript Pro Developer Hacks: Write Smarter, Safer & Faster Code",
+      "url": "https://rajputlakhveer.medium.com/typescript-pro-developer-hacks-write-smarter-safer-faster-code-c39d2f6a3e0a",
+      "by": "Lakhveer Singh Rajput",
+      "time": 1787325868000,
+      "tags": [
+        "software-development",
+        "reactjs",
+        "javascript"
+      ]
+    },
+    {
+      "title": "My AI Agent Told Me the System Scored 0.87. It Was Measuring Nothing.",
+      "url": "https://medium.com/@ysz7/my-ai-agent-told-me-the-system-scored-0-87-it-was-measuring-nothing-092f8e543caa",
+      "by": "ysz",
+      "time": 1787325686000,
+      "tags": [
+        "developer-tools",
+        "llm",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Two AI Coding Tools Walked Into My Workflow — Only Both Survived",
+      "url": "https://medium.com/@tudou527/two-ai-coding-tools-walked-into-my-workflow-only-both-survived-2eb1ce9e47fb",
+      "by": "tudou527",
+      "time": 1787325345000,
+      "tags": [
+        "technology",
+        "programming",
+        "ai"
+      ]
+    },
+    {
+      "title": "Subagents and Dynamic Workflows in Seven Minutes",
+      "url": "https://thegoldenmule.medium.com/subagents-and-dynamic-workflows-in-seven-minutes-3d06a5384c79",
+      "by": "Benjamin Jordan",
+      "time": 1787325270000,
+      "tags": [
+        "software-development",
+        "artificial-intelligence",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "Secure Access and Trusted Identity Expert Brief",
+      "url": "https://medium.com/@mdnaimahamedbd/secure-access-and-trusted-identity-expert-brief-cf1fd6830eef",
+      "by": "Md Naim Ahamed",
+      "time": 1787325208000,
+      "tags": [
+        "devops",
+        "software-development",
+        "sqa-engineer"
+      ]
+    },
+    {
+      "title": "When Your Bot Token Isn’t Enough: Syncing On-Call Schedules to Slack User Groups",
+      "url": "https://medium.com/@neehad_10768/when-your-bot-token-isnt-enough-syncing-on-call-schedules-to-slack-user-groups-1c8bd1a616ee",
+      "by": "Khondaker Ahmed Neehad Umar",
+      "time": 1787325169000,
+      "tags": [
+        "slack",
+        "software-engineering",
         "devops"
       ]
     },
     {
-      "title": "How Docker Networking Actually Works: A Deep Dive into CNM and Remote Drivers",
-      "url": "https://medium.com/@aravindhan24/how-docker-networking-actually-works-a-deep-dive-into-cnm-and-remote-drivers-b6d07716173f",
-      "by": "Aravindhan L",
-      "time": 1787322661000,
+      "title": "Why Nobody Reads Your Writing (And What to Do About It)",
+      "url": "https://medium.com/@authenticbozt/why-nobody-reads-your-writing-and-what-to-do-about-it-ba888370d068",
+      "by": "authentic bozt",
+      "time": 1787325077000,
       "tags": [
-        "devops",
-        "networking",
-        "linux"
-      ]
-    },
-    {
-      "title": "The Database Wasn’t Slow. Our Backend Was Lying to Us.",
-      "url": "https://medium.com/@gkhanalkan_71996/the-database-wasnt-slow-our-backend-was-lying-to-us-fa5669cb31d7",
-      "by": "SYSTEM DESIGN AND PRODUCTION BY…",
-      "time": 1787322347000,
-      "tags": [
-        "coding",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Why Prompting Isn’t Enough: The Rise of Context Engineering",
-      "url": "https://medium.com/@jasonpeiris/why-prompting-isnt-enough-the-rise-of-context-engineering-c6c5da349101",
-      "by": "Jasonpeiris",
-      "time": 1787322094000,
-      "tags": [
-        "artificial-intelligence",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "The Kubernetes Interview Question That Exposed How Little I Understood About Production",
-      "url": "https://blog.stackademic.com/the-kubernetes-interview-question-that-exposed-how-little-i-understood-about-production-58682aa8e00e",
-      "by": "SYSTEM DESIGN AND PRODUCTION BY…",
-      "time": 1787321953000,
-      "tags": [
-        "coding",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "5 Developer Tools I’m Watching That Aren’t Another AI Coding Agent",
-      "url": "https://bhavyansh001.medium.com/5-developer-tools-im-watching-that-aren-t-another-ai-coding-agent-85e7322b0c30",
-      "by": "Bhavyansh",
-      "time": 1787321761000,
-      "tags": [
-        "software-development",
-        "programming",
-        "productivity"
-      ]
-    },
-    {
-      "title": "I Tried Four Bug-Reporting Extensions on the Same Nasty Bug. Only One Helped Me Fix It.",
-      "url": "https://adityatiwariblogs.medium.com/i-tried-four-bug-reporting-extensions-on-the-same-nasty-bug-only-one-helped-me-fix-it-18eea68c9590",
-      "by": "Aditya Kumar Tiwari",
-      "time": 1787321612000,
-      "tags": [
-        "quality-assurance",
-        "software-testing",
-        "debugging"
-      ]
-    },
-    {
-      "title": "I Ran Kimi K3’s 2.8 Trillion-Parameter Model on a 4GB GPU.",
-      "url": "https://medium.com/data-science-collective/i-ran-kimi-k3s-2-8-trillion-parameter-model-on-a-4gb-gpu-1fed3fc69b42",
-      "by": "Programming with me",
-      "time": 1787321500000,
-      "tags": [
-        "programming",
-        "gpu",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "My API Was Fast. Production Still Took It Down.",
-      "url": "https://medium.com/javarevisited/my-api-was-fast-production-still-took-it-down-cc01f4485efb",
-      "by": "Production Systems By Devrim",
-      "time": 1787321206000,
-      "tags": [
-        "coding",
-        "programming",
-        "software-development"
+        "self-improvement",
+        "writing",
+        "world"
       ]
     }
   ]
