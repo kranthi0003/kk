@@ -1,12 +1,12 @@
 {
-  "generated": "2026-08-21T13:49:20.215Z",
+  "generated": "2026-08-21T13:57:46.397Z",
   "reddit": [
     {
-      "title": "What would tell a vibe learner of k8s",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vudp0f/what_would_tell_a_vibe_learner_of_k8s/",
-      "by": "tanzy96_",
-      "time": 1787311671000,
-      "sub": "r/kubernetes"
+      "title": "Managing AWS policies in terraform",
+      "url": "https://www.reddit.com/r/devops/comments/1vuel71/managing_aws_policies_in_terraform/",
+      "by": "mkmrproper",
+      "time": 1787314189000,
+      "sub": "r/devops"
     },
     {
       "title": "Embedding models benchmark for code duplication detection",
@@ -23,13 +23,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Migrated Laravel & MySQL to a Production-Ready EKS Cluster",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vucbqr/migrated_laravel_mysql_to_a_productionready_eks/",
-      "by": "Bee_rus-444",
-      "time": 1787307488000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "The Accidental Application Runtime: when a Go service quietly becomes more than an HTTP server",
       "url": "https://www.reddit.com/r/programming/comments/1vucb28/the_accidental_application_runtime_when_a_go/",
       "by": "Michael-F-Bryan",
@@ -37,39 +30,46 @@
       "sub": "r/programming"
     },
     {
+      "title": "I actually enjoy my job, I just hate the way deadlines are set",
+      "url": "https://www.reddit.com/r/devops/comments/1vu7ejw/i_actually_enjoy_my_job_i_just_hate_the_way/",
+      "by": "throwaway-well",
+      "time": 1787290550000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How do you guys feel about pulp project?",
+      "url": "https://www.reddit.com/r/devops/comments/1vts6zf/how_do_you_guys_feel_about_pulp_project/",
+      "by": "Intel-C2",
+      "time": 1787251646000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Officially a KubeAstronaut Now",
+      "url": "https://www.reddit.com/r/devops/comments/1vtq63d/officially_a_kubeastronaut_now/",
+      "by": "root0ps",
+      "time": 1787247335000,
+      "sub": "r/devops"
+    },
+    {
       "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vubzlu/weekly_share_your_victories_thread/",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1787306427000,
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you scope a Kubernetes penetration test when the infrastructure uses dynamic IPs?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vu92ql/how_do_you_scope_a_kubernetes_penetration_test/",
-      "by": "One-Geologist7960",
-      "time": 1787296206000,
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
@@ -93,6 +93,17 @@
         "web-development",
         "coding",
         "programming"
+      ]
+    },
+    {
+      "title": "Jetpack Compose LazyColumn Crash: “measure is called on a deactivated node” — Root Cause and Fix",
+      "url": "https://medium.com/@swarnsinghaulakh/jetpack-compose-lazycolumn-crash-measure-is-called-on-a-deactivated-node-root-cause-and-fix-f09eff7b5c84",
+      "by": "Swaran Singh Aulakh",
+      "time": 1787319661000,
+      "tags": [
+        "debugging",
+        "kotlin",
+        "android-development"
       ]
     },
     {
@@ -170,17 +181,6 @@
         "system-architecture",
         "software-engineering",
         "artificial-intelligence-m"
-      ]
-    },
-    {
-      "title": "Everyone Gets a Superintelligence.",
-      "url": "https://thedigitalshipwright.com/everyone-gets-a-superintelligence-42a180b470c7",
-      "by": "Andres Alos",
-      "time": 1787318834000,
-      "tags": [
-        "leadership",
-        "ai",
-        "artificial-intelligence"
       ]
     }
   ]
