@@ -1,19 +1,26 @@
 {
-  "generated": "2026-08-21T15:30:46.119Z",
+  "generated": "2026-08-21T16:38:14.596Z",
   "reddit": [
     {
-      "title": "Looking for input from Enterprise Architects",
-      "url": "https://www.reddit.com/r/devops/comments/1vuji02/looking_for_input_from_enterprise_architects/",
-      "by": "Glittering_Pepper575",
-      "time": 1787326024000,
-      "sub": "r/devops"
+      "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
+      "url": "https://www.reddit.com/r/programming/comments/1vuk4b5/finding_a_hidden_mersenne_twister_implementation/",
+      "by": "JizosKasa",
+      "time": 1787327394000,
+      "sub": "r/programming"
     },
     {
-      "title": "Managing AWS policies in terraform",
-      "url": "https://www.reddit.com/r/devops/comments/1vuel71/managing_aws_policies_in_terraform/",
-      "by": "mkmrproper",
-      "time": 1787314189000,
-      "sub": "r/devops"
+      "title": "I brought rsync to kubectl",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vujccx/i_brought_rsync_to_kubectl/",
+      "by": "major1201",
+      "time": 1787325680000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What would tell a vibe learner of k8s",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vudp0f/what_would_tell_a_vibe_learner_of_k8s/",
+      "by": "tanzy96_",
+      "time": 1787311671000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Embedding models benchmark for code duplication detection",
@@ -30,6 +37,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Migrated Laravel & MySQL to a Production-Ready EKS Cluster",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vucbqr/migrated_laravel_mysql_to_a_productionready_eks/",
+      "by": "Bee_rus-444",
+      "time": 1787307488000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "The Accidental Application Runtime: when a Go service quietly becomes more than an HTTP server",
       "url": "https://www.reddit.com/r/programming/comments/1vucb28/the_accidental_application_runtime_when_a_go/",
       "by": "Michael-F-Bryan",
@@ -37,150 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "I actually enjoy my job, I just hate the way deadlines are set",
-      "url": "https://www.reddit.com/r/devops/comments/1vu7ejw/i_actually_enjoy_my_job_i_just_hate_the_way/",
-      "by": "throwaway-well",
-      "time": 1787290550000,
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "How do you guys feel about pulp project?",
-      "url": "https://www.reddit.com/r/devops/comments/1vts6zf/how_do_you_guys_feel_about_pulp_project/",
-      "by": "Intel-C2",
-      "time": 1787251646000,
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
       "sub": "r/devops"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "JSON in Python — All You Need To Know",
-      "url": "https://python.plainenglish.io/json-in-python-all-you-need-to-know-8e547d280fec",
-      "by": "Filip Kosowski",
-      "time": 1787326031000,
+      "title": "Helm v2: The Package Manager That Shaped Kubernetes Deployments",
+      "url": "https://medium.com/@mathumathiv247/helm-v2-the-package-manager-that-shaped-kubernetes-deployments-8be92bc50dfb",
+      "by": "Mathumathiv",
+      "time": 1787329573000,
       "tags": [
-        "programming",
-        "software-engineering",
-        "python"
-      ]
-    },
-    {
-      "title": "I Reverse Engineered Plants vs. Zombies to Answer One Very Specific Question",
-      "url": "https://medium.com/@jizoskasa/i-reverse-engineered-plants-vs-zombies-to-answer-one-very-specific-question-557637a68a3e",
-      "by": "Joshua Kasa",
-      "time": 1787325937000,
-      "tags": [
-        "programming",
-        "videogames",
-        "game-development"
-      ]
-    },
-    {
-      "title": "I Used AI to Build a Website as a Beginner Developer — Here’s What I Learned",
-      "url": "https://medium.com/@maddienmary7/i-used-ai-to-build-a-website-as-a-beginner-developer-heres-what-i-learned-0c70ab2873f9",
-      "by": "olamilekan ayomide",
-      "time": 1787325888000,
-      "tags": [
-        "web-development",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "TypeScript Pro Developer Hacks: Write Smarter, Safer & Faster Code",
-      "url": "https://rajputlakhveer.medium.com/typescript-pro-developer-hacks-write-smarter-safer-faster-code-c39d2f6a3e0a",
-      "by": "Lakhveer Singh Rajput",
-      "time": 1787325868000,
-      "tags": [
-        "software-development",
-        "reactjs",
-        "javascript"
-      ]
-    },
-    {
-      "title": "My AI Agent Told Me the System Scored 0.87. It Was Measuring Nothing.",
-      "url": "https://medium.com/@ysz7/my-ai-agent-told-me-the-system-scored-0-87-it-was-measuring-nothing-092f8e543caa",
-      "by": "ysz",
-      "time": 1787325686000,
-      "tags": [
-        "developer-tools",
-        "llm",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Two AI Coding Tools Walked Into My Workflow — Only Both Survived",
-      "url": "https://medium.com/@tudou527/two-ai-coding-tools-walked-into-my-workflow-only-both-survived-2eb1ce9e47fb",
-      "by": "tudou527",
-      "time": 1787325345000,
-      "tags": [
-        "technology",
-        "programming",
-        "ai"
-      ]
-    },
-    {
-      "title": "Subagents and Dynamic Workflows in Seven Minutes",
-      "url": "https://thegoldenmule.medium.com/subagents-and-dynamic-workflows-in-seven-minutes-3d06a5384c79",
-      "by": "Benjamin Jordan",
-      "time": 1787325270000,
-      "tags": [
-        "software-development",
-        "artificial-intelligence",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Secure Access and Trusted Identity Expert Brief",
-      "url": "https://medium.com/@mdnaimahamedbd/secure-access-and-trusted-identity-expert-brief-cf1fd6830eef",
-      "by": "Md Naim Ahamed",
-      "time": 1787325208000,
-      "tags": [
-        "devops",
-        "software-development",
-        "sqa-engineer"
-      ]
-    },
-    {
-      "title": "When Your Bot Token Isn’t Enough: Syncing On-Call Schedules to Slack User Groups",
-      "url": "https://medium.com/@neehad_10768/when-your-bot-token-isnt-enough-syncing-on-call-schedules-to-slack-user-groups-1c8bd1a616ee",
-      "by": "Khondaker Ahmed Neehad Umar",
-      "time": 1787325169000,
-      "tags": [
-        "slack",
-        "software-engineering",
+        "kubernetes",
+        "deployment",
         "devops"
       ]
     },
     {
-      "title": "Why Nobody Reads Your Writing (And What to Do About It)",
-      "url": "https://medium.com/@authenticbozt/why-nobody-reads-your-writing-and-what-to-do-about-it-ba888370d068",
-      "by": "authentic bozt",
-      "time": 1787325077000,
+      "title": "LLM Security",
+      "url": "https://kevin8ronex.medium.com/llm-security-a597253991d0",
+      "by": "Kevin8ronex",
+      "time": 1787329427000,
       "tags": [
-        "self-improvement",
-        "writing",
-        "world"
+        "cybersecurity",
+        "deep-learning",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Go vs. Java for Microservices: An Epic 2026 Battle of Speed, Scale, and Simplicity!",
+      "url": "https://medium.com/@gerahitesh13/go-vs-java-for-microservices-an-epic-2026-battle-of-speed-scale-and-simplicity-1f0158462f2d",
+      "by": "Hitesh Gera",
+      "time": 1787329397000,
+      "tags": [
+        "coding",
+        "medium",
+        "golang"
+      ]
+    },
+    {
+      "title": "Book Review: Designing Data-Intensive Applications, 2nd Edition",
+      "url": "https://jgarc186.medium.com/book-review-designing-data-intensive-applications-2nd-edition-46f32f1fa895",
+      "by": "Jose Garcia",
+      "time": 1787329231000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "FastAPI for Java Developers: A Practical Guide to Building High-Performance APIs",
+      "url": "https://blog.stackademic.com/fastapi-for-java-developers-a-practical-guide-to-building-high-performance-apis-16868d4515f0",
+      "by": "Umesh Kumar Yadav",
+      "time": 1787329222000,
+      "tags": [
+        "software-development",
+        "python",
+        "java"
+      ]
+    },
+    {
+      "title": "WordPress? WooCommerce? Shopify…? F*ck Them, It’s 2026 — Write Your Own Engine",
+      "url": "https://medium.com/@domotorlugosi/wordpress-woocommerce-shopify-f-ck-them-its-2026-write-your-own-engine-2c16401bfa29",
+      "by": "Dömötör Lugosi",
+      "time": 1787328792000,
+      "tags": [
+        "web-development",
+        "wordpress",
+        "ai"
+      ]
+    },
+    {
+      "title": "The Hardest Part of Fixing a Production Bug Happens Before You Write the Fix",
+      "url": "https://medium.com/@robinisthedude/the-hardest-part-of-fixing-a-production-bug-happens-before-you-write-the-fix-550132261675",
+      "by": "Robin",
+      "time": 1787328681000,
+      "tags": [
+        "debugging",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "I Checked Every External Call the Same Way. The AI Calls Failed Almost Every Question.",
+      "url": "https://saeedhbi.medium.com/i-checked-every-external-call-the-same-way-the-ai-calls-failed-almost-every-question-c78a88002ed6",
+      "by": "Saeed Habibi",
+      "time": 1787328523000,
+      "tags": [
+        "software-engineering",
+        "distributed-systems",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "A Known Devil Is Better Than an Unknown Deep Ocean — A Survival Guide for the AI Coding Agent Era",
+      "url": "https://medium.com/@boobathi.ayyasamy/a-known-devil-is-better-than-an-unknown-deep-ocean-a-survival-guide-for-the-ai-coding-agent-era-71a878842dc9",
+      "by": "Boobathi Ayyasamy",
+      "time": 1787328349000,
+      "tags": [
+        "ai-agent",
+        "vibe-coding",
+        "generative-ai-tools"
+      ]
+    },
+    {
+      "title": "The First 5 Things I Build as a New VP of Engineering — Before I Touch the Roadmap",
+      "url": "https://medium.com/@jeremy_burns/the-first-5-things-i-build-as-a-new-vp-of-engineering-before-i-touch-the-roadmap-45f7e6dca02a",
+      "by": "Jeremy Burns",
+      "time": 1787328190000,
+      "tags": [
+        "software-engineering",
+        "tech-leadership",
+        "leadership"
       ]
     }
   ]
