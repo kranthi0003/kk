@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21T14:25:46.781Z",
+  "generated": "2026-08-21T14:36:50.575Z",
   "reddit": [
     {
       "title": "Managing AWS policies in terraform",
@@ -74,6 +74,61 @@
   ],
   "medium": [
     {
+      "title": "I Built a Free IT Asset Inventory System Using Only PowerShell and Excel",
+      "url": "https://medium.com/@prasantakumarroy1/i-built-a-free-it-asset-inventory-system-using-only-powershell-and-excel-fa8c38ff2f25",
+      "by": "Prasanta Kumar Roy",
+      "time": 1787322886000,
+      "tags": [
+        "system-administration",
+        "windows",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "The Windows Event IDs Every Sysadmin Should Know By Heart",
+      "url": "https://medium.com/@prasantakumarroy1/the-windows-event-ids-every-sysadmin-should-know-by-heart-7bd12ca3be52",
+      "by": "Prasanta Kumar Roy",
+      "time": 1787322879000,
+      "tags": [
+        "cloud-computing",
+        "programming",
+        "devops"
+      ]
+    },
+    {
+      "title": "How Docker Networking Actually Works: A Deep Dive into CNM and Remote Drivers",
+      "url": "https://medium.com/@aravindhan24/how-docker-networking-actually-works-a-deep-dive-into-cnm-and-remote-drivers-b6d07716173f",
+      "by": "Aravindhan L",
+      "time": 1787322661000,
+      "tags": [
+        "devops",
+        "networking",
+        "linux"
+      ]
+    },
+    {
+      "title": "The Database Wasn’t Slow. Our Backend Was Lying to Us.",
+      "url": "https://medium.com/@gkhanalkan_71996/the-database-wasnt-slow-our-backend-was-lying-to-us-fa5669cb31d7",
+      "by": "SYSTEM DESIGN AND PRODUCTION BY…",
+      "time": 1787322347000,
+      "tags": [
+        "coding",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Why Prompting Isn’t Enough: The Rise of Context Engineering",
+      "url": "https://medium.com/@jasonpeiris/why-prompting-isnt-enough-the-rise-of-context-engineering-c6c5da349101",
+      "by": "Jasonpeiris",
+      "time": 1787322094000,
+      "tags": [
+        "artificial-intelligence",
+        "programming",
+        "technology"
+      ]
+    },
+    {
       "title": "The Kubernetes Interview Question That Exposed How Little I Understood About Production",
       "url": "https://blog.stackademic.com/the-kubernetes-interview-question-that-exposed-how-little-i-understood-about-production-58682aa8e00e",
       "by": "SYSTEM DESIGN AND PRODUCTION BY…",
@@ -82,6 +137,17 @@
         "coding",
         "software-engineering",
         "software-development"
+      ]
+    },
+    {
+      "title": "5 Developer Tools I’m Watching That Aren’t Another AI Coding Agent",
+      "url": "https://bhavyansh001.medium.com/5-developer-tools-im-watching-that-aren-t-another-ai-coding-agent-85e7322b0c30",
+      "by": "Bhavyansh",
+      "time": 1787321761000,
+      "tags": [
+        "software-development",
+        "programming",
+        "productivity"
       ]
     },
     {
@@ -115,72 +181,6 @@
         "coding",
         "programming",
         "software-development"
-      ]
-    },
-    {
-      "title": "Okay So … Coding Is Solved. Now What?",
-      "url": "https://levelup.gitconnected.com/okay-so-coding-is-solved-now-what-5171f2a56cfd",
-      "by": "Akshat Tiwari",
-      "time": 1787321118000,
-      "tags": [
-        "ai",
-        "programming",
-        "coding"
-      ]
-    },
-    {
-      "title": "Business Logic Bugs Hide in the Gaps Between Requests",
-      "url": "https://medium.com/@0xAbhiSec/business-logic-bugs-hide-in-the-gaps-between-requests-abb46dfddc88",
-      "by": "0xAbhiSec",
-      "time": 1787321066000,
-      "tags": [
-        "bug-hunting",
-        "software-engineering",
-        "web-security"
-      ]
-    },
-    {
-      "title": "The Rise of Agentic AI: How Self-Sustaining Software is Disrupting the Tech Landscape Essay",
-      "url": "https://medium.com/@fatima80nadir/the-rise-of-agentic-ai-how-self-sustaining-software-is-disrupting-the-tech-landscape-essay-25c5a030e2ce",
-      "by": "Fatima",
-      "time": 1787320864000,
-      "tags": [
-        "technology",
-        "automation",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "JavaScript Can Finally Process Iterators Without Creating Arrays",
-      "url": "https://medium.com/@shailendrakawadkar/javascript-can-finally-process-iterators-without-creating-arrays-343113a4639a",
-      "by": "Shailendra kawadkar",
-      "time": 1787320863000,
-      "tags": [
-        "front-end-development",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Niyə bu qədər çox ixtisas var? IT ixtisasları arasında fərqlər nələrdir?",
-      "url": "https://medium.com/@samirrhashimov/niy%C9%99-bu-q%C9%99d%C9%99r-%C3%A7ox-ixtisas-var-it-ixtisaslar%C4%B1-aras%C4%B1nda-f%C9%99rql%C9%99r-n%C9%99l%C9%99rdir-c5adf0d7323c",
-      "by": "Samir Hashimov",
-      "time": 1787320863000,
-      "tags": [
-        "computer-science",
-        "programming",
-        "education"
-      ]
-    },
-    {
-      "title": "Idempotency in Distributed Systems: How to Prevent Duplicate Operations",
-      "url": "https://medium.com/@ronomahedi/idempotency-in-distributed-systems-how-to-prevent-duplicate-operations-095297cc90c5",
-      "by": "Abul Kalam Azad",
-      "time": 1787320863000,
-      "tags": [
-        "idempotency",
-        "distributed-systems",
-        "backend"
       ]
     }
   ]
