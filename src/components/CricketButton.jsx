@@ -3,15 +3,17 @@ import React, { useEffect, useState } from 'react'
 /* ------------------------------------------------------------------ *
  * The cricket button — third in the rail, under the Sidecar and F1.
  *
- * The first version of this was a photoreal red leather ball. It was the
- * only skeuomorphic thing in the rail, and worse, it was hardcoded red —
- * so it ignored the site hue the colour picker sets and clashed the moment
- * the theme moved off red. This follows the Sidecar instead: a flat disc
- * built from theme tokens with a stroked line icon, so it recolours with
- * everything else.
+ * This went dark-disc-and-thin-stroke for a while, to recolour with the
+ * site hue. It was the right instinct and the wrong result: next to the
+ * F1 button it read as switched off. So it's a cricket ball again — but
+ * flat, not the photoreal leather of the first attempt. The seam is the
+ * rim rather than a line across a sphere, which sidesteps the circle-in-
+ * a-circle problem that sent us to stumps in the first place.
  *
- * Stumps rather than a ball, because a ball inside a round button is just
- * a circle in a circle. Nothing else in the world looks like stumps.
+ * The red is deliberately fixed rather than themed, on the same grounds
+ * as the F1 button beside it: a cricket ball is red the way a chequered
+ * flag is black and white. It is an identity, not a decoration, and the
+ * white stumps keep the contrast high whatever hue the site is set to.
  *
  * It fetches cricket-now.json — a couple of hundred bytes written by the
  * same generator as the page — purely for the tooltip and for a green pip
@@ -103,39 +105,49 @@ export default function CricketButton() {
       href="#/cricket"
       aria-label={title}
       title={title}
-      className="group ckbtn fixed top-52 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
+      className="group ckbtn rail-btn shadow-lg"
+      style={{ '--rail-i': 2 }}
     >
       {playing && (
         <span
-          className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-background animate-pulse z-10"
+          className="rail-pip animate-pulse"
           style={{ background: '#35B96C' }}
           aria-hidden="true"
         />
       )}
 
-      <Stumps className="ckbtn-icon w-7 h-7" />
+      {/* The seam, wrapped around the rim: a solid line with the stitches
+          sitting across it. Two offset rows of dashes is what reads as
+          stitching rather than as a dotted border. */}
+      <svg className="ckbtn-seam rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="#F4E9DC" strokeWidth="1.5" opacity=".85" />
+        <circle cx="27" cy="27" r="24.6" stroke="#F4E9DC" strokeWidth="3.4" strokeDasharray="2.4 5.1" />
+        <circle cx="27" cy="27" r="21.9" stroke="#8E1420" strokeWidth="1.6" opacity=".55" />
+      </svg>
+
+      <Stumps className="ckbtn-icon rail-ico" />
 
       <style>{`
         .ckbtn {
-          background: var(--color-card);
-          border: 1px solid var(--color-border);
-          color: var(--color-accent);
-          box-shadow: 0 8px 24px -6px rgba(0,0,0,.45);
-          transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
+          /* Off-centre highlight so it sits like a ball under a light
+             rather than like a flat red circle. */
+          background: radial-gradient(circle at 34% 28%, #D1414A 0%, #B3202B 46%, #7E121C 100%);
+          color: #FFF7EE;
+          box-shadow: 0 8px 24px -6px rgba(126,18,28,.55);
         }
         .ckbtn-bails {
           transform-origin: 12px 6.9px;
           transition: transform .45s cubic-bezier(.22,.61,.36,1);
         }
-        .ckbtn:hover {
-          border-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
-          box-shadow: 0 10px 26px -6px color-mix(in oklab, var(--color-accent) 45%, transparent);
-        }
+        .ckbtn-seam { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+        .ckbtn:hover { box-shadow: 0 10px 26px -6px rgba(179,32,43,.6); }
+        /* The ball turns, the way it does off the seam. */
+        .ckbtn:hover .ckbtn-seam { transform: rotate(38deg); }
         /* Bowled: the bails get clipped off the top. */
         .ckbtn:hover .ckbtn-bails { transform: translate(1.5px, -2.4px) rotate(12deg); }
         @media (prefers-reduced-motion: reduce) {
-          .ckbtn-bails { transition: none; }
-          .ckbtn:hover .ckbtn-bails { transform: none; }
+          .ckbtn-bails, .ckbtn-seam { transition: none; }
+          .ckbtn:hover .ckbtn-bails, .ckbtn:hover .ckbtn-seam { transform: none; }
         }
       `}</style>
     </a>

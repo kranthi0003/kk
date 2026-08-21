@@ -437,10 +437,10 @@ export default function Sidecar() {
         onClick={() => setOpen(true)}
         aria-label="Open the Sidecar"
         title="The Sidecar — things I follow"
-        className="group fixed top-20 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105"
-        style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)', boxShadow: '0 8px 24px -6px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}
+        className="group rail-btn shadow-lg"
+        style={{ '--rail-i': 0, background: 'var(--color-accent)', color: 'var(--color-accent-foreground)', boxShadow: '0 8px 24px -6px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}
       >
-        <svg className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg className="rail-ico transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M11 17l-5-5 5-5" /><path d="M18 17l-5-5 5-5" />
         </svg>
       </button>
