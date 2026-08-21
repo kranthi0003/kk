@@ -110,7 +110,7 @@ export default function CricketButton() {
       aria-label={title}
       title={title}
       className="group ckbtn rail-btn rail-tint"
-      style={{ '--rail-i': 2, '--tint': '#D4626B' }}
+      style={{ '--rail-i': 2, '--tint': '#E4737C' }}
     >
       {playing && (
         <span
@@ -124,8 +124,8 @@ export default function CricketButton() {
           sitting across it. Two offset rows of dashes is what reads as
           stitching rather than as a dotted border. */}
       <svg className="ckbtn-seam rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="1.2" opacity=".3" />
-        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3" strokeDasharray="2.4 5.1" opacity=".72" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="1.3" opacity=".45" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.4" strokeDasharray="2.6 5.2" opacity=".95" />
       </svg>
 
       <Stumps className="ckbtn-icon rail-ico" />

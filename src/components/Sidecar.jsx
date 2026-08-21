@@ -437,12 +437,28 @@ export default function Sidecar() {
         onClick={() => setOpen(true)}
         aria-label="Open the Sidecar"
         title="The Sidecar — things I follow"
-        className="group rail-btn shadow-lg"
-        style={{ '--rail-i': 0, background: 'var(--color-accent)', color: 'var(--color-accent-foreground)', boxShadow: '0 8px 24px -6px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}
+        className="group rail-btn rail-tint sdbtn"
+        style={{ '--rail-i': 0, '--tint': 'var(--color-accent)' }}
       >
-        <svg className="rail-ico transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {/* A rim of ticks, like a dial — the Sidecar is the drawer of
+            things being followed, so it reads as a gauge. Solid band with
+            the ticks punched out of it, the way the F1 chequer is built;
+            a plain dashed stroke reads as a dotted border instead. */}
+        <svg className="sdbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+          <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.4" opacity=".9" />
+          <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.2" strokeDasharray="1.5 3.6" />
+        </svg>
+        <svg className="rail-ico transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M11 17l-5-5 5-5" /><path d="M18 17l-5-5 5-5" />
         </svg>
+        <style>{`
+          .sdbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+          .sdbtn:hover .sdbtn-rim { transform: rotate(-20deg); }
+          @media (prefers-reduced-motion: reduce) {
+            .sdbtn-rim { transition: none; }
+            .sdbtn:hover .sdbtn-rim { transform: none; }
+          }
+        `}</style>
       </button>
 
       {open && (

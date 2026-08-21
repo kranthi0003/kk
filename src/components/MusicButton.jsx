@@ -55,7 +55,7 @@ export default function MusicButton() {
       aria-label={title}
       title={title}
       className={'group msbtn rail-btn rail-tint' + (playing ? ' is-playing' : '')}
-      style={{ '--rail-i': 3, '--tint': '#A78BE0' }}
+      style={{ '--rail-i': 3, '--tint': '#B79BEE' }}
     >
       {playing && (
         <span
@@ -68,7 +68,7 @@ export default function MusicButton() {
       {/* A broken rim, so there's something to see turning. It spins only
           while the radio is playing. */}
       <svg className="msbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
-        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="30 14" opacity=".7" />
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeDasharray="30 14" opacity=".9" />
       </svg>
 
       <Note className="msbtn-icon rail-ico" />

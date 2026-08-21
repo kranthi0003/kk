@@ -288,25 +288,29 @@ h4, h5, h6 {
 }
 
 /* Tinted rail buttons.
-   The first pass at making these "vibrant" turned them into saturated
-   discs — a pillarbox-red ball, a violet-and-rainbow disc, a bright
-   green one. Next to a site whose own surfaces sit at oklch(19%) with
-   almost no chroma, they read as stickers dropped on top of the page.
+   These have been through two wrong answers. First they were saturated
+   discs, which read as stickers dropped on the page. Then they were the
+   site's card colour with a wash of tint, which was calm but left the F1
+   button looking like it belonged to a different set — because it does
+   something neither of those did: a near-black disc, a bright rim, and a
+   filled two-tone mark. That contrast is the whole effect.
 
-   So the colour moved off the disc and into the mark. Each button sets
-   one --tint; the surface stays the site's own card with a wash of it,
-   the border picks up a little more, and the icon carries the colour
-   properly. That's the same restraint the F1 button already had — a
-   black disc where only the mark and the pip are red. */
+   So they all work that way now. The disc is near-black with a breath of
+   the subject's colour in the top-left, the way F1's is; the rim carries
+   the colour brightly; the mark is filled rather than stroked. Each
+   button still only sets one --tint. */
 .rail-tint {
-  background: color-mix(in oklab, var(--tint) 11%, var(--color-card));
-  border: 1px solid color-mix(in oklab, var(--tint) 30%, var(--color-border));
-  color: color-mix(in oklab, var(--tint) 80%, var(--color-foreground));
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.45);
+  background:
+    radial-gradient(circle at 33% 26%, color-mix(in oklab, var(--tint) 22%, #15151B) 0%, #0B0B0E 72%);
+  color: var(--tint);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.7);
+  /* Icons punch holes in themselves — a clapperboard's stripes, a lens
+     centre. Those cutouts have to be the disc, not the page's card
+     colour, or they glow in light mode. */
+  --rail-disc: #0B0B0E;
 }
 .rail-tint:hover {
-  border-color: color-mix(in oklab, var(--tint) 55%, transparent);
-  box-shadow: 0 10px 26px -6px color-mix(in oklab, var(--tint) 35%, transparent);
+  box-shadow: 0 10px 26px -6px color-mix(in oklab, var(--tint) 45%, transparent);
 }
 
 /* Work in progress. Amber, and at the opposite corner from the live pip,
