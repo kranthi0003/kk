@@ -40,10 +40,11 @@ const SIDE_INSET = 10
 // stops short of that column. On a phone the button and its inset are
 // smaller, and the width is too precious to give away.
 const rightInset = (w) => (w < 520 ? 62 : 88)
-const STAGGER = 210      // ms between each ball being let go. Wide enough
-                          // that one has landed before the next is let go:
-                          // overlapping flights collide in mid-air and knock
-                          // each other off aim, which is what made the pile.
+const STAGGER = 165      // ms between each ball being let go. Short enough
+                          // that flights overlap, which is what puts them in
+                          // each other's way — the whole point now. It was
+                          // widened once to stop exactly that, back when the
+                          // throws were aimed and needed to arrive unbothered.
 
 const rand = (a, b) => a + Math.random() * (b - a)
 
@@ -59,8 +60,11 @@ export function createRailField(selector = '.rail-btn') {
   let H = window.innerHeight
   const floorY = () => H - FLOOR_INSET
 
-  // Seed each body where the CSS rail already put it, so nothing jumps
-  // at the moment we take over positioning.
+  // The rect is read only for the size. The position is thrown away: the
+  // balls belong above the ceiling from the very first frame, not in the
+  // rail. Leaving them at their CSS position meant you watched a stack of
+  // them sitting on the right, then vanishing one at a time and
+  // reappearing at the top — a teleport, not a fall.
   const bodies = els.map((el, i) => {
     const r = el.getBoundingClientRect()
     return {
@@ -78,11 +82,7 @@ export function createRailField(selector = '.rail-btn') {
     }
   })
 
-  bodies.forEach((b) => {
-    b.el.classList.add('rail-loose')
-    write(b)
-  })
-
+  bodies.forEach((b) => { b.el.classList.add('rail-loose') })
 
   function write(b) {
     b.el.style.transform =
@@ -133,23 +133,27 @@ export function createRailField(selector = '.rail-btn') {
     })
   }
 
+  // Park every ball above the ceiling straight away, before any of them
+  // can be seen. They are then let go one at a time from up there. The
+  // waiting has to happen off-screen: doing it in the rail is what made
+  // them appear to vanish from the right and reappear at the top.
+  const pts = dropPoints()
+  bodies.forEach((b, i) => {
+    b.x = pts[i]
+    b.y = -b.r * 3
+    write(b)
+  })
+
   bodies.forEach((b, i) => {
     timers.push(setTimeout(() => {
       if (b.released) return
-      if (i === 0) {
-        const pts = dropPoints()
-        bodies.forEach((c, k) => { c.dropX = pts[k] })
-      }
-      // Come in from above the ceiling so it reads as falling into the
-      // page rather than appearing in it.
-      b.x = b.dropX != null ? b.dropX : b.x
-      b.y = -b.r * 2
+      // Already up there and out of sight; this only starts it moving.
       b.vx = rand(-40, 40)
-      b.vy = rand(60, 190)
+      b.vy = rand(90, 210)
       b.vrot = rand(-260, 260)
       b.released = true
       wake()
-    }, 620 + i * STAGGER))
+    }, 420 + i * STAGGER))
   })
 
   // ---- restore a settled layout ------------------------------------

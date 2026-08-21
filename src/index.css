@@ -277,6 +277,16 @@ h4, h5, h6 {
 }
 .rail-btn.rail-loose:active { cursor: grabbing; }
 
+/* Between the buttons being laid out by CSS and gravity taking them over
+   there are a couple of frames where they sit in the rail. That's long
+   enough to see a column on the right that then empties itself, so hide
+   anything the field hasn't claimed yet.
+
+   Scoped to a class the script adds, and removed again if the script
+   fails: if this were unconditional, a module that never loaded would
+   leave the whole of the site's navigation invisible. */
+html.rail-falling .rail-btn:not(.rail-loose) { opacity: 0; }
+
 /* Icons are a share of the button rather than a fixed pixel size, so they
    keep their proportions as the rail scales. */
 .rail-ico { width: 58%; height: 58%; }

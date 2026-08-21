@@ -21,15 +21,29 @@ export default function RailGravity() {
     let raf1 = 0
     let raf2 = 0
 
+    // Hide the buttons for the couple of frames between CSS laying them
+    // out in the rail and the field claiming them. Undone the moment
+    // anything goes wrong, so a failure here leaves the rail visible and
+    // working rather than an invisible navigation.
+    const root = document.documentElement
+    root.classList.add('rail-falling')
+    const giveUp = () => root.classList.remove('rail-falling')
+
     raf1 = requestAnimationFrame(() => {
       raf2 = requestAnimationFrame(() => {
-        field = createRailField('.rail-btn')
+        try {
+          field = createRailField('.rail-btn')
+          if (!field) giveUp()
+        } catch {
+          giveUp()
+        }
       })
     })
 
     return () => {
       cancelAnimationFrame(raf1)
       cancelAnimationFrame(raf2)
+      giveUp()
       field?.destroy?.()
     }
   }, [])
