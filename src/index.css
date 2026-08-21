@@ -261,6 +261,22 @@ h4, h5, h6 {
 }
 .rail-btn:hover { transform: scale(1.06); }
 
+/* Once gravity takes over, the ball is positioned by transform from the
+   window's top-left. The CSS transition has to go — a 0.2s ease on
+   transform would smear every physics frame into the next and the balls
+   would swim rather than fall. `touch-action: none` is what lets you
+   drag one on a phone without the page scrolling out from under it. */
+.rail-btn.rail-loose {
+  top: 0;
+  left: 0;
+  right: auto;
+  transition: none;
+  touch-action: none;
+  will-change: transform;
+  cursor: grab;
+}
+.rail-btn.rail-loose:active { cursor: grabbing; }
+
 /* Icons are a share of the button rather than a fixed pixel size, so they
    keep their proportions as the rail scales. */
 .rail-ico { width: 58%; height: 58%; }
@@ -287,18 +303,17 @@ h4, h5, h6 {
   z-index: 1;
 }
 
-/* Tinted rail buttons.
-   These have been through two wrong answers. First they were saturated
-   discs, which read as stickers dropped on the page. Then they were the
-   site's card colour with a wash of tint, which was calm but left the F1
-   button looking like it belonged to a different set — because it does
-   something neither of those did: a near-black disc, a bright rim, and a
-   filled two-tone mark. That contrast is the whole effect.
+/* Rail buttons.
+   These have been through a few wrong answers. First saturated discs,
+   which read as stickers. Then the site's card colour with a wash of
+   tint, which was calm but left F1 looking like it came from a different
+   set. Now they're all built like F1 — dark disc, bright punched rim,
+   filled mark — and each keeps its own colour, because with gravity on
+   they're balls scattered across the floor rather than a tidy column,
+   and colour is what tells one from another at a glance.
 
-   So they all work that way now. The disc is near-black with a breath of
-   the subject's colour in the top-left, the way F1's is; the rim carries
-   the colour brightly; the mark is filled rather than stroked. Each
-   button still only sets one --tint. */
+   Two colours mean something rather than decorate: the green live pip
+   and the amber WIP badge. */
 .rail-tint {
   background:
     radial-gradient(circle at 33% 26%, color-mix(in oklab, var(--tint) 22%, #15151B) 0%, #0B0B0E 72%);

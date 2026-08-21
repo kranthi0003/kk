@@ -48,6 +48,7 @@ import CricketButton from './components/CricketButton'
 import MusicButton from './components/MusicButton'
 import CookingButton from './components/CookingButton'
 import { MoviesRailButton, PhotographyRailButton, BrandsRailButton, OmscsRailButton } from './components/RailButtons'
+import RailGravity from './components/RailGravity'
 
 import WorkspaceSection from './components/WorkspaceSection'
 import AstroDitherSection from './components/AstroDitherSection'
@@ -508,6 +509,7 @@ export default function App() {
       <PhotographyRailButton />
       <BrandsRailButton />
       <OmscsRailButton />
+      <RailGravity />
       <VisitorTracker />
       <VisitorCount />
       <GhostCursors />
