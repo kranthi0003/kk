@@ -35,9 +35,6 @@ const SLEEP_SPEED = 26    // px/s
 const SLEEP_FRAMES = 24
 const FLOOR_INSET = 78    // clear of the visitor counter along the bottom
 const SIDE_INSET = 10
-const GAP_MIN = 4         // narrowest gap between resting balls
-const GAP_MAX = 96        // widest — beyond this a wide window just looks
-                          // like nine unrelated dots
 // The chat button lives in the bottom-right corner and opens a greeting
 // bubble above itself; a ball resting there sits under both, so the floor
 // stops short of that column. On a phone the button and its inset are
@@ -86,19 +83,6 @@ export function createRailField(selector = '.rail-btn') {
     write(b)
   })
 
-  // How much room the balls give each other once they're down. Derived
-  // from the window rather than fixed: on a wide screen a fixed gap left
-  // them huddled in one third of the floor, and on a phone it would have
-  // pushed them into a pile against the walls. Each ball also carries a
-  // little of its own, so the row reads as settled rather than set out.
-  let spacing = GAP_MIN
-  const measureSpacing = () => {
-    const d = bodies[0].r * 2
-    const usable = W - SIDE_INSET - rightInset(W)
-    spacing = Math.max(GAP_MIN, Math.min(GAP_MAX, usable / bodies.length - d))
-  }
-  measureSpacing()
-  bodies.forEach((b) => { b.spaceBias = rand(-0.16, 0.16) })
 
   function write(b) {
     b.el.style.transform =
@@ -121,47 +105,51 @@ export function createRailField(selector = '.rail-btn') {
   }
 
   // ---- the drop ----------------------------------------------------
-  // Left to pure chance this bunches badly: the top ball has the longest
-  // fall so it travels furthest, the bottom one barely leaves the corner,
-  // and six of the nine end up in a pile on the right. So each ball is
-  // aimed at a slot across the floor and the launch speed is worked back
-  // from how long it will be in the air. The bounces, the rolling and the
-  // knocks off each other still do what they like, so it lands looking
-  // scattered rather than arranged — it just doesn't land in a heap.
+  // Each ball enters from above the top edge, one at a time, and is
+  // dropped so that it lands roughly where the previous ones are — so it
+  // hits them, glances off, and knocks them along. The scattering is the
+  // collisions, not the aim.
+  //
+  // An earlier version threw them out of the rail on ballistic arcs at
+  // separate slots, with mid-air contact disabled so nothing could be
+  // knocked off course. It landed them in a tidy row, which is exactly
+  // what a set of falling balls should not look like.
   const timers = []
-  const fanOut = () => {
+  const dropPoints = () => {
     const n = bodies.length
-    // The band of targets stops well short of the left wall. Aiming at
-    // the wall itself means any ball that rolls a little too far piles up
-    // against it, and a pile is exactly what this is trying to avoid.
-    const LEFT_PAD = 72
-    const usable = W - LEFT_PAD - rightInset(W)
-    const slot = usable / n
-    bodies.forEach((b, i) => {
-      // Right to left, so the balls at the bottom of the rail (which get
-      // let go last and fall least) are the ones sent furthest.
-      const target = LEFT_PAD + slot * (n - i - 0.5) + rand(-slot * 0.22, slot * 0.22)
-      const drop = Math.max(40, floorY() - b.r - b.y)
-      const fall = Math.sqrt((2 * drop) / G)
-      // Roughly aimed only. Exactness isn't needed any more — the balls
-      // sort out their own spacing once they are down. This just has to
-      // get them out of the corner and pointing the right way.
-      b.vx = ((target - b.x) / fall) * 0.72
-      b.vy = rand(-90, -20)
-      b.vrot = rand(-420, 420)
+    const lo = SIDE_INSET + bodies[0].r * 2
+    const hi = W - rightInset(W) - bodies[0].r * 2
+    const mid = (lo + hi) / 2
+    const reach = (hi - lo) / 2
+    return bodies.map((b, i) => {
+      // The first few come down almost on the same spot, so they land on
+      // each other and burst apart; the entry point then widens as the
+      // floor fills. Spreading the drops evenly from the start was the
+      // mistake — balls given their own lane never meet, and the whole
+      // point is what happens when they do.
+      const swing = Math.pow(i / (n - 1), 1.7) * 0.92
+      const side = i % 2 === 0 ? 1 : -1
+      return Math.max(lo, Math.min(hi, mid + side * reach * swing * rand(0.6, 1) + rand(-14, 14)))
     })
   }
 
   bodies.forEach((b, i) => {
     timers.push(setTimeout(() => {
-      if (!b.released) {
-        b.released = true
-        // Aim on the first release so every ball is aimed from the same
-        // measurement of the window.
-        if (i === 0) fanOut()
-        wake()
+      if (b.released) return
+      if (i === 0) {
+        const pts = dropPoints()
+        bodies.forEach((c, k) => { c.dropX = pts[k] })
       }
-    }, 700 + i * STAGGER))
+      // Come in from above the ceiling so it reads as falling into the
+      // page rather than appearing in it.
+      b.x = b.dropX != null ? b.dropX : b.x
+      b.y = -b.r * 2
+      b.vx = rand(-40, 40)
+      b.vy = rand(60, 190)
+      b.vrot = rand(-260, 260)
+      b.released = true
+      wake()
+    }, 620 + i * STAGGER))
   })
 
   // ---- restore a settled layout ------------------------------------
@@ -246,33 +234,41 @@ export function createRailField(selector = '.rail-btn') {
         b.x = W - rightInset(W) - b.r
         b.vx = -Math.abs(b.vx) * REST_WALL
       }
-      // ceiling, only reachable by throwing one
-      if (b.y - b.r < 0) { b.y = b.r; b.vy = Math.abs(b.vy) * REST_WALL }
+      // Ceiling. Only for something on its way up — a ball is dropped in
+      // from above the top edge, and clamping on position alone teleported
+      // it to just inside the frame on its first step, so nothing ever
+      // actually fell into the page.
+      if (b.y - b.r < 0 && b.vy < 0) { b.y = b.r; b.vy = Math.abs(b.vy) * REST_WALL }
     }
 
     // ---- ball against ball ----
-    // Only once they're down. A ball thrown across the screen has to get
-    // past everything that landed before it, and if it collides in
-    // mid-air it knocks the pile about and stops short — which is what
-    // put six of them in a heap. Airborne balls pass over; everything
-    // interacts properly on the floor, which is where it reads anyway.
+    // Everywhere, including in mid-air. Balls used to pass over anything
+    // already on the floor, which kept the aimed throws on course — and
+    // meant nothing ever knocked anything. The knocking is the point.
     for (let i = 0; i < bodies.length; i++) {
       const a = bodies[i]
       if (!a.released) continue
-      if (!a.held && a.y + a.r < fy - 6) continue
       for (let j = i + 1; j < bodies.length; j++) {
         const c = bodies[j]
         if (!c.released) continue
-        if (!c.held && c.y + c.r < fy - 6) continue
         let dx = c.x - a.x
         let dy = c.y - a.y
         let d = Math.hypot(dx, dy)
         const min = a.r + c.r
         if (d >= min || d === 0) continue
 
-        const nx = dx / d
-        const ny = dy / d
+        let nx = dx / d
+        let ny = dy / d
         const overlap = min - d
+
+        // A ball landing dead-centre on another has a straight-up normal
+        // and balances there forever, which real balls never do. Lean the
+        // contact very slightly so it rolls off one side.
+        if (Math.abs(nx) < 0.06) {
+          nx = nx + (nx >= 0 ? 0.06 : -0.06)
+          const len = Math.hypot(nx, ny)
+          nx /= len; ny /= len
+        }
 
         // Push apart. A held ball is immovable, so you can shove the
         // others around with it.
@@ -301,42 +297,6 @@ export function createRailField(selector = '.rail-btn') {
       }
     }
 
-    // ---- shuffling apart -------------------------------------------
-    // Aiming the throws was never going to be enough on its own: how far
-    // a ball travels depends on how hard it lands, how many times it
-    // bounces and what it hits, and small differences compound into a
-    // clump at one end and a hole at the other. Every attempt to model
-    // that traded one for the other.
-    //
-    // So the arrangement isn't decided in the air. Once two balls are
-    // both on the floor and closer than is comfortable, they ease apart,
-    // gently and only horizontally. It settles into an even row from any
-    // landing at all, it costs nothing once the spacing is reached, and
-    // because it happens while they're still rocking to a stop it reads
-    // as them shuffling for room rather than repelling.
-    for (let i = 0; i < bodies.length; i++) {
-      const a = bodies[i]
-      if (!a.released || a.held || a.y + a.r < fy - 6) continue
-      for (let j = i + 1; j < bodies.length; j++) {
-        const c = bodies[j]
-        if (!c.released || c.held || c.y + c.r < fy - 6) continue
-        const dx = c.x - a.x
-        const want = a.r + c.r + spacing * (1 + a.spaceBias + c.spaceBias)
-        const d = Math.abs(dx)
-        if (d >= want || d < 0.01) continue
-        const push = (want - d) * 0.055
-        // Deliberately does not wake anything. Waking resets the
-        // stillness counter, and with a nudge running every frame the
-        // balls could never accumulate enough of it to fall asleep —
-        // they hovered, jittering, and never stood upright. A sleeping
-        // ball can simply be slid along the floor instead.
-        if (push < 0.4) continue
-        const dir = dx < 0 ? -1 : 1
-        a.x -= dir * push
-        c.x += dir * push
-        moving = true
-      }
-    }
 
     for (const b of bodies) {
       if (!b.released) continue
@@ -358,9 +318,9 @@ export function createRailField(selector = '.rail-btn') {
       if (b.asleep && Math.abs(b.rot - Math.round(b.rot / 360) * 360) > 0.1) moving = true
       if (b.held) moving = true
       // The walls are enforced during flight, but a sleeping ball skips
-      // that and the spacing nudge can still slide it — which is how one
-      // ended up parked underneath the chat button. Hold the bounds here
-      // instead, where every ball passes every frame.
+      // that, and a knock from a late arrival can still shift it — which
+      // is how one ended up parked underneath the chat button. Hold the
+      // bounds here instead, where every ball passes every frame.
       if (!b.held) {
         const lo = SIDE_INSET + b.r
         const hi = W - rightInset(W) - b.r
@@ -446,7 +406,6 @@ export function createRailField(selector = '.rail-btn') {
   const onResize = () => {
     W = window.innerWidth
     H = window.innerHeight
-    measureSpacing()
     const fy = floorY()
     bodies.forEach((b) => {
       b.x = Math.max(SIDE_INSET + b.r, Math.min(W - rightInset(W) - b.r, b.x))
