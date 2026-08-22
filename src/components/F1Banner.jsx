@@ -89,7 +89,7 @@ export default function F1Button() {
       aria-label={title}
       title={title}
       className="group f1btn rail-btn shadow-lg"
-      style={{ '--rail-i': 1 }}
+      style={{ '--rail-i': 0 }}
     >
       {raceWeek && (
         <span

@@ -38,7 +38,7 @@ function RailLink({ href, index, tint, title, wip, children }) {
 // A clapperboard, inside a rim of film perforations.
 export function MoviesRailButton() {
   return (
-    <RailLink href="#/movies" index={5} tint="#E8AC5F" title="Films — what's coming out">
+    <RailLink href="#/movies" index={4} tint="#E8AC5F" title="Films — what's coming out">
       <svg className="mvbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="4" opacity=".92" />
         <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.4" strokeDasharray="2.6 4.6" />
@@ -71,7 +71,7 @@ export function MoviesRailButton() {
 // A camera, inside an aperture — six blades struck through the rim.
 export function PhotographyRailButton() {
   return (
-    <RailLink href="#/photos" index={6} tint="#93C2E6" title="Pictures" wip>
+    <RailLink href="#/photos" index={5} tint="#93C2E6" title="Pictures" wip>
       <svg className="phbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
         <g stroke="var(--rail-disc)" strokeWidth="2.6">
@@ -104,7 +104,7 @@ export function PhotographyRailButton() {
 // coat hanger is not.
 export function BrandsRailButton() {
   return (
-    <RailLink href="#/brands" index={7} tint="#D9A9B4" title="Brands — fashion, skin, lifestyle" wip>
+    <RailLink href="#/brands" index={6} tint="#D9A9B4" title="Brands — fashion, skin, lifestyle" wip>
       <svg className="brbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="1.3" opacity=".45" />
         <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.2" strokeDasharray="3.4 5.4" opacity=".9" />
@@ -128,7 +128,7 @@ export function BrandsRailButton() {
 // A mortarboard, inside a broken laurel.
 export function OmscsRailButton() {
   return (
-    <RailLink href="#/omscs" index={8} tint="#DCB63A" title="OMSCS — Georgia Tech" wip>
+    <RailLink href="#/omscs" index={7} tint="#DCB63A" title="OMSCS — Georgia Tech" wip>
       <svg className="omsbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
         <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.2" strokeDasharray="1.6 5.2" transform="rotate(-90 27 27)" />

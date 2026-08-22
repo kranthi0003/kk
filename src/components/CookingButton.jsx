@@ -57,7 +57,7 @@ export default function CookingButton() {
       aria-label={title}
       title={title}
       className="group ckgbtn rail-btn rail-tint"
-      style={{ '--rail-i': 4, '--tint': '#7EDCA5' }}
+      style={{ '--rail-i': 3, '--tint': '#7EDCA5' }}
     >
       {/* Steam over the bowl, as three short strokes around the rim. */}
       <svg className="ckgbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
