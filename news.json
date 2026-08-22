@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22T04:27:41.406Z",
+  "generated": "2026-08-22T04:36:49.366Z",
   "reddit": [
     {
       "title": "Want to switch my career towards SRE/DevOps",
@@ -74,6 +74,83 @@
   ],
   "medium": [
     {
+      "title": "Linear Data Structures and Algorithms in Java: The Complete Deep Dive Guide",
+      "url": "https://deepawasthi.medium.com/data-structures-and-algorithms-part-1-d458fb844275",
+      "by": "Deep Awasthi",
+      "time": 1787373064000,
+      "tags": [
+        "programming",
+        "software-development",
+        "java"
+      ]
+    },
+    {
+      "title": "Top 10 OpenTelemetry Collectors and Exporters for Kubernetes",
+      "url": "https://medium.com/devops-ai-decoded/top-10-opentelemetry-collectors-and-exporters-for-kubernetes-47bb52717e15",
+      "by": "Neel Shah",
+      "time": 1787373064000,
+      "tags": [
+        "kubernetes",
+        "devops",
+        "ai"
+      ]
+    },
+    {
+      "title": "How I Troubleshoot Databases When My Application Suddenly Gets Slow",
+      "url": "https://medium.com/@sre-devops-interview/how-i-troubleshoot-databases-when-my-application-suddenly-gets-slow-2c61e72992ee",
+      "by": "Tanishq Arora",
+      "time": 1787373063000,
+      "tags": [
+        "sre",
+        "programming",
+        "devops"
+      ]
+    },
+    {
+      "title": "I Was Too Scared to Ask for Two More Days on a 72-Hour Deadline",
+      "url": "https://medium.com/@TechByQadir/i-was-too-scared-to-ask-for-two-more-days-on-a-72-hour-deadline-fd13ca886f7d",
+      "by": "Abdul Qadir",
+      "time": 1787372853000,
+      "tags": [
+        "interviewing",
+        "software-engineering",
+        "tech-industry"
+      ]
+    },
+    {
+      "title": "DAILY SPRING DEVOTIONAL.",
+      "url": "https://medium.com/@DailySpringDevotional/daily-spring-devotional-cf5f949922ca",
+      "by": "DEBORAH CHINEDU",
+      "time": 1787372753000,
+      "tags": [
+        "technology",
+        "programming",
+        "money"
+      ]
+    },
+    {
+      "title": "Deloitte Data Engineer Interview Experience (27 LPA Offer): Real Technical Questions & Detailed…",
+      "url": "https://medium.com/@preetjit82/deloitte-data-engineer-interview-experience-27-lpa-offer-real-technical-questions-detailed-77129f101783",
+      "by": "Interview Simplified",
+      "time": 1787372735000,
+      "tags": [
+        "programming",
+        "interview",
+        "data-engineer"
+      ]
+    },
+    {
+      "title": "I Gave My Spring Boot API 10,000 Requests. Here’s What Broke First.",
+      "url": "https://medium.com/@ersumit077/i-gave-my-spring-boot-api-10-000-requests-heres-what-broke-first-862ba3c32129",
+      "by": "Java & AI Engineering",
+      "time": 1787372310000,
+      "tags": [
+        "software-development",
+        "java",
+        "software-engineering"
+      ]
+    },
+    {
       "title": "Do You Really Need a Vector Database? PostgreSQL + pgvector in Production",
       "url": "https://medium.com/@rkdixit3/do-you-really-need-a-vector-database-postgresql-pgvector-in-production-b75b7db28379",
       "by": "Rajesh Kumar",
@@ -104,83 +181,6 @@
         "coding",
         "css",
         "best-practices"
-      ]
-    },
-    {
-      "title": "Decision Tree",
-      "url": "https://medium.com/@poudelutsav057/decision-tree-5f5256e04ab9",
-      "by": "Utsav Poudel",
-      "time": 1787371700000,
-      "tags": [
-        "artificial-intelligence",
-        "data-science",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "Starting My CPTS Journey on a 10-Year-Old HDD Laptop",
-      "url": "https://medium.com/@kafeeromirembemercy/starting-my-cpts-journey-on-a-10-year-old-hdd-laptop-8f4859f68167",
-      "by": "Kafeero Mirembe Mercy",
-      "time": 1787371490000,
-      "tags": [
-        "hacking",
-        "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Java 26 Is Here: Can You Answer These 10 Interview Questions?",
-      "url": "https://medium.com/@preetjit82/java-26-is-here-can-you-answer-these-10-interview-questions-2696c9d7ca66",
-      "by": "Interview Simplified",
-      "time": 1787371474000,
-      "tags": [
-        "programming",
-        "java",
-        "interview"
-      ]
-    },
-    {
-      "title": "9 AI Engineering Skills You Need to Master in 2026 to Stay Relevant",
-      "url": "https://medium.com/@shubhamnalawade037/9-ai-engineering-skills-you-need-to-master-in-2026-to-stay-relevant-4784f2739f73",
-      "by": "The Dialectic",
-      "time": 1787371471000,
-      "tags": [
-        "coding",
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "The C# Interview Question That Looks Like LINQ — Until the Data Gets Huge",
-      "url": "https://medium.com/@shemeenasrawther/the-c-interview-question-that-looks-like-linq-until-the-data-gets-huge-edddbe13fc53",
-      "by": "ShemeenaS Rawther",
-      "time": 1787371040000,
-      "tags": [
-        "csharp",
-        "dotnet",
-        "linq"
-      ]
-    },
-    {
-      "title": "DeepSeek Harness vs Claude Code",
-      "url": "https://medium.com/data-science-in-your-pocket/deepseek-harness-vs-claude-code-b75b7121f1ae",
-      "by": "Mehul Gupta",
-      "time": 1787370907000,
-      "tags": [
-        "machine-learning",
-        "data-science",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "These Go testing libraries are so overrated — Use these instead",
-      "url": "https://blog.stackademic.com/these-go-testing-libraries-are-so-overrated-use-these-instead-6ea11b401d30",
-      "by": "Yaninyz witty",
-      "time": 1787370857000,
-      "tags": [
-        "programming",
-        "software-development",
-        "golang"
       ]
     }
   ]
