@@ -16,14 +16,31 @@ import React, { useEffect, useRef, useState } from 'react'
  * talk over window events so neither has to hold a reference to the
  * other.
  *
- * All of it sits top-left, mirroring the Sidecar handle opposite. The
- * obvious spot was bottom-left next to the visitor count, but that is
- * exactly where the balls come to rest — the chip sat on top of them and
- * swallowed the very grab the game depends on. The floor belongs to the
- * balls.
+ * Where it sits.
+ *
+ * The floor belongs to the balls. An early version put this bottom-left
+ * beside the visitor count, which is exactly where they come to rest —
+ * measured with elementFromPoint, the chip was on top of them and
+ * swallowing the very grab the game depends on.
+ *
+ * So it sits centred, directly above them: close enough that it reads as
+ * being about the balls, high enough that it never covers one. The height
+ * is derived from --rail-size, the same variable the balls are sized
+ * from, so it clears a two-high stack on any screen instead of relying on
+ * a pixel figure that would be wrong the moment the rail changed.
+ *
+ * While a round is on, the panel stops taking pointer events except for
+ * its own button. A thrown ball can come to rest anywhere, and one parked
+ * underneath an unclickable panel would strand the round.
  * ------------------------------------------------------------------ */
 
+// Above the floor inset, above two stacked balls, plus a little air.
+const ABOVE_BALLS = 'calc(var(--rail-size) * 2 + 5.75rem)'
+
 const BEST_KEY = 'rail_game_best'
+// Shrinking it is remembered, so someone who isn't interested isn't asked
+// again on every visit.
+const SMALL_KEY = 'rail_game_small'
 
 const readBest = () => {
   try {
@@ -42,6 +59,9 @@ export default function BallGame() {
   const [result, setResult] = useState(null)
   const [best, setBest] = useState(readBest)
   const [ready, setReady] = useState(false)
+  const [small, setSmall] = useState(() => {
+    try { return localStorage.getItem(SMALL_KEY) === '1' } catch { return false }
+  })
   // With reduced motion the balls are laid out on the floor and the
   // physics loop never starts, so there is nothing to throw. Offering the
   // game anyway left a button that did nothing at all when pressed.
@@ -94,27 +114,47 @@ export default function BallGame() {
 
   if (!ready || !motion) return null
 
+  // inset-x-0 + flex rather than left-1/2 + -translate-x-1/2. The
+  // translate approach put the panel half a width to the right and
+  // squeezed it into the right half of a phone: a fixed element anchored
+  // at left:50% only has half the window to lay out in, and the
+  // fade-in-up animation overwrote the centring transform anyway.
+  const shell = 'fixed inset-x-0 z-[60] flex justify-center px-4 pointer-events-none'
+
   // ---- during a round ----
   if (st.on) {
     return (
       <div
-        className="fixed top-20 left-6 z-[60] flex items-center gap-3 px-3.5 py-2 rounded-full backdrop-blur-md animate-fade-in-up"
-        style={{ background: 'color-mix(in oklab, var(--color-card) 88%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 34%, var(--color-border))' }}
+        className={shell}
+        style={{ bottom: ABOVE_BALLS }}
+      >
+        <div
+          className="flex items-center gap-3 px-4 py-2.5 rounded-full backdrop-blur-md animate-fade-in-up"
+          style={{
+          background: 'color-mix(in oklab, var(--color-card) 90%, transparent)',
+          boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 45%, var(--color-border)), 0 8px 30px rgba(0,0,0,0.35)',
+        }}
       >
         <span className="flex gap-1" aria-hidden="true">
           {Array.from({ length: st.total }).map((_, i) => (
             <i
               key={i}
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ background: i < st.potted ? 'var(--color-accent)' : 'color-mix(in oklab, var(--color-foreground) 22%, transparent)' }}
+              className="w-1.5 h-1.5 rounded-full transition-colors"
+              style={{ background: i < st.potted ? 'var(--color-accent)' : 'color-mix(in oklab, var(--color-foreground) 20%, transparent)' }}
             />
           ))}
         </span>
-        <span className="text-[12px] font-mono tabular-nums text-foreground">
+        <span className="text-[13px] font-mono tabular-nums text-foreground">
           {st.potted}<span className="text-muted-foreground">/{st.total}</span>
         </span>
-        <span className="text-[11px] font-mono text-muted-foreground tabular-nums">{st.throws} throws</span>
-        <button onClick={quit} className="text-[11px] font-mono text-muted-foreground hover:text-foreground transition-colors">stop</button>
+        <span className="text-[11.5px] font-mono text-muted-foreground tabular-nums hidden sm:inline">{st.throws} throws</span>
+        <button
+          onClick={quit}
+          className="pointer-events-auto text-[11.5px] font-mono text-muted-foreground hover:text-foreground transition-colors"
+        >
+          stop
+        </button>
+        </div>
       </div>
     )
   }
@@ -124,39 +164,113 @@ export default function BallGame() {
     const isBest = best && result.throws === best.throws && result.ms === best.ms
     return (
       <div
-        className="fixed top-20 left-6 z-[60] px-4 py-3 rounded-2xl backdrop-blur-md animate-fade-in-up max-w-[300px]"
-        style={{ background: 'color-mix(in oklab, var(--color-card) 92%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, var(--color-border))' }}
+        className={shell}
+        style={{ bottom: ABOVE_BALLS }}
       >
-        <p className="text-[13px] font-medium text-foreground">
+        <div
+          className="px-5 py-4 rounded-2xl backdrop-blur-md animate-fade-in-up text-center w-[min(20rem,calc(100vw-2rem))]"
+          style={{
+          background: 'color-mix(in oklab, var(--color-card) 94%, transparent)',
+          boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 50%, var(--color-border)), 0 10px 40px rgba(0,0,0,0.4)',
+        }}
+      >
+        <p className="text-[15px] font-semibold text-foreground">
           All eleven potted{isBest ? ' — best yet' : ''}
         </p>
-        <p className="mt-1 text-[12px] font-mono text-muted-foreground tabular-nums">
+        <p className="mt-1 text-[12.5px] font-mono text-muted-foreground tabular-nums">
           {result.throws} throws · {fmt(result.ms)}
           {best && !isBest ? <span> · best {best.throws}</span> : null}
         </p>
-        <div className="mt-2.5 flex items-center gap-3">
-          <button onClick={start} className="text-[12px] font-mono text-foreground hover:opacity-70 transition-opacity">play again</button>
-          <button onClick={() => setResult(null)} className="text-[12px] font-mono text-muted-foreground hover:text-foreground transition-colors">close</button>
+        <div className="mt-3 flex items-center justify-center gap-4 pointer-events-auto">
+          <button
+            onClick={start}
+            className="px-3.5 py-1.5 rounded-full text-[12.5px] font-medium transition-opacity hover:opacity-80"
+            style={{ background: 'var(--color-accent)', color: 'var(--color-background)' }}
+          >
+            Play again
+          </button>
+          <button onClick={() => setResult(null)} className="text-[12.5px] font-mono text-muted-foreground hover:text-foreground transition-colors">
+            close
+          </button>
+        </div>
         </div>
       </div>
     )
   }
 
   // ---- the launcher ----
+  // Collapsed, it is a single quiet disc. Expanded, it says what the game
+  // is and what you do — "play" alone doesn't tell you the balls are the
+  // thing you play with.
+  if (small) {
+    return (
+      <button
+        onClick={() => { setSmall(false); try { localStorage.removeItem(SMALL_KEY) } catch {} }}
+        aria-label="Eleven Shots — a game with the balls"
+        title="Eleven Shots"
+        className={shell}
+        style={{ bottom: ABOVE_BALLS }}
+      >
+        <span
+          className="pointer-events-auto grid place-items-center w-11 h-11 rounded-full backdrop-blur-sm transition-transform hover:scale-105"
+          style={{
+            background: 'color-mix(in oklab, var(--color-card) 88%, transparent)',
+            boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, var(--color-border))',
+          }}
+        >
+          <RingMark size={19} />
+        </span>
+      </button>
+    )
+  }
+
   return (
-    <button
-      onClick={start}
-      className="fixed top-20 left-6 z-[60] inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg animate-fade-in-up transition-opacity hover:opacity-80"
-      style={{ background: 'color-mix(in oklab, var(--color-card) 85%, transparent)', boxShadow: 'inset 0 0 0 1px var(--color-border)' }}
-      title="Throw the balls through the ring"
+    <div
+      className={shell}
+      style={{ bottom: ABOVE_BALLS }}
     >
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" stroke="var(--color-accent)" strokeWidth="2.4" />
-        <circle cx="12" cy="12" r="3.2" stroke="var(--color-accent)" strokeWidth="2" strokeDasharray="2 2.2" />
-      </svg>
-      <span className="text-[11.5px] font-mono text-muted-foreground">
-        eleven shots{best ? <span className="opacity-70"> · best {best.throws}</span> : null}
-      </span>
-    </button>
+      <div
+        className="pointer-events-auto relative flex items-center gap-3 pl-4 pr-10 py-2.5 rounded-2xl backdrop-blur-md game-cta animate-fade-in-up"
+        style={{
+          background: 'color-mix(in oklab, var(--color-card) 92%, transparent)',
+          boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 55%, var(--color-border)), 0 10px 34px rgba(0,0,0,0.38)',
+        }}
+      >
+        <button onClick={start} className="flex items-center gap-3 text-left">
+          <span className="grid place-items-center w-9 h-9 rounded-full shrink-0" style={{ background: 'color-mix(in oklab, var(--color-accent) 16%, transparent)' }}>
+            <RingMark size={20} />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-[13.5px] font-semibold text-foreground leading-tight">
+              Eleven Shots
+              {best ? <span className="ml-1.5 text-[11px] font-mono font-normal text-muted-foreground">best {best.throws}</span> : null}
+            </span>
+            <span className="block text-[11.5px] text-muted-foreground leading-tight mt-0.5">
+              Throw a ball through the ring
+            </span>
+          </span>
+        </button>
+        <button
+          onClick={(e) => { e.stopPropagation(); setSmall(true); try { localStorage.setItem(SMALL_KEY, '1') } catch {} }}
+          aria-label="Shrink"
+          className="absolute top-1.5 right-1.5 w-6 h-6 grid place-items-center rounded-full text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// The same two rings as the target, so the button and the thing you are
+// aiming at are visibly the same object.
+function RingMark({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" className="game-ring">
+      <circle cx="12" cy="12" r="9.2" stroke="var(--color-accent)" strokeWidth="2.4" />
+      <circle cx="12" cy="12" r="3.4" stroke="var(--color-accent)" strokeWidth="1.8" strokeDasharray="2 2.3" />
+    </svg>
   )
 }
