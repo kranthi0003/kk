@@ -1,19 +1,33 @@
 {
-  "generated": "2026-08-21T17:08:49.600Z",
+  "generated": "2026-08-22T03:26:15.990Z",
   "reddit": [
     {
-      "title": "Anyone else paste half a log file into a text editor just to find the one JSON blob in it?",
-      "url": "https://www.reddit.com/r/devops/comments/1vulnkd/anyone_else_paste_half_a_log_file_into_a_text/",
-      "by": "iamjigkoshti",
-      "time": 1787330786000,
-      "sub": "r/devops"
+      "title": "Ich möchte eine Alternative für Tinder, Bumble, Hinge und Jodel anbieten",
+      "url": "https://www.reddit.com/r/programming/comments/1vuxzx1/ich_möchte_eine_alternative_für_tinder_bumble/",
+      "by": "Mother-Economist5055",
+      "time": 1787359885000,
+      "sub": "r/programming"
     },
     {
-      "title": "Is anyone here considering MLOps or you think DevOps/ Platform engineering still has long way to go?",
-      "url": "https://www.reddit.com/r/devops/comments/1vukq60/is_anyone_here_considering_mlops_or_you_think/",
-      "by": "devops-noob",
-      "time": 1787328742000,
-      "sub": "r/devops"
+      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
+      "by": "Josh_Difratech",
+      "time": 1787345490000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Linux and storage | toward Rook|Ceph",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
+      "by": "faulty-segment",
+      "time": 1787344211000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Struggling mightily with NFS and respecting POSIX permissions in a multi-tenant environment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurn1o/struggling_mightily_with_nfs_and_respecting_posix/",
+      "by": "cowmu",
+      "time": 1787343972000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
@@ -21,13 +35,6 @@
       "by": "JizosKasa",
       "time": 1787327394000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Managing AWS policies in terraform",
-      "url": "https://www.reddit.com/r/devops/comments/1vuel71/managing_aws_policies_in_terraform/",
-      "by": "mkmrproper",
-      "time": 1787314189000,
-      "sub": "r/devops"
     },
     {
       "title": "Embedding models benchmark for code duplication detection",
@@ -44,143 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "I actually enjoy my job, I just hate the way deadlines are set",
-      "url": "https://www.reddit.com/r/devops/comments/1vu7ejw/i_actually_enjoy_my_job_i_just_hate_the_way/",
-      "by": "throwaway-well",
-      "time": 1787290550000,
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
       "sub": "r/devops"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Your AWS IAM Policy Is Probably Too Permissive . I Built a Tool to Prove It",
-      "url": "https://aws.plainenglish.io/your-aws-iam-policy-is-probably-too-permissive-i-built-a-tool-to-prove-it-7fb3eb3e2638",
-      "by": "Emmanuel Akuffo",
-      "time": 1787331684000,
+      "title": "We created a tool that diagnoses website security vulnerabilities in just 10 seconds and gives you…",
+      "url": "https://medium.com/@leegoheun9/we-created-a-tool-that-diagnoses-website-security-vulnerabilities-in-just-10-seconds-and-gives-you-412a87668636",
+      "by": "Leegoheun",
+      "time": 1787367606000,
       "tags": [
         "devops",
-        "software-development",
-        "open-source"
+        "cybersecurity",
+        "microsaas"
       ]
     },
     {
-      "title": "I Used My Local LLM to Build bid.aibucket.org Faster Than I Expected",
-      "url": "https://ai.plainenglish.io/i-used-my-local-llm-to-build-bid-aibucket-org-faster-than-i-expected-a8dd532afa33",
-      "by": "Shashwat",
-      "time": 1787331615000,
+      "title": "I wrote a test to reproduce the bug. It passed.",
+      "url": "https://medium.com/@vallabhsangale7/i-wrote-a-test-to-reproduce-the-bug-it-passed-c11e47f37eac",
+      "by": "Smart Tech Circuit",
+      "time": 1787367061000,
       "tags": [
-        "artificial-intelligence",
-        "programming",
-        "local-llm"
-      ]
-    },
-    {
-      "title": "Inheritance vs. Composition",
-      "url": "https://medium.com/@skyRocket_QingYun/inheritance-vs-composition-981dff68c599",
-      "by": "The Owl, the Chihuahua, and the…",
-      "time": 1787331591000,
-      "tags": [
-        "programming",
-        "object-oriented",
-        "composition"
-      ]
-    },
-    {
-      "title": "Best AI Document Processing Tools in 2026: Top 5 Compared for Developers and Engineering Teams",
-      "url": "https://yadavdivy296.medium.com/best-ai-document-processing-tools-in-2026-top-5-compared-for-developers-and-engineering-teams-4eab415a6b53",
-      "by": "Divy Yadav",
-      "time": 1787331439000,
-      "tags": [
-        "machine-learning",
-        "artificial-intelligence",
+        "testing",
+        "debugging",
         "software-engineering"
       ]
     },
     {
-      "title": "I Built a Twitter-Style Feed to Find Out What Fan-Out Actually Costs",
-      "url": "https://medium.com/@i-am-chitti/i-built-a-twitter-style-feed-to-find-out-what-fan-out-actually-costs-80f7af9e2ccd",
-      "by": "Deepak Kumar",
-      "time": 1787331400000,
+      "title": "Article 3 — Where Progress Is Visible, Completion Is Not",
+      "url": "https://medium.com/@gurvinder372/article-3-where-progress-is-visible-completion-is-not-6633ddd433cc",
+      "by": "Gurvinder Pal Singh",
+      "time": 1787366923000,
       "tags": [
-        "system-design-interview",
+        "short-story",
         "software-engineering",
-        "backend"
+        "software-development"
       ]
     },
     {
-      "title": "How Much Does It Cost to Build an AI Healthcare App in 2025?",
-      "url": "https://medium.com/@rudradcruze/how-much-does-it-cost-to-build-an-ai-healthcare-app-in-2025-9a088b5e3090",
-      "by": "Francis Rudra D Cruze",
-      "time": 1787331361000,
+      "title": "Linux Reps Through Burnout: Nginx, PHP-FPM, and Git Repository Tasks",
+      "url": "https://medium.com/@Kwindisch/linux-reps-through-burnout-nginx-php-fpm-and-git-repository-tasks-ad89796f1332",
+      "by": "Kevin Windisch",
+      "time": 1787366656000,
       "tags": [
-        "startup",
-        "healthcare",
-        "software-engineering"
+        "devops",
+        "php-fpm",
+        "nginx"
       ]
     },
     {
-      "title": "Why Vertical Slice Architecture Has an Ownership Problem",
-      "url": "https://rico-fritzsche.medium.com/why-vertical-slice-architecture-has-an-ownership-problem-7e1b4359f2fc",
-      "by": "Rico Fritzsche",
-      "time": 1787331209000,
+      "title": "Snapchat iOS Interview Experience",
+      "url": "https://medium.com/@ios-interview/snapchat-ios-interview-experience-750e5a6567af",
+      "by": "Tanishq Arora",
+      "time": 1787365861000,
       "tags": [
-        "domain-driven-design",
-        "coding",
-        "software-engineering"
+        "snapchat",
+        "ios-app-development",
+        "ios-development"
       ]
     },
     {
-      "title": "Bare-Metal AVR: Decoding the DHT11 Protocol From Scratch",
-      "url": "https://medium.com/@muazdawud307_31605/bare-metal-avr-decoding-the-dht11-protocol-from-scratch-e0fb4fa2d57c",
-      "by": "atomicMCU",
-      "time": 1787330976000,
+      "title": "7 Things Nobody Tells You Before Your First DevOps Job in India",
+      "url": "https://medium.com/@harshpardhi477/7-things-nobody-tells-you-before-your-first-devops-job-in-india-c325b0195581",
+      "by": "Harsh Pardhi",
+      "time": 1787365861000,
       "tags": [
-        "startup",
-        "software-development",
+        "india",
+        "jobs",
+        "career-advice"
+      ]
+    },
+    {
+      "title": "Agentic AI has always existed",
+      "url": "https://medium.com/@cuteheart/agentic-ai-has-always-existed-d15c483afd63",
+      "by": "cuteheart",
+      "time": 1787365853000,
+      "tags": [
+        "artificial-intelligence",
+        "programming",
+        "ai"
+      ]
+    },
+    {
+      "title": "Laravel Authentication in 2026: Breeze vs Jetstream vs Fortify vs Custom — The Decision You Can’t…",
+      "url": "https://sadiqueali.medium.com/laravel-authentication-in-2026-breeze-vs-jetstream-vs-fortify-vs-custom-the-decision-you-cant-130687df0762",
+      "by": "Sadique Ali",
+      "time": 1787365120000,
+      "tags": [
+        "php",
+        "laravel",
         "programming"
       ]
     },
     {
-      "title": "I Stopped Using Python Lists Everywhere",
-      "url": "https://python.plainenglish.io/i-stopped-using-python-lists-everywhere-eea57a90168e",
-      "by": "Er.Muruganantham",
-      "time": 1787330798000,
+      "title": "GPT-5, Llama And Qwen Agree: YAML Is Smaller Than JSON And Costs More Tokens",
+      "url": "https://pub.towardsai.net/gpt-5-llama-and-qwen-agree-yaml-is-smaller-than-json-and-costs-more-tokens-a9496ee62ff9",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1787365065000,
       "tags": [
-        "coding",
-        "programming",
-        "data-structures"
+        "large-language-models",
+        "artificial-intelligence",
+        "programming"
       ]
     },
     {
-      "title": "Go Channels Are Not Enough: Mastering Worker Pools for High-Performance Systems",
-      "url": "https://medium.com/@mahdigosyan/go-channels-are-not-enough-mastering-worker-pools-for-high-performance-systems-62c5757e928b",
-      "by": "Mahdi Gosyan",
-      "time": 1787330796000,
+      "title": "I Made One Claude Code Session the Developer and Another the QA",
+      "url": "https://21zerixpm.medium.com/i-made-one-claude-code-session-the-developer-and-another-the-qa-50f3ed5eacac",
+      "by": "Jerry PM",
+      "time": 1787364661000,
       "tags": [
-        "golang",
+        "programming",
         "software-engineering",
-        "backend"
+        "ios"
       ]
     }
   ]
