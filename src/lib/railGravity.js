@@ -81,6 +81,22 @@ const DOCK_RELEASE = 0.32  // and the point they come back — lower than
                            // the two states
 const DOCK_STAGGER = 70    // ms between each one setting off
 const DOCK_PULL = 9        // how hard it's drawn to its slot
+const DOCK_FOOT = 8        // breathing room left under the last one
+// Docked balls are parked, not on offer, so they're always drawn smaller
+// than they are in the field — at full size eleven of them are a 648px
+// wall down the right edge, which reads as the rail coming back rather
+// than getting out of the way.
+const DOCK_MAX_SCALE = 0.7
+// How small a docked ball may become. Below about half size the marks
+// inside stop being readable and it's just a coloured dot, so the
+// spacing gives way instead.
+const DOCK_MIN_SCALE = 0.5
+// Wrap into another column rather than shrink past this. Set below the
+// worst single-column case on a normal short laptop, so only genuinely
+// cramped screens — landscape phones — ever wrap.
+const DOCK_WRAP_AT = 0.55
+const DOCK_MAX_COLS = 2
+const SCALE_PULL = 11      // how quickly it grows and shrinks
 const SIDECAR_TOP = 80     // the handle is top-20, and 48px tall
 const SIDECAR_SIZE = 48
 
@@ -116,7 +132,9 @@ export function createRailField(selector = '.rail-btn') {
       r: r.width / 2,
       vx: 0, vy: 0,
       rot: 0, vrot: 0,
-      scale: 1,
+      scale: 1,        // what's actually drawn: base * hover
+      baseScale: 1,    // 1 when free, shrunk when docked
+      hov: 1,          // the hover bump, kept separate so it composes
       held: false,
       released: false,
       asleep: false,
@@ -146,10 +164,19 @@ export function createRailField(selector = '.rail-btn') {
   // Where each ball sits when docked: a column under the Sidecar handle,
   // using the same gap the CSS rail uses so it lines up with the handle
   // rather than merely near it.
+  //
+  // Returns a scale as well as a position. Eleven balls at full size are
+  // taller than a landscape phone, and the old fix — compressing the
+  // spacing alone — bought the fit by overlapping them: measured at
+  // 844x390, ten pairs touching at -3px, the column reading as one
+  // smeared stripe. Shrinking them instead keeps real gaps between the
+  // balls, and small is the right answer for something deliberately
+  // parked out of the way.
   function dockSlot(i) {
     const cs = getComputedStyle(document.documentElement)
     const gap = parseFloat(cs.getPropertyValue('--rail-gap')) || 12
     const r = bodies[0].r
+    const n = bodies.length
 
     // Line the column up with the handle by measuring it, rather than
     // recomputing top-20/right-6 here and having the two drift apart the
@@ -161,17 +188,51 @@ export function createRailField(selector = '.rail-btn') {
       const hb = handle.getBoundingClientRect()
       if (hb.width) { cx = hb.left + hb.width / 2; below = hb.bottom }
     }
-    // The column has to fit the window. Eight balls at their natural
-    // spacing is taller than a landscape phone, and without this the last
-    // of them sit below the fold — docked out of the way and also out of
-    // sight, which is worse than not docking at all.
-    const top = below + gap + r
-    const room = H - top - r - 8
+
+    // Height the column would take at full size, and the height it has.
+    // The chat button sits in the bottom-right corner, in this very
+    // column, so the stack has to stop above it — measured rather than
+    // recomputed from bottom-6/right-6, for the same reason as the
+    // handle. Without this the last two balls park underneath it.
+    let bottomLimit = H - DOCK_FOOT
+    const chat = document.querySelector('[data-chatbot-btn]')
+    if (chat) {
+      const cb = chat.getBoundingClientRect()
+      if (cb.width && cb.right > cx - r && cb.left < cx + r) {
+        bottomLimit = Math.min(bottomLimit, cb.top - DOCK_FOOT)
+      }
+    }
+
     const natural = r * 2 + gap
-    const step = bodies.length > 1
-      ? Math.min(natural, room / (bodies.length - 1))
-      : natural
-    return { x: cx, y: top + i * step }
+    const avail = bottomLimit - below - gap
+
+    // How small a single column would have to go. Below this the marks
+    // inside stop being legible — a landscape phone was forcing 12px,
+    // which is a coloured dot, not a button — so the stack wraps into a
+    // second column instead and keeps the balls a usable size.
+    const fit = (perCol) => {
+      const need = (perCol - 1) * natural + r * 2
+      return Math.min(DOCK_MAX_SCALE, avail / Math.max(1, need))
+    }
+    let cols = 1
+    while (cols < DOCK_MAX_COLS && fit(Math.ceil(n / cols)) < DOCK_WRAP_AT) cols++
+    const perCol = Math.ceil(n / cols)
+    const s = Math.max(DOCK_MIN_SCALE, fit(perCol))
+
+    // Everything below scales with the balls, so the gaps stay in
+    // proportion rather than becoming hairlines around shrunken discs.
+    let step = natural * s
+    const top = below + gap + r * s
+
+    // Only if shrinking to the floor still isn't enough does the spacing
+    // give — a slight overlap is worth less than a ball below the fold.
+    const last = top + (perCol - 1) * step + r * s
+    if (perCol > 1 && last > bottomLimit) step = Math.max(0, (bottomLimit - r * s - top) / (perCol - 1))
+
+    // Extra columns stack inward, away from the edge they're pinned to.
+    const col = Math.floor(i / perCol)
+    const row = i % perCol
+    return { x: cx - col * natural * s, y: top + row * step, s }
   }
 
   // ---- impact rings ------------------------------------------------
@@ -331,8 +392,30 @@ export function createRailField(selector = '.rail-btn') {
     let moving = false
     const fy = floorY()
 
+    // dockSlot reads the DOM, so the scale — which is the same for every
+    // ball — is worked out once a frame rather than once a ball.
+    let dockScale = 1
+    for (const b of bodies) { if (b.dock) { dockScale = dockSlot(0).s; break } }
+
     for (const b of bodies) {
       if (!b.released || b.held) continue
+
+      // Size follows state: shrunk while docked, full size once free.
+      // Eased rather than switched, so a ball grows on the way down and
+      // shrinks on the way up instead of popping at either end.
+      const wantScale = b.dock ? dockScale : 1
+      if (Math.abs(b.baseScale - wantScale) > 0.002) {
+        b.baseScale += (wantScale - b.baseScale) * (1 - Math.exp(-SCALE_PULL * dt))
+        b.scale = b.baseScale * b.hov
+        moving = true
+        // A sleeping ball on its way back to full size never reaches the
+        // branches below that paint, so it has to be written here.
+        if (!b.dock) write(b)
+      } else if (b.baseScale !== wantScale) {
+        b.baseScale = wantScale
+        b.scale = b.baseScale * b.hov
+        if (!b.dock) write(b)
+      }
 
       // Climbing to, or sitting in, its slot. Gravity is off for the
       // whole of this: a ball being drawn upward and pulled down at the
@@ -571,8 +654,11 @@ export function createRailField(selector = '.rail-btn') {
       wake()
     }
 
-    const enter = () => { b.scale = 1.08; write(b); wake() }
-    const leave = () => { b.scale = 1; write(b); wake() }
+    // The hover bump is held apart from the docking shrink so the two
+    // compose instead of overwriting each other — hovering a docked ball
+    // used to snap it back to full size.
+    const enter = () => { b.hov = 1.08; b.scale = b.baseScale * b.hov; write(b); wake() }
+    const leave = () => { b.hov = 1; b.scale = b.baseScale * b.hov; write(b); wake() }
 
     b.el.addEventListener('pointerdown', down)
     b.el.addEventListener('pointermove', move)
