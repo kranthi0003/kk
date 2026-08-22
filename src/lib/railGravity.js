@@ -64,6 +64,26 @@ const ZIP_AT = 2300        // px/s that earns a full tank
 const ZIP_DECAY = 0.44     // per second
 const ZIP_PASS = 0.55      // how much of it is handed on in a collision
 
+// Docking.
+//
+// Balls resting along the bottom of the window are fine while you're
+// reading the hero, and in the way of everything below it. So once the
+// page is scrolled past the first screen they climb into a column under
+// the Sidecar handle — which is where the rail was before any of this —
+// and drop back out when you return to the top.
+//
+// They leave one at a time rather than together: nine things moving at
+// once reads as a glitch, one after another reads as deliberate.
+const DOCK_AT = 0.55       // fraction of a screen scrolled before they leave
+const DOCK_RELEASE = 0.32  // and the point they come back — lower than
+                           // DOCK_AT on purpose, so a scroll position that
+                           // sits exactly on the line can't flap between
+                           // the two states
+const DOCK_STAGGER = 70    // ms between each one setting off
+const DOCK_PULL = 9        // how hard it's drawn to its slot
+const SIDECAR_TOP = 80     // the handle is top-20, and 48px tall
+const SIDECAR_SIZE = 48
+
 const rand = (a, b) => a + Math.random() * (b - a)
 
 // Belt and braces alongside draggable=false: some browsers will still
@@ -122,6 +142,37 @@ export function createRailField(selector = '.rail-btn') {
     b.el.draggable = false
     b.el.addEventListener('dragstart', preventNativeDrag)
   })
+
+  // Where each ball sits when docked: a column under the Sidecar handle,
+  // using the same gap the CSS rail uses so it lines up with the handle
+  // rather than merely near it.
+  function dockSlot(i) {
+    const cs = getComputedStyle(document.documentElement)
+    const gap = parseFloat(cs.getPropertyValue('--rail-gap')) || 12
+    const r = bodies[0].r
+
+    // Line the column up with the handle by measuring it, rather than
+    // recomputing top-20/right-6 here and having the two drift apart the
+    // next time the handle moves.
+    const handle = document.querySelector('button[aria-label="Open the Sidecar"]')
+    let cx = W - 48
+    let below = SIDECAR_TOP + SIDECAR_SIZE
+    if (handle) {
+      const hb = handle.getBoundingClientRect()
+      if (hb.width) { cx = hb.left + hb.width / 2; below = hb.bottom }
+    }
+    // The column has to fit the window. Eight balls at their natural
+    // spacing is taller than a landscape phone, and without this the last
+    // of them sit below the fold — docked out of the way and also out of
+    // sight, which is worse than not docking at all.
+    const top = below + gap + r
+    const room = H - top - r - 8
+    const natural = r * 2 + gap
+    const step = bodies.length > 1
+      ? Math.min(natural, room / (bodies.length - 1))
+      : natural
+    return { x: cx, y: top + i * step }
+  }
 
   // ---- impact rings ------------------------------------------------
   // A ring drawn where two things met, scaled by how hard they met, gone
@@ -282,6 +333,27 @@ export function createRailField(selector = '.rail-btn') {
 
     for (const b of bodies) {
       if (!b.released || b.held) continue
+
+      // Climbing to, or sitting in, its slot. Gravity is off for the
+      // whole of this: a ball being drawn upward and pulled down at the
+      // same time sags on the way and never quite arrives.
+      if (b.dock) {
+        const t = dockSlot(b.dockIndex)
+        // Exponential ease rather than a fixed step, so it's frame-rate
+        // independent — the same journey on a 60Hz and a 120Hz screen.
+        const k = 1 - Math.exp(-DOCK_PULL * dt)
+        b.x += (t.x - b.x) * k
+        b.y += (t.y - b.y) * k
+        b.vx = 0; b.vy = 0; b.zip = 0
+        const target = Math.round(b.rot / 360) * 360
+        b.rot += (target - b.rot) * k
+        const arrived = Math.hypot(t.x - b.x, t.y - b.y) < 0.4
+        if (arrived) { b.x = t.x; b.y = t.y; b.rot = target }
+        else moving = true
+        write(b)
+        continue
+      }
+
       if (b.asleep) {
         // Still ease rotation upright even once it's stopped moving.
         if (Math.abs(b.rot % 360) > 0.1) {
@@ -349,10 +421,10 @@ export function createRailField(selector = '.rail-btn') {
     // meant nothing ever knocked anything. The knocking is the point.
     for (let i = 0; i < bodies.length; i++) {
       const a = bodies[i]
-      if (!a.released) continue
+      if (!a.released || a.dock) continue
       for (let j = i + 1; j < bodies.length; j++) {
         const c = bodies[j]
-        if (!c.released) continue
+        if (!c.released || c.dock) continue
         let dx = c.x - a.x
         let dy = c.y - a.y
         let d = Math.hypot(dx, dy)
@@ -411,7 +483,7 @@ export function createRailField(selector = '.rail-btn') {
 
 
     for (const b of bodies) {
-      if (!b.released) continue
+      if (!b.released || b.dock) continue
       if (!b.held && !b.asleep) {
         const slow = Math.abs(b.vx) < SLEEP_SPEED && Math.abs(b.vy) < SLEEP_SPEED && !(b.zip > 0.02)
         const grounded = b.y + b.r >= fy - 0.6
@@ -459,6 +531,7 @@ export function createRailField(selector = '.rail-btn') {
       b.held = true
       b.released = true
       b.asleep = false
+      b.dock = false   // picking one out of the column frees it
       moved = 0
       grabX = e.clientX - b.x
       grabY = e.clientY - b.y
@@ -517,6 +590,70 @@ export function createRailField(selector = '.rail-btn') {
     })
   })
 
+  // ---- leaving and coming back --------------------------------------
+  let docked = false
+  const dockTimers = []
+
+  const clearDockTimers = () => { dockTimers.forEach(clearTimeout); dockTimers.length = 0 }
+
+  const setDocked = (want) => {
+    if (want === docked) return
+    docked = want
+    clearDockTimers()
+
+    if (want) {
+      // Fill the column in the order they're already lying in, nearest
+      // the handle first. Using DOM order instead would send them across
+      // each other on the way up, which looks like a shuffle rather than
+      // a queue.
+      const order = [...bodies].sort((a, c) => (c.x - a.x) || (a.y - c.y))
+      order.forEach((b, slot) => { b.dockIndex = slot })
+    }
+
+    const queue = want
+      ? [...bodies].sort((a, c) => a.dockIndex - c.dockIndex)
+      : [...bodies].sort((a, c) => c.dockIndex - a.dockIndex) // last in, first out
+
+    queue.forEach((b, i) => {
+      dockTimers.push(setTimeout(() => {
+        if (want) {
+          b.dock = true
+          b.asleep = false
+          b.still = 0
+        } else {
+          b.dock = false
+          b.asleep = false
+          b.still = 0
+          // Dropped straight down they'd land in a heap against the right
+          // wall — they all leave from the same column, so nothing
+          // separates them. A sideways shove alone isn't enough either:
+          // rolling friction is deliberately savage, and eats the whole
+          // of it inside a second.
+          //
+          // So they're given some zip as well, which is the same thing a
+          // throw uses to stay alive. The lower a ball sat in the column
+          // the less air time it has, so it gets more of both.
+          const f = b.dockIndex / Math.max(1, bodies.length - 1)
+          b.vx = -(220 + f * 620) * rand(0.85, 1.15)
+          b.zip = 0.3 + f * 0.55
+          b.vy = 0
+          b.vrot = rand(-160, 160)
+        }
+        wake()
+      }, i * DOCK_STAGGER))
+    })
+  }
+
+  const onScroll = () => {
+    const y = window.scrollY || window.pageYOffset || 0
+    const h = window.innerHeight || 1
+    // Two thresholds, not one: a single line would flap between docked
+    // and dropped for anyone parked exactly on it.
+    if (!docked && y > h * DOCK_AT) setDocked(true)
+    else if (docked && y < h * DOCK_RELEASE) setDocked(false)
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+
   const onResize = () => {
     W = window.innerWidth
     H = window.innerHeight
@@ -540,6 +677,8 @@ export function createRailField(selector = '.rail-btn') {
       cancelAnimationFrame(raf)
       running = false
       window.removeEventListener('resize', onResize)
+      window.removeEventListener('scroll', onScroll)
+      clearDockTimers()
       document.removeEventListener('visibilitychange', onVis)
       cleanups.forEach((fn) => fn())
       try { layer && layer.remove() } catch {}
