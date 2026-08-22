@@ -1,33 +1,33 @@
 {
-  "generated": "2026-08-22T07:59:15.596Z",
+  "generated": "2026-08-22T08:24:50.319Z",
   "reddit": [
     {
-      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
-      "by": "Josh_Difratech",
-      "time": 1787345490000,
-      "sub": "r/kubernetes"
+      "title": "How do real companies securely give developers access to the development database?",
+      "url": "https://www.reddit.com/r/devops/comments/1vv3h37/how_do_real_companies_securely_give_developers/",
+      "by": "Successful-Ship580",
+      "time": 1787376099000,
+      "sub": "r/devops"
     },
     {
-      "title": "Linux and storage | toward Rook|Ceph",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
-      "by": "faulty-segment",
-      "time": 1787344211000,
-      "sub": "r/kubernetes"
+      "title": "Want to switch my career towards SRE/DevOps",
+      "url": "https://www.reddit.com/r/devops/comments/1vuv3wj/want_to_switch_my_career_towards_sredevops/",
+      "by": "rizqrollno748",
+      "time": 1787352282000,
+      "sub": "r/devops"
     },
     {
-      "title": "Struggling mightily with NFS and respecting POSIX permissions in a multi-tenant environment",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vurn1o/struggling_mightily_with_nfs_and_respecting_posix/",
-      "by": "cowmu",
-      "time": 1787343972000,
-      "sub": "r/kubernetes"
+      "title": "Best way to integrate OpenProject + GitLab + Mattermost?",
+      "url": "https://www.reddit.com/r/devops/comments/1vuuzui/best_way_to_integrate_openproject_gitlab/",
+      "by": "ExtraLife6520",
+      "time": 1787352008000,
+      "sub": "r/devops"
     },
     {
-      "title": "Congratulations, you learned Kubernetes 💀",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vulnqe/congratulations_you_learned_kubernetes/",
-      "by": "suman087",
-      "time": 1787330796000,
-      "sub": "r/kubernetes"
+      "title": "Is anyone here securing their agents? Who in your org owns it?",
+      "url": "https://www.reddit.com/r/devops/comments/1vuu5z3/is_anyone_here_securing_their_agents_who_in_your/",
+      "by": "Thorne-ZytkowObject",
+      "time": 1787349960000,
+      "sub": "r/devops"
     },
     {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
@@ -51,136 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Machine First (4): When Computers Became Friendly",
-      "url": "https://medium.com/@cloudpankaj/machine-first-4-when-computers-became-friendly-0381711a60a4",
-      "by": "Pankaj Kumar",
-      "time": 1787384852000,
+      "title": "Pgpool-II Dynamic Process Management: How We Cut Idle Memory by ~75% — and the Trade-Off the…",
+      "url": "https://medium.com/@verma.naveen2395/pgpool-ii-dynamic-process-management-how-we-cut-idle-memory-by-75-and-the-trade-off-the-045efa2daa01",
+      "by": "Verma Naveen",
+      "time": 1787386825000,
       "tags": [
-        "design",
+        "devops",
+        "memory-management",
+        "pgpool"
+      ]
+    },
+    {
+      "title": "Akhuwat Foundation head office helpline 2026 03453223408",
+      "url": "https://medium.com/@gb242950/akhuwat-foundation-head-office-helpline-2026-03453223408-209f272785e7",
+      "by": "Babar G",
+      "time": 1787386578000,
+      "tags": [
+        "parenting",
+        "kubernetes",
+        "docker"
+      ]
+    },
+    {
+      "title": "Every App You’ve Ever Used Is Built on Just Three Relationships",
+      "url": "https://medium.com/@bvsarathc06/every-app-youve-ever-used-is-built-on-just-three-relationships-856e21c9fc43",
+      "by": "B V Sarath Chandra",
+      "time": 1787386246000,
+      "tags": [
+        "data-science",
+        "technology",
+        "programming"
+      ]
+    },
+    {
+      "title": "Data from 14,750 Websites: Why Companies Disappear from ChatGPT Recommendations and How AEO…",
+      "url": "https://medium.com/@pixeloffice/data-from-14-750-websites-why-companies-disappear-from-chatgpt-recommendations-and-how-aeo-675e276de464",
+      "by": "Pixel Office",
+      "time": 1787386057000,
+      "tags": [
+        "startup",
         "technology",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Docker Networking Fundamentals: From Container eth0 to docker0, veth Pairs, Bridges and NAT",
-      "url": "https://blog.devops.dev/docker-networking-fundamentals-from-container-eth0-to-docker0-veth-pairs-bridges-and-nat-1c42f6502d8e",
-      "by": "Sai Charan",
-      "time": 1787384817000,
+      "title": "Engineering a Strategic Heavy Airlifter — The Fictional C-141 Starlifter Inspired Concept",
+      "url": "https://medium.com/@back.sem5.prauas.2021/engineering-a-strategic-heavy-airlifter-the-fictional-c-141-starlifter-inspired-concept-28840cfeb040",
+      "by": "SkyServant_PengabdiLangit",
+      "time": 1787385662000,
       "tags": [
-        "cloud-computing",
-        "kubernetes",
-        "learning"
-      ]
-    },
-    {
-      "title": "14 seconds to redact nothing: the email regex that froze the tab",
-      "url": "https://medium.com/@yijunkim/14-seconds-to-redact-nothing-the-email-regex-that-froze-the-tab-6d079f6ebe8d",
-      "by": "Yijun Kim",
-      "time": 1787384767000,
-      "tags": [
-        "security",
-        "javascript",
-        "programming"
-      ]
-    },
-    {
-      "title": "Mini Project: Build a Responsive Landing Page (Putting the Whole Series to Work)",
-      "url": "https://medium.com/@ishwaryagopinathan/mini-project-build-a-responsive-landing-page-putting-the-whole-series-to-work-fa696820f8fb",
-      "by": "Ishwarya Gopinathan",
-      "time": 1787384637000,
-      "tags": [
-        "programming",
-        "web-development",
-        "css"
-      ]
-    },
-    {
-      "title": "Automating Code Modernization with OpenRewrite",
-      "url": "https://medium.com/@stefano.dallapalma0/automating-code-modernization-with-openrewrite-9f4ed625bb1b",
-      "by": "Stefano Dalla Palma",
-      "time": 1787384621000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "developer-experience"
-      ]
-    },
-    {
-      "title": "Salesforce AI DevOps Course | Salesforce AI Training",
-      "url": "https://medium.com/@vamsivisualpath408/salesforce-ai-devops-course-salesforce-ai-training-1a980d6cf245",
-      "by": "vamsi visualpath",
-      "time": 1787384324000,
-      "tags": [
-        "education",
-        "salesforce",
-        "salesforce-devops"
-      ]
-    },
-    {
-      "title": "AI Engineering: Building the Future with AIIQLABS",
-      "url": "https://medium.com/@outreach_6128/ai-engineering-building-the-future-with-aiiqlabs-77c1ca2b197a",
-      "by": "Outreach",
-      "time": 1787384253000,
-      "tags": [
-        "generative-ai-course",
-        "ai",
+        "3d-modeling",
+        "aviation",
         "software-engineering"
       ]
     },
     {
-      "title": "15 Python Editors and IDEs, Really Broken Down: The Real Question Isn’t “Which Is Best” — It’s…",
-      "url": "https://medium.com/jin-system-architect/15-python-editors-and-ides-really-broken-down-the-real-question-isnt-which-is-best-it-s-d9b6b2a1d29b",
-      "by": "Edward Low",
-      "time": 1787384212000,
+      "title": "The Next AI Bottleneck Isn’t Intelligence. It’s Infrastructure.",
+      "url": "https://medium.com/@ronomahedi/the-next-ai-bottleneck-isnt-intelligence-it-s-infrastructure-125167dce310",
+      "by": "Abul Kalam Azad",
+      "time": 1787385567000,
       "tags": [
-        "editor",
-        "coding",
-        "software-development"
-      ]
-    },
-    {
-      "title": "IAM and Infrastructure as Code: Building Secure and Repeatable AI Infrastructure",
-      "url": "https://medium.com/@prateektopal04/iam-and-infrastructure-as-code-building-secure-and-repeatable-ai-infrastructure-e69412473de3",
-      "by": "Prateektopal",
-      "time": 1787384196000,
-      "tags": [
-        "machine-learning",
         "artificial-intelligence",
+        "design-systems",
+        "ai-infrastructure-market"
+      ]
+    },
+    {
+      "title": "The $1 Million Prize That Started All of This",
+      "url": "https://medium.com/@rajdeepsinghrajput/the-1-million-prize-that-started-all-of-this-18eb7ad54583",
+      "by": "Rajdeep Singh",
+      "time": 1787385555000,
+      "tags": [
+        "system-design-interview",
+        "recommendation-system",
+        "ai"
+      ]
+    },
+    {
+      "title": "Xiniengine and Xinigo",
+      "url": "https://drhaina.medium.com/xiniengine-and-xinigo-ec741f6420e0",
+      "by": "Dr. Haina Fatima",
+      "time": 1787385296000,
+      "tags": [
+        "technology",
+        "business",
+        "agentic-ai"
+      ]
+    },
+    {
+      "title": "Before the Trillion-Parameter Model, There Were Two Towers",
+      "url": "https://medium.com/@rajdeepsinghrajput/before-the-trillion-parameter-model-there-were-two-towers-05b4cf1aa0bc",
+      "by": "Rajdeep Singh",
+      "time": 1787385124000,
+      "tags": [
+        "ai",
+        "system-design-interview",
         "software-engineering"
       ]
     },
     {
-      "title": "10 Minutes to a Production DDD Skeleton — Spring Boot 4.1, JDK 25, Two Databases",
-      "url": "https://medium.com/@coolercoder/10-minutes-to-a-production-ddd-skeleton-spring-boot-4-1-jdk-25-two-databases-ea53f391ffc9",
-      "by": "Ray Hu",
-      "time": 1787384118000,
+      "title": "5 AI System Failure Modes That Separate Senior Engineers From Everyone Else in Interviews",
+      "url": "https://iffywhy.medium.com/5-ai-system-failure-modes-that-separate-senior-engineers-from-everyone-else-in-interviews-35a8822db417",
+      "by": "Sakshi",
+      "time": 1787385069000,
       "tags": [
-        "software-engineering",
-        "programming",
-        "software-development"
+        "careers",
+        "machine-learning",
+        "software-engineering"
       ]
     }
   ]
