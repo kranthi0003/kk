@@ -5,8 +5,9 @@
 // feature it powers so an incident reads like a real status page.
 //
 // Each check returns { ok, slow, ms, detail }. Groups roll up to a
-// status with primary/fallback awareness (e.g. Weather is only "down"
-// when BOTH its sources fail; "degraded" when just the primary is out).
+// status with primary/fallback awareness (e.g. the Bitcoin ticker is only
+// "down" when BOTH its sources fail; "degraded" when just the primary is
+// out).
 // ============================================================
 
 const SLOW_MS = 2500 // over this = 🟡 slow (reachable but sluggish)
@@ -48,23 +49,52 @@ function imgProbe(url) {
   })
 }
 
+// Imported rather than repeated: a probe testing a different model from
+// the one the site actually uses is worse than no probe at all.
+import { PRIMARY as GROQ_MODEL } from './groq'
+
 const SB = 'https://urfmdrhuagbgvghjolvf.supabase.co'
 const SB_KEY = 'sb_publishable_GB-5ytPAF6UkOuLpOaCHPw_6p3GrwSz'
 const GH_USER = 'kranthi0003'
 
-// The chatbot backend: an empty-messages POST is rejected by Groq with a
-// validation error — which proves the whole proxy→Groq path is live
-// without spending a single token. Any HTTP response = up.
+// The chatbot backend.
+//
+// This used to send an empty-messages POST: Groq rejects it with a
+// validation error, which proved the proxy→Groq path was live without
+// spending a token. Cheap, and wrong — Groq validates `messages` before
+// `model`, so the probe returned the same error whether the model existed
+// or not. When Groq decommissioned llama-3.1-8b-instant, six features
+// stopped working and this check went on reporting "up" the whole time.
+//
+// So it asks for one real token now, which is the only thing that
+// actually exercises the model. That costs something, so the result is
+// held for the session rather than re-run on every page load.
 async function groqProbe() {
+  const CACHE = 'health_groq'
+  try {
+    const c = JSON.parse(sessionStorage.getItem(CACHE) || 'null')
+    if (c) return c
+  } catch {}
+
   const t = performance.now()
   const res = await withTimeout(fetch(`${SB}/functions/v1/groq-proxy`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${SB_KEY}` },
-    body: JSON.stringify({ messages: [], max_tokens: 1 }),
+    body: JSON.stringify({ model: GROQ_MODEL, messages: [{ role: 'user', content: 'ping' }], max_tokens: 1 }),
   }))
   const ms = Math.round(performance.now() - t)
-  // Reachable is what matters here (400/422 = up and validating input).
-  return { ok: res.status > 0, ms, slow: ms > SLOW_MS, detail: `reached · ${ms}ms` }
+
+  // The proxy answers 200 even when Groq refuses, so the body is the only
+  // place the truth is written down.
+  let err = null
+  try { err = (await res.clone().json())?.error || null } catch {}
+
+  const out = err
+    ? { ok: false, ms, slow: false, detail: /model/i.test(err.code || err.message || '') ? 'model unavailable' : 'error' }
+    : { ok: res.status > 0, ms, slow: ms > SLOW_MS, detail: `reached · ${ms}ms` }
+
+  try { sessionStorage.setItem(CACHE, JSON.stringify(out)) } catch {}
+  return out
 }
 
 // The resume is a hashed Vite asset; import it so we probe the real URL.
@@ -77,14 +107,6 @@ export const GROUPS = [
     checks: [
       { id: 'home', label: 'Homepage', run: () => httpProbe('/', { method: 'HEAD' }) },
       { id: 'resume', label: 'Résumé PDF', run: () => httpProbe(resumeUrl, { method: 'HEAD' }) },
-    ],
-  },
-  {
-    id: 'weather', label: 'Weather widget', critical: true,
-    blurb: 'Hyperlocal weather with a global fallback',
-    checks: [
-      { id: 'wu', label: 'Weather Union', primary: true, run: () => httpProbe('https://www.weatherunion.com/gw/weather/external/v0/get_weather_data?latitude=17.385&longitude=78.4867', { headers: { 'x-zomato-api-key': 'f2351e34deca7c8c7260e77793c3517a' } }) },
-      { id: 'openmeteo', label: 'Open-Meteo (fallback)', fallback: true, run: () => httpProbe('https://api.open-meteo.com/v1/forecast?latitude=17.38&longitude=78.48&current=temperature_2m') },
     ],
   },
   {
