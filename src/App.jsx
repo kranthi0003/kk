@@ -37,7 +37,6 @@ import DevNet from './components/DevNet'
 import ServiceStatus from './components/ServiceStatus'
 import SystemStatus from './components/SystemStatus'
 import CronSchedule from './components/ActionsTools'
-import WeatherWidget from './components/WeatherWidget'
 import QuoteFlip from './components/QuoteFlip'
 import MathBackdrop from './components/MathBackdrop'
 import DopamineTeaser from './components/DopamineTeaser'
@@ -529,7 +528,6 @@ export default function App() {
       <ServiceStatus />
       <SystemStatus />
       <CronSchedule />
-      <WeatherWidget />
     </div>
     </>
   )
