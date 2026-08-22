@@ -55,7 +55,7 @@ export default function MusicButton() {
       aria-label={title}
       title={title}
       className={'group msbtn rail-btn rail-tint' + (playing ? ' is-playing' : '')}
-      style={{ '--rail-i': 3, '--tint': '#B79BEE' }}
+      style={{ '--rail-i': 2, '--tint': '#B79BEE' }}
     >
       {playing && (
         <span

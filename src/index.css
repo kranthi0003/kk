@@ -225,10 +225,12 @@ h4, h5, h6 {
    its position in the stack via --rail-i, and the maths does the rest,
    so the gaps can never drift apart again. */
 :root {
-  /* How many buttons are in the rail. The sizing below divides the
-     available height by this, so adding a button can never push the stack
-     off the bottom of a short screen — it just tightens the rail. */
-  --rail-count: 9;
+  /* How many balls there are. The sizing below divides the available
+     height by this, so adding one can never push the stack off the bottom
+     of a short screen — it just tightens things. Eight, not nine: the
+     Sidecar handle stays pinned at the top right and is not part of the
+     field. */
+  --rail-count: 8;
   --rail-top: clamp(3.25rem, 8.5vh, 5rem);
   --rail-right: clamp(0.7rem, 3vw, 1.5rem);
 

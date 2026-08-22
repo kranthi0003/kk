@@ -110,7 +110,7 @@ export default function CricketButton() {
       aria-label={title}
       title={title}
       className="group ckbtn rail-btn rail-tint"
-      style={{ '--rail-i': 2, '--tint': '#E4737C' }}
+      style={{ '--rail-i': 1, '--tint': '#E4737C' }}
     >
       {playing && (
         <span
