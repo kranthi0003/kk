@@ -1,6 +1,34 @@
 {
-  "generated": "2026-08-22T04:45:11.467Z",
+  "generated": "2026-08-22T05:02:16.509Z",
   "reddit": [
+    {
+      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
+      "by": "Josh_Difratech",
+      "time": 1787345490000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Linux and storage | toward Rook|Ceph",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
+      "by": "faulty-segment",
+      "time": 1787344211000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Struggling mightily with NFS and respecting POSIX permissions in a multi-tenant environment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurn1o/struggling_mightily_with_nfs_and_respecting_posix/",
+      "by": "cowmu",
+      "time": 1787343972000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Congratulations, you learned Kubernetes 💀",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vulnqe/congratulations_you_learned_kubernetes/",
+      "by": "suman087",
+      "time": 1787330796000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
       "url": "https://www.reddit.com/r/programming/comments/1vuk4b5/finding_a_hidden_mersenne_twister_implementation/",
@@ -23,13 +51,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Pitfalls of Benchmarking on Modern Systems",
-      "url": "https://www.reddit.com/r/programming/comments/1vu7o3x/pitfalls_of_benchmarking_on_modern_systems/",
-      "by": "mttd",
-      "time": 1787291437000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
       "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
       "by": "adonis4000",
@@ -49,30 +70,64 @@
       "by": "jagdip",
       "time": 1786100332000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
+    {
+      "title": "I Wish I Knew These 8 Spring Boot Concepts Earlier",
+      "url": "https://gainjavaknowledge.medium.com/i-wish-i-knew-these-8-spring-boot-concepts-earlier-5db22ef39156",
+      "by": "Real World Java",
+      "time": 1787374030000,
+      "tags": [
+        "spring-boot",
+        "artificial-intelligence",
+        "software-development"
+      ]
+    },
+    {
+      "title": "How WhatsApp’s Blue Ticks Actually Work — and Why “Read” Doesn’t Mean What You Think",
+      "url": "https://medium.com/@the_atomic_architect/how-whatsapp-blue-ticks-really-work-read-receipts-explained-60fd9b023344",
+      "by": "The Atomic Architect",
+      "time": 1787373930000,
+      "tags": [
+        "software-development",
+        "technology",
+        "coding"
+      ]
+    },
+    {
+      "title": "When Should a Founder Get an Independent Review of a Software Development Plan?",
+      "url": "https://medium.com/codetodeploy/when-should-a-founder-get-an-independent-review-of-a-software-development-plan-2aa3a83cb855",
+      "by": "Auro Rekha",
+      "time": 1787373862000,
+      "tags": [
+        "ai",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "Why our liveness probe timed out even though /healthCheck never touched Redis",
+      "url": "https://medium.com/@mridultiwari2002/why-our-liveness-probe-timed-out-even-though-healthcheck-never-touched-redis-78cd2e58cbd7",
+      "by": "Mridultiwari",
+      "time": 1787373509000,
+      "tags": [
+        "devops",
+        "kubernetes",
+        "java"
+      ]
+    },
+    {
+      "title": "Beyond Arrays: A Practical Journey Through NumPy",
+      "url": "https://medium.com/@sadhanabommi729/beyond-arrays-a-practical-journey-through-numpy-30913091d576",
+      "by": "Sadhanabommi",
+      "time": 1787373209000,
+      "tags": [
+        "data-analysis",
+        "python",
+        "data-science"
+      ]
+    },
     {
       "title": "Linear Data Structures and Algorithms in Java: The Complete Deep Dive Guide",
       "url": "https://deepawasthi.medium.com/data-structures-and-algorithms-part-1-d458fb844275",
@@ -126,61 +181,6 @@
         "technology",
         "programming",
         "money"
-      ]
-    },
-    {
-      "title": "Deloitte Data Engineer Interview Experience (27 LPA Offer): Real Technical Questions & Detailed…",
-      "url": "https://medium.com/@preetjit82/deloitte-data-engineer-interview-experience-27-lpa-offer-real-technical-questions-detailed-77129f101783",
-      "by": "Interview Simplified",
-      "time": 1787372735000,
-      "tags": [
-        "programming",
-        "interview",
-        "data-engineer"
-      ]
-    },
-    {
-      "title": "I Gave My Spring Boot API 10,000 Requests. Here’s What Broke First.",
-      "url": "https://medium.com/@ersumit077/i-gave-my-spring-boot-api-10-000-requests-heres-what-broke-first-862ba3c32129",
-      "by": "Java & AI Engineering",
-      "time": 1787372310000,
-      "tags": [
-        "software-development",
-        "java",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Do You Really Need a Vector Database? PostgreSQL + pgvector in Production",
-      "url": "https://medium.com/@rkdixit3/do-you-really-need-a-vector-database-postgresql-pgvector-in-production-b75b7db28379",
-      "by": "Rajesh Kumar",
-      "time": 1787372145000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "vector-database"
-      ]
-    },
-    {
-      "title": "IDOR: The Beginner-Friendly Bug That Could Break a Mobile Money App",
-      "url": "https://medium.com/@kafeeromirembemercy/idor-the-beginner-friendly-bug-that-could-break-a-mobile-money-app-4327a11b1a2a",
-      "by": "Kafeero Mirembe Mercy",
-      "time": 1787372002000,
-      "tags": [
-        "hacking",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Common CSS Mistakes Beginners Make (and How to Actually Fix Them)",
-      "url": "https://medium.com/@ishwaryagopinathan/common-css-mistakes-beginners-make-and-how-to-actually-fix-them-f688f034babe",
-      "by": "Ishwarya Gopinathan",
-      "time": 1787371743000,
-      "tags": [
-        "coding",
-        "css",
-        "best-practices"
       ]
     }
   ]
