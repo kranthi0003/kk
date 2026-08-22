@@ -277,6 +277,21 @@ h4, h5, h6 {
 }
 .rail-btn.rail-loose:active { cursor: grabbing; }
 
+/* The ring left where a ball hit something. Drawn in the accent so it
+   belongs to the site rather than looking like a generic game effect,
+   and scaled by the force of the impact by the script. */
+.rail-spark {
+  position: absolute;
+  border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--color-accent) 70%, transparent);
+  animation: railSpark 0.52s cubic-bezier(0.16, 0.9, 0.3, 1) forwards;
+}
+@keyframes railSpark {
+  from { transform: scale(0.25); opacity: 0.9; }
+  to   { transform: scale(1.35); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .rail-spark { display: none; } }
+
 /* Between the buttons being laid out by CSS and gravity taking them over
    there are a couple of frames where they sit in the rail. That's long
    enough to see a column on the right that then empties itself, so hide
