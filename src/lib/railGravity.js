@@ -46,6 +46,24 @@ const STAGGER = 165      // ms between each ball being let go. Short enough
                           // widened once to stop exactly that, back when the
                           // throws were aimed and needed to arrive unbothered.
 
+// Throwing.
+//
+// A ball settling on the floor and a ball fired across the page want
+// opposite physics. Settling wants energy taken out of it fast, or the
+// nine of them never stop rattling; a throw wants energy kept in, or it
+// dies against the first wall it meets and the whole gesture feels
+// broken. The constants above are tuned for settling.
+//
+// So a throw gives the ball `zip`, which is spent over a couple of
+// seconds. While it lasts the walls give almost everything back, the air
+// barely bites and the floor doesn't grab — and as it runs out the ball
+// slides into the settling numbers and comes to rest with the others,
+// with no visible handover between the two.
+const THROW_MIN = 620      // px/s below which a release is a drop, not a throw
+const ZIP_AT = 2300        // px/s that earns a full tank
+const ZIP_DECAY = 0.44     // per second
+const ZIP_PASS = 0.55      // how much of it is handed on in a collision
+
 const rand = (a, b) => a + Math.random() * (b - a)
 
 export function createRailField(selector = '.rail-btn') {
@@ -83,6 +101,47 @@ export function createRailField(selector = '.rail-btn') {
   })
 
   bodies.forEach((b) => { b.el.classList.add('rail-loose') })
+
+  // ---- impact rings ------------------------------------------------
+  // A ring drawn where two things met, scaled by how hard they met, gone
+  // in half a second. Plain DOM nodes rather than a canvas: there are at
+  // most a couple of dozen at once and adding a canvas would mean a
+  // second thing to keep sized, layered and cleaned up.
+  //
+  // Capped, because a ball fired into a corner can bounce several times
+  // within a few frames and there is no reason to leave that many nodes
+  // in the document.
+  const MAX_SPARKS = 18
+  let live = 0
+  let layer = null
+
+  const ensureLayer = () => {
+    if (layer) return layer
+    layer = document.createElement('div')
+    layer.setAttribute('aria-hidden', 'true')
+    // Under the balls, over the page.
+    layer.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:49;overflow:hidden'
+    document.body.appendChild(layer)
+    return layer
+  }
+
+  function spark(x, y, force) {
+    if (reduced || live >= MAX_SPARKS) return
+    const size = Math.max(26, Math.min(96, force * 0.055))
+    const el = document.createElement('i')
+    el.className = 'rail-spark'
+    el.style.cssText =
+      `left:${x}px;top:${y}px;width:${size}px;height:${size}px;` +
+      `margin-left:${-size / 2}px;margin-top:${-size / 2}px`
+    ensureLayer().appendChild(el)
+    live++
+    const done = () => { el.remove(); live-- }
+    el.addEventListener('animationend', done, { once: true })
+    // animationend doesn't fire in a backgrounded tab, and the node would
+    // otherwise stay forever.
+    setTimeout(() => { if (el.isConnected) done() }, 900)
+  }
+
 
   function write(b) {
     b.el.style.transform =
@@ -214,9 +273,18 @@ export function createRailField(selector = '.rail-btn') {
         continue
       }
 
+      // Everything below eases between the settling numbers and the
+      // throwing ones as zip runs down.
+      const z = b.zip || 0
+      if (z > 0) b.zip = Math.max(0, z - ZIP_DECAY * dt)
+      const restFloor = REST_FLOOR + z * 0.38
+      const restWall = REST_WALL + z * 0.48
+      const roll = ROLL_FRICTION + z * 0.055
+      const air = AIR + (1 - AIR) * z
+
       b.vy += G * dt
-      b.vx *= AIR
-      b.vy *= AIR
+      b.vx *= air
+      b.vy *= air
       b.x += b.vx * dt
       b.y += b.vy * dt
       b.rot += b.vrot * dt
@@ -224,25 +292,34 @@ export function createRailField(selector = '.rail-btn') {
       // floor
       if (b.y + b.r > fy) {
         b.y = fy - b.r
-        if (b.vy > 0) b.vy = -b.vy * REST_FLOOR
+        if (b.vy > 0) {
+          if (b.vy > 520) spark(b.x, fy, b.vy)
+          b.vy = -b.vy * restFloor
+        }
         if (Math.abs(b.vy) < 70) b.vy = 0
-        b.vx *= ROLL_FRICTION
+        b.vx *= roll
         b.vrot = b.vx * 1.6   // rolling, not skidding
       }
 
       // walls
       if (b.x - b.r < SIDE_INSET) {
         b.x = SIDE_INSET + b.r
-        b.vx = Math.abs(b.vx) * REST_WALL
+        if (Math.abs(b.vx) > 520) spark(SIDE_INSET, b.y, Math.abs(b.vx))
+        b.vx = Math.abs(b.vx) * restWall
       } else if (b.x + b.r > W - rightInset(W)) {
         b.x = W - rightInset(W) - b.r
-        b.vx = -Math.abs(b.vx) * REST_WALL
+        if (Math.abs(b.vx) > 520) spark(W - rightInset(W), b.y, Math.abs(b.vx))
+        b.vx = -Math.abs(b.vx) * restWall
       }
       // Ceiling. Only for something on its way up — a ball is dropped in
       // from above the top edge, and clamping on position alone teleported
       // it to just inside the frame on its first step, so nothing ever
       // actually fell into the page.
-      if (b.y - b.r < 0 && b.vy < 0) { b.y = b.r; b.vy = Math.abs(b.vy) * REST_WALL }
+      if (b.y - b.r < 0 && b.vy < 0) {
+        b.y = b.r
+        if (Math.abs(b.vy) > 520) spark(b.x, 0, Math.abs(b.vy))
+        b.vy = Math.abs(b.vy) * restWall
+      }
     }
 
     // ---- ball against ball ----
@@ -295,9 +372,19 @@ export function createRailField(selector = '.rail-btn') {
         const rvy = c.vy - a.vy
         const sep = rvx * nx + rvy * ny
         if (sep > -2) continue
-        const imp = -(1 + REST_BALL) * sep / 2
+        // A ball still carrying a throw hits harder, and hands some of
+        // it on — which is what makes one thrown ball scatter the row
+        // instead of stopping dead in it.
+        const zz = Math.max(a.zip || 0, c.zip || 0)
+        const imp = -(1 + REST_BALL + zz * 0.45) * sep / 2
         if (!a.held) { a.vx -= imp * nx; a.vy -= imp * ny; a.asleep = false; a.still = 0 }
         if (!c.held) { c.vx += imp * nx; c.vy += imp * ny; c.asleep = false; c.still = 0 }
+        if (zz > 0.04) {
+          const pass = zz * ZIP_PASS
+          if (!a.held) a.zip = Math.max(a.zip || 0, pass)
+          if (!c.held) c.zip = Math.max(c.zip || 0, pass)
+        }
+        if (-sep > 260) spark((a.x + c.x) / 2, (a.y + c.y) / 2, -sep)
       }
     }
 
@@ -305,7 +392,7 @@ export function createRailField(selector = '.rail-btn') {
     for (const b of bodies) {
       if (!b.released) continue
       if (!b.held && !b.asleep) {
-        const slow = Math.abs(b.vx) < SLEEP_SPEED && Math.abs(b.vy) < SLEEP_SPEED
+        const slow = Math.abs(b.vx) < SLEEP_SPEED && Math.abs(b.vy) < SLEEP_SPEED && !(b.zip > 0.02)
         const grounded = b.y + b.r >= fy - 0.6
         b.still = slow && grounded ? b.still + 1 : 0
         if (b.still > SLEEP_FRAMES) {
@@ -378,6 +465,8 @@ export function createRailField(selector = '.rail-btn') {
       if (!b.held) return
       b.held = false
       b.vrot = b.vx * 1.4
+      const speed = Math.hypot(b.vx, b.vy)
+      if (speed > THROW_MIN) b.zip = Math.min(1, speed / ZIP_AT)
       try { b.el.releasePointerCapture(e.pointerId) } catch {}
       // A throw shouldn't also open the page.
       if (moved > 7) {
@@ -432,6 +521,7 @@ export function createRailField(selector = '.rail-btn') {
       window.removeEventListener('resize', onResize)
       document.removeEventListener('visibilitychange', onVis)
       cleanups.forEach((fn) => fn())
+      try { layer && layer.remove() } catch {}
       bodies.forEach((b) => {
         b.el.classList.remove('rail-loose')
         b.el.style.transform = ''
