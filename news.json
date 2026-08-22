@@ -1,34 +1,6 @@
 {
-  "generated": "2026-08-22T04:36:49.366Z",
+  "generated": "2026-08-22T04:45:11.467Z",
   "reddit": [
-    {
-      "title": "Want to switch my career towards SRE/DevOps",
-      "url": "https://www.reddit.com/r/devops/comments/1vuv3wj/want_to_switch_my_career_towards_sredevops/",
-      "by": "rizqrollno748",
-      "time": 1787352282000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Best way to integrate OpenProject + GitLab + Mattermost?",
-      "url": "https://www.reddit.com/r/devops/comments/1vuuzui/best_way_to_integrate_openproject_gitlab/",
-      "by": "ExtraLife6520",
-      "time": 1787352008000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Is anyone here securing their agents? Who in your org owns it?",
-      "url": "https://www.reddit.com/r/devops/comments/1vuu5z3/is_anyone_here_securing_their_agents_who_in_your/",
-      "by": "Thorne-ZytkowObject",
-      "time": 1787349960000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Is anyone here considering MLOps or you think DevOps/ Platform engineering still has long way to go?",
-      "url": "https://www.reddit.com/r/devops/comments/1vukq60/is_anyone_here_considering_mlops_or_you_think/",
-      "by": "devops-noob",
-      "time": 1787328742000,
-      "sub": "r/devops"
-    },
     {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
       "url": "https://www.reddit.com/r/programming/comments/1vuk4b5/finding_a_hidden_mersenne_twister_implementation/",
@@ -49,6 +21,34 @@
       "by": "Super-Performance-86",
       "time": 1787301388000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Pitfalls of Benchmarking on Modern Systems",
+      "url": "https://www.reddit.com/r/programming/comments/1vu7o3x/pitfalls_of_benchmarking_on_modern_systems/",
+      "by": "mttd",
+      "time": 1787291437000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     },
     {
       "title": "Weekly: Share your victories thread",
