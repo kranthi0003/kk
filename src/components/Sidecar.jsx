@@ -1,27 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-// "The Sidecar" — a slide-in drawer of lifestyle cards ("things I follow").
-// Opens from the right via a round arrow button in the navbar. Built to grow:
-// each card is a self-contained component; add more to CARDS over time.
-
-const FLAGS = {
-  Australia: '🇦🇺', Bahrain: '🇧🇭', 'Saudi Arabia': '🇸🇦', Japan: '🇯🇵', China: '🇨🇳',
-  USA: '🇺🇸', 'United States': '🇺🇸', Italy: '🇮🇹', Monaco: '🇲🇨', Spain: '🇪🇸',
-  Canada: '🇨🇦', Austria: '🇦🇹', UK: '🇬🇧', 'United Kingdom': '🇬🇧', Hungary: '🇭🇺',
-  Belgium: '🇧🇪', Netherlands: '🇳🇱', Azerbaijan: '🇦🇿', Singapore: '🇸🇬', Mexico: '🇲🇽',
-  Brazil: '🇧🇷', 'United Arab Emirates': '🇦🇪', UAE: '🇦🇪', Qatar: '🇶🇦', France: '🇫🇷',
-  Germany: '🇩🇪', Portugal: '🇵🇹', Turkey: '🇹🇷',
-}
-
-// Team accent colours. Liveries change every season, so these are decorative
-// accents chosen for contrast in the list — not an official colour reference.
-const TEAM_COLOR = {
-  mercedes: '#27F4D2', ferrari: '#E8002D', mclaren: '#FF8000', red_bull: '#3671C6',
-  rb: '#6692FF', alphatauri: '#6692FF', alpine: '#FF87BC', haas: '#B6BABD',
-  williams: '#64C4FF', aston_martin: '#229971', sauber: '#52E252', alfa: '#52E252',
-  audi: '#8F9296', cadillac: '#C9A227',
-}
-const teamColor = (id) => TEAM_COLOR[id] || 'var(--color-accent)'
+// "The Sidecar" — a slide-in drawer, opened from the round button in the rail.
+//
+// It used to hold the next F1 race, the F1 championship table and upcoming
+// Indian films. All three were fine cards, and all three became redundant:
+// #/f1 now covers the race and the standings in far more depth, and
+// #/movies reads the very same movies.json this drawer was reading. A
+// drawer that repeats the pages beside it is just a second place to keep
+// the same thing correct.
+//
+// So it holds what the rest of the site doesn't. Each card had to clear one
+// bar — nothing else here already answers this:
+//
+//   Money      no currency anywhere on the site, and the distance between
+//              a dollar and a rupee is a daily fact of working for an
+//              American company from India.
+//   Timezones  About has a clock, but a clock tells you his time, not
+//              whether the people he works with are awake.
+//   New repos  GitHubStats and the heatmap are his own profile; what the
+//              rest of GitHub is starring is a different question.
+//
+// Ruled out after checking, because the site already has them: cloud
+// status (ServiceStatus watches GitHub, npm, Cloudflare, OpenAI, Stripe and
+// more), tech news (the navbar feed), crypto (wallet, dashboard, ticker),
+// weather (removed on purpose), and anything F1, cricket, film, music or
+// food — all of which have their own pages now.
 
 // Shared card chrome so every Sidecar card reads as one family.
 function Shell({ icon, title, tint, right, children }) {
@@ -37,359 +40,248 @@ function Shell({ icon, title, tint, right, children }) {
   )
 }
 
-function useCountdown(target) {
-  const [now, setNow] = useState(() => Date.now())
-  useEffect(() => {
-    if (!target) return
-    const id = setInterval(() => setNow(Date.now()), 1000)
-    return () => clearInterval(id)
-  }, [target])
-  if (!target) return null
-  const diff = target - now
-  if (diff <= 0) return { live: true }
-  const d = Math.floor(diff / 86400000)
-  const h = Math.floor((diff % 86400000) / 3600000)
-  const m = Math.floor((diff % 3600000) / 60000)
-  const s = Math.floor((diff % 60000) / 1000)
-  return { d, h, m, s }
-}
+const Loading = ({ label }) => (
+  <div className="h-16 flex items-center justify-center">
+    <span className="text-xs font-mono text-muted-foreground animate-pulse">{label}</span>
+  </div>
+)
 
-function F1Card() {
-  const [race, setRace] = useState(undefined) // undefined=loading, null=error/none
+const Failed = ({ label }) => (
+  <p className="text-[12.5px] text-muted-foreground leading-relaxed">{label}</p>
+)
+
+/* ------------------------------------------------------------------ *
+ * Money — what a dollar, a euro and a pound are worth in rupees.
+ *
+ * Frankfurter republishes the European Central Bank's daily reference
+ * rates: no key, no attribution requirement, CORS open. It moves once a
+ * working day, so this is a benchmark rather than a live market price —
+ * which the card says, because quoting a stale number as though it were
+ * live is how a site stops being trusted.
+ * ------------------------------------------------------------------ */
+
+const MONEY_CACHE = 'sidecar_fx'
+const MONEY_TTL = 3600000 // an hour; the source only moves once a day
+
+function MoneyCard() {
+  const [data, setData] = useState(undefined)
 
   useEffect(() => {
-    const cached = sessionStorage.getItem('f1_next')
-    if (cached) {
-      try {
-        const p = JSON.parse(cached)
-        if (Date.now() - p.ts < 3600000) { setRace(p.race); return }
-      } catch {}
-    }
+    try {
+      const c = JSON.parse(sessionStorage.getItem(MONEY_CACHE) || 'null')
+      if (c && Date.now() - c.ts < MONEY_TTL) { setData(c.d); return }
+    } catch {}
+
     let alive = true
-    fetch('https://api.jolpi.ca/ergast/f1/current/next.json', { cache: 'no-store' })
-      .then(r => { if (!r.ok) throw new Error('bad'); return r.json() })
-      .then(d => {
+    fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=INR,EUR,GBP')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((j) => {
         if (!alive) return
-        const r = d?.MRData?.RaceTable?.Races?.[0] || null
-        setRace(r)
-        sessionStorage.setItem('f1_next', JSON.stringify({ race: r, ts: Date.now() }))
-      })
-      .catch(() => { if (alive) setRace(null) })
-    return () => { alive = false }
-  }, [])
-
-  const target = race && race.date
-    ? new Date(`${race.date}T${race.time || '12:00:00Z'}`).getTime()
-    : null
-  const cd = useCountdown(target)
-
-  const shell = (children) => (
-    <Shell icon="🏎️" title="Formula 1 · Next Race" tint="#e10600">{children}</Shell>
-  )
-
-  if (race === undefined) return shell(<div className="h-20 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">loading grid…</span></div>)
-  if (race === null) return shell(
-    <div className="text-center py-2">
-      <p className="text-[13px] text-muted-foreground mb-2">Couldn’t load the schedule right now.</p>
-      <a href="https://www.formula1.com/en/racing/2026.html" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium" style={{ color: 'var(--color-accent)' }}>Full calendar ↗</a>
-    </div>
-  )
-
-  const loc = race.Circuit?.Location || {}
-  const flag = FLAGS[loc.country] || '🏁'
-  const localWhen = target
-    ? new Date(target).toLocaleString(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })
-    : null
-
-  return shell(
-    <>
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="font-heading text-[1.15rem] leading-tight" style={{ fontWeight: 600 }}>{race.raceName}</h3>
-        <span className="flex-shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: 'color-mix(in oklab, var(--color-accent) 14%, transparent)', color: 'var(--color-accent)' }}>R{race.round}</span>
-      </div>
-      <p className="text-[12.5px] text-muted-foreground mt-1">
-        {flag} {race.Circuit?.circuitName}{loc.locality ? ` · ${loc.locality}` : ''}
-      </p>
-
-      {/* Countdown */}
-      <div className="mt-3.5 rounded-xl px-3 py-2.5" style={{ background: 'color-mix(in oklab, var(--color-foreground) 5%, transparent)' }}>
-        {cd?.live ? (
-          <div className="text-center text-[13px] font-semibold" style={{ color: '#e10600' }}>🟢 Lights out — race under way</div>
-        ) : cd ? (
-          <div className="flex items-center justify-center gap-3 font-mono tabular-nums">
-            {[['d', cd.d], ['h', cd.h], ['m', cd.m], ['s', cd.s]].map(([u, v]) => (
-              <div key={u} className="text-center">
-                <div className="text-[1.35rem] font-bold leading-none text-foreground">{String(v).padStart(2, '0')}</div>
-                <div className="text-[9px] uppercase tracking-wider text-muted-foreground mt-1">{u}</div>
-              </div>
-            ))}
-          </div>
-        ) : null}
-      </div>
-
-      <div className="flex items-center justify-between mt-3">
-        <span className="text-[11.5px] text-muted-foreground">{localWhen ? `${localWhen} · your time` : ''}</span>
-        {race.url && (
-          <a href={race.url} target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium inline-flex items-center gap-1" style={{ color: 'var(--color-accent)' }}>
-            Details ↗
-          </a>
-        )}
-      </div>
-    </>
-  )
-}
-
-function StandingsCard() {
-  const [tab, setTab] = useState('drivers')
-  const [data, setData] = useState(undefined) // undefined=loading, null=error
-  const [expanded, setExpanded] = useState(false)
-
-  useEffect(() => {
-    const cached = sessionStorage.getItem('f1_standings')
-    if (cached) {
-      try {
-        const p = JSON.parse(cached)
-        if (Date.now() - p.ts < 3600000) { setData(p.data); return }
-      } catch {}
-    }
-    let alive = true
-    const get = (u) => fetch(u, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error('bad'); return r.json() })
-    Promise.all([
-      get('https://api.jolpi.ca/ergast/f1/current/driverstandings.json'),
-      get('https://api.jolpi.ca/ergast/f1/current/constructorstandings.json'),
-    ])
-      .then(([d, c]) => {
-        if (!alive) return
-        const dl = d?.MRData?.StandingsTable?.StandingsLists?.[0]
-        const cl = c?.MRData?.StandingsTable?.StandingsLists?.[0]
-        if (!dl?.DriverStandings?.length || !cl?.ConstructorStandings?.length) throw new Error('empty')
-        const out = {
-          season: dl.season,
-          round: dl.round,
-          drivers: dl.DriverStandings.map(x => ({
-            pos: x.position,
-            name: x.Driver.familyName,
-            sub: x.Driver.code || x.Driver.givenName,
-            team: x.Constructors?.[0]?.constructorId,
-            pts: Number(x.points),
-            wins: Number(x.wins),
-          })),
-          teams: cl.ConstructorStandings.map(x => ({
-            pos: x.position,
-            name: x.Constructor.name,
-            sub: null,
-            team: x.Constructor.constructorId,
-            pts: Number(x.points),
-            wins: Number(x.wins),
-          })),
+        const usdInr = j?.rates?.INR
+        if (!usdInr) throw new Error('no rate')
+        // Everything is quoted against USD; the interesting direction is
+        // the other way round, so EUR and GBP convert through it.
+        const d = {
+          date: j.date,
+          rows: [
+            { code: 'USD', flag: '🇺🇸', inr: usdInr },
+            { code: 'EUR', flag: '🇪🇺', inr: j.rates.EUR ? usdInr / j.rates.EUR : null },
+            { code: 'GBP', flag: '🇬🇧', inr: j.rates.GBP ? usdInr / j.rates.GBP : null },
+          ].filter((r) => r.inr),
         }
-        setData(out)
-        sessionStorage.setItem('f1_standings', JSON.stringify({ data: out, ts: Date.now() }))
-      })
-      .catch(() => { if (alive) setData(null) })
-    return () => { alive = false }
-  }, [])
-
-  const badge = data
-    ? <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ background: 'color-mix(in oklab, var(--color-foreground) 7%, transparent)', color: 'var(--color-muted-foreground)' }}>after R{data.round}</span>
-    : null
-
-  if (data === undefined) return (
-    <Shell icon="🏆" title="F1 · Championship" tint="#e10600">
-      <div className="h-24 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">counting points…</span></div>
-    </Shell>
-  )
-  if (data === null) return (
-    <Shell icon="🏆" title="F1 · Championship" tint="#e10600">
-      <div className="text-center py-2">
-        <p className="text-[13px] text-muted-foreground mb-2">Standings are unavailable right now.</p>
-        <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium" style={{ color: 'var(--color-accent)' }}>Official standings ↗</a>
-      </div>
-    </Shell>
-  )
-
-  const rows = tab === 'drivers' ? data.drivers : data.teams
-  const lead = rows[0]?.pts || 1
-  const visible = expanded ? rows : rows.slice(0, 5)
-
-  return (
-    <Shell icon="🏆" title="F1 · Championship" tint="#e10600" right={badge}>
-      {/* Drivers / Teams toggle */}
-      <div className="flex p-0.5 rounded-lg mb-3" style={{ background: 'color-mix(in oklab, var(--color-foreground) 6%, transparent)' }} role="tablist">
-        {[['drivers', 'Drivers'], ['teams', 'Teams']].map(([k, label]) => (
-          <button
-            key={k}
-            role="tab"
-            aria-selected={tab === k}
-            onClick={() => { setTab(k); setExpanded(false) }}
-            className="flex-1 text-[11.5px] font-medium py-2 rounded-[6px] transition-colors"
-            style={tab === k
-              ? { background: 'var(--color-card)', color: 'var(--color-foreground)', boxShadow: '0 1px 3px rgba(0,0,0,0.14)' }
-              : { color: 'var(--color-muted-foreground)' }}
-          >{label}</button>
-        ))}
-      </div>
-
-      <ol className="space-y-1">
-        {visible.map((r) => {
-          const c = teamColor(r.team)
-          return (
-            <li key={`${tab}-${r.pos}`} className="relative flex items-center gap-2.5 rounded-lg px-2 py-1.5 overflow-hidden">
-              {/* points bar, scaled against the leader */}
-              <span aria-hidden="true" className="absolute inset-y-0 left-0 rounded-lg" style={{ width: `${Math.max(4, (r.pts / lead) * 100)}%`, background: `color-mix(in oklab, ${c} 13%, transparent)` }} />
-              <span className="relative w-4 text-[11px] font-mono tabular-nums text-muted-foreground text-right">{r.pos}</span>
-              <span aria-hidden="true" className="relative w-[3px] h-4 rounded-full flex-shrink-0" style={{ background: c }} />
-              <span className="relative flex-1 min-w-0 flex items-baseline gap-1.5">
-                <span className="text-[13px] font-medium truncate">{r.name}</span>
-                {r.sub && <span className="text-[9.5px] font-mono text-muted-foreground/70 flex-shrink-0">{r.sub}</span>}
-              </span>
-              {r.wins > 0 && (
-                <span className="relative text-[9.5px] font-mono text-muted-foreground/70 flex-shrink-0" title={`${r.wins} win${r.wins > 1 ? 's' : ''} this season`}>🏆{r.wins}</span>
-              )}
-              <span className="relative text-[13px] font-mono font-semibold tabular-nums flex-shrink-0">{r.pts}</span>
-            </li>
-          )
-        })}
-      </ol>
-
-      {rows.length > 5 && (
-        <button onClick={() => setExpanded(v => !v)} className="w-full mt-2 text-[11.5px] font-medium py-2 rounded-lg transition-colors hover:bg-foreground/5" style={{ color: 'var(--color-accent)' }}>
-          {expanded ? 'Show less' : `Show all ${rows.length}`}
-        </button>
-      )}
-    </Shell>
-  )
-}
-
-// Upcoming Indian cinema. Unlike the F1 cards this one reads a static file we
-// generate at build time (scripts/gen-movies.mjs) rather than calling an API
-// live: assembling the list takes ~25 Wikipedia/Wikidata requests, which is far
-// too much to spend every time someone opens the drawer. The payoff is that the
-// fetch below is same-origin, needs no key, and works on networks where the
-// mainstream movie APIs are unreachable.
-const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-// Parse the ISO parts by hand. new Date('2026-08-26') is UTC midnight, which
-// renders as the 25th anywhere west of Greenwich — wrong day, sometimes wrong
-// month.
-function releaseLabel(date, precision) {
-  if (!date) return 'TBA'
-  const [y, m, d] = date.split('-')
-  const mon = MONTHS_SHORT[Number(m) - 1]
-  if (precision === 'year') return y
-  if (precision === 'month') return `${mon} ${y}`
-  return `${Number(d)} ${mon} ${y}`
-}
-
-function MoviesCard() {
-  const [data, setData] = useState(undefined) // undefined=loading, null=error
-  const [expanded, setExpanded] = useState(false)
-
-  useEffect(() => {
-    const cached = sessionStorage.getItem('movies_upcoming')
-    if (cached) {
-      try {
-        const p = JSON.parse(cached)
-        if (Date.now() - p.ts < 21600000) { setData(p.data); return }
-      } catch {}
-    }
-    let alive = true
-    fetch(`${import.meta.env.BASE_URL}movies.json`)
-      .then(r => { if (!r.ok) throw new Error('bad'); return r.json() })
-      .then(d => {
-        if (!alive) return
-        if (!d?.films?.length) throw new Error('empty')
         setData(d)
-        sessionStorage.setItem('movies_upcoming', JSON.stringify({ data: d, ts: Date.now() }))
+        try { sessionStorage.setItem(MONEY_CACHE, JSON.stringify({ d, ts: Date.now() })) } catch {}
       })
       .catch(() => { if (alive) setData(null) })
     return () => { alive = false }
   }, [])
 
   const shell = (children, right) => (
-    <Shell icon="🎬" title="Cinema · Upcoming Indian" tint="#f59e0b" right={right}>{children}</Shell>
+    <Shell icon="💱" title="Money · Rupee" tint="#5FBF8F" right={right}>{children}</Shell>
   )
 
-  if (data === undefined) return shell(
-    <div className="h-24 flex items-center justify-center"><span className="text-xs font-mono text-muted-foreground animate-pulse">rolling credits…</span></div>
-  )
-  if (data === null) return shell(
-    <div className="text-center py-2">
-      <p className="text-[13px] text-muted-foreground mb-2">Couldn’t load the release slate right now.</p>
-      <a href="https://en.wikipedia.org/wiki/Category:Upcoming_Indian_films" target="_blank" rel="noopener noreferrer" className="text-[12px] font-medium" style={{ color: 'var(--color-accent)' }}>Browse on Wikipedia ↗</a>
-    </div>
-  )
-
-  const films = data.films
-  const visible = expanded ? films : films.slice(0, 5)
-  const dated = films.filter(f => f.date).length
-  const badge = dated
-    ? <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ background: 'color-mix(in oklab, var(--color-foreground) 7%, transparent)', color: 'var(--color-muted-foreground)' }}>{dated} dated</span>
-    : null
+  if (data === undefined) return shell(<Loading label="checking rates…" />)
+  if (data === null) return shell(<Failed label="Rates didn’t load. The European Central Bank publishes once a working day; try again shortly." />)
 
   return shell(
     <>
-      <ul className="space-y-1">
-        {visible.map((f) => (
-          <li key={f.title}>
-            <a
-              href={f.imdb || f.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 rounded-lg px-1.5 py-1.5 transition-colors hover:bg-foreground/5"
-            >
-              {f.poster ? (
-                <img
-                  src={f.poster}
-                  alt=""
-                  loading="lazy"
-                  width="36"
-                  height="52"
-                  className="w-9 h-[52px] rounded object-cover flex-shrink-0"
-                  style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)' }}
-                />
-              ) : (
-                <span aria-hidden="true" className="w-9 h-[52px] rounded flex-shrink-0 flex items-center justify-center text-[15px]" style={{ background: 'color-mix(in oklab, var(--color-foreground) 8%, transparent)' }}>🎞️</span>
-              )}
-              <span className="flex-1 min-w-0">
-                <span className="block text-[13px] font-medium truncate">{f.title}</span>
-                <span className="block text-[11px] text-muted-foreground truncate">
-                  {f.lang}{f.by ? ` · ${f.by}` : ''}
+      <div className="space-y-2">
+        {data.rows.map((r) => (
+          <div key={r.code} className="flex items-baseline gap-2.5">
+            <span aria-hidden="true">{r.flag}</span>
+            <span className="text-[12px] font-mono text-muted-foreground w-8">{r.code}</span>
+            <span className="text-[15px] font-mono font-medium tabular-nums text-foreground">
+              ₹{r.inr.toFixed(2)}
+            </span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-[10.5px] text-muted-foreground leading-relaxed">
+        European Central Bank reference rates — a daily benchmark, not a live market price.
+      </p>
+    </>,
+    <span className="text-[10px] font-mono text-muted-foreground tabular-nums">{data.date}</span>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * Timezones — whether the people he works with are awake.
+ *
+ * No API and no clock drift to manage: Intl does the whole job from the
+ * browser's own timezone database, including whichever side of a
+ * daylight-saving change today happens to fall on. Hardcoding "IST is PT
+ * plus twelve and a half hours" would be wrong twice a year.
+ * ------------------------------------------------------------------ */
+
+const ZONES = [
+  { label: 'Vizag', tz: 'Asia/Kolkata', me: true },
+  { label: 'London', tz: 'Europe/London' },
+  { label: 'New York', tz: 'America/New_York' },
+  { label: 'Seattle', tz: 'America/Los_Angeles' },
+]
+
+// Roughly awake and reachable — not office hours. The useful question is
+// "would a message land now, or wait until morning".
+const AWAKE_FROM = 9
+const AWAKE_TO = 21
+
+function TimezoneCard() {
+  const [now, setNow] = useState(() => new Date())
+
+  useEffect(() => {
+    // On the half-minute, not the second: nothing here shows seconds, so
+    // a per-second timer would be a wasted wake-up on every device.
+    const id = setInterval(() => setNow(new Date()), 30000)
+    return () => clearInterval(id)
+  }, [])
+
+  const rows = useMemo(() => ZONES.map((z) => {
+    const time = new Intl.DateTimeFormat('en-GB', {
+      timeZone: z.tz, hour: '2-digit', minute: '2-digit', hour12: false,
+    }).format(now)
+    const day = new Intl.DateTimeFormat('en-GB', { timeZone: z.tz, weekday: 'short' }).format(now)
+    const hour = parseInt(time.slice(0, 2), 10)
+    const weekend = day === 'Sat' || day === 'Sun'
+    return { ...z, time, day, awake: hour >= AWAKE_FROM && hour < AWAKE_TO, weekend }
+  }), [now])
+
+  const others = rows.filter((r) => !r.me)
+  const reachable = others.filter((r) => r.awake && !r.weekend).length
+
+  return (
+    <Shell
+      icon="🕒"
+      title="Timezones · Who’s up"
+      tint="#7FA8D8"
+      right={<span className="text-[10px] font-mono text-muted-foreground">{reachable}/{others.length} awake</span>}
+    >
+      <div className="space-y-2">
+        {rows.map((z) => (
+          <div key={z.tz} className="flex items-center gap-2.5">
+            <span
+              className="w-1.5 h-1.5 rounded-full shrink-0"
+              style={{ background: z.awake && !z.weekend ? '#35B96C' : 'color-mix(in oklab, var(--color-foreground) 22%, transparent)' }}
+              aria-hidden="true"
+            />
+            <span className={'text-[12.5px] ' + (z.me ? 'text-foreground font-medium' : 'text-muted-foreground')}>
+              {z.label}{z.me ? ' · him' : ''}
+            </span>
+            <span className="ml-auto text-[13px] font-mono tabular-nums text-foreground">{z.time}</span>
+            <span className="text-[10.5px] font-mono text-muted-foreground w-7 text-right">{z.day}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-[10.5px] text-muted-foreground leading-relaxed">
+        Green is 9am–9pm on a weekday — likely to reply today.
+      </p>
+    </Shell>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * New repos — what the rest of GitHub started starring this month.
+ *
+ * The trending page has no API, so this asks the documented search API
+ * for repositories created in the last 30 days, most-starred first. Close
+ * enough, and an endpoint rather than a scrape.
+ *
+ * Anonymous search allows 10 requests a minute counted per IP, so one
+ * visitor is nowhere near the limit — but it is cached for the session
+ * anyway, because opening and closing a drawer should not spend anyone’s
+ * quota.
+ * ------------------------------------------------------------------ */
+
+const REPO_CACHE = 'sidecar_new_repos'
+const REPO_TTL = 21600000 // six hours
+
+const compact = (n) => (n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + 'k' : String(n))
+
+function NewReposCard() {
+  const [data, setData] = useState(undefined)
+
+  useEffect(() => {
+    try {
+      const c = JSON.parse(sessionStorage.getItem(REPO_CACHE) || 'null')
+      if (c && Date.now() - c.ts < REPO_TTL) { setData(c.d); return }
+    } catch {}
+
+    const since = new Date(Date.now() - 30 * 86400000).toISOString().slice(0, 10)
+    let alive = true
+    fetch(`https://api.github.com/search/repositories?q=created:>${since}&sort=stars&order=desc&per_page=5`, {
+      headers: { Accept: 'application/vnd.github+json' },
+    })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((j) => {
+        if (!alive) return
+        const d = (j.items || []).slice(0, 5).map((r) => ({
+          name: r.full_name, url: r.html_url, stars: r.stargazers_count,
+          lang: r.language, desc: r.description,
+        }))
+        if (!d.length) throw new Error('empty')
+        setData(d)
+        try { sessionStorage.setItem(REPO_CACHE, JSON.stringify({ d, ts: Date.now() })) } catch {}
+      })
+      .catch(() => { if (alive) setData(null) })
+    return () => { alive = false }
+  }, [])
+
+  const shell = (children) => (
+    <Shell icon="⭐" title="GitHub · New this month" tint="#C9A227">{children}</Shell>
+  )
+
+  if (data === undefined) return shell(<Loading label="asking GitHub…" />)
+  if (data === null) return shell(<Failed label="GitHub’s search API didn’t answer. It rate-limits anonymous requests, so this usually clears on its own." />)
+
+  return shell(
+    <>
+      <ul className="space-y-2.5">
+        {data.map((r) => (
+          <li key={r.name}>
+            <a href={r.url} target="_blank" rel="noopener noreferrer" className="group block" title={r.desc || r.name}>
+              <div className="flex items-baseline gap-2">
+                <span className="text-[12.5px] font-medium text-foreground truncate group-hover:underline">{r.name}</span>
+                <span className="ml-auto text-[11px] font-mono tabular-nums shrink-0" style={{ color: '#C9A227' }}>
+                  ★{compact(r.stars)}
                 </span>
-              </span>
-              <span
-                className="text-[10.5px] font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded"
-                style={f.date
-                  ? { background: 'color-mix(in oklab, #f59e0b 15%, transparent)', color: 'color-mix(in oklab, #f59e0b 75%, var(--color-foreground))' }
-                  : { color: 'var(--color-muted-foreground)' }}
-              >
-                {releaseLabel(f.date, f.precision)}
-              </span>
+              </div>
+              {r.lang && <span className="text-[10.5px] font-mono text-muted-foreground">{r.lang}</span>}
             </a>
           </li>
         ))}
       </ul>
-
-      {films.length > 5 && (
-        <button onClick={() => setExpanded(v => !v)} className="w-full mt-2 text-[11.5px] font-medium py-2 rounded-lg transition-colors hover:bg-foreground/5" style={{ color: 'var(--color-accent)' }}>
-          {expanded ? 'Show less' : `Show all ${films.length}`}
-        </button>
-      )}
-
-      <p className="text-[10.5px] text-muted-foreground/70 mt-2 text-center">
-        Titles and dates from Wikipedia · links go to IMDb
+      <p className="mt-3 text-[10.5px] text-muted-foreground leading-relaxed">
+        Repositories created in the last 30 days, most-starred first.
       </p>
-    </>,
-    badge
+    </>
   )
 }
 
-// The card stack — append here as new cards are built.
-const CARDS = [F1Card, StandingsCard, MoviesCard]
+// Money and time are glanceable; the repo list is a read, so it sits last.
+const CARDS = [MoneyCard, TimezoneCard, NewReposCard]
 
 // Every card reads its sessionStorage entry before it fetches, so a refresh has
 // to clear these first or the remount just replays the same cached payload.
-const CARD_CACHE_KEYS = ['f1_next', 'f1_standings', 'movies_upcoming']
+const CARD_CACHE_KEYS = [MONEY_CACHE, REPO_CACHE]
 
 export default function Sidecar() {
   const [open, setOpen] = useState(false)
@@ -436,7 +328,7 @@ export default function Sidecar() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Open the Sidecar"
-        title="The Sidecar — things I follow"
+        title="The Sidecar — rates, timezones and what GitHub is starring"
         className="group rail-btn rail-tint sdbtn"
         style={{ '--rail-i': 0, '--tint': 'var(--color-accent)' }}
       >
@@ -485,7 +377,7 @@ export default function Sidecar() {
             <div className="px-5 pt-5 pb-4 flex items-start justify-between flex-shrink-0">
               <div>
                 <h2 className="font-heading text-[1.35rem] leading-tight" style={{ fontWeight: 600 }}>The Sidecar</h2>
-                <p className="text-[12px] text-muted-foreground mt-0.5">Things I follow, off the clock.</p>
+                <p className="text-[12px] text-muted-foreground mt-0.5">Small things worth a glance.</p>
               </div>
               <div className="flex items-center gap-0.5 -mr-1">
                 <button
@@ -513,7 +405,6 @@ export default function Sidecar() {
             {/* Cards */}
             <div className="flex-1 overflow-y-auto px-5 pb-6 space-y-4">
               {CARDS.map((Card, i) => <Card key={`${refreshKey}-${i}`} />)}
-              <p className="text-[11px] text-center text-muted-foreground/50 font-mono pt-2">more cards coming — shows, books, launches…</p>
             </div>
           </div>
         </div>
