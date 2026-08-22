@@ -302,6 +302,49 @@ h4, h5, h6 {
 }
 @media (prefers-reduced-motion: reduce) { .rail-spark { display: none; } }
 
+/* The ring you're aiming at. Positioned by its centre so the script can
+   place it without knowing its size, and drawn in the accent so it reads
+   as part of the site rather than a game asset dropped on top. */
+.rail-target {
+  position: absolute;
+  width: calc(var(--tr) * 2);
+  height: calc(var(--tr) * 2);
+  margin-left: calc(var(--tr) * -1);
+  margin-top: calc(var(--tr) * -1);
+  border-radius: 999px;
+  border: 3px solid color-mix(in oklab, var(--color-accent) 85%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-accent) 25%, transparent),
+    0 0 26px color-mix(in oklab, var(--color-accent) 30%, transparent),
+    inset 0 0 22px color-mix(in oklab, var(--color-accent) 16%, transparent);
+  animation: railTargetPulse 1.9s ease-in-out infinite;
+}
+/* A second, smaller ring inside, so the middle reads as the thing to aim
+   at rather than the hole being empty. */
+.rail-target::after {
+  content: '';
+  position: absolute;
+  inset: 30%;
+  border-radius: 999px;
+  border: 2px dashed color-mix(in oklab, var(--color-accent) 55%, transparent);
+}
+.rail-target-in { animation: railTargetIn 0.42s cubic-bezier(0.16, 0.9, 0.3, 1), railTargetPulse 1.9s ease-in-out 0.42s infinite; }
+@keyframes railTargetIn {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes railTargetPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-target, .rail-target-in { animation: none; }
+}
+
+/* While a round is on, the balls are ammunition rather than links. */
+html.rail-playing .rail-btn { cursor: grab; }
+html.rail-playing .rail-btn:active { cursor: grabbing; }
+
 /* Between the buttons being laid out by CSS and gravity taking them over
    there are a couple of frames where they sit in the rail. That's long
    enough to see a column on the right that then empties itself, so hide

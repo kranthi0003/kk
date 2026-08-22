@@ -97,6 +97,17 @@ const DOCK_MIN_SCALE = 0.5
 const DOCK_WRAP_AT = 0.55
 const DOCK_MAX_COLS = 2
 const SCALE_PULL = 11      // how quickly it grows and shrinks
+
+// ---- the game ------------------------------------------------------
+// Hit the target with a ball and that ball is potted: it flies up to the
+// column under the Sidecar and parks there. Clear all of them to win.
+// The column doubles as the scoreboard — you can see how many are left
+// without a counter having to tell you.
+const TARGET_R = 42        // the ring's radius
+const TARGET_MIN_SPEED = 240  // a ball has to arrive with some pace, or
+                              // resting one on the target would score
+const TARGET_CLEAR = 150   // how far the ring must move each time, so it
+                           // never re-appears where you're already aiming
 const SIDECAR_TOP = 80     // the handle is top-20, and 48px tall
 const SIDECAR_SIZE = 48
 
@@ -135,6 +146,8 @@ export function createRailField(selector = '.rail-btn') {
       scale: 1,        // what's actually drawn: base * hover
       baseScale: 1,    // 1 when free, shrunk when docked
       hov: 1,          // the hover bump, kept separate so it composes
+      potted: false,   // banked in the column during a game
+      px: 0, py: 0,    // position at the start of the frame
       held: false,
       released: false,
       asleep: false,
@@ -276,8 +289,131 @@ export function createRailField(selector = '.rail-btn') {
   }
 
 
-  function write(b) {
-    b.el.style.transform =
+  // ---- the game ----------------------------------------------------
+  // A ring appears; throw a ball through it and that ball is potted into
+  // the column under the Sidecar. All eleven parked wins it.
+  //
+  // The whole thing rides on machinery that already exists — the throw,
+  // the impact rings, and the docking — so it adds a goal rather than a
+  // second physics engine.
+  let game = null
+  let targetEl = null
+
+  const emit = (name, detail) => {
+    try { window.dispatchEvent(new CustomEvent(name, { detail })) } catch {}
+  }
+
+  const gameState = () => ({
+    on: !!game,
+    potted: game ? game.potted : 0,
+    total: bodies.length,
+    throws: game ? game.throws : 0,
+    won: game ? game.won : false,
+    ms: game ? (game.endedAt || performance.now()) - game.startedAt : 0,
+  })
+
+  // Somewhere in the open middle of the page: below the navbar, above the
+  // floor furniture, and clear of the column the balls get potted into.
+  function moveTarget() {
+    const pad = TARGET_R + 14
+    const minX = SIDE_INSET + pad
+    const maxX = W - rightInset(W) - pad - 30
+    const minY = 108 + pad
+    const maxY = floorY() - pad - 24
+    if (maxX <= minX || maxY <= minY) return
+
+    let x = 0, y = 0
+    // Try a few times for somewhere far enough from the last spot; if the
+    // window is too small for that to be possible, take what we can get
+    // rather than looping forever.
+    for (let i = 0; i < 24; i++) {
+      x = rand(minX, maxX)
+      y = rand(minY, maxY)
+      if (!game.tx || Math.hypot(x - game.tx, y - game.ty) > TARGET_CLEAR) break
+    }
+    game.tx = x; game.ty = y
+    if (targetEl) {
+      targetEl.style.left = `${x}px`
+      targetEl.style.top = `${y}px`
+      // Restart the entry animation so each new position lands rather
+      // than silently teleporting.
+      targetEl.classList.remove('rail-target-in')
+      void targetEl.offsetWidth
+      targetEl.classList.add('rail-target-in')
+    }
+  }
+
+  function startGame() {
+    if (game) return
+    // Anything still parked from a scroll comes back down first, or the
+    // game would start already won.
+    if (docked) setDocked(false)
+    game = { potted: 0, throws: 0, startedAt: performance.now(), endedAt: 0, won: false, tx: 0, ty: 0 }
+    bodies.forEach((b) => { b.dock = false; b.potted = false; b.released = true; b.asleep = false })
+
+    targetEl = document.createElement('div')
+    targetEl.className = 'rail-target'
+    targetEl.setAttribute('aria-hidden', 'true')
+    targetEl.style.setProperty('--tr', `${TARGET_R}px`)
+    ensureLayer().appendChild(targetEl)
+    moveTarget()
+
+    document.documentElement.classList.add('rail-playing')
+    emit('rail-game-state', gameState())
+    wake()
+  }
+
+  function stopGame(won) {
+    if (!game) return
+    game.won = !!won
+    game.endedAt = performance.now()
+    const final = gameState()
+    game = null
+    try { targetEl && targetEl.remove() } catch {}
+    targetEl = null
+    document.documentElement.classList.remove('rail-playing')
+    // Potted balls are sitting in the column. Send them back down the
+    // same way scrolling up does, so the page is left as it was found.
+    docked = true
+    setDocked(false)
+    bodies.forEach((b) => { b.potted = false })
+    emit('rail-game-state', { ...final, on: false })
+  }
+
+  // Shortest distance from the ring's centre to the path a ball took this
+  // frame, so a fast one can't step over it.
+  function segmentHitsTarget(x1, y1, x2, y2, reach) {
+    if (!game) return false
+    const dx = x2 - x1
+    const dy = y2 - y1
+    const len2 = dx * dx + dy * dy
+    let t = 0
+    if (len2 > 0) {
+      t = ((game.tx - x1) * dx + (game.ty - y1) * dy) / len2
+      t = Math.max(0, Math.min(1, t))
+    }
+    return Math.hypot(game.tx - (x1 + dx * t), game.ty - (y1 + dy * t)) < reach
+  }
+
+  function pot(b) {
+    b.potted = true
+    b.dockIndex = game.potted
+    b.dock = true
+    b.held = false
+    b.asleep = false
+    b.still = 0
+    game.potted++
+    spark(game.tx, game.ty, 1600)
+    if (game.potted >= bodies.length) {
+      emit('rail-game-state', { ...gameState(), on: true })
+      stopGame(true)
+    } else {
+      moveTarget()
+      emit('rail-game-state', gameState())
+    }
+  }
+
+  function write(b) {    b.el.style.transform =
       `translate3d(${(b.x - b.r).toFixed(2)}px, ${(b.y - b.r).toFixed(2)}px, 0) ` +
       `rotate(${b.rot.toFixed(2)}deg) scale(${b.scale.toFixed(3)})`
   }
@@ -458,6 +594,7 @@ export function createRailField(selector = '.rail-btn') {
       const roll = ROLL_FRICTION + z * 0.055
       const air = AIR + (1 - AIR) * z
 
+      b.px = b.x; b.py = b.y   // where this frame started, for the ring test
       b.vy += G * dt
       b.vx *= air
       b.vy *= air
@@ -495,6 +632,21 @@ export function createRailField(selector = '.rail-btn') {
         b.y = b.r
         if (Math.abs(b.vy) > 520) spark(b.x, 0, Math.abs(b.vy))
         b.vy = Math.abs(b.vy) * restWall
+      }
+
+      // Through the ring?
+      //
+      // Against the path travelled this frame, not the point it ended at.
+      // A hard throw covers about 43px in a frame against a hit radius of
+      // roughly 60, and a knock-on can be faster still — testing only the
+      // endpoint let a ball pass clean through the ring and not count,
+      // which reads as the game being broken rather than as a miss.
+      //
+      // It still has to arrive with some pace, or a ball rolling to a stop
+      // on the ring would score by sitting there.
+      if (game && !b.potted && Math.hypot(b.vx, b.vy) > TARGET_MIN_SPEED &&
+          segmentHitsTarget(b.px, b.py, b.x, b.y, TARGET_R + b.r * 0.8)) {
+        pot(b)
       }
     }
 
@@ -614,7 +766,10 @@ export function createRailField(selector = '.rail-btn') {
       b.held = true
       b.released = true
       b.asleep = false
-      b.dock = false   // picking one out of the column frees it
+      // Picking one out of the column frees it — except during a game,
+      // where a potted ball is banked and stays where it is.
+      if (b.potted) return
+      b.dock = false
       moved = 0
       grabX = e.clientX - b.x
       grabY = e.clientY - b.y
@@ -645,8 +800,10 @@ export function createRailField(selector = '.rail-btn') {
       const speed = Math.hypot(b.vx, b.vy)
       if (speed > THROW_MIN) b.zip = Math.min(1, speed / ZIP_AT)
       try { b.el.releasePointerCapture(e.pointerId) } catch {}
-      // A throw shouldn't also open the page.
-      if (moved > 7) {
+      if (game && speed > THROW_MIN) { game.throws++; emit('rail-game-state', gameState()) }
+      // A throw shouldn't also open the page. While a game is on, nothing
+      // does — a mistimed tap that navigated away would end the round.
+      if (moved > 7 || game) {
         const swallow = (ev) => { ev.preventDefault(); ev.stopPropagation() }
         b.el.addEventListener('click', swallow, { capture: true, once: true })
         setTimeout(() => b.el.removeEventListener('click', swallow, true), 60)
@@ -731,6 +888,9 @@ export function createRailField(selector = '.rail-btn') {
   }
 
   const onScroll = () => {
+    // Mid-game the column is the scoreboard, so scrolling doesn't get to
+    // fill it.
+    if (game) return
     const y = window.scrollY || window.pageYOffset || 0
     const h = window.innerHeight || 1
     // Two thresholds, not one: a single line would flap between docked
@@ -757,8 +917,21 @@ export function createRailField(selector = '.rail-btn') {
   const onVis = () => { if (!document.hidden) { last = 0; wake() } }
   document.addEventListener('visibilitychange', onVis)
 
+  const onGameStart = () => startGame()
+  const onGameQuit = () => stopGame(false)
+  const onGameAsk = () => emit('rail-game-state', gameState())
+  window.addEventListener('rail-game-start', onGameStart)
+  window.addEventListener('rail-game-quit', onGameQuit)
+  window.addEventListener('rail-game-ask', onGameAsk)
+
   return {
+    startGame,
+    stopGame,
     destroy() {
+      try { game && stopGame(false) } catch {}
+      window.removeEventListener('rail-game-start', onGameStart)
+      window.removeEventListener('rail-game-quit', onGameQuit)
+      window.removeEventListener('rail-game-ask', onGameAsk)
       timers.forEach(clearTimeout)
       cancelAnimationFrame(raf)
       running = false
