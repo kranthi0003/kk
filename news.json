@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22T05:02:16.509Z",
+  "generated": "2026-08-22T07:59:15.596Z",
   "reddit": [
     {
       "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "I Wish I Knew These 8 Spring Boot Concepts Earlier",
-      "url": "https://gainjavaknowledge.medium.com/i-wish-i-knew-these-8-spring-boot-concepts-earlier-5db22ef39156",
-      "by": "Real World Java",
-      "time": 1787374030000,
+      "title": "Machine First (4): When Computers Became Friendly",
+      "url": "https://medium.com/@cloudpankaj/machine-first-4-when-computers-became-friendly-0381711a60a4",
+      "by": "Pankaj Kumar",
+      "time": 1787384852000,
       "tags": [
-        "spring-boot",
-        "artificial-intelligence",
+        "design",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Docker Networking Fundamentals: From Container eth0 to docker0, veth Pairs, Bridges and NAT",
+      "url": "https://blog.devops.dev/docker-networking-fundamentals-from-container-eth0-to-docker0-veth-pairs-bridges-and-nat-1c42f6502d8e",
+      "by": "Sai Charan",
+      "time": 1787384817000,
+      "tags": [
+        "cloud-computing",
+        "kubernetes",
+        "learning"
+      ]
+    },
+    {
+      "title": "14 seconds to redact nothing: the email regex that froze the tab",
+      "url": "https://medium.com/@yijunkim/14-seconds-to-redact-nothing-the-email-regex-that-froze-the-tab-6d079f6ebe8d",
+      "by": "Yijun Kim",
+      "time": 1787384767000,
+      "tags": [
+        "security",
+        "javascript",
+        "programming"
+      ]
+    },
+    {
+      "title": "Mini Project: Build a Responsive Landing Page (Putting the Whole Series to Work)",
+      "url": "https://medium.com/@ishwaryagopinathan/mini-project-build-a-responsive-landing-page-putting-the-whole-series-to-work-fa696820f8fb",
+      "by": "Ishwarya Gopinathan",
+      "time": 1787384637000,
+      "tags": [
+        "programming",
+        "web-development",
+        "css"
+      ]
+    },
+    {
+      "title": "Automating Code Modernization with OpenRewrite",
+      "url": "https://medium.com/@stefano.dallapalma0/automating-code-modernization-with-openrewrite-9f4ed625bb1b",
+      "by": "Stefano Dalla Palma",
+      "time": 1787384621000,
+      "tags": [
+        "software-engineering",
+        "software-development",
+        "developer-experience"
+      ]
+    },
+    {
+      "title": "Salesforce AI DevOps Course | Salesforce AI Training",
+      "url": "https://medium.com/@vamsivisualpath408/salesforce-ai-devops-course-salesforce-ai-training-1a980d6cf245",
+      "by": "vamsi visualpath",
+      "time": 1787384324000,
+      "tags": [
+        "education",
+        "salesforce",
+        "salesforce-devops"
+      ]
+    },
+    {
+      "title": "AI Engineering: Building the Future with AIIQLABS",
+      "url": "https://medium.com/@outreach_6128/ai-engineering-building-the-future-with-aiiqlabs-77c1ca2b197a",
+      "by": "Outreach",
+      "time": 1787384253000,
+      "tags": [
+        "generative-ai-course",
+        "ai",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "15 Python Editors and IDEs, Really Broken Down: The Real Question Isn’t “Which Is Best” — It’s…",
+      "url": "https://medium.com/jin-system-architect/15-python-editors-and-ides-really-broken-down-the-real-question-isnt-which-is-best-it-s-d9b6b2a1d29b",
+      "by": "Edward Low",
+      "time": 1787384212000,
+      "tags": [
+        "editor",
+        "coding",
         "software-development"
       ]
     },
     {
-      "title": "How WhatsApp’s Blue Ticks Actually Work — and Why “Read” Doesn’t Mean What You Think",
-      "url": "https://medium.com/@the_atomic_architect/how-whatsapp-blue-ticks-really-work-read-receipts-explained-60fd9b023344",
-      "by": "The Atomic Architect",
-      "time": 1787373930000,
+      "title": "IAM and Infrastructure as Code: Building Secure and Repeatable AI Infrastructure",
+      "url": "https://medium.com/@prateektopal04/iam-and-infrastructure-as-code-building-secure-and-repeatable-ai-infrastructure-e69412473de3",
+      "by": "Prateektopal",
+      "time": 1787384196000,
       "tags": [
-        "software-development",
-        "technology",
-        "coding"
+        "machine-learning",
+        "artificial-intelligence",
+        "software-engineering"
       ]
     },
     {
-      "title": "When Should a Founder Get an Independent Review of a Software Development Plan?",
-      "url": "https://medium.com/codetodeploy/when-should-a-founder-get-an-independent-review-of-a-software-development-plan-2aa3a83cb855",
-      "by": "Auro Rekha",
-      "time": 1787373862000,
+      "title": "10 Minutes to a Production DDD Skeleton — Spring Boot 4.1, JDK 25, Two Databases",
+      "url": "https://medium.com/@coolercoder/10-minutes-to-a-production-ddd-skeleton-spring-boot-4-1-jdk-25-two-databases-ea53f391ffc9",
+      "by": "Ray Hu",
+      "time": 1787384118000,
       "tags": [
-        "ai",
         "software-engineering",
-        "technology"
-      ]
-    },
-    {
-      "title": "Why our liveness probe timed out even though /healthCheck never touched Redis",
-      "url": "https://medium.com/@mridultiwari2002/why-our-liveness-probe-timed-out-even-though-healthcheck-never-touched-redis-78cd2e58cbd7",
-      "by": "Mridultiwari",
-      "time": 1787373509000,
-      "tags": [
-        "devops",
-        "kubernetes",
-        "java"
-      ]
-    },
-    {
-      "title": "Beyond Arrays: A Practical Journey Through NumPy",
-      "url": "https://medium.com/@sadhanabommi729/beyond-arrays-a-practical-journey-through-numpy-30913091d576",
-      "by": "Sadhanabommi",
-      "time": 1787373209000,
-      "tags": [
-        "data-analysis",
-        "python",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Linear Data Structures and Algorithms in Java: The Complete Deep Dive Guide",
-      "url": "https://deepawasthi.medium.com/data-structures-and-algorithms-part-1-d458fb844275",
-      "by": "Deep Awasthi",
-      "time": 1787373064000,
-      "tags": [
         "programming",
-        "software-development",
-        "java"
-      ]
-    },
-    {
-      "title": "Top 10 OpenTelemetry Collectors and Exporters for Kubernetes",
-      "url": "https://medium.com/devops-ai-decoded/top-10-opentelemetry-collectors-and-exporters-for-kubernetes-47bb52717e15",
-      "by": "Neel Shah",
-      "time": 1787373064000,
-      "tags": [
-        "kubernetes",
-        "devops",
-        "ai"
-      ]
-    },
-    {
-      "title": "How I Troubleshoot Databases When My Application Suddenly Gets Slow",
-      "url": "https://medium.com/@sre-devops-interview/how-i-troubleshoot-databases-when-my-application-suddenly-gets-slow-2c61e72992ee",
-      "by": "Tanishq Arora",
-      "time": 1787373063000,
-      "tags": [
-        "sre",
-        "programming",
-        "devops"
-      ]
-    },
-    {
-      "title": "I Was Too Scared to Ask for Two More Days on a 72-Hour Deadline",
-      "url": "https://medium.com/@TechByQadir/i-was-too-scared-to-ask-for-two-more-days-on-a-72-hour-deadline-fd13ca886f7d",
-      "by": "Abdul Qadir",
-      "time": 1787372853000,
-      "tags": [
-        "interviewing",
-        "software-engineering",
-        "tech-industry"
-      ]
-    },
-    {
-      "title": "DAILY SPRING DEVOTIONAL.",
-      "url": "https://medium.com/@DailySpringDevotional/daily-spring-devotional-cf5f949922ca",
-      "by": "DEBORAH CHINEDU",
-      "time": 1787372753000,
-      "tags": [
-        "technology",
-        "programming",
-        "money"
+        "software-development"
       ]
     }
   ]
