@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22T10:43:24.264Z",
+  "generated": "2026-08-22T11:03:16.413Z",
   "reddit": [
     {
       "title": "The Pit Of Success",
@@ -74,113 +74,110 @@
   ],
   "medium": [
     {
-      "title": "Six Tools Gave My Agent New Powers. Fifteen Lines of Markdown Gave It a Habit.",
-      "url": "https://mohansagark.medium.com/six-tools-gave-my-agent-new-powers-fifteen-lines-of-markdown-gave-it-a-habit-884610fef5a9",
-      "by": "Mohan Sagar",
-      "time": 1787394709000,
+      "title": "Who Gets to Learn When the Machine Writes the First Draft?",
+      "url": "https://medium.com/@mehdibafdil/who-gets-to-learn-when-the-machine-writes-the-first-draft-2853fdcc5e42",
+      "by": "Mehdi BAFDIL",
+      "time": 1787396461000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "technology"
+      ]
+    },
+    {
+      "title": "WSGI vs ASGI: What Nobody Told Me Until I Actually Deployed My FastAPI App",
+      "url": "https://medium.com/@aadutta7/wsgi-vs-asgi-what-nobody-told-me-until-i-actually-deployed-my-fastapi-app-c080696fe632",
+      "by": "Akash Dutta",
+      "time": 1787396102000,
+      "tags": [
+        "programming",
+        "backend-development",
+        "web-development"
+      ]
+    },
+    {
+      "title": "I Ran My PC 12 Hours a Day for Months to Build a 955,383-Company Database",
+      "url": "https://medium.com/@coupyn/i-ran-my-pc-12-hours-a-day-for-months-to-build-a-955-383-company-database-2a2b73534414",
+      "by": "Serhat Soruklu",
+      "time": 1787395959000,
+      "tags": [
+        "startup",
+        "data-engineering",
+        "mongodb"
+      ]
+    },
+    {
+      "title": "MLM Software in Chennai: Build, Manage & Scale Your Network Marketing Business",
+      "url": "https://medium.com/@sh11_46639/mlm-software-in-chennai-build-manage-scale-your-network-marketing-business-6d42a3110319",
+      "by": "shallu",
+      "time": 1787395753000,
       "tags": [
         "software-engineering",
-        "developer-tools",
-        "model-context-protocol"
+        "software-development"
       ]
     },
     {
-      "title": "SOLID Principles: Designing Software That Can Survive Change",
-      "url": "https://medium.com/@nsikanpatrick69/solid-principles-designing-software-that-can-survive-change-31d5081690aa",
-      "by": "Nsikan Patrick Adaowo",
-      "time": 1787394662000,
+      "title": "I Was Solving the Same Problem Twice - I Just Didn’t Know It",
+      "url": "https://medium.com/@jiya6024183/i-was-solving-the-same-problem-twice-i-just-didnt-know-it-8251e5380e60",
+      "by": "Jiya",
+      "time": 1787395516000,
       "tags": [
-        "backend-architecture",
+        "artificial-intelligence",
         "software-engineering",
-        "solid-principles"
+        "programming"
       ]
     },
     {
-      "title": "Part 1: Why Kubernetes Exists — The SRE Perspective",
-      "url": "https://medium.com/@sarkarbikram90/part-1-why-kubernetes-exists-the-sre-perspective-a293bb3bcc51",
-      "by": "Bikram Sarkar",
-      "time": 1787394648000,
-      "tags": [
-        "devops",
-        "platform-engineering",
-        "sre"
-      ]
-    },
-    {
-      "title": "Vibe Coding and AI-Assisted Engineering Can Look Identical Until Something Goes Wrong",
-      "url": "https://medium.com/@masaood/vibe-coding-and-ai-assisted-engineering-can-look-identical-until-something-goes-wrong-63f704c4f9ce",
-      "by": "Masaood",
-      "time": 1787394497000,
+      "title": "Best MLM Software in Pune — Trusted MLM Software Development Company for Growing Businesses",
+      "url": "https://medium.com/@sh10_28047/best-mlm-software-in-pune-trusted-mlm-software-development-company-for-growing-businesses-17d9d06e405c",
+      "by": "shallu",
+      "time": 1787395455000,
       "tags": [
         "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "5 BORING But Easy Online Jobs That Are Always Hiring In 2026!",
+      "url": "https://medium.com/@themoneyonline_27237/5-boring-but-easy-online-jobs-that-are-always-hiring-in-2026-bcb8cd6d2568",
+      "by": "Business Hustle",
+      "time": 1787395306000,
+      "tags": [
+        "business",
         "programming",
         "technology"
       ]
     },
     {
-      "title": "Python 3.15 Is Bigger Than You Think: 7 New Features Worth Using in 2026",
-      "url": "https://captain-solaris.medium.com/python-3-15-is-bigger-than-you-think-7-new-features-worth-using-in-2026-0235523fbc03",
-      "by": "Bernd Fischer",
-      "time": 1787394361000,
-      "tags": [
-        "data-science",
-        "python",
-        "software-development"
-      ]
-    },
-    {
-      "title": "How I Built and Shipped a Bomberman Tribute in 10 Days (Post-Mortem)",
-      "url": "https://medium.com/the-solo-dev-journal/how-i-built-and-shipped-a-bomberman-tribute-in-10-days-post-mortem-dd9f61901626",
-      "by": "Karl Michalik",
-      "time": 1787393951000,
-      "tags": [
-        "phaserjs",
-        "indie-game",
-        "programming"
-      ]
-    },
-    {
-      "title": "AI Didn’t Take the Junior Dev Job. It Took the Boring Tickets That Turned You into a Senior.",
-      "url": "https://medium.com/technology-hits/ai-didnt-take-the-junior-dev-job-it-took-the-boring-tickets-that-turned-you-into-a-senior-fbc08cdeedbb",
-      "by": "Chris Ng",
-      "time": 1787393380000,
+      "title": "I Stopped Fighting CSS After Understanding These 6 Layout Rules",
+      "url": "https://medium.com/skillstuff/i-stopped-fighting-css-after-understanding-these-6-layout-rules-4b4b19c5c157",
+      "by": "CodeByUmar",
+      "time": 1787395230000,
       "tags": [
         "programming",
-        "software-development",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Why Senior Engineers Spend More Time Removing Possibilities",
-      "url": "https://medium.com/skillstuff/why-senior-engineers-spend-more-time-removing-possibilities-001563c9d908",
-      "by": "CodeByUmar",
-      "time": 1787393323000,
-      "tags": [
-        "technology",
-        "software-engineering",
+        "coding",
         "software-development"
       ]
     },
     {
-      "title": "The Week I Got Claude Code Talking to Jira",
-      "url": "https://medium.com/@diokpadaberechi/the-week-i-got-claude-code-talking-to-jira-9dde2fb9d716",
-      "by": "Diokpa Raphael Daberechi",
-      "time": 1787393316000,
+      "title": "How to Publish 100+ White-Label Apps on Google Play Safely",
+      "url": "https://medium.com/@allclonescript/how-to-publish-100-white-label-apps-on-google-play-safely-677af48a4b37",
+      "by": "Allclonescript",
+      "time": 1787395162000,
       "tags": [
-        "jira",
-        "claude",
-        "devops"
+        "mobile-app-development",
+        "google-play",
+        "app-store"
       ]
     },
     {
-      "title": "What is a DNS Server ?",
-      "url": "https://medium.com/@anubhav.kmr5079/what-is-a-dns-server-2fd17f60e742",
-      "by": "Anubhav Kmr",
-      "time": 1787393175000,
+      "title": "Best MLM Software Company in Delhi for Scalable Network Marketing Businesses",
+      "url": "https://medium.com/@sh9_61653/best-mlm-software-company-in-delhi-for-scalable-network-marketing-businesses-30e57cf2bcf0",
+      "by": "shallu",
+      "time": 1787395141000,
       "tags": [
-        "backend",
-        "coding",
-        "dns"
+        "software-engineering",
+        "software-development"
       ]
     }
   ]
