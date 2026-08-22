@@ -276,12 +276,188 @@ function NewReposCard() {
   )
 }
 
-// Money and time are glanceable; the repo list is a read, so it sits last.
-const CARDS = [MoneyCard, TimezoneCard, NewReposCard]
+/* ------------------------------------------------------------------ *
+ * Hacker News — the front page, four stories deep.
+ *
+ * The site's news feed reads Medium and Reddit and nothing else, so the
+ * one place most engineers actually check every morning was missing.
+ *
+ * The API has no batch endpoint: the top-stories call returns 500 bare
+ * ids and each story is a separate request. That's five requests for
+ * four stories, which is why this caches for half an hour — the front
+ * page doesn't turn over faster than that anyway.
+ * ------------------------------------------------------------------ */
+
+const HN_CACHE = 'sidecar_hn'
+const HN_TTL = 1800000 // half an hour
+
+function HackerNewsCard() {
+  const [data, setData] = useState(undefined)
+
+  useEffect(() => {
+    try {
+      const c = JSON.parse(sessionStorage.getItem(HN_CACHE) || 'null')
+      if (c && Date.now() - c.ts < HN_TTL) { setData(c.d); return }
+    } catch {}
+
+    let alive = true
+    fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((ids) => Promise.all(
+        (ids || []).slice(0, 4).map((id) =>
+          fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then((r) => r.json())
+        )
+      ))
+      .then((items) => {
+        if (!alive) return
+        const d = (items || []).filter(Boolean).map((s) => ({
+          id: s.id,
+          title: s.title,
+          // Ask HN and similar have no url of their own; point at the
+          // discussion instead of rendering a dead link.
+          url: s.url || `https://news.ycombinator.com/item?id=${s.id}`,
+          host: s.url ? (() => { try { return new URL(s.url).hostname.replace(/^www\./, '') } catch { return null } })() : null,
+          score: s.score || 0,
+          comments: s.descendants || 0,
+        }))
+        if (!d.length) throw new Error('empty')
+        setData(d)
+        try { sessionStorage.setItem(HN_CACHE, JSON.stringify({ d, ts: Date.now() })) } catch {}
+      })
+      .catch(() => { if (alive) setData(null) })
+    return () => { alive = false }
+  }, [])
+
+  const shell = (children) => (
+    <Shell icon="📰" title="Hacker News · Front page" tint="#FF6600">{children}</Shell>
+  )
+
+  if (data === undefined) return shell(<Loading label="reading the front page…" />)
+  if (data === null) return shell(<Failed label="Hacker News didn't answer. Its API is a single Firebase instance and does occasionally stall." />)
+
+  return shell(
+    <ul className="space-y-2.5">
+      {data.map((s) => (
+        <li key={s.id}>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" className="group block" title={s.title}>
+            <p className="text-[12.5px] leading-snug text-foreground group-hover:underline line-clamp-2">
+              {s.title}
+            </p>
+            <p className="mt-0.5 text-[10.5px] font-mono text-muted-foreground tabular-nums">
+              {s.score} points · {s.comments} comments{s.host ? ` · ${s.host}` : ''}
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * Releases — the version numbers of the things he actually runs.
+ *
+ * "Is there a new Kubernetes yet" is a question an infrastructure
+ * engineer asks constantly and no page here answered. Five repositories,
+ * one request each, in parallel.
+ *
+ * golang/go is deliberately absent: it publishes tags rather than
+ * releases, so releases/latest returns 404 for it and it would have sat
+ * there permanently blank.
+ * ------------------------------------------------------------------ */
+
+const RELEASE_CACHE = 'sidecar_releases'
+const RELEASE_TTL = 21600000 // six hours
+
+const TOOLS = [
+  { repo: 'kubernetes/kubernetes', name: 'Kubernetes' },
+  { repo: 'hashicorp/terraform', name: 'Terraform' },
+  { repo: 'helm/helm', name: 'Helm' },
+  { repo: 'nodejs/node', name: 'Node' },
+  { repo: 'grafana/grafana', name: 'Grafana' },
+]
+
+function daysAgo(iso) {
+  if (!iso) return null
+  const d = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000)
+  if (d < 0) return null
+  if (d === 0) return 'today'
+  if (d === 1) return 'yesterday'
+  if (d < 30) return `${d}d ago`
+  const m = Math.round(d / 30.44)
+  return m <= 1 ? '1mo ago' : `${m}mo ago`
+}
+
+function ReleasesCard() {
+  const [data, setData] = useState(undefined)
+
+  useEffect(() => {
+    try {
+      const c = JSON.parse(sessionStorage.getItem(RELEASE_CACHE) || 'null')
+      if (c && Date.now() - c.ts < RELEASE_TTL) { setData(c.d); return }
+    } catch {}
+
+    let alive = true
+    Promise.all(TOOLS.map((t) =>
+      fetch(`https://api.github.com/repos/${t.repo}/releases/latest`, {
+        headers: { Accept: 'application/vnd.github+json' },
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        // One tool being unreachable shouldn't empty the whole card.
+        .catch(() => null)
+        .then((j) => (j && j.tag_name ? {
+          name: t.name,
+          repo: t.repo,
+          tag: j.tag_name.replace(/^([a-z-]+-)?v?/i, 'v'),
+          when: daysAgo(j.published_at),
+          url: j.html_url,
+        } : null))
+    ))
+      .then((rows) => {
+        if (!alive) return
+        const d = rows.filter(Boolean)
+        if (!d.length) throw new Error('empty')
+        setData(d)
+        try { sessionStorage.setItem(RELEASE_CACHE, JSON.stringify({ d, ts: Date.now() })) } catch {}
+      })
+      .catch(() => { if (alive) setData(null) })
+    return () => { alive = false }
+  }, [])
+
+  const shell = (children, right) => (
+    <Shell icon="📦" title="Releases · What's current" tint="#8B7FD8" right={right}>{children}</Shell>
+  )
+
+  if (data === undefined) return shell(<Loading label="checking versions…" />)
+  if (data === null) return shell(<Failed label="GitHub didn't answer. It rate-limits anonymous requests, so this usually clears on its own." />)
+
+  return shell(
+    <div className="space-y-2">
+      {data.map((t) => (
+        <a
+          key={t.repo}
+          href={t.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-baseline gap-2.5"
+          title={`${t.repo} — release notes`}
+        >
+          <span className="text-[12.5px] text-muted-foreground group-hover:text-foreground transition-colors">{t.name}</span>
+          <span className="ml-auto text-[12.5px] font-mono tabular-nums text-foreground">{t.tag}</span>
+          {t.when && <span className="text-[10px] font-mono text-muted-foreground w-14 text-right">{t.when}</span>}
+        </a>
+      ))}
+    </div>,
+    <span className="text-[10px] font-mono text-muted-foreground">{data.length} tools</span>
+  )
+}
+
+// Glanceable first (a number each), then the two reading lists, then the
+// repo list — which is the longest and so sits at the bottom.
+const CARDS = [MoneyCard, TimezoneCard, HackerNewsCard, ReleasesCard, NewReposCard]
 
 // Every card reads its sessionStorage entry before it fetches, so a refresh has
 // to clear these first or the remount just replays the same cached payload.
-const CARD_CACHE_KEYS = [MONEY_CACHE, REPO_CACHE]
+const CARD_CACHE_KEYS = [MONEY_CACHE, REPO_CACHE, HN_CACHE, RELEASE_CACHE]
 
 export default function Sidecar() {
   const [open, setOpen] = useState(false)
