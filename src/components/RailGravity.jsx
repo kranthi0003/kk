@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { createRailField } from '../lib/railGravity'
 
 /* Mounts the gravity field over the rail buttons.
@@ -14,9 +14,17 @@ import { createRailField } from '../lib/railGravity'
  * by CSS at least once — the field seeds each ball from the position the
  * rail already gave it, so a zero-size measurement would drop everything
  * from the top-left corner.
+ *
+ * The hiding has to happen in a layout effect, not a normal one. A normal
+ * effect runs *after* the browser paints, which was long enough for all
+ * the balls to show up stacked in the rail for a single frame before
+ * gravity claimed them — measured at t=318ms, one frame ahead of the
+ * class landing at t=386ms. A layout effect runs before that paint. It's
+ * still JavaScript, so if the module fails to load at all the class is
+ * never added and the rail stays visible and clickable.
  */
 export default function RailGravity() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     let field = null
     let raf1 = 0
     let raf2 = 0

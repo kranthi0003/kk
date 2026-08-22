@@ -35,6 +35,25 @@ function RailLink({ href, index, tint, title, wip, children }) {
   )
 }
 
+// Same ball, but it fires an event instead of navigating — for the one
+// whose destination is a panel that's already mounted rather than a
+// route. The physics engine selects on .rail-btn, so this behaves
+// identically once it's in the air.
+function RailAction({ onClick, index, tint, title, children }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={title}
+      title={title}
+      className="group rail-btn rail-tint"
+      style={{ '--rail-i': index, '--tint': tint }}
+    >
+      {children}
+    </button>
+  )
+}
+
 // A clapperboard, inside a rim of film perforations.
 export function MoviesRailButton() {
   return (
@@ -146,6 +165,115 @@ export function OmscsRailButton() {
         @media (prefers-reduced-motion: reduce) {
           .omsbtn-tassel, .omsbtn-rim { transition: none; }
           .rail-btn:hover .omsbtn-tassel, .rail-btn:hover .omsbtn-rim { transform: none; }
+        }
+      `}</style>
+    </RailLink>
+  )
+}
+
+// A rising line, inside a rim scored like a price axis. The line is the
+// only mark here that means something literal, so it's drawn thick and
+// left unfilled — a chart, not a logo.
+export function StocksRailButton() {
+  return (
+    <RailLink href="#/stocks" index={8} tint="#5FBF8F" title="Stocks — the tape">
+      <svg className="stbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
+        <g stroke="var(--rail-disc)" strokeWidth="2.4">
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
+            <line key={a} x1="27" y1="2.4" x2="27" y2="6.6" transform={`rotate(${a} 27 27)`} />
+          ))}
+        </g>
+      </svg>
+      <svg className="rail-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M2.6 21.4h18.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" opacity=".55" />
+        <path className="stbtn-line" d="M3.4 16.6 9 11.2l3.9 3.5 7.4-8.1" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15.6 5.4h5.4v5.2" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        <circle className="stbtn-dot" cx="9" cy="11.2" r="2" fill="var(--rail-disc)" stroke="currentColor" strokeWidth="1.6" />
+      </svg>
+      <style>{`
+        .stbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+        .stbtn-line { stroke-dasharray: 30; stroke-dashoffset: 0; transition: stroke-dashoffset .5s cubic-bezier(.22,.61,.36,1); }
+        .stbtn-dot { transition: transform .4s cubic-bezier(.22,.61,.36,1); transform-origin: 9px 11.2px; }
+        .rail-btn:hover .stbtn-rim { transform: rotate(26deg); }
+        .rail-btn:hover .stbtn-line { stroke-dashoffset: 30; animation: stbtn-draw .55s cubic-bezier(.22,.61,.36,1) forwards; }
+        .rail-btn:hover .stbtn-dot { transform: scale(1.3); }
+        @keyframes stbtn-draw { from { stroke-dashoffset: 30 } to { stroke-dashoffset: 0 } }
+        @media (prefers-reduced-motion: reduce) {
+          .stbtn-rim, .stbtn-line, .stbtn-dot { transition: none; }
+          .rail-btn:hover .stbtn-rim, .rail-btn:hover .stbtn-dot { transform: none; }
+          .rail-btn:hover .stbtn-line { animation: none; stroke-dashoffset: 0; }
+        }
+      `}</style>
+    </RailLink>
+  )
+}
+
+// Bitcoin, inside a rim of block ticks. This one doesn't navigate — the
+// crypto dashboard is already mounted and listens for an event, so the
+// ball opens it in place rather than sending you to a second copy of it.
+export function CryptoRailButton() {
+  const open = () => window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))
+  return (
+    <RailAction onClick={open} index={9} tint="#E8A33D" title="Crypto — markets, sentiment, chain">
+      <svg className="cybtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
+        <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.4" strokeDasharray="3.2 4" />
+      </svg>
+      <svg className="rail-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.4" fill="currentColor" />
+        <g fill="var(--rail-disc)">
+          <path d="M9.1 6.3h1.7v11.4H9.1z" />
+          <path d="M11.9 6.3h1.7v11.4h-1.7z" />
+          <path d="M8.4 7.5h4.6c1.9 0 3.3 1 3.3 2.6s-1.4 2.5-3.3 2.5H8.4zM8.4 11.6h5c2 0 3.5 1 3.5 2.6s-1.5 2.6-3.5 2.6h-5z" />
+        </g>
+        <g fill="currentColor">
+          <path d="M9.6 8.9h3.2c.9 0 1.5.4 1.5 1.1s-.6 1.1-1.5 1.1H9.6zM9.6 13h3.6c1 0 1.6.4 1.6 1.2s-.6 1.2-1.6 1.2H9.6z" />
+        </g>
+      </svg>
+      <style>{`
+        .cybtn-rim { transition: transform .6s cubic-bezier(.22,.61,.36,1); }
+        .rail-btn:hover .cybtn-rim { transform: rotate(-30deg); }
+        @media (prefers-reduced-motion: reduce) {
+          .cybtn-rim { transition: none; }
+          .rail-btn:hover .cybtn-rim { transform: none; }
+        }
+      `}</style>
+    </RailAction>
+  )
+}
+
+// A rocket, inside a rim of stars at uneven spacing — evenly spaced dots
+// read as a dial, and this wanted to read as sky.
+export function SpaceRailButton() {
+  return (
+    <RailLink href="#/space" index={10} tint="#8E9BE8" title="Space — live from orbit">
+      <svg className="spbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.4" opacity=".88" />
+        <g fill="var(--rail-disc)">
+          {[8, 52, 96, 128, 176, 214, 268, 302, 334].map((a, i) => (
+            <circle key={a} cx="27" cy="2.4" r={i % 3 === 0 ? 1.9 : 1.2} transform={`rotate(${a} 27 27)`} />
+          ))}
+        </g>
+      </svg>
+      <svg className="rail-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <g className="spbtn-ship">
+          <path d="M12 1.6c3 2.6 4.6 6.2 4.6 10.2l-1.9 4.4H9.3l-1.9-4.4C7.4 7.8 9 4.2 12 1.6z" fill="currentColor" />
+          <circle cx="12" cy="9.2" r="2.2" fill="var(--rail-disc)" />
+          <path d="M9.3 12.6 6.2 16v3l3.1-2.1zM14.7 12.6l3.1 3.4v3l-3.1-2.1z" fill="currentColor" opacity=".7" />
+        </g>
+        <path className="spbtn-flame" d="M12 17.4c1.1 1.4 1.7 2.8 1.7 4.2 0 .5-.8.8-1.7.8s-1.7-.3-1.7-.8c0-1.4.6-2.8 1.7-4.2z" fill="currentColor" opacity=".85" />
+      </svg>
+      <style>{`
+        .spbtn-rim { transition: transform .7s cubic-bezier(.22,.61,.36,1); }
+        .spbtn-ship { transition: transform .45s cubic-bezier(.22,.61,.36,1); }
+        .spbtn-flame { transform-origin: 12px 17.4px; transition: transform .35s cubic-bezier(.22,.61,.36,1); }
+        .rail-btn:hover .spbtn-rim { transform: rotate(20deg); }
+        .rail-btn:hover .spbtn-ship { transform: translateY(-1.4px); }
+        .rail-btn:hover .spbtn-flame { transform: scaleY(1.35); }
+        @media (prefers-reduced-motion: reduce) {
+          .spbtn-rim, .spbtn-ship, .spbtn-flame { transition: none; }
+          .rail-btn:hover .spbtn-rim, .rail-btn:hover .spbtn-ship, .rail-btn:hover .spbtn-flame { transform: none; }
         }
       `}</style>
     </RailLink>

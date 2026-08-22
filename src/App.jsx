@@ -46,7 +46,7 @@ import F1Banner from './components/F1Banner'
 import CricketButton from './components/CricketButton'
 import MusicButton from './components/MusicButton'
 import CookingButton from './components/CookingButton'
-import { MoviesRailButton, PhotographyRailButton, BrandsRailButton, OmscsRailButton } from './components/RailButtons'
+import { MoviesRailButton, PhotographyRailButton, BrandsRailButton, OmscsRailButton, StocksRailButton, CryptoRailButton, SpaceRailButton } from './components/RailButtons'
 import RailGravity from './components/RailGravity'
 
 import WorkspaceSection from './components/WorkspaceSection'
@@ -73,6 +73,7 @@ const MoviesPage = lazy(() => import('./components/MoviesPage'))
 const PhotographyPage = lazy(() => import('./components/PhotographyPage'))
 const BrandsPage = lazy(() => import('./components/BrandsPage'))
 const OmscsPage = lazy(() => import('./components/OmscsPage'))
+const StocksPage = lazy(() => import('./components/StocksPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -335,6 +336,15 @@ export default function App() {
     )
   }
 
+  // Stocks — live quotes for the companies he works on or for
+  if (route === '#/stocks') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <StocksPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
   // Royal Square — the apartment page (location, notices, bills, services, events)
   if (route === '#/royalsquare') {
     return (
@@ -508,6 +518,9 @@ export default function App() {
       <PhotographyRailButton />
       <BrandsRailButton />
       <OmscsRailButton />
+      <StocksRailButton />
+      <CryptoRailButton />
+      <SpaceRailButton />
       <RailGravity />
       <VisitorTracker />
       <VisitorCount />
