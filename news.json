@@ -1,13 +1,6 @@
 {
-  "generated": "2026-08-22T09:29:43.067Z",
+  "generated": "2026-08-22T10:43:24.264Z",
   "reddit": [
-    {
-      "title": "How do you handle alerts issues?",
-      "url": "https://www.reddit.com/r/devops/comments/1vv7m7w/how_do_you_handle_alerts_issues/",
-      "by": "AcanthaceaeUnlucky18",
-      "time": 1787390364000,
-      "sub": "r/devops"
-    },
     {
       "title": "The Pit Of Success",
       "url": "https://www.reddit.com/r/programming/comments/1vv78fc/the_pit_of_success/",
@@ -16,25 +9,25 @@
       "sub": "r/programming"
     },
     {
-      "title": "How do real companies securely give developers access to the development database?",
-      "url": "https://www.reddit.com/r/devops/comments/1vv3h37/how_do_real_companies_securely_give_developers/",
-      "by": "Successful-Ship580",
-      "time": 1787376099000,
-      "sub": "r/devops"
+      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
+      "by": "Josh_Difratech",
+      "time": 1787345490000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Want to switch my career towards SRE/DevOps",
-      "url": "https://www.reddit.com/r/devops/comments/1vuv3wj/want_to_switch_my_career_towards_sredevops/",
-      "by": "rizqrollno748",
-      "time": 1787352282000,
-      "sub": "r/devops"
+      "title": "Linux and storage | toward Rook|Ceph",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
+      "by": "faulty-segment",
+      "time": 1787344211000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Best way to integrate OpenProject + GitLab + Mattermost?",
-      "url": "https://www.reddit.com/r/devops/comments/1vuuzui/best_way_to_integrate_openproject_gitlab/",
-      "by": "ExtraLife6520",
-      "time": 1787352008000,
-      "sub": "r/devops"
+      "title": "Struggling mightily with NFS and respecting POSIX permissions in a multi-tenant environment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurn1o/struggling_mightily_with_nfs_and_respecting_posix/",
+      "by": "cowmu",
+      "time": 1787343972000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
@@ -51,135 +44,143 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
-      "sub": "r/kubernetes"
+      "title": "The Great Android Stack Reset: Mobile System Design History",
+      "url": "https://www.reddit.com/r/programming/comments/1vuaimm/the_great_android_stack_reset_mobile_system/",
+      "by": "Super-Performance-86",
+      "time": 1787301388000,
+      "sub": "r/programming"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "MLM Software in Germany: Powerful Solutions for Modern Network Marketing Businesses",
-      "url": "https://medium.com/@sh4_70260/mlm-software-in-germany-powerful-solutions-for-modern-network-marketing-businesses-04ad3ba62246",
-      "by": "shallu",
-      "time": 1787390234000,
+      "title": "Six Tools Gave My Agent New Powers. Fifteen Lines of Markdown Gave It a Habit.",
+      "url": "https://mohansagark.medium.com/six-tools-gave-my-agent-new-powers-fifteen-lines-of-markdown-gave-it-a-habit-884610fef5a9",
+      "by": "Mohan Sagar",
+      "time": 1787394709000,
       "tags": [
+        "software-engineering",
+        "developer-tools",
+        "model-context-protocol"
+      ]
+    },
+    {
+      "title": "SOLID Principles: Designing Software That Can Survive Change",
+      "url": "https://medium.com/@nsikanpatrick69/solid-principles-designing-software-that-can-survive-change-31d5081690aa",
+      "by": "Nsikan Patrick Adaowo",
+      "time": 1787394662000,
+      "tags": [
+        "backend-architecture",
+        "software-engineering",
+        "solid-principles"
+      ]
+    },
+    {
+      "title": "Part 1: Why Kubernetes Exists — The SRE Perspective",
+      "url": "https://medium.com/@sarkarbikram90/part-1-why-kubernetes-exists-the-sre-perspective-a293bb3bcc51",
+      "by": "Bikram Sarkar",
+      "time": 1787394648000,
+      "tags": [
+        "devops",
+        "platform-engineering",
+        "sre"
+      ]
+    },
+    {
+      "title": "Vibe Coding and AI-Assisted Engineering Can Look Identical Until Something Goes Wrong",
+      "url": "https://medium.com/@masaood/vibe-coding-and-ai-assisted-engineering-can-look-identical-until-something-goes-wrong-63f704c4f9ce",
+      "by": "Masaood",
+      "time": 1787394497000,
+      "tags": [
+        "software-development",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Python 3.15 Is Bigger Than You Think: 7 New Features Worth Using in 2026",
+      "url": "https://captain-solaris.medium.com/python-3-15-is-bigger-than-you-think-7-new-features-worth-using-in-2026-0235523fbc03",
+      "by": "Bernd Fischer",
+      "time": 1787394361000,
+      "tags": [
+        "data-science",
+        "python",
+        "software-development"
+      ]
+    },
+    {
+      "title": "How I Built and Shipped a Bomberman Tribute in 10 Days (Post-Mortem)",
+      "url": "https://medium.com/the-solo-dev-journal/how-i-built-and-shipped-a-bomberman-tribute-in-10-days-post-mortem-dd9f61901626",
+      "by": "Karl Michalik",
+      "time": 1787393951000,
+      "tags": [
+        "phaserjs",
+        "indie-game",
+        "programming"
+      ]
+    },
+    {
+      "title": "AI Didn’t Take the Junior Dev Job. It Took the Boring Tickets That Turned You into a Senior.",
+      "url": "https://medium.com/technology-hits/ai-didnt-take-the-junior-dev-job-it-took-the-boring-tickets-that-turned-you-into-a-senior-fbc08cdeedbb",
+      "by": "Chris Ng",
+      "time": 1787393380000,
+      "tags": [
+        "programming",
+        "software-development",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Why Senior Engineers Spend More Time Removing Possibilities",
+      "url": "https://medium.com/skillstuff/why-senior-engineers-spend-more-time-removing-possibilities-001563c9d908",
+      "by": "CodeByUmar",
+      "time": 1787393323000,
+      "tags": [
+        "technology",
         "software-engineering",
         "software-development"
       ]
     },
     {
-      "title": "How Did Archimedes Calculate Pi Without Measuring It",
-      "url": "https://medium.com/think-art/how-did-archimedes-calculate-pi-without-measuring-it-3b2f2153724f",
-      "by": "Thanushan Sivapatham",
-      "time": 1787390185000,
+      "title": "The Week I Got Claude Code Talking to Jira",
+      "url": "https://medium.com/@diokpadaberechi/the-week-i-got-claude-code-talking-to-jira-9dde2fb9d716",
+      "by": "Diokpa Raphael Daberechi",
+      "time": 1787393316000,
       "tags": [
-        "programming",
-        "data-science",
-        "technology"
+        "jira",
+        "claude",
+        "devops"
       ]
     },
     {
-      "title": "The architect frowned: “Your RAG users have to wait 8 seconds to see the first word?",
-      "url": "https://medium.com/@umeshcapg/the-architect-frowned-your-rag-users-have-to-wait-8-seconds-to-see-the-first-word-61c6f3530b55",
-      "by": "Umesh Kumar Yadav",
-      "time": 1787390185000,
+      "title": "What is a DNS Server ?",
+      "url": "https://medium.com/@anubhav.kmr5079/what-is-a-dns-server-2fd17f60e742",
+      "by": "Anubhav Kmr",
+      "time": 1787393175000,
       "tags": [
-        "software-engineering",
-        "rags",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Graveyard in My Home Directory",
-      "url": "https://medium.com/@elad.bash/the-graveyard-in-my-home-directory-9418173eb11c",
-      "by": "Elad Bash",
-      "time": 1787390145000,
-      "tags": [
-        "artificial-intelligence",
-        "developer-tools",
-        "open-source"
-      ]
-    },
-    {
-      "title": "ADR-as-spec, Fitness Functions, and Policy-as-Code: Enforceable Architecture in the Agent Era — SDD",
-      "url": "https://medium.com/@wasowski.jarek/adr-as-spec-fitness-functions-and-policy-as-code-enforceable-architecture-in-the-agent-era-sdd-00a186162f7e",
-      "by": "Jaroslaw Wasowski",
-      "time": 1787390074000,
-      "tags": [
-        "software-architecture",
-        "technology",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "How I Built Message Editing in Jitsi Meet",
-      "url": "https://medium.com/@alokwork2016/how-i-built-message-editing-in-jitsi-meet-fa434e9bd04c",
-      "by": "Alokwork",
-      "time": 1787390074000,
-      "tags": [
-        "software-engineering",
-        "jitsi-meet",
-        "open-source"
-      ]
-    },
-    {
-      "title": "Logistic Regression & Classification Metrics (Chapter 10)",
-      "url": "https://medium.com/@ckarthick.msc/logistic-regression-classification-metrics-chapter-10-9d53b86a3b6c",
-      "by": "Karthick chidambaram",
-      "time": 1787389861000,
-      "tags": [
-        "programming",
-        "ai",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Designing APIs That Understand Intent",
-      "url": "https://medium.com/@derek.mwale/designing-apis-that-understand-intent-021166eeea26",
-      "by": "Derek Mwale",
-      "time": 1787389844000,
-      "tags": [
-        "software-development",
+        "backend",
         "coding",
-        "api"
-      ]
-    },
-    {
-      "title": "Getting into Data Engineering is actually pretty easy",
-      "url": "https://medium.com/@deep2017.arjun/getting-into-data-engineering-is-actually-pretty-easy-f42c46a69da6",
-      "by": "Deep Arjun",
-      "time": 1787389800000,
-      "tags": [
-        "data-science",
-        "data-visualization",
-        "python"
-      ]
-    },
-    {
-      "title": "The Bug That Took Me 6 Hours to Fix Had a 2-Minute Solution",
-      "url": "https://medium.com/@manishaa.011103/the-bug-that-took-me-6-hours-to-fix-had-a-2-minute-solution-297b3a49d53e",
-      "by": "Manisha Yadav",
-      "time": 1787389705000,
-      "tags": [
-        "programming-languages",
-        "coding",
-        "programming"
+        "dns"
       ]
     }
   ]
