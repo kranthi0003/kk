@@ -230,7 +230,7 @@ h4, h5, h6 {
      of a short screen — it just tightens things. Eight, not nine: the
      Sidecar handle stays pinned at the top right and is not part of the
      field. */
-  --rail-count: 8;
+  --rail-count: 11;
   --rail-top: clamp(3.25rem, 8.5vh, 5rem);
   --rail-right: clamp(0.7rem, 3vw, 1.5rem);
 
