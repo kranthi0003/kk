@@ -1,13 +1,6 @@
 {
-  "generated": "2026-08-22T04:08:46.847Z",
+  "generated": "2026-08-22T04:27:41.406Z",
   "reddit": [
-    {
-      "title": "Ich möchte eine Alternative für Tinder, Bumble, Hinge und Jodel anbieten",
-      "url": "https://www.reddit.com/r/programming/comments/1vuxzx1/ich_möchte_eine_alternative_für_tinder_bumble/",
-      "by": "Mother-Economist5055",
-      "time": 1787359885000,
-      "sub": "r/programming"
-    },
     {
       "title": "Want to switch my career towards SRE/DevOps",
       "url": "https://www.reddit.com/r/devops/comments/1vuv3wj/want_to_switch_my_career_towards_sredevops/",
@@ -30,6 +23,13 @@
       "sub": "r/devops"
     },
     {
+      "title": "Is anyone here considering MLOps or you think DevOps/ Platform engineering still has long way to go?",
+      "url": "https://www.reddit.com/r/devops/comments/1vukq60/is_anyone_here_considering_mlops_or_you_think/",
+      "by": "devops-noob",
+      "time": 1787328742000,
+      "sub": "r/devops"
+    },
+    {
       "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
       "url": "https://www.reddit.com/r/programming/comments/1vuk4b5/finding_a_hidden_mersenne_twister_implementation/",
       "by": "JizosKasa",
@@ -44,10 +44,10 @@
       "sub": "r/programming"
     },
     {
-      "title": "Building Mini Spark, a Tiny Distributed Computing Engine",
-      "url": "https://www.reddit.com/r/programming/comments/1vuctzc/building_mini_spark_a_tiny_distributed_computing/",
-      "by": "MexicanYoda45",
-      "time": 1787309086000,
+      "title": "The Great Android Stack Reset: Mobile System Design History",
+      "url": "https://www.reddit.com/r/programming/comments/1vuaimm/the_great_android_stack_reset_mobile_system/",
+      "by": "Super-Performance-86",
+      "time": 1787301388000,
       "sub": "r/programming"
     },
     {
@@ -73,6 +73,83 @@
     }
   ],
   "medium": [
+    {
+      "title": "Do You Really Need a Vector Database? PostgreSQL + pgvector in Production",
+      "url": "https://medium.com/@rkdixit3/do-you-really-need-a-vector-database-postgresql-pgvector-in-production-b75b7db28379",
+      "by": "Rajesh Kumar",
+      "time": 1787372145000,
+      "tags": [
+        "software-engineering",
+        "software-development",
+        "vector-database"
+      ]
+    },
+    {
+      "title": "IDOR: The Beginner-Friendly Bug That Could Break a Mobile Money App",
+      "url": "https://medium.com/@kafeeromirembemercy/idor-the-beginner-friendly-bug-that-could-break-a-mobile-money-app-4327a11b1a2a",
+      "by": "Kafeero Mirembe Mercy",
+      "time": 1787372002000,
+      "tags": [
+        "hacking",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Common CSS Mistakes Beginners Make (and How to Actually Fix Them)",
+      "url": "https://medium.com/@ishwaryagopinathan/common-css-mistakes-beginners-make-and-how-to-actually-fix-them-f688f034babe",
+      "by": "Ishwarya Gopinathan",
+      "time": 1787371743000,
+      "tags": [
+        "coding",
+        "css",
+        "best-practices"
+      ]
+    },
+    {
+      "title": "Decision Tree",
+      "url": "https://medium.com/@poudelutsav057/decision-tree-5f5256e04ab9",
+      "by": "Utsav Poudel",
+      "time": 1787371700000,
+      "tags": [
+        "artificial-intelligence",
+        "data-science",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "Starting My CPTS Journey on a 10-Year-Old HDD Laptop",
+      "url": "https://medium.com/@kafeeromirembemercy/starting-my-cpts-journey-on-a-10-year-old-hdd-laptop-8f4859f68167",
+      "by": "Kafeero Mirembe Mercy",
+      "time": 1787371490000,
+      "tags": [
+        "hacking",
+        "programming",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Java 26 Is Here: Can You Answer These 10 Interview Questions?",
+      "url": "https://medium.com/@preetjit82/java-26-is-here-can-you-answer-these-10-interview-questions-2696c9d7ca66",
+      "by": "Interview Simplified",
+      "time": 1787371474000,
+      "tags": [
+        "programming",
+        "java",
+        "interview"
+      ]
+    },
+    {
+      "title": "9 AI Engineering Skills You Need to Master in 2026 to Stay Relevant",
+      "url": "https://medium.com/@shubhamnalawade037/9-ai-engineering-skills-you-need-to-master-in-2026-to-stay-relevant-4784f2739f73",
+      "by": "The Dialectic",
+      "time": 1787371471000,
+      "tags": [
+        "coding",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
     {
       "title": "The C# Interview Question That Looks Like LINQ — Until the Data Gets Huge",
       "url": "https://medium.com/@shemeenasrawther/the-c-interview-question-that-looks-like-linq-until-the-data-gets-huge-edddbe13fc53",
@@ -104,83 +181,6 @@
         "programming",
         "software-development",
         "golang"
-      ]
-    },
-    {
-      "title": "How to Slice User Stories for Mobile Teams: The Vertical Slice Is a Backend Idea",
-      "url": "https://medium.com/@abied.abiad/how-to-slice-user-stories-for-mobile-teams-the-vertical-slice-is-a-backend-idea-4321e43741db",
-      "by": "Abdulrahman Mohamed",
-      "time": 1787370844000,
-      "tags": [
-        "software-development",
-        "software-engineering",
-        "flutter"
-      ]
-    },
-    {
-      "title": "I Replaced My AI Coding Assistant With an AI Engineering Team",
-      "url": "https://medium.com/@anil.futuristic/i-replaced-my-ai-coding-assistant-with-an-ai-engineering-team-21836bc552e8",
-      "by": "Anil Sharma",
-      "time": 1787370496000,
-      "tags": [
-        "ai-coding",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Your Test Suite Knows What Broke. It Rarely Knows Why It Matters.",
-      "url": "https://manishsaini74.medium.com/your-test-suite-knows-what-broke-it-rarely-knows-why-it-matters-dd27c11b2139",
-      "by": "Manish Saini",
-      "time": 1787370061000,
-      "tags": [
-        "automation-testing",
-        "software-engineering",
-        "test-automation"
-      ]
-    },
-    {
-      "title": "Bitburner: A Unique Skill-Builder For Your Programming Career",
-      "url": "https://medium.com/@umairshakeelkhan/bitburner-a-unique-skill-builder-for-your-programming-career-4ca58b977472",
-      "by": "Umair Shakeel",
-      "time": 1787369994000,
-      "tags": [
-        "javascript",
-        "hacking",
-        "indie-game"
-      ]
-    },
-    {
-      "title": "How AI Is Quietly Reshaping Business Decisions",
-      "url": "https://medium.com/@pratapsahoo594/how-ai-is-quietly-reshaping-business-decisions-aacd9ae7fbb9",
-      "by": "Pratap Sahu",
-      "time": 1787369761000,
-      "tags": [
-        "software-development",
-        "software-engineering",
-        "ai-engineering"
-      ]
-    },
-    {
-      "title": "Digitizing India’s Communities: Why I Built the Ultimate Samiti Management Software Tool",
-      "url": "https://medium.com/@samircreater/digitizing-indias-communities-why-i-built-the-ultimate-samiti-management-software-tool-d46472e70330",
-      "by": "Samircreater",
-      "time": 1787369614000,
-      "tags": [
-        "saas",
-        "software-engineering",
-        "community-management"
-      ]
-    },
-    {
-      "title": "CAP Theorem Is Real But Nobody Applies It Right",
-      "url": "https://gauravgupta98.medium.com/cap-theorem-is-real-but-nobody-applies-it-right-518a1e9c32d8",
-      "by": "Gaurav Gupta",
-      "time": 1787369461000,
-      "tags": [
-        "software-engineering",
-        "architecture",
-        "design-principles"
       ]
     }
   ]
