@@ -276,6 +276,14 @@ h4, h5, h6 {
   touch-action: none;
   will-change: transform;
   cursor: grab;
+  /* The balls are links, and a link is draggable by default — a real
+     press-and-move would start the browser's own link drag, cancel the
+     pointer stream, and make throwing impossible. draggable=false covers
+     most of it; Safari needs this as well. user-select stops a drag
+     turning into a text selection instead. */
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .rail-btn.rail-loose:active { cursor: grabbing; }
 

@@ -66,6 +66,10 @@ const ZIP_PASS = 0.55      // how much of it is handed on in a collision
 
 const rand = (a, b) => a + Math.random() * (b - a)
 
+// Belt and braces alongside draggable=false: some browsers will still
+// begin a drag for a link, and this is the event that starts it.
+const preventNativeDrag = (e) => { e.preventDefault() }
+
 export function createRailField(selector = '.rail-btn') {
   if (typeof window === 'undefined') return { destroy() {} }
 
@@ -100,7 +104,24 @@ export function createRailField(selector = '.rail-btn') {
     }
   })
 
-  bodies.forEach((b) => { b.el.classList.add('rail-loose') })
+  // Every ball is an <a href>, and an anchor with an href is natively
+  // draggable. A real press-and-move therefore starts the browser's own
+  // link drag: it paints the little link ghost, fires pointercancel, and
+  // the pointer stream we were following simply stops. Nothing could be
+  // thrown.
+  //
+  // This did not show up in testing because CDP's synthetic mouse events
+  // don't begin a native drag, so the drag worked perfectly in a headless
+  // browser and not at all in a real one.
+  //
+  // Turned off here rather than on each of the five components that own a
+  // ball: the field is what makes them draggable in the first place, so
+  // it should be the thing that stops the browser competing for it.
+  bodies.forEach((b) => {
+    b.el.classList.add('rail-loose')
+    b.el.draggable = false
+    b.el.addEventListener('dragstart', preventNativeDrag)
+  })
 
   // ---- impact rings ------------------------------------------------
   // A ring drawn where two things met, scaled by how hard they met, gone
@@ -525,6 +546,7 @@ export function createRailField(selector = '.rail-btn') {
       bodies.forEach((b) => {
         b.el.classList.remove('rail-loose')
         b.el.style.transform = ''
+        b.el.removeEventListener('dragstart', preventNativeDrag)
       })
     },
   }
