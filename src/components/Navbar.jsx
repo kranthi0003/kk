@@ -860,6 +860,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
                 { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')), full: true },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle' } },
+                { icon: '💼', label: 'Jobs', action: () => { window.location.hash = '#/jobs' } },
                 { icon: '📝', label: 'Blog', action: () => { window.location.hash = '#/blog' } },
                 { icon: '📚', label: 'Notes', action: () => { window.location.hash = '#/notes' } },
                 { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline' } },
@@ -882,6 +883,17 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
         </div>
       )}
     </nav>
+  )
+}
+
+function BagIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2.6" y="7.4" width="18.8" height="13" rx="2.4" />
+      <path d="M8.6 7.4V5.8a2 2 0 0 1 2-2h2.8a2 2 0 0 1 2 2v1.6" />
+      <path d="M2.6 12.6h18.8" />
+    </svg>
   )
 }
 
@@ -917,6 +929,7 @@ function ToolsDropdown() {
     // reduced motion — the balls are laid out on the floor instead. The
     // toggle would be a menu entry that does nothing when pressed, so it
     // isn't offered there. Same reason the game isn't.
+    { icon: <BagIcon />,    label: 'Jobs board',        onClick: () => { window.location.hash = '#/jobs' } },
     { icon: <PodIcon />,    label: 'Robot mode',        evt: 'rail-swarm-toggle', motion: true },
     { icon: <SwordsIcon />, label: 'Collab — Code & Battle', onClick: () => { window.location.hash = '#/collab' } },
     { icon: <ChatIcon />,   label: 'Stranger Chat',       onClick: () => { window.location.hash = '#/stranger' } },

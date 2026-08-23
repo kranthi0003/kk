@@ -38,6 +38,7 @@ const PhotographyPage = lazy(() => import('./components/PhotographyPage'))
 const BrandsPage = lazy(() => import('./components/BrandsPage'))
 const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const StocksPage = lazy(() => import('./components/StocksPage'))
+const JobsPage = lazy(() => import('./components/JobsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -338,6 +339,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <OmscsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Jobs — engineering openings read from public ATS boards at build time
+  if (route === '#/jobs') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <JobsPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

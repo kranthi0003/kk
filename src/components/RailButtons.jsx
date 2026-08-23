@@ -279,3 +279,32 @@ export function SpaceRailButton() {
     </RailLink>
   )
 }
+
+// A briefcase, inside a rim of dashes like a job listing's rule. The
+// twelfth ball, so --rail-count moves with it.
+export function JobsRailButton() {
+  return (
+    <RailLink href="#/jobs" index={11} tint="#63C79A" title="Jobs — openings at product companies">
+      <svg className="jbbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
+        <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.4" strokeDasharray="4.4 3.6" />
+      </svg>
+      <svg className="rail-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path className="jbbtn-lid" d="M8.6 7.2V5.9a2 2 0 0 1 2-2h2.8a2 2 0 0 1 2 2v1.3" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" />
+        <rect x="2.4" y="7.2" width="19.2" height="13.4" rx="2.4" fill="currentColor" />
+        <path d="M2.4 12.4h19.2" stroke="var(--rail-disc)" strokeWidth="1.7" />
+        <rect x="10.1" y="10.7" width="3.8" height="3.4" rx="1" fill="var(--rail-disc)" />
+      </svg>
+      <style>{`
+        .jbbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+        .jbbtn-lid { transform-origin: 12px 7.2px; transition: transform .4s cubic-bezier(.22,.61,.36,1); }
+        .rail-btn:hover .jbbtn-rim { transform: rotate(24deg); }
+        .rail-btn:hover .jbbtn-lid { transform: translateY(-1.6px); }
+        @media (prefers-reduced-motion: reduce) {
+          .jbbtn-rim, .jbbtn-lid { transition: none; }
+          .rail-btn:hover .jbbtn-rim, .rail-btn:hover .jbbtn-lid { transform: none; }
+        }
+      `}</style>
+    </RailLink>
+  )
+}
