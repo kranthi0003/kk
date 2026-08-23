@@ -1,6 +1,20 @@
 {
-  "generated": "2026-08-23T12:06:15.227Z",
+  "generated": "2026-08-23T13:23:45.970Z",
   "reddit": [
+    {
+      "title": "Why so many languages use LLVM",
+      "url": "https://www.reddit.com/r/programming/comments/1vw6z10/why_so_many_languages_use_llvm/",
+      "by": "Ok_Marionberry8922",
+      "time": 1787491037000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The Interview That Wouldn't Die",
+      "url": "https://www.reddit.com/r/programming/comments/1vw68ut/the_interview_that_wouldnt_die/",
+      "by": "Super-Performance-86",
+      "time": 1787489066000,
+      "sub": "r/programming"
+    },
     {
       "title": "How a 128 MB Windows CE Device Taught Me Debugging",
       "url": "https://www.reddit.com/r/programming/comments/1vw433z/how_a_128_mb_windows_ce_device_taught_me_debugging/",
@@ -9,11 +23,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "CIVO vs OVHcloud vs Vultr for managed k8s",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vw37z8/civo_vs_ovhcloud_vs_vultr_for_managed_k8s/",
-      "by": "Street_Dependent_705",
-      "time": 1787479477000,
-      "sub": "r/kubernetes"
+      "title": "Any devops or SRE engineers using AI agents?",
+      "url": "https://www.reddit.com/r/devops/comments/1vw1t7p/any_devops_or_sre_engineers_using_ai_agents/",
+      "by": "Broad-Equivalent-790",
+      "time": 1787474537000,
+      "sub": "r/devops"
     },
     {
       "title": "Compiler Optimizations",
@@ -23,164 +37,150 @@
       "sub": "r/programming"
     },
     {
-      "title": "Software Architecture Diagrams with C4 Model",
-      "url": "https://www.reddit.com/r/programming/comments/1vw0c0u/software_architecture_diagrams_with_c4_model/",
-      "by": "der_gopher",
-      "time": 1787469321000,
-      "sub": "r/programming"
+      "title": "Where does architecture work still feel too manual?",
+      "url": "https://www.reddit.com/r/devops/comments/1vvnxz4/where_does_architecture_work_still_feel_too_manual/",
+      "by": "Glittering_Pepper575",
+      "time": 1787432719000,
+      "sub": "r/devops"
     },
     {
-      "title": "Debugging Starcraft RTS Micro (Starcraft Bot Competition)",
-      "url": "https://www.reddit.com/r/programming/comments/1vvs2tt/debugging_starcraft_rts_micro_starcraft_bot/",
-      "by": "LaughNgamez",
-      "time": 1787443605000,
-      "sub": "r/programming"
+      "title": "Looking for projects ideas for experienced devops/SRE engineers",
+      "url": "https://www.reddit.com/r/devops/comments/1vvl3gr/looking_for_projects_ideas_for_experienced/",
+      "by": "imLazyCartard",
+      "time": 1787425919000,
+      "sub": "r/devops"
     },
     {
-      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
-      "by": "Josh_Difratech",
-      "time": 1787345490000,
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Linux and storage | toward Rook|Ceph",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
-      "by": "faulty-segment",
-      "time": 1787344211000,
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "8 CORS Errors, Decoded — And One Chrome Invented This Year",
-      "url": "https://medium.com/@coolercoder/8-cors-errors-decoded-and-one-chrome-invented-this-year-d1a41e5fcb32",
-      "by": "Ray Hu",
-      "time": 1787486518000,
+      "title": "What Messy Data Looks Like Before Anyone Cleans It",
+      "url": "https://medium.com/@raiyansayeed0/what-messy-data-looks-like-before-anyone-cleans-it-8ac82daa148f",
+      "by": "Raiyan Sayeed",
+      "time": 1787490844000,
       "tags": [
-        "software-engineering",
-        "javascript",
-        "programming"
+        "python-programming",
+        "data-cleaning",
+        "data-analysis"
       ]
     },
     {
-      "title": "Deploying a Spring Boot Application on Kubernetes: From Pods to Persistent Storage and Autoscaling",
-      "url": "https://medium.com/@ritanshbagal/deploying-a-spring-boot-application-on-kubernetes-from-pods-to-persistent-storage-and-autoscaling-293c91b3bc2a",
-      "by": "Ritansh Bagal",
-      "time": 1787486490000,
+      "title": "Integrating OpenG2P into Mifos Gazelle: My GSoC 2026 Journey",
+      "url": "https://medium.com/@gousalam0786/integrating-openg2p-into-mifos-gazelle-my-gsoc-2026-journey-573bbd8e97f5",
+      "by": "Mohammad Gous",
+      "time": 1787490746000,
       "tags": [
-        "software-engineering",
-        "backend-development",
-        "devops"
+        "open-source",
+        "kubernetes",
+        "google"
       ]
     },
     {
-      "title": "I Read the spawn_blocking Docs Line by Line. One Sentence Explains Every Hung Shutdown I’ve Seen.",
-      "url": "https://ritik-chopra28.medium.com/i-read-the-spawn-blocking-docs-line-by-line-one-sentence-explains-every-hung-shutdown-ive-seen-f47a7ddff826",
-      "by": "Tech&Talk",
-      "time": 1787486461000,
+      "title": "Three phishing Red flags",
+      "url": "https://medium.com/@chiazalamsamuel315/three-phishing-red-flags-0e1186095eb6",
+      "by": "Chiazalam Samuel",
+      "time": 1787490520000,
       "tags": [
-        "concurrency",
-        "rust-programming-language",
-        "rust"
+        "cybersecurity",
+        "careers",
+        "information-security"
       ]
     },
     {
-      "title": "Why in Snowpad.io we are leaving Neon for self-hosted PostgreSQL Extension",
-      "url": "https://blog.stackademic.com/why-in-snowpad-io-we-are-leaving-neon-for-self-hosted-postgresql-extension-6d330683eb7e",
-      "by": "Deepesh Kalura",
-      "time": 1787486280000,
+      "title": "# Solving AI Amnesia: Why Your Coding Agent/Harness Needs Institutional Memory",
+      "url": "https://medium.com/@leoalex175/solving-ai-amnesia-why-your-coding-agent-harness-needs-institutional-memory-b2c4602af98b",
+      "by": "Leoalex",
+      "time": 1787490281000,
       "tags": [
-        "self-hosted",
+        "ai-codig",
         "software-engineering",
+        "agentic-coding"
+      ]
+    },
+    {
+      "title": "Your Database Is a Time Machine",
+      "url": "https://medium.com/@derek.mwale/your-database-is-a-time-machine-ea07b90cb3a3",
+      "by": "Derek Mwale",
+      "time": 1787490272000,
+      "tags": [
+        "api",
+        "programming",
         "software-development"
       ]
     },
     {
-      "title": "The AI Cost Fix Nobody’s Vetting Like a Security Decision",
-      "url": "https://medium.com/@alex.sichen/the-ai-cost-fix-nobodys-vetting-like-a-security-decision-7438e40ab770",
-      "by": "Chen SI",
-      "time": 1787486097000,
-      "tags": [
-        "cybersecurity",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "When Should You Move from Docker Compose to Kubernetes?",
-      "url": "https://deploywithshantanu.medium.com/when-should-you-move-from-docker-compose-to-kubernetes-8e5b5ec1cc1c",
-      "by": "Shantanu S.",
-      "time": 1787485992000,
-      "tags": [
-        "docker-compose",
-        "devops",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "ChatGPT vs Claude for Web Development: Which Is Better?",
-      "url": "https://medium.com/@dhruvkuhikar20/chatgpt-vs-claude-for-web-development-which-is-better-7e49a976f0e3",
-      "by": "TechByKDN",
-      "time": 1787485837000,
-      "tags": [
-        "web-development",
-        "artificial-intelligence",
-        "chatgpt"
-      ]
-    },
-    {
-      "title": "Amazon Baby Registry Benefits: 10 Reasons Every Expecting Parent Should Sign Up",
-      "url": "https://medium.com/@samreal921/amazon-baby-registry-benefits-10-reasons-every-expecting-parent-should-sign-up-568509316caa",
-      "by": "Samreal",
-      "time": 1787485547000,
-      "tags": [
-        "technology",
-        "android",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "My Web Development Internship Journey with Oasis Infobyte",
-      "url": "https://medium.com/@himethhansana07/my-web-development-internship-journey-with-oasis-infobyte-3d800abfe0c9",
-      "by": "Himethhansana",
-      "time": 1787485541000,
-      "tags": [
-        "internships",
-        "oasisinfobyte",
-        "coding"
-      ]
-    },
-    {
-      "title": "“Why Does 0.1",
-      "url": "https://medium.com/@sawantprathamesh160/why-does-0-1-5af69091749a",
-      "by": "Prathamesh Sawant",
-      "time": 1787485513000,
+      "title": "Polymarket Trader Makes $26,678 by Answering the Same Question Everyday: Will Bitcoin Close Up or ⬇️",
+      "url": "https://medium.com/mountain-movers/polymarket-trader-makes-26-678-by-answering-the-same-question-everyday-will-bitcoin-close-up-or-%EF%B8%8F-717fb683ec72",
+      "by": "Ezekiel Njuguna",
+      "time": 1787490171000,
       "tags": [
         "programming",
-        "coding",
-        "java"
+        "money",
+        "technology"
+      ]
+    },
+    {
+      "title": "I Rewrote One C++ Function Three Ways. The Fastest One Surprised Me.",
+      "url": "https://medium.com/codetodeploy/i-rewrote-one-c-function-three-ways-the-fastest-one-surprised-me-10fb7f75697d",
+      "by": "Mahad Nadeem",
+      "time": 1787490165000,
+      "tags": [
+        "cpp",
+        "web-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "Do Crackheads Ever Say, “I’m Too Broke to Smoke Crack Tonight”? No. They Get Up and Make It Happen",
+      "url": "https://ezzekielnjuguna.medium.com/do-crackheads-ever-say-im-too-broke-to-smoke-crack-tonight-no-they-get-up-and-make-it-happen-fdb27dee343c",
+      "by": "Ezekiel Njuguna",
+      "time": 1787490155000,
+      "tags": [
+        "motivation",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "AI Writes Code Faster Than Me. It Still Cannot Do My Job. Here Is Why.",
+      "url": "https://medium.com/@aiguy7854/ai-writes-code-faster-than-me-it-still-cannot-do-my-job-here-is-why-b887b438d9b6",
+      "by": "Sami Explores",
+      "time": 1787490068000,
+      "tags": [
+        "software-engineering",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Same Requirement Means Different Things to Security, Architecture, and Operations",
+      "url": "https://medium.com/@spark.tsai/the-same-requirement-means-different-things-to-security-architecture-and-operations-ca5a07ff010b",
+      "by": "Tsai Spark",
+      "time": 1787490062000,
+      "tags": [
+        "software-architecture",
+        "requirements-engineering",
+        "artificial-intelligence"
       ]
     }
   ]
