@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23T11:45:48.654Z",
+  "generated": "2026-08-23T12:06:15.227Z",
   "reddit": [
     {
       "title": "How a 128 MB Windows CE Device Taught Me Debugging",
@@ -9,18 +9,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "CAREER GUIDANCE FOR BEGINNER",
-      "url": "https://www.reddit.com/r/devops/comments/1vw35ik/career_guidance_for_beginner/",
-      "by": "_ash_22k",
-      "time": 1787479243000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Any devops or SRE engineers using AI agents?",
-      "url": "https://www.reddit.com/r/devops/comments/1vw1t7p/any_devops_or_sre_engineers_using_ai_agents/",
-      "by": "Broad-Equivalent-790",
-      "time": 1787474537000,
-      "sub": "r/devops"
+      "title": "CIVO vs OVHcloud vs Vultr for managed k8s",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vw37z8/civo_vs_ovhcloud_vs_vultr_for_managed_k8s/",
+      "by": "Street_Dependent_705",
+      "time": 1787479477000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Compiler Optimizations",
@@ -37,13 +30,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Is devops job stressful?",
-      "url": "https://www.reddit.com/r/devops/comments/1vvzp2j/is_devops_job_stressful/",
-      "by": "Brave-Sail-1374",
-      "time": 1787467181000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Debugging Starcraft RTS Micro (Starcraft Bot Competition)",
       "url": "https://www.reddit.com/r/programming/comments/1vvs2tt/debugging_starcraft_rts_micro_starcraft_bot/",
       "by": "LaughNgamez",
@@ -51,136 +37,150 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
+      "by": "Josh_Difratech",
+      "time": 1787345490000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "Linux and storage | toward Rook|Ceph",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
+      "by": "faulty-segment",
+      "time": 1787344211000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "좋은 로그, 나쁜 로그, 이상한 로그",
-      "url": "https://medium.com/@seanlab/%EC%A2%8B%EC%9D%80-%EB%A1%9C%EA%B7%B8-%EB%82%98%EC%81%9C-%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%83%81%ED%95%9C-%EB%A1%9C%EA%B7%B8-208d28bf656f",
-      "by": "Sean Park",
-      "time": 1787484899000,
+      "title": "8 CORS Errors, Decoded — And One Chrome Invented This Year",
+      "url": "https://medium.com/@coolercoder/8-cors-errors-decoded-and-one-chrome-invented-this-year-d1a41e5fcb32",
+      "by": "Ray Hu",
+      "time": 1787486518000,
       "tags": [
-        "software-development",
-        "observability",
+        "software-engineering",
+        "javascript",
         "programming"
       ]
     },
     {
-      "title": "How to Install Kubernetes with Kubespray on AWS EC2",
-      "url": "https://medium.com/@narongsakP/how-to-install-kubernetes-with-kubespray-on-aws-ec2-aaf9b1107a43",
-      "by": "Narongsak Pumpasert",
-      "time": 1787484084000,
+      "title": "Deploying a Spring Boot Application on Kubernetes: From Pods to Persistent Storage and Autoscaling",
+      "url": "https://medium.com/@ritanshbagal/deploying-a-spring-boot-application-on-kubernetes-from-pods-to-persistent-storage-and-autoscaling-293c91b3bc2a",
+      "by": "Ritansh Bagal",
+      "time": 1787486490000,
       "tags": [
-        "kubernetes",
-        "ansible",
-        "aws"
+        "software-engineering",
+        "backend-development",
+        "devops"
       ]
     },
     {
-      "title": "Integrating Flutter into a React Native App: A Practical Guide",
-      "url": "https://medium.com/@samareshsahoo/integrating-flutter-into-a-react-native-app-a-practical-guide-7768da89d6e6",
-      "by": "Samaresh Sahoo",
-      "time": 1787483996000,
+      "title": "I Read the spawn_blocking Docs Line by Line. One Sentence Explains Every Hung Shutdown I’ve Seen.",
+      "url": "https://ritik-chopra28.medium.com/i-read-the-spawn-blocking-docs-line-by-line-one-sentence-explains-every-hung-shutdown-ive-seen-f47a7ddff826",
+      "by": "Tech&Talk",
+      "time": 1787486461000,
       "tags": [
-        "react-nat",
-        "programming",
-        "flutter"
+        "concurrency",
+        "rust-programming-language",
+        "rust"
       ]
     },
     {
-      "title": "Gemini responsded on what exactly is Abstraction in codding",
-      "url": "https://medium.com/@shashankpatel.vns/gemini-responsded-on-what-exactly-is-abstraction-in-codding-4292acce2484",
-      "by": "Shashankpatel Vns",
-      "time": 1787483757000,
+      "title": "Why in Snowpad.io we are leaving Neon for self-hosted PostgreSQL Extension",
+      "url": "https://blog.stackademic.com/why-in-snowpad-io-we-are-leaving-neon-for-self-hosted-postgresql-extension-6d330683eb7e",
+      "by": "Deepesh Kalura",
+      "time": 1787486280000,
       "tags": [
-        "encapsulation",
-        "google-gemini",
-        "abstraction"
+        "self-hosted",
+        "software-engineering",
+        "software-development"
       ]
     },
     {
-      "title": "10 Years of iOS Development: 10 Mistakes I Would Never Make Again",
-      "url": "https://medium.com/@ankitprajapati1407/10-years-of-ios-development-10-mistakes-i-would-never-make-again-12343752f7dd",
-      "by": "Ankit Prajapati",
-      "time": 1787483496000,
+      "title": "The AI Cost Fix Nobody’s Vetting Like a Security Decision",
+      "url": "https://medium.com/@alex.sichen/the-ai-cost-fix-nobodys-vetting-like-a-security-decision-7438e40ab770",
+      "by": "Chen SI",
+      "time": 1787486097000,
+      "tags": [
+        "cybersecurity",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "When Should You Move from Docker Compose to Kubernetes?",
+      "url": "https://deploywithshantanu.medium.com/when-should-you-move-from-docker-compose-to-kubernetes-8e5b5ec1cc1c",
+      "by": "Shantanu S.",
+      "time": 1787485992000,
+      "tags": [
+        "docker-compose",
+        "devops",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "ChatGPT vs Claude for Web Development: Which Is Better?",
+      "url": "https://medium.com/@dhruvkuhikar20/chatgpt-vs-claude-for-web-development-which-is-better-7e49a976f0e3",
+      "by": "TechByKDN",
+      "time": 1787485837000,
+      "tags": [
+        "web-development",
+        "artificial-intelligence",
+        "chatgpt"
+      ]
+    },
+    {
+      "title": "Amazon Baby Registry Benefits: 10 Reasons Every Expecting Parent Should Sign Up",
+      "url": "https://medium.com/@samreal921/amazon-baby-registry-benefits-10-reasons-every-expecting-parent-should-sign-up-568509316caa",
+      "by": "Samreal",
+      "time": 1787485547000,
       "tags": [
         "technology",
-        "software-development",
-        "programming"
+        "android",
+        "cybersecurity"
       ]
     },
     {
-      "title": "How AI Is Changing Education: From Traditional Classrooms to Smarter Learning",
-      "url": "https://medium.com/@khalidkhan3398/how-ai-is-changing-education-from-traditional-classrooms-to-smarter-learning-f82f087245dc",
-      "by": "Kristen Belly",
-      "time": 1787483271000,
+      "title": "My Web Development Internship Journey with Oasis Infobyte",
+      "url": "https://medium.com/@himethhansana07/my-web-development-internship-journey-with-oasis-infobyte-3d800abfe0c9",
+      "by": "Himethhansana",
+      "time": 1787485541000,
       "tags": [
-        "technology",
-        "ai",
+        "internships",
+        "oasisinfobyte",
         "coding"
       ]
     },
     {
-      "title": "Nigeria Cannot Afford to Watch the Humanoid Robot Revolution From the Sidelines",
-      "url": "https://medium.com/@litetechpoint1/nigeria-cannot-afford-to-watch-the-humanoid-robot-revolution-from-the-sidelines-756ff2d0ce89",
-      "by": "Lite",
-      "time": 1787483226000,
+      "title": "“Why Does 0.1",
+      "url": "https://medium.com/@sawantprathamesh160/why-does-0-1-5af69091749a",
+      "by": "Prathamesh Sawant",
+      "time": 1787485513000,
       "tags": [
-        "ai",
-        "llm",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Compared Every Major GPU for Local AI in 2026 — The Winner Wasn’t the Most Expensive",
-      "url": "https://medium.com/practical-llm-systems/i-compared-every-major-gpu-for-local-ai-in-2026-the-winner-wasnt-the-most-expensive-fd5cf3164571",
-      "by": "Rost Glukhov",
-      "time": 1787482999000,
-      "tags": [
-        "data-science",
-        "technology",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "When a City Search Isn’t Just a City Search",
-      "url": "https://medium.com/@yashmk2004/when-a-city-search-isnt-just-a-city-search-7c4e927fa716",
-      "by": "Yash Khalkar",
-      "time": 1787482583000,
-      "tags": [
-        "software-engineering",
-        "mysql",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "Custom Software Development Company Chennai At Top Tech Software Solutions",
-      "url": "https://medium.com/@graceaurelia02024/custom-software-development-company-chennai-at-top-tech-software-solutions-edc5e3da4f0f",
-      "by": "Graceaurelia",
-      "time": 1787482006000,
-      "tags": [
-        "custom-software-company",
-        "software-engineering",
-        "software-development"
+        "programming",
+        "coding",
+        "java"
       ]
     }
   ]
