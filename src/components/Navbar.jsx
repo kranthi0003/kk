@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
+
+// Matches the guard inside railGravity: with reduced motion the balls
+// never enter the physics field at all.
+const REDUCED = typeof window !== 'undefined' && window.matchMedia
+  ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  : false
 import { IS_LITE } from '../lib/lite'
 import { QRCodeSVG } from 'qrcode.react'
 import Heartbeat from './Heartbeat'
@@ -879,6 +885,20 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
   )
 }
 
+// A pod: the head-and-antenna shape the swarm mode turns the balls into.
+function PodIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="4" y="8" width="16" height="11" rx="3" />
+      <path d="M12 5.2V8" />
+      <circle cx="12" cy="4" r="1.4" />
+      <circle cx="9" cy="13" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="13" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 // Tools dropdown — consolidates all action-bar features into a single grid menu
 function ToolsDropdown() {
   const [open, setOpen] = useState(false)
@@ -893,6 +913,11 @@ function ToolsDropdown() {
   }, [open])
 
   const items = [
+    // Robot mode needs the physics field, which never starts under
+    // reduced motion — the balls are laid out on the floor instead. The
+    // toggle would be a menu entry that does nothing when pressed, so it
+    // isn't offered there. Same reason the game isn't.
+    { icon: <PodIcon />,    label: 'Robot mode',        evt: 'rail-swarm-toggle', motion: true },
     { icon: <SwordsIcon />, label: 'Collab — Code & Battle', onClick: () => { window.location.hash = '#/collab' } },
     { icon: <ChatIcon />,   label: 'Stranger Chat',       onClick: () => { window.location.hash = '#/stranger' } },
     { icon: <CalcIcon />,   label: 'Dev Toolkit',       evt: 'toggle-dev-calc' },
@@ -919,7 +944,7 @@ function ToolsDropdown() {
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
       window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${subject}&body=${body}`)
     }},
-  ]
+  ].filter(i => !i.motion || !REDUCED)
 
   return (
     <div ref={ref} className="relative">

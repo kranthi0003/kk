@@ -1,3 +1,4 @@
+import { createSwarm, SWARM_GRAVITY } from './railSwarm'
 /* Gravity for the rail.
  *
  * The nine rail buttons stop being a fixed column and become balls: they
@@ -345,6 +346,7 @@ export function createRailField(selector = '.rail-btn') {
 
   function startGame() {
     if (game) return
+    if (swarm.active) swarm.stop()
     // Anything still parked from a scroll comes back down first, or the
     // game would start already won.
     if (docked) setDocked(false)
@@ -412,6 +414,15 @@ export function createRailField(selector = '.rail-btn') {
       emit('rail-game-state', gameState())
     }
   }
+
+  // Swarm mode drives these same bodies; it needs the field's helpers but
+  // owns none of the physics itself.
+  const swarm = createSwarm({
+    bodies,
+    size: () => ({ W, H }),
+    wake: () => wake(),
+    spark: (x, y, f) => spark(x, y, f),
+  })
 
   function write(b) {    b.el.style.transform =
       `translate3d(${(b.x - b.r).toFixed(2)}px, ${(b.y - b.r).toFixed(2)}px, 0) ` +
@@ -528,6 +539,10 @@ export function createRailField(selector = '.rail-btn') {
     let moving = false
     const fy = floorY()
 
+    // Pods think first, then the ordinary physics carries them.
+    swarm.step(dt)
+    if (swarm.active) moving = true
+
     // dockSlot reads the DOM, so the scale — which is the same for every
     // ball — is worked out once a frame rather than once a ball.
     let dockScale = 1
@@ -573,7 +588,7 @@ export function createRailField(selector = '.rail-btn') {
         continue
       }
 
-      if (b.asleep) {
+      if (b.asleep && !swarm.active) {
         // Still ease rotation upright even once it's stopped moving.
         if (Math.abs(b.rot % 360) > 0.1) {
           const target = Math.round(b.rot / 360) * 360
@@ -595,7 +610,7 @@ export function createRailField(selector = '.rail-btn') {
       const air = AIR + (1 - AIR) * z
 
       b.px = b.x; b.py = b.y   // where this frame started, for the ring test
-      b.vy += G * dt
+      b.vy += (swarm.active ? G * SWARM_GRAVITY : G) * dt
       b.vx *= air
       b.vy *= air
       b.x += b.vx * dt
@@ -712,7 +727,10 @@ export function createRailField(selector = '.rail-btn') {
           if (!a.held) a.zip = Math.max(a.zip || 0, pass)
           if (!c.held) c.zip = Math.max(c.zip || 0, pass)
         }
-        if (-sep > 260) spark((a.x + c.x) / 2, (a.y + c.y) / 2, -sep)
+        if (-sep > 260) {
+          spark((a.x + c.x) / 2, (a.y + c.y) / 2, -sep)
+          swarm.bumped(a); swarm.bumped(c)
+        }
       }
     }
 
@@ -748,6 +766,8 @@ export function createRailField(selector = '.rail-btn') {
       }
       write(b)
     }
+
+    swarm.draw()
 
     if (moving || bodies.some((b) => !b.released)) raf = requestAnimationFrame(step)
     else { running = false; save() }
@@ -917,6 +937,14 @@ export function createRailField(selector = '.rail-btn') {
   const onVis = () => { if (!document.hidden) { last = 0; wake() } }
   document.addEventListener('visibilitychange', onVis)
 
+  const onSwarm = () => {
+    // The two modes want opposite things from the same bodies, so
+    // starting one ends the other rather than both fighting for control.
+    if (game) stopGame(false)
+    swarm.toggle()
+  }
+  window.addEventListener('rail-swarm-toggle', onSwarm)
+
   const onGameStart = () => startGame()
   const onGameQuit = () => stopGame(false)
   const onGameAsk = () => emit('rail-game-state', gameState())
@@ -929,6 +957,8 @@ export function createRailField(selector = '.rail-btn') {
     stopGame,
     destroy() {
       try { game && stopGame(false) } catch {}
+      window.removeEventListener('rail-swarm-toggle', onSwarm)
+      try { swarm.destroy() } catch {}
       window.removeEventListener('rail-game-start', onGameStart)
       window.removeEventListener('rail-game-quit', onGameQuit)
       window.removeEventListener('rail-game-ask', onGameAsk)

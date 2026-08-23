@@ -1284,3 +1284,73 @@ html.disco .disco-lights {
   .disco-beat    { animation: none; opacity: 0.1; }
   .disco-blinders::before, .disco-blinders::after { animation: none; opacity: 0.18; }
 }
+
+/* ------------------------------------------------------------------ *
+ * Swarm mode — the pods, what they say, and what they hit.
+ * ------------------------------------------------------------------ */
+
+/* A pod is the same ball with a live ring around it, so it reads as
+   switched on rather than merely moving. */
+.rail-btn.swarm-pod {
+  box-shadow:
+    0 0 0 2px color-mix(in oklab, var(--color-accent) 65%, transparent),
+    0 0 18px color-mix(in oklab, var(--color-accent) 40%, transparent);
+  animation: swarmPulse 1.4s ease-in-out infinite;
+}
+@keyframes swarmPulse {
+  0%, 100% { box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-accent) 55%, transparent), 0 0 14px color-mix(in oklab, var(--color-accent) 30%, transparent); }
+  50%      { box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 90%, transparent), 0 0 26px color-mix(in oklab, var(--color-accent) 55%, transparent); }
+}
+
+/* What a pod is saying. Positioned by the script from the pod's centre,
+   so the transform here is only the offset that puts the tail on the
+   pod — the script composes the two. */
+.swarm-say {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 15rem;
+  width: max-content;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.75rem;
+  font-size: 11.5px;
+  line-height: 1.25;
+  white-space: nowrap;
+  color: var(--color-foreground);
+  background: color-mix(in oklab, var(--color-card) 94%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 45%, var(--color-border)), 0 6px 18px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.swarm-say::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  transform: rotate(45deg);
+  background: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 45%, var(--color-border));
+}
+.swarm-say-in { opacity: 1; }
+.swarm-say[data-kind='poke'] { color: var(--color-accent); }
+
+/* Whatever a pod just ran into. The direction comes from the script, so
+   the shove goes the way the pod was travelling. */
+.swarm-hit {
+  animation: swarmHit 0.62s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes swarmHit {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  22%  { transform: translate(var(--swarm-dx, 6px), var(--swarm-dy, 0)) rotate(-2.2deg); }
+  55%  { transform: translate(calc(var(--swarm-dx, 6px) * -0.4), calc(var(--swarm-dy, 0) * -0.4)) rotate(1.6deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-btn.swarm-pod { animation: none; }
+  .swarm-hit { animation: none; }
+  .swarm-say { transition: none; }
+}
