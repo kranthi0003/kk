@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { IS_LITE } from '../lib/lite'
 import { QRCodeSVG } from 'qrcode.react'
 import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
@@ -640,14 +641,16 @@ function NavAIChat() {
   )
 }
 
+// `full` marks a link whose section only exists on the full site, so the
+// lite menu doesn't offer an anchor that scrolls nowhere.
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
   { label: 'About', href: '#about' },
   { label: 'Engineering', href: '#projects' },
-  { label: 'Travel', href: '#travel' },
+  { label: 'Travel', href: '#travel', full: true },
   { label: 'Connect', href: '#connect' },
-]
+].filter(l => !l.full || !IS_LITE)
 
 // Discreet "sidecar" menu pinned to the far right — keeps the private pages
 // (Vegas, Europe) tucked behind a single unobtrusive control instead of sitting
@@ -759,7 +762,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             KK
           </span>
         </a>
-          <AmbientPlayer />
+          {!IS_LITE && <AmbientPlayer />}
         </div>
 
         {/* Center — Nav links removed for a cleaner, minimal bar */}
@@ -781,10 +784,12 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
 
           {/* Mobile — icons + hamburger */}
           <div className="flex md:hidden items-center gap-2">
-            <SystemStatusDot />
-            <NavWallet />
-            <NavStatus />
-            <MatrixToggle />
+            {!IS_LITE && <>
+              <SystemStatusDot />
+              <NavWallet />
+              <NavStatus />
+              <MatrixToggle />
+            </>}
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(o => !o)}
@@ -809,7 +814,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       {mobileOpen && (
         <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
-            <div className="flex justify-center mb-1"><TransformationPulse labeled /></div>
+            {!IS_LITE && <div className="flex justify-center mb-1"><TransformationPulse labeled /></div>}
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
@@ -835,19 +840,19 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
               {[
                 { icon: '🤝', label: 'Collab', action: () => { window.location.hash = '#/collab' } },
                 { icon: '🎭', label: 'Stranger', action: () => { window.location.hash = '#/stranger' } },
-                { icon: '🧮', label: 'Dev Tools', action: () => window.dispatchEvent(new CustomEvent('toggle-dev-calc')) },
-                { icon: '📂', label: 'Source', action: () => window.dispatchEvent(new CustomEvent('toggle-code-browser')) },
-                { icon: '📋', label: 'Changelog', action: () => window.dispatchEvent(new CustomEvent('toggle-changelog')) },
+                { icon: '🧮', label: 'Dev Tools', action: () => window.dispatchEvent(new CustomEvent('toggle-dev-calc')), full: true },
+                { icon: '📂', label: 'Source', action: () => window.dispatchEvent(new CustomEvent('toggle-code-browser')), full: true },
+                { icon: '📋', label: 'Changelog', action: () => window.dispatchEvent(new CustomEvent('toggle-changelog')), full: true },
                 { icon: '🤖', label: 'AI Chat', action: () => document.querySelector('[data-chatbot-btn]')?.click() },
-                { icon: '📱', label: 'QR Card', action: () => window.dispatchEvent(new CustomEvent('toggle-qr-vcard')) },
-                { icon: '😂', label: 'Meme Gen', action: () => window.dispatchEvent(new CustomEvent('toggle-meme-gen')) },
+                { icon: '📱', label: 'QR Card', action: () => window.dispatchEvent(new CustomEvent('toggle-qr-vcard')), full: true },
+                { icon: '😂', label: 'Meme Gen', action: () => window.dispatchEvent(new CustomEvent('toggle-meme-gen')), full: true },
                 { icon: '📖', label: 'Read Mode', action: () => document.body.classList.toggle('reading-mode') },
-                { icon: '⚡', label: 'Speed', action: () => window.dispatchEvent(new CustomEvent('toggle-speed-test')) },
-                { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')) },
-                { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')) },
-                { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')) },
+                { icon: '⚡', label: 'Speed', action: () => window.dispatchEvent(new CustomEvent('toggle-speed-test')), full: true },
+                { icon: '📸', label: 'Share Card', action: () => window.dispatchEvent(new CustomEvent('toggle-share-card')), full: true },
+                { icon: '🌍', label: 'Carbon', action: () => window.dispatchEvent(new CustomEvent('toggle-carbon-calc')), full: true },
+                { icon: '💰', label: 'Salary', action: () => window.dispatchEvent(new CustomEvent('toggle-salary-calc')), full: true },
                 { icon: '✉️', label: 'Hire Me', action: () => { const s = encodeURIComponent('Interested in hiring Kranthi Kiran'); const b = encodeURIComponent('Hi Kranthi,\n\nI saw your portfolio.\n\nRole: [Position]\nCompany: [Company]\n\nBest,\n[Name]'); window.open(`mailto:kranthikiranakkumahanthi@gmail.com?subject=${s}&body=${b}`) } },
-                { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')) },
+                { icon: '💬', label: 'Live Chat', action: () => window.dispatchEvent(new CustomEvent('toggle-live-chat')), full: true },
                 { icon: '⚔️', label: 'Battle', action: () => { window.location.hash = '#/battle' } },
                 { icon: '📝', label: 'Blog', action: () => { window.location.hash = '#/blog' } },
                 { icon: '📚', label: 'Notes', action: () => { window.location.hash = '#/notes' } },
@@ -856,8 +861,10 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses' } },
                 { icon: '🏠', label: 'Home Base', action: () => { window.location.hash = '#/royalsquare' } },
                 { icon: '🏎️', label: 'F1', action: () => { window.location.hash = '#/f1' } },
-                { icon: '🎵', label: 'Ambient', action: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
-              ].map(a => (
+                { icon: '🎵', label: 'Ambient', action: () => window.dispatchEvent(new CustomEvent('toggle-ambient')), full: true },
+              // A lite build doesn't mount the tools, so offering them here
+              // would be a grid of buttons that do nothing when pressed.
+              ].filter(a => !a.full || !IS_LITE).map(a => (
                 <button key={a.label} onClick={() => { a.action(); setMobileOpen(false) }}
                   className="flex flex-col items-center gap-1 py-2.5 rounded-xl bg-muted/30 hover:bg-muted/60 transition-colors">
                   <span className="text-lg">{a.icon}</span>
@@ -906,7 +913,7 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes' } },
     { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>, label: 'Royal Square', onClick: () => { window.location.hash = '#/royalsquare' } },
-    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')) },
+    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')), full: true },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {
       const subject = encodeURIComponent('Interested in hiring Kranthi Kiran')
       const body = encodeURIComponent(`Hi Kranthi,\n\nI came across your portfolio and I'm impressed with your work.\n\nRole: [Position]\nCompany: [Company Name]\nLocation: [Remote/Hybrid/Office]\n\nWould love to connect!\n\nBest regards,\n[Your Name]`)
