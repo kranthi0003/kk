@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react'
+import { IS_LITE } from '../lib/lite'
 
 // The ambient-audio ENGINE, provided ABOVE the router so it survives route
 // changes and keeps playing in the background no matter which page the visitor
@@ -50,9 +51,17 @@ const AmbientContext = createContext(null)
 export const useAmbient = () => useContext(AmbientContext)
 
 // Load the YouTube IFrame API once, shared across the app.
-function useYouTubeAPI() {
+//
+// `armed` exists for the lite build. This provider sits above the router
+// so playback survives navigation, which also meant it fetched the
+// YouTube API and stood up a hidden player iframe on every visit, even a
+// phone that only ever sees a CV with no music controls on it. Now the
+// full site arms it immediately, exactly as before, and a lite one waits
+// until something actually asks for audio.
+function useYouTubeAPI(armed) {
   const [ready, setReady] = useState(() => !!(window.YT && window.YT.Player))
   useEffect(() => {
+    if (!armed) return
     if (window.YT && window.YT.Player) { setReady(true); return }
     if (!document.getElementById('yt-iframe-api')) {
       const prev = window.onYouTubeIframeAPIReady
@@ -66,12 +75,17 @@ function useYouTubeAPI() {
       if (window.YT && window.YT.Player) { setReady(true); clearInterval(t) }
     }, 300)
     return () => clearInterval(t)
-  }, [])
+  }, [armed])
   return ready
 }
 
 export function AmbientProvider({ children }) {
-  const apiReady = useYouTubeAPI()
+  // The full site arms on mount; a lite one arms the first time anything
+  // asks to play, so a phone that never touches music never touches
+  // YouTube either.
+  const [armed, setArmed] = useState(!IS_LITE)
+  const arm = useCallback(() => setArmed(true), [])
+  const apiReady = useYouTubeAPI(armed)
   const playerRef = useRef(null)
   const hostRef = useRef(null)
   const [built, setBuilt] = useState(false)
@@ -211,22 +225,31 @@ export function AmbientProvider({ children }) {
     })
   }, [])
 
-  // External toggle (e.g. from the Tools menu).
+  // External toggle (e.g. from the Tools menu). This one has to arm the
+  // player itself: it calls the raw callback rather than the wrapped one
+  // handed to consumers, so on a lite build it would otherwise ask a
+  // player that was never built to start playing.
   useEffect(() => {
-    const h = () => toggle()
+    const h = () => { arm(); toggle() }
     window.addEventListener('toggle-ambient', h)
     return () => window.removeEventListener('toggle-ambient', h)
-  }, [toggle])
+  }, [toggle, arm])
 
   // Music is opt-in: the ambient radio starts ONLY when the visitor uses the
   // player controls (the navbar music button, the Tools "Ambient" item, or the
   // Music page). It never autoplays on load and never starts from a stray click
   // elsewhere on the page.
 
+  // Every entry point into playback arms the player first. Wrapping here
+  // rather than inside each callback keeps the arming in one place and
+  // means a new action can't quietly forget to do it.
+  const armed_ = (fn) => (...args) => { arm(); return fn(...args) }
   const value = {
     built, playing, everPlayed, idx, vol, suppressed, loop,
     track: current, currentId: current?.id,
-    toggle, next, prev, setVol, play, setSuppressed, toggleLoop, playQueue, getProgress,
+    toggle: armed_(toggle), next: armed_(next), prev: armed_(prev),
+    play: armed_(play), playQueue: armed_(playQueue),
+    setVol, setSuppressed, toggleLoop, getProgress,
   }
 
   return (

@@ -1,57 +1,20 @@
 import React, { useEffect, useState, useCallback, lazy, Suspense } from 'react'
+import { IS_LITE, IS_NARROW, FULL_KEY } from './lib/lite'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
-import MatrixEasterEgg from './components/KonamiEasterEgg'
 import Hero from './components/Hero'
 import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import TravelMap from './components/TravelMap'
-import Terminal from './components/Terminal'
-import PromptDemo from './components/PromptDemo'
 import Connect from './components/Contact'
-import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
-import CodeBrowser from './components/CodeBrowser'
-import Changelog from './components/Changelog'
-import QRvCard from './components/QRvCard'
-import SpeedTest from './components/SpeedTest'
-import ShareCard from './components/ShareCard'
-import MemeGenerator from './components/MemeGenerator'
-import DevCalc from './components/DevCalc'
-import CarbonCalc from './components/CarbonCalc'
-import SalaryCalc from './components/SalaryCalc'
 import TransformationHQ from './components/TransformationHQ'
-import LiveChat from './components/LiveChat'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
-import VisitorCount from './components/VisitorCount'
-import VisitorTracker from './components/VisitorTracker'
-import GhostCursors from './components/GhostCursors'
-import AdminDashboard from './components/AdminDashboard'
-import CryptoDashboard from './components/CryptoDashboard'
-import DevNet from './components/DevNet'
-import ServiceStatus from './components/ServiceStatus'
-import SystemStatus from './components/SystemStatus'
-import CronSchedule from './components/ActionsTools'
-import QuoteFlip from './components/QuoteFlip'
-import MathBackdrop from './components/MathBackdrop'
-import DopamineTeaser from './components/DopamineTeaser'
-import SaladsTeaser from './components/SaladsTeaser'
-import Sidecar from './components/Sidecar'
-import F1Banner from './components/F1Banner'
-import CricketButton from './components/CricketButton'
-import MusicButton from './components/MusicButton'
-import CookingButton from './components/CookingButton'
-import { MoviesRailButton, PhotographyRailButton, BrandsRailButton, OmscsRailButton, StocksRailButton, CryptoRailButton, SpaceRailButton } from './components/RailButtons'
-import RailGravity from './components/RailGravity'
-import BallGame from './components/BallGame'
 
-import WorkspaceSection from './components/WorkspaceSection'
-import AstroDitherSection from './components/AstroDitherSection'
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
 const CollabEditor = lazy(() => import('./components/battle/CollabEditor'))
@@ -84,25 +47,67 @@ const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
 const Splat = lazy(() => import('./components/Splat'))
 
+// One lazy chunk for the whole of the full-site experience. A narrow
+// screen never requests it, so none of it is downloaded.
+const SiteExtras = lazy(() => import('./components/SiteExtras'))
+const ExtraAfterHero = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterHero })))
+const ExtraAfterTech = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterTech })))
+const ExtraAfterAbout = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterAbout })))
+const ExtraGuestbook = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraGuestbook })))
+const ExtraBackdrop = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraBackdrop })))
+
+// The switch between the two versions.
+//
+// This used to be a banner telling anyone on a phone that the site was
+// "best experienced on a desktop browser", which is an odd thing to say
+// to someone who is already here and cannot do anything about it. Now
+// that a phone gets a version built for it, it says which one is being
+// shown and offers the other.
+//
+// It sits at the bottom, out of the way of the content, and closing it
+// is remembered for the session.
 function MobileBanner() {
   const [dismissed, setDismissed] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (sessionStorage.getItem('mobile_banner_off')) { setDismissed(true); return }
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
+    try { if (sessionStorage.getItem('mobile_banner_off')) setDismissed(true) } catch {}
   }, [])
 
-  if (!isMobile || dismissed) return null
+  // Only worth showing on a screen small enough for the choice to matter.
+  if (!IS_NARROW || dismissed) return null
+
+  const swap = () => {
+    try {
+      if (IS_LITE) localStorage.setItem(FULL_KEY, '1')
+      else localStorage.removeItem(FULL_KEY)
+    } catch {}
+    window.location.reload()
+  }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[999] bg-accent text-accent-foreground text-center py-2 px-4 text-xs font-medium shadow-md">
-      <span>💻 This site is best experienced on a desktop browser</span>
-      <button onClick={() => { setDismissed(true); sessionStorage.setItem('mobile_banner_off', '1') }}
-        className="ml-3 text-accent-foreground/60 hover:text-accent-foreground font-bold">✕</button>
+    <div
+      className="fixed bottom-0 left-0 right-0 z-[999] flex items-center justify-center gap-3 py-2 px-4 text-[11.5px] backdrop-blur-md"
+      style={{
+        background: 'color-mix(in oklab, var(--color-card) 92%, transparent)',
+        borderTop: '1px solid var(--color-border)',
+      }}
+    >
+      <span className="text-muted-foreground">
+        {IS_LITE ? 'Lite version' : 'Full version'}
+      </span>
+      <button
+        onClick={swap}
+        className="font-medium underline underline-offset-2 text-foreground hover:opacity-70 transition-opacity"
+      >
+        {IS_LITE ? 'Show everything' : 'Switch to lite'}
+      </button>
+      <button
+        onClick={() => { setDismissed(true); try { sessionStorage.setItem('mobile_banner_off', '1') } catch {} }}
+        aria-label="Dismiss"
+        className="ml-1 text-muted-foreground/60 hover:text-foreground transition-colors"
+      >
+        ✕
+      </button>
     </div>
   )
 }
@@ -477,72 +482,31 @@ export default function App() {
       <div className="pr-backdrop-base" aria-hidden="true" />
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
-      <MathBackdrop />
+      {!IS_LITE && <Suspense fallback={null}><ExtraBackdrop /></Suspense>}
       <div className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
-      <MatrixEasterEgg active={matrixActive} onComplete={handleMatrixComplete} />
-      {/* Purely decorative; invisible unless html.disco is set. */}
-      <div className="disco-lights" aria-hidden="true">
-        <span className="disco-beams" />
-        <span className="disco-speckles" />
-        <span className="disco-beat" />
-        <span className="disco-blinders" />
-      </div>
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
-        <div className="section-animate"><QuoteFlip /></div>
+        {!IS_LITE && <Suspense fallback={null}><ExtraAfterHero /></Suspense>}
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
-        <div className="section-animate"><PromptDemo /></div>
+        {!IS_LITE && <Suspense fallback={null}><ExtraAfterTech /></Suspense>}
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><About /></div>
-        <div className="section-animate"><Terminal /></div>
-        <div className="section-animate"><WorkspaceSection /></div>
-        <div className="section-animate"><AstroDitherSection /></div>
-        <div className="section-animate"><TravelMap /></div>
-        <div className="section-animate"><DopamineTeaser /></div>
-        <div className="section-animate"><SaladsTeaser /></div>
+        {!IS_LITE && <Suspense fallback={null}><ExtraAfterAbout /></Suspense>}
         <div className="section-animate"><Connect /></div>
-        <div className="section-animate"><Guestbook /></div>
+        {!IS_LITE && <Suspense fallback={null}><ExtraGuestbook /></Suspense>}
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
-      <Sidecar />
-      <F1Banner />
-      <CricketButton />
-      <MusicButton />
-      <CookingButton />
-      <MoviesRailButton />
-      <PhotographyRailButton />
-      <BrandsRailButton />
-      <OmscsRailButton />
-      <StocksRailButton />
-      <CryptoRailButton />
-      <SpaceRailButton />
-      <RailGravity />
-      <BallGame />
-      <VisitorTracker />
-      <VisitorCount />
-      <GhostCursors />
-      <AdminDashboard />
-      <Changelog />
-      <QRvCard />
-      <SpeedTest />
-      <ShareCard />
-      <MemeGenerator />
-      <DevCalc />
-      <CarbonCalc />
-      <SalaryCalc />
-      <CodeBrowser />
-      <LiveChat />
-      <CryptoDashboard />
-      <DevNet />
-      <ServiceStatus />
-      <SystemStatus />
-      <CronSchedule />
+      {!IS_LITE && (
+        <Suspense fallback={null}>
+          <SiteExtras matrixActive={matrixActive} onMatrixComplete={handleMatrixComplete} />
+        </Suspense>
+      )}
     </div>
     </>
   )
