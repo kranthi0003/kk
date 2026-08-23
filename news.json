@@ -1,12 +1,26 @@
 {
-  "generated": "2026-08-22T11:41:44.308Z",
+  "generated": "2026-08-23T04:28:19.936Z",
   "reddit": [
     {
-      "title": "How do you handle alerts issues?",
-      "url": "https://www.reddit.com/r/devops/comments/1vv7m7w/how_do_you_handle_alerts_issues/",
-      "by": "AcanthaceaeUnlucky18",
-      "time": 1787390364000,
-      "sub": "r/devops"
+      "title": "Debugging Starcraft RTS Micro (Starcraft Bot Competition)",
+      "url": "https://www.reddit.com/r/programming/comments/1vvs2tt/debugging_starcraft_rts_micro_starcraft_bot/",
+      "by": "LaughNgamez",
+      "time": 1787443605000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The unlikely Linux macro",
+      "url": "https://www.reddit.com/r/programming/comments/1vvrbyb/the_unlikely_linux_macro/",
+      "by": "chaobang",
+      "time": 1787441610000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Next.js Dynamic Routes now also available in Faces!",
+      "url": "https://www.reddit.com/r/programming/comments/1vvf3p0/nextjs_dynamic_routes_now_also_available_in_faces/",
+      "by": "henk53",
+      "time": 1787411861000,
+      "sub": "r/programming"
     },
     {
       "title": "The Pit Of Success",
@@ -16,167 +30,157 @@
       "sub": "r/programming"
     },
     {
-      "title": "How do real companies securely give developers access to the development database?",
-      "url": "https://www.reddit.com/r/devops/comments/1vv3h37/how_do_real_companies_securely_give_developers/",
-      "by": "Successful-Ship580",
-      "time": 1787376099000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Best way to integrate OpenProject + GitLab + Mattermost?",
-      "url": "https://www.reddit.com/r/devops/comments/1vuuzui/best_way_to_integrate_openproject_gitlab/",
-      "by": "ExtraLife6520",
-      "time": 1787352008000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Is anyone here securing their agents? Who in your org owns it?",
-      "url": "https://www.reddit.com/r/devops/comments/1vuu5z3/is_anyone_here_securing_their_agents_who_in_your/",
-      "by": "Thorne-ZytkowObject",
-      "time": 1787349960000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Finding a hidden Mersenne Twister implementation inside a 15 year old game binary",
-      "url": "https://www.reddit.com/r/programming/comments/1vuk4b5/finding_a_hidden_mersenne_twister_implementation/",
-      "by": "JizosKasa",
-      "time": 1787327394000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Embedding models benchmark for code duplication detection",
-      "url": "https://www.reddit.com/r/programming/comments/1vud8h6/embedding_models_benchmark_for_code_duplication/",
-      "by": "rafal-kochanowski",
-      "time": 1787310306000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "How would you manage 1,280 ARM64 bare-metal nodes with a very small ops team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vusaf7/how_would_you_manage_1280_arm64_baremetal_nodes/",
+      "by": "Josh_Difratech",
+      "time": 1787345490000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "Linux and storage | toward Rook|Ceph",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurqsc/linux_and_storage_toward_rookceph/",
+      "by": "faulty-segment",
+      "time": 1787344211000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
+      "title": "Struggling mightily with NFS and respecting POSIX permissions in a multi-tenant environment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vurn1o/struggling_mightily_with_nfs_and_respecting_posix/",
+      "by": "cowmu",
+      "time": 1787343972000,
       "sub": "r/kubernetes"
+    },
+    {
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "10 AI Tools That Can Help You Make Money Online",
-      "url": "https://medium.com/@mrnabeelfx786/10-ai-tools-that-can-help-you-make-money-online-8ad63a30bff2",
-      "by": "Mr Nabeel Fx",
-      "time": 1787398004000,
+      "title": "The Attack Wasn’t Hidden. We Were Looking at the Wrong Evidence.",
+      "url": "https://systemweakness.com/the-attack-wasnt-hidden-we-were-looking-at-the-wrong-evidence-bf2af7e0cda6",
+      "by": "Fateyaly",
+      "time": 1787458518000,
       "tags": [
-        "data-science",
-        "self-improvement",
-        "technology"
-      ]
-    },
-    {
-      "title": "⚠️ 5 Ways Your AI Coding Agent Is Secretly Writing Legacy Angular 22 Code (And How to Fix Each One)",
-      "url": "https://javascript.plainenglish.io/5-ways-your-ai-coding-agent-is-secretly-writing-legacy-angular-22-code-and-how-to-fix-each-one-30121015b82d",
-      "by": "Yogesh Raghav",
-      "time": 1787397991000,
-      "tags": [
-        "javascript",
-        "artificial-intelligence",
-        "angular"
-      ]
-    },
-    {
-      "title": "15 AI Tools That Can Change the Way You Work",
-      "url": "https://medium.com/@mrnabeelfx786/15-ai-tools-that-can-change-the-way-you-work-006eb4569b3e",
-      "by": "Mr Nabeel Fx",
-      "time": 1787397906000,
-      "tags": [
-        "programming",
+        "coding",
         "technology",
-        "data-science"
+        "ethical-hacking"
       ]
     },
     {
-      "title": "MLM Software in Solapur: Build, Manage & Scale Your Network Marketing Business",
-      "url": "https://medium.com/@sh3_4440/mlm-software-in-solapur-build-manage-scale-your-network-marketing-business-5ba18d0be7cf",
-      "by": "shallu",
-      "time": 1787397823000,
+      "title": "Before the Handshake, There’s the Hunt: Understanding DNS from First Principles",
+      "url": "https://medium.com/write-a-catalyst/before-the-handshake-theres-the-hunt-understanding-dns-from-first-principles-0a2bc9a1f5ca",
+      "by": "Alpish Jain",
+      "time": 1787458512000,
       "tags": [
-        "software-development",
-        "software-engineering"
+        "technology",
+        "learning",
+        "programming"
       ]
     },
     {
-      "title": "Deploying AI Solutions on Kubernetes: A Production-Ready Guide for Platform Engineers",
-      "url": "https://medium.com/aegisops/deploying-ai-solutions-on-kubernetes-a-production-ready-guide-for-platform-engineers-3716cef7924c",
-      "by": "Jaswinder Kumar",
-      "time": 1787397518000,
-      "tags": [
-        "devops",
-        "kubernetes",
-        "llm"
-      ]
-    },
-    {
-      "title": "Best MLM Software Development Company in Gurugram — Build, Automate & Grow Your Network Business",
-      "url": "https://medium.com/@sh2_52920/best-mlm-software-development-company-in-gurugram-build-automate-grow-your-network-business-894e7d71f103",
-      "by": "shallu",
-      "time": 1787397429000,
-      "tags": [
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "MLM Software in Noida: Powerful Solutions for Modern Network Marketing Businesses",
-      "url": "https://medium.com/@sh1_37814/mlm-software-in-noida-powerful-solutions-for-modern-network-marketing-businesses-49a014d6ee0b",
-      "by": "shallu",
-      "time": 1787397042000,
-      "tags": [
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Something Crazy Is Happening Inside Google",
-      "url": "https://medium.com/illumination/something-crazy-is-happening-inside-google-e6b40881ba0a",
-      "by": "Shreyas Naphad",
-      "time": 1787397016000,
+      "title": "BM25 Explained: How Search Engines Find the Most Relevant Documents",
+      "url": "https://medium.com/@geekycodes/bm25-explained-how-search-engines-find-the-most-relevant-documents-2940536b2e4c",
+      "by": "Ved Prakash",
+      "time": 1787458442000,
       "tags": [
         "programming",
         "data-science",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "Why NumPy?",
+      "url": "https://medium.com/@basnetalson121/why-numpy-da2be3090244",
+      "by": "Alson Basnet",
+      "time": 1787458379000,
+      "tags": [
+        "programming",
+        "python",
+        "numpy"
+      ]
+    },
+    {
+      "title": "7 Go Code-Review Comments I Keep Writing Again and Again",
+      "url": "https://blog.devgenius.io/7-go-code-review-comments-i-keep-writing-again-and-again-46253780608e",
+      "by": "Yaninyz witty",
+      "time": 1787458370000,
+      "tags": [
+        "software-development",
+        "coding",
+        "golang"
+      ]
+    },
+    {
+      "title": "8 Books Every Full Stack Developer Should Read",
+      "url": "https://medium.com/@akhilgite/8-books-every-full-stack-developer-should-read-979d109d5636",
+      "by": "Akhil Gite",
+      "time": 1787458152000,
+      "tags": [
+        "software-development",
+        "programming",
+        "books"
+      ]
+    },
+    {
+      "title": "Stuck on 3 million daily data entries?",
+      "url": "https://levelup.gitconnected.com/stuck-on-3-million-daily-data-entries-ea8aa9905ffd",
+      "by": "Umesh Kumar Yadav",
+      "time": 1787457974000,
+      "tags": [
+        "database",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "I stopped typing prompts to Claude Code. My prompts got better.",
+      "url": "https://medium.com/@Jessemeria/i-stopped-typing-prompts-to-claude-code-my-prompts-got-better-3ae4c37cb22c",
+      "by": "Jesse Meria",
+      "time": 1787457675000,
+      "tags": [
+        "macos",
+        "claude-code",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Getting Started with GoFr: the easiest go framework for microservices",
-      "url": "https://medium.com/@reetadevi7979/getting-started-with-gofr-the-easiest-go-framework-for-microservices-d7f776f5ff2e",
-      "by": "Aditya singh",
-      "time": 1787396691000,
+      "title": "The Recovery Storm: What Breaks When the Partition Heals",
+      "url": "https://gauravgupta98.medium.com/the-recovery-storm-what-breaks-when-the-partition-heals-b3751cc708f4",
+      "by": "Gaurav Gupta",
+      "time": 1787457135000,
       "tags": [
-        "programming",
-        "microservices",
-        "software-development"
+        "software-development",
+        "distributed-systems",
+        "coding"
       ]
     },
     {
-      "title": "MLM Software Company in Ahmedabad: Build a Smarter Network Marketing Business",
-      "url": "https://medium.com/@sh13_15608/mlm-software-company-in-ahmedabad-build-a-smarter-network-marketing-business-e7be6f09175f",
-      "by": "asdfg",
-      "time": 1787396646000,
+      "title": "From Proof-of-Concept to Production: Turning Your First Azure AI Search Index Into an Enterprise…",
+      "url": "https://fahadthedatascientist.medium.com/from-proof-of-concept-to-production-turning-your-first-azure-ai-search-index-into-an-enterprise-0d0128d7d72b",
+      "by": "Data Saint Consulting Inc",
+      "time": 1787457116000,
       "tags": [
+        "ai",
         "software-engineering",
-        "software-development"
+        "ai-agent"
       ]
     }
   ]
