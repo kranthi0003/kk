@@ -1,13 +1,13 @@
 {
-  "generated": "2026-08-23T04:28:22.805Z",
+  "generated": "2026-08-20T10:32:48.589Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
-  "round": 12,
+  "round": 11,
   "drivers": [
     {
       "pos": 1,
-      "points": 224,
+      "points": 219,
       "wins": 6,
       "code": "ANT",
       "number": 12,
@@ -19,7 +19,7 @@
     },
     {
       "pos": 2,
-      "points": 171,
+      "points": 169,
       "wins": 1,
       "code": "HAM",
       "number": 44,
@@ -31,7 +31,7 @@
     },
     {
       "pos": 3,
-      "points": 168,
+      "points": 160,
       "wins": 2,
       "code": "RUS",
       "number": 63,
@@ -43,7 +43,7 @@
     },
     {
       "pos": 4,
-      "points": 145,
+      "points": 138,
       "wins": 1,
       "code": "LEC",
       "number": 16,
@@ -55,7 +55,7 @@
     },
     {
       "pos": 5,
-      "points": 134,
+      "points": 128,
       "wins": 1,
       "code": "NOR",
       "number": 1,
@@ -67,7 +67,7 @@
     },
     {
       "pos": 6,
-      "points": 112,
+      "points": 109,
       "wins": 0,
       "code": "VER",
       "number": 3,
@@ -79,7 +79,7 @@
     },
     {
       "pos": 7,
-      "points": 96,
+      "points": 92,
       "wins": 0,
       "code": "PIA",
       "number": 81,
@@ -105,6 +105,18 @@
       "pos": 9,
       "points": 43,
       "wins": 0,
+      "code": "LAW",
+      "number": 30,
+      "first": "Liam",
+      "last": "Lawson",
+      "nationality": "New Zealander",
+      "team": "RB F1 Team",
+      "teamId": "rb"
+    },
+    {
+      "pos": 10,
+      "points": 42,
+      "wins": 0,
       "code": "GAS",
       "number": 10,
       "first": "Pierre",
@@ -112,18 +124,6 @@
       "nationality": "French",
       "team": "Alpine F1 Team",
       "teamId": "alpine"
-    },
-    {
-      "pos": 10,
-      "points": 43,
-      "wins": 0,
-      "code": "LAW",
-      "number": 30,
-      "first": "Liam",
-      "last": "Lawson",
-      "nationality": "New Zealander",
-      "team": "Red Bull",
-      "teamId": "red_bull"
     },
     {
       "pos": 11,
@@ -268,24 +268,12 @@
       "nationality": "Mexican",
       "team": "Cadillac F1 Team",
       "teamId": "cadillac"
-    },
-    {
-      "pos": 23,
-      "points": 0,
-      "wins": 0,
-      "code": "TSU",
-      "number": 22,
-      "first": "Yuki",
-      "last": "Tsunoda",
-      "nationality": "Japanese",
-      "team": "RB F1 Team",
-      "teamId": "rb"
     }
   ],
   "constructors": [
     {
       "pos": 1,
-      "points": 392,
+      "points": 379,
       "wins": 8,
       "name": "Mercedes",
       "teamId": "mercedes",
@@ -293,7 +281,7 @@
     },
     {
       "pos": 2,
-      "points": 316,
+      "points": 307,
       "wins": 2,
       "name": "Ferrari",
       "teamId": "ferrari",
@@ -301,7 +289,7 @@
     },
     {
       "pos": 3,
-      "points": 230,
+      "points": 220,
       "wins": 1,
       "name": "McLaren",
       "teamId": "mclaren",
@@ -309,7 +297,7 @@
     },
     {
       "pos": 4,
-      "points": 180,
+      "points": 177,
       "wins": 0,
       "name": "Red Bull",
       "teamId": "red_bull",
@@ -325,7 +313,7 @@
     },
     {
       "pos": 6,
-      "points": 62,
+      "points": 61,
       "wins": 0,
       "name": "Alpine F1 Team",
       "teamId": "alpine",
@@ -637,12 +625,7 @@
       "start": "2026-08-23T13:00:00Z",
       "date": "2026-08-23",
       "winner": null,
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:11.163"
-      }
+      "pole": null
     },
     {
       "round": 13,
