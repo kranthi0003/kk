@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-24T01:40:47.214Z",
+  "generated": "2026-08-24T02:00:51.751Z",
   "reddit": [
     {
       "title": "Should I do the Cloud Resume Challenge before the AWS cert?",
@@ -73,6 +73,17 @@
     }
   ],
   "medium": [
+    {
+      "title": "Hybrid Search in RAG: Combining BM25 and Vector Search for Better Retrieval",
+      "url": "https://medium.com/@geekycodes/hybrid-search-in-rag-combining-bm25-and-vector-search-for-better-retrieval-b5c86c394ba8",
+      "by": "Ved Prakash",
+      "time": 1787536442000,
+      "tags": [
+        "software-engineering",
+        "data-science",
+        "python"
+      ]
+    },
     {
       "title": "7 Patterns I Only Learned by Writing Code That Runs When My App Doesn’t",
       "url": "https://medium.com/@antoniwijaya.kwok/7-patterns-i-only-learned-by-writing-code-that-runs-when-my-app-doesnt-67d72ca62ba5",
@@ -170,17 +181,6 @@
         "software-development",
         "coding",
         "programming"
-      ]
-    },
-    {
-      "title": "gRPC DEADLINE_EXCEEDED: The Error That Meant the Deadline Was Never Actually Set Where I Thought It…",
-      "url": "https://medium.com/javarevisited/grpc-deadline-exceeded-the-error-that-meant-the-deadline-was-never-actually-set-where-i-thought-it-48a2bd3f06bf",
-      "by": "Systems at Scale",
-      "time": 1787533506000,
-      "tags": [
-        "software-architecture",
-        "software-development",
-        "coding"
       ]
     }
   ]
