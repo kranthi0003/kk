@@ -74,6 +74,7 @@ export default function BallGame() {
   const [result, setResult] = useState(null)
   const [best, setBest] = useState(readBest)
   const [ready, setReady] = useState(false)
+  const [robots, setRobots] = useState(false)
   const [small, setSmall] = useState(() => {
     try { return localStorage.getItem(SMALL_KEY) === '1' } catch { return false }
   })
@@ -116,6 +117,11 @@ export default function BallGame() {
       wasOn.current = s.on
     }
     window.addEventListener('rail-game-state', onState)
+    const onSwarm = (e) => setRobots(!!(e.detail && e.detail.on))
+    window.addEventListener('rail-swarm-state', onSwarm)
+    // The field may already be running when this mounts, so ask rather
+    // than assume it is off.
+    window.dispatchEvent(new CustomEvent('rail-swarm-ask'))
     const mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null
     const onMotion = () => setMotion(!mq.matches)
     mq && mq.addEventListener('change', onMotion)
@@ -127,6 +133,7 @@ export default function BallGame() {
     const t = setTimeout(() => setReady(true), 7000)
     return () => {
       window.removeEventListener('rail-game-state', onState)
+      window.removeEventListener('rail-swarm-state', onSwarm)
       mq && mq.removeEventListener('change', onMotion)
       wq && wq.removeEventListener('change', onWide)
       clearTimeout(t)
@@ -135,6 +142,7 @@ export default function BallGame() {
 
   const start = () => { setResult(null); window.dispatchEvent(new CustomEvent('rail-game-start')) }
   const quit = () => window.dispatchEvent(new CustomEvent('rail-game-quit'))
+  const toggleRobots = () => { setResult(null); window.dispatchEvent(new CustomEvent('rail-swarm-toggle')) }
 
   if (!ready || !motion) return null
 
@@ -151,6 +159,14 @@ export default function BallGame() {
   const skin = {
     background: 'color-mix(in oklab, var(--color-card) 92%, transparent)',
     boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 55%, var(--color-border)), 0 8px 28px rgba(0,0,0,0.34)',
+  }
+  const offSkin = {
+    background: 'color-mix(in oklab, var(--color-card) 88%, transparent)',
+    boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, var(--color-border))',
+  }
+  const onSkin = {
+    background: 'color-mix(in oklab, var(--color-accent) 20%, transparent)',
+    boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 80%, transparent)',
   }
 
   // ---- during a round ----
@@ -209,7 +225,7 @@ export default function BallGame() {
   // ---- collapsed, and the whole of the phone case ----
   if (small || !wide) {
     return (
-      <div className={shell}>
+      <div className={`${shell} flex gap-2`}>
         <button
           onClick={() => { setSmall(false); try { localStorage.removeItem(SMALL_KEY) } catch {} }}
           aria-label="Eleven Shots — a game with the balls"
@@ -218,6 +234,20 @@ export default function BallGame() {
           style={{ background: 'color-mix(in oklab, var(--color-card) 88%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 40%, var(--color-border))' }}
         >
           <RingMark size={18} />
+        </button>
+        {/* Always shown, not gated on width. This whole component only
+            mounts as part of SiteExtras, which the lite build drops, so
+            wherever it renders at all the balls exist to wake up. An
+            earlier width guard here hid the control between 768 and
+            1023px, where there are balls but no room for the full strip. */}
+        <button
+          onClick={toggleRobots}
+          aria-label={robots ? 'Stop robot mode' : 'Robot mode — let the balls loose'}
+          title="Robot mode"
+          className="pointer-events-auto grid place-items-center w-10 h-10 rounded-full backdrop-blur-sm transition-transform hover:scale-105"
+          style={robots ? onSkin : offSkin}
+        >
+          <PodMark size={18} on={robots} />
         </button>
       </div>
     )
@@ -237,6 +267,23 @@ export default function BallGame() {
           </span>
           {best ? <span className="text-[11px] font-mono text-muted-foreground whitespace-nowrap">best {best.throws}</span> : null}
         </button>
+        {/* Robot mode sits here rather than three levels into a menu,
+            because it is the same subject as the game — the balls — and
+            this strip is the one band on the page already proven clear of
+            everything else. Buried in Tools nobody found it. */}
+        <span className="w-px h-5 shrink-0" style={{ background: 'var(--color-border)' }} aria-hidden="true" />
+        <button
+          onClick={toggleRobots}
+          className="flex items-center gap-2 h-10 px-2.5 rounded-r-full transition-colors"
+          style={robots ? { background: 'color-mix(in oklab, var(--color-accent) 16%, transparent)' } : undefined}
+          title={robots ? 'Stop the robots' : 'Let the balls loose'}
+        >
+          <PodMark size={17} on={robots} />
+          <span className="text-[12.5px] font-semibold whitespace-nowrap"
+                style={{ color: robots ? 'var(--color-accent)' : 'var(--color-foreground)' }}>
+            {robots ? 'Stop robots' : 'Robots'}
+          </span>
+        </button>
         <button
           onClick={(e) => { e.stopPropagation(); setSmall(true); try { localStorage.setItem(SMALL_KEY, '1') } catch {} }}
           aria-label="Shrink"
@@ -248,6 +295,23 @@ export default function BallGame() {
         </button>
       </div>
     </div>
+  )
+}
+
+// The pod: the head-and-antenna the balls become in robot mode, matching
+// the icon in the Tools menu so the two read as the same thing.
+function PodMark({ size = 18, on }) {
+  const c = on ? 'var(--color-accent)' : 'currentColor'
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={c}
+         strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+         className={on ? 'pod-live' : undefined}>
+      <rect x="4" y="8" width="16" height="11" rx="3" />
+      <path d="M12 5.2V8" />
+      <circle cx="12" cy="4" r="1.4" />
+      <circle cx="9" cy="13" r="1.2" fill={c} stroke="none" />
+      <circle cx="15" cy="13" r="1.2" fill={c} stroke="none" />
+    </svg>
   )
 }
 
