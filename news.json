@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-24T02:00:51.751Z",
+  "generated": "2026-08-24T04:31:45.875Z",
   "reddit": [
     {
       "title": "Should I do the Cloud Resume Challenge before the AWS cert?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Hybrid Search in RAG: Combining BM25 and Vector Search for Better Retrieval",
-      "url": "https://medium.com/@geekycodes/hybrid-search-in-rag-combining-bm25-and-vector-search-for-better-retrieval-b5c86c394ba8",
-      "by": "Ved Prakash",
-      "time": 1787536442000,
+      "title": "Transformation Case Study :From Legacy KYC to an Enterprise Customer Banking Platform",
+      "url": "https://connect2grp.medium.com/transformation-case-study-from-legacy-kyc-to-an-enterprise-customer-banking-platform-b414d3274766",
+      "by": "A Passionate Programmer - A Tec…",
+      "time": 1787545137000,
       "tags": [
         "software-engineering",
-        "data-science",
-        "python"
-      ]
-    },
-    {
-      "title": "7 Patterns I Only Learned by Writing Code That Runs When My App Doesn’t",
-      "url": "https://medium.com/@antoniwijaya.kwok/7-patterns-i-only-learned-by-writing-code-that-runs-when-my-app-doesnt-67d72ca62ba5",
-      "by": "Antoni Wijaya",
-      "time": 1787535286000,
-      "tags": [
-        "best-practices",
-        "mobile-app-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Capacity Scaling: Designing Systems That Can Grow",
-      "url": "https://medium.com/@scosmexs/capacity-scaling-designing-systems-that-can-grow-16d8a4731b36",
-      "by": "Sebastiao Cosme Agostinho",
-      "time": 1787535103000,
-      "tags": [
-        "programming",
-        "software-engineering",
+        "coding",
         "software-development"
       ]
     },
     {
-      "title": "The DTO Mapper Industry Was Built on a Missing Java Language Feature",
-      "url": "https://medium.com/heap-wire/the-dto-mapper-industry-was-built-on-a-missing-java-language-feature-4f57c792ff07",
-      "by": "Jitin Kayyala",
-      "time": 1787535061000,
+      "title": "Your Brain Needs Rest Too: Why Overtime Should Be the Exception, Not the Culture",
+      "url": "https://medium.com/@geeky.vartika/your-brain-needs-rest-too-why-overtime-should-be-the-exception-not-the-culture-10047d85760d",
+      "by": "Geeky Vartika",
+      "time": 1787544952000,
       "tags": [
-        "software-development",
-        "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Best Programming Language of 2026 Depends on Which Chart You Open. I Opened All of Them.",
-      "url": "https://medium.com/@thebuildersplaybook/the-best-programming-language-of-2026-depends-on-which-chart-you-open-i-opened-all-of-them-e83c1f689b8b",
-      "by": "The Builder's Playbook",
-      "time": 1787535061000,
-      "tags": [
-        "data-science",
-        "programming-languages",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Built a Local Search Engine for AI Coding Assistants",
-      "url": "https://medium.com/@genautkin/i-built-a-local-search-engine-for-ai-coding-assistants-d9070979ebe2",
-      "by": "Gennadiy Utkin",
-      "time": 1787534813000,
-      "tags": [
-        "developer-tools",
+        "productivity",
         "software-engineering",
-        "programming"
+        "toxic-workplaces"
       ]
     },
     {
-      "title": "How to Design Multi-AZ Deployment for High Availability Using Terraform",
-      "url": "https://medium.com/@arvindverma021/how-to-design-multi-az-deployment-for-high-availability-using-terraform-190d0faef5e9",
-      "by": "Arvind Verma",
-      "time": 1787534615000,
+      "title": "The Interview Question AI Can’t Help You Answer",
+      "url": "https://medium.com/the-hotfix/the-interview-question-ai-cant-help-you-answer-1a6ee1e1db27",
+      "by": "Sanjeevani Bhandari",
+      "time": 1787544893000,
       "tags": [
-        "docker",
-        "aws",
-        "ai"
+        "interview",
+        "hiring",
+        "software-engineering"
       ]
     },
     {
-      "title": "Collection of Industry Trends and Development, and Miscellaneous Information — June 2026",
-      "url": "https://willieswu.medium.com/collection-of-industry-trends-and-development-and-miscellaneous-information-june-2026-383333c63261",
-      "by": "Willies Wu",
-      "time": 1787534568000,
+      "title": "AI Writes Code That Looks Right. That’s Exactly the Danger.",
+      "url": "https://medium.com/@jaberadam2001/ai-writes-code-that-looks-right-thats-exactly-the-danger-712dd3665575",
+      "by": "Adam Jaber",
+      "time": 1787544785000,
       "tags": [
-        "technews",
-        "software-engineering",
-        "entrepreneurship"
-      ]
-    },
-    {
-      "title": "My Not-So-Perfect Journey Into Tech",
-      "url": "https://medium.com/@rin1ko.2boo/my-not-so-perfect-journey-into-tech-3480c8fd1e95",
-      "by": "Lin_",
-      "time": 1787533875000,
-      "tags": [
-        "software-development",
-        "machine-learning",
-        "careers"
-      ]
-    },
-    {
-      "title": "Our DNS Failover Took 18 Hours to Actually Reach Half Our Users",
-      "url": "https://medium.com/codex/our-dns-failover-took-18-hours-to-actually-reach-half-our-users-0c0500145a33",
-      "by": "Systems at Scale",
-      "time": 1787533580000,
-      "tags": [
-        "software-development",
         "coding",
+        "developer-tools",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "I Used GitHub Copilot for 30 Days Building a Real App — Here’s What Changed",
+      "url": "https://medium.com/@akhilgite/i-used-github-copilot-for-30-days-building-a-real-app-heres-what-changed-300fe622a7c0",
+      "by": "Akhil Gite",
+      "time": 1787544340000,
+      "tags": [
+        "technology",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Wait, What Even IS Software Engineering?",
+      "url": "https://zakiuh.medium.com/wait-what-even-is-software-engineering-28bdd0c9ba85",
+      "by": "Zaki Ul Hassan",
+      "time": 1787544076000,
+      "tags": [
+        "software-crisis",
+        "software-engineering",
+        "software-cirisis"
+      ]
+    },
+    {
+      "title": "WHY IS YOUR .NET API EATING RAM?",
+      "url": "https://levelup.gitconnected.com/why-is-your-net-api-eating-ram-630b38035889",
+      "by": "ShemeenaS Rawther",
+      "time": 1787543810000,
+      "tags": [
+        "csharp",
+        "dotnet",
         "programming"
+      ]
+    },
+    {
+      "title": "Post-Quantum in 2026: What Is On, What Is Not",
+      "url": "https://medium.com/@info_85263/post-quantum-in-2026-what-is-on-what-is-not-1ac7fa6eb7f4",
+      "by": "MatrixGard",
+      "time": 1787543808000,
+      "tags": [
+        "devops",
+        "cybersecurity",
+        "post-quantum-cryptography"
+      ]
+    },
+    {
+      "title": "10AI Tools That Save Me 10 Hours Every Week",
+      "url": "https://medium.com/the-code-frontier/10ai-tools-that-save-me-10-hours-every-week-733a10d320fd",
+      "by": "Dev Evolution",
+      "time": 1787543523000,
+      "tags": [
+        "chatgpt",
+        "ai",
+        "productivity"
+      ]
+    },
+    {
+      "title": "The Deployment That Broke Production (And the Feature Flags That Saved It)",
+      "url": "https://medium.com/@ronikdedhia/the-deployment-that-broke-production-and-the-feature-flags-that-saved-it-07e3b128fb15",
+      "by": "Ronik Dedhia",
+      "time": 1787543161000,
+      "tags": [
+        "deployment",
+        "software-engineering",
+        "javascript"
       ]
     }
   ]
