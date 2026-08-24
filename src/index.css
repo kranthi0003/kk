@@ -442,13 +442,21 @@ html.rail-falling .rail-btn:not(.rail-loose) { opacity: 0; }
 }
 
 /* Section fade-in on scroll */
-.section-animate {
+/* Sections fade in as they scroll into view.
+ *
+ * The hiding is gated on html.js-reveal, which the app sets at module
+ * scope before anything renders. Hiding unconditionally means the page is
+ * blank whenever the script that reveals it doesn't run — a bundle that
+ * fails to parse, an old browser, a blocked CDN — and a portfolio that
+ * renders as an empty column is a worse failure than one that doesn't
+ * animate. With the gate, the fallback is simply everything visible. */
+html.js-reveal .section-animate {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.section-animate.in-view {
+html.js-reveal .section-animate.in-view {
   opacity: 1;
   transform: translateY(0);
 }
@@ -460,7 +468,7 @@ html.rail-falling .rail-btn:not(.rail-loose) { opacity: 0; }
 .section-animate:has(.reveal) {
   transform: none;
 }
-.reveal {
+html.js-reveal .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),

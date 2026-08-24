@@ -50,6 +50,14 @@ const Splat = lazy(() => import('./components/Splat'))
 
 // One lazy chunk for the whole of the full-site experience. A narrow
 // screen never requests it, so none of it is downloaded.
+// Set before anything renders, so the fade-in CSS applies from the first
+// paint and there is no flash of already-visible content. Its absence is
+// what makes the page degrade to "everything visible" rather than blank
+// if this script never runs at all.
+if (typeof document !== 'undefined') {
+  document.documentElement.classList.add('js-reveal')
+}
+
 const SiteExtras = lazy(() => import('./components/SiteExtras'))
 const ExtraAfterHero = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterHero })))
 const ExtraAfterTech = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterTech })))
@@ -166,8 +174,19 @@ export default function App() {
 
   // Reveal-on-scroll for homepage sections. Re-runs on route change so the
   // sections are re-observed when returning to the homepage (no-op elsewhere).
+  //
+  // A .section-animate starts at opacity 0 and only becomes visible once
+  // this observer adds .in-view. That makes the observer load-bearing:
+  // anything it fails to pick up is not merely un-animated, it is
+  // permanently invisible.
+  //
+  // Which is exactly what happened when the extra sections moved behind a
+  // lazy import for the lite build. querySelectorAll ran on mount, before
+  // that chunk had arrived, so nine of the fourteen sections were never
+  // observed and 6,750px of the page stayed blank. A MutationObserver now
+  // watches for sections that mount later and observes those too.
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -178,16 +197,37 @@ export default function App() {
             items.forEach((el, i) => {
               el.style.transitionDelay = `${Math.min(i * 70, 630)}ms`
             })
-            observer.unobserve(entry.target)
+            io.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.1 }
     )
-    document.querySelectorAll('.section-animate').forEach((el) => {
-      observer.observe(el)
+
+    const seen = new WeakSet()
+    const observe = (el) => {
+      if (seen.has(el)) return
+      seen.add(el)
+      io.observe(el)
+    }
+    const sweep = () => document.querySelectorAll('.section-animate').forEach(observe)
+
+    sweep()
+
+    // Lazy chunks land after this effect has already run, so watch for
+    // them rather than assuming the page is complete on mount.
+    const mo = new MutationObserver((records) => {
+      for (const r of records) {
+        for (const node of r.addedNodes) {
+          if (node.nodeType !== 1) continue
+          if (node.classList?.contains('section-animate')) observe(node)
+          node.querySelectorAll?.('.section-animate').forEach(observe)
+        }
+      }
     })
-    return () => observer.disconnect()
+    mo.observe(document.body, { childList: true, subtree: true })
+
+    return () => { io.disconnect(); mo.disconnect() }
   }, [route])
 
   // Battle page route
