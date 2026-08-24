@@ -128,7 +128,20 @@ export function createRailField(selector = '.rail-btn') {
 
   let W = window.innerWidth
   let H = window.innerHeight
-  const floorY = () => H - FLOOR_INSET
+  // The insets exist for balls that come to rest: FLOOR_INSET keeps them
+  // off the visitor counter, rightInset off the chat button. A roaming
+  // pod never rests, so in swarm mode the box opens out to nearly the
+  // whole window — measured, the old bounds left 118px dead down the
+  // right and 102px along the bottom, which is where a lot of the page
+  // actually is.
+  //
+  // `swarm` is declared further down, so this is guarded rather than
+  // read directly: floorY runs during setup, before that binding exists.
+  const roaming = () => !!(typeof swarm !== 'undefined' && swarm && swarm.active)
+  const SWARM_MARGIN = 4
+  const floorY = () => H - (roaming() ? SWARM_MARGIN : FLOOR_INSET)
+  const leftWall = () => (roaming() ? SWARM_MARGIN : SIDE_INSET)
+  const rightWall = () => W - (roaming() ? SWARM_MARGIN : rightInset(W))
 
   // The rect is read only for the size. The position is thrown away: the
   // balls belong above the ceiling from the very first frame, not in the
@@ -630,13 +643,15 @@ export function createRailField(selector = '.rail-btn') {
       }
 
       // walls
-      if (b.x - b.r < SIDE_INSET) {
-        b.x = SIDE_INSET + b.r
-        if (Math.abs(b.vx) > 520) spark(SIDE_INSET, b.y, Math.abs(b.vx))
+      const lw = leftWall()
+      const rw = rightWall()
+      if (b.x - b.r < lw) {
+        b.x = lw + b.r
+        if (Math.abs(b.vx) > 520) spark(lw, b.y, Math.abs(b.vx))
         b.vx = Math.abs(b.vx) * restWall
-      } else if (b.x + b.r > W - rightInset(W)) {
-        b.x = W - rightInset(W) - b.r
-        if (Math.abs(b.vx) > 520) spark(W - rightInset(W), b.y, Math.abs(b.vx))
+      } else if (b.x + b.r > rw) {
+        b.x = rw - b.r
+        if (Math.abs(b.vx) > 520) spark(rw, b.y, Math.abs(b.vx))
         b.vx = -Math.abs(b.vx) * restWall
       }
       // Ceiling. Only for something on its way up — a ball is dropped in
@@ -909,8 +924,10 @@ export function createRailField(selector = '.rail-btn') {
 
   const onScroll = () => {
     // Mid-game the column is the scoreboard, so scrolling doesn't get to
-    // fill it.
-    if (game) return
+    // fill it. And a roaming swarm is the whole point of robot mode —
+    // measured, scrolling one screen down parked all twelve in the
+    // column and the mode was over without being switched off.
+    if (game || swarm.active) return
     const y = window.scrollY || window.pageYOffset || 0
     const h = window.innerHeight || 1
     // Two thresholds, not one: a single line would flap between docked
@@ -949,6 +966,17 @@ export function createRailField(selector = '.rail-btn') {
     if (game) stopGame(false)
     swarm.toggle()
     emitSwarm()
+    // Switching off shrinks the box back. Anything left in the margin
+    // would be outside the wall it is now measured against, which the
+    // floor check reads as being below the floor.
+    if (!swarm.active) {
+      const fy = floorY()
+      bodies.forEach((b) => {
+        b.x = Math.max(leftWall() + b.r, Math.min(rightWall() - b.r, b.x))
+        b.y = Math.min(fy - b.r, b.y)
+      })
+    }
+    wake()
   }
   const onSwarmAsk = () => emitSwarm()
   window.addEventListener('rail-swarm-toggle', onSwarm)
