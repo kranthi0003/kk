@@ -1,54 +1,54 @@
 {
-  "generated": "2026-08-23T13:23:45.970Z",
+  "generated": "2026-08-24T01:40:47.214Z",
   "reddit": [
     {
-      "title": "Why so many languages use LLVM",
-      "url": "https://www.reddit.com/r/programming/comments/1vw6z10/why_so_many_languages_use_llvm/",
-      "by": "Ok_Marionberry8922",
-      "time": 1787491037000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The Interview That Wouldn't Die",
-      "url": "https://www.reddit.com/r/programming/comments/1vw68ut/the_interview_that_wouldnt_die/",
-      "by": "Super-Performance-86",
-      "time": 1787489066000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How a 128 MB Windows CE Device Taught Me Debugging",
-      "url": "https://www.reddit.com/r/programming/comments/1vw433z/how_a_128_mb_windows_ce_device_taught_me_debugging/",
-      "by": "phucphungbk",
-      "time": 1787482417000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Any devops or SRE engineers using AI agents?",
-      "url": "https://www.reddit.com/r/devops/comments/1vw1t7p/any_devops_or_sre_engineers_using_ai_agents/",
-      "by": "Broad-Equivalent-790",
-      "time": 1787474537000,
+      "title": "Should I do the Cloud Resume Challenge before the AWS cert?",
+      "url": "https://www.reddit.com/r/devops/comments/1vwn5wo/should_i_do_the_cloud_resume_challenge_before_the/",
+      "by": "Useful_Mortgage9675",
+      "time": 1787529732000,
       "sub": "r/devops"
     },
     {
-      "title": "Compiler Optimizations",
-      "url": "https://www.reddit.com/r/programming/comments/1vw0y4v/compiler_optimizations/",
-      "by": "theapplebi",
-      "time": 1787471488000,
+      "title": "Khaos - Kafka traffic generation, load testing and failure simulation, now rewritten in Go",
+      "url": "https://www.reddit.com/r/devops/comments/1vwhp7b/khaos_kafka_traffic_generation_load_testing_and/",
+      "by": "skrbic_a",
+      "time": 1787516089000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Terraform Setup for Developer Enablement",
+      "url": "https://www.reddit.com/r/devops/comments/1vwhgvg/terraform_setup_for_developer_enablement/",
+      "by": "MoBoo138",
+      "time": 1787515545000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Question for people running production systems",
+      "url": "https://www.reddit.com/r/devops/comments/1vwgmo7/question_for_people_running_production_systems/",
+      "by": "Acceptable_Duty4044",
+      "time": 1787513631000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Stop Using Conventional Commits",
+      "url": "https://www.reddit.com/r/programming/comments/1vwfrbg/stop_using_conventional_commits/",
+      "by": "fagnerbrack",
+      "time": 1787511631000,
       "sub": "r/programming"
     },
     {
-      "title": "Where does architecture work still feel too manual?",
-      "url": "https://www.reddit.com/r/devops/comments/1vvnxz4/where_does_architecture_work_still_feel_too_manual/",
-      "by": "Glittering_Pepper575",
-      "time": 1787432719000,
-      "sub": "r/devops"
+      "title": "How To Report A Bug So It Actually Gets Fixed",
+      "url": "https://www.reddit.com/r/programming/comments/1vwb745/how_to_report_a_bug_so_it_actually_gets_fixed/",
+      "by": "tymscar",
+      "time": 1787501306000,
+      "sub": "r/programming"
     },
     {
-      "title": "Looking for projects ideas for experienced devops/SRE engineers",
-      "url": "https://www.reddit.com/r/devops/comments/1vvl3gr/looking_for_projects_ideas_for_experienced/",
-      "by": "imLazyCartard",
-      "time": 1787425919000,
-      "sub": "r/devops"
+      "title": "How to Design an Animation",
+      "url": "https://www.reddit.com/r/programming/comments/1vw91lz/how_to_design_an_animation/",
+      "by": "kciter",
+      "time": 1787496281000,
+      "sub": "r/programming"
     },
     {
       "title": "Weekly: Share your victories thread",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "What Messy Data Looks Like Before Anyone Cleans It",
-      "url": "https://medium.com/@raiyansayeed0/what-messy-data-looks-like-before-anyone-cleans-it-8ac82daa148f",
-      "by": "Raiyan Sayeed",
-      "time": 1787490844000,
+      "title": "7 Patterns I Only Learned by Writing Code That Runs When My App Doesn’t",
+      "url": "https://medium.com/@antoniwijaya.kwok/7-patterns-i-only-learned-by-writing-code-that-runs-when-my-app-doesnt-67d72ca62ba5",
+      "by": "Antoni Wijaya",
+      "time": 1787535286000,
       "tags": [
-        "python-programming",
-        "data-cleaning",
-        "data-analysis"
+        "best-practices",
+        "mobile-app-development",
+        "software-engineering"
       ]
     },
     {
-      "title": "Integrating OpenG2P into Mifos Gazelle: My GSoC 2026 Journey",
-      "url": "https://medium.com/@gousalam0786/integrating-openg2p-into-mifos-gazelle-my-gsoc-2026-journey-573bbd8e97f5",
-      "by": "Mohammad Gous",
-      "time": 1787490746000,
+      "title": "Capacity Scaling: Designing Systems That Can Grow",
+      "url": "https://medium.com/@scosmexs/capacity-scaling-designing-systems-that-can-grow-16d8a4731b36",
+      "by": "Sebastiao Cosme Agostinho",
+      "time": 1787535103000,
       "tags": [
-        "open-source",
-        "kubernetes",
-        "google"
-      ]
-    },
-    {
-      "title": "Three phishing Red flags",
-      "url": "https://medium.com/@chiazalamsamuel315/three-phishing-red-flags-0e1186095eb6",
-      "by": "Chiazalam Samuel",
-      "time": 1787490520000,
-      "tags": [
-        "cybersecurity",
-        "careers",
-        "information-security"
-      ]
-    },
-    {
-      "title": "# Solving AI Amnesia: Why Your Coding Agent/Harness Needs Institutional Memory",
-      "url": "https://medium.com/@leoalex175/solving-ai-amnesia-why-your-coding-agent-harness-needs-institutional-memory-b2c4602af98b",
-      "by": "Leoalex",
-      "time": 1787490281000,
-      "tags": [
-        "ai-codig",
-        "software-engineering",
-        "agentic-coding"
-      ]
-    },
-    {
-      "title": "Your Database Is a Time Machine",
-      "url": "https://medium.com/@derek.mwale/your-database-is-a-time-machine-ea07b90cb3a3",
-      "by": "Derek Mwale",
-      "time": 1787490272000,
-      "tags": [
-        "api",
         "programming",
+        "software-engineering",
         "software-development"
       ]
     },
     {
-      "title": "Polymarket Trader Makes $26,678 by Answering the Same Question Everyday: Will Bitcoin Close Up or ⬇️",
-      "url": "https://medium.com/mountain-movers/polymarket-trader-makes-26-678-by-answering-the-same-question-everyday-will-bitcoin-close-up-or-%EF%B8%8F-717fb683ec72",
-      "by": "Ezekiel Njuguna",
-      "time": 1787490171000,
+      "title": "The DTO Mapper Industry Was Built on a Missing Java Language Feature",
+      "url": "https://medium.com/heap-wire/the-dto-mapper-industry-was-built-on-a-missing-java-language-feature-4f57c792ff07",
+      "by": "Jitin Kayyala",
+      "time": 1787535061000,
       "tags": [
-        "programming",
-        "money",
-        "technology"
-      ]
-    },
-    {
-      "title": "I Rewrote One C++ Function Three Ways. The Fastest One Surprised Me.",
-      "url": "https://medium.com/codetodeploy/i-rewrote-one-c-function-three-ways-the-fastest-one-surprised-me-10fb7f75697d",
-      "by": "Mahad Nadeem",
-      "time": 1787490165000,
-      "tags": [
-        "cpp",
-        "web-development",
+        "software-development",
+        "technology",
         "programming"
       ]
     },
     {
-      "title": "Do Crackheads Ever Say, “I’m Too Broke to Smoke Crack Tonight”? No. They Get Up and Make It Happen",
-      "url": "https://ezzekielnjuguna.medium.com/do-crackheads-ever-say-im-too-broke-to-smoke-crack-tonight-no-they-get-up-and-make-it-happen-fdb27dee343c",
-      "by": "Ezekiel Njuguna",
-      "time": 1787490155000,
+      "title": "The Best Programming Language of 2026 Depends on Which Chart You Open. I Opened All of Them.",
+      "url": "https://medium.com/@thebuildersplaybook/the-best-programming-language-of-2026-depends-on-which-chart-you-open-i-opened-all-of-them-e83c1f689b8b",
+      "by": "The Builder's Playbook",
+      "time": 1787535061000,
       "tags": [
-        "motivation",
-        "programming",
-        "technology"
+        "data-science",
+        "programming-languages",
+        "programming"
       ]
     },
     {
-      "title": "AI Writes Code Faster Than Me. It Still Cannot Do My Job. Here Is Why.",
-      "url": "https://medium.com/@aiguy7854/ai-writes-code-faster-than-me-it-still-cannot-do-my-job-here-is-why-b887b438d9b6",
-      "by": "Sami Explores",
-      "time": 1787490068000,
+      "title": "I Built a Local Search Engine for AI Coding Assistants",
+      "url": "https://medium.com/@genautkin/i-built-a-local-search-engine-for-ai-coding-assistants-d9070979ebe2",
+      "by": "Gennadiy Utkin",
+      "time": 1787534813000,
       "tags": [
+        "developer-tools",
         "software-engineering",
-        "ai",
         "programming"
       ]
     },
     {
-      "title": "The Same Requirement Means Different Things to Security, Architecture, and Operations",
-      "url": "https://medium.com/@spark.tsai/the-same-requirement-means-different-things-to-security-architecture-and-operations-ca5a07ff010b",
-      "by": "Tsai Spark",
-      "time": 1787490062000,
+      "title": "How to Design Multi-AZ Deployment for High Availability Using Terraform",
+      "url": "https://medium.com/@arvindverma021/how-to-design-multi-az-deployment-for-high-availability-using-terraform-190d0faef5e9",
+      "by": "Arvind Verma",
+      "time": 1787534615000,
+      "tags": [
+        "docker",
+        "aws",
+        "ai"
+      ]
+    },
+    {
+      "title": "Collection of Industry Trends and Development, and Miscellaneous Information — June 2026",
+      "url": "https://willieswu.medium.com/collection-of-industry-trends-and-development-and-miscellaneous-information-june-2026-383333c63261",
+      "by": "Willies Wu",
+      "time": 1787534568000,
+      "tags": [
+        "technews",
+        "software-engineering",
+        "entrepreneurship"
+      ]
+    },
+    {
+      "title": "My Not-So-Perfect Journey Into Tech",
+      "url": "https://medium.com/@rin1ko.2boo/my-not-so-perfect-journey-into-tech-3480c8fd1e95",
+      "by": "Lin_",
+      "time": 1787533875000,
+      "tags": [
+        "software-development",
+        "machine-learning",
+        "careers"
+      ]
+    },
+    {
+      "title": "Our DNS Failover Took 18 Hours to Actually Reach Half Our Users",
+      "url": "https://medium.com/codex/our-dns-failover-took-18-hours-to-actually-reach-half-our-users-0c0500145a33",
+      "by": "Systems at Scale",
+      "time": 1787533580000,
+      "tags": [
+        "software-development",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "gRPC DEADLINE_EXCEEDED: The Error That Meant the Deadline Was Never Actually Set Where I Thought It…",
+      "url": "https://medium.com/javarevisited/grpc-deadline-exceeded-the-error-that-meant-the-deadline-was-never-actually-set-where-i-thought-it-48a2bd3f06bf",
+      "by": "Systems at Scale",
+      "time": 1787533506000,
       "tags": [
         "software-architecture",
-        "requirements-engineering",
-        "artificial-intelligence"
+        "software-development",
+        "coding"
       ]
     }
   ]

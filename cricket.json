@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23T13:23:50.748Z",
+  "generated": "2026-08-24T01:40:54.604Z",
   "season": "2026",
   "sources": [
     {
@@ -641,7 +641,7 @@
       "played": 4,
       "scheduled": 5,
       "ends": "2026-08-23",
-      "status": "live"
+      "status": "done"
     },
     {
       "start": "2026-08-13",
