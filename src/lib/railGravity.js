@@ -346,7 +346,7 @@ export function createRailField(selector = '.rail-btn') {
 
   function startGame() {
     if (game) return
-    if (swarm.active) swarm.stop()
+    if (swarm.active) { swarm.stop(); emitSwarm() }
     // Anything still parked from a scroll comes back down first, or the
     // game would start already won.
     if (docked) setDocked(false)
@@ -937,13 +937,22 @@ export function createRailField(selector = '.rail-btn') {
   const onVis = () => { if (!document.hidden) { last = 0; wake() } }
   document.addEventListener('visibilitychange', onVis)
 
+  // Anything that changes swarm state says so, because the control that
+  // turns it on lives in a component that can't see this closure — and a
+  // toggle that doesn't reflect its own state is worse than no state at
+  // all. Emitted from one place so the two can't drift.
+  const emitSwarm = () => emit('rail-swarm-state', { on: swarm.active })
+
   const onSwarm = () => {
     // The two modes want opposite things from the same bodies, so
     // starting one ends the other rather than both fighting for control.
     if (game) stopGame(false)
     swarm.toggle()
+    emitSwarm()
   }
+  const onSwarmAsk = () => emitSwarm()
   window.addEventListener('rail-swarm-toggle', onSwarm)
+  window.addEventListener('rail-swarm-ask', onSwarmAsk)
 
   const onGameStart = () => startGame()
   const onGameQuit = () => stopGame(false)
@@ -958,6 +967,7 @@ export function createRailField(selector = '.rail-btn') {
     destroy() {
       try { game && stopGame(false) } catch {}
       window.removeEventListener('rail-swarm-toggle', onSwarm)
+      window.removeEventListener('rail-swarm-ask', onSwarmAsk)
       try { swarm.destroy() } catch {}
       window.removeEventListener('rail-game-start', onGameStart)
       window.removeEventListener('rail-game-quit', onGameQuit)

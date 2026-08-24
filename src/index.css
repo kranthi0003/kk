@@ -1354,3 +1354,12 @@ html.disco .disco-lights {
   .swarm-hit { animation: none; }
   .swarm-say { transition: none; }
 }
+
+/* The pod icon on the control that turns robot mode on, while it is on.
+   A slow blink, so a glance at the strip tells you they're loose. */
+.pod-live { animation: podLive 1.6s ease-in-out infinite; }
+@keyframes podLive {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) { .pod-live { animation: none; } }
