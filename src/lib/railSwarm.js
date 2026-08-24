@@ -28,9 +28,22 @@ const SPEAK_MS = 2600        // how long a line stays up
 const SPEAK_GAP = [2600, 7000]   // idle chatter spacing per pod
 const POKE_COOLDOWN = 1500   // per pod, so one doesn't jackhammer a button
 const ELEMENT_COOLDOWN = 2600 // per element, so a crowd doesn't pile on one
+// Actually pressing something is rationed far harder than shoving it.
+// Now that they roam the whole window the chat button is on the route
+// rather than off it, and at the shove cooldown they would open and
+// close the panel every couple of seconds.
+const ACTIVATE_COOLDOWN = 14000
 const THRUST = 620           // px/s² of self-propulsion
 const CRUISE = 260           // px/s they try not to exceed while wandering
-const RETARGET = [900, 2600] // ms between picking somewhere new
+// How long a pod will chase one waypoint before giving up on it. This is
+// a fallback, not the metronome: normally it retargets on arrival.
+//
+// It used to be 0.9–2.6s, which sounds lively and was the reason they
+// never reached the edges. At 260px/s a pod covers about 450px in that
+// window, but crossing a 1440px window is a five-second trip — so every
+// long leg was abandoned halfway and the far left and right of the page
+// went unvisited. Measured, the left 277px were dead.
+const RETARGET = [4200, 9000]
 const SWARM_GRAVITY = 0.06   // they hover; a little weight keeps it readable
 
 const rand = (a, b) => a + Math.random() * (b - a)
@@ -72,7 +85,8 @@ export function createSwarm(ctx) {
   const { bodies, size, wake, spark } = ctx
   let active = false
   let layer = null
-  const lastPoke = new WeakMap()   // element -> timestamp
+  const lastPoke = new WeakMap()     // element -> when it was last shoved
+  const lastPress = new WeakMap()    // element -> when it was last pressed
 
   function ensureLayer() {
     if (layer) return layer
@@ -98,12 +112,33 @@ export function createSwarm(ctx) {
     b.sayUntil = performance.now() + SPEAK_MS
   }
 
-  // Somewhere to head for. Kept inside the visible page and away from the
-  // very edges, or they spend the whole time grinding along a wall.
+  // Somewhere to head for.
+  //
+  // Only far enough off the edge that they aren't grinding along a wall.
+  // The first version reserved 60px at the left, 90 at the right and 120
+  // at the bottom, and combined with the field's own resting insets that
+  // left measured dead strips of 118px down the right and 102px along the
+  // bottom — a good part of the page they never visited.
+  //
+  // Waypoints are also biased toward wherever they are not: two thirds of
+  // the time it picks the emptier half of the window on each axis. Purely
+  // uniform picks cluster near the middle, because the middle is closer
+  // to everywhere, and the corners went unvisited.
+  const EDGE = 26
   function retarget(b) {
     const { W, H } = size()
-    b.tx = rand(60, Math.max(80, W - 90))
-    b.ty = rand(90, Math.max(120, H - 120))
+    const spanX = Math.max(EDGE + 1, W - EDGE)
+    const spanY = Math.max(EDGE + 1, H - EDGE)
+    let tx = rand(EDGE, spanX)
+    let ty = rand(EDGE, spanY)
+    if (Math.random() < 0.66) {
+      if (b.x > W / 2) tx = rand(EDGE, W / 2)
+      else tx = rand(W / 2, spanX)
+      if (b.y > H / 2) ty = rand(EDGE, H / 2)
+      else ty = rand(H / 2, spanY)
+    }
+    b.tx = tx
+    b.ty = ty
     b.nextTarget = performance.now() + rand(RETARGET[0], RETARGET[1])
   }
 
@@ -144,7 +179,8 @@ export function createSwarm(ctx) {
     spark(b.x, b.y, 900)
     say(b, pick(ON_POKE), 'poke')
 
-    if (isSafeToActivate(target)) {
+    if (isSafeToActivate(target) && now - (lastPress.get(target) || -1e9) > ACTIVATE_COOLDOWN) {
+      lastPress.set(target, now)
       try { target.click() } catch {}
     }
   }
