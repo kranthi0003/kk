@@ -1,6 +1,41 @@
 {
-  "generated": "2026-08-24T15:19:15.233Z",
+  "generated": "2026-08-25T04:28:22.766Z",
   "reddit": [
+    {
+      "title": "Running a Java Spring Boot app on a 512 MB VPS with lightweight monitoring",
+      "url": "https://www.reddit.com/r/programming/comments/1vxl0w4/running_a_java_spring_boot_app_on_a_512_mb_vps/",
+      "by": "fykup",
+      "time": 1787618957000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "What is this mystery indicator in my Homepage Joplin widget?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vxhncs/what_is_this_mystery_indicator_in_my_homepage/",
+      "by": "ferriematthew",
+      "time": 1787610497000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Discord Community for C.KA/C.KAD/C.KS",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vxgr7r/discord_community_for_ckackadcks/",
+      "by": "tazou8",
+      "time": 1787608382000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Kubara? Is it worth it?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vxbqu9/kubara_is_it_worth_it/",
+      "by": "possible_fraud_216",
+      "time": 1787597455000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Your executable is a SQLite database",
+      "url": "https://www.reddit.com/r/programming/comments/1vx81cr/your_executable_is_a_sqlite_database/",
+      "by": "segv",
+      "time": 1787589679000,
+      "sub": "r/programming"
+    },
     {
       "title": "Block-layer error injection",
       "url": "https://www.reddit.com/r/programming/comments/1vx3ygt/blocklayer_error_injection/",
@@ -9,46 +44,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "Clean stop of a 'pod' in EKS ?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vx2dyt/clean_stop_of_a_pod_in_eks/",
-      "by": "CyrilDevOps",
-      "time": 1787576989000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "What Zig felt like, coming from Rust",
       "url": "https://www.reddit.com/r/programming/comments/1vwyjg2/what_zig_felt_like_coming_from_rust/",
       "by": "BrewedDoritos",
       "time": 1787565990000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How an Underrated Refactor Saved 90% Memory Usage",
-      "url": "https://www.reddit.com/r/programming/comments/1vwvdom/how_an_underrated_refactor_saved_90_memory_usage/",
-      "by": "fagnerbrack",
-      "time": 1787554820000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Three DCGM defaults that make your GPU cost data wrong",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vwmq4t/three_dcgm_defaults_that_make_your_gpu_cost_data/",
-      "by": "dgotlieb8",
-      "time": 1787528581000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Stop Using Conventional Commits",
-      "url": "https://www.reddit.com/r/programming/comments/1vwfrbg/stop_using_conventional_commits/",
-      "by": "fagnerbrack",
-      "time": 1787511631000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How many platform components do you run in your cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vwf5i1/how_many_platform_components_do_you_run_in_your/",
-      "by": "OkChipmunk461",
-      "time": 1787510255000,
-      "sub": "r/kubernetes"
     },
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "The Complete Guide to Web Hosting on a VPS: The Full Path",
-      "url": "https://levelup.gitconnected.com/the-complete-guide-to-web-hosting-on-a-vps-the-full-path-feeab30a9d81",
-      "by": "Hadi Karaki",
-      "time": 1787584649000,
+      "title": "Building a Second Brain for System Design",
+      "url": "https://oskar-uit-de-bos.medium.com/building-a-second-brain-for-system-design-62e4dd26cc71",
+      "by": "Oskar uit de Bos",
+      "time": 1787631858000,
       "tags": [
-        "linux",
-        "hosting",
+        "design-systems",
+        "second-brain",
         "software-engineering"
       ]
     },
     {
-      "title": "Los agentes son fungibles. Nuestro conocimiento, no tanto",
-      "url": "https://medium.com/@breogana/los-agentes-son-fungibles-nuestro-conocimiento-no-tanto-dd010981ddf3",
-      "by": "Rebeca Méndez",
-      "time": 1787584633000,
+      "title": "7 AI Agent Mistakes Almost Every Developer Makes at First",
+      "url": "https://medium.com/@shubhamnalawade037/7-ai-agent-mistakes-almost-every-developer-makes-at-first-8d745a6e0a43",
+      "by": "The Dialectic",
+      "time": 1787631851000,
       "tags": [
-        "development",
-        "software-engineering",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "How systemd Kills Your Long-Running PHP Job Without Telling You",
-      "url": "https://levelup.gitconnected.com/how-systemd-kills-your-long-running-php-job-without-telling-you-1fcacdc68c9b",
-      "by": "Ann R.",
-      "time": 1787584575000,
-      "tags": [
-        "php",
+        "ai-agent",
         "software-development",
-        "systemd"
+        "machine-learning"
       ]
     },
     {
-      "title": "Designing Extensible Software with Plugin Architecture",
-      "url": "https://levelup.gitconnected.com/designing-extensible-software-with-plugin-architecture-a5255b2c51c5",
-      "by": "Michał Zawadzki",
-      "time": 1787584564000,
+      "title": "Every Git Branch Deserves a URL",
+      "url": "https://medium.com/@waytosarojkhanal/every-git-branch-deserves-a-url-8e45b06ae917",
+      "by": "Special Relative",
+      "time": 1787630847000,
       "tags": [
-        "software-architecture",
-        "php",
-        "programming"
-      ]
-    },
-    {
-      "title": "Performance Testing Kubernetes Ingress Controllers: A Practical Guide",
-      "url": "https://levelup.gitconnected.com/performance-testing-kubernetes-ingress-controllers-a-practical-guide-8452d8454fd8",
-      "by": "Roland Hewage",
-      "time": 1787584523000,
-      "tags": [
-        "platform-engineering",
-        "devops",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "Why Software Architectures Break",
-      "url": "https://levelup.gitconnected.com/why-software-architectures-break-c7726219a672",
-      "by": "Angelo Buono",
-      "time": 1787584500000,
-      "tags": [
-        "lateral-thinking",
-        "software-development",
+        "open-source",
+        "self-hosted",
         "devops"
       ]
     },
     {
-      "title": "Before the First Model: What We Decided Before We Built Anything",
-      "url": "https://levelup.gitconnected.com/before-the-first-model-what-we-decided-before-we-built-anything-21298ee18bdd",
-      "by": "Schinkel Scott",
-      "time": 1787584475000,
+      "title": "Bottleneck: Why use Redis cluster?",
+      "url": "https://raivaibhav.medium.com/bottleneck-why-use-redis-cluster-db505ca42d7c",
+      "by": "Vaibhav Rai",
+      "time": 1787630753000,
       "tags": [
-        "product-management",
-        "software-engineering",
-        "artificial-intelligence"
+        "frontend",
+        "software-development",
+        "software-engineering"
       ]
     },
     {
-      "title": "Model 2 Isn’t the Problem. The Tests Are.",
-      "url": "https://levelup.gitconnected.com/model-2-isnt-the-problem-the-tests-are-1e8db510e8f2",
-      "by": "MohamedAbdelmenem",
-      "time": 1787584448000,
+      "title": "Rethinking DORA Metrics in the Era of AI-DLC and Agentic Coding",
+      "url": "https://kiran-rane.medium.com/rethinking-dora-metrics-in-the-era-of-ai-dlc-and-agentic-coding-cab9b71d8e75",
+      "by": "Kiran Rane",
+      "time": 1787630534000,
+      "tags": [
+        "aidlc",
+        "agentic-coding",
+        "ai"
+      ]
+    },
+    {
+      "title": "We Called JSON “Schema-Less” for Years. AI Is Making That Look Reckless.",
+      "url": "https://medium.com/@thedevnotebook/json-schema-ai-agents-structured-output-validation-f9d57c91a565",
+      "by": "The Dev Notebook",
+      "time": 1787630465000,
       "tags": [
         "software-engineering",
+        "json",
+        "llm"
+      ]
+    },
+    {
+      "title": "Building a Layer 7 Load Balancer on AWS with Nginx, Node.js, MySQL & Terraform",
+      "url": "https://medium.com/@nakib.rahaman26/building-a-layer-7-load-balancer-on-aws-with-nginx-node-js-mysql-terraform-79792d9ce871",
+      "by": "Nakib Rahaman",
+      "time": 1787630462000,
+      "tags": [
+        "load-balancing",
+        "aws",
+        "devops"
+      ]
+    },
+    {
+      "title": "Context Window Management Is the New Developer Flow State",
+      "url": "https://medium.com/@karanchauhan1131/context-window-management-is-the-new-developer-flow-state-13219ffe8ab8",
+      "by": "Karan Chauhan",
+      "time": 1787630462000,
+      "tags": [
+        "developer-productivity",
+        "software-engineering",
+        "system-architecture"
+      ]
+    },
+    {
+      "title": "The Best Python Libraries Aren’t Always the Most Popular",
+      "url": "https://medium.com/codetodeploy/the-best-python-libraries-arent-always-the-most-popular-c4cfc85daebd",
+      "by": "Lubnaaly",
+      "time": 1787629979000,
+      "tags": [
         "machine-learning",
-        "artificial-intelligence"
+        "data-science",
+        "python"
       ]
     },
     {
-      "title": "The N+1 Query Problem: Why Your API Gets Slower With Every Row You Add",
-      "url": "https://levelup.gitconnected.com/the-n-1-query-problem-why-your-api-gets-slower-with-every-row-you-add-6cb91e81aeac",
-      "by": "Anas Issath",
-      "time": 1787584433000,
+      "title": "Day 195 of Learning Java & DSA: Getting Started with Graphs",
+      "url": "https://medium.com/@payalmehra3522/day-195-of-learning-java-dsa-getting-started-with-graphs-52cabfe2965d",
+      "by": "Payal Mehra",
+      "time": 1787629836000,
       "tags": [
-        "web-development",
-        "software-engineering",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "I Built an AI That Interviews Job Candidates. It’s Ruthless.",
-      "url": "https://levelup.gitconnected.com/langgraph-ai-agent-with-python-7b1293647080",
-      "by": "Rakia Ben Sassi",
-      "time": 1787584370000,
-      "tags": [
-        "software-engineering",
-        "ai-agent",
-        "langgraph"
+        "java",
+        "software-development",
+        "graph"
       ]
     }
   ]
