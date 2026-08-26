@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-25T04:28:27.654Z",
+  "generated": "2026-08-26T04:28:52.476Z",
   "season": "2026",
   "sources": [
     {
@@ -797,6 +797,22 @@
   ],
   "recent": [
     {
+      "date": "2026-08-25",
+      "type": "ODM",
+      "gender": "male",
+      "event": "Major Clubs Limited Over Tournament",
+      "teams": [
+        "Nugegoda Sports Welfare Club",
+        "Kurunegala Youth Cricket Club"
+      ],
+      "winner": "Nugegoda Sports Welfare Club",
+      "margin": "27 runs",
+      "method": "D/L",
+      "venue": "Thurstan College Ground, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
       "date": "2026-08-24",
       "type": "T20",
       "gender": "male",
@@ -1415,22 +1431,6 @@
       ],
       "winner": "Nondescripts Cricket Club",
       "margin": "46 runs",
-      "method": "D/L",
-      "venue": "Colts Cricket Club Ground, Colombo",
-      "city": "Colombo",
-      "international": false
-    },
-    {
-      "date": "2026-08-20",
-      "type": "T20",
-      "gender": "male",
-      "event": "Major Clubs T20 Tournament",
-      "teams": [
-        "Moors Sports Club",
-        "Tamil Union Cricket and Athletic Club"
-      ],
-      "winner": "Tamil Union Cricket and Athletic Club",
-      "margin": "1 wicket",
       "method": "D/L",
       "venue": "Colts Cricket Club Ground, Colombo",
       "city": "Colombo",

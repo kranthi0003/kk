@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-25T04:28:25.266Z",
+  "generated": "2026-08-26T04:28:49.057Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -389,7 +389,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:18.518"
+      }
     },
     {
       "round": 2,
@@ -407,7 +412,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:32.064"
+      }
     },
     {
       "round": 3,
@@ -425,7 +435,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:28.778"
+      }
     },
     {
       "round": 4,
@@ -443,7 +458,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:27.798"
+      }
     },
     {
       "round": 5,
@@ -461,7 +481,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:12.578"
+      }
     },
     {
       "round": 6,
@@ -479,7 +504,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:12.051"
+      }
     },
     {
       "round": 7,
@@ -497,7 +527,12 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": null
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:14.679"
+      }
     },
     {
       "round": 8,
@@ -515,7 +550,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:06.113"
+      }
     },
     {
       "round": 9,
@@ -533,7 +573,12 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:28.111"
+      }
     },
     {
       "round": 10,
@@ -551,7 +596,12 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": null
+      "pole": {
+        "last": "Antonelli",
+        "code": "ANT",
+        "teamId": "mercedes",
+        "time": "1:44.361"
+      }
     },
     {
       "round": 11,
@@ -569,7 +619,12 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": null
+      "pole": {
+        "last": "Norris",
+        "code": "NOR",
+        "teamId": "mclaren",
+        "time": "1:17.207"
+      }
     },
     {
       "round": 12,
@@ -587,7 +642,12 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": null
+      "pole": {
+        "last": "Norris",
+        "code": "NOR",
+        "teamId": "mclaren",
+        "time": "1:11.163"
+      }
     },
     {
       "round": 13,
@@ -733,5 +793,47 @@
       "pole": null
     }
   ],
-  "lastRace": null
+  "lastRace": {
+    "round": 12,
+    "name": "Dutch Grand Prix",
+    "circuit": "Circuit Park Zandvoort",
+    "country": "Netherlands",
+    "date": "2026-08-23",
+    "podium": [
+      {
+        "pos": 1,
+        "first": "Lando",
+        "last": "Norris",
+        "code": "NOR",
+        "team": "McLaren",
+        "teamId": "mclaren",
+        "time": "2:04:44.859",
+        "points": 25
+      },
+      {
+        "pos": 2,
+        "first": "Andrea Kimi",
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes",
+        "time": "+11.536",
+        "points": 18
+      },
+      {
+        "pos": 3,
+        "first": "George",
+        "last": "Russell",
+        "code": "RUS",
+        "team": "Mercedes",
+        "teamId": "mercedes",
+        "time": "+15.906",
+        "points": 15
+      }
+    ],
+    "fastestLap": {
+      "time": "1:14.230",
+      "driver": "Leclerc"
+    }
+  }
 }

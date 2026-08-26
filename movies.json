@@ -1,18 +1,7 @@
 {
-  "generated": "2026-08-25T04:27:30.822Z",
+  "generated": "2026-08-26T04:27:53.836Z",
   "source": "Wikipedia + Wikidata",
   "films": [
-    {
-      "title": "Toxic",
-      "lang": "Kannada",
-      "date": "2026-08-26",
-      "precision": "day",
-      "by": "Geetu Mohandas",
-      "desc": "Upcoming Indian film by Geetu Mohandas",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg/120px-Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Toxic_(2026_film)",
-      "imdb": "https://www.imdb.com/title/tt27530512/"
-    },
     {
       "title": "Winkle Twinkle",
       "lang": "Indian",
@@ -155,6 +144,17 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
       "url": "https://en.wikipedia.org/wiki/Mandaadi",
       "imdb": "https://www.imdb.com/title/tt36596965/"
+    },
+    {
+      "title": "Sardar 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "P. S. Mithran",
+      "desc": "Upcoming Indian film by P. S. Mithran",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Sardar_2",
+      "imdb": "https://www.imdb.com/title/tt28541577/"
     }
   ]
 }

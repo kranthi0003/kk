@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-25T04:28:22.766Z",
+  "generated": "2026-08-26T04:28:46.156Z",
   "reddit": [
     {
-      "title": "Running a Java Spring Boot app on a 512 MB VPS with lightweight monitoring",
-      "url": "https://www.reddit.com/r/programming/comments/1vxl0w4/running_a_java_spring_boot_app_on_a_512_mb_vps/",
-      "by": "fykup",
-      "time": 1787618957000,
+      "title": "Q&A with cipherboy on Leaving Vault for OpenBao",
+      "url": "https://www.reddit.com/r/programming/comments/1vymkhp/qa_with_cipherboy_on_leaving_vault_for_openbao/",
+      "by": "the_hypotenuse",
+      "time": 1787717780000,
       "sub": "r/programming"
     },
     {
-      "title": "What is this mystery indicator in my Homepage Joplin widget?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vxhncs/what_is_this_mystery_indicator_in_my_homepage/",
-      "by": "ferriematthew",
-      "time": 1787610497000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Discord Community for C.KA/C.KAD/C.KS",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vxgr7r/discord_community_for_ckackadcks/",
-      "by": "tazou8",
-      "time": 1787608382000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubara? Is it worth it?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vxbqu9/kubara_is_it_worth_it/",
-      "by": "possible_fraud_216",
-      "time": 1787597455000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Your executable is a SQLite database",
-      "url": "https://www.reddit.com/r/programming/comments/1vx81cr/your_executable_is_a_sqlite_database/",
-      "by": "segv",
-      "time": 1787589679000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Block-layer error injection",
-      "url": "https://www.reddit.com/r/programming/comments/1vx3ygt/blocklayer_error_injection/",
-      "by": "haris3301",
-      "time": 1787580691000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "What Zig felt like, coming from Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1vwyjg2/what_zig_felt_like_coming_from_rust/",
-      "by": "BrewedDoritos",
-      "time": 1787565990000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "The thing nobody warns you about deploying into customers cloud",
+      "url": "https://www.reddit.com/r/devops/comments/1vyh2an/the_thing_nobody_warns_you_about_deploying_into/",
+      "by": "EmetInteractive",
+      "time": 1787702777000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "DevOps vs Embedded",
+      "url": "https://www.reddit.com/r/devops/comments/1vyew8d/devops_vs_embedded/",
+      "by": "Forsaken_Photo_578",
+      "time": 1787697379000,
       "sub": "r/devops"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
+      "title": "Sleep/wake orchestration for self-hosted side projects: a wire-protocol proxy approach instead of a full PaaS.",
+      "url": "https://www.reddit.com/r/devops/comments/1vyep15/sleepwake_orchestration_for_selfhosted_side/",
+      "by": "uziiuzair",
+      "time": 1787696879000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Latency optimizations on the system level",
+      "url": "https://www.reddit.com/r/programming/comments/1vycpx9/latency_optimizations_on_the_system_level/",
+      "by": "wineandcode",
+      "time": 1787692301000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Memory ordering in CPUs",
+      "url": "https://www.reddit.com/r/programming/comments/1vyb1js/memory_ordering_in_cpus/",
+      "by": "mttd",
+      "time": 1787688706000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to test if your numerical code is Mathematically correct?",
+      "url": "https://www.reddit.com/r/programming/comments/1vy6tks/how_to_test_if_your_numerical_code_is/",
+      "by": "Lost-Dragonfruit-663",
+      "time": 1787679824000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Building a Second Brain for System Design",
-      "url": "https://oskar-uit-de-bos.medium.com/building-a-second-brain-for-system-design-62e4dd26cc71",
-      "by": "Oskar uit de Bos",
-      "time": 1787631858000,
+      "title": "The detail that genuinely unsettled me",
+      "url": "https://medium.com/@Taniya0/the-detail-that-genuinely-unsettled-me-6d0693a94eca",
+      "by": "Taniya",
+      "time": 1787718386000,
       "tags": [
-        "design-systems",
-        "second-brain",
+        "coding",
+        "programming",
+        "knowledge"
+      ]
+    },
+    {
+      "title": "Vibe Coding Is Just a Name If You Can’t Code, You Won’t See Your AI Robbing You.",
+      "url": "https://medium.com/@kleinmoretti/vibe-coding-is-just-a-name-if-you-cant-code-you-won-t-see-your-ai-robbing-you-f570a6c9992e",
+      "by": "klein Moretti",
+      "time": 1787718326000,
+      "tags": [
+        "build-ai-agents",
+        "awareness",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "The Architecture Decision That Makes Every Small Feature Touch Ten Files",
+      "url": "https://medium.com/@kerimkkara/the-architecture-decision-that-makes-every-small-feature-touch-ten-files-03b037ecc736",
+      "by": "Kerim Kara",
+      "time": 1787718026000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "programming"
+      ]
+    },
+    {
+      "title": "AI Agents with Python 2026 (Part 2): How AI Agents Work — Models, Tools, Memory and Reasoning",
+      "url": "https://abkarikari23.medium.com/ai-agents-with-python-2026-part-2-how-ai-agents-work-models-tools-memory-and-reasoning-d3df882b4ae3",
+      "by": "Abraham Karikari",
+      "time": 1787717847000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "generative-ai"
+      ]
+    },
+    {
+      "title": "MCP Security: A Beginner’s Guide to Authentication and Authorization",
+      "url": "https://medium.com/@nramram4321/mcp-security-a-beginners-guide-to-authentication-and-authorization-5fe3270dea7c",
+      "by": "Ram N",
+      "time": 1787717657000,
+      "tags": [
+        "ai",
+        "mcps",
+        "programming"
+      ]
+    },
+    {
+      "title": "A stranger can open one issue on your public repo and walk out with your private code",
+      "url": "https://medium.com/@enacoder/a-stranger-can-open-one-issue-on-your-public-repo-and-walk-out-with-your-private-code-0ff216b08c0d",
+      "by": "Ena Modern Coder✨",
+      "time": 1787717598000,
+      "tags": [
+        "repos",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "One Repo, Four AI Coding Agents",
+      "url": "https://medium.com/@georgewen7/one-repo-four-ai-coding-agents-a1ffd75274ff",
+      "by": "George Wen",
+      "time": 1787717581000,
+      "tags": [
+        "spec-driven-development",
+        "ai-engineering",
         "software-engineering"
       ]
     },
     {
-      "title": "7 AI Agent Mistakes Almost Every Developer Makes at First",
-      "url": "https://medium.com/@shubhamnalawade037/7-ai-agent-mistakes-almost-every-developer-makes-at-first-8d745a6e0a43",
-      "by": "The Dialectic",
-      "time": 1787631851000,
+      "title": "I got tired of PDF editors that ruin the page, so I built one that doesn’t",
+      "url": "https://medium.com/@vikrambhattacharjee/i-got-tired-of-pdf-editors-that-ruin-the-page-so-i-built-one-that-doesnt-13cedd459939",
+      "by": "Vikram Bhattacharjee",
+      "time": 1787717554000,
       "tags": [
-        "ai-agent",
-        "software-development",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "Every Git Branch Deserves a URL",
-      "url": "https://medium.com/@waytosarojkhanal/every-git-branch-deserves-a-url-8e45b06ae917",
-      "by": "Special Relative",
-      "time": 1787630847000,
-      "tags": [
-        "open-source",
-        "self-hosted",
-        "devops"
-      ]
-    },
-    {
-      "title": "Bottleneck: Why use Redis cluster?",
-      "url": "https://raivaibhav.medium.com/bottleneck-why-use-redis-cluster-db505ca42d7c",
-      "by": "Vaibhav Rai",
-      "time": 1787630753000,
-      "tags": [
-        "frontend",
-        "software-development",
+        "programming",
+        "pdf",
         "software-engineering"
       ]
     },
     {
-      "title": "Rethinking DORA Metrics in the Era of AI-DLC and Agentic Coding",
-      "url": "https://kiran-rane.medium.com/rethinking-dora-metrics-in-the-era-of-ai-dlc-and-agentic-coding-cab9b71d8e75",
-      "by": "Kiran Rane",
-      "time": 1787630534000,
+      "title": "Building “AI Code Dungeon”: A Gamified Learning Platform Powered by Tencent EdgeOne Makers",
+      "url": "https://medium.com/@putihbiru0505/building-ai-code-dungeon-a-gamified-learning-platform-powered-by-tencent-edgeone-makers-da3f21d67aeb",
+      "by": "Miftachul Huda",
+      "time": 1787717174000,
       "tags": [
-        "aidlc",
-        "agentic-coding",
-        "ai"
+        "artificial-intelligence",
+        "nextjs",
+        "programming"
       ]
     },
     {
-      "title": "We Called JSON “Schema-Less” for Years. AI Is Making That Look Reckless.",
-      "url": "https://medium.com/@thedevnotebook/json-schema-ai-agents-structured-output-validation-f9d57c91a565",
-      "by": "The Dev Notebook",
-      "time": 1787630465000,
+      "title": "5 Developer Tasks I Replaced with AI (And 3 I Didn’t)",
+      "url": "https://medium.com/@mayankgairola114/5-developer-tasks-i-replaced-with-ai-and-3-i-didnt-b932a06a1c17",
+      "by": "Mayank Gairola",
+      "time": 1787716261000,
       "tags": [
+        "react",
         "software-engineering",
-        "json",
-        "llm"
-      ]
-    },
-    {
-      "title": "Building a Layer 7 Load Balancer on AWS with Nginx, Node.js, MySQL & Terraform",
-      "url": "https://medium.com/@nakib.rahaman26/building-a-layer-7-load-balancer-on-aws-with-nginx-node-js-mysql-terraform-79792d9ce871",
-      "by": "Nakib Rahaman",
-      "time": 1787630462000,
-      "tags": [
-        "load-balancing",
-        "aws",
-        "devops"
-      ]
-    },
-    {
-      "title": "Context Window Management Is the New Developer Flow State",
-      "url": "https://medium.com/@karanchauhan1131/context-window-management-is-the-new-developer-flow-state-13219ffe8ab8",
-      "by": "Karan Chauhan",
-      "time": 1787630462000,
-      "tags": [
-        "developer-productivity",
-        "software-engineering",
-        "system-architecture"
-      ]
-    },
-    {
-      "title": "The Best Python Libraries Aren’t Always the Most Popular",
-      "url": "https://medium.com/codetodeploy/the-best-python-libraries-arent-always-the-most-popular-c4cfc85daebd",
-      "by": "Lubnaaly",
-      "time": 1787629979000,
-      "tags": [
-        "machine-learning",
-        "data-science",
-        "python"
-      ]
-    },
-    {
-      "title": "Day 195 of Learning Java & DSA: Getting Started with Graphs",
-      "url": "https://medium.com/@payalmehra3522/day-195-of-learning-java-dsa-getting-started-with-graphs-52cabfe2965d",
-      "by": "Payal Mehra",
-      "time": 1787629836000,
-      "tags": [
-        "java",
-        "software-development",
-        "graph"
+        "artificial-intelligence"
       ]
     }
   ]
