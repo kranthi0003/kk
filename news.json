@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-26T04:28:46.156Z",
+  "generated": "2026-08-27T06:27:14.335Z",
   "reddit": [
     {
-      "title": "Q&A with cipherboy on Leaving Vault for OpenBao",
-      "url": "https://www.reddit.com/r/programming/comments/1vymkhp/qa_with_cipherboy_on_leaving_vault_for_openbao/",
-      "by": "the_hypotenuse",
-      "time": 1787717780000,
+      "title": "How should I architect a multi-account AWS network so all traffic flows through a Transit Gateway? (hub network account + Route 53 for prod/dev/uat)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vzlyvf/how_should_i_architect_a_multiaccount_aws_network/",
+      "by": "Alternative-Check615",
+      "time": 1787811717000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Trending GitHub repositories are md hell",
+      "url": "https://www.reddit.com/r/programming/comments/1vzlhks/trending_github_repositories_are_md_hell/",
+      "by": "Decent-Decision-9028",
+      "time": 1787810103000,
       "sub": "r/programming"
     },
     {
-      "title": "The thing nobody warns you about deploying into customers cloud",
-      "url": "https://www.reddit.com/r/devops/comments/1vyh2an/the_thing_nobody_warns_you_about_deploying_into/",
-      "by": "EmetInteractive",
-      "time": 1787702777000,
-      "sub": "r/devops"
+      "title": "What to watch when upgrading to Kubernetes 1.37",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vzauf7/what_to_watch_when_upgrading_to_kubernetes_137/",
+      "by": "platypus-3719",
+      "time": 1787780718000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "DevOps vs Embedded",
-      "url": "https://www.reddit.com/r/devops/comments/1vyew8d/devops_vs_embedded/",
-      "by": "Forsaken_Photo_578",
-      "time": 1787697379000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Sleep/wake orchestration for self-hosted side projects: a wire-protocol proxy approach instead of a full PaaS.",
-      "url": "https://www.reddit.com/r/devops/comments/1vyep15/sleepwake_orchestration_for_selfhosted_side/",
-      "by": "uziiuzair",
-      "time": 1787696879000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Latency optimizations on the system level",
-      "url": "https://www.reddit.com/r/programming/comments/1vycpx9/latency_optimizations_on_the_system_level/",
-      "by": "wineandcode",
-      "time": 1787692301000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Memory ordering in CPUs",
-      "url": "https://www.reddit.com/r/programming/comments/1vyb1js/memory_ordering_in_cpus/",
+      "title": "mold: A Massively Parallel Linker",
+      "url": "https://www.reddit.com/r/programming/comments/1vz921w/mold_a_massively_parallel_linker/",
       "by": "mttd",
-      "time": 1787688706000,
+      "time": 1787776665000,
       "sub": "r/programming"
     },
     {
-      "title": "How to test if your numerical code is Mathematically correct?",
-      "url": "https://www.reddit.com/r/programming/comments/1vy6tks/how_to_test_if_your_numerical_code_is/",
-      "by": "Lost-Dragonfruit-663",
-      "time": 1787679824000,
+      "title": "How to drive your frontend from the backend",
+      "url": "https://www.reddit.com/r/programming/comments/1vz715a/how_to_drive_your_frontend_from_the_backend/",
+      "by": "der_gopher",
+      "time": 1787772371000,
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1786096817000,
+      "title": "Kubernetes Podcast episode 271: Kubernetes 1.37 with Dipesh Rawat",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vz663v/kubernetes_podcast_episode_271_kubernetes_137/",
+      "by": "kubernetespodcast",
+      "time": 1787770540000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "Come consiglieresti di imparare Kubernetes e Helm in modo efficace?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vz3e3s/come_consiglieresti_di_imparare_kubernetes_e_helm/",
+      "by": "Medium-Direction-191",
+      "time": 1787764701000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "The detail that genuinely unsettled me",
-      "url": "https://medium.com/@Taniya0/the-detail-that-genuinely-unsettled-me-6d0693a94eca",
-      "by": "Taniya",
-      "time": 1787718386000,
+      "title": "Best Authentication Platforms for Developers in 2026",
+      "url": "https://medium.com/@CodeBitDaily/best-authentication-platforms-for-developers-in-2026-71c83ff96874",
+      "by": "CodeBitDaily",
+      "time": 1787811429000,
       "tags": [
-        "coding",
+        "software-engineering",
+        "web-development",
+        "authentication"
+      ]
+    },
+    {
+      "title": "Three Weekends, Three Challenges: Building AI Agents with Google Cloud",
+      "url": "https://medium.com/@ramakrishnadulam10/three-weekends-three-challenges-building-ai-agents-with-google-cloud-da19f8b1e0ad",
+      "by": "Ramakrishnadulam",
+      "time": 1787811332000,
+      "tags": [
         "programming",
-        "knowledge"
+        "google-cloud-platform",
+        "software-development"
       ]
     },
     {
-      "title": "Vibe Coding Is Just a Name If You Can’t Code, You Won’t See Your AI Robbing You.",
-      "url": "https://medium.com/@kleinmoretti/vibe-coding-is-just-a-name-if-you-cant-code-you-won-t-see-your-ai-robbing-you-f570a6c9992e",
-      "by": "klein Moretti",
-      "time": 1787718326000,
+      "title": "How to Transfer Files Between Two Linux Servers Using Your Local Machine",
+      "url": "https://durgeshmishrablog.medium.com/how-to-transfer-files-between-two-linux-servers-using-your-local-machine-253388825b0e",
+      "by": "Durgesh Mishra",
+      "time": 1787811218000,
       "tags": [
-        "build-ai-agents",
-        "awareness",
-        "backend-development"
+        "linux-commands",
+        "linux-tutorial",
+        "scp"
       ]
     },
     {
-      "title": "The Architecture Decision That Makes Every Small Feature Touch Ten Files",
-      "url": "https://medium.com/@kerimkkara/the-architecture-decision-that-makes-every-small-feature-touch-ten-files-03b037ecc736",
-      "by": "Kerim Kara",
-      "time": 1787718026000,
+      "title": "Fixing Claude Rate Limit Errors with an AI Gateway",
+      "url": "https://swapnoneel.medium.com/fixing-claude-rate-limit-errors-6fb35af16677",
+      "by": "Swapnoneel",
+      "time": 1787811086000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "cloud-computing-services"
+      ]
+    },
+    {
+      "title": "The Model Name Changed. My Evaluation Checklist Did Not",
+      "url": "https://medium.com/@jlltouchu/the-model-name-changed-my-evaluation-checklist-did-not-e66f70abe19f",
+      "by": "Jlltouchu",
+      "time": 1787811019000,
+      "tags": [
+        "software-engineering",
+        "ai-coding-assistant",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "JavaScript Debounce & Throttle",
+      "url": "https://medium.com/@salim99/javascript-debounce-throttle-08562f642f13",
+      "by": "Salim Ansari",
+      "time": 1787810877000,
+      "tags": [
+        "javascript",
+        "coding",
+        "frontend-development"
+      ]
+    },
+    {
+      "title": "I Built a Google Rank Tracker with Python Instead of Scraping Search Results",
+      "url": "https://medium.com/@talordata/i-built-a-google-rank-tracker-with-python-instead-of-scraping-search-results-8ca5c43a1ddb",
+      "by": "Talordata",
+      "time": 1787810874000,
       "tags": [
         "software-development",
+        "programming",
+        "seo"
+      ]
+    },
+    {
+      "title": "Pod는 멀쩡했는데 Redis는 죽어 있었다 — Sentinel로 무중단 HA 전환하기",
+      "url": "https://medium.com/@fog0510/pod%EB%8A%94-%EB%A9%80%EC%A9%A1%ED%96%88%EB%8A%94%EB%8D%B0-redis%EB%8A%94-%EC%A3%BD%EC%96%B4-%EC%9E%88%EC%97%88%EB%8B%A4-sentinel%EB%A1%9C-%EB%AC%B4%EC%A4%91%EB%8B%A8-ha-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0-9cc2c94ca970",
+      "by": "River Kang",
+      "time": 1787810698000,
+      "tags": [
+        "redis",
+        "devops",
+        "site-reliability-engineer"
+      ]
+    },
+    {
+      "title": "A data-backed look at audit-ready lineage without a spreadsheet RTM.",
+      "url": "https://medium.com/@guptashreya86/a-data-backed-look-at-audit-ready-lineage-without-a-spreadsheet-rtm-b69a361b264c",
+      "by": "Shreya Gupta",
+      "time": 1787810696000,
+      "tags": [
+        "testing",
         "software-engineering",
-        "programming"
+        "software-development"
       ]
     },
     {
-      "title": "AI Agents with Python 2026 (Part 2): How AI Agents Work — Models, Tools, Memory and Reasoning",
-      "url": "https://abkarikari23.medium.com/ai-agents-with-python-2026-part-2-how-ai-agents-work-models-tools-memory-and-reasoning-d3df882b4ae3",
-      "by": "Abraham Karikari",
-      "time": 1787717847000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "generative-ai"
-      ]
-    },
-    {
-      "title": "MCP Security: A Beginner’s Guide to Authentication and Authorization",
-      "url": "https://medium.com/@nramram4321/mcp-security-a-beginners-guide-to-authentication-and-authorization-5fe3270dea7c",
-      "by": "Ram N",
-      "time": 1787717657000,
-      "tags": [
-        "ai",
-        "mcps",
-        "programming"
-      ]
-    },
-    {
-      "title": "A stranger can open one issue on your public repo and walk out with your private code",
-      "url": "https://medium.com/@enacoder/a-stranger-can-open-one-issue-on-your-public-repo-and-walk-out-with-your-private-code-0ff216b08c0d",
-      "by": "Ena Modern Coder✨",
-      "time": 1787717598000,
-      "tags": [
-        "repos",
-        "coding",
-        "programming"
-      ]
-    },
-    {
-      "title": "One Repo, Four AI Coding Agents",
-      "url": "https://medium.com/@georgewen7/one-repo-four-ai-coding-agents-a1ffd75274ff",
-      "by": "George Wen",
-      "time": 1787717581000,
-      "tags": [
-        "spec-driven-development",
-        "ai-engineering",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "I got tired of PDF editors that ruin the page, so I built one that doesn’t",
-      "url": "https://medium.com/@vikrambhattacharjee/i-got-tired-of-pdf-editors-that-ruin-the-page-so-i-built-one-that-doesnt-13cedd459939",
-      "by": "Vikram Bhattacharjee",
-      "time": 1787717554000,
-      "tags": [
-        "programming",
-        "pdf",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Building “AI Code Dungeon”: A Gamified Learning Platform Powered by Tencent EdgeOne Makers",
-      "url": "https://medium.com/@putihbiru0505/building-ai-code-dungeon-a-gamified-learning-platform-powered-by-tencent-edgeone-makers-da3f21d67aeb",
-      "by": "Miftachul Huda",
-      "time": 1787717174000,
+      "title": "Lots of projects get started. Lots of projects get canceled.",
+      "url": "https://medium.com/@fahey_james/lots-of-projects-get-started-lots-of-projects-get-canceled-daaadaf7c79b",
+      "by": "James Fahey",
+      "time": 1787810546000,
       "tags": [
         "artificial-intelligence",
-        "nextjs",
-        "programming"
-      ]
-    },
-    {
-      "title": "5 Developer Tasks I Replaced with AI (And 3 I Didn’t)",
-      "url": "https://medium.com/@mayankgairola114/5-developer-tasks-i-replaced-with-ai-and-3-i-didnt-b932a06a1c17",
-      "by": "Mayank Gairola",
-      "time": 1787716261000,
-      "tags": [
-        "react",
-        "software-engineering",
-        "artificial-intelligence"
+        "creativity",
+        "technology"
       ]
     }
   ]
