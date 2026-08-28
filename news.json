@@ -1,26 +1,47 @@
 {
-  "generated": "2026-08-27T06:27:14.335Z",
+  "generated": "2026-08-28T06:53:14.279Z",
   "reddit": [
     {
-      "title": "How should I architect a multi-account AWS network so all traffic flows through a Transit Gateway? (hub network account + Route 53 for prod/dev/uat)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vzlyvf/how_should_i_architect_a_multiaccount_aws_network/",
-      "by": "Alternative-Check615",
-      "time": 1787811717000,
+      "title": "Issues with eks pod identity agent when nodes scale up",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w08zdn/issues_with_eks_pod_identity_agent_when_nodes/",
+      "by": "bpeikes",
+      "time": 1787870536000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Trending GitHub repositories are md hell",
-      "url": "https://www.reddit.com/r/programming/comments/1vzlhks/trending_github_repositories_are_md_hell/",
-      "by": "Decent-Decision-9028",
-      "time": 1787810103000,
+      "title": "How we saved 100 terabytes of memory by optimizing 1.1.1.1’s DNS cache",
+      "url": "https://www.reddit.com/r/programming/comments/1w06vn1/how_we_saved_100_terabytes_of_memory_by/",
+      "by": "Ok_Stomach6651",
+      "time": 1787865579000,
       "sub": "r/programming"
     },
     {
-      "title": "What to watch when upgrading to Kubernetes 1.37",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vzauf7/what_to_watch_when_upgrading_to_kubernetes_137/",
-      "by": "platypus-3719",
-      "time": 1787780718000,
+      "title": "Kubernetes 1.37 advances workload-aware scheduling and cluster networking",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vzypcq/kubernetes_137_advances_workloadaware_scheduling/",
+      "by": "CackleRooster",
+      "time": 1787847855000,
       "sub": "r/kubernetes"
+    },
+    {
+      "title": "Node Image Hardening",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vzy9mg/node_image_hardening/",
+      "by": "leswile",
+      "time": 1787846868000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Three K8s failure modes that broke us at scale on Node + GCP Pub/Sub, and what we did",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vztlzr/three_k8s_failure_modes_that_broke_us_at_scale_on/",
+      "by": "futurist_hp",
+      "time": 1787836361000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How Jekyll Works",
+      "url": "https://www.reddit.com/r/programming/comments/1vztl74/how_jekyll_works/",
+      "by": "sarans22",
+      "time": 1787836305000,
+      "sub": "r/programming"
     },
     {
       "title": "mold: A Massively Parallel Linker",
@@ -28,27 +49,6 @@
       "by": "mttd",
       "time": 1787776665000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How to drive your frontend from the backend",
-      "url": "https://www.reddit.com/r/programming/comments/1vz715a/how_to_drive_your_frontend_from_the_backend/",
-      "by": "der_gopher",
-      "time": 1787772371000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes Podcast episode 271: Kubernetes 1.37 with Dipesh Rawat",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vz663v/kubernetes_podcast_episode_271_kubernetes_137/",
-      "by": "kubernetespodcast",
-      "time": 1787770540000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Come consiglieresti di imparare Kubernetes e Helm in modo efficace?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vz3e3s/come_consiglieresti_di_imparare_kubernetes_e_helm/",
-      "by": "Medium-Direction-191",
-      "time": 1787764701000,
-      "sub": "r/kubernetes"
     },
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Best Authentication Platforms for Developers in 2026",
-      "url": "https://medium.com/@CodeBitDaily/best-authentication-platforms-for-developers-in-2026-71c83ff96874",
-      "by": "CodeBitDaily",
-      "time": 1787811429000,
+      "title": "Why AWS Cost Optimization Should Be Part of Every Cloud Strategy",
+      "url": "https://medium.com/@hoovaiseo/why-aws-cost-optimization-should-be-part-of-every-cloud-strategy-c5d97833aa1f",
+      "by": "Hoovai Technologies",
+      "time": 1787899194000,
+      "tags": [
+        "aws",
+        "technology",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "State Engineering: Designing Agent State Systems That Don’t Drift",
+      "url": "https://medium.com/data-science-collective/state-engineering-designing-agent-state-systems-that-dont-drift-041264d93951",
+      "by": "Abinesh U",
+      "time": 1787899069000,
       "tags": [
         "software-engineering",
-        "web-development",
-        "authentication"
-      ]
-    },
-    {
-      "title": "Three Weekends, Three Challenges: Building AI Agents with Google Cloud",
-      "url": "https://medium.com/@ramakrishnadulam10/three-weekends-three-challenges-building-ai-agents-with-google-cloud-da19f8b1e0ad",
-      "by": "Ramakrishnadulam",
-      "time": 1787811332000,
-      "tags": [
-        "programming",
-        "google-cloud-platform",
-        "software-development"
-      ]
-    },
-    {
-      "title": "How to Transfer Files Between Two Linux Servers Using Your Local Machine",
-      "url": "https://durgeshmishrablog.medium.com/how-to-transfer-files-between-two-linux-servers-using-your-local-machine-253388825b0e",
-      "by": "Durgesh Mishra",
-      "time": 1787811218000,
-      "tags": [
-        "linux-commands",
-        "linux-tutorial",
-        "scp"
-      ]
-    },
-    {
-      "title": "Fixing Claude Rate Limit Errors with an AI Gateway",
-      "url": "https://swapnoneel.medium.com/fixing-claude-rate-limit-errors-6fb35af16677",
-      "by": "Swapnoneel",
-      "time": 1787811086000,
-      "tags": [
-        "programming",
         "artificial-intelligence",
-        "cloud-computing-services"
+        "ai-agent"
       ]
     },
     {
-      "title": "The Model Name Changed. My Evaluation Checklist Did Not",
-      "url": "https://medium.com/@jlltouchu/the-model-name-changed-my-evaluation-checklist-did-not-e66f70abe19f",
-      "by": "Jlltouchu",
-      "time": 1787811019000,
+      "title": "Bash ile 10 Gerçek Dünya Otomasyon Örneği",
+      "url": "https://medium.com/@muammerhardal/bash-ile-10-ger%C3%A7ek-d%C3%BCnya-otomasyon-%C3%B6rne%C4%9Fi-c032da2070c4",
+      "by": "Muammer Hardal",
+      "time": 1787899067000,
       "tags": [
-        "software-engineering",
-        "ai-coding-assistant",
-        "artificial-intelligence"
+        "bash",
+        "devops",
+        "automation"
       ]
     },
     {
-      "title": "JavaScript Debounce & Throttle",
-      "url": "https://medium.com/@salim99/javascript-debounce-throttle-08562f642f13",
-      "by": "Salim Ansari",
-      "time": 1787810877000,
+      "title": "SQL Keywords Every Developer Should Know Well (Beginner to Advanced)",
+      "url": "https://medium.com/the-code-frontier/sql-keywords-every-developer-should-know-well-beginner-to-advanced-4567288750c8",
+      "by": "tech-genius",
+      "time": 1787898871000,
       "tags": [
-        "javascript",
-        "coding",
-        "frontend-development"
+        "programming",
+        "ai",
+        "technology"
       ]
     },
     {
-      "title": "I Built a Google Rank Tracker with Python Instead of Scraping Search Results",
-      "url": "https://medium.com/@talordata/i-built-a-google-rank-tracker-with-python-instead-of-scraping-search-results-8ca5c43a1ddb",
-      "by": "Talordata",
-      "time": 1787810874000,
+      "title": "45% of AI-Generated Code Has Security Vulnerabilities. I’ve Seen Why.",
+      "url": "https://medium.com/@haseeb_sohail/45-of-ai-generated-code-has-security-vulnerabilities-ive-seen-why-458eaccb0486",
+      "by": "Muhammad Haseeb Sohail",
+      "time": 1787898784000,
+      "tags": [
+        "devsecops",
+        "code-review",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "Why hostPath Works Locally but Breaks in Production",
+      "url": "https://medium.com/@ritanshbagal/why-hostpath-works-locally-but-breaks-in-production-3c08216ecff5",
+      "by": "Ritansh Bagal",
+      "time": 1787898682000,
       "tags": [
         "software-development",
-        "programming",
-        "seo"
-      ]
-    },
-    {
-      "title": "Pod는 멀쩡했는데 Redis는 죽어 있었다 — Sentinel로 무중단 HA 전환하기",
-      "url": "https://medium.com/@fog0510/pod%EB%8A%94-%EB%A9%80%EC%A9%A1%ED%96%88%EB%8A%94%EB%8D%B0-redis%EB%8A%94-%EC%A3%BD%EC%96%B4-%EC%9E%88%EC%97%88%EB%8B%A4-sentinel%EB%A1%9C-%EB%AC%B4%EC%A4%91%EB%8B%A8-ha-%EC%A0%84%ED%99%98%ED%95%98%EA%B8%B0-9cc2c94ca970",
-      "by": "River Kang",
-      "time": 1787810698000,
-      "tags": [
-        "redis",
         "devops",
-        "site-reliability-engineer"
+        "cloud-computing"
       ]
     },
     {
-      "title": "A data-backed look at audit-ready lineage without a spreadsheet RTM.",
-      "url": "https://medium.com/@guptashreya86/a-data-backed-look-at-audit-ready-lineage-without-a-spreadsheet-rtm-b69a361b264c",
-      "by": "Shreya Gupta",
-      "time": 1787810696000,
+      "title": "Bye-Bye Date(): Hands-On with JavaScript’s New Temporal API",
+      "url": "https://medium.com/@dailyjavascriptpro/bye-bye-date-hands-on-with-javascripts-new-temporal-api-b230eacb1d2a",
+      "by": "Dailyjavascriptpro",
+      "time": 1787898541000,
       "tags": [
-        "testing",
+        "programming",
         "software-engineering",
+        "web-development"
+      ]
+    },
+    {
+      "title": "If You’re Struggling With Tech Interviews, This Is What You’re Probably Missing",
+      "url": "https://medium.com/codetodeploy/if-youre-struggling-with-tech-interviews-this-is-what-you-re-probably-missing-b994f96ce476",
+      "by": "Roobin Chettri",
+      "time": 1787898478000,
+      "tags": [
+        "coding",
+        "technology",
         "software-development"
       ]
     },
     {
-      "title": "Lots of projects get started. Lots of projects get canceled.",
-      "url": "https://medium.com/@fahey_james/lots-of-projects-get-started-lots-of-projects-get-canceled-daaadaf7c79b",
-      "by": "James Fahey",
-      "time": 1787810546000,
+      "title": "Metrics CIOs Should Track Across Enterprise Infrastructure",
+      "url": "https://medium.com/@Sangram.s_16290/metrics-cios-should-track-across-enterprise-infrastructure-3d7504513c38",
+      "by": "Sangram",
+      "time": 1787898442000,
+      "tags": [
+        "software-architecture",
+        "software-engineering",
+        "cloud"
+      ]
+    },
+    {
+      "title": "The Eleven-Day Silence: What Scheduled Agents Taught Me About Failure",
+      "url": "https://medium.com/@donk8r/the-eleven-day-silence-what-scheduled-agents-taught-me-about-failure-3305277fa78e",
+      "by": "Don Karter",
+      "time": 1787898342000,
       "tags": [
         "artificial-intelligence",
-        "creativity",
-        "technology"
+        "cloud-computing",
+        "llm"
       ]
     }
   ]

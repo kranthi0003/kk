@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-27T06:27:19.043Z",
+  "generated": "2026-08-28T06:53:19.825Z",
   "season": "2026",
   "sources": [
     {
@@ -45,9 +45,9 @@
         "pos": 4,
         "code": "IND",
         "team": "India",
-        "matches": 26,
-        "points": 2714,
-        "rating": 104
+        "matches": 29,
+        "points": 3042,
+        "rating": 105
       },
       {
         "pos": 5,
@@ -69,9 +69,9 @@
         "pos": 7,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 16,
-        "points": 1222,
-        "rating": 76
+        "matches": 19,
+        "points": 1434,
+        "rating": 75
       },
       {
         "pos": 8,
@@ -674,13 +674,13 @@
       "formats": {
         "test": {
           "matches": 2,
-          "result": null,
-          "played": 0
+          "result": "0–1",
+          "played": 1
         },
         "odi": null,
         "t20i": null
       },
-      "played": 0,
+      "played": 1,
       "scheduled": 2,
       "ends": "2026-08-30",
       "status": "live"
