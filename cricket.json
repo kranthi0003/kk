@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T06:53:19.825Z",
+  "generated": "2026-08-29T04:27:57.240Z",
   "season": "2026",
   "sources": [
     {
@@ -233,9 +233,9 @@
         "pos": 5,
         "code": "SA",
         "team": "South Africa",
-        "matches": 48,
-        "points": 11717,
-        "rating": 244
+        "matches": 49,
+        "points": 11871,
+        "rating": 242
       },
       {
         "pos": 6,
@@ -662,7 +662,7 @@
       "played": 2,
       "scheduled": 2,
       "ends": "2026-08-28",
-      "status": "live"
+      "status": "done"
     },
     {
       "start": "2026-08-15",

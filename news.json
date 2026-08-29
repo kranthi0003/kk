@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-28T06:53:14.279Z",
+  "generated": "2026-08-29T04:27:51.157Z",
   "reddit": [
     {
-      "title": "Issues with eks pod identity agent when nodes scale up",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w08zdn/issues_with_eks_pod_identity_agent_when_nodes/",
-      "by": "bpeikes",
-      "time": 1787870536000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How we saved 100 terabytes of memory by optimizing 1.1.1.1’s DNS cache",
-      "url": "https://www.reddit.com/r/programming/comments/1w06vn1/how_we_saved_100_terabytes_of_memory_by/",
-      "by": "Ok_Stomach6651",
-      "time": 1787865579000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes 1.37 advances workload-aware scheduling and cluster networking",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vzypcq/kubernetes_137_advances_workloadaware_scheduling/",
-      "by": "CackleRooster",
-      "time": 1787847855000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Node Image Hardening",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vzy9mg/node_image_hardening/",
-      "by": "leswile",
-      "time": 1787846868000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Three K8s failure modes that broke us at scale on Node + GCP Pub/Sub, and what we did",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vztlzr/three_k8s_failure_modes_that_broke_us_at_scale_on/",
-      "by": "futurist_hp",
-      "time": 1787836361000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How Jekyll Works",
-      "url": "https://www.reddit.com/r/programming/comments/1vztl74/how_jekyll_works/",
-      "by": "sarans22",
-      "time": 1787836305000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "mold: A Massively Parallel Linker",
-      "url": "https://www.reddit.com/r/programming/comments/1vz921w/mold_a_massively_parallel_linker/",
-      "by": "mttd",
-      "time": 1787776665000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
+      "title": "How do you handle automation work when stakeholders expect fast results but access/security slows everything down?",
+      "url": "https://www.reddit.com/r/devops/comments/1w1ceae/how_do_you_handle_automation_work_when/",
+      "by": "Kooky-Internet8806",
+      "time": 1787977029000,
       "sub": "r/devops"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
+      "title": "Crystal Lang: Releasing Execution Contexts",
+      "url": "https://www.reddit.com/r/programming/comments/1w1bjk0/crystal_lang_releasing_execution_contexts/",
+      "by": "Bassfaceapollo",
+      "time": 1787974456000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Lean explained with TypeScript",
+      "url": "https://www.reddit.com/r/programming/comments/1w190pi/lean_explained_with_typescript/",
+      "by": "ngruhn",
+      "time": 1787967041000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "DevOps and K8s experience.",
+      "url": "https://www.reddit.com/r/devops/comments/1w181ct/devops_and_k8s_experience/",
+      "by": "iykay_",
+      "time": 1787964247000,
       "sub": "r/devops"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
+      "title": "Log-first or Table-first? Apache Kafka, Fluss, & Streaming Tables",
+      "url": "https://www.reddit.com/r/programming/comments/1w12s1m/logfirst_or_tablefirst_apache_kafka_fluss/",
+      "by": "mmatloka",
+      "time": 1787950998000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Which enterprise firewall vendors are actually keeping up with hybrid mesh security in 2026?",
+      "url": "https://www.reddit.com/r/devops/comments/1w10ozr/which_enterprise_firewall_vendors_are_actually/",
+      "by": "Altruistic-Dog7538",
+      "time": 1787946244000,
       "sub": "r/devops"
+    },
+    {
+      "title": "What would you recommend for a Kubernetes homelab that resembles a real work environment?",
+      "url": "https://www.reddit.com/r/devops/comments/1w0ylpv/what_would_you_recommend_for_a_kubernetes_homelab/",
+      "by": "Medium-Direction-191",
+      "time": 1787941618000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Felt cheated with AI SRE tools, they are atmost a gimmick!",
+      "url": "https://www.reddit.com/r/devops/comments/1w0x5pd/felt_cheated_with_ai_sre_tools_they_are_atmost_a/",
+      "by": "Less_Ad8195",
+      "time": 1787938472000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "htmx 4.0.0 has been released!",
+      "url": "https://www.reddit.com/r/programming/comments/1w0w1pp/htmx_400_has_been_released/",
+      "by": "BrewedDoritos",
+      "time": 1787936062000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Follow-up: Running the same Spring Boot app on a 256 MB VPS with JDK 25",
+      "url": "https://www.reddit.com/r/programming/comments/1w0u6rw/followup_running_the_same_spring_boot_app_on_a/",
+      "by": "fykup",
+      "time": 1787931935000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Why AWS Cost Optimization Should Be Part of Every Cloud Strategy",
-      "url": "https://medium.com/@hoovaiseo/why-aws-cost-optimization-should-be-part-of-every-cloud-strategy-c5d97833aa1f",
-      "by": "Hoovai Technologies",
-      "time": 1787899194000,
+      "title": "The AI Workflow I Use for Accurate Data Extraction",
+      "url": "https://ai.gopubby.com/the-ai-workflow-i-use-for-accurate-data-extraction-44a758b6d6b0",
+      "by": "Maria Ali",
+      "time": 1787976831000,
       "tags": [
-        "aws",
+        "data-science",
+        "ai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Sliding Window in Java: The Complete Guide to Every Pattern, Template, and Interview Problem",
+      "url": "https://medium.com/@samanlnayak2003/sliding-window-in-java-the-complete-guide-to-every-pattern-template-and-interview-problem-1a697262dc70",
+      "by": "The Turtle Code",
+      "time": 1787976625000,
+      "tags": [
         "technology",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "State Engineering: Designing Agent State Systems That Don’t Drift",
-      "url": "https://medium.com/data-science-collective/state-engineering-designing-agent-state-systems-that-dont-drift-041264d93951",
-      "by": "Abinesh U",
-      "time": 1787899069000,
-      "tags": [
         "software-engineering",
-        "artificial-intelligence",
-        "ai-agent"
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Bash ile 10 Gerçek Dünya Otomasyon Örneği",
-      "url": "https://medium.com/@muammerhardal/bash-ile-10-ger%C3%A7ek-d%C3%BCnya-otomasyon-%C3%B6rne%C4%9Fi-c032da2070c4",
-      "by": "Muammer Hardal",
-      "time": 1787899067000,
+      "title": "GLM 5.3 Flash vs Qwen 3.8-Flash-Next",
+      "url": "https://medium.com/data-science-in-your-pocket/glm-5-3-flash-vs-qwen-3-8-flash-next-afc7969ff4f7",
+      "by": "Mehul Gupta",
+      "time": 1787976320000,
       "tags": [
-        "bash",
-        "devops",
-        "automation"
+        "technology",
+        "programming",
+        "machine-learning"
       ]
     },
     {
-      "title": "SQL Keywords Every Developer Should Know Well (Beginner to Advanced)",
-      "url": "https://medium.com/the-code-frontier/sql-keywords-every-developer-should-know-well-beginner-to-advanced-4567288750c8",
-      "by": "tech-genius",
-      "time": 1787898871000,
+      "title": "iptables Is Being Replaced. Here’s Everything You Need to Know Before It Happens to You.",
+      "url": "https://suyashadhikari.medium.com/iptables-is-being-replaced-heres-everything-you-need-to-know-before-it-happens-to-you-d54bf85b279b",
+      "by": "Suyash Adhikari",
+      "time": 1787976198000,
+      "tags": [
+        "linux",
+        "sysadmin",
+        "security"
+      ]
+    },
+    {
+      "title": "You Don’t need more microservices — you need better monoliths",
+      "url": "https://medium.com/codex/you-dont-need-more-microservices-you-need-better-monoliths-63b5518faca7",
+      "by": "Yaninyz witty",
+      "time": 1787974528000,
+      "tags": [
+        "writing",
+        "microservices",
+        "golang"
+      ]
+    },
+    {
+      "title": "CSV Files Aren’t Broken: They’re Just Misunderstood",
+      "url": "https://medium.com/@techbyjeel/csv-files-formatting-errors-explained-a6a40647b91e",
+      "by": "Techbyjeel Tools",
+      "time": 1787974261000,
+      "tags": [
+        "web-development",
+        "data-science",
+        "programming"
+      ]
+    },
+    {
+      "title": "Android Internals #4 — Why Android Kills Your App Process",
+      "url": "https://trricho.medium.com/android-internals-4-why-android-kills-your-app-process-1d920531f1ce",
+      "by": "Prakash Sharma",
+      "time": 1787974261000,
       "tags": [
         "programming",
-        "ai",
+        "android",
         "technology"
       ]
     },
     {
-      "title": "45% of AI-Generated Code Has Security Vulnerabilities. I’ve Seen Why.",
-      "url": "https://medium.com/@haseeb_sohail/45-of-ai-generated-code-has-security-vulnerabilities-ive-seen-why-458eaccb0486",
-      "by": "Muhammad Haseeb Sohail",
-      "time": 1787898784000,
-      "tags": [
-        "devsecops",
-        "code-review",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "Why hostPath Works Locally but Breaks in Production",
-      "url": "https://medium.com/@ritanshbagal/why-hostpath-works-locally-but-breaks-in-production-3c08216ecff5",
-      "by": "Ritansh Bagal",
-      "time": 1787898682000,
-      "tags": [
-        "software-development",
-        "devops",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "Bye-Bye Date(): Hands-On with JavaScript’s New Temporal API",
-      "url": "https://medium.com/@dailyjavascriptpro/bye-bye-date-hands-on-with-javascripts-new-temporal-api-b230eacb1d2a",
-      "by": "Dailyjavascriptpro",
-      "time": 1787898541000,
+      "title": "DevOps Engineer Interview Experience: Questions Asked at Persistent Systems, Capgemini, Accenture…",
+      "url": "https://medium.com/@preetjit82/devops-engineer-interview-experience-questions-asked-at-persistent-systems-capgemini-accenture-f1b8e76d7892",
+      "by": "Interview Simplified",
+      "time": 1787973464000,
       "tags": [
         "programming",
-        "software-engineering",
-        "web-development"
+        "interview",
+        "jobs"
       ]
     },
     {
-      "title": "If You’re Struggling With Tech Interviews, This Is What You’re Probably Missing",
-      "url": "https://medium.com/codetodeploy/if-youre-struggling-with-tech-interviews-this-is-what-you-re-probably-missing-b994f96ce476",
-      "by": "Roobin Chettri",
-      "time": 1787898478000,
+      "title": "Small States, Smart Regulation: Why RegTech Belongs in the Aviation Capacity Conversation",
+      "url": "https://medium.com/@ramon_37993/small-states-smart-regulation-why-regtech-belongs-in-the-aviation-capacity-conversation-9dff4f6030e5",
+      "by": "Ramon Clarke",
+      "time": 1787973102000,
       "tags": [
-        "coding",
         "technology",
-        "software-development"
+        "programming",
+        "startup"
       ]
     },
     {
-      "title": "Metrics CIOs Should Track Across Enterprise Infrastructure",
-      "url": "https://medium.com/@Sangram.s_16290/metrics-cios-should-track-across-enterprise-infrastructure-3d7504513c38",
-      "by": "Sangram",
-      "time": 1787898442000,
+      "title": "Spring Boot Says “Connection Is Not Available” — The HikariCP Error That Can Take Down a Healthy…",
+      "url": "https://medium.com/javarevisited/spring-boot-says-connection-is-not-available-the-hikaricp-error-that-can-take-down-a-healthy-8524e0ff67da",
+      "by": "Systems at Scale",
+      "time": 1787972881000,
       "tags": [
-        "software-architecture",
+        "web-development",
         "software-engineering",
-        "cloud"
-      ]
-    },
-    {
-      "title": "The Eleven-Day Silence: What Scheduled Agents Taught Me About Failure",
-      "url": "https://medium.com/@donk8r/the-eleven-day-silence-what-scheduled-agents-taught-me-about-failure-3305277fa78e",
-      "by": "Don Karter",
-      "time": 1787898342000,
-      "tags": [
-        "artificial-intelligence",
-        "cloud-computing",
-        "llm"
+        "java"
       ]
     }
   ]

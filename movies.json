@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T06:52:22.673Z",
+  "generated": "2026-08-29T04:26:41.165Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -25,14 +25,14 @@
       "imdb": "https://www.imdb.com/title/tt38090791/"
     },
     {
-      "title": "Ramayana",
+      "title": "Ramayana: Part 1",
       "lang": "Hindi",
       "date": "2026-11-08",
       "precision": "day",
       "by": "Nitesh Tiwari",
       "desc": "Upcoming Indian film by Nitesh Tiwari",
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Ramayana_(2026_film)",
+      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
       "imdb": "https://www.imdb.com/title/tt27988879/"
     },
     {
