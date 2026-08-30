@@ -1,186 +1,186 @@
 {
-  "generated": "2026-08-29T04:27:51.157Z",
+  "generated": "2026-08-30T04:28:44.853Z",
   "reddit": [
     {
-      "title": "How do you handle automation work when stakeholders expect fast results but access/security slows everything down?",
-      "url": "https://www.reddit.com/r/devops/comments/1w1ceae/how_do_you_handle_automation_work_when/",
-      "by": "Kooky-Internet8806",
-      "time": 1787977029000,
+      "title": "How are you keeping your skills sharp (and finding new challenges) lately?",
+      "url": "https://www.reddit.com/r/devops/comments/1w24geu/how_are_you_keeping_your_skills_sharp_and_finding/",
+      "by": "3jaaaay",
+      "time": 1788054646000,
       "sub": "r/devops"
     },
     {
-      "title": "Crystal Lang: Releasing Execution Contexts",
-      "url": "https://www.reddit.com/r/programming/comments/1w1bjk0/crystal_lang_releasing_execution_contexts/",
-      "by": "Bassfaceapollo",
-      "time": 1787974456000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Lean explained with TypeScript",
-      "url": "https://www.reddit.com/r/programming/comments/1w190pi/lean_explained_with_typescript/",
-      "by": "ngruhn",
-      "time": 1787967041000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "DevOps and K8s experience.",
-      "url": "https://www.reddit.com/r/devops/comments/1w181ct/devops_and_k8s_experience/",
-      "by": "iykay_",
-      "time": 1787964247000,
+      "title": "Self-taught developer looking for advice…",
+      "url": "https://www.reddit.com/r/devops/comments/1w22b3a/selftaught_developer_looking_for_advice/",
+      "by": "SoldatPichon",
+      "time": 1788048532000,
       "sub": "r/devops"
     },
     {
-      "title": "Log-first or Table-first? Apache Kafka, Fluss, & Streaming Tables",
-      "url": "https://www.reddit.com/r/programming/comments/1w12s1m/logfirst_or_tablefirst_apache_kafka_fluss/",
-      "by": "mmatloka",
-      "time": 1787950998000,
+      "title": "Inside the TypeScript Checker: From Text to Types",
+      "url": "https://www.reddit.com/r/programming/comments/1w1y2m3/inside_the_typescript_checker_from_text_to_types/",
+      "by": "Happycodeine",
+      "time": 1788037601000,
       "sub": "r/programming"
     },
     {
-      "title": "Which enterprise firewall vendors are actually keeping up with hybrid mesh security in 2026?",
-      "url": "https://www.reddit.com/r/devops/comments/1w10ozr/which_enterprise_firewall_vendors_are_actually/",
-      "by": "Altruistic-Dog7538",
-      "time": 1787946244000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What would you recommend for a Kubernetes homelab that resembles a real work environment?",
-      "url": "https://www.reddit.com/r/devops/comments/1w0ylpv/what_would_you_recommend_for_a_kubernetes_homelab/",
-      "by": "Medium-Direction-191",
-      "time": 1787941618000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Felt cheated with AI SRE tools, they are atmost a gimmick!",
-      "url": "https://www.reddit.com/r/devops/comments/1w0x5pd/felt_cheated_with_ai_sre_tools_they_are_atmost_a/",
-      "by": "Less_Ad8195",
-      "time": 1787938472000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "htmx 4.0.0 has been released!",
-      "url": "https://www.reddit.com/r/programming/comments/1w0w1pp/htmx_400_has_been_released/",
-      "by": "BrewedDoritos",
-      "time": 1787936062000,
+      "title": "htmx ~ Building Critical Infrastructure with htmx: Network Automation for the Paris 2024 Olympics",
+      "url": "https://www.reddit.com/r/programming/comments/1w1wspl/htmx_building_critical_infrastructure_with_htmx/",
+      "by": "yawaramin",
+      "time": 1788034555000,
       "sub": "r/programming"
     },
     {
-      "title": "Follow-up: Running the same Spring Boot app on a 256 MB VPS with JDK 25",
-      "url": "https://www.reddit.com/r/programming/comments/1w0u6rw/followup_running_the_same_spring_boot_app_on_a/",
-      "by": "fykup",
-      "time": 1787931935000,
+      "title": "Wrapping GTK4 in 800 lines of Clojure with Jolt",
+      "url": "https://www.reddit.com/r/programming/comments/1w1wbcj/wrapping_gtk4_in_800_lines_of_clojure_with_jolt/",
+      "by": "yogthos",
+      "time": 1788033411000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Pattern in Number Spirals",
+      "url": "https://www.reddit.com/r/programming/comments/1w1tqvu/pattern_in_number_spirals/",
+      "by": "Nouman-Rahman",
+      "time": 1788027405000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Zod v4.5 adds schema compilation (3-9x faster validation)",
+      "url": "https://www.reddit.com/r/programming/comments/1w1sl70/zod_v45_adds_schema_compilation_39x_faster/",
+      "by": "gajus0",
+      "time": 1788024654000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How does your incident triaging protocols look like?",
+      "url": "https://www.reddit.com/r/devops/comments/1w1qcut/how_does_your_incident_triaging_protocols_look/",
+      "by": "MuchoMole101010101",
+      "time": 1788019353000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Observability of the dependencies in codebases still a problem",
+      "url": "https://www.reddit.com/r/devops/comments/1w1m4i3/observability_of_the_dependencies_in_codebases/",
+      "by": "rudecgv",
+      "time": 1788008868000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Thing nobody warn you about deploying into customers cloud/env",
+      "url": "https://www.reddit.com/r/devops/comments/1w1ltbt/thing_nobody_warn_you_about_deploying_into/",
+      "by": "TangeloOk9486",
+      "time": 1788008047000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "The AI Workflow I Use for Accurate Data Extraction",
-      "url": "https://ai.gopubby.com/the-ai-workflow-i-use-for-accurate-data-extraction-44a758b6d6b0",
-      "by": "Maria Ali",
-      "time": 1787976831000,
+      "title": "OpenAI Just Cut Off Cursor.",
+      "url": "https://medium.com/ai-analytics-diaries/openai-just-cut-off-cursor-86b1da928701",
+      "by": "Analyst Uttam",
+      "time": 1788063793000,
       "tags": [
-        "data-science",
-        "ai",
-        "artificial-intelligence"
+        "technology",
+        "software-development",
+        "ai"
       ]
     },
     {
-      "title": "Sliding Window in Java: The Complete Guide to Every Pattern, Template, and Interview Problem",
-      "url": "https://medium.com/@samanlnayak2003/sliding-window-in-java-the-complete-guide-to-every-pattern-template-and-interview-problem-1a697262dc70",
-      "by": "The Turtle Code",
-      "time": 1787976625000,
+      "title": "It’s always vibe coding, but not vibe engineering.",
+      "url": "https://medium.com/@HannieH/its-always-vibe-coding-but-not-vibe-engineering-b6aa3f52b504",
+      "by": "HannieH",
+      "time": 1788063681000,
       "tags": [
-        "technology",
         "software-engineering",
-        "artificial-intelligence"
+        "vibe-coding",
+        "ai-agent"
       ]
     },
     {
-      "title": "GLM 5.3 Flash vs Qwen 3.8-Flash-Next",
-      "url": "https://medium.com/data-science-in-your-pocket/glm-5-3-flash-vs-qwen-3-8-flash-next-afc7969ff4f7",
-      "by": "Mehul Gupta",
-      "time": 1787976320000,
+      "title": "Istio Security: How RequestAuthentication and AuthorizationPolicy Actually Work Together",
+      "url": "https://medium.com/@gupta.rajneesh2010/istio-security-how-requestauthentication-and-authorizationpolicy-actually-work-together-49b5bf763930",
+      "by": "Rajneesh Gupta",
+      "time": 1788063539000,
       "tags": [
-        "technology",
+        "devops",
+        "istio",
+        "service-mesh"
+      ]
+    },
+    {
+      "title": "Kubernetes 101: Deploying Your First Pods",
+      "url": "https://emsmw.medium.com/kubernetes-101-deploying-your-first-pods-3a344b105467",
+      "by": "Emily So",
+      "time": 1788063266000,
+      "tags": [
+        "site-reliability-engineer",
+        "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "DevOps vs Platform Engineer vs SRE in 2026: Which Tech Career Should You Choose?",
+      "url": "https://medium.com/@codebyadarsh/devops-vs-platform-engineer-vs-sre-in-2026-which-tech-career-should-you-choose-2a728c661196",
+      "by": "Adarsh Jayprakash Mishra",
+      "time": 1788062725000,
+      "tags": [
+        "devops",
+        "tech-careers-2026",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "Why Being “Good Enough” Might Be Killing Your Career",
+      "url": "https://medium.com/@pratapsahoo594/why-being-good-enough-might-be-killing-your-career-6f529d0e36e5",
+      "by": "Pratap Sahu",
+      "time": 1788061923000,
+      "tags": [
+        "software-career",
+        "learning-to-code",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Backend: An Architectural Role, Not a Tool or a Location",
+      "url": "https://medium.com/@mohammedabdulmujeeb16/backend-an-architectural-role-not-a-tool-or-a-location-ab7cd678943b",
+      "by": "Abdulmujeeb Mohammed",
+      "time": 1788061740000,
+      "tags": [
+        "backend-engineering",
+        "software-engineering",
+        "api"
+      ]
+    },
+    {
+      "title": "Spring Boot 4 stopped handing you a RestTemplate",
+      "url": "https://medium.com/@devadiga.navya/spring-boot-4-stopped-handing-you-a-resttemplate-06dc0ea9be97",
+      "by": "Devadiga Navya",
+      "time": 1788061575000,
+      "tags": [
         "programming",
-        "machine-learning"
+        "resttemplate",
+        "software-development"
       ]
     },
     {
-      "title": "iptables Is Being Replaced. Here’s Everything You Need to Know Before It Happens to You.",
-      "url": "https://suyashadhikari.medium.com/iptables-is-being-replaced-heres-everything-you-need-to-know-before-it-happens-to-you-d54bf85b279b",
-      "by": "Suyash Adhikari",
-      "time": 1787976198000,
+      "title": "JavaScript Promises Explained for Beginners",
+      "url": "https://mrmadhukar.medium.com/javascript-promises-explained-for-beginners-2f729b50d5d3",
+      "by": "Mr Madhukar",
+      "time": 1788060959000,
       "tags": [
-        "linux",
-        "sysadmin",
-        "security"
+        "async-programming",
+        "programming",
+        "web-development"
       ]
     },
     {
-      "title": "You Don’t need more microservices — you need better monoliths",
-      "url": "https://medium.com/codex/you-dont-need-more-microservices-you-need-better-monoliths-63b5518faca7",
-      "by": "Yaninyz witty",
-      "time": 1787974528000,
-      "tags": [
-        "writing",
-        "microservices",
-        "golang"
-      ]
-    },
-    {
-      "title": "CSV Files Aren’t Broken: They’re Just Misunderstood",
-      "url": "https://medium.com/@techbyjeel/csv-files-formatting-errors-explained-a6a40647b91e",
+      "title": "Strong Passwords Start With Randomness, Not Cleverness",
+      "url": "https://medium.com/@techbyjeel/strong-passwords-randomness-security-e961bc16f587",
       "by": "Techbyjeel Tools",
-      "time": 1787974261000,
-      "tags": [
-        "web-development",
-        "data-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "Android Internals #4 — Why Android Kills Your App Process",
-      "url": "https://trricho.medium.com/android-internals-4-why-android-kills-your-app-process-1d920531f1ce",
-      "by": "Prakash Sharma",
-      "time": 1787974261000,
-      "tags": [
-        "programming",
-        "android",
-        "technology"
-      ]
-    },
-    {
-      "title": "DevOps Engineer Interview Experience: Questions Asked at Persistent Systems, Capgemini, Accenture…",
-      "url": "https://medium.com/@preetjit82/devops-engineer-interview-experience-questions-asked-at-persistent-systems-capgemini-accenture-f1b8e76d7892",
-      "by": "Interview Simplified",
-      "time": 1787973464000,
-      "tags": [
-        "programming",
-        "interview",
-        "jobs"
-      ]
-    },
-    {
-      "title": "Small States, Smart Regulation: Why RegTech Belongs in the Aviation Capacity Conversation",
-      "url": "https://medium.com/@ramon_37993/small-states-smart-regulation-why-regtech-belongs-in-the-aviation-capacity-conversation-9dff4f6030e5",
-      "by": "Ramon Clarke",
-      "time": 1787973102000,
+      "time": 1788060661000,
       "tags": [
         "technology",
-        "programming",
-        "startup"
-      ]
-    },
-    {
-      "title": "Spring Boot Says “Connection Is Not Available” — The HikariCP Error That Can Take Down a Healthy…",
-      "url": "https://medium.com/javarevisited/spring-boot-says-connection-is-not-available-the-hikaricp-error-that-can-take-down-a-healthy-8524e0ff67da",
-      "by": "Systems at Scale",
-      "time": 1787972881000,
-      "tags": [
-        "web-development",
-        "software-engineering",
-        "java"
+        "privacy",
+        "information-security"
       ]
     }
   ]

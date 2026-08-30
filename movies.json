@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T04:26:41.165Z",
+  "generated": "2026-08-30T04:27:52.904Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -124,6 +124,17 @@
       "imdb": "https://www.imdb.com/title/tt38874778/"
     },
     {
+      "title": "Dorothy",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian film",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Dorothy_film_poster.jpg/120px-Dorothy_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Dorothy_(film)",
+      "imdb": "https://www.imdb.com/title/tt38915678/"
+    },
+    {
       "title": "Maatrubhumi: May War Rest in Peace",
       "lang": "Hindi",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
       "url": "https://en.wikipedia.org/wiki/Mandaadi",
       "imdb": "https://www.imdb.com/title/tt36596965/"
-    },
-    {
-      "title": "Sardar 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "P. S. Mithran",
-      "desc": "Upcoming Indian film by P. S. Mithran",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Sardar_2",
-      "imdb": "https://www.imdb.com/title/tt28541577/"
     }
   ]
 }
