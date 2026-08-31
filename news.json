@@ -1,19 +1,40 @@
 {
-  "generated": "2026-08-30T04:28:44.853Z",
+  "generated": "2026-08-31T04:32:16.667Z",
   "reddit": [
     {
-      "title": "How are you keeping your skills sharp (and finding new challenges) lately?",
-      "url": "https://www.reddit.com/r/devops/comments/1w24geu/how_are_you_keeping_your_skills_sharp_and_finding/",
-      "by": "3jaaaay",
-      "time": 1788054646000,
-      "sub": "r/devops"
+      "title": "p99 0 ms* autocomplete for 240 million domain names",
+      "url": "https://www.reddit.com/r/programming/comments/1w2yw8j/p99_0_ms_autocomplete_for_240_million_domain_names/",
+      "by": "fagnerbrack",
+      "time": 1788138056000,
+      "sub": "r/programming"
     },
     {
-      "title": "Self-taught developer looking for advice…",
-      "url": "https://www.reddit.com/r/devops/comments/1w22b3a/selftaught_developer_looking_for_advice/",
-      "by": "SoldatPichon",
-      "time": 1788048532000,
-      "sub": "r/devops"
+      "title": "Automating immersive reading",
+      "url": "https://www.reddit.com/r/programming/comments/1w2fc9t/automating_immersive_reading/",
+      "by": "scrollin_thru",
+      "time": 1788090162000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How are you guys tracking gpu cost by workload in kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w2dz4w/how_are_you_guys_tracking_gpu_cost_by_workload_in/",
+      "by": "Prestigious-Bus-3738",
+      "time": 1788085705000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Reverse Engineering Unknown File Formats with ImHex",
+      "url": "https://www.reddit.com/r/programming/comments/1w2ckmm/reverse_engineering_unknown_file_formats_with/",
+      "by": "WerWolv",
+      "time": 1788080892000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "OpenBao and AI",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w25na4/openbao_and_ai/",
+      "by": "faulty-segment",
+      "time": 1788058226000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Inside the TypeScript Checker: From Text to Types",
@@ -30,157 +51,135 @@
       "sub": "r/programming"
     },
     {
-      "title": "Wrapping GTK4 in 800 lines of Clojure with Jolt",
-      "url": "https://www.reddit.com/r/programming/comments/1w1wbcj/wrapping_gtk4_in_800_lines_of_clojure_with_jolt/",
-      "by": "yogthos",
-      "time": 1788033411000,
-      "sub": "r/programming"
+      "title": "Help me make sense of this",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w1s1eq/help_me_make_sense_of_this/",
+      "by": "acompleteunknownnn",
+      "time": 1788023364000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Pattern in Number Spirals",
-      "url": "https://www.reddit.com/r/programming/comments/1w1tqvu/pattern_in_number_spirals/",
-      "by": "Nouman-Rahman",
-      "time": 1788027405000,
-      "sub": "r/programming"
+      "title": "Is my deployment flow sound?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w15gix/is_my_deployment_flow_sound/",
+      "by": "Oxffff0000",
+      "time": 1787957409000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Zod v4.5 adds schema compilation (3-9x faster validation)",
-      "url": "https://www.reddit.com/r/programming/comments/1w1sl70/zod_v45_adds_schema_compilation_39x_faster/",
-      "by": "gajus0",
-      "time": 1788024654000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How does your incident triaging protocols look like?",
-      "url": "https://www.reddit.com/r/devops/comments/1w1qcut/how_does_your_incident_triaging_protocols_look/",
-      "by": "MuchoMole101010101",
-      "time": 1788019353000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Observability of the dependencies in codebases still a problem",
-      "url": "https://www.reddit.com/r/devops/comments/1w1m4i3/observability_of_the_dependencies_in_codebases/",
-      "by": "rudecgv",
-      "time": 1788008868000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Thing nobody warn you about deploying into customers cloud/env",
-      "url": "https://www.reddit.com/r/devops/comments/1w1ltbt/thing_nobody_warn_you_about_deploying_into/",
-      "by": "TangeloOk9486",
-      "time": 1788008047000,
-      "sub": "r/devops"
+      "title": "How does an experienced (8+ years) DevOps engineer break into a Kubernetes-heavy role without years of production K8s experience?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w151ti/how_does_an_experienced_8_years_devops_engineer/",
+      "by": "Crinja1",
+      "time": 1787956389000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "OpenAI Just Cut Off Cursor.",
-      "url": "https://medium.com/ai-analytics-diaries/openai-just-cut-off-cursor-86b1da928701",
-      "by": "Analyst Uttam",
-      "time": 1788063793000,
+      "title": "What It Actually Takes to Run PostgreSQL on Kubernetes",
+      "url": "https://dockndev.medium.com/what-it-actually-takes-to-run-postgresql-on-kubernetes-1a9945e8d2ec",
+      "by": "dockndev",
+      "time": 1788149963000,
       "tags": [
-        "technology",
-        "software-development",
-        "ai"
+        "database",
+        "devops",
+        "postgresql"
       ]
     },
     {
-      "title": "It’s always vibe coding, but not vibe engineering.",
-      "url": "https://medium.com/@HannieH/its-always-vibe-coding-but-not-vibe-engineering-b6aa3f52b504",
-      "by": "HannieH",
-      "time": 1788063681000,
+      "title": "From API Glue to Agent Swarms: The Rise of A2A in Enterprise AI",
+      "url": "https://ai.plainenglish.io/from-api-glue-to-agent-swarms-the-rise-of-a2a-in-enterprise-ai-e14dcfd7f3e0",
+      "by": "Ruban K",
+      "time": 1788149844000,
       "tags": [
+        "api",
         "software-engineering",
-        "vibe-coding",
-        "ai-agent"
+        "programming"
       ]
     },
     {
-      "title": "Istio Security: How RequestAuthentication and AuthorizationPolicy Actually Work Together",
-      "url": "https://medium.com/@gupta.rajneesh2010/istio-security-how-requestauthentication-and-authorizationpolicy-actually-work-together-49b5bf763930",
-      "by": "Rajneesh Gupta",
-      "time": 1788063539000,
+      "title": "You Probably Don’t Need a Vector Database in 2026",
+      "url": "https://medium.com/@mozzammeluiu/you-probably-dont-need-a-vector-database-in-2026-683409df7b6b",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1788149802000,
       "tags": [
-        "devops",
-        "istio",
-        "service-mesh"
+        "artificial-intelligence",
+        "relational-databases",
+        "postgresql"
       ]
     },
     {
-      "title": "Kubernetes 101: Deploying Your First Pods",
-      "url": "https://emsmw.medium.com/kubernetes-101-deploying-your-first-pods-3a344b105467",
-      "by": "Emily So",
-      "time": 1788063266000,
+      "title": "I Used AI Every Day for 30 Days , Here’s What Actually Worked",
+      "url": "https://ai.plainenglish.io/i-used-ai-every-day-for-30-days-heres-what-actually-worked-47f1fdf3aafa",
+      "by": "Dr Abdullah Azhar",
+      "time": 1788149748000,
       "tags": [
-        "site-reliability-engineer",
-        "kubernetes",
-        "devops"
+        "artificial-intelligence",
+        "ai",
+        "programming"
       ]
     },
     {
-      "title": "DevOps vs Platform Engineer vs SRE in 2026: Which Tech Career Should You Choose?",
-      "url": "https://medium.com/@codebyadarsh/devops-vs-platform-engineer-vs-sre-in-2026-which-tech-career-should-you-choose-2a728c661196",
-      "by": "Adarsh Jayprakash Mishra",
-      "time": 1788062725000,
+      "title": "Los programadores también tenemos que aprender a construir nuestro propio negocio",
+      "url": "https://medium.com/@deco31416/los-programadores-tambi%C3%A9n-tenemos-que-aprender-a-construir-nuestro-propio-negocio-e338c42f563c",
+      "by": "Jose Cordero",
+      "time": 1788148927000,
       "tags": [
-        "devops",
-        "tech-careers-2026",
-        "cloud-computing"
+        "programming",
+        "software-engineering",
+        "future-of-work"
       ]
     },
     {
-      "title": "Why Being “Good Enough” Might Be Killing Your Career",
-      "url": "https://medium.com/@pratapsahoo594/why-being-good-enough-might-be-killing-your-career-6f529d0e36e5",
-      "by": "Pratap Sahu",
-      "time": 1788061923000,
+      "title": "Time Management in Software Development: Protect Your Focus, Protect Your Project",
+      "url": "https://medium.com/%E0%A4%9C%E0%A5%8D%E0%A4%9E%E0%A4%BE%E0%A4%A8%E0%A4%B8%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%A4%E0%A4%B8%E0%A5%8D/time-management-in-software-development-protect-your-focus-protect-your-project-aec6118cd87c",
+      "by": "Geeky Vartika",
+      "time": 1788148904000,
       "tags": [
-        "software-career",
-        "learning-to-code",
+        "time-management",
+        "project-management",
         "software-engineering"
       ]
     },
     {
-      "title": "Backend: An Architectural Role, Not a Tool or a Location",
-      "url": "https://medium.com/@mohammedabdulmujeeb16/backend-an-architectural-role-not-a-tool-or-a-location-ab7cd678943b",
-      "by": "Abdulmujeeb Mohammed",
-      "time": 1788061740000,
+      "title": "Best Fractional DevSecOps Providers in India (2026): What the AI Engines Actually Name",
+      "url": "https://medium.com/@info_85263/best-fractional-devsecops-providers-in-india-2026-what-the-ai-engines-actually-name-57a64241e752",
+      "by": "MatrixGard",
+      "time": 1788148874000,
       "tags": [
-        "backend-engineering",
-        "software-engineering",
-        "api"
+        "cloud-computing",
+        "cybersecurity",
+        "startup"
       ]
     },
     {
-      "title": "Spring Boot 4 stopped handing you a RestTemplate",
-      "url": "https://medium.com/@devadiga.navya/spring-boot-4-stopped-handing-you-a-resttemplate-06dc0ea9be97",
-      "by": "Devadiga Navya",
-      "time": 1788061575000,
+      "title": "CO-RE & BTF — Writing eBPF Programs That Work Across Kernels",
+      "url": "https://medium.com/@nishujangra27/co-re-btf-writing-ebpf-programs-that-work-across-kernels-08e679304bbf",
+      "by": "Nishant",
+      "time": 1788148861000,
       "tags": [
+        "linux-kernel",
         "programming",
-        "resttemplate",
-        "software-development"
+        "software-engineering"
       ]
     },
     {
-      "title": "JavaScript Promises Explained for Beginners",
-      "url": "https://mrmadhukar.medium.com/javascript-promises-explained-for-beginners-2f729b50d5d3",
-      "by": "Mr Madhukar",
-      "time": 1788060959000,
+      "title": "Nested Data Are More Interesting Than They Look",
+      "url": "https://medium.com/@rezarna4/nested-dataare-more-interesting-than-they-look-ac5da5c6f14d",
+      "by": "Gustin Rheza",
+      "time": 1788148647000,
       "tags": [
-        "async-programming",
-        "programming",
-        "web-development"
+        "database",
+        "data-structures",
+        "software-engineering"
       ]
     },
     {
-      "title": "Strong Passwords Start With Randomness, Not Cleverness",
-      "url": "https://medium.com/@techbyjeel/strong-passwords-randomness-security-e961bc16f587",
-      "by": "Techbyjeel Tools",
-      "time": 1788060661000,
+      "title": "5 Common Python Mistakes Beginners Make (And How to Fix Them)",
+      "url": "https://vartakriya0712.medium.com/5-common-python-mistakes-beginners-make-and-how-to-fix-them-e32342cb510a",
+      "by": "Riyavartak",
+      "time": 1788148167000,
       "tags": [
-        "technology",
-        "privacy",
-        "information-security"
+        "python",
+        "programming"
       ]
     }
   ]
