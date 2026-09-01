@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31T04:32:21.365Z",
+  "generated": "2026-09-01T04:30:50.115Z",
   "season": "2026",
   "sources": [
     {
@@ -233,8 +233,8 @@
         "pos": 5,
         "code": "SA",
         "team": "South Africa",
-        "matches": 49,
-        "points": 11871,
+        "matches": 50,
+        "points": 12123,
         "rating": 242
       },
       {
@@ -289,9 +289,9 @@
         "pos": 12,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 54,
-        "points": 10875,
-        "rating": 201
+        "matches": 56,
+        "points": 11297,
+        "rating": 202
       }
     ]
   },

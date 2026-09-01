@@ -1,185 +1,186 @@
 {
-  "generated": "2026-08-31T04:32:16.667Z",
+  "generated": "2026-09-01T04:30:44.110Z",
   "reddit": [
     {
-      "title": "p99 0 ms* autocomplete for 240 million domain names",
-      "url": "https://www.reddit.com/r/programming/comments/1w2yw8j/p99_0_ms_autocomplete_for_240_million_domain_names/",
-      "by": "fagnerbrack",
-      "time": 1788138056000,
+      "title": "Salesforce Devops Engineer role Vs Non Tech Role",
+      "url": "https://www.reddit.com/r/devops/comments/1w412qv/salesforce_devops_engineer_role_vs_non_tech_role/",
+      "by": "Constant_Row_3703",
+      "time": 1788235601000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I really like DevOps, but sometimes it feels like there is no real entry level into this field",
+      "url": "https://www.reddit.com/r/devops/comments/1w3tuiu/i_really_like_devops_but_sometimes_it_feels_like/",
+      "by": "Optimal-Benefit7939",
+      "time": 1788216600000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "io_uring without readahead",
+      "url": "https://www.reddit.com/r/programming/comments/1w3sd0i/io_uring_without_readahead/",
+      "by": "andreiross",
+      "time": 1788213291000,
       "sub": "r/programming"
     },
     {
-      "title": "Automating immersive reading",
-      "url": "https://www.reddit.com/r/programming/comments/1w2fc9t/automating_immersive_reading/",
-      "by": "scrollin_thru",
-      "time": 1788090162000,
+      "title": "A practical guide to running 8x RTX PRO 6000's",
+      "url": "https://www.reddit.com/r/devops/comments/1w3r5zt/a_practical_guide_to_running_8x_rtx_pro_6000s/",
+      "by": "Retell",
+      "time": 1788210713000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Terminating elegantly: a guide to graceful shutdowns",
+      "url": "https://www.reddit.com/r/programming/comments/1w3qjlo/terminating_elegantly_a_guide_to_graceful/",
+      "by": "der_gopher",
+      "time": 1788209400000,
       "sub": "r/programming"
     },
     {
-      "title": "How are you guys tracking gpu cost by workload in kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w2dz4w/how_are_you_guys_tracking_gpu_cost_by_workload_in/",
-      "by": "Prestigious-Bus-3738",
-      "time": 1788085705000,
-      "sub": "r/kubernetes"
+      "title": "anyone actually running argocd/gitops in prod, hows it going",
+      "url": "https://www.reddit.com/r/devops/comments/1w3ot1w/anyone_actually_running_argocdgitops_in_prod_hows/",
+      "by": "sereikis",
+      "time": 1788205830000,
+      "sub": "r/devops"
     },
     {
-      "title": "Reverse Engineering Unknown File Formats with ImHex",
-      "url": "https://www.reddit.com/r/programming/comments/1w2ckmm/reverse_engineering_unknown_file_formats_with/",
-      "by": "WerWolv",
-      "time": 1788080892000,
+      "title": "35 years later, Torvalds' hobby project remains developed worldwide.",
+      "url": "https://www.reddit.com/r/programming/comments/1w3nct8/35_years_later_torvalds_hobby_project_remains/",
+      "by": "masiroo",
+      "time": 1788202864000,
       "sub": "r/programming"
     },
     {
-      "title": "OpenBao and AI",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w25na4/openbao_and_ai/",
-      "by": "faulty-segment",
-      "time": 1788058226000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Inside the TypeScript Checker: From Text to Types",
-      "url": "https://www.reddit.com/r/programming/comments/1w1y2m3/inside_the_typescript_checker_from_text_to_types/",
-      "by": "Happycodeine",
-      "time": 1788037601000,
+      "title": "Node.js sandboxes powered by QuickJS and WebAssembly",
+      "url": "https://www.reddit.com/r/programming/comments/1w3j5hj/nodejs_sandboxes_powered_by_quickjs_and/",
+      "by": "syrusakbary",
+      "time": 1788194350000,
       "sub": "r/programming"
     },
     {
-      "title": "htmx ~ Building Critical Infrastructure with htmx: Network Automation for the Paris 2024 Olympics",
-      "url": "https://www.reddit.com/r/programming/comments/1w1wspl/htmx_building_critical_infrastructure_with_htmx/",
-      "by": "yawaramin",
-      "time": 1788034555000,
+      "title": "Anyone here working in AWS DCO / Data Center Operations in Frankfurt / Germany?",
+      "url": "https://www.reddit.com/r/devops/comments/1w3iws5/anyone_here_working_in_aws_dco_data_center/",
+      "by": "ShiftSmooth2673",
+      "time": 1788193835000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "A Self-Baked Async FFI Framework for Rust C# Interop",
+      "url": "https://www.reddit.com/r/programming/comments/1w3gj0n/a_selfbaked_async_ffi_framework_for_rust_c_interop/",
+      "by": "swdevtest",
+      "time": 1788188846000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Help me make sense of this",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w1s1eq/help_me_make_sense_of_this/",
-      "by": "acompleteunknownnn",
-      "time": 1788023364000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Is my deployment flow sound?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w15gix/is_my_deployment_flow_sound/",
-      "by": "Oxffff0000",
-      "time": 1787957409000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How does an experienced (8+ years) DevOps engineer break into a Kubernetes-heavy role without years of production K8s experience?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w151ti/how_does_an_experienced_8_years_devops_engineer/",
-      "by": "Crinja1",
-      "time": 1787956389000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "What It Actually Takes to Run PostgreSQL on Kubernetes",
-      "url": "https://dockndev.medium.com/what-it-actually-takes-to-run-postgresql-on-kubernetes-1a9945e8d2ec",
-      "by": "dockndev",
-      "time": 1788149963000,
+      "title": "Day 35: Install Docker Packages and Start Docker Service Installing Docker CE & Docker Compose on a…",
+      "url": "https://medium.com/@yashvikothari/day-35-install-docker-packages-and-start-docker-service-installing-docker-ce-docker-compose-on-a-c5693f18f302",
+      "by": "Yashvi Kothari",
+      "time": 1788236206000,
       "tags": [
-        "database",
         "devops",
-        "postgresql"
+        "linux",
+        "containers"
       ]
     },
     {
-      "title": "From API Glue to Agent Swarms: The Rise of A2A in Enterprise AI",
-      "url": "https://ai.plainenglish.io/from-api-glue-to-agent-swarms-the-rise-of-a2a-in-enterprise-ai-e14dcfd7f3e0",
-      "by": "Ruban K",
-      "time": 1788149844000,
+      "title": "7 Core Infrastructure Concepts You Need to Master to Become a DevOps Engineer",
+      "url": "https://medium.com/codex/7-core-infrastructure-concepts-you-need-to-master-to-become-a-devops-engineer-5160012c473f",
+      "by": "Developer Awam",
+      "time": 1788235870000,
       "tags": [
-        "api",
-        "software-engineering",
-        "programming"
-      ]
-    },
-    {
-      "title": "You Probably Don’t Need a Vector Database in 2026",
-      "url": "https://medium.com/@mozzammeluiu/you-probably-dont-need-a-vector-database-in-2026-683409df7b6b",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1788149802000,
-      "tags": [
-        "artificial-intelligence",
-        "relational-databases",
-        "postgresql"
-      ]
-    },
-    {
-      "title": "I Used AI Every Day for 30 Days , Here’s What Actually Worked",
-      "url": "https://ai.plainenglish.io/i-used-ai-every-day-for-30-days-heres-what-actually-worked-47f1fdf3aafa",
-      "by": "Dr Abdullah Azhar",
-      "time": 1788149748000,
-      "tags": [
-        "artificial-intelligence",
-        "ai",
-        "programming"
-      ]
-    },
-    {
-      "title": "Los programadores también tenemos que aprender a construir nuestro propio negocio",
-      "url": "https://medium.com/@deco31416/los-programadores-tambi%C3%A9n-tenemos-que-aprender-a-construir-nuestro-propio-negocio-e338c42f563c",
-      "by": "Jose Cordero",
-      "time": 1788148927000,
-      "tags": [
+        "backend-development",
         "programming",
-        "software-engineering",
-        "future-of-work"
+        "devops"
       ]
     },
     {
-      "title": "Time Management in Software Development: Protect Your Focus, Protect Your Project",
-      "url": "https://medium.com/%E0%A4%9C%E0%A5%8D%E0%A4%9E%E0%A4%BE%E0%A4%A8%E0%A4%B8%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%A4%E0%A4%B8%E0%A5%8D/time-management-in-software-development-protect-your-focus-protect-your-project-aec6118cd87c",
-      "by": "Geeky Vartika",
-      "time": 1788148904000,
+      "title": "NVIDIA DevOps Interview Experience (+ Questions Asked)",
+      "url": "https://medium.com/@sre-devops-interview/nvidia-devops-interview-experience-questions-asked-43de8454160d",
+      "by": "Tanishq Arora",
+      "time": 1788235861000,
       "tags": [
-        "time-management",
-        "project-management",
-        "software-engineering"
+        "nvidia",
+        "sre",
+        "interview-experience"
       ]
     },
     {
-      "title": "Best Fractional DevSecOps Providers in India (2026): What the AI Engines Actually Name",
-      "url": "https://medium.com/@info_85263/best-fractional-devsecops-providers-in-india-2026-what-the-ai-engines-actually-name-57a64241e752",
-      "by": "MatrixGard",
-      "time": 1788148874000,
+      "title": "Everyone’s Building AI Agents. Almost No One Will Trust Them",
+      "url": "https://medium.com/@jaberadam2001/everyones-building-ai-agents-almost-no-one-will-trust-them-d23aabae9e71",
+      "by": "Adam Jaber",
+      "time": 1788235569000,
       "tags": [
-        "cloud-computing",
-        "cybersecurity",
-        "startup"
-      ]
-    },
-    {
-      "title": "CO-RE & BTF — Writing eBPF Programs That Work Across Kernels",
-      "url": "https://medium.com/@nishujangra27/co-re-btf-writing-ebpf-programs-that-work-across-kernels-08e679304bbf",
-      "by": "Nishant",
-      "time": 1788148861000,
-      "tags": [
-        "linux-kernel",
-        "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Nested Data Are More Interesting Than They Look",
-      "url": "https://medium.com/@rezarna4/nested-dataare-more-interesting-than-they-look-ac5da5c6f14d",
-      "by": "Gustin Rheza",
-      "time": 1788148647000,
-      "tags": [
-        "database",
-        "data-structures",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "5 Common Python Mistakes Beginners Make (And How to Fix Them)",
-      "url": "https://vartakriya0712.medium.com/5-common-python-mistakes-beginners-make-and-how-to-fix-them-e32342cb510a",
-      "by": "Riyavartak",
-      "time": 1788148167000,
-      "tags": [
-        "python",
+        "ai-agent",
+        "technology",
         "programming"
+      ]
+    },
+    {
+      "title": "The Cost of Being Right",
+      "url": "https://minhazur.medium.com/the-cost-of-being-right-2a0b8021635d",
+      "by": "Minhazur Rahman",
+      "time": 1788235556000,
+      "tags": [
+        "leadership",
+        "life",
+        "philosophy"
+      ]
+    },
+    {
+      "title": "Why Next.js Middleware Alone Won’t Secure Your App (2026 Security Guide)",
+      "url": "https://medium.com/@osamacheema453/https-osamahabib-com-blog-nextjs-middleware-not-enough-to-secure-app-e7145aee6a4d",
+      "by": "osama cheema",
+      "time": 1788235537000,
+      "tags": [
+        "nextjs",
+        "web-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "These Popular Go testing practices are so overrated — Use these instead",
+      "url": "https://medium.com/codex/these-popular-go-testing-practices-are-so-overrated-use-these-instead-7d489a0f08f8",
+      "by": "Yaninyz witty",
+      "time": 1788235024000,
+      "tags": [
+        "golang",
+        "software-development",
+        "software-testing"
+      ]
+    },
+    {
+      "title": "The 4 Skills I Wish I Had Mastered Before Calling Myself a Full-Stack Developer",
+      "url": "https://medium.com/@solomongetachew112/the-4-skills-i-wish-i-had-mastered-before-calling-myself-a-full-stack-developer-5505a1ac118d",
+      "by": "Samuel Getachew",
+      "time": 1788234952000,
+      "tags": [
+        "front-end-development",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "My Server Sleeps at Night. That Turned Out to Be a Security Feature.",
+      "url": "https://medium.com/@malaviyadhruv05/my-server-sleeps-at-night-that-turned-out-to-be-a-security-feature-8c336be28d28",
+      "by": "illogical_people",
+      "time": 1788234682000,
+      "tags": [
+        "devops",
+        "startup",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Future of Testing Is Selective, Not Exhaustive",
+      "url": "https://manishsaini74.medium.com/the-future-of-testing-is-selective-not-exhaustive-7edfbfe55601",
+      "by": "Manish Saini",
+      "time": 1788234661000,
+      "tags": [
+        "software-testing",
+        "software-engineering",
+        "test-automation"
       ]
     }
   ]
