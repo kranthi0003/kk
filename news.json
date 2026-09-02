@@ -1,19 +1,68 @@
 {
-  "generated": "2026-09-01T04:30:44.110Z",
+  "generated": "2026-09-02T04:33:12.032Z",
   "reddit": [
     {
-      "title": "Salesforce Devops Engineer role Vs Non Tech Role",
-      "url": "https://www.reddit.com/r/devops/comments/1w412qv/salesforce_devops_engineer_role_vs_non_tech_role/",
-      "by": "Constant_Row_3703",
-      "time": 1788235601000,
-      "sub": "r/devops"
+      "title": "How Do HashMaps Work Under the Hood? (putting together a toy implementation in Rust to understand performance optimization, collisions, and time complexities)",
+      "url": "https://www.reddit.com/r/programming/comments/1w4mvwq/how_do_hashmaps_work_under_the_hood_putting/",
+      "by": "PastEar9661",
+      "time": 1788291789000,
+      "sub": "r/programming"
     },
     {
-      "title": "I really like DevOps, but sometimes it feels like there is no real entry level into this field",
-      "url": "https://www.reddit.com/r/devops/comments/1w3tuiu/i_really_like_devops_but_sometimes_it_feels_like/",
-      "by": "Optimal-Benefit7939",
-      "time": 1788216600000,
-      "sub": "r/devops"
+      "title": "Wasmer SDK: Run Node.js, Python, Postgres and PHP embedded in your application",
+      "url": "https://www.reddit.com/r/programming/comments/1w4lcq9/wasmer_sdk_run_nodejs_python_postgres_and_php/",
+      "by": "syrusakbary",
+      "time": 1788289038000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Sixteen branches is all you ... get?",
+      "url": "https://www.reddit.com/r/programming/comments/1w4l5kj/sixteen_branches_is_all_you_get/",
+      "by": "chaobang",
+      "time": 1788288640000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "GitHub Runners Benchmarking",
+      "url": "https://www.reddit.com/r/programming/comments/1w4ip20/github_runners_benchmarking/",
+      "by": "sup_bruh_1",
+      "time": 1788283616000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Performance of WebAssembly runtimes in 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1w4g6ga/performance_of_webassembly_runtimes_in_2026/",
+      "by": "fagnerbrack",
+      "time": 1788278450000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Bazel's UX is really, really, really bad",
+      "url": "https://www.reddit.com/r/programming/comments/1w4fp67/bazels_ux_is_really_really_really_bad/",
+      "by": "drmorr0",
+      "time": 1788277431000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The Browser's Main Thread Is Expensive",
+      "url": "https://www.reddit.com/r/programming/comments/1w4ctb4/the_browsers_main_thread_is_expensive/",
+      "by": "kciter",
+      "time": 1788271173000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Wasmi 2.0 - Engineering of the Fastest Wasm Interpreters",
+      "url": "https://www.reddit.com/r/programming/comments/1w4b2ep/wasmi_20_engineering_of_the_fastest_wasm/",
+      "by": "tjpalmer",
+      "time": 1788267048000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Rui Ueyama: \"We are rewriting the mold linker in Rust\"",
+      "url": "https://www.reddit.com/r/programming/comments/1w45ety/rui_ueyama_we_are_rewriting_the_mold_linker_in/",
+      "by": "cachemissed",
+      "time": 1788249918000,
+      "sub": "r/programming"
     },
     {
       "title": "io_uring without readahead",
@@ -21,166 +70,117 @@
       "by": "andreiross",
       "time": 1788213291000,
       "sub": "r/programming"
-    },
-    {
-      "title": "A practical guide to running 8x RTX PRO 6000's",
-      "url": "https://www.reddit.com/r/devops/comments/1w3r5zt/a_practical_guide_to_running_8x_rtx_pro_6000s/",
-      "by": "Retell",
-      "time": 1788210713000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Terminating elegantly: a guide to graceful shutdowns",
-      "url": "https://www.reddit.com/r/programming/comments/1w3qjlo/terminating_elegantly_a_guide_to_graceful/",
-      "by": "der_gopher",
-      "time": 1788209400000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "anyone actually running argocd/gitops in prod, hows it going",
-      "url": "https://www.reddit.com/r/devops/comments/1w3ot1w/anyone_actually_running_argocdgitops_in_prod_hows/",
-      "by": "sereikis",
-      "time": 1788205830000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "35 years later, Torvalds' hobby project remains developed worldwide.",
-      "url": "https://www.reddit.com/r/programming/comments/1w3nct8/35_years_later_torvalds_hobby_project_remains/",
-      "by": "masiroo",
-      "time": 1788202864000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Node.js sandboxes powered by QuickJS and WebAssembly",
-      "url": "https://www.reddit.com/r/programming/comments/1w3j5hj/nodejs_sandboxes_powered_by_quickjs_and/",
-      "by": "syrusakbary",
-      "time": 1788194350000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Anyone here working in AWS DCO / Data Center Operations in Frankfurt / Germany?",
-      "url": "https://www.reddit.com/r/devops/comments/1w3iws5/anyone_here_working_in_aws_dco_data_center/",
-      "by": "ShiftSmooth2673",
-      "time": 1788193835000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "A Self-Baked Async FFI Framework for Rust C# Interop",
-      "url": "https://www.reddit.com/r/programming/comments/1w3gj0n/a_selfbaked_async_ffi_framework_for_rust_c_interop/",
-      "by": "swdevtest",
-      "time": 1788188846000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Day 35: Install Docker Packages and Start Docker Service Installing Docker CE & Docker Compose on a…",
-      "url": "https://medium.com/@yashvikothari/day-35-install-docker-packages-and-start-docker-service-installing-docker-ce-docker-compose-on-a-c5693f18f302",
-      "by": "Yashvi Kothari",
-      "time": 1788236206000,
+      "title": "Day 206 — Managing Linux Users at Scale with LDAP: A Practical Guide for Platform Engineers…",
+      "url": "https://medium.com/@alokrahuldevops/day-206-managing-linux-users-at-scale-with-ldap-a-practical-guide-for-platform-engineers-94373e8e26fb",
+      "by": "Alok Rahul",
+      "time": 1788323251000,
       "tags": [
         "devops",
-        "linux",
-        "containers"
+        "software-development",
+        "ldap"
       ]
     },
     {
-      "title": "7 Core Infrastructure Concepts You Need to Master to Become a DevOps Engineer",
-      "url": "https://medium.com/codex/7-core-infrastructure-concepts-you-need-to-master-to-become-a-devops-engineer-5160012c473f",
+      "title": "AI-Assisted JavaScript Development: How I Changed the Way I Build Software",
+      "url": "https://medium.com/@ashokreddy343/ai-assisted-javascript-development-how-i-changed-the-way-i-build-software-7beac0c0a41e",
+      "by": "AshokReddy",
+      "time": 1788322385000,
+      "tags": [
+        "artificial-intelligence",
+        "software-development",
+        "javascript"
+      ]
+    },
+    {
+      "title": "Laravel Architecture for SaaS AI: DDD-Lite, Domain Modeling Without the Full Overhead (Part 7)",
+      "url": "https://medium.com/@developerawam/laravel-architecture-for-saas-ai-ddd-lite-domain-modeling-without-the-full-overhead-part-7-e9f88cb69269",
       "by": "Developer Awam",
-      "time": 1788235870000,
+      "time": 1788322199000,
       "tags": [
-        "backend-development",
         "programming",
-        "devops"
+        "ai",
+        "php"
       ]
     },
     {
-      "title": "NVIDIA DevOps Interview Experience (+ Questions Asked)",
-      "url": "https://medium.com/@sre-devops-interview/nvidia-devops-interview-experience-questions-asked-43de8454160d",
-      "by": "Tanishq Arora",
-      "time": 1788235861000,
+      "title": "Stop Paying for Expensive Software: 10 Gemini Prompts That Edit Videos for Free",
+      "url": "https://medium.com/@ahmedkabir6611/stop-paying-for-expensive-software-10-gemini-prompts-that-edit-videos-for-free-310ac23bc7d2",
+      "by": "Ahmedkabir",
+      "time": 1788322198000,
       "tags": [
-        "nvidia",
-        "sre",
-        "interview-experience"
+        "programming",
+        "writing",
+        "money"
       ]
     },
     {
-      "title": "Everyone’s Building AI Agents. Almost No One Will Trust Them",
-      "url": "https://medium.com/@jaberadam2001/everyones-building-ai-agents-almost-no-one-will-trust-them-d23aabae9e71",
-      "by": "Adam Jaber",
-      "time": 1788235569000,
+      "title": "Ask AI to Optimize Your Code. Watch It Delete the Reason It Was Slow.",
+      "url": "https://medium.com/techtrends-digest/ask-ai-to-optimize-your-code-watch-it-delete-the-reason-it-was-slow-b470f86321e6",
+      "by": "Sanjeevani Bhandari",
+      "time": 1788321681000,
       "tags": [
-        "ai-agent",
-        "technology",
-        "programming"
+        "programming",
+        "artificial-intelligence",
+        "ai"
       ]
     },
     {
-      "title": "The Cost of Being Right",
-      "url": "https://minhazur.medium.com/the-cost-of-being-right-2a0b8021635d",
-      "by": "Minhazur Rahman",
-      "time": 1788235556000,
+      "title": "From Zero to AI Engineer: My 2026 Roadmap Without a CS Degree",
+      "url": "https://medium.com/@ranjotisingh7/from-zero-to-ai-engineer-my-2026-roadmap-without-a-cs-degree-890b63f04c33",
+      "by": "Ranjotisingh",
+      "time": 1788321602000,
       "tags": [
-        "leadership",
-        "life",
-        "philosophy"
-      ]
-    },
-    {
-      "title": "Why Next.js Middleware Alone Won’t Secure Your App (2026 Security Guide)",
-      "url": "https://medium.com/@osamacheema453/https-osamahabib-com-blog-nextjs-middleware-not-enough-to-secure-app-e7145aee6a4d",
-      "by": "osama cheema",
-      "time": 1788235537000,
-      "tags": [
-        "nextjs",
-        "web-development",
+        "artificial-intelligence",
+        "ai",
         "software-engineering"
       ]
     },
     {
-      "title": "These Popular Go testing practices are so overrated — Use these instead",
-      "url": "https://medium.com/codex/these-popular-go-testing-practices-are-so-overrated-use-these-instead-7d489a0f08f8",
-      "by": "Yaninyz witty",
-      "time": 1788235024000,
+      "title": "Stop Writing Fragile SSH Scripts: Scaling Cisco Network Automation with Python and Nornir",
+      "url": "https://medium.com/@whitedavidinstitute/stop-writing-fragile-ssh-scripts-scaling-cisco-network-automation-with-python-and-nornir-667852f0a224",
+      "by": "Whitedavid23",
+      "time": 1788321456000,
       "tags": [
-        "golang",
-        "software-development",
-        "software-testing"
+        "python",
+        "network-engineering",
+        "devops"
       ]
     },
     {
-      "title": "The 4 Skills I Wish I Had Mastered Before Calling Myself a Full-Stack Developer",
-      "url": "https://medium.com/@solomongetachew112/the-4-skills-i-wish-i-had-mastered-before-calling-myself-a-full-stack-developer-5505a1ac118d",
-      "by": "Samuel Getachew",
-      "time": 1788234952000,
+      "title": "Claude Fable 5.1: What Actually Changed, and Why It Matters",
+      "url": "https://medium.com/@bghariprasad.developer/claude-fable-5-1-what-actually-changed-and-why-it-matters-a3bf310cf502",
+      "by": "Hari Prasad B G",
+      "time": 1788321294000,
       "tags": [
-        "front-end-development",
+        "programming",
         "software-development",
-        "programming"
+        "ai"
       ]
     },
     {
-      "title": "My Server Sleeps at Night. That Turned Out to Be a Security Feature.",
-      "url": "https://medium.com/@malaviyadhruv05/my-server-sleeps-at-night-that-turned-out-to-be-a-security-feature-8c336be28d28",
-      "by": "illogical_people",
-      "time": 1788234682000,
+      "title": "Stop Solving 500 LeetCode Problems — Learn These 15 DSA Patterns Instead",
+      "url": "https://medium.com/@masoomdeveloper1615/stop-solving-500-leetcode-problems-learn-these-15-dsa-patterns-instead-adb9506a7ba1",
+      "by": "AlgoWing",
+      "time": 1788321190000,
+      "tags": [
+        "programming",
+        "leetcodepattern",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Containers vs VMs vs Bare Metal — Part 2",
+      "url": "https://medium.com/making-devops-simple/containers-vs-vms-vs-bare-metal-part-2-0abdfd8685d5",
+      "by": "seunaw",
+      "time": 1788320792000,
       "tags": [
         "devops",
-        "startup",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Future of Testing Is Selective, Not Exhaustive",
-      "url": "https://manishsaini74.medium.com/the-future-of-testing-is-selective-not-exhaustive-7edfbfe55601",
-      "by": "Manish Saini",
-      "time": 1788234661000,
-      "tags": [
-        "software-testing",
-        "software-engineering",
-        "test-automation"
+        "software-architecture",
+        "cloud-computing"
       ]
     }
   ]
