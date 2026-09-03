@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-02T04:33:12.032Z",
+  "generated": "2026-09-03T05:24:16.615Z",
   "reddit": [
     {
-      "title": "How Do HashMaps Work Under the Hood? (putting together a toy implementation in Rust to understand performance optimization, collisions, and time complexities)",
-      "url": "https://www.reddit.com/r/programming/comments/1w4mvwq/how_do_hashmaps_work_under_the_hood_putting/",
-      "by": "PastEar9661",
-      "time": 1788291789000,
+      "title": "Squeezing Performance out of eBPF",
+      "url": "https://www.reddit.com/r/programming/comments/1w5p84l/squeezing_performance_out_of_ebpf/",
+      "by": "mttd",
+      "time": 1788387780000,
       "sub": "r/programming"
     },
     {
-      "title": "Wasmer SDK: Run Node.js, Python, Postgres and PHP embedded in your application",
-      "url": "https://www.reddit.com/r/programming/comments/1w4lcq9/wasmer_sdk_run_nodejs_python_postgres_and_php/",
-      "by": "syrusakbary",
-      "time": 1788289038000,
+      "title": "CTTI is Exponential, RTTI is Linear",
+      "url": "https://www.reddit.com/r/programming/comments/1w5ov1s/ctti_is_exponential_rtti_is_linear/",
+      "by": "gingerbill",
+      "time": 1788386932000,
       "sub": "r/programming"
     },
     {
-      "title": "Sixteen branches is all you ... get?",
-      "url": "https://www.reddit.com/r/programming/comments/1w4l5kj/sixteen_branches_is_all_you_get/",
-      "by": "chaobang",
-      "time": 1788288640000,
+      "title": "Let's build a compressor from scratch",
+      "url": "https://www.reddit.com/r/programming/comments/1w5l8wx/lets_build_a_compressor_from_scratch/",
+      "by": "aochagavia",
+      "time": 1788379010000,
       "sub": "r/programming"
     },
     {
-      "title": "GitHub Runners Benchmarking",
-      "url": "https://www.reddit.com/r/programming/comments/1w4ip20/github_runners_benchmarking/",
-      "by": "sup_bruh_1",
-      "time": 1788283616000,
+      "title": "Postgres Calculations and the Ambiguity of NULL",
+      "url": "https://www.reddit.com/r/programming/comments/1w5gtxg/postgres_calculations_and_the_ambiguity_of_null/",
+      "by": "winsletts",
+      "time": 1788369778000,
       "sub": "r/programming"
     },
     {
-      "title": "Performance of WebAssembly runtimes in 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1w4g6ga/performance_of_webassembly_runtimes_in_2026/",
-      "by": "fagnerbrack",
-      "time": 1788278450000,
+      "title": "Injections done the right way!",
+      "url": "https://www.reddit.com/r/programming/comments/1w5fn7e/injections_done_the_right_way/",
+      "by": "Efficient-Public-551",
+      "time": 1788367328000,
       "sub": "r/programming"
     },
     {
-      "title": "Bazel's UX is really, really, really bad",
-      "url": "https://www.reddit.com/r/programming/comments/1w4fp67/bazels_ux_is_really_really_really_bad/",
-      "by": "drmorr0",
-      "time": 1788277431000,
-      "sub": "r/programming"
+      "title": "How would you implement an \"apply recommendation\" workflow for Kubernetes optimization?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w5ce1e/how_would_you_implement_an_apply_recommendation/",
+      "by": "Late_Height_3133",
+      "time": 1788360300000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "The Browser's Main Thread Is Expensive",
-      "url": "https://www.reddit.com/r/programming/comments/1w4ctb4/the_browsers_main_thread_is_expensive/",
-      "by": "kciter",
-      "time": 1788271173000,
-      "sub": "r/programming"
+      "title": "Self-managed OpenShift in AWS vs ROSA",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w5c6rj/selfmanaged_openshift_in_aws_vs_rosa/",
+      "by": "shulemaker",
+      "time": 1788359830000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Wasmi 2.0 - Engineering of the Fastest Wasm Interpreters",
-      "url": "https://www.reddit.com/r/programming/comments/1w4b2ep/wasmi_20_engineering_of_the_fastest_wasm/",
-      "by": "tjpalmer",
-      "time": 1788267048000,
-      "sub": "r/programming"
+      "title": "I made an unofficial EPUB version of Kubernetes The Hard Way",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w58101/i_made_an_unofficial_epub_version_of_kubernetes/",
+      "by": "Vance84",
+      "time": 1788349608000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Rui Ueyama: \"We are rewriting the mold linker in Rust\"",
-      "url": "https://www.reddit.com/r/programming/comments/1w45ety/rui_ueyama_we_are_rewriting_the_mold_linker_in/",
-      "by": "cachemissed",
-      "time": 1788249918000,
-      "sub": "r/programming"
+      "title": "Streamlining your Kubernetes operations with automated AI troubleshooting agents",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w57zj2/streamlining_your_kubernetes_operations_with/",
+      "by": "Diligent-Wrongdoer68",
+      "time": 1788349489000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "io_uring without readahead",
-      "url": "https://www.reddit.com/r/programming/comments/1w3sd0i/io_uring_without_readahead/",
-      "by": "andreiross",
-      "time": 1788213291000,
-      "sub": "r/programming"
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w560jp/weekly_show_off_your_new_tools_and_projects_thread/",
+      "by": "AutoModerator",
+      "time": 1788343246000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Day 206 — Managing Linux Users at Scale with LDAP: A Practical Guide for Platform Engineers…",
-      "url": "https://medium.com/@alokrahuldevops/day-206-managing-linux-users-at-scale-with-ldap-a-practical-guide-for-platform-engineers-94373e8e26fb",
-      "by": "Alok Rahul",
-      "time": 1788323251000,
+      "title": "AI Can Write Your Code Now. So What Is a Developer Actually Supposed to Learn?",
+      "url": "https://medium.com/@inplaintech/ai-can-write-your-code-now-so-what-is-a-developer-actually-supposed-to-learn-6aa3fc3ab20e",
+      "by": "InPlainTech",
+      "time": 1788412297000,
       "tags": [
-        "devops",
         "software-development",
-        "ldap"
-      ]
-    },
-    {
-      "title": "AI-Assisted JavaScript Development: How I Changed the Way I Build Software",
-      "url": "https://medium.com/@ashokreddy343/ai-assisted-javascript-development-how-i-changed-the-way-i-build-software-7beac0c0a41e",
-      "by": "AshokReddy",
-      "time": 1788322385000,
-      "tags": [
         "artificial-intelligence",
-        "software-development",
-        "javascript"
+        "programming"
       ]
     },
     {
-      "title": "Laravel Architecture for SaaS AI: DDD-Lite, Domain Modeling Without the Full Overhead (Part 7)",
-      "url": "https://medium.com/@developerawam/laravel-architecture-for-saas-ai-ddd-lite-domain-modeling-without-the-full-overhead-part-7-e9f88cb69269",
-      "by": "Developer Awam",
-      "time": 1788322199000,
+      "title": "Day 84: Data Poisoning — Attacking AI Through Its Training Data",
+      "url": "https://medium.com/@tarushisandeepgupta/day-84-data-poisoning-attacking-ai-through-its-training-data-779f582079fe",
+      "by": "Tarushi Sandeep Gupta",
+      "time": 1788411661000,
       "tags": [
-        "programming",
+        "deep-learning",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Top 7 Terminal Tools That Make Kubernetes Operations Faster",
+      "url": "https://medium.com/devops-ai-decoded/top-7-terminal-tools-that-make-kubernetes-operations-faster-7dd9996aecf8",
+      "by": "Neel Shah",
+      "time": 1788411483000,
+      "tags": [
         "ai",
-        "php"
-      ]
-    },
-    {
-      "title": "Stop Paying for Expensive Software: 10 Gemini Prompts That Edit Videos for Free",
-      "url": "https://medium.com/@ahmedkabir6611/stop-paying-for-expensive-software-10-gemini-prompts-that-edit-videos-for-free-310ac23bc7d2",
-      "by": "Ahmedkabir",
-      "time": 1788322198000,
-      "tags": [
-        "programming",
-        "writing",
-        "money"
-      ]
-    },
-    {
-      "title": "Ask AI to Optimize Your Code. Watch It Delete the Reason It Was Slow.",
-      "url": "https://medium.com/techtrends-digest/ask-ai-to-optimize-your-code-watch-it-delete-the-reason-it-was-slow-b470f86321e6",
-      "by": "Sanjeevani Bhandari",
-      "time": 1788321681000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "ai"
-      ]
-    },
-    {
-      "title": "From Zero to AI Engineer: My 2026 Roadmap Without a CS Degree",
-      "url": "https://medium.com/@ranjotisingh7/from-zero-to-ai-engineer-my-2026-roadmap-without-a-cs-degree-890b63f04c33",
-      "by": "Ranjotisingh",
-      "time": 1788321602000,
-      "tags": [
-        "artificial-intelligence",
-        "ai",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Stop Writing Fragile SSH Scripts: Scaling Cisco Network Automation with Python and Nornir",
-      "url": "https://medium.com/@whitedavidinstitute/stop-writing-fragile-ssh-scripts-scaling-cisco-network-automation-with-python-and-nornir-667852f0a224",
-      "by": "Whitedavid23",
-      "time": 1788321456000,
-      "tags": [
-        "python",
-        "network-engineering",
+        "technology",
         "devops"
       ]
     },
     {
-      "title": "Claude Fable 5.1: What Actually Changed, and Why It Matters",
-      "url": "https://medium.com/@bghariprasad.developer/claude-fable-5-1-what-actually-changed-and-why-it-matters-a3bf310cf502",
-      "by": "Hari Prasad B G",
-      "time": 1788321294000,
+      "title": "Getting Started with Linux: What I Learned About Its Architecture, Shell, Kernel & File System",
+      "url": "https://medium.com/@asnaazad55/getting-started-with-linux-what-i-learned-about-its-architecture-shell-kernel-file-system-3c118efcf3d0",
+      "by": "Asna Azad",
+      "time": 1788411425000,
       "tags": [
-        "programming",
-        "software-development",
-        "ai"
-      ]
-    },
-    {
-      "title": "Stop Solving 500 LeetCode Problems — Learn These 15 DSA Patterns Instead",
-      "url": "https://medium.com/@masoomdeveloper1615/stop-solving-500-leetcode-problems-learn-these-15-dsa-patterns-instead-adb9506a7ba1",
-      "by": "AlgoWing",
-      "time": 1788321190000,
-      "tags": [
-        "programming",
-        "leetcodepattern",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Containers vs VMs vs Bare Metal — Part 2",
-      "url": "https://medium.com/making-devops-simple/containers-vs-vms-vs-bare-metal-part-2-0abdfd8685d5",
-      "by": "seunaw",
-      "time": 1788320792000,
-      "tags": [
+        "linux",
         "devops",
-        "software-architecture",
-        "cloud-computing"
+        "for-begineers"
+      ]
+    },
+    {
+      "title": "Master System Design: The 7-Step Framework to Ace Any System Design Interview",
+      "url": "https://ayushgupta2959.medium.com/master-system-design-the-7-step-framework-to-ace-any-system-design-interview-6dc6d32fff1d",
+      "by": "Ayush Gupta",
+      "time": 1788411360000,
+      "tags": [
+        "interview",
+        "coding-interviews",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Linux Shortcuts That Make Me Forget I’m Using a Terminal",
+      "url": "https://asepsayyad007.medium.com/the-linux-shortcuts-that-make-me-forget-im-using-a-terminal-46dea6c4abd0",
+      "by": "Asep Sayyad",
+      "time": 1788411237000,
+      "tags": [
+        "linux-tutorial",
+        "linux",
+        "ubuntu"
+      ]
+    },
+    {
+      "title": "The 4 Lines Every AI Agent Needs to Query Your Database",
+      "url": "https://medium.com/@bvsarathc06/the-4-lines-every-ai-agent-needs-to-query-your-database-9c47b66341a2",
+      "by": "B V Sarath Chandra",
+      "time": 1788411226000,
+      "tags": [
+        "data-science",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Solidity and Rust in One Block Single Pool live",
+      "url": "https://medium.com/@Pexli/solidity-and-rust-in-one-block-single-pool-live-bff7e50700eb",
+      "by": "Pexli",
+      "time": 1788410919000,
+      "tags": [
+        "blockchain-technology",
+        "startup",
+        "blockchain-development"
+      ]
+    },
+    {
+      "title": "Flutter Clean Code: 10 Habits That Make Large Projects Easier to Maintain",
+      "url": "https://medium.com/@yashnariya003248/flutter-clean-code-10-habits-that-make-large-projects-easier-to-maintain-0f90828b1df6",
+      "by": "Yash Nariya",
+      "time": 1788410699000,
+      "tags": [
+        "mobile-development",
+        "clean-code",
+        "flutter"
+      ]
+    },
+    {
+      "title": "Production-Ready Bulk Processing: Logging, Transaction Management & Failed-Record Reprocessing |…",
+      "url": "https://medium.com/@pranavsb699/production-ready-bulk-processing-logging-transaction-management-failed-record-reprocessing-d6f01d73e848",
+      "by": "Pranav Bakare",
+      "time": 1788410517000,
+      "tags": [
+        "programming",
+        "mrcaption49",
+        "data-science"
       ]
     }
   ]

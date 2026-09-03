@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T04:33:18.347Z",
+  "generated": "2026-09-03T05:24:21.114Z",
   "season": "2026",
   "sources": [
     {
@@ -750,6 +750,27 @@
     },
     {
       "start": "2026-09-15",
+      "name": "Australia in Zimbabwe",
+      "home": "ZIM",
+      "homeName": "Zimbabwe",
+      "away": "AUS",
+      "awayName": "Australia",
+      "formats": {
+        "test": null,
+        "odi": {
+          "matches": 3,
+          "result": null,
+          "played": 0
+        },
+        "t20i": null
+      },
+      "played": 0,
+      "scheduled": 3,
+      "ends": "2026-09-27",
+      "status": "upcoming"
+    },
+    {
+      "start": "2026-09-15",
       "name": "Sri Lanka in England",
       "home": "ENG",
       "homeName": "England",
@@ -772,30 +793,41 @@
       "scheduled": 6,
       "ends": "2026-10-03",
       "status": "upcoming"
-    },
-    {
-      "start": "2026-09-15",
-      "name": "Australia in Zimbabwe",
-      "home": "ZIM",
-      "homeName": "Zimbabwe",
-      "away": "AUS",
-      "awayName": "Australia",
-      "formats": {
-        "test": null,
-        "odi": {
-          "matches": 3,
-          "result": null,
-          "played": 0
-        },
-        "t20i": null
-      },
-      "played": 0,
-      "scheduled": 3,
-      "ends": "2026-09-27",
-      "status": "upcoming"
     }
   ],
   "recent": [
+    {
+      "date": "2026-09-02",
+      "type": "T20",
+      "gender": "male",
+      "event": "European T20 Premier League",
+      "teams": [
+        "Dublin Guardians",
+        "Rotterdam Dockers"
+      ],
+      "winner": "Rotterdam Dockers",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Sportpark Westvliet, The Hague",
+      "city": "The Hague",
+      "international": false
+    },
+    {
+      "date": "2026-09-02",
+      "type": "T20",
+      "gender": "male",
+      "event": "European T20 Premier League",
+      "teams": [
+        "Edinburgh Castle Rockers",
+        "Belfast Wolves"
+      ],
+      "winner": "Edinburgh Castle Rockers",
+      "margin": "59 runs",
+      "method": null,
+      "venue": "Sportpark Westvliet, The Hague",
+      "city": "The Hague",
+      "international": false
+    },
     {
       "date": "2026-09-01",
       "type": "ODI",
@@ -954,6 +986,22 @@
       "method": null,
       "venue": "Sportpark Westvliet, The Hague",
       "city": "The Hague",
+      "international": false
+    },
+    {
+      "date": "2026-09-01",
+      "type": "T20",
+      "gender": "male",
+      "event": "Caribbean Premier League",
+      "teams": [
+        "Barbados Tridents",
+        "St Kitts and Nevis Patriots"
+      ],
+      "winner": "St Kitts and Nevis Patriots",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Warner Park, Basseterre, St Kitts",
+      "city": "Basseterre",
       "international": false
     },
     {
@@ -1482,54 +1530,6 @@
       "method": null,
       "venue": "Sportpark Westvliet, The Hague",
       "city": "The Hague",
-      "international": false
-    },
-    {
-      "date": "2026-08-29",
-      "type": "T20",
-      "gender": "male",
-      "event": "European T20 Premier League",
-      "teams": [
-        "Belfast Wolves",
-        "Rotterdam Dockers"
-      ],
-      "winner": null,
-      "margin": "no result",
-      "method": null,
-      "venue": "Sportpark Westvliet, The Hague",
-      "city": "The Hague",
-      "international": false
-    },
-    {
-      "date": "2026-08-29",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Continental Cup",
-      "teams": [
-        "Greece",
-        "Norway"
-      ],
-      "winner": "Norway",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
-      "city": "Ilfov County",
-      "international": false
-    },
-    {
-      "date": "2026-08-29",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Continental Cup",
-      "teams": [
-        "Czech Republic",
-        "Guernsey"
-      ],
-      "winner": "Guernsey",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
-      "city": "Ilfov County",
       "international": false
     },
     {
