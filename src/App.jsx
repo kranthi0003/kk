@@ -40,6 +40,7 @@ const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const StocksPage = lazy(() => import('./components/StocksPage'))
 const JobsPage = lazy(() => import('./components/JobsPage'))
 const EbcPage = lazy(() => import('./components/EbcPage'))
+const CongratsPage = lazy(() => import('./components/CongratsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -380,6 +381,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <OmscsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Congrats — ask how it went, then celebrate either answer
+  if (route === '#/congrats') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <CongratsPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
