@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T17:54:24.265Z",
+  "generated": "2026-09-04T18:16:24.554Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -383,12 +383,7 @@
       "lng": 144.968,
       "start": "2026-03-08T04:00:00Z",
       "date": "2026-03-08",
-      "winner": {
-        "last": "Russell",
-        "code": "RUS",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -406,12 +401,7 @@
       "lng": 121.22,
       "start": "2026-03-15T07:00:00Z",
       "date": "2026-03-15",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -429,12 +419,7 @@
       "lng": 136.541,
       "start": "2026-03-29T05:00:00Z",
       "date": "2026-03-29",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -452,12 +437,7 @@
       "lng": -80.2389,
       "start": "2026-05-03T20:00:00Z",
       "date": "2026-05-03",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -475,12 +455,7 @@
       "lng": -73.5228,
       "start": "2026-05-24T20:00:00Z",
       "date": "2026-05-24",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -498,12 +473,7 @@
       "lng": 7.42056,
       "start": "2026-06-07T13:00:00Z",
       "date": "2026-06-07",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -521,12 +491,7 @@
       "lng": 2.26111,
       "start": "2026-06-14T13:00:00Z",
       "date": "2026-06-14",
-      "winner": {
-        "last": "Hamilton",
-        "code": "HAM",
-        "team": "Ferrari",
-        "teamId": "ferrari"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -544,12 +509,7 @@
       "lng": 14.7647,
       "start": "2026-06-28T13:00:00Z",
       "date": "2026-06-28",
-      "winner": {
-        "last": "Russell",
-        "code": "RUS",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -567,12 +527,7 @@
       "lng": -1.01694,
       "start": "2026-07-05T14:00:00Z",
       "date": "2026-07-05",
-      "winner": {
-        "last": "Leclerc",
-        "code": "LEC",
-        "team": "Ferrari",
-        "teamId": "ferrari"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -590,12 +545,7 @@
       "lng": 5.97139,
       "start": "2026-07-19T13:00:00Z",
       "date": "2026-07-19",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -613,12 +563,7 @@
       "lng": 19.2486,
       "start": "2026-07-26T13:00:00Z",
       "date": "2026-07-26",
-      "winner": {
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren"
-      },
+      "winner": null,
       "pole": {
         "last": "Norris",
         "code": "NOR",
@@ -636,12 +581,7 @@
       "lng": 4.54092,
       "start": "2026-08-23T13:00:00Z",
       "date": "2026-08-23",
-      "winner": {
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren"
-      },
+      "winner": null,
       "pole": {
         "last": "Norris",
         "code": "NOR",
@@ -793,5 +733,47 @@
       "pole": null
     }
   ],
-  "lastRace": null
+  "lastRace": {
+    "round": 12,
+    "name": "Dutch Grand Prix",
+    "circuit": "Circuit Park Zandvoort",
+    "country": "Netherlands",
+    "date": "2026-08-23",
+    "podium": [
+      {
+        "pos": 1,
+        "first": "Lando",
+        "last": "Norris",
+        "code": "NOR",
+        "team": "McLaren",
+        "teamId": "mclaren",
+        "time": "2:04:44.859",
+        "points": 25
+      },
+      {
+        "pos": 2,
+        "first": "Andrea Kimi",
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes",
+        "time": "+11.536",
+        "points": 18
+      },
+      {
+        "pos": 3,
+        "first": "George",
+        "last": "Russell",
+        "code": "RUS",
+        "team": "Mercedes",
+        "teamId": "mercedes",
+        "time": "+15.906",
+        "points": 15
+      }
+    ],
+    "fastestLap": {
+      "time": "1:14.230",
+      "driver": "Leclerc"
+    }
+  }
 }

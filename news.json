@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-04T17:54:22.130Z",
+  "generated": "2026-09-04T18:16:21.929Z",
   "reddit": [
     {
-      "title": "Codecademy & Others",
-      "url": "https://www.reddit.com/r/programming/comments/1w79cba/codecademy_others/",
-      "by": "onyxkunai",
-      "time": 1788539566000,
+      "title": "Wie kann ich einen gopher Server aufsetzen?",
+      "url": "https://www.reddit.com/r/programming/comments/1w7bvjl/wie_kann_ich_einen_gopher_server_aufsetzen/",
+      "by": "Puzzleheaded-Half993",
+      "time": 1788545000000,
       "sub": "r/programming"
     },
     {
@@ -74,112 +74,112 @@
   ],
   "medium": [
     {
-      "title": "The Senior Software Engineer Is Dying. AI Just Made 10 Years of Experience Worth Less Than You",
-      "url": "https://medium.com/@guvencanguven965/the-senior-software-engineer-is-dying-ai-just-made-10-years-of-experience-worth-less-than-you-be652a6c1294",
-      "by": "Engineering Notes By Devrim",
-      "time": 1788544377000,
+      "title": "Prometheus Service Discovery and Relabeling",
+      "url": "https://medium.com/@Kwindisch/prometheus-service-discovery-and-relabeling-b442a0a62fa4",
+      "by": "Kevin Windisch",
+      "time": 1788544927000,
       "tags": [
-        "software-development",
+        "monitoring",
+        "observability",
+        "prometheus"
+      ]
+    },
+    {
+      "title": "The Pause Button That Broke in the Worst Way Possible",
+      "url": "https://medium.com/@sakibmahmood09/the-pause-button-that-broke-in-the-worst-way-possible-8a5cf01efd37",
+      "by": "Sakib Seaum",
+      "time": 1788544914000,
+      "tags": [
+        "reliability-engineering",
+        "software-engineering",
+        "startup"
+      ]
+    },
+    {
+      "title": "GLM Costs 35x Less than Claude. The Difference Isn’t Intelligence",
+      "url": "https://pub.towardsai.net/glm-costs-35x-less-than-claude-the-difference-isnt-intelligence-9a24b1ba9ab3",
+      "by": "Ankit Agrawal",
+      "time": 1788544860000,
+      "tags": [
+        "llm",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Day 88: AI Privacy — Protecting Personal Data in AI Systems",
+      "url": "https://medium.com/@tarushisandeepgupta/day-88-ai-privacy-protecting-personal-data-in-ai-systems-e09656435744",
+      "by": "Tarushi Sandeep Gupta",
+      "time": 1788544860000,
+      "tags": [
         "artificial-intelligence",
-        "programming"
+        "machine-learning",
+        "software-engineering"
       ]
     },
     {
-      "title": "How AI Is Helping Me as a DevOps Engineer",
-      "url": "https://medium.com/@amittidke/how-ai-is-helping-me-as-a-devops-engineer-a9543d1b0e54",
-      "by": "Amit Tidke",
-      "time": 1788544353000,
+      "title": "The Interviewer Smiled and Asked: “How Would You Search for Page 1,000,000?” I almost went silent.",
+      "url": "https://medium.com/@umeshcapg/the-interviewer-smiled-and-asked-how-would-you-search-for-page-1-000-000-i-almost-went-silent-aa627118936d",
+      "by": "Umesh Kumar Yadav",
+      "time": 1788544829000,
       "tags": [
-        "ai",
-        "devops",
-        "devops-practice"
-      ]
-    },
-    {
-      "title": "The Junior Developer Is Dying. Nobody Wants to Talk About What Comes Next.",
-      "url": "https://medium.com/javarevisited/the-junior-developer-is-dying-nobody-wants-to-talk-about-what-comes-next-e3d3e225426a",
-      "by": "Backend Engineer By Devrim",
-      "time": 1788544183000,
-      "tags": [
-        "software-development",
+        "postgresql",
         "java",
-        "python"
+        "software-development"
       ]
     },
     {
-      "title": "Software Engineering Is Dying. AI Is Just Making It Obvious.",
-      "url": "https://medium.com/codeelevation/software-engineering-is-dying-ai-is-just-making-it-obvious-2b6eb45114bc",
-      "by": "Backend Engineer By Devrim",
-      "time": 1788544079000,
+      "title": "Why Clean Code is the Ultimate Secret Weapon for Successful Web Development",
+      "url": "https://medium.com/@hakimcolor777/why-clean-code-is-the-ultimate-secret-weapon-for-successful-web-development-cd17c1e5370c",
+      "by": "hakimcolor",
+      "time": 1788544795000,
+      "tags": [
+        "clean-code",
+        "software-engineering",
+        "fullstack-development"
+      ]
+    },
+    {
+      "title": "LeetCode Is Dying. AI Just Made 1,000 Hours of Interview Grinding Look Absurd.",
+      "url": "https://medium.com/javarevisited/leetcode-is-dying-ai-just-made-1-000-hours-of-interview-grinding-look-absurd-a29890859f7f",
+      "by": "Production Systems By Devrim",
+      "time": 1788544712000,
+      "tags": [
+        "coding",
+        "software-development",
+        "web-development"
+      ]
+    },
+    {
+      "title": "The $15,000 Coding Bootcamp is Dead. Welcome to the Builder Era.",
+      "url": "https://medium.com/the-fullstack-analysis/the-15-000-coding-bootcamp-is-dead-welcome-to-the-builder-era-53193bc460b9",
+      "by": "Yogithasiri Chevva",
+      "time": 1788544688000,
       "tags": [
         "artificial-intelligence",
-        "programming",
+        "data",
         "coding"
       ]
     },
     {
-      "title": "7 Flask Patterns That Take Your Application from Prototype to Production",
-      "url": "https://python.plainenglish.io/7-flask-patterns-that-take-your-application-from-prototype-to-production-b7bf14c4da76",
-      "by": "Priyanshu Rajput",
-      "time": 1788544023000,
+      "title": "The Full-Stack Developer Is Dying. AI Can Already Be More “Full-Stack” Than You.",
+      "url": "https://blog.stackademic.com/the-full-stack-developer-is-dying-ai-can-already-be-more-full-stack-than-you-586603844ecb",
+      "by": "Production Systems By Devrim",
+      "time": 1788544619000,
       "tags": [
         "software-engineering",
-        "backend-development",
-        "flask"
+        "web-development",
+        "software-development"
       ]
     },
     {
-      "title": "Why Accuracy Can Be Misleading in Failure Detection Systems",
-      "url": "https://medium.com/@m.s.shanmukha.aditya/why-accuracy-can-be-misleading-in-failure-detection-systems-cb2d08802883",
-      "by": "M S Shanmukha Aditya",
-      "time": 1788543730000,
+      "title": "Are We Putting a Ferrari Engine in a Fiat?",
+      "url": "https://medium.com/@boobathi.ayyasamy/are-we-putting-a-ferrari-engine-in-a-fiat-130d85aa7ff3",
+      "by": "Boobathi Ayyasamy",
+      "time": 1788544600000,
       "tags": [
-        "machine-learning",
-        "programming",
-        "data-science"
-      ]
-    },
-    {
-      "title": "RHAPSODY OF REALITIES - 4TH SEPTEMBER 2026\n\"One of the most important disciplines in the Christian…",
-      "url": "https://medium.com/@folajeff/rhapsody-of-realities-4th-september-2026-one-of-the-most-important-disciplines-in-the-christian-376633848e9c",
-      "by": "STARYLX",
-      "time": 1788543664000,
-      "tags": [
-        "writing",
-        "design",
-        "programming"
-      ]
-    },
-    {
-      "title": "Claude Code Accidentally Created a Codex Config Nightmare",
-      "url": "https://medium.com/codetodeploy/claude-code-accidentally-created-a-codex-config-nightmare-4e39c04d4df3",
-      "by": "CodeZen",
-      "time": 1788543550000,
-      "tags": [
-        "software-engineering",
-        "cloud-computing",
-        "react"
-      ]
-    },
-    {
-      "title": "I Switched From REST to tRPC. My Team Almost Revolted. Then They Loved It.",
-      "url": "https://javascript.plainenglish.io/i-switched-from-rest-to-trpc-my-team-almost-revolted-then-they-loved-it-e433db970d0f",
-      "by": "Ronik Dedhia",
-      "time": 1788542855000,
-      "tags": [
-        "programming",
-        "javascript",
-        "rest-api"
-      ]
-    },
-    {
-      "title": "Your 10 Years of Coding Experience Are Becoming Less Valuable. The Decisions You Made During Them",
-      "url": "https://medium.com/lets-code-future/your-10-years-of-coding-experience-are-becoming-less-valuable-the-decisions-you-made-during-them-a7fe0a132298",
-      "by": "Senior Engineer By Devrim",
-      "time": 1788542736000,
-      "tags": [
-        "coding",
-        "artificial-intelligence",
+        "ai-coding",
+        "large-language-models",
         "software-engineering"
       ]
     }
