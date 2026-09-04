@@ -385,8 +385,13 @@ export default function App() {
     )
   }
 
-  // Congrats — ask how it went, then celebrate either answer
-  if (route === '#/congrats') {
+  // Ask how it went, then celebrate either answer.
+  //
+  // Lives at #/claude. #/congrats is kept as an alias rather than
+  // removed, because the whole point of a page like this is that the
+  // link gets sent to someone — and a link that has already gone out
+  // should not stop working because the address was tidied up.
+  if (route === '#/claude' || route === '#/congrats') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <CongratsPage onBack={() => { window.location.hash = '' }} />
