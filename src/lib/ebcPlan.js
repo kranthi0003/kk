@@ -178,3 +178,61 @@ export const DEFAULTS = {
   // moment the flights are booked this should be the real date.
   trek: '2027-09-20',
 }
+
+
+/* ---- the route -----------------------------------------------------
+ *
+ * The classic Lukla-in, Lukla-out itinerary as Indiahikes and most
+ * operators run it. `sleep` is the altitude you spend the night at,
+ * which is the number that matters for acclimatisation; `high` is the
+ * highest point touched that day, where the two differ.
+ *
+ * The two acclimatisation days are not padding. They are the reason the
+ * profile is a staircase rather than a ramp: climb high, sleep low, on
+ * days 3 and 6. Skipping them is the single most common way this trek
+ * goes wrong.
+ *
+ * Altitudes are the widely published figures for each village. They vary
+ * by a few metres between sources — the villages are spread over a slope,
+ * not a survey point — so they are indicative rather than exact.
+ */
+export const ROUTE = [
+  { d: 1,  title: 'Lukla → Phakding',        sleep: 2610, note: 'Fly in, then walk down the Dudh Koshi.' },
+  { d: 2,  title: 'Phakding → Namche Bazaar', sleep: 3440, note: 'Into Sagarmatha National Park, then the long climb.' },
+  { d: 3,  title: 'Namche — acclimatise',     sleep: 3440, high: 3880, note: 'Up to the Everest View hotel and back down.', rest: true },
+  { d: 4,  title: 'Namche → Tengboche',       sleep: 3860, note: 'Ridge traverse to the monastery.', img: 'tengboche' },
+  { d: 5,  title: 'Tengboche → Dingboche',    sleep: 4410, note: 'Through Pangboche, under Ama Dablam.', img: 'amadablam' },
+  { d: 6,  title: 'Dingboche — acclimatise',  sleep: 4410, high: 5100, note: 'Nagarjun Hill. Climb high, sleep low.', rest: true },
+  { d: 7,  title: 'Dingboche → Lobuche',      sleep: 4940, note: 'Thukla Pass and the climbers\u2019 memorials.' },
+  { d: 8,  title: 'Lobuche → Gorakshep → EBC', sleep: 5164, high: 5364, note: 'Base Camp and back down to sleep.', img: 'gorakshep', peak: true },
+  { d: 9,  title: 'Kala Patthar → Pheriche',  sleep: 4240, high: 5545, note: 'Dark start for the summit view, then a long drop.', peak: true },
+  { d: 10, title: 'Pheriche → Namche',        sleep: 3440, note: 'Back below the tree line.', img: 'namche' },
+  { d: 11, title: 'Namche → Lukla',           sleep: 2860, note: 'The last long day.' },
+  { d: 12, title: 'Lukla → Kathmandu',        sleep: 1400, note: 'If the weather lets the plane in.' },
+]
+
+export const FACTS = [
+  { k: 'Base Camp',  v: '5,364 m' },
+  { k: 'High point', v: '5,545 m', s: 'Kala Patthar' },
+  { k: 'On foot',    v: '12 days', s: 'Lukla to Lukla' },
+  { k: 'Grade',      v: 'Difficult' },
+]
+
+export const IMAGES = {
+  hero:      { file: 'ebc-hero.webp',      alt: 'Everest, Nuptse and the Khumbu Glacier seen from Kala Patthar' },
+  namche:    { file: 'ebc-namche.webp',    alt: 'Namche Bazaar built into its horseshoe of hillside' },
+  tengboche: { file: 'ebc-tengboche.webp', alt: 'Tengboche monastery below the peaks' },
+  amadablam: { file: 'ebc-amadablam.webp', alt: 'Ama Dablam' },
+  gorakshep: { file: 'ebc-gorakshep.webp', alt: 'Gorakshep on the edge of the Khumbu Glacier' },
+}
+
+// Every photograph here is Vyacheslav Argenberg's, released under
+// CC BY 4.0, which asks for exactly this: the author named and the
+// licence linked. Credited on the page rather than buried in a file.
+export const PHOTO_CREDIT = {
+  author: 'Vyacheslav Argenberg',
+  authorUrl: 'https://www.vascoplanet.com/',
+  licence: 'CC BY 4.0',
+  licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
+  source: 'https://commons.wikimedia.org/wiki/User:Argenberg',
+}
