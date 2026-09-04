@@ -308,3 +308,30 @@ export function JobsRailButton() {
     </RailLink>
   )
 }
+
+// A summit, inside a rim of contour lines. The thirteenth ball.
+export function EbcRailButton() {
+  return (
+    <RailLink href="#/ebc" index={12} tint="#E8734A" title="Everest Base Camp — training plan">
+      <svg className="ebcbtn-rim rail-rim" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="24.6" stroke="currentColor" strokeWidth="3.6" opacity=".9" />
+        <circle cx="27" cy="27" r="24.6" stroke="var(--rail-disc)" strokeWidth="2.2" strokeDasharray="1.8 5.6" />
+      </svg>
+      <svg className="rail-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M2.2 19.6 9.4 6.2l4.3 7.6 2.2-3.4 5.9 9.2z" fill="currentColor" />
+        <path className="ebcbtn-cap" d="M9.4 6.2l2.6 4.6-1.5.9-1.6-.9-1.5.9z" fill="var(--rail-disc)" />
+        <circle cx="18.4" cy="5.4" r="1.5" fill="currentColor" opacity=".75" />
+      </svg>
+      <style>{`
+        .ebcbtn-rim { transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+        .ebcbtn-cap { transition: transform .4s cubic-bezier(.22,.61,.36,1); }
+        .rail-btn:hover .ebcbtn-rim { transform: rotate(22deg); }
+        .rail-btn:hover .ebcbtn-cap { transform: translateY(-1.2px); }
+        @media (prefers-reduced-motion: reduce) {
+          .ebcbtn-rim, .ebcbtn-cap { transition: none; }
+          .rail-btn:hover .ebcbtn-rim, .rail-btn:hover .ebcbtn-cap { transform: none; }
+        }
+      `}</style>
+    </RailLink>
+  )
+}

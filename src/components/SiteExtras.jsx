@@ -26,6 +26,7 @@ import {
   CryptoRailButton,
   SpaceRailButton,
   JobsRailButton,
+  EbcRailButton,
 } from './RailButtons'
 import RailGravity from './RailGravity'
 import BallGame from './BallGame'
@@ -133,6 +134,7 @@ export default function SiteExtras({ matrixActive, onMatrixComplete }) {
       <CryptoRailButton />
       <SpaceRailButton />
       <JobsRailButton />
+      <EbcRailButton />
       <RailGravity />
       <BallGame />
 

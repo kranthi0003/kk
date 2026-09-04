@@ -39,6 +39,7 @@ const BrandsPage = lazy(() => import('./components/BrandsPage'))
 const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const StocksPage = lazy(() => import('./components/StocksPage'))
 const JobsPage = lazy(() => import('./components/JobsPage'))
+const EbcPage = lazy(() => import('./components/EbcPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -379,6 +380,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <OmscsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // EBC — the training plan for Everest Base Camp, Sept/Oct 2027
+  if (route === '#/ebc') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <EbcPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
