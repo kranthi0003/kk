@@ -1,6 +1,13 @@
 {
-  "generated": "2026-09-04T13:51:17.028Z",
+  "generated": "2026-09-04T14:10:45.761Z",
   "reddit": [
+    {
+      "title": "Are there entry level career points for DevOps?",
+      "url": "https://www.reddit.com/r/devops/comments/1w754l1/are_there_entry_level_career_points_for_devops/",
+      "by": "sultan-11-",
+      "time": 1788530183000,
+      "sub": "r/devops"
+    },
     {
       "title": "Avoid adding new library to project: 10-year retrospective",
       "url": "https://www.reddit.com/r/programming/comments/1w721ry/avoid_adding_new_library_to_project_10year/",
@@ -9,11 +16,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w701f3/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1788516026000,
-      "sub": "r/kubernetes"
+      "title": "I built a safety tool for the AWS Console that switched itself off for 6 seconds every time you used it",
+      "url": "https://www.reddit.com/r/devops/comments/1w6zhdi/i_built_a_safety_tool_for_the_aws_console_that/",
+      "by": "Cowijin",
+      "time": 1788514081000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Blacksmith.sh GitHub runners",
+      "url": "https://www.reddit.com/r/devops/comments/1w6yk47/blacksmithsh_github_runners/",
+      "by": "hashkent",
+      "time": 1788510849000,
+      "sub": "r/devops"
     },
     {
       "title": "How to secure SSH and Postgres with Warpgate",
@@ -23,18 +37,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "I updated my Kubernetes cheat sheet",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6ye9e/i_updated_my_kubernetes_cheat_sheet/",
-      "by": "nicwortel",
-      "time": 1788510306000,
-      "sub": "r/kubernetes"
+      "title": "Implementation is getting faster but the org around it moves at the same speed as always and DevOps is in-between.",
+      "url": "https://www.reddit.com/r/devops/comments/1w6xqrv/implementation_is_getting_faster_but_the_org/",
+      "by": "rudiXOR",
+      "time": 1788507961000,
+      "sub": "r/devops"
     },
     {
-      "title": "Talos - How to provision a cluster from code instead of CLI?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6xuez/talos_how_to_provision_a_cluster_from_code/",
-      "by": "New-Buy1696",
-      "time": 1788508341000,
-      "sub": "r/kubernetes"
+      "title": "How to create Planning, Design, Development, Testing, Deployment, Maintenance Pipeline? Please suggest sources",
+      "url": "https://www.reddit.com/r/devops/comments/1w6vrgs/how_to_create_planning_design_development_testing/",
+      "by": "Critical_Heart_1569",
+      "time": 1788501211000,
+      "sub": "r/devops"
     },
     {
       "title": "Understanding RabbitMQ in Simple Terms",
@@ -56,131 +70,117 @@
       "by": "mttd",
       "time": 1788474343000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes Podcast episode 272: Agent Substrate: Running AI Agents at Scale on Kubernetes, with Tim Hockin & Brandon Royal",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6c3h0/kubernetes_podcast_episode_272_agent_substrate/",
-      "by": "kubernetespodcast",
-      "time": 1788452470000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Need support for multicast in k8s",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6bg37/need_support_for_multicast_in_k8s/",
-      "by": "daxmaxb",
-      "time": 1788451103000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "The Spec Is the Product",
-      "url": "https://medium.com/@shadeed.1990/the-spec-is-the-product-a307af7b70ba",
-      "by": "Issam Shadid",
-      "time": 1788528712000,
+      "title": "“Understanding Solidity Modifiers: Beyond only Owner - Advanced Patterns & Pitfalls”",
+      "url": "https://medium.com/@atnoforblockchain/understanding-solidity-modifiers-beyond-only-owner-advanced-patterns-pitfalls-f6cc4d65a526",
+      "by": "ATNO For Blockchain Developer",
+      "time": 1788530727000,
       "tags": [
-        "product-management",
-        "programming",
-        "software-engineering"
+        "blockchain",
+        "ethereum",
+        "programming"
       ]
     },
     {
-      "title": "Your Production System Shouldn’t Depend on “It Works on My Machine”",
-      "url": "https://medium.com/@vinayakgalande6/your-production-system-shouldnt-depend-on-it-works-on-my-machine-eaeb17646ab4",
-      "by": "Vinayakgalande",
-      "time": 1788528661000,
+      "title": "VVC finally shipped somewhere big. It still isn’t coming to your web player.",
+      "url": "https://nikodev1.medium.com/vvc-finally-shipped-somewhere-big-it-still-isnt-coming-to-your-web-player-41721405f233",
+      "by": "Niko",
+      "time": 1788530620000,
       "tags": [
-        "git",
-        "ci-cd-pipeline",
-        "software-engineering"
+        "software-engineering",
+        "streaming",
+        "videos"
       ]
     },
     {
-      "title": "The Hardest Problem in AI Isn’t Reasoning. It’s Remembering.",
-      "url": "https://medium.com/@riteishnikhoria219/the-hardest-problem-in-ai-isnt-reasoning-it-s-remembering-2ca27d12ef7d",
-      "by": "Riteish",
-      "time": 1788528523000,
+      "title": "I Reverse Engineered the Nubia Focus Pro 5G’s Hidden Button and Turned It Into a Gaming Trigger",
+      "url": "https://medium.com/@abanikanndatolu/i-reverse-engineered-the-nubia-focus-pro-5gs-hidden-button-and-turned-it-into-a-gaming-trigger-3de919643e5a",
+      "by": "Tolulope Abanikannda",
+      "time": 1788530536000,
       "tags": [
-        "memories",
-        "ai-agent",
-        "ai"
+        "android",
+        "reverse-engineering",
+        "cybersecurity"
       ]
     },
     {
-      "title": "Google spent $45 billion in three months and came out behind",
-      "url": "https://medium.com/@Taniya0/google-spent-45-billion-in-three-months-and-came-out-behind-df62a1111c18",
-      "by": "Taniya",
-      "time": 1788528509000,
+      "title": "Everyone Thought Azure Queue Was the Problem. The Real Culprit Was Architecture",
+      "url": "https://medium.com/@letslearnnow/everyone-thought-azure-queue-was-the-problem-the-real-culprit-was-architecture-9f540d681152",
+      "by": "Lets Learn Now",
+      "time": 1788530466000,
       "tags": [
-        "learning-and-development",
-        "programming",
-        "google"
-      ]
-    },
-    {
-      "title": "The Website I Forgot Died — But Another One Survived 19 Years",
-      "url": "https://pub.huizhou92.com/the-website-i-forgot-died-but-another-one-survived-19-years-f91249ff2bfc",
-      "by": "huizhou92",
-      "time": 1788528471000,
-      "tags": [
-        "hacker-news",
-        "developer-community",
-        "technology"
-      ]
-    },
-    {
-      "title": "Reusable GitHub Actions Workflows Are Dependencies Too",
-      "url": "https://medium.com/@pujamaheshvari5/reusable-github-actions-workflows-are-dependencies-too-f85724628c11",
-      "by": "Puja Maheshvari",
-      "time": 1788528240000,
-      "tags": [
-        "devsecops",
-        "github-actions",
-        "cloud-security"
-      ]
-    },
-    {
-      "title": "Engineering Decisions I Almost Overcomplicated When Building A Chatbot",
-      "url": "https://medium.com/@gideonfummey/engineering-decisions-i-almost-overcomplicated-when-building-a-chatbot-0b1fd894cf14",
-      "by": "Gideon Fummey",
-      "time": 1788528045000,
-      "tags": [
-        "software-architecture",
-        "fastapi",
-        "ai"
-      ]
-    },
-    {
-      "title": "Superpowers vs Plain Old Debugger in Explyt",
-      "url": "https://medium.com/@explyt.ai/superpowers-vs-plain-old-debugger-in-explyt-561dc20c7e1c",
-      "by": "Explyt",
-      "time": 1788528020000,
-      "tags": [
-        "programming",
-        "ai-agent",
-        "javascript"
-      ]
-    },
-    {
-      "title": "AI Can Write Code. But Can You Understand It? The New Documentation Problem",
-      "url": "https://medium.com/@kauddoc3/ai-can-write-code-but-can-you-understand-it-the-new-documentation-problem-dd1128bfbe2c",
-      "by": "Kauddoc",
-      "time": 1788528011000,
-      "tags": [
-        "developer-tools",
-        "programming",
+        "design-systems",
+        "software-engineering",
         "software-development"
       ]
     },
     {
-      "title": "Vibe Coding Is Here. These 9 Developer Skills Matter More Than Ever",
-      "url": "https://medium.com/@techbyrahmat/vibe-coding-is-here-these-9-developer-skills-matter-more-than-ever-679d512365cf",
-      "by": "TechByRahmat",
-      "time": 1788527904000,
+      "title": "Smart TV Apps Are Awful. So I Made My Own (And You Can Too)",
+      "url": "https://simon-pitt.medium.com/smart-tv-apps-are-awful-so-i-made-my-own-and-you-can-too-e4332f6f9fa6",
+      "by": "Simon Pitt",
+      "time": 1788530464000,
       "tags": [
-        "programming",
+        "software-engineering",
         "ai",
-        "vibe-coding"
+        "generative-ai-tools"
+      ]
+    },
+    {
+      "title": "Claude Code Shipped a Command That Eats Your Codex Config",
+      "url": "https://pub.towardsai.net/claude-code-shipped-a-command-that-eats-your-codex-config-929f1dca10e1",
+      "by": "Anubhav",
+      "time": 1788530463000,
+      "tags": [
+        "machine-learning",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Your @Transactional Annotation Might Not Be Doing Anything",
+      "url": "https://medium.com/@shailendrakawadkar/your-transactional-annotation-might-not-be-doing-anything-71934c086e6f",
+      "by": "Shailendra kawadkar",
+      "time": 1788530463000,
+      "tags": [
+        "software-engineering",
+        "spring-framework",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Model Contex Protocol cortito y al pie",
+      "url": "https://mati-os.medium.com/model-contex-protocol-cortito-y-al-pie-056e24fb905e",
+      "by": "Mati OS",
+      "time": 1788530064000,
+      "tags": [
+        "model-context-protocol",
+        "mcp-server",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Why Read-Only Internet Became a Message Board",
+      "url": "https://medium.com/@chinmayshringi4/why-read-only-internet-became-a-message-board-5807a4c5e2be",
+      "by": "Chinmay Shringi",
+      "time": 1788529992000,
+      "tags": [
+        "machine-learning",
+        "cybersecurity",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "From HTML to AI: How Web Development Is Actually Changing",
+      "url": "https://andreasyanaram.medium.com/from-html-to-ai-how-web-development-is-actually-changing-a093bf4006d1",
+      "by": "Aram Andreasyan",
+      "time": 1788529970000,
+      "tags": [
+        "web-development",
+        "programming",
+        "software-development"
       ]
     }
   ]
