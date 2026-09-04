@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T14:10:48.517Z",
+  "generated": "2026-09-04T17:54:24.265Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -793,47 +793,5 @@
       "pole": null
     }
   ],
-  "lastRace": {
-    "round": 12,
-    "name": "Dutch Grand Prix",
-    "circuit": "Circuit Park Zandvoort",
-    "country": "Netherlands",
-    "date": "2026-08-23",
-    "podium": [
-      {
-        "pos": 1,
-        "first": "Lando",
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren",
-        "time": "2:04:44.859",
-        "points": 25
-      },
-      {
-        "pos": 2,
-        "first": "Andrea Kimi",
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes",
-        "time": "+11.536",
-        "points": 18
-      },
-      {
-        "pos": 3,
-        "first": "George",
-        "last": "Russell",
-        "code": "RUS",
-        "team": "Mercedes",
-        "teamId": "mercedes",
-        "time": "+15.906",
-        "points": 15
-      }
-    ],
-    "fastestLap": {
-      "time": "1:14.230",
-      "driver": "Leclerc"
-    }
-  }
+  "lastRace": null
 }
