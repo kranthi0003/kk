@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T04:34:16.556Z",
+  "generated": "2026-09-04T13:50:25.069Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -91,17 +91,6 @@
       "imdb": "https://www.imdb.com/title/tt11026686/"
     },
     {
-      "title": "Mookuthi Amman 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Sundar C",
-      "desc": "Upcoming film by Sundar C",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Mookuthi_Amman_2.jpg/120px-Mookuthi_Amman_2.jpg",
-      "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
-      "imdb": "https://www.imdb.com/title/tt32909364/"
-    },
-    {
       "title": "Aakasamlo Oka Tara",
       "lang": "Telugu",
       "date": null,
@@ -155,6 +144,17 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
       "url": "https://en.wikipedia.org/wiki/Mandaadi",
       "imdb": "https://www.imdb.com/title/tt36596965/"
+    },
+    {
+      "title": "Thudakkam",
+      "lang": "Malayalam",
+      "date": null,
+      "precision": null,
+      "by": "Jude Anthany Joseph",
+      "desc": "2026 film by Jude Anthany Joseph",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Thudakkam",
+      "imdb": "https://www.imdb.com/title/tt37510017/"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T04:35:22.996Z",
+  "generated": "2026-09-04T13:51:24.294Z",
   "season": "2026",
   "sources": [
     {
@@ -159,9 +159,9 @@
         "pos": 8,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 27,
-        "points": 2463,
-        "rating": 91
+        "matches": 28,
+        "points": 2565,
+        "rating": 92
       },
       {
         "pos": 9,
@@ -191,9 +191,9 @@
         "pos": 12,
         "code": "IRE",
         "team": "Ireland",
-        "matches": 15,
-        "points": 774,
-        "rating": 52
+        "matches": 16,
+        "points": 815,
+        "rating": 51
       }
     ],
     "t20i": [
@@ -792,6 +792,27 @@
       "played": 0,
       "scheduled": 6,
       "ends": "2026-10-03",
+      "status": "upcoming"
+    },
+    {
+      "start": "2026-09-22",
+      "name": "India in Japan",
+      "home": "JPN",
+      "homeName": "Japan",
+      "away": "IND",
+      "awayName": "India",
+      "formats": {
+        "test": null,
+        "odi": null,
+        "t20i": {
+          "matches": 1,
+          "result": null,
+          "played": 0
+        }
+      },
+      "played": 0,
+      "scheduled": 1,
+      "ends": "2026-09-27",
       "status": "upcoming"
     }
   ],
