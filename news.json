@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-03T05:24:16.615Z",
+  "generated": "2026-09-04T04:35:15.526Z",
   "reddit": [
     {
-      "title": "Squeezing Performance out of eBPF",
-      "url": "https://www.reddit.com/r/programming/comments/1w5p84l/squeezing_performance_out_of_ebpf/",
+      "title": "Understanding RabbitMQ in Simple Terms",
+      "url": "https://www.reddit.com/r/programming/comments/1w6tdke/understanding_rabbitmq_in_simple_terms/",
+      "by": "Sushant098123",
+      "time": 1788493809000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Is it possible to deserialized a saved file of an old pascal system?",
+      "url": "https://www.reddit.com/r/programming/comments/1w6t25a/is_it_possible_to_deserialized_a_saved_file_of_an/",
+      "by": "Sil3nt_R3ap3r-1208",
+      "time": 1788492849000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The G7 tells industry to hurry up and prep for post-quantum encryption",
+      "url": "https://www.reddit.com/r/programming/comments/1w6sn8n/the_g7_tells_industry_to_hurry_up_and_prep_for/",
+      "by": "donutloop",
+      "time": 1788491621000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Linked Lists in the Linux kernel",
+      "url": "https://www.reddit.com/r/programming/comments/1w6m8qg/linked_lists_in_the_linux_kernel/",
       "by": "mttd",
-      "time": 1788387780000,
+      "time": 1788474343000,
       "sub": "r/programming"
     },
     {
-      "title": "CTTI is Exponential, RTTI is Linear",
-      "url": "https://www.reddit.com/r/programming/comments/1w5ov1s/ctti_is_exponential_rtti_is_linear/",
-      "by": "gingerbill",
-      "time": 1788386932000,
+      "title": "Performance Characterization of SPEC CPU 2026 on AMD EPYC 9755 Processor",
+      "url": "https://www.reddit.com/r/programming/comments/1w6lyus/performance_characterization_of_spec_cpu_2026_on/",
+      "by": "mttd",
+      "time": 1788473687000,
       "sub": "r/programming"
     },
     {
-      "title": "Let's build a compressor from scratch",
-      "url": "https://www.reddit.com/r/programming/comments/1w5l8wx/lets_build_a_compressor_from_scratch/",
-      "by": "aochagavia",
-      "time": 1788379010000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Postgres Calculations and the Ambiguity of NULL",
-      "url": "https://www.reddit.com/r/programming/comments/1w5gtxg/postgres_calculations_and_the_ambiguity_of_null/",
-      "by": "winsletts",
-      "time": 1788369778000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Injections done the right way!",
-      "url": "https://www.reddit.com/r/programming/comments/1w5fn7e/injections_done_the_right_way/",
-      "by": "Efficient-Public-551",
-      "time": 1788367328000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How would you implement an \"apply recommendation\" workflow for Kubernetes optimization?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w5ce1e/how_would_you_implement_an_apply_recommendation/",
-      "by": "Late_Height_3133",
-      "time": 1788360300000,
+      "title": "Kubernetes documentation assumes you already know Kubernetes",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w6ln9w/kubernetes_documentation_assumes_you_already_know/",
+      "by": "PrimaryFamous6139",
+      "time": 1788472928000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Self-managed OpenShift in AWS vs ROSA",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w5c6rj/selfmanaged_openshift_in_aws_vs_rosa/",
-      "by": "shulemaker",
-      "time": 1788359830000,
+      "title": "Kubernetes Podcast episode 272: Agent Substrate: Running AI Agents at Scale on Kubernetes, with Tim Hockin & Brandon Royal",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w6c3h0/kubernetes_podcast_episode_272_agent_substrate/",
+      "by": "kubernetespodcast",
+      "time": 1788452470000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "I made an unofficial EPUB version of Kubernetes The Hard Way",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w58101/i_made_an_unofficial_epub_version_of_kubernetes/",
-      "by": "Vance84",
-      "time": 1788349608000,
+      "title": "Need support for multicast in k8s",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w6bg37/need_support_for_multicast_in_k8s/",
+      "by": "daxmaxb",
+      "time": 1788451103000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Streamlining your Kubernetes operations with automated AI troubleshooting agents",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w57zj2/streamlining_your_kubernetes_operations_with/",
-      "by": "Diligent-Wrongdoer68",
-      "time": 1788349489000,
+      "title": "How Netflix Simplified Batch Compute with Kueue",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w65nox/how_netflix_simplified_batch_compute_with_kueue/",
+      "by": "nilukush",
+      "time": 1788437617000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w560jp/weekly_show_off_your_new_tools_and_projects_thread/",
+      "title": "Weekly: This Week I Learned (TWIL?) thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w630ci/weekly_this_week_i_learned_twil_thread/",
       "by": "AutoModerator",
-      "time": 1788343246000,
+      "time": 1788429606000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "AI Can Write Your Code Now. So What Is a Developer Actually Supposed to Learn?",
-      "url": "https://medium.com/@inplaintech/ai-can-write-your-code-now-so-what-is-a-developer-actually-supposed-to-learn-6aa3fc3ab20e",
-      "by": "InPlainTech",
-      "time": 1788412297000,
-      "tags": [
-        "software-development",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "Day 84: Data Poisoning — Attacking AI Through Its Training Data",
-      "url": "https://medium.com/@tarushisandeepgupta/day-84-data-poisoning-attacking-ai-through-its-training-data-779f582079fe",
-      "by": "Tarushi Sandeep Gupta",
-      "time": 1788411661000,
-      "tags": [
-        "deep-learning",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Top 7 Terminal Tools That Make Kubernetes Operations Faster",
-      "url": "https://medium.com/devops-ai-decoded/top-7-terminal-tools-that-make-kubernetes-operations-faster-7dd9996aecf8",
-      "by": "Neel Shah",
-      "time": 1788411483000,
+      "title": "The AI labs’ biggest problem is sitting on your desk",
+      "url": "https://medium.com/@dev_tips/the-ai-labs-biggest-problem-is-sitting-on-your-desk-0a15d5deec7b",
+      "by": "",
+      "time": 1788495652000,
       "tags": [
         "ai",
         "technology",
-        "devops"
+        "software-development"
       ]
     },
     {
-      "title": "Getting Started with Linux: What I Learned About Its Architecture, Shell, Kernel & File System",
-      "url": "https://medium.com/@asnaazad55/getting-started-with-linux-what-i-learned-about-its-architecture-shell-kernel-file-system-3c118efcf3d0",
-      "by": "Asna Azad",
-      "time": 1788411425000,
+      "title": "Your API Requests Are Racing Each Other — Here’s How AbortController Fixes It",
+      "url": "https://medium.com/@rishabh2109/your-api-requests-are-racing-each-other-heres-how-abortcontroller-fixes-it-3fdcf380fc1d",
+      "by": "Rishabh sharma",
+      "time": 1788494760000,
       "tags": [
-        "linux",
-        "devops",
-        "for-begineers"
-      ]
-    },
-    {
-      "title": "Master System Design: The 7-Step Framework to Ace Any System Design Interview",
-      "url": "https://ayushgupta2959.medium.com/master-system-design-the-7-step-framework-to-ace-any-system-design-interview-6dc6d32fff1d",
-      "by": "Ayush Gupta",
-      "time": 1788411360000,
-      "tags": [
-        "interview",
-        "coding-interviews",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Linux Shortcuts That Make Me Forget I’m Using a Terminal",
-      "url": "https://asepsayyad007.medium.com/the-linux-shortcuts-that-make-me-forget-im-using-a-terminal-46dea6c4abd0",
-      "by": "Asep Sayyad",
-      "time": 1788411237000,
-      "tags": [
-        "linux-tutorial",
-        "linux",
-        "ubuntu"
-      ]
-    },
-    {
-      "title": "The 4 Lines Every AI Agent Needs to Query Your Database",
-      "url": "https://medium.com/@bvsarathc06/the-4-lines-every-ai-agent-needs-to-query-your-database-9c47b66341a2",
-      "by": "B V Sarath Chandra",
-      "time": 1788411226000,
-      "tags": [
-        "data-science",
+        "react",
         "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "A Step-by-Step Guide for Developing Your Personal Agentic System (Part 1)",
+      "url": "https://medium.com/the-code-frontier/a-step-by-step-guide-for-developing-your-personal-agentic-system-part-1-57a904b0cdb8",
+      "by": "Dev Evolution",
+      "time": 1788494437000,
+      "tags": [
+        "python",
+        "agentic-ai",
+        "automation"
+      ]
+    },
+    {
+      "title": "Browsers Have Become More Powerful Than Most Developers Realise",
+      "url": "https://medium.com/data-science-collective/browsers-have-become-more-powerful-than-most-developers-realise-90642c6cfe4f",
+      "by": "Muhammad Qasim",
+      "time": 1788494343000,
+      "tags": [
+        "javascript",
+        "web-development",
+        "front-end-development"
+      ]
+    },
+    {
+      "title": "Your CLAUDE.md Keeps Growing — Why Your AI Agent Still Won’t Listen",
+      "url": "https://pub.huizhou92.com/your-claude-md-keeps-growing-why-your-ai-agent-still-wont-listen-d2b3d2339a61",
+      "by": "Evan Zhou",
+      "time": 1788494150000,
+      "tags": [
+        "ai",
+        "claude-code",
         "technology"
       ]
     },
     {
-      "title": "Solidity and Rust in One Block Single Pool live",
-      "url": "https://medium.com/@Pexli/solidity-and-rust-in-one-block-single-pool-live-bff7e50700eb",
-      "by": "Pexli",
-      "time": 1788410919000,
+      "title": "First-Time Corporate Engineer: 10 moments No One Prepares You In Your First Year",
+      "url": "https://medium.com/@sujata.jha/first-time-corporate-engineer-10-moments-no-one-prepares-you-in-your-first-year-0c31d4f95cec",
+      "by": "Sujata Jha",
+      "time": 1788493300000,
       "tags": [
-        "blockchain-technology",
-        "startup",
-        "blockchain-development"
+        "career-development",
+        "software-engineering",
+        "first-job"
       ]
     },
     {
-      "title": "Flutter Clean Code: 10 Habits That Make Large Projects Easier to Maintain",
-      "url": "https://medium.com/@yashnariya003248/flutter-clean-code-10-habits-that-make-large-projects-easier-to-maintain-0f90828b1df6",
-      "by": "Yash Nariya",
-      "time": 1788410699000,
+      "title": "Why Generating a Gender-Disaggregated Heatmap For My Young Cousin Broke Her Local LLM Setup",
+      "url": "https://ai.plainenglish.io/why-generating-a-gender-disaggregated-heatmap-for-my-young-cousin-broke-her-local-llm-setup-dd26a8b13727",
+      "by": "Shashwat",
+      "time": 1788492865000,
       "tags": [
-        "mobile-development",
-        "clean-code",
-        "flutter"
+        "local-llm",
+        "llm",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Production-Ready Bulk Processing: Logging, Transaction Management & Failed-Record Reprocessing |…",
-      "url": "https://medium.com/@pranavsb699/production-ready-bulk-processing-logging-transaction-management-failed-record-reprocessing-d6f01d73e848",
-      "by": "Pranav Bakare",
-      "time": 1788410517000,
+      "title": "Your Test Suite Knows What Broke. It Rarely Knows Why It Matters.",
+      "url": "https://manishsaini74.medium.com/your-test-suite-knows-what-broke-it-rarely-knows-why-it-matters-4459cdb335e0",
+      "by": "Manish Saini",
+      "time": 1788492661000,
+      "tags": [
+        "software-development",
+        "test-automation",
+        "quality-assurance"
+      ]
+    },
+    {
+      "title": "I Let AI Write My Code. Here’s What I Still Refuse to Delegate.",
+      "url": "https://medium.com/@fareedahmad888/i-let-ai-write-my-code-heres-what-i-still-refuse-to-delegate-afd3286902f4",
+      "by": "Fareed Ahmad",
+      "time": 1788492660000,
       "tags": [
         "programming",
-        "mrcaption49",
-        "data-science"
+        "software-development",
+        "ai-coding-tool"
+      ]
+    },
+    {
+      "title": "“Implementing World-Scale AR with ARCore Geospatial API: GPS + VPS Fusion Explained”",
+      "url": "https://medium.com/@atnoforarvrdeveloper/implementing-world-scale-ar-with-arcore-geospatial-api-gps-vps-fusion-explained-ebcb107c3160",
+      "by": "ATNO For AR / VR / MR / XR Deve…",
+      "time": 1788492514000,
+      "tags": [
+        "software-engineering",
+        "ux-design",
+        "augmented-reality"
       ]
     }
   ]

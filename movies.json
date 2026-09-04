@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-03T05:23:24.176Z",
+  "generated": "2026-09-04T04:34:16.556Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -67,17 +67,6 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
       "imdb": "https://www.imdb.com/title/tt21438726/"
-    },
-    {
-      "title": "Mirzapur",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": "Gurmeet Singh",
-      "desc": "Upcoming Indian film by Gurmeet Singh",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Mirzapur_%28film%29.jpg/120px-Mirzapur_%28film%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Mirzapur_(film)",
-      "imdb": "https://www.imdb.com/title/tt34339725/"
     },
     {
       "title": "Jailer 2",
@@ -155,6 +144,17 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
       "imdb": "https://www.imdb.com/title/tt27610832/"
+    },
+    {
+      "title": "Mandaadi",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Mathimaran Pugazhendhi",
+      "desc": "Upcoming film directed by Mathimaran Pugazhendhi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mandaadi",
+      "imdb": "https://www.imdb.com/title/tt36596965/"
     }
   ]
 }
