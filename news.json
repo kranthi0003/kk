@@ -1,18 +1,39 @@
 {
-  "generated": "2026-09-04T18:16:21.929Z",
+  "generated": "2026-09-05T04:28:48.607Z",
   "reddit": [
     {
-      "title": "Wie kann ich einen gopher Server aufsetzen?",
-      "url": "https://www.reddit.com/r/programming/comments/1w7bvjl/wie_kann_ich_einen_gopher_server_aufsetzen/",
-      "by": "Puzzleheaded-Half993",
-      "time": 1788545000000,
+      "title": "A quick guide and gotchas for GitHub OIDC and avoid using AWS permanent credentials in GitHub Actions",
+      "url": "https://www.reddit.com/r/devops/comments/1w7lsrc/a_quick_guide_and_gotchas_for_github_oidc_and/",
+      "by": "SeaworthinessHour233",
+      "time": 1788568313000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "how would one 'invent a new programming language', which is 'several times faster than C++'?",
+      "url": "https://www.reddit.com/r/programming/comments/1w7jjzu/how_would_one_invent_a_new_programming_language/",
+      "by": "michaelhuman",
+      "time": 1788562362000,
       "sub": "r/programming"
     },
     {
-      "title": "TikTok · Tether Radio 📻 1",
-      "url": "https://www.reddit.com/r/programming/comments/1w78pwx/tiktok_tether_radio_1/",
-      "by": "94MillionDollars",
-      "time": 1788538231000,
+      "title": "Claude reset limits?",
+      "url": "https://www.reddit.com/r/devops/comments/1w7fhsi/claude_reset_limits/",
+      "by": "Maxi-Papa",
+      "time": 1788552809000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Looking for a high-quality laptop backpack for work / business travel – available in Europe",
+      "url": "https://www.reddit.com/r/devops/comments/1w7ev1g/looking_for_a_highquality_laptop_backpack_for/",
+      "by": "No-Perspective3501",
+      "time": 1788551460000,
+      "sub": "r/devops"
+    },
+    {
+      "title": ".name Termination",
+      "url": "https://www.reddit.com/r/programming/comments/1w7dn8q/name_termination/",
+      "by": "soap94",
+      "time": 1788548791000,
       "sub": "r/programming"
     },
     {
@@ -37,150 +58,129 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w701f3/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1788516026000,
-      "sub": "r/kubernetes"
+      "title": "I built a safety tool for the AWS Console that switched itself off for 6 seconds every time you used it",
+      "url": "https://www.reddit.com/r/devops/comments/1w6zhdi/i_built_a_safety_tool_for_the_aws_console_that/",
+      "by": "Cowijin",
+      "time": 1788514081000,
+      "sub": "r/devops"
     },
     {
-      "title": "I updated my Kubernetes cheat sheet",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6ye9e/i_updated_my_kubernetes_cheat_sheet/",
-      "by": "nicwortel",
-      "time": 1788510306000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How to secure SSH and Postgres with Warpgate",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6y44t/how_to_secure_ssh_and_postgres_with_warpgate/",
-      "by": "der_gopher",
-      "time": 1788509283000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Talos - How to provision a cluster from code instead of CLI?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6xuez/talos_how_to_provision_a_cluster_from_code/",
-      "by": "New-Buy1696",
-      "time": 1788508341000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes Podcast episode 272: Agent Substrate: Running AI Agents at Scale on Kubernetes, with Tim Hockin & Brandon Royal",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w6c3h0/kubernetes_podcast_episode_272_agent_substrate/",
-      "by": "kubernetespodcast",
-      "time": 1788452470000,
-      "sub": "r/kubernetes"
+      "title": "Blacksmith.sh GitHub runners",
+      "url": "https://www.reddit.com/r/devops/comments/1w6yk47/blacksmithsh_github_runners/",
+      "by": "hashkent",
+      "time": 1788510849000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Prometheus Service Discovery and Relabeling",
-      "url": "https://medium.com/@Kwindisch/prometheus-service-discovery-and-relabeling-b442a0a62fa4",
-      "by": "Kevin Windisch",
-      "time": 1788544927000,
+      "title": "Claude Code Is a Unix Filter, and Almost Nobody Uses It That Way",
+      "url": "https://medium.com/@anup.karanjkar08/claude-code-is-a-unix-filter-and-almost-nobody-uses-it-that-way-0ab65b810598",
+      "by": "Anup Karanjkar",
+      "time": 1788581942000,
       "tags": [
-        "monitoring",
-        "observability",
-        "prometheus"
-      ]
-    },
-    {
-      "title": "The Pause Button That Broke in the Worst Way Possible",
-      "url": "https://medium.com/@sakibmahmood09/the-pause-button-that-broke-in-the-worst-way-possible-8a5cf01efd37",
-      "by": "Sakib Seaum",
-      "time": 1788544914000,
-      "tags": [
-        "reliability-engineering",
-        "software-engineering",
-        "startup"
-      ]
-    },
-    {
-      "title": "GLM Costs 35x Less than Claude. The Difference Isn’t Intelligence",
-      "url": "https://pub.towardsai.net/glm-costs-35x-less-than-claude-the-difference-isnt-intelligence-9a24b1ba9ab3",
-      "by": "Ankit Agrawal",
-      "time": 1788544860000,
-      "tags": [
-        "llm",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Day 88: AI Privacy — Protecting Personal Data in AI Systems",
-      "url": "https://medium.com/@tarushisandeepgupta/day-88-ai-privacy-protecting-personal-data-in-ai-systems-e09656435744",
-      "by": "Tarushi Sandeep Gupta",
-      "time": 1788544860000,
-      "tags": [
-        "artificial-intelligence",
-        "machine-learning",
+        "productivity",
+        "devops",
         "software-engineering"
       ]
     },
     {
-      "title": "The Interviewer Smiled and Asked: “How Would You Search for Page 1,000,000?” I almost went silent.",
-      "url": "https://medium.com/@umeshcapg/the-interviewer-smiled-and-asked-how-would-you-search-for-page-1-000-000-i-almost-went-silent-aa627118936d",
-      "by": "Umesh Kumar Yadav",
-      "time": 1788544829000,
+      "title": "Your AI Agent May Become Your Interface to the Entire Internet",
+      "url": "https://medium.com/@Artiscribe/your-ai-agent-may-become-your-interface-to-the-entire-internet-f970fb1ddbff",
+      "by": "Artiscribe",
+      "time": 1788581652000,
       "tags": [
-        "postgresql",
-        "java",
+        "technology",
+        "programming",
+        "money"
+      ]
+    },
+    {
+      "title": "AI in 2026: what’s actually real, what’s still hype, and where the line is",
+      "url": "https://medium.com/@arai37031/ai-in-2026-whats-actually-real-what-s-still-hype-and-where-the-line-is-23d654c9477a",
+      "by": "Aditya Narayan Rai",
+      "time": 1788581100000,
+      "tags": [
+        "productivity",
+        "software-development",
+        "technology"
+      ]
+    },
+    {
+      "title": "The Two-Phase Commit Trap: Why Sagas Fit Microservices Better",
+      "url": "https://medium.com/@rkdixit3/the-two-phase-commit-trap-why-sagas-fit-microservices-better-de927f2c6ad7",
+      "by": "Rajesh Kumar",
+      "time": 1788580930000,
+      "tags": [
+        "data-engineering",
+        "distributed-systems",
         "software-development"
       ]
     },
     {
-      "title": "Why Clean Code is the Ultimate Secret Weapon for Successful Web Development",
-      "url": "https://medium.com/@hakimcolor777/why-clean-code-is-the-ultimate-secret-weapon-for-successful-web-development-cd17c1e5370c",
-      "by": "hakimcolor",
-      "time": 1788544795000,
+      "title": "Webhooks vs Polling vs WebSockets: Choosing the Right Real-Time Architecture",
+      "url": "https://medium.com/@chidinmaosonwa-paul/webhooks-vs-polling-vs-websockets-choosing-the-right-real-time-architecture-0ad5a65ade82",
+      "by": "Chidinma Osonwa-Paul",
+      "time": 1788580868000,
       "tags": [
-        "clean-code",
+        "websocket",
+        "backend-engineering",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Loop Engineering: The Coding Skill That Starts After the Prompt",
+      "url": "https://medium.com/lets-code-future/loop-engineering-the-coding-skill-that-starts-after-the-prompt-123b236e04d6",
+      "by": "Life in Anny’s Words",
+      "time": 1788580669000,
+      "tags": [
+        "ai-agent",
         "software-engineering",
-        "fullstack-development"
-      ]
-    },
-    {
-      "title": "LeetCode Is Dying. AI Just Made 1,000 Hours of Interview Grinding Look Absurd.",
-      "url": "https://medium.com/javarevisited/leetcode-is-dying-ai-just-made-1-000-hours-of-interview-grinding-look-absurd-a29890859f7f",
-      "by": "Production Systems By Devrim",
-      "time": 1788544712000,
-      "tags": [
-        "coding",
-        "software-development",
-        "web-development"
-      ]
-    },
-    {
-      "title": "The $15,000 Coding Bootcamp is Dead. Welcome to the Builder Era.",
-      "url": "https://medium.com/the-fullstack-analysis/the-15-000-coding-bootcamp-is-dead-welcome-to-the-builder-era-53193bc460b9",
-      "by": "Yogithasiri Chevva",
-      "time": 1788544688000,
-      "tags": [
-        "artificial-intelligence",
-        "data",
         "coding"
       ]
     },
     {
-      "title": "The Full-Stack Developer Is Dying. AI Can Already Be More “Full-Stack” Than You.",
-      "url": "https://blog.stackademic.com/the-full-stack-developer-is-dying-ai-can-already-be-more-full-stack-than-you-586603844ecb",
-      "by": "Production Systems By Devrim",
-      "time": 1788544619000,
+      "title": "The Local Model Won the Benchmark. Tool Calling Failed on the First Invalid JSON Response.",
+      "url": "https://blog.stackademic.com/the-local-model-won-the-benchmark-tool-calling-failed-on-the-first-invalid-json-response-5069f4b8eb18",
+      "by": "Local AI Systems",
+      "time": 1788580444000,
       "tags": [
         "software-engineering",
-        "web-development",
-        "software-development"
+        "artificial-intelligence",
+        "software-development-team"
       ]
     },
     {
-      "title": "Are We Putting a Ferrari Engine in a Fiat?",
-      "url": "https://medium.com/@boobathi.ayyasamy/are-we-putting-a-ferrari-engine-in-a-fiat-130d85aa7ff3",
-      "by": "Boobathi Ayyasamy",
-      "time": 1788544600000,
+      "title": "The Manager Trap: Why Growing Your Capacity Becomes Your Ceiling",
+      "url": "https://medium.com/design-bootcamp/the-manager-trap-why-growing-your-capacity-becomes-your-ceiling-d2f15d872a07",
+      "by": "Angeline Fan",
+      "time": 1788580430000,
       "tags": [
-        "ai-coding",
-        "large-language-models",
-        "software-engineering"
+        "leadership",
+        "software-engineering",
+        "engineering"
+      ]
+    },
+    {
+      "title": "Designing Centralized Observability for Multi-Cluster Kubernetes",
+      "url": "https://medium.com/@gunjanvmirchandani/designing-centralized-observability-for-multi-cluster-kubernetes-12d75bf9c41a",
+      "by": "Gunjan Mirchandani",
+      "time": 1788580310000,
+      "tags": [
+        "observability",
+        "devops",
+        "platform-engineering"
+      ]
+    },
+    {
+      "title": "Stage 5: Metrics with Prometheus",
+      "url": "https://collin-smith.medium.com/stage-5-metrics-with-prometheus-29917570f364",
+      "by": "Collin Smith",
+      "time": 1788580046000,
+      "tags": [
+        "aws",
+        "prometheus",
+        "devops"
       ]
     }
   ]

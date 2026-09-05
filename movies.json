@@ -1,18 +1,7 @@
 {
-  "generated": "2026-09-04T18:15:11.364Z",
+  "generated": "2026-09-05T04:27:38.461Z",
   "source": "Wikipedia + Wikidata",
   "films": [
-    {
-      "title": "Winkle Twinkle",
-      "lang": "Indian",
-      "date": "2026-09-04",
-      "precision": "day",
-      "by": "Srijit Mukherji",
-      "desc": "Upcoming film by Srijit Mukherji",
-      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Winkle_Twinkle.jpg/120px-Winkle_Twinkle.jpg",
-      "url": "https://en.wikipedia.org/wiki/Winkle_Twinkle",
-      "imdb": "https://www.imdb.com/title/tt35473512/"
-    },
     {
       "title": "Sardar 2",
       "lang": "Tamil",
@@ -155,6 +144,17 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Thudakkam",
       "imdb": "https://www.imdb.com/title/tt37510017/"
+    },
+    {
+      "title": "Bachelor Party D'eux",
+      "lang": "Malayalam",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Bachelor_Party_D'eux",
+      "imdb": null
     }
   ]
 }
