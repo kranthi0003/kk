@@ -1,18 +1,60 @@
 {
-  "generated": "2026-09-07T04:32:15.300Z",
+  "generated": "2026-09-08T04:30:18.009Z",
   "reddit": [
+    {
+      "title": "[ Removed by Reddit ]",
+      "url": "https://www.reddit.com/r/programming/comments/1wa770d/removed_by_reddit/",
+      "by": "Kel_Thuzad11",
+      "time": 1788821798000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Help me shadow or co-learn with your project",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wa40pr/help_me_shadow_or_colearn_with_your_project/",
+      "by": "Hari_Harish2026",
+      "time": 1788814118000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Image scans come back with a few hundred CVEs a week, how are you deciding which ones are worth fixing first?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wa2ax3/image_scans_come_back_with_a_few_hundred_cves_a/",
+      "by": "Fuzzy-Teaching7112",
+      "time": 1788810263000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Implementing the Karatsuba multiplication algorithm on an 8-bit computer",
+      "url": "https://www.reddit.com/r/programming/comments/1wa0ja2/implementing_the_karatsuba_multiplication/",
+      "by": "MichaelKamprath",
+      "time": 1788806416000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Nuxt co-creator Alexandre Chopin joins Encore",
+      "url": "https://www.reddit.com/r/programming/comments/1w9rerx/nuxt_cocreator_alexandre_chopin_joins_encore/",
+      "by": "Shot-Reporter-2443",
+      "time": 1788785735000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A faster way to convert a timestamp ➜ Hour, Min, Sec",
+      "url": "https://www.reddit.com/r/programming/comments/1w9pelh/a_faster_way_to_convert_a_timestamp_hour_min_sec/",
+      "by": "benjoffe",
+      "time": 1788780007000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Mental Model for Distributed Compute: Kubernetes, Slurm, Ray, and Spark",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w9m7zf/a_mental_model_for_distributed_compute_kubernetes/",
+      "by": "ArchitectingAI",
+      "time": 1788769222000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "Making a Python interpreter in 1024 bytes",
       "url": "https://www.reddit.com/r/programming/comments/1w9c0an/making_a_python_interpreter_in_1024_bytes/",
       "by": "azhenley",
       "time": 1788738235000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "It took a year to ship WebAssembly in Anubis",
-      "url": "https://www.reddit.com/r/programming/comments/1w9brw5/it_took_a_year_to_ship_webassembly_in_anubis/",
-      "by": "shadowh511",
-      "time": 1788737593000,
       "sub": "r/programming"
     },
     {
@@ -23,163 +65,122 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "From a Chocolate Wrapper to Concurrent InnoDB Page Splits",
-      "url": "https://www.reddit.com/r/programming/comments/1w96yd1/from_a_chocolate_wrapper_to_concurrent_innodb/",
-      "by": "drrtuy-b",
-      "time": 1788725779000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Why Your AI Agent Sucks at Bash (and How We Built a CLI for LLM-Native DevOps)",
       "url": "https://www.reddit.com/r/kubernetes/comments/1w934kh/why_your_ai_agent_sucks_at_bash_and_how_we_built/",
       "by": "Own_Stick_7214",
       "time": 1788717341000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes node-level resource balancing / workload isolation",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w92xm5/kubernetes_nodelevel_resource_balancing_workload/",
-      "by": "Specialist_Horror400",
-      "time": 1788716912000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Continued Fractions And Lattice Sieving",
-      "url": "https://www.reddit.com/r/programming/comments/1w91ztc/continued_fractions_and_lattice_sieving/",
-      "by": "DataBaeBee",
-      "time": 1788714894000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Modding a 20-year-old game to make it even better (part 2!)",
-      "url": "https://www.reddit.com/r/programming/comments/1w90tg1/modding_a_20yearold_game_to_make_it_even_better/",
-      "by": "HHalo6",
-      "time": 1788712233000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How are people managing 100s–1000s of on-prem/edge Kubernetes clusters?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w8u52h/how_are_people_managing_100s1000s_of_onpremedge/",
-      "by": "Lks1123",
-      "time": 1788695568000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Spent 40 minutes last week just correlating alerts to find the actual root cause — is this normal or are we doing something wrong?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w8ty2h/spent_40_minutes_last_week_just_correlating/",
-      "by": "Outside-Champion9078",
-      "time": 1788694979000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Capgemini DevOps L1 Interview Experience: Questions Asked",
-      "url": "https://medium.com/@preetjit82/capgemini-devops-l1-interview-experience-questions-asked-90daf1f09fe9",
-      "by": "Interview Simplified",
-      "time": 1788755340000,
+      "title": "Building EventPlug on AWS: From a Product Idea to a Secure, Automated Cloud Platform",
+      "url": "https://medium.com/@nuhu.iskandar1/building-eventplug-on-aws-from-a-product-idea-to-a-secure-automated-cloud-platform-1aba51b794c5",
+      "by": "Iskandar Nuhu",
+      "time": 1788841094000,
       "tags": [
-        "interview-questions",
-        "devops",
-        "jobs"
-      ]
-    },
-    {
-      "title": "Tredence Data Engineering Interview Will Be 10X Easier With These 15 Questions",
-      "url": "https://medium.com/@preetjit82/tredence-data-engineering-interview-will-be-10x-easier-with-these-15-questions-88898bd95b16",
-      "by": "Interview Simplified",
-      "time": 1788755292000,
-      "tags": [
-        "programming",
-        "jobs",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "What Android Studio’s “Migrate to Gradle Daemon Toolchain” Notification Actually Means",
-      "url": "https://towardsdev.com/what-android-studios-migrate-to-gradle-daemon-toolchain-notification-actually-means-8dbc7925b540",
-      "by": "Aslam Hossin",
-      "time": 1788755217000,
-      "tags": [
-        "gradle",
-        "programming",
-        "koltin"
-      ]
-    },
-    {
-      "title": "My Manager Called Me the Most Reliable Engineer on the Team. Then Promoted Someone Else.",
-      "url": "https://medium.com/@developeryusuf/my-manager-called-me-the-most-reliable-engineer-on-the-team-then-promoted-someone-else-b12fdb8eddb4",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1788754729000,
-      "tags": [
-        "careers",
-        "management",
-        "leadership"
-      ]
-    },
-    {
-      "title": "Kubernetes 1.37 Can Scale Your Deployment to ZERO — But One Wrong Setting Can Break Everything",
-      "url": "https://medium.com/@TheRealShashankT/kubernetes-1-37-can-scale-your-deployment-to-zero-but-one-wrong-setting-can-break-everything-8f4872cb1c58",
-      "by": "Shashank Tiwari",
-      "time": 1788754599000,
-      "tags": [
-        "cloud-cost-optimization",
-        "platform-engineering",
+        "aws",
+        "cloud-architecture",
         "devops"
       ]
     },
     {
-      "title": "Building a Containerized Static Website with Docker, Nginx, Bind Mounts, Apache, Gzip, and Custom…",
-      "url": "https://medium.com/@rester.mcglown/building-a-containerized-static-website-with-docker-nginx-bind-mounts-apache-gzip-and-custom-f971a6627e39",
-      "by": "Rester L. McGlown Jr.",
-      "time": 1788754497000,
+      "title": "Beyond GET and POST: 10 REST API Concepts Every Developer Should Know",
+      "url": "https://medium.com/@uyanhewagetr/beyond-get-and-post-10-rest-api-concepts-every-developer-should-know-f93d14d96669",
+      "by": "Thisharika Rangani",
+      "time": 1788841039000,
       "tags": [
-        "cloud-computing",
-        "docker",
-        "nginx"
+        "programming",
+        "nodejs",
+        "api"
       ]
     },
     {
-      "title": "The End of the Autocomplete Era: How AI is Orchestrating the Entire Data Pipeline",
-      "url": "https://medium.com/towards-data-engineering/the-end-of-the-autocomplete-era-how-ai-is-orchestrating-the-entire-data-pipeline-396a0ed1c1d4",
-      "by": "B V Sarath Chandra",
-      "time": 1788754161000,
+      "title": "Pengalaman Seru Ngulik Tencent EdgeOne Makers di DevHandal 2026 Batch 2!",
+      "url": "https://medium.com/@fiviasyafafelizaaa/pengalaman-seru-ngulik-tencent-edgeone-makers-di-devhandal-2026-batch-2-299a88e97dae",
+      "by": "Fivia Syafa Feliza",
+      "time": 1788841032000,
       "tags": [
-        "programming",
-        "data-engineering",
-        "data-science"
+        "web-development",
+        "technology",
+        "software-engineering"
       ]
     },
     {
-      "title": "How Rust Lays Out Memory, and Why Java Instincts Mislead You",
-      "url": "https://medium.com/@sam.euchaliptus/how-rust-lays-out-memory-and-why-java-instincts-mislead-you-e3a0e6f3b086",
-      "by": "Putu Mas Mertayasa",
-      "time": 1788753996000,
+      "title": "California Is Putting a Censor Between You and Your 3D Printer.",
+      "url": "https://medium.com/@blogstacker/california-is-putting-a-censor-between-you-and-your-3d-printer-847ee7f6b116",
+      "by": "The Blog Stacker - Tech Writer✨",
+      "time": 1788840878000,
       "tags": [
-        "jvm",
-        "programming",
-        "rust"
-      ]
-    },
-    {
-      "title": "Notes on AI Coding That Lives in the Browser",
-      "url": "https://medium.com/@magicvip2026/notes-on-ai-coding-that-lives-in-the-browser-408ce1512aa9",
-      "by": "magicmonster",
-      "time": 1788753986000,
-      "tags": [
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "250 Days of CodeChef: The Journey Behind the Streak",
-      "url": "https://medium.com/@kmnayeem/250-days-of-codechef-the-journey-behind-the-streak-5d35516a857f",
-      "by": "K. M. Abdullah Al - Nayeem",
-      "time": 1788753904000,
-      "tags": [
-        "programming",
-        "competitive-programming",
+        "3d-printer",
+        "technology",
         "coding"
+      ]
+    },
+    {
+      "title": "Alertmanager Configuration, Receivers, and Silences",
+      "url": "https://medium.com/@Kwindisch/alertmanager-configuration-receivers-and-silences-aab5f907da69",
+      "by": "Kevin Windisch",
+      "time": 1788840806000,
+      "tags": [
+        "alertmanager",
+        "monitoring",
+        "devops"
+      ]
+    },
+    {
+      "title": "Modern Android Development: Building Your First App with Kotlin and Jetpack Compose",
+      "url": "https://eraoftech.medium.com/modern-android-development-building-your-first-app-with-kotlin-and-jetpack-compose-0e90c9112e62",
+      "by": "Sunny",
+      "time": 1788840584000,
+      "tags": [
+        "mobile-development",
+        "jetpack-compose",
+        "programming"
+      ]
+    },
+    {
+      "title": "Context Is the Bottleneck, Not the Model",
+      "url": "https://medium.com/@manjit444manjit/context-is-the-bottleneck-not-the-model-55f4d4596ea9",
+      "by": "Manjit Sithuraj",
+      "time": 1788840543000,
+      "tags": [
+        "productivity",
+        "artificial-intelligence",
+        "technology"
+      ]
+    },
+    {
+      "title": "Node.js Quietly Killed the TypeScript Build Step",
+      "url": "https://mozzammeluiu.medium.com/node-js-quietly-killed-the-typescript-build-step-44d9dd10703e",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1788840314000,
+      "tags": [
+        "web-development",
+        "typescript",
+        "javascript"
+      ]
+    },
+    {
+      "title": "Context Engineering: The Before/After Walkthrough",
+      "url": "https://medium.com/system-design-mastery-series/context-engineering-the-before-after-walkthrough-63dc6e4c7a98",
+      "by": "Suresh Kumar Ariya Gowder",
+      "time": 1788840194000,
+      "tags": [
+        "programming",
+        "prompt-engineering",
+        "ai"
+      ]
+    },
+    {
+      "title": "PortSwigger Web Security Academy: All API Testing Labs Solved (Full Walkthrough)",
+      "url": "https://medium.com/@blueorionn/portswigger-web-security-academy-all-api-testing-labs-solved-full-walkthrough-799fce0dca50",
+      "by": "Blueorionn",
+      "time": 1788840008000,
+      "tags": [
+        "portswigger",
+        "programming",
+        "ctf"
       ]
     }
   ]
