@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-08T04:30:18.009Z",
+  "generated": "2026-09-09T04:30:45.087Z",
   "reddit": [
     {
-      "title": "[ Removed by Reddit ]",
-      "url": "https://www.reddit.com/r/programming/comments/1wa770d/removed_by_reddit/",
-      "by": "Kel_Thuzad11",
-      "time": 1788821798000,
+      "title": "Announcing .NET 11 Release Candidate 1 - .NET Blog",
+      "url": "https://www.reddit.com/r/programming/comments/1wbb73b/announcing_net_11_release_candidate_1_net_blog/",
+      "by": "Atulin",
+      "time": 1788927520000,
       "sub": "r/programming"
     },
     {
-      "title": "Help me shadow or co-learn with your project",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wa40pr/help_me_shadow_or_colearn_with_your_project/",
-      "by": "Hari_Harish2026",
-      "time": 1788814118000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Image scans come back with a few hundred CVEs a week, how are you deciding which ones are worth fixing first?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wa2ax3/image_scans_come_back_with_a_few_hundred_cves_a/",
-      "by": "Fuzzy-Teaching7112",
-      "time": 1788810263000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Implementing the Karatsuba multiplication algorithm on an 8-bit computer",
-      "url": "https://www.reddit.com/r/programming/comments/1wa0ja2/implementing_the_karatsuba_multiplication/",
-      "by": "MichaelKamprath",
-      "time": 1788806416000,
+      "title": "Not In My Git Yard: Catching Backdoors at Commit and Release Time",
+      "url": "https://www.reddit.com/r/programming/comments/1wb9iot/not_in_my_git_yard_catching_backdoors_at_commit/",
+      "by": "mttd",
+      "time": 1788922639000,
       "sub": "r/programming"
     },
     {
-      "title": "Nuxt co-creator Alexandre Chopin joins Encore",
-      "url": "https://www.reddit.com/r/programming/comments/1w9rerx/nuxt_cocreator_alexandre_chopin_joins_encore/",
-      "by": "Shot-Reporter-2443",
-      "time": 1788785735000,
+      "title": "Handling the go faster demand from management against teammates pushing back",
+      "url": "https://www.reddit.com/r/devops/comments/1wb7xwf/handling_the_go_faster_demand_from_management/",
+      "by": "safrax",
+      "time": 1788918352000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "AI Comiseration: Client replacing production portal with AI Slop",
+      "url": "https://www.reddit.com/r/devops/comments/1wb3l8j/ai_comiseration_client_replacing_production/",
+      "by": "badguy84",
+      "time": 1788907128000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Vibe coding infra is creating more operational debt than it saves",
+      "url": "https://www.reddit.com/r/devops/comments/1wb1qg5/vibe_coding_infra_is_creating_more_operational/",
+      "by": "davey_622",
+      "time": 1788902840000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I contributed to Golang, here is how you can too",
+      "url": "https://www.reddit.com/r/programming/comments/1wazmfy/i_contributed_to_golang_here_is_how_you_can_too/",
+      "by": "der_gopher",
+      "time": 1788898241000,
       "sub": "r/programming"
     },
     {
-      "title": "A faster way to convert a timestamp ➜ Hour, Min, Sec",
-      "url": "https://www.reddit.com/r/programming/comments/1w9pelh/a_faster_way_to_convert_a_timestamp_hour_min_sec/",
-      "by": "benjoffe",
-      "time": 1788780007000,
+      "title": "A hardening script I wrote took a load balancer offline and exited 0",
+      "url": "https://www.reddit.com/r/devops/comments/1wazlw4/a_hardening_script_i_wrote_took_a_load_balancer/",
+      "by": "Sure_Abbreviations28",
+      "time": 1788898208000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How branch prediction makes sorted data faster",
+      "url": "https://www.reddit.com/r/programming/comments/1wazh4y/how_branch_prediction_makes_sorted_data_faster/",
+      "by": "FarProtection1673",
+      "time": 1788897925000,
       "sub": "r/programming"
     },
     {
-      "title": "A Mental Model for Distributed Compute: Kubernetes, Slurm, Ray, and Spark",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w9m7zf/a_mental_model_for_distributed_compute_kubernetes/",
-      "by": "ArchitectingAI",
-      "time": 1788769222000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Making a Python interpreter in 1024 bytes",
-      "url": "https://www.reddit.com/r/programming/comments/1w9c0an/making_a_python_interpreter_in_1024_bytes/",
-      "by": "azhenley",
-      "time": 1788738235000,
+      "title": "1996 dial-up simulator. A full working desktop, a browser, and a web that loads at actual 56k.",
+      "url": "https://www.reddit.com/r/programming/comments/1wawcq6/1996_dialup_simulator_a_full_working_desktop_a/",
+      "by": "Scholeristical",
+      "time": 1788891394000,
       "sub": "r/programming"
     },
     {
-      "title": "Home lab setup",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w9a5wx/home_lab_setup/",
-      "by": "Economics_geek1",
-      "time": 1788733410000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Why Your AI Agent Sucks at Bash (and How We Built a CLI for LLM-Native DevOps)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w934kh/why_your_ai_agent_sucks_at_bash_and_how_we_built/",
-      "by": "Own_Stick_7214",
-      "time": 1788717341000,
-      "sub": "r/kubernetes"
+      "title": "Why I started piping CLI outputs into a local SQLite memory daemon for AI agents",
+      "url": "https://www.reddit.com/r/devops/comments/1wauccw/why_i_started_piping_cli_outputs_into_a_local/",
+      "by": "Glittering-Yo",
+      "time": 1788887212000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Building EventPlug on AWS: From a Product Idea to a Secure, Automated Cloud Platform",
-      "url": "https://medium.com/@nuhu.iskandar1/building-eventplug-on-aws-from-a-product-idea-to-a-secure-automated-cloud-platform-1aba51b794c5",
-      "by": "Iskandar Nuhu",
-      "time": 1788841094000,
+      "title": "Kotlin Basics Part 2: Master Conditions and Loops",
+      "url": "https://writeflow.medium.com/kotlin-basics-part-2-master-conditions-and-loops-643ef71a3354",
+      "by": "WriteFlow",
+      "time": 1788926522000,
       "tags": [
-        "aws",
-        "cloud-architecture",
-        "devops"
+        "kotlin-beginners",
+        "software-development",
+        "android-app-development"
       ]
     },
     {
-      "title": "Beyond GET and POST: 10 REST API Concepts Every Developer Should Know",
-      "url": "https://medium.com/@uyanhewagetr/beyond-get-and-post-10-rest-api-concepts-every-developer-should-know-f93d14d96669",
-      "by": "Thisharika Rangani",
-      "time": 1788841039000,
+      "title": "CPU Is at 100% on Linux. Don’t Panic",
+      "url": "https://asepsayyad007.medium.com/cpu-is-at-100-on-linux-dont-panic-5053b28d4415",
+      "by": "Asep Sayyad",
+      "time": 1788926347000,
       "tags": [
-        "programming",
-        "nodejs",
-        "api"
+        "linux-tutorial",
+        "ubuntu",
+        "system-administration"
       ]
     },
     {
-      "title": "Pengalaman Seru Ngulik Tencent EdgeOne Makers di DevHandal 2026 Batch 2!",
-      "url": "https://medium.com/@fiviasyafafelizaaa/pengalaman-seru-ngulik-tencent-edgeone-makers-di-devhandal-2026-batch-2-299a88e97dae",
-      "by": "Fivia Syafa Feliza",
-      "time": 1788841032000,
+      "title": "Best devops institute in noida with placement",
+      "url": "https://trainingbasket440.medium.com/best-devops-institute-in-noida-with-placement-a2fbad6cfbe5",
+      "by": "TRAINING BASKET",
+      "time": 1788926208000,
       "tags": [
-        "web-development",
-        "technology",
+        "aws-devops",
+        "devops-certification",
+        "digital-marketing"
+      ]
+    },
+    {
+      "title": "Why Multi-Agent AI Systems Are the Future of AI Applications",
+      "url": "https://medium.com/@sachinnomula308/why-multi-agent-ai-systems-are-the-future-of-ai-applications-ff9ef2350cce",
+      "by": "Sachinnomula",
+      "time": 1788925764000,
+      "tags": [
+        "ai",
+        "software-engineering",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "Who Is Responsible When Software Makes the Decision?",
+      "url": "https://medium.com/@TheAbstractEngineer/who-is-responsible-when-software-makes-the-decision-922477ab5ab3",
+      "by": "The Abstract Engineer",
+      "time": 1788925635000,
+      "tags": [
+        "artificial-intelligence",
+        "decision-making",
         "software-engineering"
       ]
     },
     {
-      "title": "California Is Putting a Censor Between You and Your 3D Printer.",
-      "url": "https://medium.com/@blogstacker/california-is-putting-a-censor-between-you-and-your-3d-printer-847ee7f6b116",
-      "by": "The Blog Stacker - Tech Writer✨",
-      "time": 1788840878000,
+      "title": "GPT-6 Astra Just Ended Software",
+      "url": "https://medium.com/skillstuff/gpt-6-astra-just-ended-software-28e2da26faec",
+      "by": "TechByRahmat",
+      "time": 1788925558000,
       "tags": [
-        "3d-printer",
-        "technology",
-        "coding"
+        "future-of-technology",
+        "generative-ai-tools",
+        "software-engineering"
       ]
     },
     {
-      "title": "Alertmanager Configuration, Receivers, and Silences",
-      "url": "https://medium.com/@Kwindisch/alertmanager-configuration-receivers-and-silences-aab5f907da69",
-      "by": "Kevin Windisch",
-      "time": 1788840806000,
+      "title": "Day 199 of Learning Java & DSA: Understanding Cycle Detection in Graphs",
+      "url": "https://medium.com/@payalmehra3522/day-199-of-learning-java-dsa-understanding-cycle-detection-in-graphs-e89d95cc4183",
+      "by": "Payal Mehra",
+      "time": 1788925374000,
       "tags": [
-        "alertmanager",
-        "monitoring",
-        "devops"
+        "java",
+        "graph",
+        "sad"
       ]
     },
     {
-      "title": "Modern Android Development: Building Your First App with Kotlin and Jetpack Compose",
-      "url": "https://eraoftech.medium.com/modern-android-development-building-your-first-app-with-kotlin-and-jetpack-compose-0e90c9112e62",
-      "by": "Sunny",
-      "time": 1788840584000,
+      "title": "GPT-6 Astra Just Ended Software — Here’s What $50 Per Million Tokens Actually Buys You",
+      "url": "https://medium.com/@trends24/gpt-6-astra-just-ended-software-heres-what-50-per-million-tokens-actually-buys-you-eab1273fa0fb",
+      "by": "Trends 24/7",
+      "time": 1788924661000,
       "tags": [
-        "mobile-development",
-        "jetpack-compose",
+        "tech",
+        "artificial-intelligence",
         "programming"
       ]
     },
     {
-      "title": "Context Is the Bottleneck, Not the Model",
-      "url": "https://medium.com/@manjit444manjit/context-is-the-bottleneck-not-the-model-55f4d4596ea9",
-      "by": "Manjit Sithuraj",
-      "time": 1788840543000,
+      "title": "Tech: The Test Automation Pyramid (You’re Building It Upside Down)",
+      "url": "https://medium.com/@moksh.9/tech-the-test-automation-pyramid-youre-building-it-upside-down-c57e4385748f",
+      "by": "Moksh S",
+      "time": 1788924660000,
       "tags": [
-        "productivity",
-        "artificial-intelligence",
-        "technology"
+        "software-engineering",
+        "software-development",
+        "automation"
       ]
     },
     {
-      "title": "Node.js Quietly Killed the TypeScript Build Step",
-      "url": "https://mozzammeluiu.medium.com/node-js-quietly-killed-the-typescript-build-step-44d9dd10703e",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1788840314000,
+      "title": "The never-ending depths of Computer Science",
+      "url": "https://medium.com/@ananya.yadav.6458/the-never-ending-depths-of-computer-science-6702780fcbf8",
+      "by": "Ananya Yadav",
+      "time": 1788924604000,
       "tags": [
-        "web-development",
-        "typescript",
-        "javascript"
-      ]
-    },
-    {
-      "title": "Context Engineering: The Before/After Walkthrough",
-      "url": "https://medium.com/system-design-mastery-series/context-engineering-the-before-after-walkthrough-63dc6e4c7a98",
-      "by": "Suresh Kumar Ariya Gowder",
-      "time": 1788840194000,
-      "tags": [
-        "programming",
-        "prompt-engineering",
-        "ai"
-      ]
-    },
-    {
-      "title": "PortSwigger Web Security Academy: All API Testing Labs Solved (Full Walkthrough)",
-      "url": "https://medium.com/@blueorionn/portswigger-web-security-academy-all-api-testing-labs-solved-full-walkthrough-799fce0dca50",
-      "by": "Blueorionn",
-      "time": 1788840008000,
-      "tags": [
-        "portswigger",
-        "programming",
-        "ctf"
+        "computer-science",
+        "technology",
+        "cyber-secuity"
       ]
     }
   ]
