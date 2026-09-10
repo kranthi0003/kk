@@ -1,19 +1,68 @@
 {
-  "generated": "2026-09-09T04:30:45.087Z",
+  "generated": "2026-09-10T04:30:45.396Z",
   "reddit": [
     {
-      "title": "Announcing .NET 11 Release Candidate 1 - .NET Blog",
-      "url": "https://www.reddit.com/r/programming/comments/1wbb73b/announcing_net_11_release_candidate_1_net_blog/",
-      "by": "Atulin",
-      "time": 1788927520000,
+      "title": "Decoding the NEC V20 Microcode",
+      "url": "https://www.reddit.com/r/programming/comments/1wc3hjq/decoding_the_nec_v20_microcode/",
+      "by": "self",
+      "time": 1789000215000,
       "sub": "r/programming"
     },
     {
-      "title": "Not In My Git Yard: Catching Backdoors at Commit and Release Time",
-      "url": "https://www.reddit.com/r/programming/comments/1wb9iot/not_in_my_git_yard_catching_backdoors_at_commit/",
-      "by": "mttd",
-      "time": 1788922639000,
+      "title": "High-performance Database Architecture - Interview with Tyler Cloutier",
+      "url": "https://www.reddit.com/r/programming/comments/1wbwkvz/highperformance_database_architecture_interview/",
+      "by": "max123246",
+      "time": 1788984157000,
       "sub": "r/programming"
+    },
+    {
+      "title": "A Design Space Exploration of Async/Await",
+      "url": "https://www.reddit.com/r/programming/comments/1wbw0pa/a_design_space_exploration_of_asyncawait/",
+      "by": "alexeyr",
+      "time": 1788982985000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Beginner DevOps question: Do experienced engineers actually write YAML like this?",
+      "url": "https://www.reddit.com/r/devops/comments/1wbu37v/beginner_devops_question_do_experienced_engineers/",
+      "by": "aloofhoneybee68",
+      "time": 1788978974000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Four routes to your SSH key from an AI coding agent, and what actually stops them",
+      "url": "https://www.reddit.com/r/devops/comments/1wbtfdk/four_routes_to_your_ssh_key_from_an_ai_coding/",
+      "by": "Adarsh1176",
+      "time": 1788977595000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "this is why you should bring your ops to slack",
+      "url": "https://www.reddit.com/r/devops/comments/1wbsty2/this_is_why_you_should_bring_your_ops_to_slack/",
+      "by": "aisatsana__",
+      "time": 1788976364000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Optimizing a Spin-Lock",
+      "url": "https://www.reddit.com/r/programming/comments/1wbr6an/optimizing_a_spinlock/",
+      "by": "david-alvarez-rosa",
+      "time": 1788972846000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Every Millisecond Counts",
+      "url": "https://www.reddit.com/r/programming/comments/1wbplpd/every_millisecond_counts/",
+      "by": "jrdi_",
+      "time": 1788969509000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Best practices for exposing multiple websites in Docker containers on the same Ubuntu server to the web",
+      "url": "https://www.reddit.com/r/devops/comments/1wbjdto/best_practices_for_exposing_multiple_websites_in/",
+      "by": "neuralbeans",
+      "time": 1788954701000,
+      "sub": "r/devops"
     },
     {
       "title": "Handling the go faster demand from management against teammates pushing back",
@@ -21,166 +70,116 @@
       "by": "safrax",
       "time": 1788918352000,
       "sub": "r/devops"
-    },
-    {
-      "title": "AI Comiseration: Client replacing production portal with AI Slop",
-      "url": "https://www.reddit.com/r/devops/comments/1wb3l8j/ai_comiseration_client_replacing_production/",
-      "by": "badguy84",
-      "time": 1788907128000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Vibe coding infra is creating more operational debt than it saves",
-      "url": "https://www.reddit.com/r/devops/comments/1wb1qg5/vibe_coding_infra_is_creating_more_operational/",
-      "by": "davey_622",
-      "time": 1788902840000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I contributed to Golang, here is how you can too",
-      "url": "https://www.reddit.com/r/programming/comments/1wazmfy/i_contributed_to_golang_here_is_how_you_can_too/",
-      "by": "der_gopher",
-      "time": 1788898241000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "A hardening script I wrote took a load balancer offline and exited 0",
-      "url": "https://www.reddit.com/r/devops/comments/1wazlw4/a_hardening_script_i_wrote_took_a_load_balancer/",
-      "by": "Sure_Abbreviations28",
-      "time": 1788898208000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How branch prediction makes sorted data faster",
-      "url": "https://www.reddit.com/r/programming/comments/1wazh4y/how_branch_prediction_makes_sorted_data_faster/",
-      "by": "FarProtection1673",
-      "time": 1788897925000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "1996 dial-up simulator. A full working desktop, a browser, and a web that loads at actual 56k.",
-      "url": "https://www.reddit.com/r/programming/comments/1wawcq6/1996_dialup_simulator_a_full_working_desktop_a/",
-      "by": "Scholeristical",
-      "time": 1788891394000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Why I started piping CLI outputs into a local SQLite memory daemon for AI agents",
-      "url": "https://www.reddit.com/r/devops/comments/1wauccw/why_i_started_piping_cli_outputs_into_a_local/",
-      "by": "Glittering-Yo",
-      "time": 1788887212000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Kotlin Basics Part 2: Master Conditions and Loops",
-      "url": "https://writeflow.medium.com/kotlin-basics-part-2-master-conditions-and-loops-643ef71a3354",
-      "by": "WriteFlow",
-      "time": 1788926522000,
+      "title": "I Tested 9 AI Agent Frameworks. Popularity Had Almost Nothing to Do With Performance.",
+      "url": "https://medium.com/@shreetejghodekar/i-tested-9-ai-agent-frameworks-popularity-had-almost-nothing-to-do-with-performance-34f0b732f872",
+      "by": "Shreetej Ghodekar",
+      "time": 1789014541000,
       "tags": [
-        "kotlin-beginners",
-        "software-development",
-        "android-app-development"
-      ]
-    },
-    {
-      "title": "CPU Is at 100% on Linux. Don’t Panic",
-      "url": "https://asepsayyad007.medium.com/cpu-is-at-100-on-linux-dont-panic-5053b28d4415",
-      "by": "Asep Sayyad",
-      "time": 1788926347000,
-      "tags": [
-        "linux-tutorial",
-        "ubuntu",
-        "system-administration"
-      ]
-    },
-    {
-      "title": "Best devops institute in noida with placement",
-      "url": "https://trainingbasket440.medium.com/best-devops-institute-in-noida-with-placement-a2fbad6cfbe5",
-      "by": "TRAINING BASKET",
-      "time": 1788926208000,
-      "tags": [
-        "aws-devops",
-        "devops-certification",
-        "digital-marketing"
-      ]
-    },
-    {
-      "title": "Why Multi-Agent AI Systems Are the Future of AI Applications",
-      "url": "https://medium.com/@sachinnomula308/why-multi-agent-ai-systems-are-the-future-of-ai-applications-ff9ef2350cce",
-      "by": "Sachinnomula",
-      "time": 1788925764000,
-      "tags": [
-        "ai",
-        "software-engineering",
+        "programming",
+        "artificial-intelligence",
         "ai-agent"
       ]
     },
     {
-      "title": "Who Is Responsible When Software Makes the Decision?",
-      "url": "https://medium.com/@TheAbstractEngineer/who-is-responsible-when-software-makes-the-decision-922477ab5ab3",
-      "by": "The Abstract Engineer",
-      "time": 1788925635000,
+      "title": "Bridging the Gap Between Code and Career: How CodyMentor is Reshaping Tech in Sahiwal and Beyond",
+      "url": "https://medium.com/@alirehan5121/bridging-the-gap-between-code-and-career-how-codymentor-is-reshaping-tech-in-sahiwal-and-beyond-a1770863866a",
+      "by": "Alirehan",
+      "time": 1789014390000,
       "tags": [
-        "artificial-intelligence",
-        "decision-making",
+        "mentorship",
+        "web-development",
+        "mobile-app-development"
+      ]
+    },
+    {
+      "title": "There Is No Right Architecture: What Chapter 1 of DDIA Taught Me",
+      "url": "https://medium.com/@Rajoxrf./there-is-no-right-architecture-what-chapter-1-of-ddia-taught-me-c6dd40dcee92",
+      "by": "Raj",
+      "time": 1789014219000,
+      "tags": [
+        "dia-d",
         "software-engineering"
       ]
     },
     {
-      "title": "GPT-6 Astra Just Ended Software",
-      "url": "https://medium.com/skillstuff/gpt-6-astra-just-ended-software-28e2da26faec",
-      "by": "TechByRahmat",
-      "time": 1788925558000,
+      "title": "Guardian Life Interview Experience: How I Cracked SDE-2 Offer (Frontend)",
+      "url": "https://amangupta-me.medium.com/guardian-life-interview-experience-how-i-cracked-sde-2-offer-frontend-d4e54a65ad47",
+      "by": "Aman Gupta",
+      "time": 1789014216000,
       "tags": [
-        "future-of-technology",
-        "generative-ai-tools",
-        "software-engineering"
+        "software-engineering",
+        "react",
+        "web-development"
       ]
     },
     {
-      "title": "Day 199 of Learning Java & DSA: Understanding Cycle Detection in Graphs",
-      "url": "https://medium.com/@payalmehra3522/day-199-of-learning-java-dsa-understanding-cycle-detection-in-graphs-e89d95cc4183",
-      "by": "Payal Mehra",
-      "time": 1788925374000,
+      "title": "Creative Technologist vs. Forward Deployed Engineer",
+      "url": "https://medium.com/@kamalpsaluja/creative-technologist-vs-forward-deployed-engineer-3818fcef428c",
+      "by": "Kamalpreet Singh Saluja",
+      "time": 1789014058000,
       "tags": [
-        "java",
-        "graph",
-        "sad"
+        "career-advice",
+        "creative-technologist",
+        "future-of-work"
       ]
     },
     {
-      "title": "GPT-6 Astra Just Ended Software — Here’s What $50 Per Million Tokens Actually Buys You",
-      "url": "https://medium.com/@trends24/gpt-6-astra-just-ended-software-heres-what-50-per-million-tokens-actually-buys-you-eab1273fa0fb",
-      "by": "Trends 24/7",
-      "time": 1788924661000,
+      "title": "Debugging Angular Like a Senior Developer: A Practical Guide to Finding Root Causes Faster",
+      "url": "https://medium.com/@roshannavale7/debugging-angular-like-a-senior-developer-a-practical-guide-to-finding-root-causes-faster-4a16c1d5dac2",
+      "by": "Roshan Navale",
+      "time": 1789014018000,
       "tags": [
-        "tech",
-        "artificial-intelligence",
+        "software-development",
+        "typescript",
+        "angular"
+      ]
+    },
+    {
+      "title": "Laravel vs Node.js in 2026: A Senior Developer’s Honest Verdict After Using Both in Production",
+      "url": "https://sadiqueali.medium.com/laravel-vs-node-js-in-2026-a-senior-developers-honest-verdict-after-using-both-in-production-6df8b48e2a5b",
+      "by": "Sadique Ali",
+      "time": 1789013947000,
+      "tags": [
+        "programming",
+        "php",
+        "javascript"
+      ]
+    },
+    {
+      "title": "The Pull Requests Got Bigger and Nobody’s Reading Them Anymore",
+      "url": "https://medium.com/@infoinletdev.five/the-pull-requests-got-bigger-and-nobodys-reading-them-anymore-1fc3f0785f3d",
+      "by": "James Anderson",
+      "time": 1789013866000,
+      "tags": [
+        "software-engineering",
+        "github",
         "programming"
       ]
     },
     {
-      "title": "Tech: The Test Automation Pyramid (You’re Building It Upside Down)",
-      "url": "https://medium.com/@moksh.9/tech-the-test-automation-pyramid-youre-building-it-upside-down-c57e4385748f",
-      "by": "Moksh S",
-      "time": 1788924660000,
+      "title": "Solve These 28 Questions Before Your Next Microsoft Interview",
+      "url": "https://medium.com/@TheAbstractEngineer/solve-these-28-questions-before-your-next-microsoft-interview-f1f7aa6e4d38",
+      "by": "The Abstract Engineer",
+      "time": 1789013844000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "automation"
+        "system-design-interview",
+        "microsoft",
+        "software-engineering"
       ]
     },
     {
-      "title": "The never-ending depths of Computer Science",
-      "url": "https://medium.com/@ananya.yadav.6458/the-never-ending-depths-of-computer-science-6702780fcbf8",
-      "by": "Ananya Yadav",
-      "time": 1788924604000,
+      "title": "Learning Localization In ASP.NET MVC",
+      "url": "https://medium.com/@muskankumari00999.mk/learning-localization-in-asp-net-mvc-eb5196e4f033",
+      "by": "Muskankumari Mk",
+      "time": 1789013819000,
       "tags": [
-        "computer-science",
-        "technology",
-        "cyber-secuity"
+        "aspnetcore",
+        "localization",
+        "langauge"
       ]
     }
   ]

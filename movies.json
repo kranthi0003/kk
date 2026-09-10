@@ -1,18 +1,7 @@
 {
-  "generated": "2026-09-09T04:29:46.204Z",
+  "generated": "2026-09-10T04:29:35.396Z",
   "source": "Wikipedia + Wikidata",
   "films": [
-    {
-      "title": "Sardar 2",
-      "lang": "Tamil",
-      "date": "2026-09-10",
-      "precision": "day",
-      "by": "P. S. Mithran",
-      "desc": "Upcoming Indian film by P. S. Mithran",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Sardar_2",
-      "imdb": "https://www.imdb.com/title/tt28541577/"
-    },
     {
       "title": "Emperor vs Sarat Chandra",
       "lang": "Indian",
@@ -124,17 +113,6 @@
       "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
-      "title": "Mandaadi",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Mathimaran Pugazhendhi",
-      "desc": "Upcoming film directed by Mathimaran Pugazhendhi",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
-      "url": "https://en.wikipedia.org/wiki/Mandaadi",
-      "imdb": "https://www.imdb.com/title/tt36596965/"
-    },
-    {
       "title": "Thudakkam",
       "lang": "Malayalam",
       "date": null,
@@ -155,6 +133,28 @@
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Beep_(film)",
       "imdb": "https://www.imdb.com/title/tt44420904/"
+    },
+    {
+      "title": "Bohurupi: The Golden Daku",
+      "lang": "Indian",
+      "date": null,
+      "precision": null,
+      "by": "Windows Production",
+      "desc": "Upcoming film by Windows Production",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
+      "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
+      "imdb": null
+    },
+    {
+      "title": "Chitukurinji",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Upcoming Indian Tamil-language film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Chitukurinji",
+      "imdb": null
     }
   ]
 }
