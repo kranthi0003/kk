@@ -1,6 +1,55 @@
 {
-  "generated": "2026-09-10T04:30:45.396Z",
+  "generated": "2026-09-11T04:31:11.728Z",
   "reddit": [
+    {
+      "title": "A secure software factory on Incus, not on Kubernetes",
+      "url": "https://www.reddit.com/r/programming/comments/1wd4z93/a_secure_software_factory_on_incus_not_on/",
+      "by": "esiy0676",
+      "time": 1789097914000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to Write an Effective Software Design Document",
+      "url": "https://www.reddit.com/r/programming/comments/1wd1jt9/how_to_write_an_effective_software_design_document/",
+      "by": "fagnerbrack",
+      "time": 1789088461000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Overview of caching in PostgreSQL",
+      "url": "https://www.reddit.com/r/programming/comments/1wcpbg6/overview_of_caching_in_postgresql/",
+      "by": "compy3",
+      "time": 1789060382000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The lifecycle of a sharded Postgres query",
+      "url": "https://www.reddit.com/r/programming/comments/1wcm90s/the_lifecycle_of_a_sharded_postgres_query/",
+      "by": "siren0x",
+      "time": 1789053726000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The Physics of Database Speed: from 300 to 1M transactions per second",
+      "url": "https://www.reddit.com/r/programming/comments/1wch6vw/the_physics_of_database_speed_from_300_to_1m/",
+      "by": "tanayvk",
+      "time": 1789041691000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Mission-Critical (Joran Dirk Greef, TigerBeetle)",
+      "url": "https://www.reddit.com/r/programming/comments/1wcescu/missioncritical_joran_dirk_greef_tigerbeetle/",
+      "by": "cdb_11",
+      "time": 1789034452000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Building more efficient locks (James Mitchell, 2024)",
+      "url": "https://www.reddit.com/r/programming/comments/1wcdr28/building_more_efficient_locks_james_mitchell_2024/",
+      "by": "cdb_11",
+      "time": 1789031026000,
+      "sub": "r/programming"
+    },
     {
       "title": "Decoding the NEC V20 Microcode",
       "url": "https://www.reddit.com/r/programming/comments/1wc3hjq/decoding_the_nec_v20_microcode/",
@@ -21,165 +70,115 @@
       "by": "alexeyr",
       "time": 1788982985000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Beginner DevOps question: Do experienced engineers actually write YAML like this?",
-      "url": "https://www.reddit.com/r/devops/comments/1wbu37v/beginner_devops_question_do_experienced_engineers/",
-      "by": "aloofhoneybee68",
-      "time": 1788978974000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Four routes to your SSH key from an AI coding agent, and what actually stops them",
-      "url": "https://www.reddit.com/r/devops/comments/1wbtfdk/four_routes_to_your_ssh_key_from_an_ai_coding/",
-      "by": "Adarsh1176",
-      "time": 1788977595000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "this is why you should bring your ops to slack",
-      "url": "https://www.reddit.com/r/devops/comments/1wbsty2/this_is_why_you_should_bring_your_ops_to_slack/",
-      "by": "aisatsana__",
-      "time": 1788976364000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Optimizing a Spin-Lock",
-      "url": "https://www.reddit.com/r/programming/comments/1wbr6an/optimizing_a_spinlock/",
-      "by": "david-alvarez-rosa",
-      "time": 1788972846000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Every Millisecond Counts",
-      "url": "https://www.reddit.com/r/programming/comments/1wbplpd/every_millisecond_counts/",
-      "by": "jrdi_",
-      "time": 1788969509000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Best practices for exposing multiple websites in Docker containers on the same Ubuntu server to the web",
-      "url": "https://www.reddit.com/r/devops/comments/1wbjdto/best_practices_for_exposing_multiple_websites_in/",
-      "by": "neuralbeans",
-      "time": 1788954701000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Handling the go faster demand from management against teammates pushing back",
-      "url": "https://www.reddit.com/r/devops/comments/1wb7xwf/handling_the_go_faster_demand_from_management/",
-      "by": "safrax",
-      "time": 1788918352000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "I Tested 9 AI Agent Frameworks. Popularity Had Almost Nothing to Do With Performance.",
-      "url": "https://medium.com/@shreetejghodekar/i-tested-9-ai-agent-frameworks-popularity-had-almost-nothing-to-do-with-performance-34f0b732f872",
-      "by": "Shreetej Ghodekar",
-      "time": 1789014541000,
+      "title": "AWS Just Made My RAG Pipeline Obsolete. Here’s What I Found.",
+      "url": "https://aws.plainenglish.io/aws-just-made-my-rag-pipeline-obsolete-heres-what-i-found-fd0f92997b7e",
+      "by": "Divy Yadav",
+      "time": 1789100777000,
       "tags": [
-        "programming",
-        "artificial-intelligence",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Bridging the Gap Between Code and Career: How CodyMentor is Reshaping Tech in Sahiwal and Beyond",
-      "url": "https://medium.com/@alirehan5121/bridging-the-gap-between-code-and-career-how-codymentor-is-reshaping-tech-in-sahiwal-and-beyond-a1770863866a",
-      "by": "Alirehan",
-      "time": 1789014390000,
-      "tags": [
-        "mentorship",
-        "web-development",
-        "mobile-app-development"
-      ]
-    },
-    {
-      "title": "There Is No Right Architecture: What Chapter 1 of DDIA Taught Me",
-      "url": "https://medium.com/@Rajoxrf./there-is-no-right-architecture-what-chapter-1-of-ddia-taught-me-c6dd40dcee92",
-      "by": "Raj",
-      "time": 1789014219000,
-      "tags": [
-        "dia-d",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Guardian Life Interview Experience: How I Cracked SDE-2 Offer (Frontend)",
-      "url": "https://amangupta-me.medium.com/guardian-life-interview-experience-how-i-cracked-sde-2-offer-frontend-d4e54a65ad47",
-      "by": "Aman Gupta",
-      "time": 1789014216000,
-      "tags": [
-        "software-engineering",
-        "react",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Creative Technologist vs. Forward Deployed Engineer",
-      "url": "https://medium.com/@kamalpsaluja/creative-technologist-vs-forward-deployed-engineer-3818fcef428c",
-      "by": "Kamalpreet Singh Saluja",
-      "time": 1789014058000,
-      "tags": [
-        "career-advice",
-        "creative-technologist",
-        "future-of-work"
-      ]
-    },
-    {
-      "title": "Debugging Angular Like a Senior Developer: A Practical Guide to Finding Root Causes Faster",
-      "url": "https://medium.com/@roshannavale7/debugging-angular-like-a-senior-developer-a-practical-guide-to-finding-root-causes-faster-4a16c1d5dac2",
-      "by": "Roshan Navale",
-      "time": 1789014018000,
-      "tags": [
+        "data-science",
         "software-development",
-        "typescript",
-        "angular"
+        "technology"
       ]
     },
     {
-      "title": "Laravel vs Node.js in 2026: A Senior Developer’s Honest Verdict After Using Both in Production",
-      "url": "https://sadiqueali.medium.com/laravel-vs-node-js-in-2026-a-senior-developers-honest-verdict-after-using-both-in-production-6df8b48e2a5b",
-      "by": "Sadique Ali",
-      "time": 1789013947000,
+      "title": "AI and ChatGPT: How Artificial Intelligence Is Changing the Way We Work",
+      "url": "https://medium.com/@ali261145272/ai-and-chatgpt-how-artificial-intelligence-is-changing-the-way-we-work-be0a0fccffa7",
+      "by": "AliHassanMaqsood",
+      "time": 1789100317000,
       "tags": [
-        "programming",
-        "php",
-        "javascript"
+        "education",
+        "artificial-intelligence",
+        "chatgpt"
       ]
     },
     {
-      "title": "The Pull Requests Got Bigger and Nobody’s Reading Them Anymore",
-      "url": "https://medium.com/@infoinletdev.five/the-pull-requests-got-bigger-and-nobodys-reading-them-anymore-1fc3f0785f3d",
-      "by": "James Anderson",
-      "time": 1789013866000,
+      "title": "Project Management Software UK & Europe: The 2026 Enterprise Buyer’s Guide",
+      "url": "https://medium.com/@walkerlara994/project-management-software-uk-europe-the-2026-enterprise-buyers-guide-c3d290d4adb3",
+      "by": "lara walker",
+      "time": 1789099811000,
       "tags": [
-        "software-engineering",
-        "github",
         "programming"
       ]
     },
     {
-      "title": "Solve These 28 Questions Before Your Next Microsoft Interview",
-      "url": "https://medium.com/@TheAbstractEngineer/solve-these-28-questions-before-your-next-microsoft-interview-f1f7aa6e4d38",
-      "by": "The Abstract Engineer",
-      "time": 1789013844000,
+      "title": "API Rate Limiting: Stop Letting Customers Crash Your API",
+      "url": "https://medium.com/@moksh.9/api-rate-limiting-stop-letting-customers-crash-your-api-cdd170cda072",
+      "by": "Moksh S",
+      "time": 1789098361000,
       "tags": [
-        "system-design-interview",
-        "microsoft",
-        "software-engineering"
+        "software-engineering",
+        "software-architecture",
+        "rate-limiting"
       ]
     },
     {
-      "title": "Learning Localization In ASP.NET MVC",
-      "url": "https://medium.com/@muskankumari00999.mk/learning-localization-in-asp-net-mvc-eb5196e4f033",
-      "by": "Muskankumari Mk",
-      "time": 1789013819000,
+      "title": "Every Production Incident Should Rewrite Your Test Strategy",
+      "url": "https://manishsaini74.medium.com/every-production-incident-should-rewrite-your-test-strategy-3535363479f6",
+      "by": "Manish Saini",
+      "time": 1789098361000,
       "tags": [
-        "aspnetcore",
-        "localization",
-        "langauge"
+        "software-engineering",
+        "quality-assurance",
+        "software-testing"
+      ]
+    },
+    {
+      "title": "When AI Writes Everything, Who Understands Anything?",
+      "url": "https://medium.com/@tathagat.banerjee/when-ai-writes-everything-who-understands-anything-1e78dea9ee6d",
+      "by": "Tat Banerjee",
+      "time": 1789098299000,
+      "tags": [
+        "software-engineering",
+        "future-of-work",
+        "programming"
+      ]
+    },
+    {
+      "title": "7 Angular Patterns That Make Your Codebase Easier to Maintain",
+      "url": "https://medium.com/@shubhamnalawade037/7-angular-patterns-that-make-your-codebase-easier-to-maintain-17cf8eae2040",
+      "by": "The Dialectic",
+      "time": 1789097986000,
+      "tags": [
+        "javascript",
+        "programming",
+        "angular"
+      ]
+    },
+    {
+      "title": "My First Week Learning Python: What I Struggled With and What I Learned",
+      "url": "https://medium.com/@ednajelimo88/my-first-week-learning-python-what-i-struggled-with-and-what-i-learned-9b9aee12ff14",
+      "by": "Edna Jelimo",
+      "time": 1789097864000,
+      "tags": [
+        "data-science",
+        "learning-to-code",
+        "programming"
+      ]
+    },
+    {
+      "title": "Best SauceLab Alternative for Real Device Testing: TestGrid",
+      "url": "https://medium.com/@hii_mohit/best-saucelab-alternative-for-real-device-testing-testgrid-aa049dcf5f13",
+      "by": "Mohit Vaswani",
+      "time": 1789097589000,
+      "tags": [
+        "coding",
+        "software-development",
+        "technology"
+      ]
+    },
+    {
+      "title": "What Is Tailscale? A Quick Intro…",
+      "url": "https://medium.com/@sudo.ritesh/what-is-tailscale-a-quick-intro-65f24ff40dd3",
+      "by": "Ritesh Sharma",
+      "time": 1789097461000,
+      "tags": [
+        "devops",
+        "networking",
+        "vpn"
       ]
     }
   ]
