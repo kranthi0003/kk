@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T04:31:17.351Z",
+  "generated": "2026-09-12T04:28:53.754Z",
   "season": "2026",
   "sources": [
     {
@@ -127,8 +127,8 @@
         "pos": 4,
         "code": "SA",
         "team": "South Africa",
-        "matches": 28,
-        "points": 2855,
+        "matches": 29,
+        "points": 2967,
         "rating": 102
       },
       {

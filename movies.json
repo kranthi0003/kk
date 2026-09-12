@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T04:30:01.330Z",
+  "generated": "2026-09-12T04:27:53.526Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -91,17 +91,6 @@
       "imdb": "https://www.imdb.com/title/tt38874778/"
     },
     {
-      "title": "Dorothy",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/22/Dorothy_film_poster.jpg/120px-Dorothy_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Dorothy_(film)",
-      "imdb": "https://www.imdb.com/title/tt38915678/"
-    },
-    {
       "title": "Maatrubhumi: May War Rest in Peace",
       "lang": "Hindi",
       "date": null,
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
+    },
+    {
+      "title": "Daayra",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian thriller film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7c/Daayra_film_poster.jpg/120px-Daayra_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Daayra",
+      "imdb": "https://www.imdb.com/title/tt32634611/"
     }
   ]
 }
