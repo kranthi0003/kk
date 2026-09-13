@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T04:28:53.754Z",
+  "generated": "2026-09-13T04:29:54.813Z",
   "season": "2026",
   "sources": [
     {
@@ -695,13 +695,13 @@
       "formats": {
         "test": {
           "matches": 3,
-          "result": null,
-          "played": 0
+          "result": "3–0",
+          "played": 3
         },
         "odi": null,
         "t20i": null
       },
-      "played": 0,
+      "played": 3,
       "scheduled": 3,
       "ends": "2026-09-09",
       "status": "done"
@@ -746,7 +746,7 @@
       "played": 0,
       "scheduled": 3,
       "ends": "2026-09-22",
-      "status": "upcoming"
+      "status": "live"
     },
     {
       "start": "2026-09-15",

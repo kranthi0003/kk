@@ -1,19 +1,61 @@
 {
-  "generated": "2026-09-12T04:28:46.299Z",
+  "generated": "2026-09-13T04:29:49.609Z",
   "reddit": [
     {
-      "title": "Thoughts on the role of DevOps in the AI-centric near future?",
-      "url": "https://www.reddit.com/r/devops/comments/1we0cu1/thoughts_on_the_role_of_devops_in_the_aicentric/",
-      "by": "SeriouslySally36",
-      "time": 1789180584000,
+      "title": "Data races and the limits of ThreadSanitizer in C and Go",
+      "url": "https://www.reddit.com/r/programming/comments/1wexekt/data_races_and_the_limits_of_threadsanitizer_in_c/",
+      "by": "mttd",
+      "time": 1789272556000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Need suggestion from Seniors who is masterd in real-time AIops in real time work",
+      "url": "https://www.reddit.com/r/devops/comments/1wevisz/need_suggestion_from_seniors_who_is_masterd_in/",
+      "by": "IndependentFalcon481",
+      "time": 1789266793000,
       "sub": "r/devops"
     },
     {
-      "title": "You have an azure internal k8s lb that you need to recreate or replace in a cluster. How would you do it?",
-      "url": "https://www.reddit.com/r/devops/comments/1wdxgh4/you_have_an_azure_internal_k8s_lb_that_you_need/",
-      "by": "gqtrees",
-      "time": 1789172445000,
+      "title": "Sandboxes for agent compared end-to-end",
+      "url": "https://www.reddit.com/r/devops/comments/1wer6lr/sandboxes_for_agent_compared_endtoend/",
+      "by": "Confident_Garden_420",
+      "time": 1789254591000,
       "sub": "r/devops"
+    },
+    {
+      "title": "How do you keep decentralized data consistent without a central server?",
+      "url": "https://www.reddit.com/r/programming/comments/1wegjbc/how_do_you_keep_decentralized_data_consistent/",
+      "by": "sanity",
+      "time": 1789229305000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I pointed a real Claude Code session at my SSH key. It tried seven routes, the kernel refused 145 times.",
+      "url": "https://www.reddit.com/r/devops/comments/1weg6ux/i_pointed_a_real_claude_code_session_at_my_ssh/",
+      "by": "Adarsh1176",
+      "time": 1789228492000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I measured two GitHub Actions scanners against 80 hand-labelled workflows. Neither result is what you want.",
+      "url": "https://www.reddit.com/r/devops/comments/1wefl0e/i_measured_two_github_actions_scanners_against_80/",
+      "by": "Acrobatic-Part5999",
+      "time": 1789226990000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "how do you know which ticket is in which env? (multi repo)",
+      "url": "https://www.reddit.com/r/devops/comments/1wefjtn/how_do_you_know_which_ticket_is_in_which_env/",
+      "by": "hihurmuz",
+      "time": 1789226906000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Hand-Coded ASM Powers Homebrew SNES Game",
+      "url": "https://www.reddit.com/r/programming/comments/1we8i2v/handcoded_asm_powers_homebrew_snes_game/",
+      "by": "r_retrohacking_mod2",
+      "time": 1789207155000,
+      "sub": "r/programming"
     },
     {
       "title": "Your Compiler Can Undo Your Security Checks",
@@ -23,164 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "Any advice on LiveRamp's technical assessment for Co-Op DevOps Engineer role?",
-      "url": "https://www.reddit.com/r/devops/comments/1wdu003/any_advice_on_liveramps_technical_assessment_for/",
-      "by": "Affectionate-Shop176",
-      "time": 1789163595000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "A modern, developer-first technical reference for Sitemaps",
-      "url": "https://www.reddit.com/r/programming/comments/1wdspwr/a_modern_developerfirst_technical_reference_for/",
-      "by": "Stephcraft",
-      "time": 1789160606000,
-      "sub": "r/programming"
-    },
-    {
       "title": "EU Cyber Resilience Act reporting obligations started today. Is your company even thinking about it?",
       "url": "https://www.reddit.com/r/programming/comments/1wds2fy/eu_cyber_resilience_act_reporting_obligations/",
       "by": "Maria_3464",
       "time": 1789159148000,
       "sub": "r/programming"
-    },
-    {
-      "title": "EBPF + MicroVM",
-      "url": "https://www.reddit.com/r/programming/comments/1wdqhym/ebpf_microvm/",
-      "by": "Tight_Alps5461",
-      "time": 1789155637000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Question to all DevOps engineers that came from Ops side",
-      "url": "https://www.reddit.com/r/devops/comments/1wdqcyx/question_to_all_devops_engineers_that_came_from/",
-      "by": "Noisy_Farts",
-      "time": 1789155329000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What are the weaknesses of CloudFormation?",
-      "url": "https://www.reddit.com/r/devops/comments/1wdp41o/what_are_the_weaknesses_of_cloudformation/",
-      "by": "RoseSec_",
-      "time": 1789152672000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Inside Claude's Android app: Finding the Internal Settings",
-      "url": "https://www.reddit.com/r/programming/comments/1wdklfz/inside_claudes_android_app_finding_the_internal/",
-      "by": "InsertFunnyUser-name",
-      "time": 1789142995000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "GPT-6 Astra Just Ended Software.",
-      "url": "https://medium.com/@moizamjad279/gpt-6-astra-just-ended-software-0755d676154b",
-      "by": "Muhammad Moiz Amjad",
-      "time": 1789186427000,
+      "title": "Fan-out calls in Spring Boot 4 without the CompletableFuture mess: Java 25’s new…",
+      "url": "https://medium.com/@cemdrman/fan-out-calls-in-spring-boot-4-without-the-completablefuture-mess-java-25s-new-895574c54999",
+      "by": "Cem Dırman",
+      "time": 1789273038000,
       "tags": [
-        "future-of-technology",
-        "software-development",
-        "artificial-intelligence"
+        "java25",
+        "spring-boot-4",
+        "java"
       ]
     },
     {
-      "title": "40+ DevOps/SRE Interviews GIVEN— Here’s What Companies Actually Ask",
-      "url": "https://medium.com/@sre-devops-interview/40-devops-sre-interviews-given-heres-what-companies-actually-ask-1b5c6e8bd994",
-      "by": "Tanishq Arora",
-      "time": 1789186261000,
+      "title": "Day 20 fo learning DevOps: LEMP stack",
+      "url": "https://medium.com/@xrsthasakil123/day-20-fo-learning-devops-lemp-stack-244f9302a51e",
+      "by": "Xrsthasakil",
+      "time": 1789272993000,
       "tags": [
-        "site-reliability-engineer",
-        "sre",
+        "lempstack",
+        "mysql",
+        "php"
+      ]
+    },
+    {
+      "title": "The Internet Is Held Together By Systems That Disagree With Each Other",
+      "url": "https://medium.com/@bvsarathc06/the-internet-is-held-together-by-systems-that-disagree-with-each-other-4b862b04499f",
+      "by": "B V Sarath Chandra",
+      "time": 1789272361000,
+      "tags": [
+        "machine-learning",
+        "data-science",
+        "technology"
+      ]
+    },
+    {
+      "title": "Your CI Cache Can Carry Malicious Code. GitHub Just Added New Controls.",
+      "url": "https://medium.com/@thedevnotebook/github-actions-cache-mode-ci-cache-poisoning-6be2c3020015",
+      "by": "The Dev Notebook",
+      "time": 1789272061000,
+      "tags": [
+        "github-actions",
+        "ci-cd-pipeline",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Onboarding Doc Is the Most Honest Health Metric Your Team Owns",
+      "url": "https://medium.com/@yalovoy/the-onboarding-doc-is-the-most-honest-health-metric-your-team-owns-db46996e86e9",
+      "by": "Illya Yalovoy",
+      "time": 1789271763000,
+      "tags": [
+        "team-building",
+        "leadership",
+        "engineering-mangement"
+      ]
+    },
+    {
+      "title": "Stop Inventing Acceptance After the Diff. Write the Veto First.",
+      "url": "https://medium.com/@thebuildersplaybook/stop-inventing-acceptance-after-the-diff-write-the-veto-first-4b23e94382c7",
+      "by": "Noor Mohammad",
+      "time": 1789270704000,
+      "tags": [
+        "ai-agent",
+        "programming",
+        "code-review"
+      ]
+    },
+    {
+      "title": "Secret Scanning Is Becoming a Merge Gate. That’s a Better Place to Stop Leaks.",
+      "url": "https://medium.com/@pujamaheshvari5/secret-scanning-is-becoming-a-merge-gate-thats-a-better-place-to-stop-leaks-b51287f5060b",
+      "by": "Puja Maheshvari",
+      "time": 1789270603000,
+      "tags": [
+        "application-security",
+        "github-actions",
         "devops"
       ]
     },
     {
-      "title": "Learn Smart Test Automation with Playwright & AI",
-      "url": "https://medium.com/@rabbanishaik1819/learn-smart-test-automation-with-playwright-ai-0426715a9012",
-      "by": "Rabbanishaik",
-      "time": 1789186181000,
+      "title": "Message Queues: Under the Hood, Failure Handling, and Scaling",
+      "url": "https://keroles-masoud.medium.com/message-queues-under-the-hood-failure-handling-and-scaling-f3875562c6c0",
+      "by": "Keroles Massoud",
+      "time": 1789270538000,
       "tags": [
-        "software-testing",
-        "software-engineering",
+        "backend-development",
+        "web-development",
+        "message-queue"
+      ]
+    },
+    {
+      "title": "AWS Aurora PostgreSQL 14 Is Reaching End of Standard Support:- What You Need to Do",
+      "url": "https://iampankajaswal.medium.com/aws-aurora-postgresql-14-is-reaching-end-of-standard-support-what-you-need-to-do-5567b3a5ef1b",
+      "by": "Pankaj Aswal",
+      "time": 1789270261000,
+      "tags": [
+        "ai",
+        "technology",
         "software-development"
       ]
     },
     {
-      "title": "Building kuthithiripp: Zero-Chill AI Code Reviews Right at the Git Gate",
-      "url": "https://medium.com/@jerlinjoy2017/building-kuthithiripp-zero-chill-ai-code-reviews-right-at-the-git-gate-ab17e12ed98d",
-      "by": "JERLIN JOY",
-      "time": 1789185662000,
+      "title": "The Cloud Cost Horror Stories — And the Scripts That Would Have Prevented Them",
+      "url": "https://medium.com/@prasantakumarroy1/the-cloud-cost-horror-stories-and-the-scripts-that-would-have-prevented-them-6e949603d7c3",
+      "by": "Prasanta Kumar Roy",
+      "time": 1789270147000,
       "tags": [
-        "nodejs",
-        "open-source",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Everyone Said I’d Be Replaced. I Waited for It to Happen. It Didn’t. But Something Else Did.",
-      "url": "https://sumanthpoola.medium.com/everyone-said-id-be-replaced-i-waited-for-it-to-happen-it-didn-t-but-something-else-did-36c8c809fb72",
-      "by": "Sumanth",
-      "time": 1789185519000,
-      "tags": [
-        "software-development",
-        "java",
-        "careers"
-      ]
-    },
-    {
-      "title": "India ka BRICS Summit & New Technology\nNew Delhi mein 18th BRICS Summit ke saath Bharat…",
-      "url": "https://medium.com/@chauhanbharat33105/india-ka-brics-summit-new-technology-new-delhi-mein-18th-brics-summit-ke-saath-bharat-8878758f9676",
-      "by": "Bharat Chauhan",
-      "time": 1789185075000,
-      "tags": [
-        "personal-development",
-        "android",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Did 6 Senior Backend Interviews Where “Good Answers” Still Got Rejected. The Pattern Was Brutal.",
-      "url": "https://medium.com/javarevisited/i-did-6-senior-backend-interviews-where-good-answers-still-got-rejected-the-pattern-was-brutal-c048f42d5b14",
-      "by": "Devrim Ozcay- Backend Engineer",
-      "time": 1789184146000,
-      "tags": [
-        "java",
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "I Did 7 Senior System Design Interviews in 45 Days. I Failed the Same Question 3 Times Before",
-      "url": "https://blog.stackademic.com/i-did-7-senior-system-design-interviews-in-45-days-i-failed-the-same-question-3-times-before-5b11217ff0de",
-      "by": "Devrim Ozcay- Backend Engineer",
-      "time": 1789184027000,
-      "tags": [
-        "java",
-        "software-development",
-        "python"
-      ]
-    },
-    {
-      "title": "MySQL Metadata Locks Explained: why my DROP TABLE timed out",
-      "url": "https://medium.com/@goodnessazike/mysql-metadata-locks-explained-why-my-drop-table-timed-out-e65362b213b5",
-      "by": "Goodness Chimuanya Azike",
-      "time": 1789184006000,
-      "tags": [
-        "software-engineering",
-        "debugging",
-        "mysql"
-      ]
-    },
-    {
-      "title": "10 Excel Add-Ins Every Accountant Needs in 2026",
-      "url": "https://medium.com/codetodeploy/10-excel-add-ins-every-accountant-needs-in-2026-263eeb8ed05a",
-      "by": "Usama Safdar",
-      "time": 1789183988000,
-      "tags": [
-        "technology",
-        "software-development",
-        "software-engineering"
+        "windows",
+        "devops",
+        "system-administration"
       ]
     }
   ]
