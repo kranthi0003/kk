@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-13T04:28:39.039Z",
+  "generated": "2026-09-14T04:31:54.685Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -102,6 +102,17 @@
       "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
+      "title": "Scene",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Jithu Madhavan",
+      "desc": "Upcoming Indian film by Jithu Madhavan",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
+      "imdb": null
+    },
+    {
       "title": "Thudakkam",
       "lang": "Malayalam",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
-    },
-    {
-      "title": "Daayra",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian thriller film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7c/Daayra_film_poster.jpg/120px-Daayra_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Daayra",
-      "imdb": "https://www.imdb.com/title/tt32634611/"
     }
   ]
 }

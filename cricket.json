@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-13T04:29:54.813Z",
+  "generated": "2026-09-14T04:32:55.344Z",
   "season": "2026",
   "sources": [
     {
@@ -53,9 +53,9 @@
         "pos": 5,
         "code": "ENG",
         "team": "England",
-        "matches": 32,
-        "points": 3158,
-        "rating": 99
+        "matches": 36,
+        "points": 3658,
+        "rating": 102
       },
       {
         "pos": 6,
@@ -75,19 +75,19 @@
       },
       {
         "pos": 8,
-        "code": "PAK",
-        "team": "Pakistan",
-        "matches": 19,
-        "points": 1427,
-        "rating": 75
-      },
-      {
-        "pos": 9,
         "code": "WIN",
         "team": "West Indies",
         "matches": 27,
         "points": 2008,
         "rating": 74
+      },
+      {
+        "pos": 9,
+        "code": "PAK",
+        "team": "Pakistan",
+        "matches": 23,
+        "points": 1623,
+        "rating": 71
       },
       {
         "pos": 10,
@@ -117,18 +117,18 @@
       },
       {
         "pos": 3,
+        "code": "SA",
+        "team": "South Africa",
+        "matches": 31,
+        "points": 3192,
+        "rating": 103
+      },
+      {
+        "pos": 4,
         "code": "AUS",
         "team": "Australia",
         "matches": 29,
         "points": 2965,
-        "rating": 102
-      },
-      {
-        "pos": 4,
-        "code": "SA",
-        "team": "South Africa",
-        "matches": 29,
-        "points": 2967,
         "rating": 102
       },
       {
@@ -201,8 +201,8 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 61,
-        "points": 16366,
+        "matches": 62,
+        "points": 16644,
         "rating": 268
       },
       {
@@ -273,8 +273,8 @@
         "pos": 10,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 36,
-        "points": 7935,
+        "matches": 37,
+        "points": 8145,
         "rating": 220
       },
       {
@@ -717,12 +717,12 @@
         "test": null,
         "odi": {
           "matches": 3,
-          "result": null,
-          "played": 0
+          "result": "0–3",
+          "played": 3
         },
         "t20i": null
       },
-      "played": 0,
+      "played": 3,
       "scheduled": 3,
       "ends": "2026-09-21",
       "status": "live"

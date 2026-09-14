@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-13T04:29:49.609Z",
+  "generated": "2026-09-14T04:32:47.320Z",
   "reddit": [
     {
-      "title": "Data races and the limits of ThreadSanitizer in C and Go",
-      "url": "https://www.reddit.com/r/programming/comments/1wexekt/data_races_and_the_limits_of_threadsanitizer_in_c/",
+      "title": "What happens when an AI agent becomes an API that can do work?",
+      "url": "https://www.reddit.com/r/devops/comments/1wfrjkx/what_happens_when_an_ai_agent_becomes_an_api_that/",
+      "by": "RaraAvis27",
+      "time": 1789354523000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "pytest exits 4 on a missing path and 5 on zero tests. My verify hook turned both into PASS.",
+      "url": "https://www.reddit.com/r/devops/comments/1wfqjj7/pytest_exits_4_on_a_missing_path_and_5_on_zero/",
+      "by": "coding-os",
+      "time": 1789351650000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "A \"better prompt\" stopped catching AI-generated security issues after one session. Ended up writing a 5-phase pre-commit gate instead.",
+      "url": "https://www.reddit.com/r/devops/comments/1wfot79/a_better_prompt_stopped_catching_aigenerated/",
+      "by": "BeginningWinner7525",
+      "time": 1789346793000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Anyone else juggling GDPR + DPDPA + SOC2 + ISO27001 for a multi-cloud/edge setup?",
+      "url": "https://www.reddit.com/r/devops/comments/1wfktiw/anyone_else_juggling_gdpr_dpdpa_soc2_iso27001_for/",
+      "by": "No-Philosopher9797",
+      "time": 1789336215000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "MinIO on EC2 Auto Scaling Group fails after September patching — bootstrap download returns HTTP 413",
+      "url": "https://www.reddit.com/r/devops/comments/1wfgskj/minio_on_ec2_auto_scaling_group_fails_after/",
+      "by": "Fantastic-Leg-5806",
+      "time": 1789326869000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "CUDA Tile (cuTile) first working port in Java",
+      "url": "https://www.reddit.com/r/programming/comments/1wffueb/cuda_tile_cutile_first_working_port_in_java/",
+      "by": "mikebmx1",
+      "time": 1789324787000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "JSON parsing in OxCaml: fast, but not too fast",
+      "url": "https://www.reddit.com/r/programming/comments/1wfe1vm/json_parsing_in_oxcaml_fast_but_not_too_fast/",
       "by": "mttd",
-      "time": 1789272556000,
+      "time": 1789320830000,
       "sub": "r/programming"
     },
     {
-      "title": "Need suggestion from Seniors who is masterd in real-time AIops in real time work",
-      "url": "https://www.reddit.com/r/devops/comments/1wevisz/need_suggestion_from_seniors_who_is_masterd_in/",
-      "by": "IndependentFalcon481",
-      "time": 1789266793000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Sandboxes for agent compared end-to-end",
-      "url": "https://www.reddit.com/r/devops/comments/1wer6lr/sandboxes_for_agent_compared_endtoend/",
-      "by": "Confident_Garden_420",
-      "time": 1789254591000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How do you keep decentralized data consistent without a central server?",
-      "url": "https://www.reddit.com/r/programming/comments/1wegjbc/how_do_you_keep_decentralized_data_consistent/",
-      "by": "sanity",
-      "time": 1789229305000,
+      "title": "TIL: One lock to rule them all",
+      "url": "https://www.reddit.com/r/programming/comments/1wf4277/til_one_lock_to_rule_them_all/",
+      "by": "realflakm",
+      "time": 1789295306000,
       "sub": "r/programming"
     },
     {
-      "title": "I pointed a real Claude Code session at my SSH key. It tried seven routes, the kernel refused 145 times.",
-      "url": "https://www.reddit.com/r/devops/comments/1weg6ux/i_pointed_a_real_claude_code_session_at_my_ssh/",
-      "by": "Adarsh1176",
-      "time": 1789228492000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I measured two GitHub Actions scanners against 80 hand-labelled workflows. Neither result is what you want.",
-      "url": "https://www.reddit.com/r/devops/comments/1wefl0e/i_measured_two_github_actions_scanners_against_80/",
-      "by": "Acrobatic-Part5999",
-      "time": 1789226990000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "how do you know which ticket is in which env? (multi repo)",
-      "url": "https://www.reddit.com/r/devops/comments/1wefjtn/how_do_you_know_which_ticket_is_in_which_env/",
-      "by": "hihurmuz",
-      "time": 1789226906000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Hand-Coded ASM Powers Homebrew SNES Game",
-      "url": "https://www.reddit.com/r/programming/comments/1we8i2v/handcoded_asm_powers_homebrew_snes_game/",
-      "by": "r_retrohacking_mod2",
-      "time": 1789207155000,
+      "title": "Refit - The Better Way to Consume APIs in .NET",
+      "url": "https://www.reddit.com/r/programming/comments/1wf2tce/refit_the_better_way_to_consume_apis_in_net/",
+      "by": "RemigiuszZalewski",
+      "time": 1789290922000,
       "sub": "r/programming"
     },
     {
-      "title": "Your Compiler Can Undo Your Security Checks",
-      "url": "https://www.reddit.com/r/programming/comments/1wdwqje/your_compiler_can_undo_your_security_checks/",
-      "by": "esiy0676",
-      "time": 1789170570000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "EU Cyber Resilience Act reporting obligations started today. Is your company even thinking about it?",
-      "url": "https://www.reddit.com/r/programming/comments/1wds2fy/eu_cyber_resilience_act_reporting_obligations/",
-      "by": "Maria_3464",
-      "time": 1789159148000,
+      "title": "40ms Go GC stop-the-world pauses caused by swap",
+      "url": "https://www.reddit.com/r/programming/comments/1wf2fei/40ms_go_gc_stoptheworld_pauses_caused_by_swap/",
+      "by": "andreiross",
+      "time": 1789289545000,
       "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Fan-out calls in Spring Boot 4 without the CompletableFuture mess: Java 25’s new…",
-      "url": "https://medium.com/@cemdrman/fan-out-calls-in-spring-boot-4-without-the-completablefuture-mess-java-25s-new-895574c54999",
-      "by": "Cem Dırman",
-      "time": 1789273038000,
+      "title": "I Built a Spring Boot Retry Mechanism That Actually Knows When NOT to Retry",
+      "url": "https://medium.com/codetodeploy/i-built-a-spring-boot-retry-mechanism-that-actually-knows-when-not-to-retry-bc007a49015a",
+      "by": "FutureLens",
+      "time": 1789359616000,
       "tags": [
-        "java25",
-        "spring-boot-4",
-        "java"
+        "backend-development",
+        "software-engineering",
+        "design-systems"
       ]
     },
     {
-      "title": "Day 20 fo learning DevOps: LEMP stack",
-      "url": "https://medium.com/@xrsthasakil123/day-20-fo-learning-devops-lemp-stack-244f9302a51e",
-      "by": "Xrsthasakil",
-      "time": 1789272993000,
+      "title": "Beyond the Interface: 5 Game-Changing Ways GPT-6 Astra is Redefining Human Potential",
+      "url": "https://medium.com/@ckarthick.msc/beyond-the-interface-5-game-changing-ways-gpt-6-astra-is-redefining-human-potential-3d8f11fdc6bf",
+      "by": "Karthick chidambaram",
+      "time": 1789359361000,
       "tags": [
-        "lempstack",
-        "mysql",
-        "php"
+        "chatgpt",
+        "python",
+        "data-science"
       ]
     },
     {
-      "title": "The Internet Is Held Together By Systems That Disagree With Each Other",
-      "url": "https://medium.com/@bvsarathc06/the-internet-is-held-together-by-systems-that-disagree-with-each-other-4b862b04499f",
-      "by": "B V Sarath Chandra",
-      "time": 1789272361000,
+      "title": "SQL Queries Are Slow Sometimes — Why Does It Happen and How Can We Fix It?",
+      "url": "https://atdivinshan.medium.com/sql-queries-are-slow-sometimes-why-does-it-happen-and-how-can-we-fix-it-fde0d32c90e8",
+      "by": "Divinshan",
+      "time": 1789359101000,
       "tags": [
-        "machine-learning",
-        "data-science",
-        "technology"
+        "query-optimization",
+        "software-engineering",
+        "sql"
       ]
     },
     {
-      "title": "Your CI Cache Can Carry Malicious Code. GitHub Just Added New Controls.",
-      "url": "https://medium.com/@thedevnotebook/github-actions-cache-mode-ci-cache-poisoning-6be2c3020015",
-      "by": "The Dev Notebook",
-      "time": 1789272061000,
+      "title": "EY DevOps Engineer Interview Experience + Questions",
+      "url": "https://medium.com/@sre-devops-interview/ey-devops-engineer-interview-experience-questions-e95d6c109fd1",
+      "by": "Tanishq Arora",
+      "time": 1789359061000,
       "tags": [
-        "github-actions",
-        "ci-cd-pipeline",
-        "software-engineering"
+        "site-reliability-engineer",
+        "sre",
+        "interview-experience"
       ]
     },
     {
-      "title": "The Onboarding Doc Is the Most Honest Health Metric Your Team Owns",
-      "url": "https://medium.com/@yalovoy/the-onboarding-doc-is-the-most-honest-health-metric-your-team-owns-db46996e86e9",
-      "by": "Illya Yalovoy",
-      "time": 1789271763000,
+      "title": "Anatomy of Hardware Bring-Up: Chapter 4",
+      "url": "https://medium.com/@aytackahveci93/anatomy-of-hardware-bring-up-chapter-4-3e4c40390c60",
+      "by": "Aytaç Kahveci",
+      "time": 1789358960000,
       "tags": [
-        "team-building",
-        "leadership",
-        "engineering-mangement"
-      ]
-    },
-    {
-      "title": "Stop Inventing Acceptance After the Diff. Write the Veto First.",
-      "url": "https://medium.com/@thebuildersplaybook/stop-inventing-acceptance-after-the-diff-write-the-veto-first-4b23e94382c7",
-      "by": "Noor Mohammad",
-      "time": 1789270704000,
-      "tags": [
-        "ai-agent",
         "programming",
-        "code-review"
+        "technology",
+        "linux"
       ]
     },
     {
-      "title": "Secret Scanning Is Becoming a Merge Gate. That’s a Better Place to Stop Leaks.",
-      "url": "https://medium.com/@pujamaheshvari5/secret-scanning-is-becoming-a-merge-gate-thats-a-better-place-to-stop-leaks-b51287f5060b",
-      "by": "Puja Maheshvari",
-      "time": 1789270603000,
+      "title": "Anatomy of Hardware Bring-Up: Chapter 3",
+      "url": "https://medium.com/@aytackahveci93/anatomy-of-hardware-bring-up-chapter-3-d1dfab9b7617",
+      "by": "Aytaç Kahveci",
+      "time": 1789358892000,
       "tags": [
-        "application-security",
-        "github-actions",
+        "embedded-systems",
+        "linux-kernel",
+        "programming"
+      ]
+    },
+    {
+      "title": "Robert Dieudelin aka Arcangel Legrand - Brotherswagg - Official Promotional Photo 2026 - Musical…",
+      "url": "https://medium.com/@BrotherswaggStudioRecords/robert-dieudelin-aka-arcangel-legrand-brotherswagg-official-promotional-photo-2026-musical-75e87e06c041",
+      "by": "BrotherswaggStudioRecords",
+      "time": 1789358566000,
+      "tags": [
+        "music",
+        "programming",
+        "art"
+      ]
+    },
+    {
+      "title": "Your Docker Container Is Running. So Why Is Your Application Still Broken?",
+      "url": "https://medium.com/@samanlnayak2003/your-docker-container-is-running-so-why-is-your-application-still-broken-9c1ecd82d44a",
+      "by": "The Turtle Code",
+      "time": 1789358558000,
+      "tags": [
+        "software-development",
+        "docker",
         "devops"
       ]
     },
     {
-      "title": "Message Queues: Under the Hood, Failure Handling, and Scaling",
-      "url": "https://keroles-masoud.medium.com/message-queues-under-the-hood-failure-handling-and-scaling-f3875562c6c0",
-      "by": "Keroles Massoud",
-      "time": 1789270538000,
+      "title": "Networking Series / 2 - So What Actually Happens When Computers Talk?",
+      "url": "https://medium.com/@queenuka30/networking-series-2-so-what-actually-happens-when-computers-talk-24cc857ececc",
+      "by": "Queenuka",
+      "time": 1789358369000,
       "tags": [
-        "backend-development",
-        "web-development",
-        "message-queue"
+        "programming",
+        "self-improvement",
+        "technology"
       ]
     },
     {
-      "title": "AWS Aurora PostgreSQL 14 Is Reaching End of Standard Support:- What You Need to Do",
-      "url": "https://iampankajaswal.medium.com/aws-aurora-postgresql-14-is-reaching-end-of-standard-support-what-you-need-to-do-5567b3a5ef1b",
-      "by": "Pankaj Aswal",
-      "time": 1789270261000,
+      "title": "Kimi K3 Runs Locally at 8,192 Tokens — and Colibrì Ignores the CTX You Set",
+      "url": "https://aiadvances.org/kimi-k3-runs-locally-at-8-192-tokens-and-colibr%C3%AC-ignores-the-ctx-you-set-2074b88263c8",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1789358179000,
       "tags": [
-        "ai",
-        "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Cloud Cost Horror Stories — And the Scripts That Would Have Prevented Them",
-      "url": "https://medium.com/@prasantakumarroy1/the-cloud-cost-horror-stories-and-the-scripts-that-would-have-prevented-them-6e949603d7c3",
-      "by": "Prasanta Kumar Roy",
-      "time": 1789270147000,
-      "tags": [
-        "windows",
-        "devops",
-        "system-administration"
+        "programming",
+        "open-source",
+        "large-language-models"
       ]
     }
   ]
