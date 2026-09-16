@@ -1,184 +1,184 @@
 {
-  "generated": "2026-09-15T04:31:21.995Z",
+  "generated": "2026-09-16T04:31:43.547Z",
   "reddit": [
     {
-      "title": "How are secrets typically accessed and managed in production-scale k8s envs?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wgpv9j/how_are_secrets_typically_accessed_and_managed_in/",
-      "by": "Basic_Let7303",
-      "time": 1789445590000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Small Programming Tricks",
-      "url": "https://www.reddit.com/r/programming/comments/1wghjns/small_programming_tricks/",
-      "by": "fagnerbrack",
-      "time": 1789423217000,
+      "title": "A revisit of remote Spectre attacks on Cloudflare Workers",
+      "url": "https://www.reddit.com/r/programming/comments/1whj93b/a_revisit_of_remote_spectre_attacks_on_cloudflare/",
+      "by": "Ok_Stomach6651",
+      "time": 1789522233000,
       "sub": "r/programming"
     },
     {
-      "title": "One Android app. Why so many processes?",
-      "url": "https://www.reddit.com/r/programming/comments/1wgghw6/one_android_app_why_so_many_processes/",
-      "by": "Super-Performance-86",
-      "time": 1789420803000,
+      "title": "Stupid question…but what is our job?",
+      "url": "https://www.reddit.com/r/devops/comments/1whiujy/stupid_questionbut_what_is_our_job/",
+      "by": "72dont",
+      "time": 1789521154000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "From DevOps to AI engineer",
+      "url": "https://www.reddit.com/r/devops/comments/1whii2w/from_devops_to_ai_engineer/",
+      "by": "Alternative_Bet59",
+      "time": 1789520241000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How I use a single .zshrc file across macOS and Windows (WSL2)",
+      "url": "https://www.reddit.com/r/programming/comments/1whhd0r/how_i_use_a_single_zshrc_file_across_macos_and/",
+      "by": "RadiantDew",
+      "time": 1789517178000,
       "sub": "r/programming"
     },
     {
-      "title": "I want to build a competitive \"Pokémon-style\" game where you fight with Kubernetes workloads. Would anyone actually play it?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wgfhq2/i_want_to_build_a_competitive_pokémonstyle_game/",
-      "by": "Successful_Mango_798",
-      "time": 1789418544000,
-      "sub": "r/kubernetes"
+      "title": "How are teams keeping technical docs in sync with fast release cycles?",
+      "url": "https://www.reddit.com/r/devops/comments/1whh2k6/how_are_teams_keeping_technical_docs_in_sync_with/",
+      "by": "lavish_collision",
+      "time": 1789516494000,
+      "sub": "r/devops"
     },
     {
-      "title": "Annoyances when dealing with unsigned long int vs unsigned long long int when targeting Linux vs my own 32bit OS",
-      "url": "https://www.reddit.com/r/programming/comments/1wgf1hs/annoyances_when_dealing_with_unsigned_long_int_vs/",
-      "by": "eccsoheccsseven",
-      "time": 1789417541000,
+      "title": "Java 27 has released!",
+      "url": "https://www.reddit.com/r/programming/comments/1whg3ya/java_27_has_released/",
+      "by": "NotABot1235",
+      "time": 1789514033000,
       "sub": "r/programming"
     },
     {
-      "title": "Pre-2000 computer graphics: a specification and challenge for classic-style game development (II)",
-      "url": "https://www.reddit.com/r/programming/comments/1wgf1f6/pre2000_computer_graphics_a_specification_and/",
-      "by": "peteroupc",
-      "time": 1789417536000,
+      "title": "Almost giving up on Cloud/DevOps",
+      "url": "https://www.reddit.com/r/devops/comments/1whf5lh/almost_giving_up_on_clouddevops/",
+      "by": "One_Presentation_139",
+      "time": 1789511666000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Truncated SVD [2023]",
+      "url": "https://www.reddit.com/r/programming/comments/1whbi25/truncated_svd_2023/",
+      "by": "BrewedDoritos",
+      "time": 1789503193000,
       "sub": "r/programming"
     },
     {
-      "title": "How GCC Eliminates Unnecessary Integer Division",
-      "url": "https://www.reddit.com/r/programming/comments/1wgaaqq/how_gcc_eliminates_unnecessary_integer_division/",
-      "by": "DataBaeBee",
-      "time": 1789407617000,
+      "title": "Long release cycles are killing us",
+      "url": "https://www.reddit.com/r/devops/comments/1wh5zvc/long_release_cycles_are_killing_us/",
+      "by": "-Devlin-",
+      "time": 1789491468000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Performance Improvements in .NET 11",
+      "url": "https://www.reddit.com/r/programming/comments/1wh0qrf/performance_improvements_in_net_11/",
+      "by": "xeio87",
+      "time": 1789479685000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Longhorn on Kubernetes: A hands-on guide covering installation, PVC migration, storage classes, and backup",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wg6owr/longhorn_on_kubernetes_a_handson_guide_covering/",
-      "by": "Kindly-Hawk",
-      "time": 1789399940000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A Different Way to Think About Kubernetes Container Security",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wg4896/a_different_way_to_think_about_kubernetes/",
-      "by": "Exotic_Middle6894",
-      "time": 1789394379000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubecodex just passed 200 stars on GitHub",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wg2tw6/kubecodex_just_passed_200_stars_on_github/",
-      "by": "Coding-Sheikh",
-      "time": 1789390954000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Devops Series — Demystifying Linux: A Visual Guide to Understanding the Kernel and Its Distros",
-      "url": "https://medium.com/@chokku.0007/devops-series-demystifying-linux-a-visual-guide-to-understanding-the-kernel-and-its-distros-3fca5b6db39e",
-      "by": "chokkalingam chokkalingam",
-      "time": 1789446344000,
+      "title": "WEEK-00 Internet and Networking",
+      "url": "https://medium.com/@preethipaswan7/week-00-internet-and-networking-55f6d28e5c3e",
+      "by": "Preethi Paswan",
+      "time": 1789532778000,
       "tags": [
         "devops"
       ]
     },
     {
-      "title": "A simpler, cheaper Datadog alternative for small teams",
-      "url": "https://medium.com/@getopservo/a-simpler-cheaper-datadog-alternative-for-small-teams-a7fbe291968e",
-      "by": "opservo",
-      "time": 1789446307000,
+      "title": "I Studied Hundreds of Calculus Examples — These Are the 20 Every Beginner Should Know",
+      "url": "https://medium.com/@drpeterkattan/i-studied-hundreds-of-calculus-examples-these-are-the-20-every-beginner-should-know-0a859b18f37c",
+      "by": "Peter Kattan",
+      "time": 1789532543000,
       "tags": [
-        "monitoring",
-        "linux",
-        "nginx"
+        "data-engineering",
+        "math",
+        "mathematics"
       ]
     },
     {
-      "title": "What actually happens when you turn on Kubernetes 1.37’s Pod Certificates",
-      "url": "https://kiran007anil.medium.com/what-actually-happens-when-you-turn-on-kubernetes-1-37s-pod-certificates-65070e1dabbb",
-      "by": "Kiran Anil",
-      "time": 1789446043000,
+      "title": "Zod 4.6 Is More Than a Validation Update",
+      "url": "https://medium.com/@rothyyorn99/zod-4-6-is-more-than-a-validation-update-2c4a58f4ddd1",
+      "by": "Yorn Rothy",
+      "time": 1789532289000,
       "tags": [
-        "security",
-        "cloud-computing",
-        "devops"
+        "software-development",
+        "typescript",
+        "programming"
       ]
     },
     {
-      "title": "Good Guys Vibe Code, Bad Guys Write Specs",
-      "url": "https://dragosroua.medium.com/good-guys-vibe-code-bad-guys-write-specs-790b01c27514",
-      "by": "Dragos Roua",
-      "time": 1789446010000,
-      "tags": [
-        "ai",
-        "programming",
-        "vibe-coding"
-      ]
-    },
-    {
-      "title": "How to Optimize a Slow Laravel App: The Step-by-Step Audit That Cut Our Response Time by 73%",
-      "url": "https://sadiqueali.medium.com/how-to-optimize-a-slow-laravel-app-the-step-by-step-audit-that-cut-our-response-time-by-73-f86c3cbd87fb",
-      "by": "Sadique Ali",
-      "time": 1789446002000,
-      "tags": [
-        "laravel",
-        "api",
-        "web-development"
-      ]
-    },
-    {
-      "title": "One Slow Request Took Down 20 Services",
-      "url": "https://medium.com/@reyanshicodes/one-slow-request-took-down-20-services-93a50e815b82",
-      "by": "Reyanshicodes",
-      "time": 1789445760000,
-      "tags": [
-        "programming",
-        "service-design",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Anatomy of Hardware Bring-Up: Chapter 6",
-      "url": "https://medium.com/@aytackahveci93/anatomy-of-hardware-bring-up-chapter-6-01d8401b3fce",
-      "by": "Aytaç Kahveci",
-      "time": 1789445386000,
-      "tags": [
-        "linux",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Anatomy of Hardware Bring-Up: Chapter 5",
-      "url": "https://medium.com/@aytackahveci93/anatomy-of-hardware-bring-up-chapter-5-13d0b1a77945",
-      "by": "Aytaç Kahveci",
-      "time": 1789445314000,
+      "title": "Finneas, Lukas Graham, more drop from Ed Sheeran's tour after Macklemore's exit",
+      "url": "https://medium.com/@mdjakaria6852/finneas-lukas-graham-more-drop-from-ed-sheerans-tour-after-macklemore-s-exit-080920ee43f6",
+      "by": "Mdjakaria",
+      "time": 1789531924000,
       "tags": [
         "technology",
-        "embedded-systems",
-        "linux"
+        "news",
+        "programming"
       ]
     },
     {
-      "title": "Authentication Is Not Authorization: The API Security Gap We Still Miss",
-      "url": "https://medium.com/@nkdr/authentication-is-not-authorization-the-api-security-gap-we-still-miss-dc8149f370fa",
-      "by": "Kovid",
-      "time": 1789444864000,
+      "title": "When AI Can Code, Design, and Set Up Servers, What’s Left for Engineers?",
+      "url": "https://medium.com/@chandrabezzo/when-ai-can-code-design-and-set-up-servers-whats-left-for-engineers-26cd36708b97",
+      "by": "Chandra Abdul Fattah",
+      "time": 1789531633000,
       "tags": [
-        "idor",
         "software-engineering",
-        "software-architecture"
+        "artificial-intelligence",
+        "computer-science"
       ]
     },
     {
-      "title": "The Reality of Redis Memory: How maxmemory and allkeys-lru Actually Work",
-      "url": "https://medium.com/@harshshrivastava2403/the-reality-of-redis-memory-how-maxmemory-and-allkeys-lru-actually-work-511c662ed3fa",
-      "by": "Harsh Shrivastava",
-      "time": 1789444862000,
+      "title": "HCLTech AWS & DevOps Interview Questions My Fellow DevOps Engineer Faced Today",
+      "url": "https://medium.com/@arvindverma021/hcltech-aws-devops-interview-questions-my-fellow-devops-engineer-faced-today-4593ee3254fc",
+      "by": "Arvind Verma",
+      "time": 1789531584000,
       "tags": [
-        "redis",
-        "backend",
-        "software-engineering"
+        "ai",
+        "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "Most Indie Developers Don’t Fail Because They Move Too Slowly",
+      "url": "https://medium.com/@gawandepranav27/most-indie-developers-dont-fail-because-they-move-too-slowly-fc5be218b535",
+      "by": "Pranavvv",
+      "time": 1789531561000,
+      "tags": [
+        "startup",
+        "programming",
+        "productivity"
+      ]
+    },
+    {
+      "title": "GPT-6 Astra Is So Good, It Changes the Rules of Software Development",
+      "url": "https://medium.com/skillstuff/gpt-6-astra-is-so-good-it-changes-the-rules-of-software-development-ee63380dcd46",
+      "by": "TechByRahmat",
+      "time": 1789531561000,
+      "tags": [
+        "technology",
+        "software-development",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "Proven Engineering Practices, Applied to AI: Matt Pocock’s Skills",
+      "url": "https://sri-chalam.medium.com/proven-engineering-practices-applied-to-ai-matt-pococks-skills-51e132c546aa",
+      "by": "Sri Chalam",
+      "time": 1789531502000,
+      "tags": [
+        "ai-agent",
+        "software-development",
+        "ai"
+      ]
+    },
+    {
+      "title": "Your AI Privacy Policy Is Not Your AI Privacy Architecture",
+      "url": "https://manishsaini74.medium.com/your-ai-privacy-policy-is-not-your-ai-privacy-architecture-3ea1982d83d9",
+      "by": "Manish Saini",
+      "time": 1789531261000,
+      "tags": [
+        "ai",
+        "software-testing",
+        "software-development"
       ]
     }
   ]
