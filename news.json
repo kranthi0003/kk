@@ -1,184 +1,184 @@
 {
-  "generated": "2026-09-16T04:31:43.547Z",
+  "generated": "2026-09-17T04:31:14.607Z",
   "reddit": [
     {
-      "title": "A revisit of remote Spectre attacks on Cloudflare Workers",
-      "url": "https://www.reddit.com/r/programming/comments/1whj93b/a_revisit_of_remote_spectre_attacks_on_cloudflare/",
+      "title": "Unicode 18.0.0 has been released!",
+      "url": "https://www.reddit.com/r/programming/comments/1wifzlx/unicode_1800_has_been_released/",
+      "by": "PthariensFlame",
+      "time": 1789608228000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Programming lanugage that uses procedures",
+      "url": "https://www.reddit.com/r/programming/comments/1wi98x3/programming_lanugage_that_uses_procedures/",
+      "by": "IdiotGamer6969",
+      "time": 1789591414000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Tale of Two Flink Autoscalers",
+      "url": "https://www.reddit.com/r/programming/comments/1wi7yar/a_tale_of_two_flink_autoscalers/",
       "by": "Ok_Stomach6651",
-      "time": 1789522233000,
+      "time": 1789588554000,
       "sub": "r/programming"
     },
     {
-      "title": "Stupid question…but what is our job?",
-      "url": "https://www.reddit.com/r/devops/comments/1whiujy/stupid_questionbut_what_is_our_job/",
-      "by": "72dont",
-      "time": 1789521154000,
-      "sub": "r/devops"
+      "title": "Talos ISO boot to black screen then auto reboots, unable to install via Redfish/BMC/iLO console?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wi57e2/talos_iso_boot_to_black_screen_then_auto_reboots/",
+      "by": "CKaruta",
+      "time": 1789582681000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "From DevOps to AI engineer",
-      "url": "https://www.reddit.com/r/devops/comments/1whii2w/from_devops_to_ai_engineer/",
-      "by": "Alternative_Bet59",
-      "time": 1789520241000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How I use a single .zshrc file across macOS and Windows (WSL2)",
-      "url": "https://www.reddit.com/r/programming/comments/1whhd0r/how_i_use_a_single_zshrc_file_across_macos_and/",
-      "by": "RadiantDew",
-      "time": 1789517178000,
+      "title": "TIN: Full-Text Search for Postgres",
+      "url": "https://www.reddit.com/r/programming/comments/1wi3ax3/tin_fulltext_search_for_postgres/",
+      "by": "Wooden-News-962",
+      "time": 1789578627000,
       "sub": "r/programming"
     },
     {
-      "title": "How are teams keeping technical docs in sync with fast release cycles?",
-      "url": "https://www.reddit.com/r/devops/comments/1whh2k6/how_are_teams_keeping_technical_docs_in_sync_with/",
-      "by": "lavish_collision",
-      "time": 1789516494000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Java 27 has released!",
-      "url": "https://www.reddit.com/r/programming/comments/1whg3ya/java_27_has_released/",
-      "by": "NotABot1235",
-      "time": 1789514033000,
+      "title": "Apple XNU - IPC Panic",
+      "url": "https://www.reddit.com/r/programming/comments/1wi3aex/apple_xnu_ipc_panic/",
+      "by": "Dull_Replacement8890",
+      "time": 1789578595000,
       "sub": "r/programming"
     },
     {
-      "title": "Almost giving up on Cloud/DevOps",
-      "url": "https://www.reddit.com/r/devops/comments/1whf5lh/almost_giving_up_on_clouddevops/",
-      "by": "One_Presentation_139",
-      "time": 1789511666000,
-      "sub": "r/devops"
+      "title": "Two speaker sessions at next NYC IRL meetup - join us on Thursday, 9/24!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wi0z85/two_speaker_sessions_at_next_nyc_irl_meetup_join/",
+      "by": "MutedReputation202",
+      "time": 1789573684000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Truncated SVD [2023]",
-      "url": "https://www.reddit.com/r/programming/comments/1whbi25/truncated_svd_2023/",
-      "by": "BrewedDoritos",
-      "time": 1789503193000,
-      "sub": "r/programming"
+      "title": "Who's using kubeblocks in production?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wi02en/whos_using_kubeblocks_in_production/",
+      "by": "spawnsible",
+      "time": 1789571689000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Long release cycles are killing us",
-      "url": "https://www.reddit.com/r/devops/comments/1wh5zvc/long_release_cycles_are_killing_us/",
-      "by": "-Devlin-",
-      "time": 1789491468000,
-      "sub": "r/devops"
+      "title": "Using AI to upgrade Kubernetes clusters — useful DevOps project or too risky?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1whu1w0/using_ai_to_upgrade_kubernetes_clusters_useful/",
+      "by": "Diligent-Wrongdoer68",
+      "time": 1789556617000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Performance Improvements in .NET 11",
-      "url": "https://www.reddit.com/r/programming/comments/1wh0qrf/performance_improvements_in_net_11/",
-      "by": "xeio87",
-      "time": 1789479685000,
-      "sub": "r/programming"
+      "title": "Prompt injection test results got sent to the client by mistake and I want to disappear.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1whszed/prompt_injection_test_results_got_sent_to_the/",
+      "by": "Extreme-Concept-4869",
+      "time": 1789553097000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "WEEK-00 Internet and Networking",
-      "url": "https://medium.com/@preethipaswan7/week-00-internet-and-networking-55f6d28e5c3e",
-      "by": "Preethi Paswan",
-      "time": 1789532778000,
+      "title": "Tech: Distributed Tracing: Stop Guessing Where Your Request Died",
+      "url": "https://medium.com/@moksh.9/tech-distributed-tracing-stop-guessing-where-your-request-died-eed77827e00e",
+      "by": "Moksh S",
+      "time": 1789617961000,
       "tags": [
-        "devops"
-      ]
-    },
-    {
-      "title": "I Studied Hundreds of Calculus Examples — These Are the 20 Every Beginner Should Know",
-      "url": "https://medium.com/@drpeterkattan/i-studied-hundreds-of-calculus-examples-these-are-the-20-every-beginner-should-know-0a859b18f37c",
-      "by": "Peter Kattan",
-      "time": 1789532543000,
-      "tags": [
-        "data-engineering",
-        "math",
-        "mathematics"
-      ]
-    },
-    {
-      "title": "Zod 4.6 Is More Than a Validation Update",
-      "url": "https://medium.com/@rothyyorn99/zod-4-6-is-more-than-a-validation-update-2c4a58f4ddd1",
-      "by": "Yorn Rothy",
-      "time": 1789532289000,
-      "tags": [
-        "software-development",
-        "typescript",
-        "programming"
-      ]
-    },
-    {
-      "title": "Finneas, Lukas Graham, more drop from Ed Sheeran's tour after Macklemore's exit",
-      "url": "https://medium.com/@mdjakaria6852/finneas-lukas-graham-more-drop-from-ed-sheerans-tour-after-macklemore-s-exit-080920ee43f6",
-      "by": "Mdjakaria",
-      "time": 1789531924000,
-      "tags": [
-        "technology",
-        "news",
-        "programming"
-      ]
-    },
-    {
-      "title": "When AI Can Code, Design, and Set Up Servers, What’s Left for Engineers?",
-      "url": "https://medium.com/@chandrabezzo/when-ai-can-code-design-and-set-up-servers-whats-left-for-engineers-26cd36708b97",
-      "by": "Chandra Abdul Fattah",
-      "time": 1789531633000,
-      "tags": [
+        "microservices",
         "software-engineering",
-        "artificial-intelligence",
-        "computer-science"
+        "software-development"
       ]
     },
     {
-      "title": "HCLTech AWS & DevOps Interview Questions My Fellow DevOps Engineer Faced Today",
-      "url": "https://medium.com/@arvindverma021/hcltech-aws-devops-interview-questions-my-fellow-devops-engineer-faced-today-4593ee3254fc",
-      "by": "Arvind Verma",
-      "time": 1789531584000,
+      "title": "7 Flutter Web App Development Companies to Consider",
+      "url": "https://medium.com/@hasaanajmal2006/7-flutter-web-app-development-companies-to-consider-e68acbbbc0ec",
+      "by": "Muhammad Hassan",
+      "time": 1789617811000,
       "tags": [
-        "ai",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "Most Indie Developers Don’t Fail Because They Move Too Slowly",
-      "url": "https://medium.com/@gawandepranav27/most-indie-developers-dont-fail-because-they-move-too-slowly-fc5be218b535",
-      "by": "Pranavvv",
-      "time": 1789531561000,
-      "tags": [
-        "startup",
-        "programming",
-        "productivity"
-      ]
-    },
-    {
-      "title": "GPT-6 Astra Is So Good, It Changes the Rules of Software Development",
-      "url": "https://medium.com/skillstuff/gpt-6-astra-is-so-good-it-changes-the-rules-of-software-development-ee63380dcd46",
-      "by": "TechByRahmat",
-      "time": 1789531561000,
-      "tags": [
+        "bitbash",
         "technology",
-        "software-development",
-        "machine-learning"
+        "programming"
       ]
     },
     {
-      "title": "Proven Engineering Practices, Applied to AI: Matt Pocock’s Skills",
-      "url": "https://sri-chalam.medium.com/proven-engineering-practices-applied-to-ai-matt-pococks-skills-51e132c546aa",
-      "by": "Sri Chalam",
-      "time": 1789531502000,
+      "title": "Authentication vs Authorization: Understanding the Difference",
+      "url": "https://atdivinshan.medium.com/authentication-vs-authorization-understanding-the-difference-f19562f6f3a3",
+      "by": "Divinshan",
+      "time": 1789617717000,
+      "tags": [
+        "cybersecurity",
+        "authentication",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Migrated a Production Database With Zero Downtime — Here’s the Exact Runbook I Used",
+      "url": "https://medium.com/pen-with-paper/i-migrated-a-production-database-with-zero-downtime-heres-the-exact-runbook-i-used-535c4b2ed282",
+      "by": "FutureLens",
+      "time": 1789617373000,
+      "tags": [
+        "backend-development",
+        "software-engineering",
+        "design-systems"
+      ]
+    },
+    {
+      "title": "Persistent Storage on Amazon EKS: StorageClass, the EBS CSI Driver, and Dynamic Provisioning",
+      "url": "https://medium.com/@shubham.patel191295/persistent-storage-on-amazon-eks-storageclass-the-ebs-csi-driver-and-dynamic-provisioning-db70ca073c0c",
+      "by": "Shubham Patel",
+      "time": 1789617259000,
+      "tags": [
+        "aws",
+        "software-development",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Forward Deployed Engineers: The AI Job That Grew 1,000% in Eight Months",
+      "url": "https://pub.towardsai.net/forward-deployed-engineers-the-ai-job-that-grew-1-000-in-eight-months-f9c140d1e466",
+      "by": "Rohan Mistry",
+      "time": 1789617038000,
       "tags": [
         "ai-agent",
-        "software-development",
-        "ai"
+        "software-engineering",
+        "ai-engineering"
       ]
     },
     {
-      "title": "Your AI Privacy Policy Is Not Your AI Privacy Architecture",
-      "url": "https://manishsaini74.medium.com/your-ai-privacy-policy-is-not-your-ai-privacy-architecture-3ea1982d83d9",
-      "by": "Manish Saini",
-      "time": 1789531261000,
+      "title": "Web App Development Services Raleigh: 5 Options Reviewed",
+      "url": "https://medium.com/@hasaanajmal2006/web-app-development-services-raleigh-5-options-reviewed-3882f9845ed3",
+      "by": "Muhammad Hassan",
+      "time": 1789616916000,
       "tags": [
+        "bitbash",
+        "technology",
+        "web-apps"
+      ]
+    },
+    {
+      "title": "Anthropic Froze 89 Claude Plugin Pins. 27 No Longer Match the Repo They Point At",
+      "url": "https://pub.towardsai.net/anthropic-froze-89-claude-plugin-pins-27-no-longer-match-the-repo-they-point-at-5a63b2fc0266",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1789616893000,
+      "tags": [
+        "programming",
+        "developer-tools",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "The Rise of the AI-Powered “Zero-Code” Developer",
+      "url": "https://medium.com/@lawangenter/the-rise-of-the-ai-powered-zero-code-developer-0bd87e3d609a",
+      "by": "SAEED AI WRITES",
+      "time": 1789616649000,
+      "tags": [
+        "ux",
         "ai",
-        "software-testing",
-        "software-development"
+        "motivation"
+      ]
+    },
+    {
+      "title": "The Retry That Bills You Twice: Why AI Pipelines Break Without Idempotency",
+      "url": "https://medium.com/@k.pranav_22/the-retry-that-bills-you-twice-why-ai-pipelines-break-without-idempotency-12e46d8430dd",
+      "by": "Pranav Kumar",
+      "time": 1789616456000,
+      "tags": [
+        "software-engineering"
       ]
     }
   ]
