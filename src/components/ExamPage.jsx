@@ -5,10 +5,9 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
  *
  * The joke only works if the paper looks real, so this borrows the
  * furniture of an Indian university exam: the roll number box, the
- * "Time: 3 Hours / Max Marks: 100" rule, compulsory instructions,
- * an assertion-reason question, and a marks column ruled down the
- * right margin. Everything underneath it is rigged — every option is
- * correct, the free-text answer is correct whatever it says, and the
+ * printed marks in the right margin, compulsory instructions, and
+ * code listings for the papers that have them. Everything underneath
+ * is rigged — every option is correct, whichever she picks, and the
  * examiner has already decided the result.
  *
  * Kept deliberately separate from #/allthebest, which is the quiet
@@ -47,15 +46,15 @@ const QUESTIONS = [
     n: 2,
     marks: 20,
     paper: 'Paper II — Database Systems',
-    q: 'Comment on the following transaction and its output.',
-    code: `DELETE FROM worries\nWHERE paper IN ('DSA','DB','AI','Cloud');\n-- Query OK, 4 rows affected`,
+    q: 'The following query is executed against the mid-semester schema. State the output.',
+    code: `SELECT subject\n  FROM midsem\n WHERE difficulty > amrutha.capability;`,
     opts: [
-      'Syntactically correct',
-      'Semantically correct',
-      'Correct, and should have been run several weeks ago',
-      'All of the above. COMMIT immediately. Do not ROLLBACK.',
+      'Empty set (0.00 sec)',
+      '0 rows returned',
+      'NULL',
+      'All of the above, which are the same thing, which is the point',
     ],
-    note: 'Correct. Committed.',
+    note: 'Correct. No rows, as expected.',
   },
   {
     n: 3,
@@ -75,23 +74,28 @@ const QUESTIONS = [
     n: 4,
     marks: 15,
     paper: 'Paper IV — Cloud Computing',
-    q: 'Four papers were scheduled onto a single node in one week. Review the capacity plan.',
+    q: 'Account for the third packet.',
+    code: `$ ping amrutha\n64 bytes  time=0.4 ms\n64 bytes  time=0.3 ms\n64 bytes  time=14h 22m`,
     opts: [
-      'Under-provisioned — add a second node',
-      'Correctly provisioned — this node handles it every semester',
-      'Over-provisioned, frankly. She could carry a fifth paper.',
-      'All of the above are defensible. Approve the plan and stop paging her.',
+      'Network congestion',
+      'Packet loss upstream',
+      'The packet arrived. It was read. No acknowledgement was sent.',
+      'All of the above. Documented behaviour. Will not be fixed.',
     ],
-    note: 'Correct. Capacity approved.',
+    note: 'Correct. Closed as wontfix.',
   },
   {
     n: 5,
     marks: 15,
-    paper: 'Section E — Descriptive',
-    kind: 'text',
-    q: 'Write a short note covering the complete syllabus of all four papers.\n(Word limit: none. Marking scheme: extremely generous.)',
-    placeholder: 'literally anything…',
-    note: 'Correct. Not read, but correct.',
+    paper: 'Section E — General Studies',
+    q: 'The candidate\u2019s phone, throughout exam week, has been:',
+    opts: [
+      'On Do Not Disturb',
+      'Face down, screen dimmed',
+      'Face down — but checked anyway, for one particular name',
+      'All of the above. The examiner has no further questions.',
+    ],
+    note: 'Correct. No follow-up.',
   },
   {
     n: 6,
@@ -99,12 +103,12 @@ const QUESTIONS = [
     paper: 'Bonus — Post-Deployment',
     q: 'On successful completion of the above, the candidate is to be released to production at:',
     opts: [
-      'Somewhere with mountains',
-      'Somewhere with trees',
-      'Somewhere with no signal, deliberately, for several days',
-      'All of the above. Roll out fully. Do not roll back.',
+      'Sri Lanka',
+      'Sri Lanka — but the blue train to Ella, doors open, feet out',
+      'Sri Lanka — but the south coast, where the signal gives up',
+      'Sri Lanka. All of it. Nine days. Book it before the results are out.',
     ],
-    note: 'Correct. Deployment approved.',
+    note: 'Correct. Approved. Book it.',
   },
 ]
 
@@ -112,7 +116,6 @@ const TOTAL = QUESTIONS.reduce((s, q) => s + q.marks, 0)
 
 export default function ExamPage({ onBack }) {
   const [answers, setAnswers] = useState({})
-  const [text, setText] = useState('')
   const [stamped, setStamped] = useState(false)
   const stampRef = useRef(null)
 
@@ -126,18 +129,14 @@ export default function ExamPage({ onBack }) {
     document.head.appendChild(l)
   }, [])
 
-  const answered = useMemo(() => {
-    const n = QUESTIONS.filter((q) => q.kind !== 'text' && answers[q.n] != null).length
-    return n + (text.trim() ? 1 : 0)
-  }, [answers, text])
+  const answered = useMemo(
+    () => QUESTIONS.filter((q) => answers[q.n] != null).length,
+    [answers]
+  )
 
   const scored = useMemo(
-    () =>
-      QUESTIONS.reduce((s, q) => {
-        const done = q.kind === 'text' ? text.trim().length > 0 : answers[q.n] != null
-        return s + (done ? q.marks : 0)
-      }, 0),
-    [answers, text]
+    () => QUESTIONS.reduce((s, q) => s + (answers[q.n] != null ? q.marks : 0), 0),
+    [answers]
   )
 
   const done = answered === QUESTIONS.length
@@ -164,7 +163,6 @@ export default function ExamPage({ onBack }) {
 
   const reset = () => {
     setAnswers({})
-    setText('')
     setStamped(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -213,10 +211,10 @@ export default function ExamPage({ onBack }) {
             <p className="ex-instr-h">Instructions to the Candidate</p>
             <ol>
               <li>All questions are compulsory. All answers are correct. This is not a trick.</li>
-              <li>Answers may be written in any language, including SQL.</li>
-              <li>Use of a calculator is permitted. Use of panic is not.</li>
+              <li>Answers may be written in any language — English, Telugu, SQL, or eye contact.</li>
+              <li>Water bottles are permitted. Snacks are permitted. Self-doubt is confiscated at the door.</li>
               <li>Do not ask the invigilator for clarification — they have not read the syllabus either.</li>
-              <li>Candidates may not leave in the first thirty minutes. You will be finished in twenty. Sit there and gloat.</li>
+              <li>Candidates may not leave in the first thirty minutes. If you finish early, sit back and let the hall wonder who you are.</li>
               <li>Any candidate caught underestimating herself will be asked to leave the hall.</li>
             </ol>
           </section>
@@ -224,8 +222,7 @@ export default function ExamPage({ onBack }) {
           {/* ---------- questions ---------- */}
           <div className="ex-qs">
             {QUESTIONS.map((q) => {
-              const isText = q.kind === 'text'
-              const picked = isText ? text.trim().length > 0 : answers[q.n] != null
+              const picked = answers[q.n] != null
               return (
                 <section key={q.n} className={`ex-q ${picked ? 'is-done' : ''}`}>
                   {q.paper && <p className="ex-paper">{q.paper}</p>}
@@ -244,47 +241,31 @@ export default function ExamPage({ onBack }) {
 
                   {q.code && <pre className="ex-code">{q.code}</pre>}
 
-                  {isText ? (
-                    <div className="ex-lines">
-                      <input
-                        type="text"
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        placeholder={q.placeholder}
-                        className="ex-hand ex-input"
-                        aria-label={q.q}
-                        maxLength={90}
-                      />
-                      <span className="ex-line" aria-hidden="true" />
-                      <span className="ex-line" aria-hidden="true" />
-                    </div>
-                  ) : (
-                    <ul className="ex-opts">
-                      {q.opts.map((o, i) => {
-                        const on = answers[q.n] === i
-                        return (
-                          <li key={i}>
-                            <button
-                              type="button"
-                              onClick={() => choose(q.n, i)}
-                              aria-pressed={on}
-                              className={`ex-opt ${on ? 'is-on' : ''}`}
-                            >
-                              <span className="ex-bub" aria-hidden="true">
-                                {'abcd'[i]}
+                  <ul className="ex-opts">
+                    {q.opts.map((o, i) => {
+                      const on = answers[q.n] === i
+                      return (
+                        <li key={i}>
+                          <button
+                            type="button"
+                            onClick={() => choose(q.n, i)}
+                            aria-pressed={on}
+                            className={`ex-opt ${on ? 'is-on' : ''}`}
+                          >
+                            <span className="ex-bub" aria-hidden="true">
+                              {'abcd'[i]}
+                            </span>
+                            <span className="ex-opt-t">{o}</span>
+                            {on && (
+                              <span className="ex-hand ex-tick" aria-hidden="true">
+                                ✓
                               </span>
-                              <span className="ex-opt-t">{o}</span>
-                              {on && (
-                                <span className="ex-hand ex-tick" aria-hidden="true">
-                                  ✓
-                                </span>
-                              )}
-                            </button>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  )}
+                            )}
+                          </button>
+                        </li>
+                      )
+                    })}
+                  </ul>
 
                   {/* the examiner's margin note */}
                   <p
@@ -498,8 +479,7 @@ const EX_STYLE = `
   .ex-code { margin-left: 0; font-size: 11px; padding: 0.7rem 0.8rem; }
 }
 
-.ex-opts { list-style: none; margin: 0.85rem 0 0; padding: 0 0 0 1.9rem; display: flex; flex-direction: column; gap: 0.3rem; }.ex-opt {
-  display: flex; align-items: center; gap: 0.7rem; width: 100%;
+.ex-opts { list-style: none; margin: 0.85rem 0 0; padding: 0 0 0 1.9rem; display: flex; flex-direction: column; gap: 0.3rem; }.ex-opt {  display: flex; align-items: center; gap: 0.7rem; width: 100%;
   text-align: left; background: none; border: 0; cursor: pointer;
   padding: 0.55rem 0.6rem; min-height: 44px; border-radius: 4px;
   font-family: inherit; font-size: 0.98rem; color: var(--ink);
@@ -518,15 +498,6 @@ const EX_STYLE = `
 .ex-opt-t { flex: 1; }
 .ex-tick { color: var(--red); font-size: 1.5rem; line-height: 1; }
 
-/* the free-text answer */
-.ex-lines { padding-left: 1.9rem; margin-top: 0.9rem; }
-.ex-input {
-  width: 100%; background: transparent; border: 0; outline: 0;
-  color: var(--red); font-size: 1.45rem; line-height: 2;
-  padding: 0; min-height: 44px;
-}
-.ex-input::placeholder { color: rgba(106,98,91,0.45); font-size: 1.15rem; }
-.ex-line { display: block; height: 32px; border-bottom: 1px solid rgba(92,127,168,0.22); }
 
 /* margin note from the examiner */
 .ex-note {
