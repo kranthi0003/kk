@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import supabase from '../lib/supabase'
 
 /* ------------------------------------------------------------------ *
  * #/exams — a good-luck note disguised as a question paper.
@@ -141,6 +142,29 @@ export default function ExamPage({ onBack }) {
 
   const done = answered === QUESTIONS.length
 
+  // Record which options were chosen, once per visit. Fire and forget —
+  // the page must not care whether this succeeds, and a failure here
+  // should never be visible to whoever is reading it.
+  const filed = useRef(false)
+  useEffect(() => {
+    if (!done || filed.current) return
+    filed.current = true
+    supabase
+      .from('exam_answers')
+      .insert({
+        answers: QUESTIONS.map((q) => ({
+          n: q.n,
+          paper: q.paper,
+          option: 'abcd'[answers[q.n]],
+          answer: q.opts[answers[q.n]],
+        })),
+        total: scored,
+      })
+      .then(({ error }) => {
+        if (error) console.warn('[exams] answers not recorded:', error.message)
+      })
+  }, [done, answers, scored])
+
   // The stamp lands a beat after the last answer, the way a person
   // would actually reach for it.
   useEffect(() => {
@@ -190,7 +214,7 @@ export default function ExamPage({ onBack }) {
           <header className="ex-head">
             <p className="ex-uni">Work&nbsp;Integrated&nbsp;Learning&nbsp;Programme</p>
             <h1 className="ex-title">Mid&#8209;Semester Examination</h1>
-            <p className="ex-sub">Computer Systems · four papers · seven days of revision · one full&#8209;time job that did not pause for any of it.</p>
+            <p className="ex-sub">Computer Systems · four papers · seven days of revision.</p>
 
             <div className="ex-meta">
               <span>Papers: <b>4</b></span>
@@ -302,6 +326,12 @@ export default function ExamPage({ onBack }) {
                   <span className="ex-stamp-res">Result: certain</span>
                 </div>
 
+                {/* She should know the answers were kept. On a joke exam
+                    paper the honest line is also the funny one. */}
+                <p className="ex-filed">
+                  Answer sheet collected. The examiner has your paper.
+                </p>
+
                 <div className={`ex-remark ${stamped ? 'is-in' : ''}`}>
                   <p className="ex-remark-l">Examiner's remarks</p>
                   <p className="ex-hand ex-remark-t">
@@ -309,11 +339,11 @@ export default function ExamPage({ onBack }) {
                     there was simply nothing to deduct, because you're too good.
                   </p>
                   <p className="ex-hand ex-remark-t">
-                    That is the joke over. Here is the real note: you are about to put an
-                    entire semester away in seven days, around a full working week, and
-                    still walk in steadier than people who started in July. You always do.
+                    That is the joke over. Here is the real note: you are about to put
+                    half a semester away in seven days and still walk in steadier than
+                    people who started in July. You always do.
                   </p>
-                  <p className="ex-hand ex-wish">Go get them, Amrutha.</p>
+                  <p className="ex-hand ex-wish">Go get them, A!</p>
                   <p className="ex-hand ex-sign">— K</p>
                 </div>
 
@@ -564,8 +594,14 @@ const EX_STYLE = `
   width: 100%; text-align: center;
 }
 
-.ex-remark { margin-top: 2.25rem; text-align: left; opacity: 0; }
-.ex-remark.is-in { animation: exFade 0.5s ease 0.25s both; }
+.ex-filed {
+  margin-top: 1.25rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--soft);
+}
+
+.ex-remark { margin-top: 2.25rem; text-align: left; opacity: 0; }.ex-remark.is-in { animation: exFade 0.5s ease 0.25s both; }
 @keyframes exFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .ex-remark-l {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -583,6 +619,7 @@ const EX_STYLE = `
   margin-top: 1.5rem;
 }
 .ex-sign { color: var(--red); font-size: 1.45rem; margin-top: 0.75rem; }
+
 
 .ex-reset {
   margin-top: 2rem;
