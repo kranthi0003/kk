@@ -74,15 +74,15 @@ const QUESTIONS = [
     n: 4,
     marks: 15,
     paper: 'Paper IV — Cloud Computing',
-    q: 'Account for the third packet.',
-    code: `$ ping amrutha\n64 bytes  time=0.4 ms\n64 bytes  time=0.3 ms\n64 bytes  time=14h 22m`,
+    q: 'Attribute the spend below to the correct owner.',
+    code: `$ aws ce get-cost --service caffeine\n  Sep 14    240\n  Sep 15    380\n  Sep 16    520\n  Sep 17   1290`,
     opts: [
-      'Network congestion',
-      'Packet loss upstream',
-      'The packet arrived. It was read. No acknowledgement was sent.',
-      'All of the above. Documented behaviour. Will not be fixed.',
+      'The candidate, revising',
+      'The syllabus, expanding',
+      'A third party who keeps her talking past midnight',
+      'That same third party, who knows exactly what he did. Tag it to his account.',
     ],
-    note: 'Correct. Closed as wontfix.',
+    note: 'Correct. Charged to him.',
   },
   {
     n: 5,
@@ -190,7 +190,7 @@ export default function ExamPage({ onBack }) {
           <header className="ex-head">
             <p className="ex-uni">Work&nbsp;Integrated&nbsp;Learning&nbsp;Programme</p>
             <h1 className="ex-title">Mid&#8209;Semester Examination</h1>
-            <p className="ex-sub">Computer Systems · four papers · one week · one full&#8209;time job running underneath.</p>
+            <p className="ex-sub">Computer Systems · four papers · seven days of revision · one full&#8209;time job that did not pause for any of it.</p>
 
             <div className="ex-meta">
               <span>Papers: <b>4</b></span>
@@ -214,7 +214,6 @@ export default function ExamPage({ onBack }) {
               <li>Answers may be written in any language — English, Telugu, SQL, or eye contact.</li>
               <li>Water bottles are permitted. Snacks are permitted. Self-doubt is confiscated at the door.</li>
               <li>Do not ask the invigilator for clarification — they have not read the syllabus either.</li>
-              <li>Candidates may not leave in the first thirty minutes. If you finish early, sit back and let the hall wonder who you are.</li>
               <li>Any candidate caught underestimating herself will be asked to leave the hall.</li>
             </ol>
           </section>
@@ -306,11 +305,15 @@ export default function ExamPage({ onBack }) {
                 <div className={`ex-remark ${stamped ? 'is-in' : ''}`}>
                   <p className="ex-remark-l">Examiner's remarks</p>
                   <p className="ex-hand ex-remark-t">
-                    {TOTAL}/{TOTAL} across all four papers, which was never really in doubt.
-                    Algorithms, databases, AI and the entire cloud — in one week, with a
-                    full-time job running the whole time. Go and get it over with.
-                    There's a mountain waiting on the other side.
+                    {TOTAL}/{TOTAL} across all four papers. Not marked generously —
+                    there was simply nothing to deduct, because you're too good.
                   </p>
+                  <p className="ex-hand ex-remark-t">
+                    That is the joke over. Here is the real note: you are about to put an
+                    entire semester away in seven days, around a full working week, and
+                    still walk in steadier than people who started in July. You always do.
+                  </p>
+                  <p className="ex-hand ex-wish">Go get them, Amrutha.</p>
                   <p className="ex-hand ex-sign">— K</p>
                 </div>
 
@@ -570,6 +573,15 @@ const EX_STYLE = `
   color: var(--soft); margin-bottom: 0.5rem;
 }
 .ex-remark-t { color: var(--red); font-size: 1.45rem; line-height: 1.5; }
+.ex-remark-t + .ex-remark-t { margin-top: 0.85rem; }
+
+/* The line the whole page exists for. It gets the size. */
+.ex-wish {
+  color: var(--red);
+  font-size: clamp(1.9rem, 6vw, 2.5rem);
+  line-height: 1.2;
+  margin-top: 1.5rem;
+}
 .ex-sign { color: var(--red); font-size: 1.45rem; margin-top: 0.75rem; }
 
 .ex-reset {
