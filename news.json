@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T16:49:43.078Z",
+  "generated": "2026-09-18T17:07:22.371Z",
   "reddit": [
     {
       "title": "Leave the Class Path in the Rearview Mirror",
@@ -9,25 +9,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Github struggling under high PR throughput?",
-      "url": "https://www.reddit.com/r/devops/comments/1wjtf3u/github_struggling_under_high_pr_throughput/",
-      "by": "Mingstoe_",
-      "time": 1789745487000,
-      "sub": "r/devops"
+      "title": "Does AI affect your ability to troubleshoot Kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjuo8g/does_ai_affect_your_ability_to_troubleshoot/",
+      "by": "IntentionJolly2730",
+      "time": 1789748242000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Why do video hosts still hide pricing behind a \"Contact Sales\" wall?",
-      "url": "https://www.reddit.com/r/devops/comments/1wjs57e/why_do_video_hosts_still_hide_pricing_behind_a/",
-      "by": "Tan3x",
-      "time": 1789742617000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "RANT: Has anyone experienced vibe planning?",
-      "url": "https://www.reddit.com/r/devops/comments/1wjqrl3/rant_has_anyone_experienced_vibe_planning/",
-      "by": "SomeEndUser",
-      "time": 1789739401000,
-      "sub": "r/devops"
+      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
+      "by": "code_fragger",
+      "time": 1789737965000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Reverse Engineering ChatGPT Web: How OpenAI Built for a Billion Users",
@@ -37,6 +30,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "mariadb-operator 📦 26.10: MariaDB 12.3 LTS support, replication topology hardening, ZSTD compression for backups... and more!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjpqk7/mariadboperator_2610_mariadb_123_lts_support/",
+      "by": "mmontes11",
+      "time": 1789736873000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "Make Code Review Your Default Next Task",
       "url": "https://www.reddit.com/r/programming/comments/1wjont5/make_code_review_your_default_next_task/",
       "by": "warren5236",
@@ -44,11 +44,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "What is your background?",
-      "url": "https://www.reddit.com/r/devops/comments/1wjo6wp/what_is_your_background/",
-      "by": "algorys",
-      "time": 1789732689000,
-      "sub": "r/devops"
+      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
+      "by": "hennexl",
+      "time": 1789730649000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjlzg3/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1789725616000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Understanding Raft By Implementing It From Scratch - Part 2",
@@ -63,16 +70,53 @@
       "by": "Shadowys",
       "time": 1789722613000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How much do you actually trust your own runbooks during a live incident?",
-      "url": "https://www.reddit.com/r/devops/comments/1wjhwis/how_much_do_you_actually_trust_your_own_runbooks/",
-      "by": "pbhuvan",
-      "time": 1789711064000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
+    {
+      "title": "7 New Failure Modes Created by AI-Native Development",
+      "url": "https://medium.com/skillstuff/7-new-failure-modes-created-by-ai-native-development-43fa78c99251",
+      "by": "Masaood",
+      "time": 1789751026000,
+      "tags": [
+        "developer-productivity",
+        "ai-coding",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Building a Real-World App with ASP.NET Core & Angular",
+      "url": "https://medium.com/@mariammaurice/building-a-real-world-app-with-asp-net-core-angular-2371c66f10ef",
+      "by": "Mori",
+      "time": 1789750862000,
+      "tags": [
+        "programming",
+        "software-engineering",
+        "dotnet"
+      ]
+    },
+    {
+      "title": "How Our Sales Tax API Just Landed in GitHub’s Legendary Top 5 Repo (And Why Your Checkout Flow…",
+      "url": "https://medium.com/@social_358/how-our-sales-tax-api-just-landed-in-githubs-legendary-top-5-repo-and-why-your-checkout-flow-70e5de96e469",
+      "by": "InstaBlick",
+      "time": 1789750501000,
+      "tags": [
+        "web-development",
+        "startup",
+        "technology"
+      ]
+    },
+    {
+      "title": "An Open Letter to IANA: You Gave Away the Internet’s Address Space and Left Us With the Bill",
+      "url": "https://medium.com/@roshankhadka707/an-open-letter-to-iana-you-gave-away-the-internets-address-space-and-left-us-with-the-bill-ad5c0bf6e63f",
+      "by": "Roshan Khadka",
+      "time": 1789750333000,
+      "tags": [
+        "devops",
+        "networking",
+        "ipv4"
+      ]
+    },
     {
       "title": "What Frontier Labs Get Wrong About Engineering Data",
       "url": "https://medium.com/@sjain1216/what-frontier-labs-get-wrong-about-engineering-data-65fbddef3fbb",
@@ -82,6 +126,17 @@
         "large-language-models",
         "ai",
         "llm"
+      ]
+    },
+    {
+      "title": "Kafka Interview Questions: The Complete Production-Grade Guide for Senior Backend Engineers",
+      "url": "https://medium.com/@samanlnayak2003/kafka-interview-questions-the-complete-production-grade-guide-for-senior-backend-engineers-488fb565d467",
+      "by": "The Turtle Code",
+      "time": 1789749971000,
+      "tags": [
+        "java",
+        "software-development",
+        "programming"
       ]
     },
     {
@@ -126,61 +181,6 @@
         "leadership",
         "software-development",
         "software-architecture"
-      ]
-    },
-    {
-      "title": "Forward Deployed Engineer: The Roadmap Operators Need Before Everyone Else Catches Up",
-      "url": "https://medium.com/@farhat_84093/forward-deployed-engineer-the-roadmap-operators-need-before-everyone-else-catches-up-8eab6f8070d7",
-      "by": "SOFT PYRAMID LLC",
-      "time": 1789749358000,
-      "tags": [
-        "ai-automation",
-        "ai-agent",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Your Database Isn’t Slow. Your Connection Pool Is.",
-      "url": "https://medium.com/@billygareth01/your-database-isnt-slow-your-connection-pool-is-136de59f6ced",
-      "by": "Billy Gareth",
-      "time": 1789749239000,
-      "tags": [
-        "software-engineering",
-        "big-data",
-        "system-design-concepts"
-      ]
-    },
-    {
-      "title": "Spring Boot Wasn’t Slow. Our 400 Beans Were",
-      "url": "https://medium.com/@kp9810113/spring-boot-wasnt-slow-our-400-beans-were-a4a5852d50aa",
-      "by": "The Concurrent Mind",
-      "time": 1789749135000,
-      "tags": [
-        "programming",
-        "spring-boot",
-        "java"
-      ]
-    },
-    {
-      "title": "How Often Can I Call This API?",
-      "url": "https://medium.com/one-possible-fix/how-often-can-i-call-this-api-7a718955eea3",
-      "by": "Alessio Bussolari",
-      "time": 1789749061000,
-      "tags": [
-        "programming",
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Why Pay a Cloud Provider for a Black Box?",
-      "url": "https://medium.com/@chulkovanadin/why-pay-a-cloud-provider-for-a-black-box-f772bd628178",
-      "by": "Chulkovanadin2609",
-      "time": 1789749047000,
-      "tags": [
-        "gpu",
-        "programming",
-        "cryptocurrency"
       ]
     }
   ]
