@@ -1,184 +1,186 @@
 {
-  "generated": "2026-09-17T04:31:14.607Z",
+  "generated": "2026-09-18T04:30:16.067Z",
   "reddit": [
     {
-      "title": "Unicode 18.0.0 has been released!",
-      "url": "https://www.reddit.com/r/programming/comments/1wifzlx/unicode_1800_has_been_released/",
-      "by": "PthariensFlame",
-      "time": 1789608228000,
+      "title": "Cloud Native Computing Foundation Announces Karmada Graduation",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjeyzc/cloud_native_computing_foundation_announces/",
+      "by": "nilukush",
+      "time": 1789701961000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Making a game for the GBA and PC from the same codebase",
+      "url": "https://www.reddit.com/r/programming/comments/1wjcb2c/making_a_game_for_the_gba_and_pc_from_the_same/",
+      "by": "NXGZ",
+      "time": 1789694423000,
       "sub": "r/programming"
     },
     {
-      "title": "Programming lanugage that uses procedures",
-      "url": "https://www.reddit.com/r/programming/comments/1wi98x3/programming_lanugage_that_uses_procedures/",
-      "by": "IdiotGamer6969",
-      "time": 1789591414000,
+      "title": "Memory Management, Explained Simply (Part 1)",
+      "url": "https://www.reddit.com/r/programming/comments/1wjc0p9/memory_management_explained_simply_part_1/",
+      "by": "nicbarkeragain",
+      "time": 1789693605000,
       "sub": "r/programming"
     },
     {
-      "title": "A Tale of Two Flink Autoscalers",
-      "url": "https://www.reddit.com/r/programming/comments/1wi7yar/a_tale_of_two_flink_autoscalers/",
+      "title": "fireship discord ?",
+      "url": "https://www.reddit.com/r/programming/comments/1wj8610/fireship_discord/",
+      "by": "king_of_nnoobs",
+      "time": 1789683494000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I contributed to Golang, here is how you can too",
+      "url": "https://www.reddit.com/r/programming/comments/1wj50pd/i_contributed_to_golang_here_is_how_you_can_too/",
+      "by": "der_gopher",
+      "time": 1789676142000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
+      "url": "https://www.reddit.com/r/programming/comments/1wj3ya8/scaling_security_insights_how_we_achieved_a_10x/",
       "by": "Ok_Stomach6651",
-      "time": 1789588554000,
+      "time": 1789673797000,
       "sub": "r/programming"
     },
     {
-      "title": "Talos ISO boot to black screen then auto reboots, unable to install via Redfish/BMC/iLO console?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wi57e2/talos_iso_boot_to_black_screen_then_auto_reboots/",
-      "by": "CKaruta",
-      "time": 1789582681000,
+      "title": "Best practices for multi-cluster Kubernetes dev setups inside a DevContainer?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wiq7er/best_practices_for_multicluster_kubernetes_dev/",
+      "by": "DamDam00",
+      "time": 1789640820000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "TIN: Full-Text Search for Postgres",
-      "url": "https://www.reddit.com/r/programming/comments/1wi3ax3/tin_fulltext_search_for_postgres/",
-      "by": "Wooden-News-962",
-      "time": 1789578627000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Apple XNU - IPC Panic",
-      "url": "https://www.reddit.com/r/programming/comments/1wi3aex/apple_xnu_ipc_panic/",
-      "by": "Dull_Replacement8890",
-      "time": 1789578595000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Two speaker sessions at next NYC IRL meetup - join us on Thursday, 9/24!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wi0z85/two_speaker_sessions_at_next_nyc_irl_meetup_join/",
-      "by": "MutedReputation202",
-      "time": 1789573684000,
+      "title": "Weekly: This Week I Learned (TWIL?) thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wipps0/weekly_this_week_i_learned_twil_thread/",
+      "by": "AutoModerator",
+      "time": 1789639212000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Who's using kubeblocks in production?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wi02en/whos_using_kubeblocks_in_production/",
-      "by": "spawnsible",
-      "time": 1789571689000,
+      "title": "Let's keep AI away where needed",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wioaw0/lets_keep_ai_away_where_needed/",
+      "by": "suman087",
+      "time": 1789634260000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Using AI to upgrade Kubernetes clusters — useful DevOps project or too risky?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1whu1w0/using_ai_to_upgrade_kubernetes_clusters_useful/",
-      "by": "Diligent-Wrongdoer68",
-      "time": 1789556617000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Prompt injection test results got sent to the client by mistake and I want to disappear.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1whszed/prompt_injection_test_results_got_sent_to_the/",
-      "by": "Extreme-Concept-4869",
-      "time": 1789553097000,
+      "title": "One Loki+Mimir stack per tenant team instead of one multi-tenant stack. Talk me out of it?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wimxxv/one_lokimimir_stack_per_tenant_team_instead_of/",
+      "by": "Error404_LogicNotFou",
+      "time": 1789629380000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Tech: Distributed Tracing: Stop Guessing Where Your Request Died",
-      "url": "https://medium.com/@moksh.9/tech-distributed-tracing-stop-guessing-where-your-request-died-eed77827e00e",
-      "by": "Moksh S",
-      "time": 1789617961000,
+      "title": "Designing Agentic AI Systems That Survive Production — Part 1: Why Six Layers Is Correct",
+      "url": "https://medium.com/@jalajagr/designing-agentic-ai-systems-that-survive-production-part-1-why-six-layers-is-correct-a1b2e19d7d90",
+      "by": "Jalaj Agrawal",
+      "time": 1789705002000,
       "tags": [
-        "microservices",
+        "ai",
+        "architecture",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "0: Consciousness as Code",
+      "url": "https://medium.com/write-your-world/0-consciousness-as-code-f3d07c452aa5",
+      "by": "Denys Sych",
+      "time": 1789704981000,
+      "tags": [
+        "programming",
+        "philosophy",
+        "life"
+      ]
+    },
+    {
+      "title": "Top 7 OpenTelemetry Auto-Instrumentation Patterns for Kubernetes",
+      "url": "https://medium.com/devops-ai-decoded/top-7-opentelemetry-auto-instrumentation-patterns-for-kubernetes-10cd1d37a76c",
+      "by": "Neel Shah",
+      "time": 1789704980000,
+      "tags": [
+        "technology",
+        "observability",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "Java 27’s Nine Core Features: What Actually Changed",
+      "url": "https://medium.com/javarevisited/java-27s-nine-core-features-what-actually-changed-c2480431578e",
+      "by": "Ray Hu",
+      "time": 1789704826000,
+      "tags": [
+        "software-development",
+        "java",
+        "jvm"
+      ]
+    },
+    {
+      "title": "Hydration Error: The Nightmare of Next.js (SSR)",
+      "url": "https://amangupta-me.medium.com/hydration-error-the-nightmare-of-next-js-ssr-296a8231c129",
+      "by": "Aman Gupta",
+      "time": 1789704813000,
+      "tags": [
+        "javascript",
+        "web-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "사내 Gitea Action(Runner) 구축하기",
+      "url": "https://medium.com/@veursk_77877/gitea-actions-runner-cicd-setup-0010c7509343",
+      "by": "조현빈 (Leo)",
+      "time": 1789704384000,
+      "tags": [
+        "devops",
+        "gitea",
+        "cicd"
+      ]
+    },
+    {
+      "title": "Tech: Connection Pooling: Why Your Database Suddenly Stops Accepting Connections",
+      "url": "https://medium.com/@moksh.9/tech-connection-pooling-why-your-database-suddenly-stops-accepting-connections-c7413fe61f50",
+      "by": "Moksh S",
+      "time": 1789704361000,
+      "tags": [
         "software-engineering",
+        "connection",
         "software-development"
       ]
     },
     {
-      "title": "7 Flutter Web App Development Companies to Consider",
-      "url": "https://medium.com/@hasaanajmal2006/7-flutter-web-app-development-companies-to-consider-e68acbbbc0ec",
-      "by": "Muhammad Hassan",
-      "time": 1789617811000,
+      "title": "Your Coding Agent Pinned a Trusted Hash. Attackers Still Got a Shell.",
+      "url": "https://medium.com/@prakash.cyberinfosec/your-coding-agent-pinned-a-trusted-hash-attackers-still-got-a-shell-f697a190b5a3",
+      "by": "Prakash Cyberinfosec",
+      "time": 1789704212000,
       "tags": [
-        "bitbash",
-        "technology",
-        "programming"
+        "artificial-intelligence",
+        "programming",
+        "technology"
       ]
     },
     {
-      "title": "Authentication vs Authorization: Understanding the Difference",
-      "url": "https://atdivinshan.medium.com/authentication-vs-authorization-understanding-the-difference-f19562f6f3a3",
-      "by": "Divinshan",
-      "time": 1789617717000,
-      "tags": [
-        "cybersecurity",
-        "authentication",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Migrated a Production Database With Zero Downtime — Here’s the Exact Runbook I Used",
-      "url": "https://medium.com/pen-with-paper/i-migrated-a-production-database-with-zero-downtime-heres-the-exact-runbook-i-used-535c4b2ed282",
-      "by": "FutureLens",
-      "time": 1789617373000,
-      "tags": [
-        "backend-development",
-        "software-engineering",
-        "design-systems"
-      ]
-    },
-    {
-      "title": "Persistent Storage on Amazon EKS: StorageClass, the EBS CSI Driver, and Dynamic Provisioning",
-      "url": "https://medium.com/@shubham.patel191295/persistent-storage-on-amazon-eks-storageclass-the-ebs-csi-driver-and-dynamic-provisioning-db70ca073c0c",
-      "by": "Shubham Patel",
-      "time": 1789617259000,
-      "tags": [
-        "aws",
-        "software-development",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "Forward Deployed Engineers: The AI Job That Grew 1,000% in Eight Months",
-      "url": "https://pub.towardsai.net/forward-deployed-engineers-the-ai-job-that-grew-1-000-in-eight-months-f9c140d1e466",
-      "by": "Rohan Mistry",
-      "time": 1789617038000,
-      "tags": [
-        "ai-agent",
-        "software-engineering",
-        "ai-engineering"
-      ]
-    },
-    {
-      "title": "Web App Development Services Raleigh: 5 Options Reviewed",
-      "url": "https://medium.com/@hasaanajmal2006/web-app-development-services-raleigh-5-options-reviewed-3882f9845ed3",
-      "by": "Muhammad Hassan",
-      "time": 1789616916000,
-      "tags": [
-        "bitbash",
-        "technology",
-        "web-apps"
-      ]
-    },
-    {
-      "title": "Anthropic Froze 89 Claude Plugin Pins. 27 No Longer Match the Repo They Point At",
-      "url": "https://pub.towardsai.net/anthropic-froze-89-claude-plugin-pins-27-no-longer-match-the-repo-they-point-at-5a63b2fc0266",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1789616893000,
+      "title": "What the September 3 OpenAI Outage Revealed About AI Reliability",
+      "url": "https://medium.com/@zcywjx0309/what-the-september-3-openai-outage-revealed-about-ai-reliability-918ab693eb5e",
+      "by": "Maggie Wen",
+      "time": 1789703788000,
       "tags": [
         "programming",
-        "developer-tools",
+        "software-engineering",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "The Rise of the AI-Powered “Zero-Code” Developer",
-      "url": "https://medium.com/@lawangenter/the-rise-of-the-ai-powered-zero-code-developer-0bd87e3d609a",
-      "by": "SAEED AI WRITES",
-      "time": 1789616649000,
+      "title": "Cloudflare's Security Audit Skill Ships a JSON Schema. Why Does It Catch Only 5 of 17 Rules?",
+      "url": "https://aiadvances.org/cloudflares-security-audit-skill-ships-a-json-schema-why-does-it-catch-only-5-of-17-rules-fafbe5df6f38",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1789703571000,
       "tags": [
-        "ux",
+        "cybersecurity",
         "ai",
-        "motivation"
-      ]
-    },
-    {
-      "title": "The Retry That Bills You Twice: Why AI Pipelines Break Without Idempotency",
-      "url": "https://medium.com/@k.pranav_22/the-retry-that-bills-you-twice-why-ai-pipelines-break-without-idempotency-12e46d8430dd",
-      "by": "Pranav Kumar",
-      "time": 1789616456000,
-      "tags": [
-        "software-engineering"
+        "programming"
       ]
     }
   ]

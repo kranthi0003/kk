@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17T04:30:16.474Z",
+  "generated": "2026-09-18T04:29:17.030Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -80,17 +80,6 @@
       "imdb": "https://www.imdb.com/title/tt33044571/"
     },
     {
-      "title": "Daayra",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian thriller film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7c/Daayra_film_poster.jpg/120px-Daayra_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Daayra",
-      "imdb": "https://www.imdb.com/title/tt32634611/"
-    },
-    {
       "title": "Dharman",
       "lang": "Tamil",
       "date": null,
@@ -154,6 +143,17 @@
       "desc": "Upcoming film by Windows Production",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
       "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
+      "imdb": null
+    },
+    {
+      "title": "Chitukurinji",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Upcoming Indian Tamil-language film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
     }
   ]
