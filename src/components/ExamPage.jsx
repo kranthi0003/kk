@@ -103,10 +103,10 @@ const QUESTIONS = [
     paper: 'Bonus — Post-Deployment',
     q: 'On successful completion of the above, the candidate is to be released to production at:',
     opts: [
+      'Sri Lanka — Colombo, to land and eat immediately',
+      'Sri Lanka — Kandy, for the lake and the tooth temple',
       'Sri Lanka — Ella, for the Nine Arch Bridge and the blue train',
-      'Sri Lanka — Sigiriya, a palace on a rock, climbed before the heat',
-      'Sri Lanka — Mirissa, blue whales, before breakfast',
-      'Sri Lanka — all three, plus Galle. Nine days. Book it before the results are out.',
+      'Sri Lanka — Galle as well. All four. Nine days. Book it before the results are out.',
     ],
     note: 'Correct. Approved. Book it.',
   },
