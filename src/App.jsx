@@ -43,6 +43,7 @@ const EbcPage = lazy(() => import('./components/EbcPage'))
 const CongratsPage = lazy(() => import('./components/CongratsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
+const ExamPage = lazy(() => import('./components/ExamPage'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const Her = lazy(() => import('./components/Her'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
@@ -458,6 +459,16 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <AllTheBest onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Mid-sem exams — a good-luck note shaped like a question paper.
+  // Private and unlisted, shared directly by link. Not in nav.
+  if (route === '#/exams') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#FBF7EE' }}><div className="text-xs font-mono animate-pulse" style={{ color: '#6A625B' }}>loading…</div></div>}>
+        <ExamPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
