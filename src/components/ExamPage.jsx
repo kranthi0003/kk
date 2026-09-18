@@ -33,78 +33,78 @@ const QUESTIONS = [
     n: 1,
     marks: 20,
     paper: 'Paper I — Data Structures & Algorithms',
-    q: 'Determine the time complexity of the candidate\u2019s preparation.',
+    q: 'The candidate executed the following at 2 AM. Identify the fault.',
+    code: `def revise(syllabus):\n    if panic:\n        return revise(syllabus)`,
     opts: [
-      'O(1) — constant, and unbothered',
-      'O(log n) — she halves the syllabus every sitting',
-      'O(n), but she will optimise it tonight',
-      'Irrelevant. It terminates, and it returns correct.',
+      'Infinite recursion — there is no base case',
+      'Stack overflow, roughly four minutes in',
+      'The base case exists. It is called sleep() and was never invoked.',
+      'All of the above. Kill the process. Go to bed.',
     ],
-    note: 'Correct. Optimal.',
+    note: 'Correct. Base case restored.',
   },
   {
     n: 2,
     marks: 20,
     paper: 'Paper II — Database Systems',
-    kind: 'sql',
-    q: 'The following query is executed against the mid-semester schema. State the output.',
-    code: 'SELECT subject\n  FROM midsem\n WHERE difficulty > amrutha.capability;',
+    q: 'Comment on the following transaction and its output.',
+    code: `DELETE FROM worries\nWHERE paper IN ('DSA','DB','AI','Cloud');\n-- Query OK, 4 rows affected`,
     opts: [
-      'Empty set (0.00 sec)',
-      '0 rows returned',
-      'NULL',
-      'All of the above, which are the same thing, which is the point',
+      'Syntactically correct',
+      'Semantically correct',
+      'Correct, and should have been run several weeks ago',
+      'All of the above. COMMIT immediately. Do not ROLLBACK.',
     ],
-    note: 'Correct. No rows, as expected.',
+    note: 'Correct. Committed.',
   },
   {
     n: 3,
     marks: 15,
     paper: 'Paper III — AI Systems',
-    kind: 'ar',
-    q: 'Assertion (A): The model has converged. Training should stop.\nReason (R): She has been running this alongside a full-time job for months, and the loss is as low as loss goes.',
+    q: 'A model was asked to predict the candidate\u2019s result. Classify the output below.',
+    code: `>>> predict("will she clear all four?")\n'hmm, that depends on a few factors…'`,
     opts: [
-      'Both A and R are true, and R is the correct explanation of A',
-      'Both A and R are true, obviously',
-      'Both A and R are true; further epochs risk overfitting',
-      'Both A and R are true. Deploy her.',
+      'A hallucination',
+      'A severe hallucination',
+      'Model collapse — roll back to the last good checkpoint',
+      'All of the above. Deprecate the model and retrain it on facts.',
     ],
-    note: 'Correct. Full marks.',
+    note: 'Correct. Model deprecated.',
   },
   {
     n: 4,
     marks: 15,
     paper: 'Paper IV — Cloud Computing',
-    q: 'The candidate\u2019s uptime through exam week is best described as:',
+    q: 'Four papers were scheduled onto a single node in one week. Review the capacity plan.',
     opts: [
-      'Highly available',
-      'Fault tolerant, multi-region',
-      'Auto-scaling under load',
-      'Five nines, with one planned outage for sleep',
+      'Under-provisioned — add a second node',
+      'Correctly provisioned — this node handles it every semester',
+      'Over-provisioned, frankly. She could carry a fifth paper.',
+      'All of the above are defensible. Approve the plan and stop paging her.',
     ],
-    note: 'Correct. Well provisioned.',
+    note: 'Correct. Capacity approved.',
   },
   {
     n: 5,
     marks: 15,
     paper: 'Section E — Descriptive',
     kind: 'text',
-    q: 'Define, in one line, the entire syllabus across all four papers.',
-    placeholder: 'write anything at all…',
-    note: 'Correct. Beautifully put.',
+    q: 'Write a short note covering the complete syllabus of all four papers.\n(Word limit: none. Marking scheme: extremely generous.)',
+    placeholder: 'literally anything…',
+    note: 'Correct. Not read, but correct.',
   },
   {
     n: 6,
     marks: 15,
     paper: 'Bonus — Post-Deployment',
-    q: 'On successful completion of the above, the candidate is to be deployed to:',
+    q: 'On successful completion of the above, the candidate is to be released to production at:',
     opts: [
       'Somewhere with mountains',
       'Somewhere with trees',
-      'Somewhere with no network, deliberately',
-      'All of the above, in that order',
+      'Somewhere with no signal, deliberately, for several days',
+      'All of the above. Roll out fully. Do not roll back.',
     ],
-    note: 'Correct. Booked, practically.',
+    note: 'Correct. Deployment approved.',
   },
 ]
 
@@ -212,11 +212,12 @@ export default function ExamPage({ onBack }) {
           <section className="ex-instr" aria-label="Instructions to candidates">
             <p className="ex-instr-h">Instructions to the Candidate</p>
             <ol>
-              <li>All questions are compulsory. All answers are correct.</li>
-              <li>Four papers in one week. This has been survived before, with less notice.</li>
+              <li>All questions are compulsory. All answers are correct. This is not a trick.</li>
               <li>Answers may be written in any language, including SQL.</li>
               <li>Use of a calculator is permitted. Use of panic is not.</li>
-              <li>Do not write in the margin — the margin is writing back.</li>
+              <li>Do not ask the invigilator for clarification — they have not read the syllabus either.</li>
+              <li>Candidates may not leave in the first thirty minutes. You will be finished in twenty. Sit there and gloat.</li>
+              <li>Any candidate caught underestimating herself will be asked to leave the hall.</li>
             </ol>
           </section>
 
