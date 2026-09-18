@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T17:07:22.371Z",
+  "generated": "2026-09-18T17:19:17.021Z",
   "reddit": [
     {
       "title": "Leave the Class Path in the Rearview Mirror",
@@ -74,6 +74,39 @@
   ],
   "medium": [
     {
+      "title": "From writing Python to thinking in systems.",
+      "url": "https://medium.com/@muguchiaeric/from-writing-python-to-thinking-in-systems-dde590ab0dc9",
+      "by": "Muguchiaeric",
+      "time": 1789751662000,
+      "tags": [
+        "objectorientedprogramming",
+        "actuarial-science",
+        "python"
+      ]
+    },
+    {
+      "title": "RHAPSODY OF REALITIES - 18TH SEPTEMBER 2026\n\"This is a vital truth every Christian must understand.M",
+      "url": "https://medium.com/@folajeff/rhapsody-of-realities-18th-september-2026-this-is-a-vital-truth-every-christian-must-understand-m-5d58c9f5b44f",
+      "by": "STARYLX",
+      "time": 1789751525000,
+      "tags": [
+        "productivity",
+        "writing",
+        "programming"
+      ]
+    },
+    {
+      "title": "Blazor vs Vue.js: What a C# Developer Actually Notices",
+      "url": "https://medium.com/@mgebrov/blazor-vs-vue-js-what-a-c-developer-actually-notices-b962e6ac656e",
+      "by": "Giorgi Mgebrishvili",
+      "time": 1789751353000,
+      "tags": [
+        "programming",
+        "frontend",
+        "dotnet"
+      ]
+    },
+    {
       "title": "7 New Failure Modes Created by AI-Native Development",
       "url": "https://medium.com/skillstuff/7-new-failure-modes-created-by-ai-native-development-43fa78c99251",
       "by": "Masaood",
@@ -85,6 +118,17 @@
       ]
     },
     {
+      "title": "Java Sealed Classes Interview Questions: 15 Questions Senior Developers Should Be Able to Answer",
+      "url": "https://medium.com/javarevisited/java-sealed-classes-interview-questions-15-questions-senior-developers-should-be-able-to-answer-9ee016c05929",
+      "by": "Devrim Ozcay",
+      "time": 1789751008000,
+      "tags": [
+        "programming",
+        "spring-boot",
+        "java"
+      ]
+    },
+    {
       "title": "Building a Real-World App with ASP.NET Core & Angular",
       "url": "https://medium.com/@mariammaurice/building-a-real-world-app-with-asp-net-core-angular-2371c66f10ef",
       "by": "Mori",
@@ -93,6 +137,17 @@
         "programming",
         "software-engineering",
         "dotnet"
+      ]
+    },
+    {
+      "title": "PodDisruptionBudget: The Safety Net Nobody Sets Up Until It’s Too Late",
+      "url": "https://pub.towardsai.net/poddisruptionbudget-the-safety-net-nobody-sets-up-until-its-too-late-7f2eda7b20a2",
+      "by": "Swapnil Ahire",
+      "time": 1789750862000,
+      "tags": [
+        "kubernetes-cluster",
+        "devops",
+        "kubernetes"
       ]
     },
     {
@@ -126,61 +181,6 @@
         "large-language-models",
         "ai",
         "llm"
-      ]
-    },
-    {
-      "title": "Kafka Interview Questions: The Complete Production-Grade Guide for Senior Backend Engineers",
-      "url": "https://medium.com/@samanlnayak2003/kafka-interview-questions-the-complete-production-grade-guide-for-senior-backend-engineers-488fb565d467",
-      "by": "The Turtle Code",
-      "time": 1789749971000,
-      "tags": [
-        "java",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "SeedlingLabs Interview Experience — SSE",
-      "url": "https://medium.com/@rmagesh3102/seedlinglabs-interview-experience-sse-c0299ce6ef5e",
-      "by": "LC112_404",
-      "time": 1789749891000,
-      "tags": [
-        "seedlinglabs",
-        "software-engineering",
-        "lc112404"
-      ]
-    },
-    {
-      "title": "Restarting a career from zero, in a new country, in your late twenties",
-      "url": "https://medium.com/@gurpreet.devops/restarting-a-career-from-zero-in-a-new-country-in-your-late-twenties-908e1cf0f566",
-      "by": "Gurpreet Singh Kambo",
-      "time": 1789749777000,
-      "tags": [
-        "seneca-college",
-        "devops",
-        "technical-communication"
-      ]
-    },
-    {
-      "title": "We’re Writing More Code With AI. But Are We Becoming Better Programmers?",
-      "url": "https://medium.com/@aistory0611/were-writing-more-code-with-ai-but-are-we-becoming-better-programmers-26c2d5136c14",
-      "by": "SauravNova",
-      "time": 1789749648000,
-      "tags": [
-        "programming",
-        "business",
-        "ai"
-      ]
-    },
-    {
-      "title": "When a rewrite is actually worth it",
-      "url": "https://jpromanonet.medium.com/when-a-rewrite-is-actually-worth-it-f6eac6780cd7",
-      "by": "Juan P. Romano",
-      "time": 1789749475000,
-      "tags": [
-        "leadership",
-        "software-development",
-        "software-architecture"
       ]
     }
   ]
