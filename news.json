@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-18T04:30:16.067Z",
+  "generated": "2026-09-18T16:07:17.806Z",
   "reddit": [
     {
-      "title": "Cloud Native Computing Foundation Announces Karmada Graduation",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjeyzc/cloud_native_computing_foundation_announces/",
-      "by": "nilukush",
-      "time": 1789701961000,
+      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
+      "by": "code_fragger",
+      "time": 1789737965000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Making a game for the GBA and PC from the same codebase",
-      "url": "https://www.reddit.com/r/programming/comments/1wjcb2c/making_a_game_for_the_gba_and_pc_from_the_same/",
-      "by": "NXGZ",
-      "time": 1789694423000,
+      "title": "Reverse Engineering ChatGPT Web: How OpenAI Built for a Billion Users",
+      "url": "https://www.reddit.com/r/programming/comments/1wjptug/reverse_engineering_chatgpt_web_how_openai_built/",
+      "by": "fagnerbrack",
+      "time": 1789737104000,
       "sub": "r/programming"
     },
     {
-      "title": "Memory Management, Explained Simply (Part 1)",
-      "url": "https://www.reddit.com/r/programming/comments/1wjc0p9/memory_management_explained_simply_part_1/",
-      "by": "nicbarkeragain",
-      "time": 1789693605000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "fireship discord ?",
-      "url": "https://www.reddit.com/r/programming/comments/1wj8610/fireship_discord/",
-      "by": "king_of_nnoobs",
-      "time": 1789683494000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I contributed to Golang, here is how you can too",
-      "url": "https://www.reddit.com/r/programming/comments/1wj50pd/i_contributed_to_golang_here_is_how_you_can_too/",
-      "by": "der_gopher",
-      "time": 1789676142000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
-      "url": "https://www.reddit.com/r/programming/comments/1wj3ya8/scaling_security_insights_how_we_achieved_a_10x/",
-      "by": "Ok_Stomach6651",
-      "time": 1789673797000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Best practices for multi-cluster Kubernetes dev setups inside a DevContainer?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wiq7er/best_practices_for_multicluster_kubernetes_dev/",
-      "by": "DamDam00",
-      "time": 1789640820000,
+      "title": "mariadb-operator 📦 26.10: MariaDB 12.3 LTS support, replication topology hardening, ZSTD compression for backups... and more!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjpqk7/mariadboperator_2610_mariadb_123_lts_support/",
+      "by": "mmontes11",
+      "time": 1789736873000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Weekly: This Week I Learned (TWIL?) thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wipps0/weekly_this_week_i_learned_twil_thread/",
+      "title": "Make Code Review Your Default Next Task",
+      "url": "https://www.reddit.com/r/programming/comments/1wjont5/make_code_review_your_default_next_task/",
+      "by": "warren5236",
+      "time": 1789733999000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "C",
+      "url": "https://www.reddit.com/r/programming/comments/1wjo3nu/c/",
+      "by": "NationalStill6968",
+      "time": 1789732418000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
+      "by": "hennexl",
+      "time": 1789730649000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjlzg3/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1789639212000,
+      "time": 1789725616000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Let's keep AI away where needed",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wioaw0/lets_keep_ai_away_where_needed/",
-      "by": "suman087",
-      "time": 1789634260000,
+      "title": "Understanding Raft By Implementing It From Scratch - Part 2",
+      "url": "https://www.reddit.com/r/programming/comments/1wjlfk0/understanding_raft_by_implementing_it_from/",
+      "by": "Fantastic_Wave1982",
+      "time": 1789723664000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do you handle backups?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjldtq/how_do_you_handle_backups/",
+      "by": "sikupnoex",
+      "time": 1789723487000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "One Loki+Mimir stack per tenant team instead of one multi-tenant stack. Talk me out of it?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wimxxv/one_lokimimir_stack_per_tenant_team_instead_of/",
-      "by": "Error404_LogicNotFou",
-      "time": 1789629380000,
-      "sub": "r/kubernetes"
+      "title": "Conway's Law and Programming Languages",
+      "url": "https://www.reddit.com/r/programming/comments/1wjl4rq/conways_law_and_programming_languages/",
+      "by": "Shadowys",
+      "time": 1789722613000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Designing Agentic AI Systems That Survive Production — Part 1: Why Six Layers Is Correct",
-      "url": "https://medium.com/@jalajagr/designing-agentic-ai-systems-that-survive-production-part-1-why-six-layers-is-correct-a1b2e19d7d90",
-      "by": "Jalaj Agrawal",
-      "time": 1789705002000,
+      "title": "The Data Gravity Well: How Storage Choices Dictate System Architecture",
+      "url": "https://medium.com/@johnmwegah/the-data-gravity-well-how-storage-choices-dictate-system-architecture-cd8d32e08ca2",
+      "by": "John Mwega",
+      "time": 1789747263000,
       "tags": [
-        "ai",
-        "architecture",
-        "ai-agent"
+        "law",
+        "betta-softwares",
+        "software-engineering"
       ]
     },
     {
-      "title": "0: Consciousness as Code",
-      "url": "https://medium.com/write-your-world/0-consciousness-as-code-f3d07c452aa5",
-      "by": "Denys Sych",
-      "time": 1789704981000,
+      "title": "What Does the System Need to Know Before It Builds Anything?",
+      "url": "https://adhithiravi.medium.com/what-does-the-system-need-to-know-before-it-builds-anything-d54429a3d941",
+      "by": "Adhithi Ravichandran",
+      "time": 1789747262000,
       "tags": [
-        "programming",
-        "philosophy",
-        "life"
-      ]
-    },
-    {
-      "title": "Top 7 OpenTelemetry Auto-Instrumentation Patterns for Kubernetes",
-      "url": "https://medium.com/devops-ai-decoded/top-7-opentelemetry-auto-instrumentation-patterns-for-kubernetes-10cd1d37a76c",
-      "by": "Neel Shah",
-      "time": 1789704980000,
-      "tags": [
-        "technology",
-        "observability",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "Java 27’s Nine Core Features: What Actually Changed",
-      "url": "https://medium.com/javarevisited/java-27s-nine-core-features-what-actually-changed-c2480431578e",
-      "by": "Ray Hu",
-      "time": 1789704826000,
-      "tags": [
-        "software-development",
-        "java",
-        "jvm"
-      ]
-    },
-    {
-      "title": "Hydration Error: The Nightmare of Next.js (SSR)",
-      "url": "https://amangupta-me.medium.com/hydration-error-the-nightmare-of-next-js-ssr-296a8231c129",
-      "by": "Aman Gupta",
-      "time": 1789704813000,
-      "tags": [
-        "javascript",
-        "web-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "사내 Gitea Action(Runner) 구축하기",
-      "url": "https://medium.com/@veursk_77877/gitea-actions-runner-cicd-setup-0010c7509343",
-      "by": "조현빈 (Leo)",
-      "time": 1789704384000,
-      "tags": [
-        "devops",
-        "gitea",
-        "cicd"
-      ]
-    },
-    {
-      "title": "Tech: Connection Pooling: Why Your Database Suddenly Stops Accepting Connections",
-      "url": "https://medium.com/@moksh.9/tech-connection-pooling-why-your-database-suddenly-stops-accepting-connections-c7413fe61f50",
-      "by": "Moksh S",
-      "time": 1789704361000,
-      "tags": [
-        "software-engineering",
-        "connection",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Your Coding Agent Pinned a Trusted Hash. Attackers Still Got a Shell.",
-      "url": "https://medium.com/@prakash.cyberinfosec/your-coding-agent-pinned-a-trusted-hash-attackers-still-got-a-shell-f697a190b5a3",
-      "by": "Prakash Cyberinfosec",
-      "time": 1789704212000,
-      "tags": [
-        "artificial-intelligence",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "What the September 3 OpenAI Outage Revealed About AI Reliability",
-      "url": "https://medium.com/@zcywjx0309/what-the-september-3-openai-outage-revealed-about-ai-reliability-918ab693eb5e",
-      "by": "Maggie Wen",
-      "time": 1789703788000,
-      "tags": [
-        "programming",
-        "software-engineering",
+        "agentic-ai",
+        "figma",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Cloudflare's Security Audit Skill Ships a JSON Schema. Why Does It Catch Only 5 of 17 Rules?",
-      "url": "https://aiadvances.org/cloudflares-security-audit-skill-ships-a-json-schema-why-does-it-catch-only-5-of-17-rules-fafbe5df6f38",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1789703571000,
+      "title": "Leave the Class Path in the Rearview Mirror",
+      "url": "https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be",
+      "by": "Netflix Technology Blog",
+      "time": 1789747262000,
       "tags": [
-        "cybersecurity",
+        "software-engineering",
+        "jvm",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Google SWE Intern OA 2027: What to Expect, How Hard It Is, and What Comes Next",
+      "url": "https://medium.com/@nianxiaoming/google-swe-intern-oa-2027-what-to-expect-how-hard-it-is-and-what-comes-next-f6034c5adefe",
+      "by": "PracHub",
+      "time": 1789747261000,
+      "tags": [
+        "coding-interviews",
+        "google",
+        "internships"
+      ]
+    },
+    {
+      "title": "Is AI redemption for what we did to God?",
+      "url": "https://medium.com/@devrawat2003/is-ai-redemption-for-what-we-did-to-god-f4790ef0fa5e",
+      "by": "Devrawat",
+      "time": 1789747253000,
+      "tags": [
+        "technology",
+        "machine-learning",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "84% Of Our Claude Tokens Were The Same Paragraph, Sent 200 Times",
+      "url": "https://medium.com/@maahisoft20/84-of-our-claude-tokens-were-the-same-paragraph-sent-200-times-96ee994b28e1",
+      "by": "The Thread Whisperer",
+      "time": 1789747192000,
+      "tags": [
+        "cloud",
+        "artificial-intelligence",
+        "llm"
+      ]
+    },
+    {
+      "title": "The Skill That Can Save Your Future",
+      "url": "https://medium.com/@kajalshakya260/the-skill-that-can-save-your-future-1c264fbe808f",
+      "by": "Your Future",
+      "time": 1789747176000,
+      "tags": [
+        "motivation",
+        "artificial-intelligence",
+        "chatgpt"
+      ]
+    },
+    {
+      "title": "Events Are Not State: Building a GitHub Control Plane That Converges Back to Truth",
+      "url": "https://medium.com/ai-all-in/events-are-not-state-building-a-github-control-plane-that-converges-back-to-truth-6b2d500679f9",
+      "by": "Aastha Joshi",
+      "time": 1789747145000,
+      "tags": [
+        "developer-tools",
+        "software-engineering",
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "Beyond the Chatbox: The Rise of the Specialized AI Agent Ecosystem",
+      "url": "https://medium.com/@ckarthick.msc/beyond-the-chatbox-the-rise-of-the-specialized-ai-agent-ecosystem-32fda50e0e0e",
+      "by": "Karthick chidambaram",
+      "time": 1789746961000,
+      "tags": [
+        "programming",
         "ai",
-        "programming"
+        "data-science"
+      ]
+    },
+    {
+      "title": "The hidden complexity behind a “simple” wearable integration",
+      "url": "https://medium.com/@gaby96.flores/the-hidden-complexity-behind-a-simple-wearable-integration-0033a1709506",
+      "by": "Gaby Flores",
+      "time": 1789746895000,
+      "tags": [
+        "wearable-technology",
+        "software-engineering",
+        "data-engineering"
       ]
     }
   ]
