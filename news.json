@@ -1,6 +1,34 @@
 {
-  "generated": "2026-09-18T16:22:10.795Z",
+  "generated": "2026-09-18T16:38:48.926Z",
   "reddit": [
+    {
+      "title": "Leave the Class Path in the Rearview Mirror",
+      "url": "https://www.reddit.com/r/programming/comments/1wjurwy/leave_the_class_path_in_the_rearview_mirror/",
+      "by": "BinaryRage",
+      "time": 1789748472000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Github struggling under high PR throughput?",
+      "url": "https://www.reddit.com/r/devops/comments/1wjtf3u/github_struggling_under_high_pr_throughput/",
+      "by": "Mingstoe_",
+      "time": 1789745487000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Why do video hosts still hide pricing behind a \"Contact Sales\" wall?",
+      "url": "https://www.reddit.com/r/devops/comments/1wjs57e/why_do_video_hosts_still_hide_pricing_behind_a/",
+      "by": "Tan3x",
+      "time": 1789742617000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "RANT: Has anyone experienced vibe planning?",
+      "url": "https://www.reddit.com/r/devops/comments/1wjqrl3/rant_has_anyone_experienced_vibe_planning/",
+      "by": "SomeEndUser",
+      "time": 1789739401000,
+      "sub": "r/devops"
+    },
     {
       "title": "Reverse Engineering ChatGPT Web: How OpenAI Built for a Billion Users",
       "url": "https://www.reddit.com/r/programming/comments/1wjptug/reverse_engineering_chatgpt_web_how_openai_built/",
@@ -16,11 +44,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "C",
-      "url": "https://www.reddit.com/r/programming/comments/1wjo3nu/c/",
-      "by": "NationalStill6968",
-      "time": 1789732418000,
-      "sub": "r/programming"
+      "title": "What is your background?",
+      "url": "https://www.reddit.com/r/devops/comments/1wjo6wp/what_is_your_background/",
+      "by": "algorys",
+      "time": 1789732689000,
+      "sub": "r/devops"
     },
     {
       "title": "Understanding Raft By Implementing It From Scratch - Part 2",
@@ -37,42 +65,102 @@
       "sub": "r/programming"
     },
     {
-      "title": "The scourge of x86 emulation",
-      "url": "https://www.reddit.com/r/programming/comments/1wjicct/the_scourge_of_x86_emulation/",
-      "by": "lelanthran",
-      "time": 1789712523000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Making a game for the GBA and PC from the same codebase",
-      "url": "https://www.reddit.com/r/programming/comments/1wjcb2c/making_a_game_for_the_gba_and_pc_from_the_same/",
-      "by": "NXGZ",
-      "time": 1789694423000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Memory Management, Explained Simply (Part 1)",
-      "url": "https://www.reddit.com/r/programming/comments/1wjc0p9/memory_management_explained_simply_part_1/",
-      "by": "nicbarkeragain",
-      "time": 1789693605000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
-      "url": "https://www.reddit.com/r/programming/comments/1wj3ya8/scaling_security_insights_how_we_achieved_a_10x/",
-      "by": "Ok_Stomach6651",
-      "time": 1789673797000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Introducing TIN: full-text search for Postgres — PlanetScale",
-      "url": "https://www.reddit.com/r/programming/comments/1wj3ois/introducing_tin_fulltext_search_for_postgres/",
-      "by": "Ok_Stomach6651",
-      "time": 1789673188000,
-      "sub": "r/programming"
+      "title": "How much do you actually trust your own runbooks during a live incident?",
+      "url": "https://www.reddit.com/r/devops/comments/1wjhwis/how_much_do_you_actually_trust_your_own_runbooks/",
+      "by": "pbhuvan",
+      "time": 1789711064000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
+    {
+      "title": "Your Database Isn’t Slow. Your Connection Pool Is.",
+      "url": "https://medium.com/@billygareth01/your-database-isnt-slow-your-connection-pool-is-136de59f6ced",
+      "by": "Billy Gareth",
+      "time": 1789749239000,
+      "tags": [
+        "software-engineering",
+        "big-data",
+        "system-design-concepts"
+      ]
+    },
+    {
+      "title": "Spring Boot Wasn’t Slow. Our 400 Beans Were",
+      "url": "https://medium.com/@kp9810113/spring-boot-wasnt-slow-our-400-beans-were-a4a5852d50aa",
+      "by": "The Concurrent Mind",
+      "time": 1789749135000,
+      "tags": [
+        "programming",
+        "spring-boot",
+        "java"
+      ]
+    },
+    {
+      "title": "How Often Can I Call This API?",
+      "url": "https://medium.com/one-possible-fix/how-often-can-i-call-this-api-7a718955eea3",
+      "by": "Alessio Bussolari",
+      "time": 1789749061000,
+      "tags": [
+        "programming",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Spring Boot + Angular in Production: 5 Things Coursework Never Taught Me",
+      "url": "https://medium.com/@dsdiksha2000/spring-boot-angular-in-production-5-things-coursework-never-taught-me-a65ea1b827db",
+      "by": "Diksha Sharma",
+      "time": 1789749046000,
+      "tags": [
+        "software-engineering",
+        "spring-boot",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Java Concurrency in Production: Virtual Threads, CompletableFuture, Thread Pools, Backpressure, and…",
+      "url": "https://medium.com/@samanlnayak2003/java-concurrency-in-production-virtual-threads-completablefuture-thread-pools-backpressure-and-13413bdb03eb",
+      "by": "The Turtle Code",
+      "time": 1789748689000,
+      "tags": [
+        "technology",
+        "software-development",
+        "java"
+      ]
+    },
+    {
+      "title": "⚛️ React Form Building Mastery: From Simple Inputs to Production-Ready Forms",
+      "url": "https://medium.com/codex/%EF%B8%8F-react-form-building-mastery-from-simple-inputs-to-production-ready-forms-2c7d0a01613c",
+      "by": "Lakhveer Singh Rajput",
+      "time": 1789748533000,
+      "tags": [
+        "software-development",
+        "web-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "Hello World my name is Ike",
+      "url": "https://medium.com/@ikenwokoye/hello-world-my-name-is-ike-c0e41cb1d99f",
+      "by": "Ike Nwokoye ☁️",
+      "time": 1789748402000,
+      "tags": [
+        "entrepreneurship",
+        "growth",
+        "faith-and-life"
+      ]
+    },
+    {
+      "title": "This Is How I’d Learn Python If I Started Over",
+      "url": "https://python.plainenglish.io/this-is-how-id-learn-python-if-i-started-over-90c5f70c05b2",
+      "by": "learn with her",
+      "time": 1789748191000,
+      "tags": [
+        "coding",
+        "python",
+        "programming"
+      ]
+    },
     {
       "title": "313 MB of Git History, 564 Failed Uploads, and No Switch to Turn It Off",
       "url": "https://medium.com/@chenyuan19920509/313-mb-of-git-history-564-failed-uploads-and-no-switch-to-turn-it-off-0a04b4d48ebe",
@@ -93,94 +181,6 @@
         "beginner",
         "api",
         "programming"
-      ]
-    },
-    {
-      "title": "I Stripped Away the Story. Then “Find the Town Judge” Became an Indegree–Outdegree Problem.",
-      "url": "https://medium.com/@saipranavmoluguri2001/i-stripped-away-the-story-then-find-the-town-judge-became-an-indegree-outdegree-problem-b3e8d23f2d76",
-      "by": "Sai Pranav Moluguri",
-      "time": 1789747960000,
-      "tags": [
-        "data-structures",
-        "neetcode-150",
-        "algorithms"
-      ]
-    },
-    {
-      "title": "I will design a timeless urban logo",
-      "url": "https://globalbrandcraft.medium.com/i-will-design-a-timeless-urban-logo-c9b58b7958ee",
-      "by": "Global Brand Craft",
-      "time": 1789747782000,
-      "tags": [
-        "logo",
-        "business",
-        "logo-design"
-      ]
-    },
-    {
-      "title": ": “    …",
-      "url": "https://medium.com/@rahulshendage24/-161df3f2d902",
-      "by": "Rahul shendage",
-      "time": 1789747584000,
-      "tags": [
-        "software-development",
-        "data-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "PostgreSQL Storage Troubleshooting: The DBA’s 10-Minute Investigation Guide",
-      "url": "https://medium.com/@techybob/postgresql-storage-troubleshooting-the-dbas-10-minute-investigation-guide-b2f062a01eb7",
-      "by": "techybob",
-      "time": 1789747481000,
-      "tags": [
-        "postgres",
-        "database",
-        "postgresql"
-      ]
-    },
-    {
-      "title": "The Data Gravity Well: How Storage Choices Dictate System Architecture",
-      "url": "https://medium.com/@johnmwegah/the-data-gravity-well-how-storage-choices-dictate-system-architecture-cd8d32e08ca2",
-      "by": "John Mwega",
-      "time": 1789747263000,
-      "tags": [
-        "law",
-        "betta-softwares",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "What Does the System Need to Know Before It Builds Anything?",
-      "url": "https://adhithiravi.medium.com/what-does-the-system-need-to-know-before-it-builds-anything-d54429a3d941",
-      "by": "Adhithi Ravichandran",
-      "time": 1789747262000,
-      "tags": [
-        "agentic-ai",
-        "figma",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Leave the Class Path in the Rearview Mirror",
-      "url": "https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be",
-      "by": "Netflix Technology Blog",
-      "time": 1789747262000,
-      "tags": [
-        "software-engineering",
-        "jvm",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Google SWE Intern OA 2027: What to Expect, How Hard It Is, and What Comes Next",
-      "url": "https://medium.com/@nianxiaoming/google-swe-intern-oa-2027-what-to-expect-how-hard-it-is-and-what-comes-next-f6034c5adefe",
-      "by": "PracHub",
-      "time": 1789747261000,
-      "tags": [
-        "coding-interviews",
-        "google",
-        "internships"
       ]
     }
   ]

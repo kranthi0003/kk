@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T16:22:13.057Z",
+  "generated": "2026-09-18T16:38:51.874Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -813,47 +813,5 @@
       "pole": null
     }
   ],
-  "lastRace": {
-    "round": 14,
-    "name": "Spanish Grand Prix",
-    "circuit": "Madring",
-    "country": "Spain",
-    "date": "2026-09-13",
-    "podium": [
-      {
-        "pos": 1,
-        "first": "Andrea Kimi",
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes",
-        "time": "1:34:23.754",
-        "points": 25
-      },
-      {
-        "pos": 2,
-        "first": "Max",
-        "last": "Verstappen",
-        "code": "VER",
-        "team": "Red Bull",
-        "teamId": "red_bull",
-        "time": "+4.351",
-        "points": 18
-      },
-      {
-        "pos": 3,
-        "first": "Lando",
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren",
-        "time": "+5.089",
-        "points": 15
-      }
-    ],
-    "fastestLap": {
-      "time": "1:35.587",
-      "driver": "Russell"
-    }
-  }
+  "lastRace": null
 }
