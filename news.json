@@ -1,26 +1,12 @@
 {
-  "generated": "2026-09-18T16:07:17.806Z",
+  "generated": "2026-09-18T16:22:10.795Z",
   "reddit": [
-    {
-      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
-      "by": "code_fragger",
-      "time": 1789737965000,
-      "sub": "r/kubernetes"
-    },
     {
       "title": "Reverse Engineering ChatGPT Web: How OpenAI Built for a Billion Users",
       "url": "https://www.reddit.com/r/programming/comments/1wjptug/reverse_engineering_chatgpt_web_how_openai_built/",
       "by": "fagnerbrack",
       "time": 1789737104000,
       "sub": "r/programming"
-    },
-    {
-      "title": "mariadb-operator 📦 26.10: MariaDB 12.3 LTS support, replication topology hardening, ZSTD compression for backups... and more!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjpqk7/mariadboperator_2610_mariadb_123_lts_support/",
-      "by": "mmontes11",
-      "time": 1789736873000,
-      "sub": "r/kubernetes"
     },
     {
       "title": "Make Code Review Your Default Next Task",
@@ -37,20 +23,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
-      "by": "hennexl",
-      "time": 1789730649000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjlzg3/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1789725616000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "Understanding Raft By Implementing It From Scratch - Part 2",
       "url": "https://www.reddit.com/r/programming/comments/1wjlfk0/understanding_raft_by_implementing_it_from/",
       "by": "Fantastic_Wave1982",
@@ -58,21 +30,115 @@
       "sub": "r/programming"
     },
     {
-      "title": "How do you handle backups?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjldtq/how_do_you_handle_backups/",
-      "by": "sikupnoex",
-      "time": 1789723487000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "Conway's Law and Programming Languages",
       "url": "https://www.reddit.com/r/programming/comments/1wjl4rq/conways_law_and_programming_languages/",
       "by": "Shadowys",
       "time": 1789722613000,
       "sub": "r/programming"
+    },
+    {
+      "title": "The scourge of x86 emulation",
+      "url": "https://www.reddit.com/r/programming/comments/1wjicct/the_scourge_of_x86_emulation/",
+      "by": "lelanthran",
+      "time": 1789712523000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Making a game for the GBA and PC from the same codebase",
+      "url": "https://www.reddit.com/r/programming/comments/1wjcb2c/making_a_game_for_the_gba_and_pc_from_the_same/",
+      "by": "NXGZ",
+      "time": 1789694423000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Memory Management, Explained Simply (Part 1)",
+      "url": "https://www.reddit.com/r/programming/comments/1wjc0p9/memory_management_explained_simply_part_1/",
+      "by": "nicbarkeragain",
+      "time": 1789693605000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
+      "url": "https://www.reddit.com/r/programming/comments/1wj3ya8/scaling_security_insights_how_we_achieved_a_10x/",
+      "by": "Ok_Stomach6651",
+      "time": 1789673797000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Introducing TIN: full-text search for Postgres — PlanetScale",
+      "url": "https://www.reddit.com/r/programming/comments/1wj3ois/introducing_tin_fulltext_search_for_postgres/",
+      "by": "Ok_Stomach6651",
+      "time": 1789673188000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
+    {
+      "title": "313 MB of Git History, 564 Failed Uploads, and No Switch to Turn It Off",
+      "url": "https://medium.com/@chenyuan19920509/313-mb-of-git-history-564-failed-uploads-and-no-switch-to-turn-it-off-0a04b4d48ebe",
+      "by": "chen yuan",
+      "time": 1789748183000,
+      "tags": [
+        "artificial-intelligence",
+        "software-engineering",
+        "programming"
+      ]
+    },
+    {
+      "title": "APIs…. I get it now!!!",
+      "url": "https://medium.com/@danialraeen/apis-i-get-it-now-a7be7e1640d3",
+      "by": "Danial raeen",
+      "time": 1789748032000,
+      "tags": [
+        "beginner",
+        "api",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Stripped Away the Story. Then “Find the Town Judge” Became an Indegree–Outdegree Problem.",
+      "url": "https://medium.com/@saipranavmoluguri2001/i-stripped-away-the-story-then-find-the-town-judge-became-an-indegree-outdegree-problem-b3e8d23f2d76",
+      "by": "Sai Pranav Moluguri",
+      "time": 1789747960000,
+      "tags": [
+        "data-structures",
+        "neetcode-150",
+        "algorithms"
+      ]
+    },
+    {
+      "title": "I will design a timeless urban logo",
+      "url": "https://globalbrandcraft.medium.com/i-will-design-a-timeless-urban-logo-c9b58b7958ee",
+      "by": "Global Brand Craft",
+      "time": 1789747782000,
+      "tags": [
+        "logo",
+        "business",
+        "logo-design"
+      ]
+    },
+    {
+      "title": ": “    …",
+      "url": "https://medium.com/@rahulshendage24/-161df3f2d902",
+      "by": "Rahul shendage",
+      "time": 1789747584000,
+      "tags": [
+        "software-development",
+        "data-science",
+        "programming"
+      ]
+    },
+    {
+      "title": "PostgreSQL Storage Troubleshooting: The DBA’s 10-Minute Investigation Guide",
+      "url": "https://medium.com/@techybob/postgresql-storage-troubleshooting-the-dbas-10-minute-investigation-guide-b2f062a01eb7",
+      "by": "techybob",
+      "time": 1789747481000,
+      "tags": [
+        "postgres",
+        "database",
+        "postgresql"
+      ]
+    },
     {
       "title": "The Data Gravity Well: How Storage Choices Dictate System Architecture",
       "url": "https://medium.com/@johnmwegah/the-data-gravity-well-how-storage-choices-dictate-system-architecture-cd8d32e08ca2",
@@ -115,72 +181,6 @@
         "coding-interviews",
         "google",
         "internships"
-      ]
-    },
-    {
-      "title": "Is AI redemption for what we did to God?",
-      "url": "https://medium.com/@devrawat2003/is-ai-redemption-for-what-we-did-to-god-f4790ef0fa5e",
-      "by": "Devrawat",
-      "time": 1789747253000,
-      "tags": [
-        "technology",
-        "machine-learning",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "84% Of Our Claude Tokens Were The Same Paragraph, Sent 200 Times",
-      "url": "https://medium.com/@maahisoft20/84-of-our-claude-tokens-were-the-same-paragraph-sent-200-times-96ee994b28e1",
-      "by": "The Thread Whisperer",
-      "time": 1789747192000,
-      "tags": [
-        "cloud",
-        "artificial-intelligence",
-        "llm"
-      ]
-    },
-    {
-      "title": "The Skill That Can Save Your Future",
-      "url": "https://medium.com/@kajalshakya260/the-skill-that-can-save-your-future-1c264fbe808f",
-      "by": "Your Future",
-      "time": 1789747176000,
-      "tags": [
-        "motivation",
-        "artificial-intelligence",
-        "chatgpt"
-      ]
-    },
-    {
-      "title": "Events Are Not State: Building a GitHub Control Plane That Converges Back to Truth",
-      "url": "https://medium.com/ai-all-in/events-are-not-state-building-a-github-control-plane-that-converges-back-to-truth-6b2d500679f9",
-      "by": "Aastha Joshi",
-      "time": 1789747145000,
-      "tags": [
-        "developer-tools",
-        "software-engineering",
-        "distributed-systems"
-      ]
-    },
-    {
-      "title": "Beyond the Chatbox: The Rise of the Specialized AI Agent Ecosystem",
-      "url": "https://medium.com/@ckarthick.msc/beyond-the-chatbox-the-rise-of-the-specialized-ai-agent-ecosystem-32fda50e0e0e",
-      "by": "Karthick chidambaram",
-      "time": 1789746961000,
-      "tags": [
-        "programming",
-        "ai",
-        "data-science"
-      ]
-    },
-    {
-      "title": "The hidden complexity behind a “simple” wearable integration",
-      "url": "https://medium.com/@gaby96.flores/the-hidden-complexity-behind-a-simple-wearable-integration-0033a1709506",
-      "by": "Gaby Flores",
-      "time": 1789746895000,
-      "tags": [
-        "wearable-technology",
-        "software-engineering",
-        "data-engineering"
       ]
     }
   ]
