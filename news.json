@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T16:46:43.594Z",
+  "generated": "2026-09-18T16:49:43.078Z",
   "reddit": [
     {
       "title": "Leave the Class Path in the Rearview Mirror",
@@ -74,6 +74,28 @@
   ],
   "medium": [
     {
+      "title": "What Frontier Labs Get Wrong About Engineering Data",
+      "url": "https://medium.com/@sjain1216/what-frontier-labs-get-wrong-about-engineering-data-65fbddef3fbb",
+      "by": "Suchit Jain",
+      "time": 1789749980000,
+      "tags": [
+        "large-language-models",
+        "ai",
+        "llm"
+      ]
+    },
+    {
+      "title": "SeedlingLabs Interview Experience — SSE",
+      "url": "https://medium.com/@rmagesh3102/seedlinglabs-interview-experience-sse-c0299ce6ef5e",
+      "by": "LC112_404",
+      "time": 1789749891000,
+      "tags": [
+        "seedlinglabs",
+        "software-engineering",
+        "lc112404"
+      ]
+    },
+    {
       "title": "Restarting a career from zero, in a new country, in your late twenties",
       "url": "https://medium.com/@gurpreet.devops/restarting-a-career-from-zero-in-a-new-country-in-your-late-twenties-908e1cf0f566",
       "by": "Gurpreet Singh Kambo",
@@ -93,6 +115,28 @@
         "programming",
         "business",
         "ai"
+      ]
+    },
+    {
+      "title": "When a rewrite is actually worth it",
+      "url": "https://jpromanonet.medium.com/when-a-rewrite-is-actually-worth-it-f6eac6780cd7",
+      "by": "Juan P. Romano",
+      "time": 1789749475000,
+      "tags": [
+        "leadership",
+        "software-development",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Forward Deployed Engineer: The Roadmap Operators Need Before Everyone Else Catches Up",
+      "url": "https://medium.com/@farhat_84093/forward-deployed-engineer-the-roadmap-operators-need-before-everyone-else-catches-up-8eab6f8070d7",
+      "by": "SOFT PYRAMID LLC",
+      "time": 1789749358000,
+      "tags": [
+        "ai-automation",
+        "ai-agent",
+        "software-engineering"
       ]
     },
     {
@@ -137,50 +181,6 @@
         "gpu",
         "programming",
         "cryptocurrency"
-      ]
-    },
-    {
-      "title": "Spring Boot + Angular in Production: 5 Things Coursework Never Taught Me",
-      "url": "https://medium.com/@dsdiksha2000/spring-boot-angular-in-production-5-things-coursework-never-taught-me-a65ea1b827db",
-      "by": "Diksha Sharma",
-      "time": 1789749046000,
-      "tags": [
-        "software-engineering",
-        "spring-boot",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Java Concurrency in Production: Virtual Threads, CompletableFuture, Thread Pools, Backpressure, and…",
-      "url": "https://medium.com/@samanlnayak2003/java-concurrency-in-production-virtual-threads-completablefuture-thread-pools-backpressure-and-13413bdb03eb",
-      "by": "The Turtle Code",
-      "time": 1789748689000,
-      "tags": [
-        "technology",
-        "software-development",
-        "java"
-      ]
-    },
-    {
-      "title": "⚛️ React Form Building Mastery: From Simple Inputs to Production-Ready Forms",
-      "url": "https://medium.com/codex/%EF%B8%8F-react-form-building-mastery-from-simple-inputs-to-production-ready-forms-2c7d0a01613c",
-      "by": "Lakhveer Singh Rajput",
-      "time": 1789748533000,
-      "tags": [
-        "software-development",
-        "web-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "Hello World my name is Ike",
-      "url": "https://medium.com/@ikenwokoye/hello-world-my-name-is-ike-c0e41cb1d99f",
-      "by": "Ike Nwokoye ☁️",
-      "time": 1789748402000,
-      "tags": [
-        "entrepreneurship",
-        "growth",
-        "faith-and-life"
       ]
     }
   ]
