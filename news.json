@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T17:19:17.021Z",
+  "generated": "2026-09-18T17:39:22.667Z",
   "reddit": [
     {
       "title": "Leave the Class Path in the Rearview Mirror",
@@ -74,6 +74,105 @@
   ],
   "medium": [
     {
+      "title": "Building a Quote vs Actual Cost Tracker for Small Service Businesses",
+      "url": "https://medium.com/@chikab1982/building-a-quote-vs-actual-cost-tracker-for-small-service-businesses-4bf98a49b696",
+      "by": "Blessing Chika",
+      "time": 1789752831000,
+      "tags": [
+        "product-development",
+        "software-engineering",
+        "small-business"
+      ]
+    },
+    {
+      "title": "Play review is taking a week, say this week’s reports. My console says 53 minutes.",
+      "url": "https://medium.com/@azhar.great/play-review-is-taking-a-week-say-this-weeks-reports-my-console-says-53-minutes-9ab5e111ebfb",
+      "by": "Muhammad Azhar",
+      "time": 1789752715000,
+      "tags": [
+        "google-play",
+        "android",
+        "android-app-development"
+      ]
+    },
+    {
+      "title": "The Rise of Agentic Workflows: How AI is Rewiring Software Architecture\nSubtitle: Moving past…",
+      "url": "https://medium.com/@arahmedahmed99/the-rise-of-agentic-workflows-how-ai-is-rewiring-software-architecture-subtitle-moving-past-8d3b789df5eb",
+      "by": "AR Enterprises 118",
+      "time": 1789752628000,
+      "tags": [
+        "software-development",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "If AI can write code, then what does a software engineer actually do?",
+      "url": "https://abulmonsur28.medium.com/if-ai-can-write-code-then-what-does-a-software-engineer-actually-do-d828797f36c1",
+      "by": "Abul Monsur",
+      "time": 1789752607000,
+      "tags": [
+        "artificial-intelligence",
+        "ai-software-engineering",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Sam Altman, Elon Musk and Dario Amodei Agree on One Thing: AI Is Moving Too Fast",
+      "url": "https://medium.com/@gaddamnaveen192/sam-altman-elon-musk-and-dario-amodei-agree-on-one-thing-ai-is-moving-too-fast-5dbe13f7333b",
+      "by": "Gaddam.Naveen",
+      "time": 1789752265000,
+      "tags": [
+        "kafka",
+        "software-engineering",
+        "java"
+      ]
+    },
+    {
+      "title": "8 Best Docker Books to Learn Containers in 2026",
+      "url": "https://medium.com/@sumitsuthar_95414/8-best-docker-books-to-learn-containers-in-2026-00ec766c5cf6",
+      "by": "Sumit Suthar",
+      "time": 1789752023000,
+      "tags": [
+        "technology",
+        "software-development",
+        "docker"
+      ]
+    },
+    {
+      "title": "“aJent: One Clojure Brain Orchestrating a Polyglot Fleet of AI Tools”",
+      "url": "https://medium.com/@pooriayousefi/ajent-one-clojure-brain-orchestrating-a-polyglot-fleet-of-ai-tools-ea031df1401f",
+      "by": "Pooriayousefi",
+      "time": 1789751979000,
+      "tags": [
+        "open-source",
+        "clojure",
+        "polyglot"
+      ]
+    },
+    {
+      "title": "Claude Is Helping Build Its Successor And That Changes How Progress Gets Measured",
+      "url": "https://medium.com/@vikramlingam/claude-is-helping-build-its-successor-and-that-changes-how-progress-gets-measured-1e91f7360adf",
+      "by": "Vikram Lingam",
+      "time": 1789751807000,
+      "tags": [
+        "software-engineering",
+        "ai-safety",
+        "claude"
+      ]
+    },
+    {
+      "title": "Mishandling concurrency is one of the most common root causes of software bugs",
+      "url": "https://madflojo.medium.com/mishandling-concurrency-is-one-of-the-most-common-root-causes-of-software-bugs-e9e3803cc124",
+      "by": "Benjamin Cane",
+      "time": 1789751761000,
+      "tags": [
+        "programming",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
       "title": "From writing Python to thinking in systems.",
       "url": "https://medium.com/@muguchiaeric/from-writing-python-to-thinking-in-systems-dde590ab0dc9",
       "by": "Muguchiaeric",
@@ -82,105 +181,6 @@
         "objectorientedprogramming",
         "actuarial-science",
         "python"
-      ]
-    },
-    {
-      "title": "RHAPSODY OF REALITIES - 18TH SEPTEMBER 2026\n\"This is a vital truth every Christian must understand.M",
-      "url": "https://medium.com/@folajeff/rhapsody-of-realities-18th-september-2026-this-is-a-vital-truth-every-christian-must-understand-m-5d58c9f5b44f",
-      "by": "STARYLX",
-      "time": 1789751525000,
-      "tags": [
-        "productivity",
-        "writing",
-        "programming"
-      ]
-    },
-    {
-      "title": "Blazor vs Vue.js: What a C# Developer Actually Notices",
-      "url": "https://medium.com/@mgebrov/blazor-vs-vue-js-what-a-c-developer-actually-notices-b962e6ac656e",
-      "by": "Giorgi Mgebrishvili",
-      "time": 1789751353000,
-      "tags": [
-        "programming",
-        "frontend",
-        "dotnet"
-      ]
-    },
-    {
-      "title": "7 New Failure Modes Created by AI-Native Development",
-      "url": "https://medium.com/skillstuff/7-new-failure-modes-created-by-ai-native-development-43fa78c99251",
-      "by": "Masaood",
-      "time": 1789751026000,
-      "tags": [
-        "developer-productivity",
-        "ai-coding",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "Java Sealed Classes Interview Questions: 15 Questions Senior Developers Should Be Able to Answer",
-      "url": "https://medium.com/javarevisited/java-sealed-classes-interview-questions-15-questions-senior-developers-should-be-able-to-answer-9ee016c05929",
-      "by": "Devrim Ozcay",
-      "time": 1789751008000,
-      "tags": [
-        "programming",
-        "spring-boot",
-        "java"
-      ]
-    },
-    {
-      "title": "Building a Real-World App with ASP.NET Core & Angular",
-      "url": "https://medium.com/@mariammaurice/building-a-real-world-app-with-asp-net-core-angular-2371c66f10ef",
-      "by": "Mori",
-      "time": 1789750862000,
-      "tags": [
-        "programming",
-        "software-engineering",
-        "dotnet"
-      ]
-    },
-    {
-      "title": "PodDisruptionBudget: The Safety Net Nobody Sets Up Until It’s Too Late",
-      "url": "https://pub.towardsai.net/poddisruptionbudget-the-safety-net-nobody-sets-up-until-its-too-late-7f2eda7b20a2",
-      "by": "Swapnil Ahire",
-      "time": 1789750862000,
-      "tags": [
-        "kubernetes-cluster",
-        "devops",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "How Our Sales Tax API Just Landed in GitHub’s Legendary Top 5 Repo (And Why Your Checkout Flow…",
-      "url": "https://medium.com/@social_358/how-our-sales-tax-api-just-landed-in-githubs-legendary-top-5-repo-and-why-your-checkout-flow-70e5de96e469",
-      "by": "InstaBlick",
-      "time": 1789750501000,
-      "tags": [
-        "web-development",
-        "startup",
-        "technology"
-      ]
-    },
-    {
-      "title": "An Open Letter to IANA: You Gave Away the Internet’s Address Space and Left Us With the Bill",
-      "url": "https://medium.com/@roshankhadka707/an-open-letter-to-iana-you-gave-away-the-internets-address-space-and-left-us-with-the-bill-ad5c0bf6e63f",
-      "by": "Roshan Khadka",
-      "time": 1789750333000,
-      "tags": [
-        "devops",
-        "networking",
-        "ipv4"
-      ]
-    },
-    {
-      "title": "What Frontier Labs Get Wrong About Engineering Data",
-      "url": "https://medium.com/@sjain1216/what-frontier-labs-get-wrong-about-engineering-data-65fbddef3fbb",
-      "by": "Suchit Jain",
-      "time": 1789749980000,
-      "tags": [
-        "large-language-models",
-        "ai",
-        "llm"
       ]
     }
   ]
