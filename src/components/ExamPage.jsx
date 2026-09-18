@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
-import supabase from '../lib/supabase'
+import supabase, { SUPABASE_URL, SUPABASE_KEY } from '../lib/supabase'
 
 /* ------------------------------------------------------------------ *
  * #/exams — a good-luck note disguised as a question paper.
@@ -142,28 +142,98 @@ export default function ExamPage({ onBack }) {
 
   const done = answered === QUESTIONS.length
 
-  // Record which options were chosen, once per visit. Fire and forget —
-  // the page must not care whether this succeeds, and a failure here
-  // should never be visible to whoever is reading it.
-  const filed = useRef(false)
-  useEffect(() => {
-    if (!done || filed.current) return
-    filed.current = true
-    supabase
-      .from('exam_answers')
-      .insert({
-        answers: QUESTIONS.map((q) => ({
+  /* ---------------------------------------------------------------- *
+   * Filing the answer sheet.
+   *
+   * She may well answer three and wander off, so waiting for a
+   * completed paper would lose the thing worth keeping. Every change
+   * writes a fresh snapshot of the whole sheet instead, unanswered
+   * questions included as nulls, so a single row always tells the
+   * complete story and the newest row for a session is the final one.
+   *
+   * Writes are debounced, and skipped when the sheet has not actually
+   * changed, so a run produces a handful of rows rather than one per
+   * render. The insert-only policy on the table means this can add
+   * rows but never read or alter them.
+   * ---------------------------------------------------------------- */
+  const sessionId = useRef(
+    (typeof crypto !== 'undefined' && crypto.randomUUID)
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`
+  )
+  const lastSig = useRef('')
+
+  const sheet = useMemo(
+    () => ({
+      session: sessionId.current,
+      answered,
+      total: scored,
+      answers: QUESTIONS.map((q) => {
+        const i = answers[q.n]
+        return {
           n: q.n,
           paper: q.paper,
-          option: 'abcd'[answers[q.n]],
-          answer: q.opts[answers[q.n]],
-        })),
-        total: scored,
-      })
-      .then(({ error }) => {
-        if (error) console.warn('[exams] answers not recorded:', error.message)
-      })
-  }, [done, answers, scored])
+          option: i == null ? null : 'abcd'[i],
+          answer: i == null ? null : q.opts[i],
+        }
+      }),
+    }),
+    [answers, answered, scored]
+  )
+
+  useEffect(() => {
+    if (answered === 0) return
+    const sig = JSON.stringify(sheet.answers)
+    if (sig === lastSig.current) return
+    const t = setTimeout(() => {
+      // Re-checked here rather than only above: the pagehide flush may
+      // have sent this exact sheet while this timer was pending, and
+      // switching away and back would otherwise file it twice.
+      if (sig === lastSig.current) return
+      lastSig.current = sig
+      supabase
+        .from('exam_answers')
+        .insert(sheet)
+        .then(({ error }) => {
+          if (error) console.warn('[exams] not recorded:', error.message)
+        })
+    }, 1200)
+    return () => clearTimeout(t)
+  }, [answered, sheet])
+
+  // If the tab closes inside the debounce window the timer never fires,
+  // so the last state goes out here instead. supabase-js has no way to
+  // set keepalive, which is the one thing that makes a request survive
+  // the page going away, so this one is sent raw.
+  const sheetRef = useRef(sheet)
+  sheetRef.current = sheet
+  useEffect(() => {
+    const flush = () => {
+      const snap = sheetRef.current
+      if (!snap.answered) return
+      const sig = JSON.stringify(snap.answers)
+      if (sig === lastSig.current) return
+      lastSig.current = sig
+      fetch(`${SUPABASE_URL}/rest/v1/exam_answers`, {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify(snap),
+      }).catch(() => {})
+    }
+    const onVis = () => { if (document.visibilityState === 'hidden') flush() }
+    window.addEventListener('pagehide', flush)
+    document.addEventListener('visibilitychange', onVis)
+    return () => {
+      window.removeEventListener('pagehide', flush)
+      document.removeEventListener('visibilitychange', onVis)
+    }
+  }, [])
 
   // The stamp lands a beat after the last answer, the way a person
   // would actually reach for it.
@@ -310,6 +380,14 @@ export default function ExamPage({ onBack }) {
             </span>
           </div>
 
+          {/* Recording starts at the first answer, so the line saying so
+              has to appear then too — not only on a completed paper. */}
+          {answered > 0 && (
+            <p className="ex-filed">
+              Answers are collected as you go. The examiner has your paper.
+            </p>
+          )}
+
           {/* ---------- the result ---------- */}
           <div className="ex-result" ref={stampRef}>
             {!done ? (
@@ -328,10 +406,6 @@ export default function ExamPage({ onBack }) {
 
                 {/* She should know the answers were kept. On a joke exam
                     paper the honest line is also the funny one. */}
-                <p className="ex-filed">
-                  Answer sheet collected. The examiner has your paper.
-                </p>
-
                 <div className={`ex-remark ${stamped ? 'is-in' : ''}`}>
                   <p className="ex-remark-l">Examiner's remarks</p>
                   <p className="ex-hand ex-remark-t">
@@ -595,7 +669,8 @@ const EX_STYLE = `
 }
 
 .ex-filed {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
+  text-align: right;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--soft);
