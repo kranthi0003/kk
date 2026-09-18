@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18T16:38:48.926Z",
+  "generated": "2026-09-18T16:46:43.594Z",
   "reddit": [
     {
       "title": "Leave the Class Path in the Rearview Mirror",
@@ -74,6 +74,28 @@
   ],
   "medium": [
     {
+      "title": "Restarting a career from zero, in a new country, in your late twenties",
+      "url": "https://medium.com/@gurpreet.devops/restarting-a-career-from-zero-in-a-new-country-in-your-late-twenties-908e1cf0f566",
+      "by": "Gurpreet Singh Kambo",
+      "time": 1789749777000,
+      "tags": [
+        "seneca-college",
+        "devops",
+        "technical-communication"
+      ]
+    },
+    {
+      "title": "We’re Writing More Code With AI. But Are We Becoming Better Programmers?",
+      "url": "https://medium.com/@aistory0611/were-writing-more-code-with-ai-but-are-we-becoming-better-programmers-26c2d5136c14",
+      "by": "SauravNova",
+      "time": 1789749648000,
+      "tags": [
+        "programming",
+        "business",
+        "ai"
+      ]
+    },
+    {
       "title": "Your Database Isn’t Slow. Your Connection Pool Is.",
       "url": "https://medium.com/@billygareth01/your-database-isnt-slow-your-connection-pool-is-136de59f6ced",
       "by": "Billy Gareth",
@@ -104,6 +126,17 @@
         "programming",
         "software-development",
         "software-engineering"
+      ]
+    },
+    {
+      "title": "Why Pay a Cloud Provider for a Black Box?",
+      "url": "https://medium.com/@chulkovanadin/why-pay-a-cloud-provider-for-a-black-box-f772bd628178",
+      "by": "Chulkovanadin2609",
+      "time": 1789749047000,
+      "tags": [
+        "gpu",
+        "programming",
+        "cryptocurrency"
       ]
     },
     {
@@ -148,39 +181,6 @@
         "entrepreneurship",
         "growth",
         "faith-and-life"
-      ]
-    },
-    {
-      "title": "This Is How I’d Learn Python If I Started Over",
-      "url": "https://python.plainenglish.io/this-is-how-id-learn-python-if-i-started-over-90c5f70c05b2",
-      "by": "learn with her",
-      "time": 1789748191000,
-      "tags": [
-        "coding",
-        "python",
-        "programming"
-      ]
-    },
-    {
-      "title": "313 MB of Git History, 564 Failed Uploads, and No Switch to Turn It Off",
-      "url": "https://medium.com/@chenyuan19920509/313-mb-of-git-history-564-failed-uploads-and-no-switch-to-turn-it-off-0a04b4d48ebe",
-      "by": "chen yuan",
-      "time": 1789748183000,
-      "tags": [
-        "artificial-intelligence",
-        "software-engineering",
-        "programming"
-      ]
-    },
-    {
-      "title": "APIs…. I get it now!!!",
-      "url": "https://medium.com/@danialraeen/apis-i-get-it-now-a7be7e1640d3",
-      "by": "Danial raeen",
-      "time": 1789748032000,
-      "tags": [
-        "beginner",
-        "api",
-        "programming"
       ]
     }
   ]
