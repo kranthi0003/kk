@@ -1,11 +1,53 @@
 {
-  "generated": "2026-09-18T17:39:22.667Z",
+  "generated": "2026-09-19T04:29:16.756Z",
   "reddit": [
     {
-      "title": "Leave the Class Path in the Rearview Mirror",
-      "url": "https://www.reddit.com/r/programming/comments/1wjurwy/leave_the_class_path_in_the_rearview_mirror/",
-      "by": "BinaryRage",
-      "time": 1789748472000,
+      "title": "Do you troubleshoot Kubernetes from the top down or start with the failing pod?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wkc2vp/do_you_troubleshoot_kubernetes_from_the_top_down/",
+      "by": "Diligent-Wrongdoer68",
+      "time": 1789791532000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What if only one allocation needs to be borrow checked in a managed program?",
+      "url": "https://www.reddit.com/r/programming/comments/1wk814r/what_if_only_one_allocation_needs_to_be_borrow/",
+      "by": "Practical-Medium-858",
+      "time": 1789779706000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "\"the main purpose of unit tests is keeping your code from being violently sh*t on by others\"",
+      "url": "https://www.reddit.com/r/programming/comments/1wk4lod/the_main_purpose_of_unit_tests_is_keeping_your/",
+      "by": "mareek",
+      "time": 1789770763000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Broker-Visible vs Client-Local Parallelism",
+      "url": "https://www.reddit.com/r/programming/comments/1wk3svf/brokervisible_vs_clientlocal_parallelism/",
+      "by": "fagnerbrack",
+      "time": 1789768815000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Fedora signing: draw the rest of the owl",
+      "url": "https://www.reddit.com/r/programming/comments/1wk2i8f/fedora_signing_draw_the_rest_of_the_owl/",
+      "by": "throwaway16830261",
+      "time": 1789765709000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Crossplane provider for LiteLLM.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wk2fr7/crossplane_provider_for_litellm/",
+      "by": "Coding-Sheikh",
+      "time": 1789765549000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "iceoryx2 0.10 released: full flatbuffer integration, zero copy ipc with unbounded data, robust events",
+      "url": "https://www.reddit.com/r/programming/comments/1wjxzv9/iceoryx2_010_released_full_flatbuffer_integration/",
+      "by": "elfenpiff",
+      "time": 1789755551000,
       "sub": "r/programming"
     },
     {
@@ -23,164 +65,118 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "Reverse Engineering ChatGPT Web: How OpenAI Built for a Billion Users",
-      "url": "https://www.reddit.com/r/programming/comments/1wjptug/reverse_engineering_chatgpt_web_how_openai_built/",
-      "by": "fagnerbrack",
-      "time": 1789737104000,
-      "sub": "r/programming"
-    },
-    {
       "title": "mariadb-operator 📦 26.10: MariaDB 12.3 LTS support, replication topology hardening, ZSTD compression for backups... and more!",
       "url": "https://www.reddit.com/r/kubernetes/comments/1wjpqk7/mariadboperator_2610_mariadb_123_lts_support/",
       "by": "mmontes11",
       "time": 1789736873000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "Make Code Review Your Default Next Task",
-      "url": "https://www.reddit.com/r/programming/comments/1wjont5/make_code_review_your_default_next_task/",
-      "by": "warren5236",
-      "time": 1789733999000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
-      "by": "hennexl",
-      "time": 1789730649000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjlzg3/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1789725616000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Understanding Raft By Implementing It From Scratch - Part 2",
-      "url": "https://www.reddit.com/r/programming/comments/1wjlfk0/understanding_raft_by_implementing_it_from/",
-      "by": "Fantastic_Wave1982",
-      "time": 1789723664000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Conway's Law and Programming Languages",
-      "url": "https://www.reddit.com/r/programming/comments/1wjl4rq/conways_law_and_programming_languages/",
-      "by": "Shadowys",
-      "time": 1789722613000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Building a Quote vs Actual Cost Tracker for Small Service Businesses",
-      "url": "https://medium.com/@chikab1982/building-a-quote-vs-actual-cost-tracker-for-small-service-businesses-4bf98a49b696",
-      "by": "Blessing Chika",
-      "time": 1789752831000,
+      "title": "What Nobody Tells Freshers About Their First 90 Days in IT",
+      "url": "https://medium.com/illumination/what-nobody-tells-freshers-about-their-first-90-days-in-it-696f535a2ea1",
+      "by": "Talat Waheed",
+      "time": 1789791426000,
       "tags": [
-        "product-development",
-        "software-engineering",
-        "small-business"
+        "self-improvement",
+        "career-advice",
+        "software-engineering"
       ]
     },
     {
-      "title": "Play review is taking a week, say this week’s reports. My console says 53 minutes.",
-      "url": "https://medium.com/@azhar.great/play-review-is-taking-a-week-say-this-weeks-reports-my-console-says-53-minutes-9ab5e111ebfb",
-      "by": "Muhammad Azhar",
-      "time": 1789752715000,
+      "title": "Bias Variance Tradeoff — What is it exactly?",
+      "url": "https://medium.com/@nikj0113/bias-variance-tradeoff-what-is-it-exactly-b2f3afa47340",
+      "by": "Nikhil Joshi",
+      "time": 1789791371000,
       "tags": [
-        "google-play",
-        "android",
-        "android-app-development"
-      ]
-    },
-    {
-      "title": "The Rise of Agentic Workflows: How AI is Rewiring Software Architecture\nSubtitle: Moving past…",
-      "url": "https://medium.com/@arahmedahmed99/the-rise-of-agentic-workflows-how-ai-is-rewiring-software-architecture-subtitle-moving-past-8d3b789df5eb",
-      "by": "AR Enterprises 118",
-      "time": 1789752628000,
-      "tags": [
-        "software-development",
         "programming",
-        "technology"
+        "deep-learning",
+        "data-science"
       ]
     },
     {
-      "title": "If AI can write code, then what does a software engineer actually do?",
-      "url": "https://abulmonsur28.medium.com/if-ai-can-write-code-then-what-does-a-software-engineer-actually-do-d828797f36c1",
-      "by": "Abul Monsur",
-      "time": 1789752607000,
+      "title": "CS373 Fall 2026: David Ordonez Blog 4",
+      "url": "https://agentic0.medium.com/cs373-fall-2026-david-ordonez-blog-4-b8eb42e2f993",
+      "by": "David Virgilio Ordonez",
+      "time": 1789791116000,
       "tags": [
+        "ut-austin",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Tech: Load Balancing Algorithms: Stop Using Round-Robin (It’s Broken)",
+      "url": "https://medium.com/@moksh.9/tech-load-balancing-algorithms-stop-using-round-robin-its-broken-b6e3df2063a1",
+      "by": "Moksh S",
+      "time": 1789790761000,
+      "tags": [
+        "software",
+        "software-development",
+        "ai"
+      ]
+    },
+    {
+      "title": "How I Accidentally Beat the Official DeepSeek API by Overclocking an “Outdated” A100 from 33 tok/s…",
+      "url": "https://medium.com/@ryoshi3z/how-i-accidentally-beat-the-official-deepseek-api-by-overclocking-an-outdated-a100-from-33-tok-s-a222473ac180",
+      "by": "Ryo Shimizu(shi3z)",
+      "time": 1789789856000,
+      "tags": [
+        "programming"
+      ]
+    },
+    {
+      "title": "Social Jet – Followers & Likes: My Experience With the Android App",
+      "url": "https://medium.com/@sakpalatharva72/social-jet-followers-likes-my-experience-with-the-android-app-5c74ece833c4",
+      "by": "Sakpalatharva",
+      "time": 1789789644000,
+      "tags": [
+        "programming",
+        "ai"
+      ]
+    },
+    {
+      "title": "Nobody levels up by learning more SQL: and why AI makes the basics matter more",
+      "url": "https://medium.com/@jsonformatterorg/nobody-levels-up-by-learning-more-sql-and-why-ai-makes-the-basics-matter-more-909fb3fb6379",
+      "by": "Data NX",
+      "time": 1789789430000,
+      "tags": [
+        "career-growth",
         "artificial-intelligence",
-        "ai-software-engineering",
         "software-engineering"
       ]
     },
     {
-      "title": "Sam Altman, Elon Musk and Dario Amodei Agree on One Thing: AI Is Moving Too Fast",
-      "url": "https://medium.com/@gaddamnaveen192/sam-altman-elon-musk-and-dario-amodei-agree-on-one-thing-ai-is-moving-too-fast-5dbe13f7333b",
-      "by": "Gaddam.Naveen",
-      "time": 1789752265000,
+      "title": "Why I Built a Local-First Multi-Agent Coding Runtime (With $0 Token Markup)",
+      "url": "https://medium.com/@gustavo25880521/why-i-built-a-local-first-multi-agent-coding-runtime-with-0-token-markup-fd4d5adbfa6c",
+      "by": "Gustavo",
+      "time": 1789789044000,
       "tags": [
-        "kafka",
         "software-engineering",
-        "java"
-      ]
-    },
-    {
-      "title": "8 Best Docker Books to Learn Containers in 2026",
-      "url": "https://medium.com/@sumitsuthar_95414/8-best-docker-books-to-learn-containers-in-2026-00ec766c5cf6",
-      "by": "Sumit Suthar",
-      "time": 1789752023000,
-      "tags": [
-        "technology",
-        "software-development",
-        "docker"
-      ]
-    },
-    {
-      "title": "“aJent: One Clojure Brain Orchestrating a Polyglot Fleet of AI Tools”",
-      "url": "https://medium.com/@pooriayousefi/ajent-one-clojure-brain-orchestrating-a-polyglot-fleet-of-ai-tools-ea031df1401f",
-      "by": "Pooriayousefi",
-      "time": 1789751979000,
-      "tags": [
         "open-source",
-        "clojure",
-        "polyglot"
+        "ai"
       ]
     },
     {
-      "title": "Claude Is Helping Build Its Successor And That Changes How Progress Gets Measured",
-      "url": "https://medium.com/@vikramlingam/claude-is-helping-build-its-successor-and-that-changes-how-progress-gets-measured-1e91f7360adf",
-      "by": "Vikram Lingam",
-      "time": 1789751807000,
+      "title": "From SDLC to ADLC: Rethinking Software Engineering in the Age of AI Agents",
+      "url": "https://medium.com/@krishnachaitanyavempati/from-sdlc-to-adlc-rethinking-software-engineering-in-the-age-of-ai-agents-0c08dff22e9f",
+      "by": "Krishna Chaitanya Vempati",
+      "time": 1789788855000,
       "tags": [
+        "careers",
         "software-engineering",
-        "ai-safety",
-        "claude"
+        "coding"
       ]
     },
     {
-      "title": "Mishandling concurrency is one of the most common root causes of software bugs",
-      "url": "https://madflojo.medium.com/mishandling-concurrency-is-one-of-the-most-common-root-causes-of-software-bugs-e9e3803cc124",
-      "by": "Benjamin Cane",
-      "time": 1789751761000,
+      "title": "Creating a Blog in Gemini://",
+      "url": "https://brennanbrown.medium.com/creating-a-blog-in-gemini-4b715eb8fbc9",
+      "by": "Brennan Kenneth Brown",
+      "time": 1789788725000,
       "tags": [
-        "programming",
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "From writing Python to thinking in systems.",
-      "url": "https://medium.com/@muguchiaeric/from-writing-python-to-thinking-in-systems-dde590ab0dc9",
-      "by": "Muguchiaeric",
-      "time": 1789751662000,
-      "tags": [
-        "objectorientedprogramming",
-        "actuarial-science",
-        "python"
+        "coding",
+        "blogging",
+        "programming"
       ]
     }
   ]
