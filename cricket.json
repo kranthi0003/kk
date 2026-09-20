@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-19T04:29:23.303Z",
+  "generated": "2026-09-20T04:29:49.020Z",
   "season": "2026",
   "sources": [
     {
@@ -199,19 +199,19 @@
     "t20i": [
       {
         "pos": 1,
-        "code": "IND",
-        "team": "India",
-        "matches": 63,
-        "points": 16922,
+        "code": "ENG",
+        "team": "England",
+        "matches": 41,
+        "points": 11021,
         "rating": 269
       },
       {
         "pos": 2,
-        "code": "ENG",
-        "team": "England",
-        "matches": 39,
-        "points": 10464,
-        "rating": 268
+        "code": "IND",
+        "team": "India",
+        "matches": 64,
+        "points": 17201,
+        "rating": 269
       },
       {
         "pos": 3,
@@ -265,16 +265,16 @@
         "pos": 9,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 45,
-        "points": 9914,
+        "matches": 47,
+        "points": 10334,
         "rating": 220
       },
       {
         "pos": 10,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 38,
-        "points": 8355,
+        "matches": 39,
+        "points": 8565,
         "rating": 220
       },
       {
@@ -785,11 +785,11 @@
         },
         "t20i": {
           "matches": 3,
-          "result": null,
-          "played": 0
+          "result": "3–0",
+          "played": 3
         }
       },
-      "played": 0,
+      "played": 3,
       "scheduled": 6,
       "ends": "2026-10-03",
       "status": "live"

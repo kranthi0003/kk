@@ -1,12 +1,61 @@
 {
-  "generated": "2026-09-19T04:29:16.756Z",
+  "generated": "2026-09-20T04:29:43.828Z",
   "reddit": [
     {
-      "title": "Do you troubleshoot Kubernetes from the top down or start with the failing pod?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wkc2vp/do_you_troubleshoot_kubernetes_from_the_top_down/",
-      "by": "Diligent-Wrongdoer68",
-      "time": 1789791532000,
-      "sub": "r/kubernetes"
+      "title": "How to deal with “Match Review” in BlackDuck SCA",
+      "url": "https://www.reddit.com/r/devops/comments/1wl1dz9/how_to_deal_with_match_review_in_blackduck_sca/",
+      "by": "secret-detected",
+      "time": 1789861757000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "vercel AWS placement",
+      "url": "https://www.reddit.com/r/devops/comments/1wl114n/vercel_aws_placement/",
+      "by": "cryopie101",
+      "time": 1789860756000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How are people currently managing AWS access for AI agents? I'm looking into different approaches for securely handling permissions and credentials when agents need to interact with AWS services.",
+      "url": "https://www.reddit.com/r/devops/comments/1wkvk6c/how_are_people_currently_managing_aws_access_for/",
+      "by": "SwordfishPositive91",
+      "time": 1789847000000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Good Tools Are Invisible",
+      "url": "https://www.reddit.com/r/programming/comments/1wkugvr/good_tools_are_invisible/",
+      "by": "fagnerbrack",
+      "time": 1789844428000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "You can run git on object storage if you re-make packfiles",
+      "url": "https://www.reddit.com/r/programming/comments/1wkrfqw/you_can_run_git_on_object_storage_if_you_remake/",
+      "by": "Either_Collection349",
+      "time": 1789837255000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The Void Job",
+      "url": "https://www.reddit.com/r/programming/comments/1wkqj9y/the_void_job/",
+      "by": "Either_Collection349",
+      "time": 1789835108000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Devops learning path suggestion with AWS",
+      "url": "https://www.reddit.com/r/devops/comments/1wkq74m/devops_learning_path_suggestion_with_aws/",
+      "by": "SubstantialTank8057",
+      "time": 1789834282000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Building an ASCII 3D Renderer",
+      "url": "https://www.reddit.com/r/programming/comments/1wkglyj/building_an_ascii_3d_renderer/",
+      "by": "kciter",
+      "time": 1789806442000,
+      "sub": "r/programming"
     },
     {
       "title": "What if only one allocation needs to be borrow checked in a managed program?",
@@ -16,167 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "\"the main purpose of unit tests is keeping your code from being violently sh*t on by others\"",
-      "url": "https://www.reddit.com/r/programming/comments/1wk4lod/the_main_purpose_of_unit_tests_is_keeping_your/",
-      "by": "mareek",
-      "time": 1789770763000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Broker-Visible vs Client-Local Parallelism",
-      "url": "https://www.reddit.com/r/programming/comments/1wk3svf/brokervisible_vs_clientlocal_parallelism/",
-      "by": "fagnerbrack",
-      "time": 1789768815000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Fedora signing: draw the rest of the owl",
-      "url": "https://www.reddit.com/r/programming/comments/1wk2i8f/fedora_signing_draw_the_rest_of_the_owl/",
-      "by": "throwaway16830261",
-      "time": 1789765709000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Crossplane provider for LiteLLM.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wk2fr7/crossplane_provider_for_litellm/",
-      "by": "Coding-Sheikh",
-      "time": 1789765549000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "iceoryx2 0.10 released: full flatbuffer integration, zero copy ipc with unbounded data, robust events",
-      "url": "https://www.reddit.com/r/programming/comments/1wjxzv9/iceoryx2_010_released_full_flatbuffer_integration/",
-      "by": "elfenpiff",
-      "time": 1789755551000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Does AI affect your ability to troubleshoot Kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjuo8g/does_ai_affect_your_ability_to_troubleshoot/",
-      "by": "IntentionJolly2730",
-      "time": 1789748242000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
-      "by": "code_fragger",
-      "time": 1789737965000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "mariadb-operator 📦 26.10: MariaDB 12.3 LTS support, replication topology hardening, ZSTD compression for backups... and more!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjpqk7/mariadboperator_2610_mariadb_123_lts_support/",
-      "by": "mmontes11",
-      "time": 1789736873000,
-      "sub": "r/kubernetes"
+      "title": "How are teams keeping docs current when you ship several times a week?",
+      "url": "https://www.reddit.com/r/devops/comments/1wk6vpl/how_are_teams_keeping_docs_current_when_you_ship/",
+      "by": "RapidlyErect",
+      "time": 1789776577000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "What Nobody Tells Freshers About Their First 90 Days in IT",
-      "url": "https://medium.com/illumination/what-nobody-tells-freshers-about-their-first-90-days-in-it-696f535a2ea1",
-      "by": "Talat Waheed",
-      "time": 1789791426000,
+      "title": "16 Types of Databases Every Developer Should Understand And When to Use Them",
+      "url": "https://medium.com/lets-code-future/16-types-of-databases-every-developer-should-understand-and-when-to-use-them-960bc9524729",
+      "by": "Deep concept",
+      "time": 1789878285000,
       "tags": [
-        "self-improvement",
-        "career-advice",
+        "ai",
+        "coding",
+        "database"
+      ]
+    },
+    {
+      "title": "Why spec-driven development is becoming essential for agentic software engineering",
+      "url": "https://medium.com/@saini_gopal/why-spec-driven-development-is-becoming-essential-for-agentic-software-engineering-e1b6375c788a",
+      "by": "Gopal Saini",
+      "time": 1789878240000,
+      "tags": [
+        "ai",
+        "ai-agents-in-action",
         "software-engineering"
       ]
     },
     {
-      "title": "Bias Variance Tradeoff — What is it exactly?",
-      "url": "https://medium.com/@nikj0113/bias-variance-tradeoff-what-is-it-exactly-b2f3afa47340",
-      "by": "Nikhil Joshi",
-      "time": 1789791371000,
+      "title": "System Design Interview: How Do You Add a Column to a 200-Million-Row Table Without Downtime?",
+      "url": "https://medium.com/@tihomir.manushev/system-design-interview-how-do-you-add-a-column-to-a-200-million-row-table-without-downtime-8266d85b6a65",
+      "by": "Tihomir Manushev",
+      "time": 1789877975000,
       "tags": [
-        "programming",
-        "deep-learning",
-        "data-science"
+        "system-design-interview",
+        "software-engineering",
+        "postgresql"
       ]
     },
     {
-      "title": "CS373 Fall 2026: David Ordonez Blog 4",
-      "url": "https://agentic0.medium.com/cs373-fall-2026-david-ordonez-blog-4-b8eb42e2f993",
-      "by": "David Virgilio Ordonez",
-      "time": 1789791116000,
+      "title": "I Worked Through Hundreds of Calculus Problems — These Are the 20 That Matter Most",
+      "url": "https://medium.com/@drpeterkattan/i-worked-through-hundreds-of-calculus-problems-these-are-the-20-that-matter-most-e2de0f374dcd",
+      "by": "Peter Kattan",
+      "time": 1789877932000,
       "tags": [
-        "ut-austin",
+        "engineer",
+        "math",
         "software-engineering"
       ]
     },
     {
-      "title": "Tech: Load Balancing Algorithms: Stop Using Round-Robin (It’s Broken)",
-      "url": "https://medium.com/@moksh.9/tech-load-balancing-algorithms-stop-using-round-robin-its-broken-b6e3df2063a1",
-      "by": "Moksh S",
-      "time": 1789790761000,
+      "title": "Are we becoming better engineers, or just faster at producing code?",
+      "url": "https://medium.com/@abhishekkanichery/are-we-becoming-better-engineers-or-just-faster-at-producing-code-86b742861276",
+      "by": "Abhishek",
+      "time": 1789877796000,
       "tags": [
-        "software",
-        "software-development",
-        "ai"
-      ]
-    },
-    {
-      "title": "How I Accidentally Beat the Official DeepSeek API by Overclocking an “Outdated” A100 from 33 tok/s…",
-      "url": "https://medium.com/@ryoshi3z/how-i-accidentally-beat-the-official-deepseek-api-by-overclocking-an-outdated-a100-from-33-tok-s-a222473ac180",
-      "by": "Ryo Shimizu(shi3z)",
-      "time": 1789789856000,
-      "tags": [
-        "programming"
-      ]
-    },
-    {
-      "title": "Social Jet – Followers & Likes: My Experience With the Android App",
-      "url": "https://medium.com/@sakpalatharva72/social-jet-followers-likes-my-experience-with-the-android-app-5c74ece833c4",
-      "by": "Sakpalatharva",
-      "time": 1789789644000,
-      "tags": [
-        "programming",
-        "ai"
-      ]
-    },
-    {
-      "title": "Nobody levels up by learning more SQL: and why AI makes the basics matter more",
-      "url": "https://medium.com/@jsonformatterorg/nobody-levels-up-by-learning-more-sql-and-why-ai-makes-the-basics-matter-more-909fb3fb6379",
-      "by": "Data NX",
-      "time": 1789789430000,
-      "tags": [
-        "career-growth",
+        "developer-tools",
         "artificial-intelligence",
         "software-engineering"
       ]
     },
     {
-      "title": "Why I Built a Local-First Multi-Agent Coding Runtime (With $0 Token Markup)",
-      "url": "https://medium.com/@gustavo25880521/why-i-built-a-local-first-multi-agent-coding-runtime-with-0-token-markup-fd4d5adbfa6c",
-      "by": "Gustavo",
-      "time": 1789789044000,
+      "title": "From Scripts to Architecture | How One Week Changed the Way I Write Python",
+      "url": "https://medium.com/@nnadianthony25/from-scripts-to-architecture-how-one-week-changed-the-way-i-write-python-52ee1b3388b5",
+      "by": "Nnadi Anthony",
+      "time": 1789877760000,
       "tags": [
-        "software-engineering",
-        "open-source",
-        "ai"
-      ]
-    },
-    {
-      "title": "From SDLC to ADLC: Rethinking Software Engineering in the Age of AI Agents",
-      "url": "https://medium.com/@krishnachaitanyavempati/from-sdlc-to-adlc-rethinking-software-engineering-in-the-age-of-ai-agents-0c08dff22e9f",
-      "by": "Krishna Chaitanya Vempati",
-      "time": 1789788855000,
-      "tags": [
-        "careers",
-        "software-engineering",
-        "coding"
-      ]
-    },
-    {
-      "title": "Creating a Blog in Gemini://",
-      "url": "https://brennanbrown.medium.com/creating-a-blog-in-gemini-4b715eb8fbc9",
-      "by": "Brennan Kenneth Brown",
-      "time": 1789788725000,
-      "tags": [
-        "coding",
-        "blogging",
+        "skills-development",
+        "python3",
         "programming"
+      ]
+    },
+    {
+      "title": "Docker Basics for Beginners, Part 2: getting Docker running on your machine and taking your first…",
+      "url": "https://medium.com/@satyamsatyarthi007/docker-basics-for-beginners-part-2-getting-docker-running-on-your-machine-and-taking-your-first-b66a816178dd",
+      "by": "Satyamsatyarthi",
+      "time": 1789877734000,
+      "tags": [
+        "software-development",
+        "docker",
+        "containers"
+      ]
+    },
+    {
+      "title": "Tech: Database Transactions: Stop Using Wrong Isolation Levels",
+      "url": "https://medium.com/@moksh.9/tech-database-transactions-stop-using-wrong-isolation-levels-653885d6f620",
+      "by": "Moksh S",
+      "time": 1789877461000,
+      "tags": [
+        "database",
+        "software-engineering",
+        "mysql"
+      ]
+    },
+    {
+      "title": "Istio Canary Upgrade: 1.30.0 → 1.31.0 Using Revisions and Tags",
+      "url": "https://medium.com/@gupta.rajneesh2010/istio-canary-upgrade-1-30-0-1-31-0-using-revisions-and-tags-9d36e057595f",
+      "by": "Rajneesh Gupta",
+      "time": 1789876470000,
+      "tags": [
+        "java",
+        "istio",
+        "devops"
+      ]
+    },
+    {
+      "title": "Computer Use",
+      "url": "https://sarfarajey.medium.com/computer-use-a1b2818c5958",
+      "by": "Mir Sarfarajey Akram",
+      "time": 1789876162000,
+      "tags": [
+        "ai-native-software",
+        "ai-agent",
+        "artificial-intelligence"
       ]
     }
   ]
