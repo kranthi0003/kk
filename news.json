@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-20T04:29:43.828Z",
+  "generated": "2026-09-21T04:33:15.855Z",
   "reddit": [
     {
-      "title": "How to deal with “Match Review” in BlackDuck SCA",
-      "url": "https://www.reddit.com/r/devops/comments/1wl1dz9/how_to_deal_with_match_review_in_blackduck_sca/",
-      "by": "secret-detected",
-      "time": 1789861757000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "vercel AWS placement",
-      "url": "https://www.reddit.com/r/devops/comments/1wl114n/vercel_aws_placement/",
-      "by": "cryopie101",
-      "time": 1789860756000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How are people currently managing AWS access for AI agents? I'm looking into different approaches for securely handling permissions and credentials when agents need to interact with AWS services.",
-      "url": "https://www.reddit.com/r/devops/comments/1wkvk6c/how_are_people_currently_managing_aws_access_for/",
-      "by": "SwordfishPositive91",
-      "time": 1789847000000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Good Tools Are Invisible",
-      "url": "https://www.reddit.com/r/programming/comments/1wkugvr/good_tools_are_invisible/",
+      "title": "CSE 452: Google's Introduction to Distributed System Design",
+      "url": "https://www.reddit.com/r/programming/comments/1wm24ab/cse_452_googles_introduction_to_distributed/",
       "by": "fagnerbrack",
-      "time": 1789844428000,
+      "time": 1789963251000,
       "sub": "r/programming"
     },
     {
-      "title": "You can run git on object storage if you re-make packfiles",
-      "url": "https://www.reddit.com/r/programming/comments/1wkrfqw/you_can_run_git_on_object_storage_if_you_remake/",
-      "by": "Either_Collection349",
-      "time": 1789837255000,
+      "title": "Saving another 100TB of RAM with math (and Rust)",
+      "url": "https://www.reddit.com/r/programming/comments/1wlwr9e/saving_another_100tb_of_ram_with_math_and_rust/",
+      "by": "Ok_Stomach6651",
+      "time": 1789948047000,
       "sub": "r/programming"
     },
     {
-      "title": "The Void Job",
-      "url": "https://www.reddit.com/r/programming/comments/1wkqj9y/the_void_job/",
-      "by": "Either_Collection349",
-      "time": 1789835108000,
+      "title": "(C++) Asynchronous API",
+      "url": "https://www.reddit.com/r/programming/comments/1wlpi6i/c_asynchronous_api/",
+      "by": "grishavanika",
+      "time": 1789930625000,
       "sub": "r/programming"
     },
     {
-      "title": "Devops learning path suggestion with AWS",
-      "url": "https://www.reddit.com/r/devops/comments/1wkq74m/devops_learning_path_suggestion_with_aws/",
-      "by": "SubstantialTank8057",
-      "time": 1789834282000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Building an ASCII 3D Renderer",
-      "url": "https://www.reddit.com/r/programming/comments/1wkglyj/building_an_ascii_3d_renderer/",
-      "by": "kciter",
-      "time": 1789806442000,
+      "title": "Fighting for #1 in the Ultimate Tic-Tac-Toe Arena",
+      "url": "https://www.reddit.com/r/programming/comments/1wlnfhn/fighting_for_1_in_the_ultimate_tictactoe_arena/",
+      "by": "IiIIIlllllLliLl",
+      "time": 1789925939000,
       "sub": "r/programming"
     },
     {
-      "title": "What if only one allocation needs to be borrow checked in a managed program?",
-      "url": "https://www.reddit.com/r/programming/comments/1wk814r/what_if_only_one_allocation_needs_to_be_borrow/",
-      "by": "Practical-Medium-858",
-      "time": 1789779706000,
+      "title": "DevOps engineers — how did you reach high packages? Looking for career advice",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wlktaf/devops_engineers_how_did_you_reach_high_packages/",
+      "by": "FeedbackWeird5703",
+      "time": 1789919954000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Writing Your Own Allocator in Rust (and Why You Should)",
+      "url": "https://www.reddit.com/r/programming/comments/1wlho4z/writing_your_own_allocator_in_rust_and_why_you/",
+      "by": "PastEar9661",
+      "time": 1789912356000,
       "sub": "r/programming"
     },
     {
-      "title": "How are teams keeping docs current when you ship several times a week?",
-      "url": "https://www.reddit.com/r/devops/comments/1wk6vpl/how_are_teams_keeping_docs_current_when_you_ship/",
-      "by": "RapidlyErect",
-      "time": 1789776577000,
-      "sub": "r/devops"
+      "title": "My Idea :- WhatBreaks",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wkw6ty/my_idea_whatbreaks/",
+      "by": "Impossible-Tune-7086",
+      "time": 1789848485000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Has anyone here been running a Voice AI / Agent Builder platform on Kubernetes in production?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wknuk5/has_anyone_here_been_running_a_voice_ai_agent/",
+      "by": "OcelotChance",
+      "time": 1789828497000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
+      "by": "code_fragger",
+      "time": 1789737965000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
+      "by": "hennexl",
+      "time": 1789730649000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "16 Types of Databases Every Developer Should Understand And When to Use Them",
-      "url": "https://medium.com/lets-code-future/16-types-of-databases-every-developer-should-understand-and-when-to-use-them-960bc9524729",
-      "by": "Deep concept",
-      "time": 1789878285000,
+      "title": "5 Smart Application Features You Can Build with the Laravel AI SDK",
+      "url": "https://medium.com/codex/5-smart-application-features-you-can-build-with-the-laravel-ai-sdk-6a3119b9a912",
+      "by": "Developer Awam",
+      "time": 1789964788000,
       "tags": [
-        "ai",
-        "coding",
-        "database"
-      ]
-    },
-    {
-      "title": "Why spec-driven development is becoming essential for agentic software engineering",
-      "url": "https://medium.com/@saini_gopal/why-spec-driven-development-is-becoming-essential-for-agentic-software-engineering-e1b6375c788a",
-      "by": "Gopal Saini",
-      "time": 1789878240000,
-      "tags": [
-        "ai",
-        "ai-agents-in-action",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "System Design Interview: How Do You Add a Column to a 200-Million-Row Table Without Downtime?",
-      "url": "https://medium.com/@tihomir.manushev/system-design-interview-how-do-you-add-a-column-to-a-200-million-row-table-without-downtime-8266d85b6a65",
-      "by": "Tihomir Manushev",
-      "time": 1789877975000,
-      "tags": [
-        "system-design-interview",
-        "software-engineering",
-        "postgresql"
-      ]
-    },
-    {
-      "title": "I Worked Through Hundreds of Calculus Problems — These Are the 20 That Matter Most",
-      "url": "https://medium.com/@drpeterkattan/i-worked-through-hundreds-of-calculus-problems-these-are-the-20-that-matter-most-e2de0f374dcd",
-      "by": "Peter Kattan",
-      "time": 1789877932000,
-      "tags": [
-        "engineer",
-        "math",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Are we becoming better engineers, or just faster at producing code?",
-      "url": "https://medium.com/@abhishekkanichery/are-we-becoming-better-engineers-or-just-faster-at-producing-code-86b742861276",
-      "by": "Abhishek",
-      "time": 1789877796000,
-      "tags": [
-        "developer-tools",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "From Scripts to Architecture | How One Week Changed the Way I Write Python",
-      "url": "https://medium.com/@nnadianthony25/from-scripts-to-architecture-how-one-week-changed-the-way-i-write-python-52ee1b3388b5",
-      "by": "Nnadi Anthony",
-      "time": 1789877760000,
-      "tags": [
-        "skills-development",
-        "python3",
+        "php",
+        "laravel",
         "programming"
       ]
     },
     {
-      "title": "Docker Basics for Beginners, Part 2: getting Docker running on your machine and taking your first…",
-      "url": "https://medium.com/@satyamsatyarthi007/docker-basics-for-beginners-part-2-getting-docker-running-on-your-machine-and-taking-your-first-b66a816178dd",
-      "by": "Satyamsatyarthi",
-      "time": 1789877734000,
+      "title": "JavaScript Engine Explained: How JavaScript Code Gets Executed Behind the Scenes",
+      "url": "https://medium.com/@anshulgupta48/javascript-engine-explained-how-javascript-code-gets-executed-behind-the-scenes-16b4d4d57081",
+      "by": "Anshul Gupta",
+      "time": 1789964453000,
       "tags": [
-        "software-development",
-        "docker",
-        "containers"
+        "javascript",
+        "javascript-engine",
+        "frontend-development"
       ]
     },
     {
-      "title": "Tech: Database Transactions: Stop Using Wrong Isolation Levels",
-      "url": "https://medium.com/@moksh.9/tech-database-transactions-stop-using-wrong-isolation-levels-653885d6f620",
+      "title": "Why Your AI Coding Assistant Repeats a Mistake You Already Fixed",
+      "url": "https://medium.com/@izgorodin/why-your-ai-coding-assistant-repeats-a-mistake-you-already-fixed-ab28281d67c3",
+      "by": "Edward Izgorodin",
+      "time": 1789964161000,
+      "tags": [
+        "programming",
+        "ai-agents-in-action",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Tech. Error Handling: Stop Retrying Everything (It Makes Things Worse)",
+      "url": "https://medium.com/@moksh.9/tech-error-handling-stop-retrying-everything-it-makes-things-worse-2d48e4c69297",
       "by": "Moksh S",
-      "time": 1789877461000,
+      "time": 1789964161000,
       "tags": [
-        "database",
+        "software-architecture",
+        "error-handling",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The parse error that turned out to be one character",
+      "url": "https://medium.com/@aryx-k6/the-parse-error-that-turned-out-to-be-one-character-0b3b8f231dcb",
+      "by": "Aryx K.",
+      "time": 1789963815000,
+      "tags": [
+        "programming",
+        "web-development",
+        "developer-tools"
+      ]
+    },
+    {
+      "title": "Why Proof-Based Software Delivery Wins More Clients and Builds Buyer Trust",
+      "url": "https://medium.com/@premmurmu/why-proof-based-software-delivery-wins-more-clients-and-builds-buyer-trust-113a820f6c7a",
+      "by": "Prem Murmu",
+      "time": 1789963094000,
+      "tags": [
+        "digital-transformation",
+        "technology-partner",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Soft Skills para Engenheiros de Software: o que realmente importa",
+      "url": "https://medium.com/@sham.vinicius/soft-skills-para-engenheiros-de-software-o-que-realmente-importa-19932d4a32bc",
+      "by": "Sham Vinicius Fiorin",
+      "time": 1789963025000,
+      "tags": [
+        "leadership",
         "software-engineering",
-        "mysql"
+        "career-development"
       ]
     },
     {
-      "title": "Istio Canary Upgrade: 1.30.0 → 1.31.0 Using Revisions and Tags",
-      "url": "https://medium.com/@gupta.rajneesh2010/istio-canary-upgrade-1-30-0-1-31-0-using-revisions-and-tags-9d36e057595f",
-      "by": "Rajneesh Gupta",
-      "time": 1789876470000,
+      "title": "Managing AI Coding Agents with Project Files: Lessons from 118 Tasks",
+      "url": "https://medium.com/@shiftsaas/managing-ai-coding-agents-with-project-files-lessons-from-118-tasks-de199bc0d35f",
+      "by": "Vuong Nguyen",
+      "time": 1789962509000,
       "tags": [
-        "java",
-        "istio",
-        "devops"
+        "software-engineering",
+        "artificial-intelligence",
+        "software-architecture"
       ]
     },
     {
-      "title": "Computer Use",
-      "url": "https://sarfarajey.medium.com/computer-use-a1b2818c5958",
-      "by": "Mir Sarfarajey Akram",
-      "time": 1789876162000,
+      "title": "Banking Domain Client Round — Senior Java/Microservices Interview Questions",
+      "url": "https://medium.com/@anil-singh/banking-domain-client-round-senior-java-microservices-interview-questions-44c0b0f7bb10",
+      "by": "Anil",
+      "time": 1789962466000,
       "tags": [
-        "ai-native-software",
-        "ai-agent",
-        "artificial-intelligence"
+        "technology",
+        "psychology",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Flutter Offline-First: Building Apps That Work Without a Connection",
+      "url": "https://medium.com/@lycore/flutter-offline-first-building-apps-that-work-without-a-connection-6e0dceceadaa",
+      "by": "Lycore",
+      "time": 1789962430000,
+      "tags": [
+        "programming",
+        "flutter",
+        "mobile-development"
       ]
     }
   ]

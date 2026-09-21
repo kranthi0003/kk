@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20T04:29:49.020Z",
+  "generated": "2026-09-21T04:33:20.778Z",
   "season": "2026",
   "sources": [
     {
@@ -759,12 +759,12 @@
         "test": null,
         "odi": {
           "matches": 3,
-          "result": null,
-          "played": 0
+          "result": "0–3",
+          "played": 3
         },
         "t20i": null
       },
-      "played": 0,
+      "played": 3,
       "scheduled": 3,
       "ends": "2026-09-27",
       "status": "live"
