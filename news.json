@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-21T04:33:15.855Z",
+  "generated": "2026-09-22T04:30:43.271Z",
   "reddit": [
     {
-      "title": "CSE 452: Google's Introduction to Distributed System Design",
-      "url": "https://www.reddit.com/r/programming/comments/1wm24ab/cse_452_googles_introduction_to_distributed/",
-      "by": "fagnerbrack",
-      "time": 1789963251000,
+      "title": "How does your team decide who's allowed to approve risky code changes?",
+      "url": "https://www.reddit.com/r/devops/comments/1wmx38d/how_does_your_team_decide_whos_allowed_to_approve/",
+      "by": "Mountain-Wedding-918",
+      "time": 1790044188000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Covert Caches: TLB Edition",
+      "url": "https://www.reddit.com/r/programming/comments/1wmsvny/covert_caches_tlb_edition/",
+      "by": "mttd",
+      "time": 1790032932000,
       "sub": "r/programming"
     },
     {
-      "title": "Saving another 100TB of RAM with math (and Rust)",
-      "url": "https://www.reddit.com/r/programming/comments/1wlwr9e/saving_another_100tb_of_ram_with_math_and_rust/",
-      "by": "Ok_Stomach6651",
-      "time": 1789948047000,
+      "title": "TIL: 0xCAFEBABE",
+      "url": "https://www.reddit.com/r/programming/comments/1wmqwd3/til_0xcafebabe/",
+      "by": "pwbdecker",
+      "time": 1790028087000,
       "sub": "r/programming"
     },
     {
-      "title": "(C++) Asynchronous API",
-      "url": "https://www.reddit.com/r/programming/comments/1wlpi6i/c_asynchronous_api/",
-      "by": "grishavanika",
-      "time": 1789930625000,
+      "title": "Bernstein’s Factorization Method Helped Factor RSA-240 in 2020",
+      "url": "https://www.reddit.com/r/programming/comments/1wmio31/bernsteins_factorization_method_helped_factor/",
+      "by": "DataBaeBee",
+      "time": 1790010199000,
       "sub": "r/programming"
     },
     {
-      "title": "Fighting for #1 in the Ultimate Tic-Tac-Toe Arena",
-      "url": "https://www.reddit.com/r/programming/comments/1wlnfhn/fighting_for_1_in_the_ultimate_tictactoe_arena/",
-      "by": "IiIIIlllllLliLl",
-      "time": 1789925939000,
+      "title": "Where did everyone who was on HCP Vault Secrets end up?",
+      "url": "https://www.reddit.com/r/devops/comments/1wmgg11/where_did_everyone_who_was_on_hcp_vault_secrets/",
+      "by": "Chris__Codes",
+      "time": 1790005457000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Senior engineer said \"bastion hosts have been insecure and outdated for 10 years\" what am I missing?",
+      "url": "https://www.reddit.com/r/devops/comments/1wmdqfw/senior_engineer_said_bastion_hosts_have_been/",
+      "by": "finding-meaning-01",
+      "time": 1789999457000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Back to Coupling and Cohesion",
+      "url": "https://www.reddit.com/r/programming/comments/1wmckoi/back_to_coupling_and_cohesion/",
+      "by": "areklanga",
+      "time": 1789996709000,
       "sub": "r/programming"
     },
     {
-      "title": "DevOps engineers — how did you reach high packages? Looking for career advice",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wlktaf/devops_engineers_how_did_you_reach_high_packages/",
-      "by": "FeedbackWeird5703",
-      "time": 1789919954000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Writing Your Own Allocator in Rust (and Why You Should)",
-      "url": "https://www.reddit.com/r/programming/comments/1wlho4z/writing_your_own_allocator_in_rust_and_why_you/",
-      "by": "PastEar9661",
-      "time": 1789912356000,
+      "title": "Functions explained in \"Let's make a programming language\"",
+      "url": "https://www.reddit.com/r/programming/comments/1wmbv4d/functions_explained_in_lets_make_a_programming/",
+      "by": "Xaneris47",
+      "time": 1789994961000,
       "sub": "r/programming"
     },
     {
-      "title": "My Idea :- WhatBreaks",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wkw6ty/my_idea_whatbreaks/",
-      "by": "Impossible-Tune-7086",
-      "time": 1789848485000,
-      "sub": "r/kubernetes"
+      "title": "Weekly Self Promotion Thread",
+      "url": "https://www.reddit.com/r/devops/comments/1wm4w4w/weekly_self_promotion_thread/",
+      "by": "AutoModerator",
+      "time": 1789972219000,
+      "sub": "r/devops"
     },
     {
-      "title": "Has anyone here been running a Voice AI / Agent Builder platform on Kubernetes in production?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wknuk5/has_anyone_here_been_running_a_voice_ai_agent/",
-      "by": "OcelotChance",
-      "time": 1789828497000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "would you use a simpler way to deploy apps on your own kubernetes cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjq68o/would_you_use_a_simpler_way_to_deploy_apps_on/",
-      "by": "code_fragger",
-      "time": 1789737965000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Experience: Found and reported a Vulnerability in a managed Kubernetes offering",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wjnj3d/experience_found_and_reported_a_vulnerability_in/",
-      "by": "hennexl",
-      "time": 1789730649000,
-      "sub": "r/kubernetes"
+      "title": "Help in deciding strategy for long-lived feature environments",
+      "url": "https://www.reddit.com/r/devops/comments/1wm3y35/help_in_deciding_strategy_for_longlived_feature/",
+      "by": "Aki59",
+      "time": 1789969037000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "5 Smart Application Features You Can Build with the Laravel AI SDK",
-      "url": "https://medium.com/codex/5-smart-application-features-you-can-build-with-the-laravel-ai-sdk-6a3119b9a912",
-      "by": "Developer Awam",
-      "time": 1789964788000,
-      "tags": [
-        "php",
-        "laravel",
-        "programming"
-      ]
-    },
-    {
-      "title": "JavaScript Engine Explained: How JavaScript Code Gets Executed Behind the Scenes",
-      "url": "https://medium.com/@anshulgupta48/javascript-engine-explained-how-javascript-code-gets-executed-behind-the-scenes-16b4d4d57081",
-      "by": "Anshul Gupta",
-      "time": 1789964453000,
-      "tags": [
-        "javascript",
-        "javascript-engine",
-        "frontend-development"
-      ]
-    },
-    {
-      "title": "Why Your AI Coding Assistant Repeats a Mistake You Already Fixed",
-      "url": "https://medium.com/@izgorodin/why-your-ai-coding-assistant-repeats-a-mistake-you-already-fixed-ab28281d67c3",
-      "by": "Edward Izgorodin",
-      "time": 1789964161000,
-      "tags": [
-        "programming",
-        "ai-agents-in-action",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Tech. Error Handling: Stop Retrying Everything (It Makes Things Worse)",
-      "url": "https://medium.com/@moksh.9/tech-error-handling-stop-retrying-everything-it-makes-things-worse-2d48e4c69297",
+      "title": "Tech. Database Sharding: When You Have No Choice (And How to Get It Right)",
+      "url": "https://medium.com/@moksh.9/tech-database-sharding-when-you-have-no-choice-and-how-to-get-it-right-dadab0a11193",
       "by": "Moksh S",
-      "time": 1789964161000,
+      "time": 1790050861000,
       "tags": [
-        "software-architecture",
-        "error-handling",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The parse error that turned out to be one character",
-      "url": "https://medium.com/@aryx-k6/the-parse-error-that-turned-out-to-be-one-character-0b3b8f231dcb",
-      "by": "Aryx K.",
-      "time": 1789963815000,
-      "tags": [
-        "programming",
-        "web-development",
-        "developer-tools"
-      ]
-    },
-    {
-      "title": "Why Proof-Based Software Delivery Wins More Clients and Builds Buyer Trust",
-      "url": "https://medium.com/@premmurmu/why-proof-based-software-delivery-wins-more-clients-and-builds-buyer-trust-113a820f6c7a",
-      "by": "Prem Murmu",
-      "time": 1789963094000,
-      "tags": [
-        "digital-transformation",
-        "technology-partner",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Soft Skills para Engenheiros de Software: o que realmente importa",
-      "url": "https://medium.com/@sham.vinicius/soft-skills-para-engenheiros-de-software-o-que-realmente-importa-19932d4a32bc",
-      "by": "Sham Vinicius Fiorin",
-      "time": 1789963025000,
-      "tags": [
-        "leadership",
+        "database",
         "software-engineering",
-        "career-development"
-      ]
-    },
-    {
-      "title": "Managing AI Coding Agents with Project Files: Lessons from 118 Tasks",
-      "url": "https://medium.com/@shiftsaas/managing-ai-coding-agents-with-project-files-lessons-from-118-tasks-de199bc0d35f",
-      "by": "Vuong Nguyen",
-      "time": 1789962509000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
         "software-architecture"
       ]
     },
     {
-      "title": "Banking Domain Client Round — Senior Java/Microservices Interview Questions",
-      "url": "https://medium.com/@anil-singh/banking-domain-client-round-senior-java-microservices-interview-questions-44c0b0f7bb10",
-      "by": "Anil",
-      "time": 1789962466000,
+      "title": "GPT-6 Astra Is Not Just Writing Code Anymore",
+      "url": "https://medium.com/skillstuff/gpt-6-astra-is-not-just-writing-code-anymore-2b67ced08e30",
+      "by": "TechByRahmat",
+      "time": 1790050355000,
       "tags": [
-        "technology",
-        "psychology",
-        "software-development"
+        "programming",
+        "software-development",
+        "technology"
       ]
     },
     {
-      "title": "Flutter Offline-First: Building Apps That Work Without a Connection",
-      "url": "https://medium.com/@lycore/flutter-offline-first-building-apps-that-work-without-a-connection-6e0dceceadaa",
-      "by": "Lycore",
-      "time": 1789962430000,
+      "title": "CI/CD for QA: Understanding What Really Happens to Testing When Software Delivery Becomes Automated",
+      "url": "https://medium.com/@anshita.bhasin/ci-cd-for-qa-understanding-what-really-happens-to-testing-when-software-delivery-becomes-automated-cb9584d0a6c5",
+      "by": "Anshita Bhasin",
+      "time": 1790050245000,
+      "tags": [
+        "cicd",
+        "software-engineering",
+        "software-testing"
+      ]
+    },
+    {
+      "title": "8 Python Shortcuts I Wish I Had Learned Years Ago",
+      "url": "https://python.plainenglish.io/8-python-shortcuts-i-wish-i-had-learned-years-ago-1dca67440a10",
+      "by": "Malik Hussain",
+      "time": 1790050184000,
+      "tags": [
+        "developer-productivity",
+        "coding-tips",
+        "programming"
+      ]
+    },
+    {
+      "title": "8 Python Libraries That Make Your Python Projects Feel Like Real Products",
+      "url": "https://python.plainenglish.io/8-python-libraries-that-make-your-python-projects-feel-like-real-products-e22ce3382c66",
+      "by": "Malik Hussain",
+      "time": 1790050144000,
+      "tags": [
+        "python",
+        "programming",
+        "developer-tools"
+      ]
+    },
+    {
+      "title": "GPT-6 Astra Just Raised the Bar for AI Coding",
+      "url": "https://medium.com/skillstuff/gpt-6-astra-just-raised-the-bar-for-ai-coding-7f4336795ad8",
+      "by": "TechByRahmat",
+      "time": 1790049843000,
       "tags": [
         "programming",
-        "flutter",
-        "mobile-development"
+        "technology",
+        "chatgpt"
+      ]
+    },
+    {
+      "title": "Accenture AI Architect Interview: How Would You Design a Production RAG Platform at Scale?",
+      "url": "https://medium.com/@preetjit82/accenture-ai-architect-interview-how-would-you-design-a-production-rag-platform-at-scale-1161ba899bb3",
+      "by": "Interview Simplified",
+      "time": 1790049769000,
+      "tags": [
+        "software-architecture",
+        "programming",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "Wipro DevOps Engineer Interview Experience: 22 Questions Asked in Round 1",
+      "url": "https://medium.com/@preetjit82/wipro-devops-engineer-interview-experience-22-questions-asked-in-round-1-b66f2cfd22a5",
+      "by": "Interview Simplified",
+      "time": 1790049714000,
+      "tags": [
+        "devops-practice",
+        "devops",
+        "interview"
+      ]
+    },
+    {
+      "title": "Retries Can Make an Outage Worse",
+      "url": "https://medium.com/@nkdr/retries-can-make-an-outage-worse-f1d92d375420",
+      "by": "Kovid",
+      "time": 1790049609000,
+      "tags": [
+        "site-reliability-engineer",
+        "software-engineering",
+        "system-design-concepts"
+      ]
+    },
+    {
+      "title": "Google's AX Takes a Port in Every Egress Rule. Nothing Downstream Can Enforce One.",
+      "url": "https://pub.towardsai.net/googles-ax-takes-a-port-in-every-egress-rule-nothing-downstream-can-enforce-one-6c7ef926f0a0",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1790049526000,
+      "tags": [
+        "artificial-intelligence",
+        "kubernetes",
+        "programming"
       ]
     }
   ]
