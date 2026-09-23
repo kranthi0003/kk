@@ -1,185 +1,184 @@
 {
-  "generated": "2026-09-22T04:30:43.271Z",
+  "generated": "2026-09-23T04:31:45.125Z",
   "reddit": [
     {
-      "title": "How does your team decide who's allowed to approve risky code changes?",
-      "url": "https://www.reddit.com/r/devops/comments/1wmx38d/how_does_your_team_decide_whos_allowed_to_approve/",
-      "by": "Mountain-Wedding-918",
-      "time": 1790044188000,
+      "title": "Small team running 350k+ monthly visitors on managed infra. At what point is owning the infrastructure worth it?",
+      "url": "https://www.reddit.com/r/devops/comments/1wnvw3f/small_team_running_350k_monthly_visitors_on/",
+      "by": "Powerful-Attorney858",
+      "time": 1790137403000,
       "sub": "r/devops"
     },
     {
-      "title": "Covert Caches: TLB Edition",
-      "url": "https://www.reddit.com/r/programming/comments/1wmsvny/covert_caches_tlb_edition/",
-      "by": "mttd",
-      "time": 1790032932000,
+      "title": "The History of Compiled (portion of) Javascript and V8 Engine",
+      "url": "https://www.reddit.com/r/programming/comments/1wnictu/the_history_of_compiled_portion_of_javascript_and/",
+      "by": "Ok_Stomach6651",
+      "time": 1790103245000,
       "sub": "r/programming"
     },
     {
-      "title": "TIL: 0xCAFEBABE",
-      "url": "https://www.reddit.com/r/programming/comments/1wmqwd3/til_0xcafebabe/",
-      "by": "pwbdecker",
-      "time": 1790028087000,
+      "title": "Category Theory Explained for Haskell Programmers – Part 1 ZuriHac 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1wnibwa/category_theory_explained_for_haskell_programmers/",
+      "by": "frenche_sans",
+      "time": 1790103189000,
       "sub": "r/programming"
     },
     {
-      "title": "Bernstein’s Factorization Method Helped Factor RSA-240 in 2020",
-      "url": "https://www.reddit.com/r/programming/comments/1wmio31/bernsteins_factorization_method_helped_factor/",
-      "by": "DataBaeBee",
-      "time": 1790010199000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Where did everyone who was on HCP Vault Secrets end up?",
-      "url": "https://www.reddit.com/r/devops/comments/1wmgg11/where_did_everyone_who_was_on_hcp_vault_secrets/",
-      "by": "Chris__Codes",
-      "time": 1790005457000,
+      "title": "Configuration management",
+      "url": "https://www.reddit.com/r/devops/comments/1wnb752/configuration_management/",
+      "by": "AkelGe-1970",
+      "time": 1790087667000,
       "sub": "r/devops"
     },
     {
-      "title": "Senior engineer said \"bastion hosts have been insecure and outdated for 10 years\" what am I missing?",
-      "url": "https://www.reddit.com/r/devops/comments/1wmdqfw/senior_engineer_said_bastion_hosts_have_been/",
-      "by": "finding-meaning-01",
-      "time": 1789999457000,
+      "title": "What are your tips and tricks for building resiliency into your solutions?",
+      "url": "https://www.reddit.com/r/devops/comments/1wn8veb/what_are_your_tips_and_tricks_for_building/",
+      "by": "NK534PNXMb556VU7p",
+      "time": 1790082068000,
       "sub": "r/devops"
     },
     {
-      "title": "Back to Coupling and Cohesion",
-      "url": "https://www.reddit.com/r/programming/comments/1wmckoi/back_to_coupling_and_cohesion/",
-      "by": "areklanga",
-      "time": 1789996709000,
+      "title": "Amundsen’s Maxim",
+      "url": "https://www.reddit.com/r/programming/comments/1wn8ung/amundsens_maxim/",
+      "by": "fagnerbrack",
+      "time": 1790082028000,
       "sub": "r/programming"
     },
     {
-      "title": "Functions explained in \"Let's make a programming language\"",
-      "url": "https://www.reddit.com/r/programming/comments/1wmbv4d/functions_explained_in_lets_make_a_programming/",
-      "by": "Xaneris47",
-      "time": 1789994961000,
+      "title": "Props Are Not a Design System",
+      "url": "https://www.reddit.com/r/programming/comments/1wn7arp/props_are_not_a_design_system/",
+      "by": "vitonsky",
+      "time": 1790077780000,
       "sub": "r/programming"
     },
     {
-      "title": "Weekly Self Promotion Thread",
-      "url": "https://www.reddit.com/r/devops/comments/1wm4w4w/weekly_self_promotion_thread/",
-      "by": "AutoModerator",
-      "time": 1789972219000,
+      "title": "How do you manage dashboards throughout multiple OpenSearch instances",
+      "url": "https://www.reddit.com/r/devops/comments/1wn6zut/how_do_you_manage_dashboards_throughout_multiple/",
+      "by": "Nearby-Cup-2926",
+      "time": 1790076883000,
       "sub": "r/devops"
     },
     {
-      "title": "Help in deciding strategy for long-lived feature environments",
-      "url": "https://www.reddit.com/r/devops/comments/1wm3y35/help_in_deciding_strategy_for_longlived_feature/",
-      "by": "Aki59",
-      "time": 1789969037000,
+      "title": "C3 0.8.4: Parameter Reflection, Stack Protection, iOS Support—and One Last Renaming",
+      "url": "https://www.reddit.com/r/programming/comments/1wn5gnz/c3_084_parameter_reflection_stack_protection_ios/",
+      "by": "Nuoji",
+      "time": 1790072011000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "For engineers working with Terraform/OpenTofu: what parts of the work are still painful?",
+      "url": "https://www.reddit.com/r/devops/comments/1wn534a/for_engineers_working_with_terraformopentofu_what/",
+      "by": "MysteriousQuestion99",
+      "time": 1790070713000,
       "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Tech. Database Sharding: When You Have No Choice (And How to Get It Right)",
-      "url": "https://medium.com/@moksh.9/tech-database-sharding-when-you-have-no-choice-and-how-to-get-it-right-dadab0a11193",
+      "title": "Top 10 DevSecOps Tools and Practices Every Team Should Adopt in 2026",
+      "url": "https://medium.com/devops-ai-decoded/top-10-devsecops-tools-and-practices-every-team-should-adopt-in-2026-849a11f653db",
+      "by": "Neel Shah",
+      "time": 1790137863000,
+      "tags": [
+        "security",
+        "technology",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "TypeScript 7 Is 10x Faster — And It Just Broke Half Your Toolchain",
+      "url": "https://mozzammeluiu.medium.com/typescript-7-is-10x-faster-and-it-just-broke-half-your-toolchain-8bbd37dda10e",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1790137483000,
+      "tags": [
+        "javascript",
+        "web-development",
+        "typescript"
+      ]
+    },
+    {
+      "title": "Your AI Agent Is Becoming a Security Boundary",
+      "url": "https://peeyushkmisra.medium.com/your-ai-agent-is-becoming-a-security-boundary-0d4cf2c8056b",
+      "by": "Peeyush K Misra",
+      "time": 1790137319000,
+      "tags": [
+        "software-engineering",
+        "ai-agent",
+        "generative-ai-tools"
+      ]
+    },
+    {
+      "title": "If You Only Reward Firefighting, What Happens to Prevention?",
+      "url": "https://medium.com/@thirtysecondmind/if-you-only-reward-firefighting-what-happens-to-prevention-ded637ffe14d",
+      "by": "Thirty Second Mind",
+      "time": 1790137293000,
+      "tags": [
+        "software-engineering",
+        "leadership"
+      ]
+    },
+    {
+      "title": "Tech. Memory Leaks: The Silent Killer Your Monitoring Doesn’t Catch",
+      "url": "https://medium.com/@moksh.9/tech-memory-leaks-the-silent-killer-your-monitoring-doesnt-catch-3ce9d6fb0a1c",
       "by": "Moksh S",
-      "time": 1790050861000,
+      "time": 1790136961000,
       "tags": [
-        "database",
         "software-engineering",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "GPT-6 Astra Is Not Just Writing Code Anymore",
-      "url": "https://medium.com/skillstuff/gpt-6-astra-is-not-just-writing-code-anymore-2b67ced08e30",
-      "by": "TechByRahmat",
-      "time": 1790050355000,
-      "tags": [
-        "programming",
         "software-development",
-        "technology"
+        "memory-management"
       ]
     },
     {
-      "title": "CI/CD for QA: Understanding What Really Happens to Testing When Software Delivery Becomes Automated",
-      "url": "https://medium.com/@anshita.bhasin/ci-cd-for-qa-understanding-what-really-happens-to-testing-when-software-delivery-becomes-automated-cb9584d0a6c5",
-      "by": "Anshita Bhasin",
-      "time": 1790050245000,
+      "title": "Before I Let AI Rewrite a Legacy System, I Want to Know What the Ugly Code Is Protecting.",
+      "url": "https://medium.com/@elias.codeforge/ai-legacy-code-modernization-hidden-business-rules-212259885bdd",
+      "by": "Elias Codeforge",
+      "time": 1790136652000,
       "tags": [
-        "cicd",
         "software-engineering",
-        "software-testing"
+        "legacy-code",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "8 Python Shortcuts I Wish I Had Learned Years Ago",
-      "url": "https://python.plainenglish.io/8-python-shortcuts-i-wish-i-had-learned-years-ago-1dca67440a10",
-      "by": "Malik Hussain",
-      "time": 1790050184000,
+      "title": "Online softmax from scratch — the primitive behind FlashAttention",
+      "url": "https://medium.com/@aniketm2598/online-softmax-from-scratch-the-primitive-behind-flashattention-020f15323f0f",
+      "by": "Aniket Maheshwari",
+      "time": 1790136495000,
       "tags": [
-        "developer-productivity",
-        "coding-tips",
+        "cuda",
+        "gpu",
         "programming"
       ]
     },
     {
-      "title": "8 Python Libraries That Make Your Python Projects Feel Like Real Products",
-      "url": "https://python.plainenglish.io/8-python-libraries-that-make-your-python-projects-feel-like-real-products-e22ce3382c66",
-      "by": "Malik Hussain",
-      "time": 1790050144000,
+      "title": "The Complete kubectl Playbook for Production Kubernetes Operations",
+      "url": "https://shiv-jani.medium.com/the-complete-kubectl-playbook-for-production-kubernetes-operations-b7c63530ee9f",
+      "by": "Shiv Jani",
+      "time": 1790136348000,
       "tags": [
-        "python",
-        "programming",
-        "developer-tools"
-      ]
-    },
-    {
-      "title": "GPT-6 Astra Just Raised the Bar for AI Coding",
-      "url": "https://medium.com/skillstuff/gpt-6-astra-just-raised-the-bar-for-ai-coding-7f4336795ad8",
-      "by": "TechByRahmat",
-      "time": 1790049843000,
-      "tags": [
-        "programming",
         "technology",
-        "chatgpt"
-      ]
-    },
-    {
-      "title": "Accenture AI Architect Interview: How Would You Design a Production RAG Platform at Scale?",
-      "url": "https://medium.com/@preetjit82/accenture-ai-architect-interview-how-would-you-design-a-production-rag-platform-at-scale-1161ba899bb3",
-      "by": "Interview Simplified",
-      "time": 1790049769000,
-      "tags": [
-        "software-architecture",
-        "programming",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "Wipro DevOps Engineer Interview Experience: 22 Questions Asked in Round 1",
-      "url": "https://medium.com/@preetjit82/wipro-devops-engineer-interview-experience-22-questions-asked-in-round-1-b66f2cfd22a5",
-      "by": "Interview Simplified",
-      "time": 1790049714000,
-      "tags": [
-        "devops-practice",
-        "devops",
-        "interview"
-      ]
-    },
-    {
-      "title": "Retries Can Make an Outage Worse",
-      "url": "https://medium.com/@nkdr/retries-can-make-an-outage-worse-f1d92d375420",
-      "by": "Kovid",
-      "time": 1790049609000,
-      "tags": [
-        "site-reliability-engineer",
-        "software-engineering",
-        "system-design-concepts"
-      ]
-    },
-    {
-      "title": "Google's AX Takes a Port in Every Egress Rule. Nothing Downstream Can Enforce One.",
-      "url": "https://pub.towardsai.net/googles-ax-takes-a-port-in-every-egress-rule-nothing-downstream-can-enforce-one-6c7ef926f0a0",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1790049526000,
-      "tags": [
-        "artificial-intelligence",
         "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "The Developer Who Stopped Coding All Day",
+      "url": "https://medium.com/@psaumya567/the-developer-who-stopped-coding-all-day-0abcb40d986c",
+      "by": "Saumya Patel",
+      "time": 1790136262000,
+      "tags": [
+        "ai-engineering",
+        "future-of-work",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "5 Senior HR Interview Questions That Test Executive-Level Thinking",
+      "url": "https://medium.com/@preetjit82/5-senior-hr-interview-questions-that-test-executive-level-thinking-ae66e1627d70",
+      "by": "Interview Simplified",
+      "time": 1790136225000,
+      "tags": [
+        "interview",
+        "interview-questions",
         "programming"
       ]
     }

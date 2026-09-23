@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-22T04:30:47.809Z",
+  "generated": "2026-09-23T04:31:50.662Z",
   "season": "2026",
   "sources": [
     {
@@ -199,18 +199,18 @@
     "t20i": [
       {
         "pos": 1,
-        "code": "ENG",
-        "team": "England",
-        "matches": 41,
-        "points": 11021,
+        "code": "IND",
+        "team": "India",
+        "matches": 65,
+        "points": 17480,
         "rating": 269
       },
       {
         "pos": 2,
-        "code": "IND",
-        "team": "India",
-        "matches": 64,
-        "points": 17201,
+        "code": "ENG",
+        "team": "England",
+        "matches": 41,
+        "points": 11021,
         "rating": 269
       },
       {
@@ -746,7 +746,7 @@
       "played": 3,
       "scheduled": 3,
       "ends": "2026-09-22",
-      "status": "live"
+      "status": "done"
     },
     {
       "start": "2026-09-15",
@@ -806,11 +806,11 @@
         "odi": null,
         "t20i": {
           "matches": 1,
-          "result": null,
-          "played": 0
+          "result": "0–1",
+          "played": 1
         }
       },
-      "played": 0,
+      "played": 1,
       "scheduled": 1,
       "ends": "2026-09-27",
       "status": "live"

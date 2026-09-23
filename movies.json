@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-22T04:29:44.851Z",
+  "generated": "2026-09-23T04:30:52.857Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -67,6 +67,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/87/Kathanar_-_The_Wild_Sorcerer_poster.jpg/120px-Kathanar_-_The_Wild_Sorcerer_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Kathanar_%E2%80%93_The_Wild_Sorcerer",
       "imdb": "https://www.imdb.com/title/tt11026686/"
+    },
+    {
+      "title": "Mookuthi Amman 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Sundar C",
+      "desc": "Upcoming film by Sundar C",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
+      "imdb": "https://www.imdb.com/title/tt32909364/"
     },
     {
       "title": "Aakasamlo Oka Tara",
@@ -143,17 +154,6 @@
       "desc": "Upcoming film by Windows Production",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
       "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
-      "imdb": null
-    },
-    {
-      "title": "Chitukurinji",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "Upcoming Indian Tamil-language film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
     }
   ]
