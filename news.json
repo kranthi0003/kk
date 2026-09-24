@@ -1,184 +1,185 @@
 {
-  "generated": "2026-09-23T04:31:45.125Z",
+  "generated": "2026-09-24T04:31:44.442Z",
   "reddit": [
     {
-      "title": "Small team running 350k+ monthly visitors on managed infra. At what point is owning the infrastructure worth it?",
-      "url": "https://www.reddit.com/r/devops/comments/1wnvw3f/small_team_running_350k_monthly_visitors_on/",
-      "by": "Powerful-Attorney858",
-      "time": 1790137403000,
+      "title": "KubeCraft or TechWorld w Nana - Thoughts?",
+      "url": "https://www.reddit.com/r/devops/comments/1woq05c/kubecraft_or_techworld_w_nana_thoughts/",
+      "by": "jessicats9",
+      "time": 1790218000000,
       "sub": "r/devops"
     },
     {
-      "title": "The History of Compiled (portion of) Javascript and V8 Engine",
-      "url": "https://www.reddit.com/r/programming/comments/1wnictu/the_history_of_compiled_portion_of_javascript_and/",
-      "by": "Ok_Stomach6651",
-      "time": 1790103245000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Category Theory Explained for Haskell Programmers – Part 1 ZuriHac 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1wnibwa/category_theory_explained_for_haskell_programmers/",
-      "by": "frenche_sans",
-      "time": 1790103189000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Configuration management",
-      "url": "https://www.reddit.com/r/devops/comments/1wnb752/configuration_management/",
-      "by": "AkelGe-1970",
-      "time": 1790087667000,
+      "title": "When did infrastructure engineering become the art of telling developers ‘no’?",
+      "url": "https://www.reddit.com/r/devops/comments/1woo526/when_did_infrastructure_engineering_become_the/",
+      "by": "affabledrunk",
+      "time": 1790212731000,
       "sub": "r/devops"
     },
     {
-      "title": "What are your tips and tricks for building resiliency into your solutions?",
-      "url": "https://www.reddit.com/r/devops/comments/1wn8veb/what_are_your_tips_and_tricks_for_building/",
-      "by": "NK534PNXMb556VU7p",
-      "time": 1790082068000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Amundsen’s Maxim",
-      "url": "https://www.reddit.com/r/programming/comments/1wn8ung/amundsens_maxim/",
-      "by": "fagnerbrack",
-      "time": 1790082028000,
+      "title": "ScyllaDB in 2026: Tablets, Raft and Life Beyond Cassandra",
+      "url": "https://www.reddit.com/r/programming/comments/1wogdhq/scylladb_in_2026_tablets_raft_and_life_beyond/",
+      "by": "mmatloka",
+      "time": 1790193234000,
       "sub": "r/programming"
     },
     {
-      "title": "Props Are Not a Design System",
-      "url": "https://www.reddit.com/r/programming/comments/1wn7arp/props_are_not_a_design_system/",
-      "by": "vitonsky",
-      "time": 1790077780000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How do you manage dashboards throughout multiple OpenSearch instances",
-      "url": "https://www.reddit.com/r/devops/comments/1wn6zut/how_do_you_manage_dashboards_throughout_multiple/",
-      "by": "Nearby-Cup-2926",
-      "time": 1790076883000,
+      "title": "CronJobs exceeding their quota",
+      "url": "https://www.reddit.com/r/devops/comments/1wofkym/cronjobs_exceeding_their_quota/",
+      "by": "PainKillerTheGawd",
+      "time": 1790191442000,
       "sub": "r/devops"
     },
     {
-      "title": "C3 0.8.4: Parameter Reflection, Stack Protection, iOS Support—and One Last Renaming",
-      "url": "https://www.reddit.com/r/programming/comments/1wn5gnz/c3_084_parameter_reflection_stack_protection_ios/",
-      "by": "Nuoji",
-      "time": 1790072011000,
+      "title": "How did u find ur first job as a DevOps engineer?",
+      "url": "https://www.reddit.com/r/devops/comments/1wodqzw/how_did_u_find_ur_first_job_as_a_devops_engineer/",
+      "by": "blakami_lau",
+      "time": 1790187408000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What belongs in an incident handoff besides the logs?",
+      "url": "https://www.reddit.com/r/devops/comments/1woct7x/what_belongs_in_an_incident_handoff_besides_the/",
+      "by": "Extra_Credit8695",
+      "time": 1790185322000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Modern Object Pascal Introduction for Programmers | Castle Game Engine",
+      "url": "https://www.reddit.com/r/programming/comments/1wo7osh/modern_object_pascal_introduction_for_programmers/",
+      "by": "BrewedDoritos",
+      "time": 1790174006000,
       "sub": "r/programming"
     },
     {
-      "title": "For engineers working with Terraform/OpenTofu: what parts of the work are still painful?",
-      "url": "https://www.reddit.com/r/devops/comments/1wn534a/for_engineers_working_with_terraformopentofu_what/",
-      "by": "MysteriousQuestion99",
-      "time": 1790070713000,
-      "sub": "r/devops"
+      "title": "We ported the original Doom to SQL",
+      "url": "https://www.reddit.com/r/programming/comments/1wo7amj/we_ported_the_original_doom_to_sql/",
+      "by": "Yaruxi",
+      "time": 1790173097000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Railway-Oriented Programming",
+      "url": "https://www.reddit.com/r/programming/comments/1wo3zxx/railwayoriented_programming/",
+      "by": "kciter",
+      "time": 1790164800000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How we rebuilt complex permissions without migrating to Zanzibar",
+      "url": "https://www.reddit.com/r/programming/comments/1wo11v8/how_we_rebuilt_complex_permissions_without/",
+      "by": "finncmdbar",
+      "time": 1790155359000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Top 10 DevSecOps Tools and Practices Every Team Should Adopt in 2026",
-      "url": "https://medium.com/devops-ai-decoded/top-10-devsecops-tools-and-practices-every-team-should-adopt-in-2026-849a11f653db",
-      "by": "Neel Shah",
-      "time": 1790137863000,
-      "tags": [
-        "security",
-        "technology",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "TypeScript 7 Is 10x Faster — And It Just Broke Half Your Toolchain",
-      "url": "https://mozzammeluiu.medium.com/typescript-7-is-10x-faster-and-it-just-broke-half-your-toolchain-8bbd37dda10e",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1790137483000,
-      "tags": [
-        "javascript",
-        "web-development",
-        "typescript"
-      ]
-    },
-    {
-      "title": "Your AI Agent Is Becoming a Security Boundary",
-      "url": "https://peeyushkmisra.medium.com/your-ai-agent-is-becoming-a-security-boundary-0d4cf2c8056b",
-      "by": "Peeyush K Misra",
-      "time": 1790137319000,
+      "title": "Codex vs Claude Code: Which $20 Subscription Should You Get After GPT-6 Sol and Opus 5.5?",
+      "url": "https://medium.com/@derevedant/codex-vs-claude-code-which-20-subscription-should-you-get-after-gpt-6-sol-and-opus-5-5-59de8f2a16a1",
+      "by": "Derevedant",
+      "time": 1790223749000,
       "tags": [
         "software-engineering",
         "ai-agent",
-        "generative-ai-tools"
+        "software-development"
       ]
     },
     {
-      "title": "If You Only Reward Firefighting, What Happens to Prevention?",
-      "url": "https://medium.com/@thirtysecondmind/if-you-only-reward-firefighting-what-happens-to-prevention-ded637ffe14d",
-      "by": "Thirty Second Mind",
-      "time": 1790137293000,
-      "tags": [
-        "software-engineering",
-        "leadership"
-      ]
-    },
-    {
-      "title": "Tech. Memory Leaks: The Silent Killer Your Monitoring Doesn’t Catch",
-      "url": "https://medium.com/@moksh.9/tech-memory-leaks-the-silent-killer-your-monitoring-doesnt-catch-3ce9d6fb0a1c",
+      "title": "Logging at Scale: Stop Logging Everything (It’s Drowning You)",
+      "url": "https://medium.com/@moksh.9/logging-at-scale-stop-logging-everything-its-drowning-you-b2f7b0b3d582",
       "by": "Moksh S",
-      "time": 1790136961000,
+      "time": 1790223361000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "memory-management"
+        "database",
+        "logging",
+        "software-development"
       ]
     },
     {
-      "title": "Before I Let AI Rewrite a Legacy System, I Want to Know What the Ugly Code Is Protecting.",
-      "url": "https://medium.com/@elias.codeforge/ai-legacy-code-modernization-hidden-business-rules-212259885bdd",
-      "by": "Elias Codeforge",
-      "time": 1790136652000,
+      "title": "Let’s just stop blaming AI",
+      "url": "https://medium.com/write-a-catalyst/lets-just-stop-blaming-ai-cc90fcf850c3",
+      "by": "Yanick Andrade",
+      "time": 1790223287000,
       "tags": [
+        "artificial-intelligence",
         "software-engineering",
-        "legacy-code",
-        "artificial-intelligence"
+        "ai"
       ]
     },
     {
-      "title": "Online softmax from scratch — the primitive behind FlashAttention",
-      "url": "https://medium.com/@aniketm2598/online-softmax-from-scratch-the-primitive-behind-flashattention-020f15323f0f",
-      "by": "Aniket Maheshwari",
-      "time": 1790136495000,
+      "title": "The Modern Web Developer Roadmap for 2026: What to Learn and What to Skip",
+      "url": "https://mohammadtabishanwar9.medium.com/the-modern-web-developer-roadmap-for-2026-what-to-learn-and-what-to-skip-4183aa438018",
+      "by": "Tech with Tabish",
+      "time": 1790223285000,
       "tags": [
-        "cuda",
-        "gpu",
+        "web-development",
+        "front-end-development",
         "programming"
       ]
     },
     {
-      "title": "The Complete kubectl Playbook for Production Kubernetes Operations",
-      "url": "https://shiv-jani.medium.com/the-complete-kubectl-playbook-for-production-kubernetes-operations-b7c63530ee9f",
-      "by": "Shiv Jani",
-      "time": 1790136348000,
+      "title": "Hitting Claude’s Usage Limit Too Often? Try These 3 Strategies",
+      "url": "https://abhiks1999.medium.com/hitting-claudes-usage-limit-too-often-try-these-3-strategies-aba08e226afb",
+      "by": "The OutLook",
+      "time": 1790223264000,
       "tags": [
-        "technology",
-        "kubernetes",
-        "devops"
+        "claude",
+        "ai",
+        "programming"
       ]
     },
     {
-      "title": "The Developer Who Stopped Coding All Day",
-      "url": "https://medium.com/@psaumya567/the-developer-who-stopped-coding-all-day-0abcb40d986c",
-      "by": "Saumya Patel",
-      "time": 1790136262000,
+      "title": "Zero Trust by Default: Three Things We Shipped in September 2026 — and the One Idea Behind All of…",
+      "url": "https://medium.com/@seosiri/zero-trust-by-default-three-things-we-shipped-in-september-2026-and-the-one-idea-behind-all-of-2a34a619c46b",
+      "by": "Momenul Ahmad",
+      "time": 1790223045000,
       "tags": [
-        "ai-engineering",
-        "future-of-work",
-        "software-engineering"
+        "artificial-intelligence",
+        "software-engineering",
+        "saas"
       ]
     },
     {
-      "title": "5 Senior HR Interview Questions That Test Executive-Level Thinking",
-      "url": "https://medium.com/@preetjit82/5-senior-hr-interview-questions-that-test-executive-level-thinking-ae66e1627d70",
+      "title": "10 Interview Questions That Test How You Handle Difficult Conversations",
+      "url": "https://medium.com/@preetjit82/10-interview-questions-that-test-how-you-handle-difficult-conversations-31ede0cb462b",
       "by": "Interview Simplified",
-      "time": 1790136225000,
+      "time": 1790222829000,
+      "tags": [
+        "programming",
+        "job-hunting",
+        "jobs"
+      ]
+    },
+    {
+      "title": "10 Advanced Accounts Receivable Interview Questions for Senior Professionals",
+      "url": "https://medium.com/@preetjit82/10-advanced-accounts-receivable-interview-questions-for-senior-professionals-ad5ab6890e59",
+      "by": "Interview Simplified",
+      "time": 1790222778000,
       "tags": [
         "interview",
-        "interview-questions",
+        "job-hunting",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "Build Your Own MCP Server with TypeScript: Read Logs, Check Git, Deploy to Staging",
+      "url": "https://javascript.plainenglish.io/build-your-own-mcp-server-with-typescript-read-logs-check-git-deploy-to-staging-aff32a02de41",
+      "by": "Developer Awam",
+      "time": 1790222686000,
+      "tags": [
+        "javascript",
+        "typescript",
+        "mcp-server"
+      ]
+    },
+    {
+      "title": "Why Does llama.cpp's Own API Give Xiaomi's MiMo V2.6 Flash 9x the KV Cache?",
+      "url": "https://pub.towardsai.net/why-does-llama-cpps-own-api-give-xiaomi-s-mimo-v2-6-flash-9x-the-kv-cache-412f7dab4dc2",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1790222507000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
         "programming"
       ]
     }

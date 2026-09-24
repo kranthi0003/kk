@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-23T04:30:52.857Z",
+  "generated": "2026-09-24T04:30:33.740Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -23,6 +23,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
       "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
       "imdb": "https://www.imdb.com/title/tt27988879/"
+    },
+    {
+      "title": "Yeh Prem Mol Liya",
+      "lang": "Hindi",
+      "date": "2026-11-27",
+      "precision": "day",
+      "by": "Sooraj Barjatya",
+      "desc": "Upcoming 2026 Hindi film directed by Sooraj Barjatya",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cf/Yeh_Prem_Mol_Liya_film_poster.jpg/120px-Yeh_Prem_Mol_Liya_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Yeh_Prem_Mol_Liya",
+      "imdb": "https://www.imdb.com/title/tt38907401/"
     },
     {
       "title": "King",
@@ -135,26 +146,15 @@
       "imdb": "https://www.imdb.com/title/tt37510017/"
     },
     {
-      "title": "Beep",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian Tamil-language film",
-      "poster": null,
-      "url": "https://en.wikipedia.org/wiki/Beep_(film)",
-      "imdb": "https://www.imdb.com/title/tt44420904/"
-    },
-    {
-      "title": "Bohurupi: The Golden Daku",
+      "title": "Bandkhor",
       "lang": "Indian",
       "date": null,
       "precision": null,
-      "by": "Windows Production",
-      "desc": "Upcoming film by Windows Production",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
-      "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
-      "imdb": null
+      "by": null,
+      "desc": "2026 Indian Marathi-language film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Bandkhor",
+      "imdb": "https://www.imdb.com/title/tt44773426/"
     }
   ]
 }

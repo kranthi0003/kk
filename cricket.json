@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-23T04:31:50.662Z",
+  "generated": "2026-09-24T04:31:49.932Z",
   "season": "2026",
   "sources": [
     {
@@ -117,18 +117,18 @@
       },
       {
         "pos": 3,
-        "code": "SA",
-        "team": "South Africa",
-        "matches": 31,
-        "points": 3192,
+        "code": "AUS",
+        "team": "Australia",
+        "matches": 32,
+        "points": 3304,
         "rating": 103
       },
       {
         "pos": 4,
-        "code": "AUS",
-        "team": "Australia",
-        "matches": 30,
-        "points": 3078,
+        "code": "SA",
+        "team": "South Africa",
+        "matches": 31,
+        "points": 3192,
         "rating": 103
       },
       {
@@ -141,19 +141,19 @@
       },
       {
         "pos": 6,
-        "code": "SL",
-        "team": "Sri Lanka",
-        "matches": 36,
-        "points": 3470,
-        "rating": 96
+        "code": "ENG",
+        "team": "England",
+        "matches": 32,
+        "points": 3044,
+        "rating": 95
       },
       {
         "pos": 7,
-        "code": "ENG",
-        "team": "England",
-        "matches": 31,
-        "points": 2898,
-        "rating": 93
+        "code": "SL",
+        "team": "Sri Lanka",
+        "matches": 37,
+        "points": 3513,
+        "rating": 95
       },
       {
         "pos": 8,
@@ -183,9 +183,9 @@
         "pos": 11,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 16,
-        "points": 993,
-        "rating": 62
+        "matches": 18,
+        "points": 1096,
+        "rating": 61
       },
       {
         "pos": 12,
