@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T04:30:33.740Z",
+  "generated": "2026-09-25T04:30:55.642Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -86,7 +86,7 @@
       "precision": null,
       "by": "Sundar C",
       "desc": "Upcoming film by Sundar C",
-      "poster": null,
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/11/Mookuthi_Amman_2.jpg/120px-Mookuthi_Amman_2.jpg",
       "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
       "imdb": "https://www.imdb.com/title/tt32909364/"
     },

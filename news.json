@@ -1,19 +1,61 @@
 {
-  "generated": "2026-09-24T04:31:44.442Z",
+  "generated": "2026-09-25T04:31:48.201Z",
   "reddit": [
     {
-      "title": "KubeCraft or TechWorld w Nana - Thoughts?",
-      "url": "https://www.reddit.com/r/devops/comments/1woq05c/kubecraft_or_techworld_w_nana_thoughts/",
-      "by": "jessicats9",
-      "time": 1790218000000,
+      "title": "How do you check a release list against what is actually in the tag?",
+      "url": "https://www.reddit.com/r/devops/comments/1wpmoyl/how_do_you_check_a_release_list_against_what_is/",
+      "by": "kacxx00",
+      "time": 1790309681000,
       "sub": "r/devops"
     },
     {
-      "title": "When did infrastructure engineering become the art of telling developers ‘no’?",
-      "url": "https://www.reddit.com/r/devops/comments/1woo526/when_did_infrastructure_engineering_become_the/",
-      "by": "affabledrunk",
-      "time": 1790212731000,
+      "title": "Question about KernelModuleConfig",
+      "url": "https://www.reddit.com/r/devops/comments/1wpdazb/question_about_kernelmoduleconfig/",
+      "by": "71_101_105_99_111",
+      "time": 1790283196000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Beste Embedded-Messe mit DevOps-Fokus im DACH-Raum?",
+      "url": "https://www.reddit.com/r/devops/comments/1wpbkcl/beste_embeddedmesse_mit_devopsfokus_im_dachraum/",
+      "by": "sonixen100",
+      "time": 1790279105000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Any of you use alternatives to GitLab when self-hosting is a requirement? (and general toolchain question)",
+      "url": "https://www.reddit.com/r/devops/comments/1wp8eyh/any_of_you_use_alternatives_to_gitlab_when/",
+      "by": "NullPreference",
+      "time": 1790271968000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Why are backups usually not treated as infrastructure as code?",
+      "url": "https://www.reddit.com/r/devops/comments/1wp7tu2/why_are_backups_usually_not_treated_as/",
+      "by": "nickjj_",
+      "time": 1790270662000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Partitioning in MySQL: How we cut peak database load by more than 80%.",
+      "url": "https://www.reddit.com/r/programming/comments/1woz4lh/partitioning_in_mysql_how_we_cut_peak_database/",
+      "by": "fR0DDY",
+      "time": 1790249426000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Implementing MNIST Neural Network from Scratch in Rust (95% acc)",
+      "url": "https://www.reddit.com/r/programming/comments/1wov53d/implementing_mnist_neural_network_from_scratch_in/",
+      "by": "TechnologySubject259",
+      "time": 1790234918000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Runtime Lab — Learn Backend & Systems Engineering by building real software from scratch",
+      "url": "https://www.reddit.com/r/programming/comments/1workde/runtime_lab_learn_backend_systems_engineering_by/",
+      "by": "Beneficial-Moment414",
+      "time": 1790222718000,
+      "sub": "r/programming"
     },
     {
       "title": "ScyllaDB in 2026: Tablets, Raft and Life Beyond Cassandra",
@@ -23,164 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "CronJobs exceeding their quota",
-      "url": "https://www.reddit.com/r/devops/comments/1wofkym/cronjobs_exceeding_their_quota/",
-      "by": "PainKillerTheGawd",
-      "time": 1790191442000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How did u find ur first job as a DevOps engineer?",
-      "url": "https://www.reddit.com/r/devops/comments/1wodqzw/how_did_u_find_ur_first_job_as_a_devops_engineer/",
-      "by": "blakami_lau",
-      "time": 1790187408000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What belongs in an incident handoff besides the logs?",
-      "url": "https://www.reddit.com/r/devops/comments/1woct7x/what_belongs_in_an_incident_handoff_besides_the/",
-      "by": "Extra_Credit8695",
-      "time": 1790185322000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Modern Object Pascal Introduction for Programmers | Castle Game Engine",
       "url": "https://www.reddit.com/r/programming/comments/1wo7osh/modern_object_pascal_introduction_for_programmers/",
       "by": "BrewedDoritos",
       "time": 1790174006000,
       "sub": "r/programming"
-    },
-    {
-      "title": "We ported the original Doom to SQL",
-      "url": "https://www.reddit.com/r/programming/comments/1wo7amj/we_ported_the_original_doom_to_sql/",
-      "by": "Yaruxi",
-      "time": 1790173097000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Railway-Oriented Programming",
-      "url": "https://www.reddit.com/r/programming/comments/1wo3zxx/railwayoriented_programming/",
-      "by": "kciter",
-      "time": 1790164800000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How we rebuilt complex permissions without migrating to Zanzibar",
-      "url": "https://www.reddit.com/r/programming/comments/1wo11v8/how_we_rebuilt_complex_permissions_without/",
-      "by": "finncmdbar",
-      "time": 1790155359000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Codex vs Claude Code: Which $20 Subscription Should You Get After GPT-6 Sol and Opus 5.5?",
-      "url": "https://medium.com/@derevedant/codex-vs-claude-code-which-20-subscription-should-you-get-after-gpt-6-sol-and-opus-5-5-59de8f2a16a1",
-      "by": "Derevedant",
-      "time": 1790223749000,
+      "title": "Why I Built Shieldly: A Simpler Approach to Blocking Ads in Chrome",
+      "url": "https://medium.com/@panicfeed.com/why-i-built-shieldly-a-simpler-approach-to-blocking-ads-in-chrome-46ca43a852e8",
+      "by": "Shieldly",
+      "time": 1790310299000,
       "tags": [
-        "software-engineering",
-        "ai-agent",
-        "software-development"
+        "software-development",
+        "productivity",
+        "programming"
       ]
     },
     {
-      "title": "Logging at Scale: Stop Logging Everything (It’s Drowning You)",
-      "url": "https://medium.com/@moksh.9/logging-at-scale-stop-logging-everything-its-drowning-you-b2f7b0b3d582",
+      "title": "I Studied Hundreds of Calculus Problems — These 20 Will Teach You the Fundamentals",
+      "url": "https://medium.com/@drpeterkattan/i-studied-hundreds-of-calculus-problems-these-20-will-teach-you-the-fundamentals-c42ee2c68a63",
+      "by": "Peter Kattan",
+      "time": 1790310295000,
+      "tags": [
+        "software-engineering",
+        "data-engineering",
+        "mathematics"
+      ]
+    },
+    {
+      "title": "Tech. Query Optimization: The Missing WHERE Clause That Killed Your Database",
+      "url": "https://medium.com/@moksh.9/tech-query-optimization-the-missing-where-clause-that-killed-your-database-a8b4ae9efcd2",
       "by": "Moksh S",
-      "time": 1790223361000,
+      "time": 1790310061000,
       "tags": [
-        "database",
-        "logging",
+        "software-architecture",
+        "query",
         "software-development"
       ]
     },
     {
-      "title": "Let’s just stop blaming AI",
-      "url": "https://medium.com/write-a-catalyst/lets-just-stop-blaming-ai-cc90fcf850c3",
-      "by": "Yanick Andrade",
-      "time": 1790223287000,
+      "title": "Process Engineering 101",
+      "url": "https://medium.com/@bensivo/process-engineering-101-39cbf4511b13",
+      "by": "Ben Sivoravong",
+      "time": 1790310024000,
       "tags": [
-        "artificial-intelligence",
+        "process-engineering",
         "software-engineering",
-        "ai"
+        "engineering-management"
       ]
     },
     {
-      "title": "The Modern Web Developer Roadmap for 2026: What to Learn and What to Skip",
-      "url": "https://mohammadtabishanwar9.medium.com/the-modern-web-developer-roadmap-for-2026-what-to-learn-and-what-to-skip-4183aa438018",
-      "by": "Tech with Tabish",
-      "time": 1790223285000,
+      "title": "14 Frontend Performance Concepts I Keep Seeing in Frontend Engineer Interviews in 2026",
+      "url": "https://amangupta-me.medium.com/14-frontend-performance-concepts-i-keep-seeing-in-frontend-engineer-interviews-in-2026-c52c3e3e8fd8",
+      "by": "Aman Gupta",
+      "time": 1790309941000,
       "tags": [
+        "javascript",
         "web-development",
-        "front-end-development",
         "programming"
       ]
     },
     {
-      "title": "Hitting Claude’s Usage Limit Too Often? Try These 3 Strategies",
-      "url": "https://abhiks1999.medium.com/hitting-claudes-usage-limit-too-often-try-these-3-strategies-aba08e226afb",
-      "by": "The OutLook",
-      "time": 1790223264000,
+      "title": "You’ve Been Coding Wrong: This AI Feature Proves It",
+      "url": "https://medium.com/skillstuff/youve-been-coding-wrong-this-ai-feature-proves-it-ab96d35ff9b5",
+      "by": "TechByRahmat",
+      "time": 1790309761000,
       "tags": [
-        "claude",
-        "ai",
-        "programming"
+        "software-development",
+        "programming",
+        "chatgpt"
       ]
     },
     {
-      "title": "Zero Trust by Default: Three Things We Shipped in September 2026 — and the One Idea Behind All of…",
-      "url": "https://medium.com/@seosiri/zero-trust-by-default-three-things-we-shipped-in-september-2026-and-the-one-idea-behind-all-of-2a34a619c46b",
-      "by": "Momenul Ahmad",
-      "time": 1790223045000,
-      "tags": [
-        "artificial-intelligence",
-        "software-engineering",
-        "saas"
-      ]
-    },
-    {
-      "title": "10 Interview Questions That Test How You Handle Difficult Conversations",
-      "url": "https://medium.com/@preetjit82/10-interview-questions-that-test-how-you-handle-difficult-conversations-31ede0cb462b",
+      "title": "GenAI Engineer Interview Experience: RAG, FastAPI, LLMs, Agents and Python",
+      "url": "https://medium.com/@preetjit82/genai-engineer-interview-experience-rag-fastapi-llms-agents-and-python-2ef516834396",
       "by": "Interview Simplified",
-      "time": 1790222829000,
+      "time": 1790309680000,
       "tags": [
         "programming",
-        "job-hunting",
+        "fastapi",
         "jobs"
       ]
     },
     {
-      "title": "10 Advanced Accounts Receivable Interview Questions for Senior Professionals",
-      "url": "https://medium.com/@preetjit82/10-advanced-accounts-receivable-interview-questions-for-senior-professionals-ad5ab6890e59",
+      "title": "20 Java and Spring Boot Questions Asked in a Deloitte Interview",
+      "url": "https://medium.com/@preetjit82/20-java-and-spring-boot-questions-asked-in-a-deloitte-interview-7d8268de988e",
       "by": "Interview Simplified",
-      "time": 1790222778000,
+      "time": 1790309617000,
       "tags": [
-        "interview",
-        "job-hunting",
-        "interview-questions"
+        "jobs",
+        "interview-questions",
+        "spring-boot"
       ]
     },
     {
-      "title": "Build Your Own MCP Server with TypeScript: Read Logs, Check Git, Deploy to Staging",
-      "url": "https://javascript.plainenglish.io/build-your-own-mcp-server-with-typescript-read-logs-check-git-deploy-to-staging-aff32a02de41",
-      "by": "Developer Awam",
-      "time": 1790222686000,
+      "title": "Do You Really Need a $500 AI Subscription to Code Without Rate Limits?",
+      "url": "https://medium.com/@derevedant/do-you-really-need-a-500-ai-subscription-to-code-without-rate-limits-d87c5d4aaf23",
+      "by": "Derevedant",
+      "time": 1790309421000,
       "tags": [
-        "javascript",
-        "typescript",
-        "mcp-server"
-      ]
-    },
-    {
-      "title": "Why Does llama.cpp's Own API Give Xiaomi's MiMo V2.6 Flash 9x the KV Cache?",
-      "url": "https://pub.towardsai.net/why-does-llama-cpps-own-api-give-xiaomi-s-mimo-v2-6-flash-9x-the-kv-cache-412f7dab4dc2",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1790222507000,
-      "tags": [
+        "software-engineering",
         "machine-learning",
-        "artificial-intelligence",
-        "programming"
+        "ai"
+      ]
+    },
+    {
+      "title": "Kubernetes Production Mistakes Every Developer Makes: NAT, DNS, vNIC Throttling and Firewall Traps",
+      "url": "https://medium.com/@akashsuthan10/kubernetes-production-mistakes-every-developer-makes-nat-dns-vnic-throttling-and-firewall-traps-cb81ef2a0f01",
+      "by": "Akashsuthan",
+      "time": 1790309015000,
+      "tags": [
+        "cloud",
+        "software-engineering",
+        "software-development"
       ]
     }
   ]
