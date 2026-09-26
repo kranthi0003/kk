@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T04:30:55.642Z",
+  "generated": "2026-09-26T04:29:13.215Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -146,15 +146,15 @@
       "imdb": "https://www.imdb.com/title/tt37510017/"
     },
     {
-      "title": "Bandkhor",
-      "lang": "Indian",
+      "title": "Vettuvam",
+      "lang": "Tamil",
       "date": null,
       "precision": null,
-      "by": null,
-      "desc": "2026 Indian Marathi-language film",
-      "poster": null,
-      "url": "https://en.wikipedia.org/wiki/Bandkhor",
-      "imdb": "https://www.imdb.com/title/tt44773426/"
+      "by": "Pa. Ranjith",
+      "desc": "Upcoming Indian film by Pa. Ranjith",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Vettuvam",
+      "imdb": "https://www.imdb.com/title/tt20225002/"
     }
   ]
 }

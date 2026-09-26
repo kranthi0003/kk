@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-25T04:31:48.201Z",
+  "generated": "2026-09-26T04:30:23.831Z",
   "reddit": [
     {
-      "title": "How do you check a release list against what is actually in the tag?",
-      "url": "https://www.reddit.com/r/devops/comments/1wpmoyl/how_do_you_check_a_release_list_against_what_is/",
-      "by": "kacxx00",
-      "time": 1790309681000,
-      "sub": "r/devops"
+      "title": "Does K3s HA (etcd) require a SSD NAS?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wqgee2/does_k3s_ha_etcd_require_a_ssd_nas/",
+      "by": "OMGZwhitepeople",
+      "time": 1790394403000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Question about KernelModuleConfig",
-      "url": "https://www.reddit.com/r/devops/comments/1wpdazb/question_about_kernelmoduleconfig/",
-      "by": "71_101_105_99_111",
-      "time": 1790283196000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Beste Embedded-Messe mit DevOps-Fokus im DACH-Raum?",
-      "url": "https://www.reddit.com/r/devops/comments/1wpbkcl/beste_embeddedmesse_mit_devopsfokus_im_dachraum/",
-      "by": "sonixen100",
-      "time": 1790279105000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Any of you use alternatives to GitLab when self-hosting is a requirement? (and general toolchain question)",
-      "url": "https://www.reddit.com/r/devops/comments/1wp8eyh/any_of_you_use_alternatives_to_gitlab_when/",
-      "by": "NullPreference",
-      "time": 1790271968000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Why are backups usually not treated as infrastructure as code?",
-      "url": "https://www.reddit.com/r/devops/comments/1wp7tu2/why_are_backups_usually_not_treated_as/",
-      "by": "nickjj_",
-      "time": 1790270662000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Partitioning in MySQL: How we cut peak database load by more than 80%.",
-      "url": "https://www.reddit.com/r/programming/comments/1woz4lh/partitioning_in_mysql_how_we_cut_peak_database/",
-      "by": "fR0DDY",
-      "time": 1790249426000,
+      "title": "Two core concepts of k8s",
+      "url": "https://www.reddit.com/r/programming/comments/1wqehjs/two_core_concepts_of_k8s/",
+      "by": "abhishekkumar333",
+      "time": 1790388382000,
       "sub": "r/programming"
     },
     {
-      "title": "Implementing MNIST Neural Network from Scratch in Rust (95% acc)",
-      "url": "https://www.reddit.com/r/programming/comments/1wov53d/implementing_mnist_neural_network_from_scratch_in/",
-      "by": "TechnologySubject259",
-      "time": 1790234918000,
+      "title": "[ Removed by Reddit ]",
+      "url": "https://www.reddit.com/r/programming/comments/1wqdmq0/removed_by_reddit/",
+      "by": "PresentSalamander856",
+      "time": 1790385796000,
       "sub": "r/programming"
     },
     {
-      "title": "Runtime Lab — Learn Backend & Systems Engineering by building real software from scratch",
-      "url": "https://www.reddit.com/r/programming/comments/1workde/runtime_lab_learn_backend_systems_engineering_by/",
-      "by": "Beneficial-Moment414",
-      "time": 1790222718000,
+      "title": "\"Reconstructive UI\"",
+      "url": "https://www.reddit.com/r/programming/comments/1wqdk0p/reconstructive_ui/",
+      "by": "hasen-judi",
+      "time": 1790385579000,
       "sub": "r/programming"
     },
     {
-      "title": "ScyllaDB in 2026: Tablets, Raft and Life Beyond Cassandra",
-      "url": "https://www.reddit.com/r/programming/comments/1wogdhq/scylladb_in_2026_tablets_raft_and_life_beyond/",
-      "by": "mmatloka",
-      "time": 1790193234000,
+      "title": "A Lean Proof Printing Python Union Find",
+      "url": "https://www.reddit.com/r/programming/comments/1wqan1r/a_lean_proof_printing_python_union_find/",
+      "by": "mttd",
+      "time": 1790377332000,
       "sub": "r/programming"
     },
     {
-      "title": "Modern Object Pascal Introduction for Programmers | Castle Game Engine",
-      "url": "https://www.reddit.com/r/programming/comments/1wo7osh/modern_object_pascal_introduction_for_programmers/",
-      "by": "BrewedDoritos",
-      "time": 1790174006000,
+      "title": "Microservices are organizational debt disguised as architecture.",
+      "url": "https://www.reddit.com/r/programming/comments/1wq8nbw/microservices_are_organizational_debt_disguised/",
+      "by": "Mustela__",
+      "time": 1790372137000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Cloud Native Heidelberg · Ask not what you can do for your platform - ask what your platform can do for you!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wq7usy/cloud_native_heidelberg_ask_not_what_you_can_do/",
+      "by": "No-Income-2235",
+      "time": 1790370161000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "I finally signed a job offer",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wpv4fb/i_finally_signed_a_job_offer/",
+      "by": "JicamaGlass6075",
+      "time": 1790339551000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wpsags/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1790330416000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How would I migrate my PiHole from a single instance deployment to a redundant StatefulSet?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wpgks0/how_would_i_migrate_my_pihole_from_a_single/",
+      "by": "ferriematthew",
+      "time": 1790291496000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Why I Built Shieldly: A Simpler Approach to Blocking Ads in Chrome",
-      "url": "https://medium.com/@panicfeed.com/why-i-built-shieldly-a-simpler-approach-to-blocking-ads-in-chrome-46ca43a852e8",
-      "by": "Shieldly",
-      "time": 1790310299000,
+      "title": "Spring Boot Actuator: Health Checks, Metrics, Custom Endpoints, and What Production Readiness…",
+      "url": "https://medium.com/@samanlnayak2003/spring-boot-actuator-health-checks-metrics-custom-endpoints-and-what-production-readiness-0f00ea4aaa95",
+      "by": "The Turtle Code",
+      "time": 1790396606000,
       "tags": [
-        "software-development",
-        "productivity",
+        "programming",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Don’t Break Production with a Typo!",
+      "url": "https://medium.com/@sinemayk/dont-break-production-with-a-typo-36159a6fd751",
+      "by": "Sinem Kirtac",
+      "time": 1790396421000,
+      "tags": [
+        "github",
+        "automation",
+        "devops"
+      ]
+    },
+    {
+      "title": "Top 20 Java Concurrency and Multithreading Interview Questions — With Full Answers",
+      "url": "https://sumanthpoola.medium.com/top-20-java-concurrency-and-multithreading-interview-questions-with-full-answers-f7e64a73d20b",
+      "by": "Sumanth",
+      "time": 1790396277000,
+      "tags": [
+        "multithreading",
+        "java",
         "programming"
       ]
     },
     {
-      "title": "I Studied Hundreds of Calculus Problems — These 20 Will Teach You the Fundamentals",
-      "url": "https://medium.com/@drpeterkattan/i-studied-hundreds-of-calculus-problems-these-20-will-teach-you-the-fundamentals-c42ee2c68a63",
-      "by": "Peter Kattan",
-      "time": 1790310295000,
+      "title": "Stop Burning Your Free GitHub Minutes!",
+      "url": "https://medium.com/@sinemayk/stop-burning-your-free-github-minutes-1d0dc564f499",
+      "by": "Sinem Kirtac",
+      "time": 1790396146000,
       "tags": [
+        "github-actions",
         "software-engineering",
-        "data-engineering",
-        "mathematics"
+        "devops"
       ]
     },
     {
-      "title": "Tech. Query Optimization: The Missing WHERE Clause That Killed Your Database",
-      "url": "https://medium.com/@moksh.9/tech-query-optimization-the-missing-where-clause-that-killed-your-database-a8b4ae9efcd2",
-      "by": "Moksh S",
-      "time": 1790310061000,
-      "tags": [
-        "software-architecture",
-        "query",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Process Engineering 101",
-      "url": "https://medium.com/@bensivo/process-engineering-101-39cbf4511b13",
-      "by": "Ben Sivoravong",
-      "time": 1790310024000,
-      "tags": [
-        "process-engineering",
-        "software-engineering",
-        "engineering-management"
-      ]
-    },
-    {
-      "title": "14 Frontend Performance Concepts I Keep Seeing in Frontend Engineer Interviews in 2026",
-      "url": "https://amangupta-me.medium.com/14-frontend-performance-concepts-i-keep-seeing-in-frontend-engineer-interviews-in-2026-c52c3e3e8fd8",
-      "by": "Aman Gupta",
-      "time": 1790309941000,
-      "tags": [
-        "javascript",
-        "web-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "You’ve Been Coding Wrong: This AI Feature Proves It",
-      "url": "https://medium.com/skillstuff/youve-been-coding-wrong-this-ai-feature-proves-it-ab96d35ff9b5",
-      "by": "TechByRahmat",
-      "time": 1790309761000,
-      "tags": [
-        "software-development",
-        "programming",
-        "chatgpt"
-      ]
-    },
-    {
-      "title": "GenAI Engineer Interview Experience: RAG, FastAPI, LLMs, Agents and Python",
-      "url": "https://medium.com/@preetjit82/genai-engineer-interview-experience-rag-fastapi-llms-agents-and-python-2ef516834396",
+      "title": "20 Linux Interview Questions Every DevOps Engineer Should Prepare For",
+      "url": "https://medium.com/@preetjit82/20-linux-interview-questions-every-devops-engineer-should-prepare-for-32df8ee7f910",
       "by": "Interview Simplified",
-      "time": 1790309680000,
-      "tags": [
-        "programming",
-        "fastapi",
-        "jobs"
-      ]
-    },
-    {
-      "title": "20 Java and Spring Boot Questions Asked in a Deloitte Interview",
-      "url": "https://medium.com/@preetjit82/20-java-and-spring-boot-questions-asked-in-a-deloitte-interview-7d8268de988e",
-      "by": "Interview Simplified",
-      "time": 1790309617000,
+      "time": 1790396057000,
       "tags": [
         "jobs",
-        "interview-questions",
-        "spring-boot"
+        "interview",
+        "interview-questions"
       ]
     },
     {
-      "title": "Do You Really Need a $500 AI Subscription to Code Without Rate Limits?",
-      "url": "https://medium.com/@derevedant/do-you-really-need-a-500-ai-subscription-to-code-without-rate-limits-d87c5d4aaf23",
-      "by": "Derevedant",
-      "time": 1790309421000,
+      "title": "10 PySpark Interview Questions Data Engineers Should Prepare for in 2026",
+      "url": "https://medium.com/@preetjit82/10-pyspark-interview-questions-data-engineers-should-prepare-for-in-2026-32ab07739012",
+      "by": "Interview Simplified",
+      "time": 1790396005000,
       "tags": [
-        "software-engineering",
-        "machine-learning",
-        "ai"
+        "jobs",
+        "interview",
+        "pyspark"
       ]
     },
     {
-      "title": "Kubernetes Production Mistakes Every Developer Makes: NAT, DNS, vNIC Throttling and Firewall Traps",
-      "url": "https://medium.com/@akashsuthan10/kubernetes-production-mistakes-every-developer-makes-nat-dns-vnic-throttling-and-firewall-traps-cb81ef2a0f01",
-      "by": "Akashsuthan",
-      "time": 1790309015000,
+      "title": "I saw the Codex reset post, then checked the replies",
+      "url": "https://medium.com/@dayue1068/i-saw-the-codex-reset-post-then-checked-the-replies-440cf7317575",
+      "by": "Jiangshan",
+      "time": 1790395661000,
       "tags": [
-        "cloud",
-        "software-engineering",
+        "chatgpt",
+        "programming",
         "software-development"
+      ]
+    },
+    {
+      "title": "UX Is Moving Beyond Screens: What Google Research on Self-Evolving Interfaces Means for Designers",
+      "url": "https://medium.com/@SamerTallauze/ux-is-moving-beyond-screens-what-google-research-on-self-evolving-interfaces-means-for-designers-77ef308b11f4",
+      "by": "Samer Tallauze",
+      "time": 1790395650000,
+      "tags": [
+        "software-engineering",
+        "generative-ai-tools",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Ollama 0.34.4 Lets Qwen Think Before JSON, Then Blocks the Tool Call: 5 of 6 Parsers Tested",
+      "url": "https://pub.towardsai.net/ollama-0-34-4-lets-qwen-think-before-json-then-blocks-the-tool-call-5-of-6-parsers-tested-8313c8dfb089",
+      "by": "Chew Loong Nian - AI ENGINEER",
+      "time": 1790395441000,
+      "tags": [
+        "ollama",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Tried Tailcat, Tailscale’s Netcat Alternative That Handles NAT for You",
+      "url": "https://medium.com/@u.mair/i-tried-tailcat-tailscales-netcat-alternative-that-handles-nat-for-you-e91913c82803",
+      "by": "Umair",
+      "time": 1790395380000,
+      "tags": [
+        "tailscale",
+        "technology",
+        "devops"
       ]
     }
   ]
