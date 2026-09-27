@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-26T04:30:23.831Z",
+  "generated": "2026-09-27T04:31:42.026Z",
   "reddit": [
     {
-      "title": "Does K3s HA (etcd) require a SSD NAS?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wqgee2/does_k3s_ha_etcd_require_a_ssd_nas/",
-      "by": "OMGZwhitepeople",
-      "time": 1790394403000,
-      "sub": "r/kubernetes"
+      "title": "How to maintain helm charts of multiple micro-services on k8s at scale ?",
+      "url": "https://www.reddit.com/r/devops/comments/1wr7mw9/how_to_maintain_helm_charts_of_multiple/",
+      "by": "wildwarrior007",
+      "time": 1790473616000,
+      "sub": "r/devops"
     },
     {
-      "title": "Two core concepts of k8s",
-      "url": "https://www.reddit.com/r/programming/comments/1wqehjs/two_core_concepts_of_k8s/",
-      "by": "abhishekkumar333",
-      "time": 1790388382000,
+      "title": "How are people verifying unattended/CI agent runs actually did what they claimed?",
+      "url": "https://www.reddit.com/r/devops/comments/1wr2lng/how_are_people_verifying_unattendedci_agent_runs/",
+      "by": "Longjumping-Play6541",
+      "time": 1790459264000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Indian devs who self-host tools: what actually becomes painful after 6–12 months?",
+      "url": "https://www.reddit.com/r/devops/comments/1wr1vsk/indian_devs_who_selfhost_tools_what_actually/",
+      "by": "amitsingh717628",
+      "time": 1790457418000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Building dogsbod: A quadruped robot",
+      "url": "https://www.reddit.com/r/programming/comments/1wqw5n3/building_dogsbod_a_quadruped_robot/",
+      "by": "zanders3",
+      "time": 1790443373000,
       "sub": "r/programming"
     },
     {
-      "title": "[ Removed by Reddit ]",
-      "url": "https://www.reddit.com/r/programming/comments/1wqdmq0/removed_by_reddit/",
-      "by": "PresentSalamander856",
-      "time": 1790385796000,
+      "title": "On programming, statistics, and Java",
+      "url": "https://www.reddit.com/r/programming/comments/1wqvxt6/on_programming_statistics_and_java/",
+      "by": "Mihai4544",
+      "time": 1790442847000,
       "sub": "r/programming"
     },
     {
-      "title": "\"Reconstructive UI\"",
-      "url": "https://www.reddit.com/r/programming/comments/1wqdk0p/reconstructive_ui/",
-      "by": "hasen-judi",
-      "time": 1790385579000,
+      "title": "The Cloudflare Blog – Brought to you by EmDash",
+      "url": "https://www.reddit.com/r/programming/comments/1wqv795/the_cloudflare_blog_brought_to_you_by_emdash/",
+      "by": "Ok_Stomach6651",
+      "time": 1790441096000,
       "sub": "r/programming"
     },
     {
-      "title": "A Lean Proof Printing Python Union Find",
-      "url": "https://www.reddit.com/r/programming/comments/1wqan1r/a_lean_proof_printing_python_union_find/",
-      "by": "mttd",
-      "time": 1790377332000,
+      "title": "How can I deploy this microservices project for free without a credit card?",
+      "url": "https://www.reddit.com/r/devops/comments/1wqpwys/how_can_i_deploy_this_microservices_project_for/",
+      "by": "Silver-You4944",
+      "time": 1790427508000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Optimizing a Lock-Free Ring Buffer",
+      "url": "https://www.reddit.com/r/programming/comments/1wqok1x/optimizing_a_lockfree_ring_buffer/",
+      "by": "david-alvarez-rosa",
+      "time": 1790423396000,
       "sub": "r/programming"
     },
     {
-      "title": "Microservices are organizational debt disguised as architecture.",
-      "url": "https://www.reddit.com/r/programming/comments/1wq8nbw/microservices_are_organizational_debt_disguised/",
-      "by": "Mustela__",
-      "time": 1790372137000,
+      "title": "Anyone else had a 340% AI cost spike overnight? Here's what caused ours",
+      "url": "https://www.reddit.com/r/devops/comments/1wqm1lt/anyone_else_had_a_340_ai_cost_spike_overnight/",
+      "by": "MaverikSh",
+      "time": 1790414323000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Fourier Analysis: Drawing Llamas with Circles",
+      "url": "https://www.reddit.com/r/programming/comments/1wqkpth/fourier_analysis_drawing_llamas_with_circles/",
+      "by": "lelanthran",
+      "time": 1790409270000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Cloud Native Heidelberg · Ask not what you can do for your platform - ask what your platform can do for you!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wq7usy/cloud_native_heidelberg_ask_not_what_you_can_do/",
-      "by": "No-Income-2235",
-      "time": 1790370161000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "I finally signed a job offer",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wpv4fb/i_finally_signed_a_job_offer/",
-      "by": "JicamaGlass6075",
-      "time": 1790339551000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wpsags/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1790330416000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How would I migrate my PiHole from a single instance deployment to a redundant StatefulSet?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wpgks0/how_would_i_migrate_my_pihole_from_a_single/",
-      "by": "ferriematthew",
-      "time": 1790291496000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Spring Boot Actuator: Health Checks, Metrics, Custom Endpoints, and What Production Readiness…",
-      "url": "https://medium.com/@samanlnayak2003/spring-boot-actuator-health-checks-metrics-custom-endpoints-and-what-production-readiness-0f00ea4aaa95",
-      "by": "The Turtle Code",
-      "time": 1790396606000,
+      "title": "I Reviewed Hundreds of Calculus Exercises — Start With These 20",
+      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-exercises-start-with-these-20-2b0d877c6449",
+      "by": "Peter Kattan",
+      "time": 1790483221000,
       "tags": [
-        "programming",
-        "technology",
-        "artificial-intelligence"
+        "data-engineering",
+        "engineering",
+        "software-engineering"
       ]
     },
     {
-      "title": "Don’t Break Production with a Typo!",
-      "url": "https://medium.com/@sinemayk/dont-break-production-with-a-typo-36159a6fd751",
-      "by": "Sinem Kirtac",
-      "time": 1790396421000,
-      "tags": [
-        "github",
-        "automation",
-        "devops"
-      ]
-    },
-    {
-      "title": "Top 20 Java Concurrency and Multithreading Interview Questions — With Full Answers",
-      "url": "https://sumanthpoola.medium.com/top-20-java-concurrency-and-multithreading-interview-questions-with-full-answers-f7e64a73d20b",
-      "by": "Sumanth",
-      "time": 1790396277000,
-      "tags": [
-        "multithreading",
-        "java",
-        "programming"
-      ]
-    },
-    {
-      "title": "Stop Burning Your Free GitHub Minutes!",
-      "url": "https://medium.com/@sinemayk/stop-burning-your-free-github-minutes-1d0dc564f499",
-      "by": "Sinem Kirtac",
-      "time": 1790396146000,
-      "tags": [
-        "github-actions",
-        "software-engineering",
-        "devops"
-      ]
-    },
-    {
-      "title": "20 Linux Interview Questions Every DevOps Engineer Should Prepare For",
-      "url": "https://medium.com/@preetjit82/20-linux-interview-questions-every-devops-engineer-should-prepare-for-32df8ee7f910",
-      "by": "Interview Simplified",
-      "time": 1790396057000,
-      "tags": [
-        "jobs",
-        "interview",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "10 PySpark Interview Questions Data Engineers Should Prepare for in 2026",
-      "url": "https://medium.com/@preetjit82/10-pyspark-interview-questions-data-engineers-should-prepare-for-in-2026-32ab07739012",
-      "by": "Interview Simplified",
-      "time": 1790396005000,
-      "tags": [
-        "jobs",
-        "interview",
-        "pyspark"
-      ]
-    },
-    {
-      "title": "I saw the Codex reset post, then checked the replies",
-      "url": "https://medium.com/@dayue1068/i-saw-the-codex-reset-post-then-checked-the-replies-440cf7317575",
-      "by": "Jiangshan",
-      "time": 1790395661000,
-      "tags": [
-        "chatgpt",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "UX Is Moving Beyond Screens: What Google Research on Self-Evolving Interfaces Means for Designers",
-      "url": "https://medium.com/@SamerTallauze/ux-is-moving-beyond-screens-what-google-research-on-self-evolving-interfaces-means-for-designers-77ef308b11f4",
-      "by": "Samer Tallauze",
-      "time": 1790395650000,
+      "title": "Beyond Autocomplete: How Engineering Leaders Cross the Chasm from AI Assistants to Governed…",
+      "url": "https://medium.com/@babakhoss/beyond-autocomplete-how-engineering-leaders-cross-the-chasm-from-ai-assistants-to-governed-417f8c4afcfb",
+      "by": "Babak Hosseinzadeh",
+      "time": 1790482890000,
       "tags": [
         "software-engineering",
-        "generative-ai-tools",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Ollama 0.34.4 Lets Qwen Think Before JSON, Then Blocks the Tool Call: 5 of 6 Parsers Tested",
-      "url": "https://pub.towardsai.net/ollama-0-34-4-lets-qwen-think-before-json-then-blocks-the-tool-call-5-of-6-parsers-tested-8313c8dfb089",
-      "by": "Chew Loong Nian - AI ENGINEER",
-      "time": 1790395441000,
-      "tags": [
-        "ollama",
         "artificial-intelligence",
-        "programming"
+        "devops"
       ]
     },
     {
-      "title": "I Tried Tailcat, Tailscale’s Netcat Alternative That Handles NAT for You",
-      "url": "https://medium.com/@u.mair/i-tried-tailcat-tailscales-netcat-alternative-that-handles-nat-for-you-e91913c82803",
-      "by": "Umair",
-      "time": 1790395380000,
+      "title": "Stop dealing with clunky layouts and slow players.",
+      "url": "https://medium.com/@aiagentcustomersupport/stop-dealing-with-clunky-layouts-and-slow-players-4451eafa5917",
+      "by": "Aiagentcustomersupport",
+      "time": 1790482683000,
       "tags": [
-        "tailscale",
-        "technology",
-        "devops"
+        "android-app-development",
+        "software-engineering",
+        "android-tv"
+      ]
+    },
+    {
+      "title": "Browser Storage: Frontend System Design Interview Questions Asked in 2026",
+      "url": "https://amangupta-me.medium.com/browser-storage-frontend-system-design-interview-questions-asked-in-2026-e8cae905ffce",
+      "by": "Aman Gupta",
+      "time": 1790482553000,
+      "tags": [
+        "javascript",
+        "react",
+        "web-development"
+      ]
+    },
+    {
+      "title": "I Built a Rust Library Where Every Resource Has a Type-Level Lifecycle",
+      "url": "https://medium.com/rustaceans/i-built-a-rust-library-where-every-resource-has-a-type-level-lifecycle-08cb7ca44780",
+      "by": "Dr.Michael",
+      "time": 1790482390000,
+      "tags": [
+        "rust-libraries",
+        "rust",
+        "compilers"
+      ]
+    },
+    {
+      "title": "How to Buy Profitable Web Apps (Without Overpaying or Buying a Sinking Ship)",
+      "url": "https://medium.com/@appsonbid/how-to-buy-profitable-web-apps-without-overpaying-or-buying-a-sinking-ship-05e4f500006a",
+      "by": "Appsonbid",
+      "time": 1790481791000,
+      "tags": [
+        "startup",
+        "investing",
+        "saas"
+      ]
+    },
+    {
+      "title": "PRODUCTION-GRADE AI SYSTEMS: 5 ARCHITECTURAL SHIFTS FROM PROTOTYPE TO SCALE",
+      "url": "https://medium.com/@anasahmedadawy/production-grade-ai-systems-5-architectural-shifts-from-prototype-to-scale-75c7a14ceb42",
+      "by": "​Ahmed Adawy",
+      "time": 1790480338000,
+      "tags": [
+        "programming",
+        "machine-learning",
+        "towards-data-science"
+      ]
+    },
+    {
+      "title": "Kubernetes Dashboard:- Making Troubleshooting Easier for Development Teams",
+      "url": "https://iampankajaswal.medium.com/kubernetes-dashboard-making-troubleshooting-easier-for-development-teams-d329a4022a01",
+      "by": "Pankaj Aswal",
+      "time": 1790479861000,
+      "tags": [
+        "software-development",
+        "devops",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Supporting Veterans Through Engineering Careers",
+      "url": "https://medium.com/@pattandigital6/supporting-veterans-through-engineering-careers-58ee128110c8",
+      "by": "Pattandigital",
+      "time": 1790479261000,
+      "tags": [
+        "uk",
+        "engineering",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Stop Shipping Demos: 15 Systems Every Forward Deployed Engineer Should Build",
+      "url": "https://medium.com/coding-nexus/stop-shipping-demos-15-systems-every-forward-deployed-engineer-should-build-9faf7266b41f",
+      "by": "DataScience Nexus",
+      "time": 1790479032000,
+      "tags": [
+        "forward-deployed-engineer",
+        "software-development",
+        "software-engineering"
       ]
     }
   ]
