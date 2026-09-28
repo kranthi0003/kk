@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T04:30:49.530Z",
+  "generated": "2026-09-28T02:53:30.926Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -80,17 +80,6 @@
       "imdb": "https://www.imdb.com/title/tt11026686/"
     },
     {
-      "title": "Mookuthi Amman 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Sundar C",
-      "desc": "Upcoming film by Sundar C",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/11/Mookuthi_Amman_2.jpg/120px-Mookuthi_Amman_2.jpg",
-      "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
-      "imdb": "https://www.imdb.com/title/tt32909364/"
-    },
-    {
       "title": "Aakasamlo Oka Tara",
       "lang": "Telugu",
       "date": null,
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Vettuvam",
       "imdb": "https://www.imdb.com/title/tt20225002/"
+    },
+    {
+      "title": "Bandkhor",
+      "lang": "Indian",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian Marathi-language film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Bandkhor",
+      "imdb": "https://www.imdb.com/title/tt44773426/"
     }
   ]
 }

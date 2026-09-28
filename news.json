@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-27T04:31:42.026Z",
+  "generated": "2026-09-28T02:54:23.691Z",
   "reddit": [
     {
+      "title": "Ownership - by Thorsten Ball - Register Spill",
+      "url": "https://www.reddit.com/r/programming/comments/1wrwz6a/ownership_by_thorsten_ball_register_spill/",
+      "by": "fagnerbrack",
+      "time": 1790546416000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Reducing .NET AWS Lambda Cold Starts by Adding Memory",
+      "url": "https://www.reddit.com/r/programming/comments/1wrv44s/reducing_net_aws_lambda_cold_starts_by_adding/",
+      "by": "ReallySuperName",
+      "time": 1790541821000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Don't couple your Go code to GitHub",
+      "url": "https://www.reddit.com/r/programming/comments/1wrnyer/dont_couple_your_go_code_to_github/",
+      "by": "Sir_KnowItAll",
+      "time": 1790524976000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Category Theory Explained for Haskell Programmers – Part 1 ZuriHac 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1wrkl1o/category_theory_explained_for_haskell_programmers/",
+      "by": "frenche_sans",
+      "time": 1790516625000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Packing Binary Is Fun, Actually",
+      "url": "https://www.reddit.com/r/programming/comments/1wrjyyr/packing_binary_is_fun_actually/",
+      "by": "GenericAHHyoutuber",
+      "time": 1790514944000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Kubernetes Home Lab Setup on a Local Windows Laptop",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wriu8v/kubernetes_home_lab_setup_on_a_local_windows/",
+      "by": "ajay_404",
+      "time": 1790511643000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "How to maintain helm charts of multiple micro-services on k8s at scale ?",
-      "url": "https://www.reddit.com/r/devops/comments/1wr7mw9/how_to_maintain_helm_charts_of_multiple/",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wr7nik/how_to_maintain_helm_charts_of_multiple/",
       "by": "wildwarrior007",
-      "time": 1790473616000,
-      "sub": "r/devops"
+      "time": 1790473664000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "How are people verifying unattended/CI agent runs actually did what they claimed?",
-      "url": "https://www.reddit.com/r/devops/comments/1wr2lng/how_are_people_verifying_unattendedci_agent_runs/",
-      "by": "Longjumping-Play6541",
-      "time": 1790459264000,
-      "sub": "r/devops"
+      "title": "We ran 15 popular AI Helm charts on Kubernetes with default settings. Here is what we found (Ray, LiteLLM, vLLM, Qdrant, MCP)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wr6vrt/we_ran_15_popular_ai_helm_charts_on_kubernetes/",
+      "by": "No-Peanut-6988",
+      "time": 1790471375000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Indian devs who self-host tools: what actually becomes painful after 6–12 months?",
-      "url": "https://www.reddit.com/r/devops/comments/1wr1vsk/indian_devs_who_selfhost_tools_what_actually/",
-      "by": "amitsingh717628",
-      "time": 1790457418000,
-      "sub": "r/devops"
+      "title": "Pod and namespace/ Application level cost for EKS and AKS — what’s actually working?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wqqhj9/pod_and_namespace_application_level_cost_for_eks/",
+      "by": "arun_Aura",
+      "time": 1790429071000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Building dogsbod: A quadruped robot",
-      "url": "https://www.reddit.com/r/programming/comments/1wqw5n3/building_dogsbod_a_quadruped_robot/",
-      "by": "zanders3",
-      "time": 1790443373000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "On programming, statistics, and Java",
-      "url": "https://www.reddit.com/r/programming/comments/1wqvxt6/on_programming_statistics_and_java/",
-      "by": "Mihai4544",
-      "time": 1790442847000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The Cloudflare Blog – Brought to you by EmDash",
-      "url": "https://www.reddit.com/r/programming/comments/1wqv795/the_cloudflare_blog_brought_to_you_by_emdash/",
-      "by": "Ok_Stomach6651",
-      "time": 1790441096000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How can I deploy this microservices project for free without a credit card?",
-      "url": "https://www.reddit.com/r/devops/comments/1wqpwys/how_can_i_deploy_this_microservices_project_for/",
-      "by": "Silver-You4944",
-      "time": 1790427508000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Optimizing a Lock-Free Ring Buffer",
-      "url": "https://www.reddit.com/r/programming/comments/1wqok1x/optimizing_a_lockfree_ring_buffer/",
-      "by": "david-alvarez-rosa",
-      "time": 1790423396000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Anyone else had a 340% AI cost spike overnight? Here's what caused ours",
-      "url": "https://www.reddit.com/r/devops/comments/1wqm1lt/anyone_else_had_a_340_ai_cost_spike_overnight/",
-      "by": "MaverikSh",
-      "time": 1790414323000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Fourier Analysis: Drawing Llamas with Circles",
-      "url": "https://www.reddit.com/r/programming/comments/1wqkpth/fourier_analysis_drawing_llamas_with_circles/",
-      "by": "lelanthran",
-      "time": 1790409270000,
-      "sub": "r/programming"
+      "title": "Cilium Network Policy level of use?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wqpiew/cilium_network_policy_level_of_use/",
+      "by": "InterestAccurate7052",
+      "time": 1790426325000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "I Reviewed Hundreds of Calculus Exercises — Start With These 20",
-      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-exercises-start-with-these-20-2b0d877c6449",
-      "by": "Peter Kattan",
-      "time": 1790483221000,
+      "title": "Arrays, Slices, and Maps Under the Hood",
+      "url": "https://johirbuet.medium.com/arrays-slices-and-maps-under-the-hood-c7dd7e305c17",
+      "by": "Md Johirul Islam",
+      "time": 1790564012000,
       "tags": [
-        "data-engineering",
-        "engineering",
-        "software-engineering"
+        "software-engineering",
+        "programming",
+        "golang"
       ]
     },
     {
-      "title": "Beyond Autocomplete: How Engineering Leaders Cross the Chasm from AI Assistants to Governed…",
-      "url": "https://medium.com/@babakhoss/beyond-autocomplete-how-engineering-leaders-cross-the-chasm-from-ai-assistants-to-governed-417f8c4afcfb",
-      "by": "Babak Hosseinzadeh",
-      "time": 1790482890000,
+      "title": "The 7 API Protocols Every Working Engineer Needs to Know",
+      "url": "https://pub.towardsai.net/the-7-api-protocols-every-working-engineer-needs-to-know-bffda20bf0b4",
+      "by": "Sakshi",
+      "time": 1790563698000,
       "tags": [
+        "backend-development",
+        "system-design-interview",
+        "api"
+      ]
+    },
+    {
+      "title": "Jev vs. Frontier LLMs for Decisions — Fast, and It Shows",
+      "url": "https://medium.com/ai-architecture-and-engineering/jev-vs-frontier-llms-for-decisions-fast-and-it-shows-3e0b4b3b9c08",
+      "by": "EdibleByte",
+      "time": 1790563573000,
+      "tags": [
+        "programming",
         "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "The Ultimate Deep Learning Guide",
+      "url": "https://sankalpsatpute.medium.com/the-ultimate-deep-learning-guide-c76bbbefd363",
+      "by": "Sankalp satpute",
+      "time": 1790563464000,
+      "tags": [
+        "deep-learning",
         "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Complete Guide to Microsoft Entra ID for Windows Admins Who Still Call It Azure AD",
+      "url": "https://medium.com/@prasantakumarroy1/the-complete-guide-to-microsoft-entra-id-for-windows-admins-who-still-call-it-azure-ad-75aa16bf461b",
+      "by": "Prasanta Kumar Roy",
+      "time": 1790563090000,
+      "tags": [
+        "devops",
+        "cloud-computing",
+        "windows"
+      ]
+    },
+    {
+      "title": "What I Wish I’d Said in Every Job Interview I Failed",
+      "url": "https://medium.com/@prasantakumarroy1/what-i-wish-id-said-in-every-job-interview-i-failed-cd02aae0a7cc",
+      "by": "Prasanta Kumar Roy",
+      "time": 1790563069000,
+      "tags": [
+        "system-administration",
+        "cybersecurity",
         "devops"
       ]
     },
     {
-      "title": "Stop dealing with clunky layouts and slow players.",
-      "url": "https://medium.com/@aiagentcustomersupport/stop-dealing-with-clunky-layouts-and-slow-players-4451eafa5917",
-      "by": "Aiagentcustomersupport",
-      "time": 1790482683000,
+      "title": "A Whole New Mind, 14 Years Later",
+      "url": "https://medium.com/@sakti.bagchi/a-whole-new-mind-14-years-later-d7016002b021",
+      "by": "Sakti Bagchi",
+      "time": 1790563055000,
       "tags": [
-        "android-app-development",
+        "coding",
+        "tech-leadership",
+        "daniel-pink"
+      ]
+    },
+    {
+      "title": "The cache I would not scan by default",
+      "url": "https://medium.com/@leon_redfield/the-cache-i-would-not-scan-by-default-f65617820f43",
+      "by": "Leon Redfield",
+      "time": 1790562878000,
+      "tags": [
         "software-engineering",
-        "android-tv"
+        "cocoapods",
+        "macos"
       ]
     },
     {
-      "title": "Browser Storage: Frontend System Design Interview Questions Asked in 2026",
-      "url": "https://amangupta-me.medium.com/browser-storage-frontend-system-design-interview-questions-asked-in-2026-e8cae905ffce",
-      "by": "Aman Gupta",
-      "time": 1790482553000,
-      "tags": [
-        "javascript",
-        "react",
-        "web-development"
-      ]
-    },
-    {
-      "title": "I Built a Rust Library Where Every Resource Has a Type-Level Lifecycle",
-      "url": "https://medium.com/rustaceans/i-built-a-rust-library-where-every-resource-has-a-type-level-lifecycle-08cb7ca44780",
-      "by": "Dr.Michael",
-      "time": 1790482390000,
-      "tags": [
-        "rust-libraries",
-        "rust",
-        "compilers"
-      ]
-    },
-    {
-      "title": "How to Buy Profitable Web Apps (Without Overpaying or Buying a Sinking Ship)",
-      "url": "https://medium.com/@appsonbid/how-to-buy-profitable-web-apps-without-overpaying-or-buying-a-sinking-ship-05e4f500006a",
-      "by": "Appsonbid",
-      "time": 1790481791000,
-      "tags": [
-        "startup",
-        "investing",
-        "saas"
-      ]
-    },
-    {
-      "title": "PRODUCTION-GRADE AI SYSTEMS: 5 ARCHITECTURAL SHIFTS FROM PROTOTYPE TO SCALE",
-      "url": "https://medium.com/@anasahmedadawy/production-grade-ai-systems-5-architectural-shifts-from-prototype-to-scale-75c7a14ceb42",
-      "by": "​Ahmed Adawy",
-      "time": 1790480338000,
-      "tags": [
-        "programming",
-        "machine-learning",
-        "towards-data-science"
-      ]
-    },
-    {
-      "title": "Kubernetes Dashboard:- Making Troubleshooting Easier for Development Teams",
-      "url": "https://iampankajaswal.medium.com/kubernetes-dashboard-making-troubleshooting-easier-for-development-teams-d329a4022a01",
-      "by": "Pankaj Aswal",
-      "time": 1790479861000,
+      "title": "AI Agent Observability & Evaluation: Measuring What Agents Actually Do",
+      "url": "https://medium.com/@scosmexs/ai-agent-observability-evaluation-measuring-what-agents-actually-do-74272f983e0f",
+      "by": "Sebastiao Cosme Agostinho",
+      "time": 1790562844000,
       "tags": [
         "software-development",
+        "artificial-intelligence",
+        "ai"
+      ]
+    },
+    {
+      "title": "How I Would Design a Production Static Website on AWS (Project 5 of 100)",
+      "url": "https://medium.com/@vaikuntaraojagalingi/how-i-would-design-a-production-static-website-on-aws-project-5-of-100-0447b1b4ba90",
+      "by": "vaikunta",
+      "time": 1790562662000,
+      "tags": [
         "devops",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "Supporting Veterans Through Engineering Careers",
-      "url": "https://medium.com/@pattandigital6/supporting-veterans-through-engineering-careers-58ee128110c8",
-      "by": "Pattandigital",
-      "time": 1790479261000,
-      "tags": [
-        "uk",
-        "engineering",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Stop Shipping Demos: 15 Systems Every Forward Deployed Engineer Should Build",
-      "url": "https://medium.com/coding-nexus/stop-shipping-demos-15-systems-every-forward-deployed-engineer-should-build-9faf7266b41f",
-      "by": "DataScience Nexus",
-      "time": 1790479032000,
-      "tags": [
-        "forward-deployed-engineer",
-        "software-development",
-        "software-engineering"
+        "serverless",
+        "aws"
       ]
     }
   ]

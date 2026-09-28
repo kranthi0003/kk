@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T04:31:47.728Z",
+  "generated": "2026-09-28T02:54:28.912Z",
   "season": "2026",
   "sources": [
     {
@@ -103,9 +103,9 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 33,
-        "points": 3841,
-        "rating": 116
+        "matches": 34,
+        "points": 3968,
+        "rating": 117
       },
       {
         "pos": 2,
@@ -117,22 +117,14 @@
       },
       {
         "pos": 3,
-        "code": "AUS",
-        "team": "Australia",
-        "matches": 32,
-        "points": 3304,
-        "rating": 103
+        "code": "SA",
+        "team": "South Africa",
+        "matches": 33,
+        "points": 3497,
+        "rating": 106
       },
       {
         "pos": 4,
-        "code": "SA",
-        "team": "South Africa",
-        "matches": 31,
-        "points": 3192,
-        "rating": 103
-      },
-      {
-        "pos": 5,
         "code": "PAK",
         "team": "Pakistan",
         "matches": 32,
@@ -140,19 +132,27 @@
         "rating": 100
       },
       {
+        "pos": 5,
+        "code": "AUS",
+        "team": "Australia",
+        "matches": 32,
+        "points": 3412,
+        "rating": 100
+      },
+      {
         "pos": 6,
         "code": "ENG",
         "team": "England",
-        "matches": 32,
-        "points": 3044,
+        "matches": 34,
+        "points": 3235,
         "rating": 95
       },
       {
         "pos": 7,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 37,
-        "points": 3513,
+        "matches": 39,
+        "points": 3702,
         "rating": 95
       },
       {
@@ -175,8 +175,8 @@
         "pos": 10,
         "code": "WIN",
         "team": "West Indies",
-        "matches": 34,
-        "points": 2624,
+        "matches": 35,
+        "points": 2690,
         "rating": 77
       },
       {
@@ -273,9 +273,9 @@
         "pos": 10,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 39,
-        "points": 8565,
-        "rating": 220
+        "matches": 41,
+        "points": 8925,
+        "rating": 218
       },
       {
         "pos": 11,
@@ -767,7 +767,7 @@
       "played": 3,
       "scheduled": 3,
       "ends": "2026-09-27",
-      "status": "live"
+      "status": "done"
     },
     {
       "start": "2026-09-15",
@@ -780,8 +780,8 @@
         "test": null,
         "odi": {
           "matches": 3,
-          "result": null,
-          "played": 0
+          "result": "2–1",
+          "played": 3
         },
         "t20i": {
           "matches": 3,
@@ -789,7 +789,7 @@
           "played": 3
         }
       },
-      "played": 3,
+      "played": 6,
       "scheduled": 6,
       "ends": "2026-10-03",
       "status": "live"
@@ -813,7 +813,7 @@
       "played": 1,
       "scheduled": 1,
       "ends": "2026-09-27",
-      "status": "live"
+      "status": "done"
     }
   ],
   "recent": [
