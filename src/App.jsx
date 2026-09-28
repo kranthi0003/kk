@@ -27,6 +27,7 @@ const Vegas = lazy(() => import('./components/Vegas'))
 const Europe = lazy(() => import('./components/Europe'))
 const ReliabilityLab = lazy(() => import('./components/ReliabilityLab'))
 const Blog = lazy(() => import('./components/Blog'))
+const LongGame = lazy(() => import('./components/LongGame'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
 const NowPage = lazy(() => import('./components/NowPage'))
 const Timeline = lazy(() => import('./components/Timeline'))
@@ -513,6 +514,23 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <Blog onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+  // The Long Game — essays. Its own front door, same post engine: a post
+  // opened from here returns here, and one opened from /blog returns there.
+  if (route === '#/longgame') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <LongGame onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+  if (route.startsWith('#/longgame/')) {
+    const slug = route.slice('#/longgame/'.length)
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <BlogPost slug={slug} onBack={() => { window.location.hash = '#/longgame' }} />
       </Suspense>
     )
   }

@@ -5,6 +5,7 @@
 
 import { CERT_POSTS } from './certPosts'
 import { TIL_POSTS } from './tilPosts'
+import { LONG_GAME_POSTS } from './longGamePosts'
 
 export const CATEGORIES = [
   { id: 'mind',        label: 'Mind & Dopamine' },
@@ -186,17 +187,26 @@ export const POSTS = [
   },
   ...CERT_POSTS,
   ...TIL_POSTS,
+  ...LONG_GAME_POSTS,
 ]
 
+// Posts carrying a `section` belong to their own front door and are kept
+// out of the engineering index, its category counts and the knowledge
+// base. They stay in POSTS so getPost() — and therefore #/blog/:slug and
+// every existing link — still resolves them.
 export const publishedPosts = () =>
-  [...POSTS].sort((a, b) => new Date(b.date) - new Date(a.date))
+  POSTS.filter(p => !p.section).sort((a, b) => new Date(b.date) - new Date(a.date))
+
+export const sectionPosts = (section) =>
+  POSTS.filter(p => p.section === section)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
 
 export const getPost = (slug) => POSTS.find(p => p.slug === slug) || null
 
 export const postsByCategory = (catId) =>
   catId === 'all' ? publishedPosts() : publishedPosts().filter(p => p.category === catId)
 
-export const featuredPost = () => POSTS.find(p => p.featured) || POSTS[0]
+export const featuredPost = () => publishedPosts().find(p => p.featured) || publishedPosts()[0]
 
 // Knowledge-base helpers (real counts, computed from actual posts).
 export const postsByTopic = (topicId) =>
