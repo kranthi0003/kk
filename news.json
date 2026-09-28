@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28T02:54:23.691Z",
+  "generated": "2026-09-28T04:35:17.667Z",
   "reddit": [
     {
       "title": "Ownership - by Thorsten Ball - Register Spill",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Arrays, Slices, and Maps Under the Hood",
-      "url": "https://johirbuet.medium.com/arrays-slices-and-maps-under-the-hood-c7dd7e305c17",
-      "by": "Md Johirul Islam",
-      "time": 1790564012000,
+      "title": "Turn Your REST APIs into MCP Tools with Google Cloud API Gateway, No New Server Needed",
+      "url": "https://medium.com/@developerawam/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway-no-new-server-needed-df0af5fbb709",
+      "by": "Developer Awam",
+      "time": 1790570078000,
       "tags": [
-        "software-engineering",
-        "programming",
-        "golang"
-      ]
-    },
-    {
-      "title": "The 7 API Protocols Every Working Engineer Needs to Know",
-      "url": "https://pub.towardsai.net/the-7-api-protocols-every-working-engineer-needs-to-know-bffda20bf0b4",
-      "by": "Sakshi",
-      "time": 1790563698000,
-      "tags": [
-        "backend-development",
-        "system-design-interview",
-        "api"
-      ]
-    },
-    {
-      "title": "Jev vs. Frontier LLMs for Decisions — Fast, and It Shows",
-      "url": "https://medium.com/ai-architecture-and-engineering/jev-vs-frontier-llms-for-decisions-fast-and-it-shows-3e0b4b3b9c08",
-      "by": "EdibleByte",
-      "time": 1790563573000,
-      "tags": [
-        "programming",
-        "software-engineering",
-        "technology"
-      ]
-    },
-    {
-      "title": "The Ultimate Deep Learning Guide",
-      "url": "https://sankalpsatpute.medium.com/the-ultimate-deep-learning-guide-c76bbbefd363",
-      "by": "Sankalp satpute",
-      "time": 1790563464000,
-      "tags": [
-        "deep-learning",
-        "artificial-intelligence",
+        "php",
+        "laravel",
         "programming"
       ]
     },
     {
-      "title": "The Complete Guide to Microsoft Entra ID for Windows Admins Who Still Call It Azure AD",
-      "url": "https://medium.com/@prasantakumarroy1/the-complete-guide-to-microsoft-entra-id-for-windows-admins-who-still-call-it-azure-ad-75aa16bf461b",
-      "by": "Prasanta Kumar Roy",
-      "time": 1790563090000,
+      "title": "Routing Explained: How Data Finds Its Way Across a Network",
+      "url": "https://medium.com/@cyberfox282/routing-explained-how-data-finds-its-way-across-a-network-cf0328043907",
+      "by": "Cyberfox",
+      "time": 1790569862000,
       "tags": [
-        "devops",
-        "cloud-computing",
-        "windows"
+        "networking",
+        "technology",
+        "education"
       ]
     },
     {
-      "title": "What I Wish I’d Said in Every Job Interview I Failed",
-      "url": "https://medium.com/@prasantakumarroy1/what-i-wish-id-said-in-every-job-interview-i-failed-cd02aae0a7cc",
-      "by": "Prasanta Kumar Roy",
-      "time": 1790563069000,
+      "title": "How to Check SIM Card Details in Pakistan — A Simple Step-by-Step Guide",
+      "url": "https://medium.com/@ahmedganatra83/how-to-check-sim-card-details-in-pakistan-a-simple-step-by-step-guide-fcaa57962e9c",
+      "by": "Ahmed Ganatra",
+      "time": 1790569684000,
       "tags": [
-        "system-administration",
-        "cybersecurity",
-        "devops"
+        "business",
+        "self-improvement",
+        "money"
       ]
     },
     {
-      "title": "A Whole New Mind, 14 Years Later",
-      "url": "https://medium.com/@sakti.bagchi/a-whole-new-mind-14-years-later-d7016002b021",
-      "by": "Sakti Bagchi",
-      "time": 1790563055000,
+      "title": "my AI-generated apps earn $1,600/mo passively. here is how you can too:",
+      "url": "https://medium.com/@anulagarwal12/my-ai-generated-apps-earn-1-600-mo-passively-here-is-how-you-can-too-6bc97da7a27c",
+      "by": "Anul Agarwal",
+      "time": 1790569593000,
       "tags": [
-        "coding",
-        "tech-leadership",
-        "daniel-pink"
+        "programming",
+        "technology",
+        "passive-income"
       ]
     },
     {
-      "title": "The cache I would not scan by default",
-      "url": "https://medium.com/@leon_redfield/the-cache-i-would-not-scan-by-default-f65617820f43",
-      "by": "Leon Redfield",
-      "time": 1790562878000,
+      "title": "After Enough Bugs, Bad Architecture, and Late Nights, These Coding Skills Stuck",
+      "url": "https://medium.com/codetodeploy/after-enough-bugs-bad-architecture-and-late-nights-these-coding-skills-stuck-a1f1772433dc",
+      "by": "Muhummad Zaki",
+      "time": 1790569487000,
+      "tags": [
+        "technology",
+        "machine-learning",
+        "python"
+      ]
+    },
+    {
+      "title": "Why AI Needs So Much Memory?",
+      "url": "https://medium.com/@pottelisowmyasree/why-ai-needs-so-much-memory-8c247a831a54",
+      "by": "Sowmya Potteli",
+      "time": 1790569200000,
+      "tags": [
+        "artificial-intelligence",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "OpenAI’s Model Escaped Through DNS. It Took Humans 150 Minutes to Pull the Plug.",
+      "url": "https://medium.com/the-programmer/openais-model-escaped-through-dns-it-took-humans-150-minutes-to-pull-the-plug-6b99575c8241",
+      "by": "@pramodchandrayan",
+      "time": 1790569051000,
+      "tags": [
+        "technology",
+        "openai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "8 Python Libraries That Solved Problems I Was Overengineering",
+      "url": "https://medium.com/codetodeploy/8-python-libraries-that-solved-problems-i-was-overengineering-25a6b78f774c",
+      "by": "Muhummad Zaki",
+      "time": 1790569050000,
+      "tags": [
+        "machine-learning",
+        "data-science",
+        "programming"
+      ]
+    },
+    {
+      "title": "Governing Agent Sprawl: A Practical Architecture for Enterprise Agentic AI",
+      "url": "https://medium.com/@moganakumaran/governing-agent-sprawl-a-practical-architecture-for-enterprise-agentic-ai-fe2bd3e81b54",
+      "by": "Mogana Kumaran",
+      "time": 1790568912000,
       "tags": [
         "software-engineering",
-        "cocoapods",
-        "macos"
+        "machine-learning",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "AI Agent Observability & Evaluation: Measuring What Agents Actually Do",
-      "url": "https://medium.com/@scosmexs/ai-agent-observability-evaluation-measuring-what-agents-actually-do-74272f983e0f",
-      "by": "Sebastiao Cosme Agostinho",
-      "time": 1790562844000,
+      "title": "OpenAI’s Alarm Rang in 12 Minutes. The Stop Took 2.5 Hours",
+      "url": "https://medium.com/write-a-catalyst/openais-alarm-rang-in-12-minutes-the-stop-took-2-5-hours-83673c3b4af4",
+      "by": "Sara Alch",
+      "time": 1790568767000,
       "tags": [
-        "software-development",
+        "programming",
         "artificial-intelligence",
-        "ai"
-      ]
-    },
-    {
-      "title": "How I Would Design a Production Static Website on AWS (Project 5 of 100)",
-      "url": "https://medium.com/@vaikuntaraojagalingi/how-i-would-design-a-production-static-website-on-aws-project-5-of-100-0447b1b4ba90",
-      "by": "vaikunta",
-      "time": 1790562662000,
-      "tags": [
-        "devops",
-        "serverless",
-        "aws"
+        "machine-learning"
       ]
     }
   ]
