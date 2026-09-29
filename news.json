@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-28T04:35:17.667Z",
+  "generated": "2026-09-29T04:33:20.019Z",
   "reddit": [
     {
-      "title": "Ownership - by Thorsten Ball - Register Spill",
-      "url": "https://www.reddit.com/r/programming/comments/1wrwz6a/ownership_by_thorsten_ball_register_spill/",
-      "by": "fagnerbrack",
-      "time": 1790546416000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Reducing .NET AWS Lambda Cold Starts by Adding Memory",
-      "url": "https://www.reddit.com/r/programming/comments/1wrv44s/reducing_net_aws_lambda_cold_starts_by_adding/",
-      "by": "ReallySuperName",
-      "time": 1790541821000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Don't couple your Go code to GitHub",
-      "url": "https://www.reddit.com/r/programming/comments/1wrnyer/dont_couple_your_go_code_to_github/",
-      "by": "Sir_KnowItAll",
-      "time": 1790524976000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Category Theory Explained for Haskell Programmers – Part 1 ZuriHac 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1wrkl1o/category_theory_explained_for_haskell_programmers/",
-      "by": "frenche_sans",
-      "time": 1790516625000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Packing Binary Is Fun, Actually",
-      "url": "https://www.reddit.com/r/programming/comments/1wrjyyr/packing_binary_is_fun_actually/",
+      "title": "Needed 1+1, Built a Functional Programming Language",
+      "url": "https://www.reddit.com/r/programming/comments/1wsx9fe/needed_11_built_a_functional_programming_language/",
       "by": "GenericAHHyoutuber",
-      "time": 1790514944000,
+      "time": 1790646209000,
       "sub": "r/programming"
     },
     {
-      "title": "Kubernetes Home Lab Setup on a Local Windows Laptop",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wriu8v/kubernetes_home_lab_setup_on_a_local_windows/",
-      "by": "ajay_404",
-      "time": 1790511643000,
+      "title": "Instala y crea un proyecto con Composer en IssuesPHP.",
+      "url": "https://www.reddit.com/r/programming/comments/1wsx94j/instala_y_crea_un_proyecto_con_composer_en/",
+      "by": "Ok-Picture7006",
+      "time": 1790646187000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Supporting native Rust in Workers with the new Emscripten target for wasm-bindgen",
+      "url": "https://www.reddit.com/r/programming/comments/1wsv1tt/supporting_native_rust_in_workers_with_the_new/",
+      "by": "Ok_Stomach6651",
+      "time": 1790639995000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "c++ graphics API - source code explain",
+      "url": "https://www.reddit.com/r/programming/comments/1wsta2z/c_graphics_api_source_code_explain/",
+      "by": "wizard_creator_seth",
+      "time": 1790635291000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "example.com got modernized !",
+      "url": "https://www.reddit.com/r/programming/comments/1wsry20/examplecom_got_modernized/",
+      "by": "KaKi_87",
+      "time": 1790631928000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "K8s Cilium integration with BGP using Cisco nexus switches",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wsoqrv/k8s_cilium_integration_with_bgp_using_cisco_nexus/",
+      "by": "Double_Car_703",
+      "time": 1790624731000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How to maintain helm charts of multiple micro-services on k8s at scale ?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wr7nik/how_to_maintain_helm_charts_of_multiple/",
-      "by": "wildwarrior007",
-      "time": 1790473664000,
+      "title": "What to check when Karpenter won't give you nodes",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wsmi9f/what_to_check_when_karpenter_wont_give_you_nodes/",
+      "by": "royLskyhook",
+      "time": 1790619853000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "We ran 15 popular AI Helm charts on Kubernetes with default settings. Here is what we found (Ray, LiteLLM, vLLM, Qdrant, MCP)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wr6vrt/we_ran_15_popular_ai_helm_charts_on_kubernetes/",
-      "by": "No-Peanut-6988",
-      "time": 1790471375000,
+      "title": "Groundcover buys Wand to add automated Kubernetes resource management",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wslzgg/groundcover_buys_wand_to_add_automated_kubernetes/",
+      "by": "ActualHorseShit",
+      "time": 1790618703000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Pod and namespace/ Application level cost for EKS and AKS — what’s actually working?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wqqhj9/pod_and_namespace_application_level_cost_for_eks/",
-      "by": "arun_Aura",
-      "time": 1790429071000,
+      "title": "PSA: if Rancher's RBAC is denying you something that should obviously work, go check whether the UI secretly typo'd your role for you.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wslsyz/psa_if_ranchers_rbac_is_denying_you_something/",
+      "by": "Specialist_Horror400",
+      "time": 1790618322000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Cilium Network Policy level of use?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wqpiew/cilium_network_policy_level_of_use/",
-      "by": "InterestAccurate7052",
-      "time": 1790426325000,
+      "title": "How are you isolating AI agents from each other in the cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wsh4ai/how_are_you_isolating_ai_agents_from_each_other/",
+      "by": "iamjessew",
+      "time": 1790608012000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Turn Your REST APIs into MCP Tools with Google Cloud API Gateway, No New Server Needed",
-      "url": "https://medium.com/@developerawam/turn-your-rest-apis-into-mcp-tools-with-google-cloud-api-gateway-no-new-server-needed-df0af5fbb709",
+      "title": "Maker vs Checker: Keep Your OpenClaw Setup Lean with a Single Reviewer",
+      "url": "https://kd-agentic.medium.com/maker-vs-checker-keep-your-openclaw-setup-lean-with-a-single-reviewer-87564ad41d21",
+      "by": "KD Agentic",
+      "time": 1790656334000,
+      "tags": [
+        "artificial-intelligence",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Still Using XAMPP? Meet 5 Modern Laravel Development Environments",
+      "url": "https://medium.com/codex/still-using-xampp-meet-5-modern-laravel-development-environments-5c7125b04ca3",
       "by": "Developer Awam",
-      "time": 1790570078000,
+      "time": 1790656319000,
       "tags": [
-        "php",
         "laravel",
-        "programming"
+        "programming",
+        "web-development"
       ]
     },
     {
-      "title": "Routing Explained: How Data Finds Its Way Across a Network",
-      "url": "https://medium.com/@cyberfox282/routing-explained-how-data-finds-its-way-across-a-network-cf0328043907",
-      "by": "Cyberfox",
-      "time": 1790569862000,
-      "tags": [
-        "networking",
-        "technology",
-        "education"
-      ]
-    },
-    {
-      "title": "How to Check SIM Card Details in Pakistan — A Simple Step-by-Step Guide",
-      "url": "https://medium.com/@ahmedganatra83/how-to-check-sim-card-details-in-pakistan-a-simple-step-by-step-guide-fcaa57962e9c",
-      "by": "Ahmed Ganatra",
-      "time": 1790569684000,
-      "tags": [
-        "business",
-        "self-improvement",
-        "money"
-      ]
-    },
-    {
-      "title": "my AI-generated apps earn $1,600/mo passively. here is how you can too:",
-      "url": "https://medium.com/@anulagarwal12/my-ai-generated-apps-earn-1-600-mo-passively-here-is-how-you-can-too-6bc97da7a27c",
-      "by": "Anul Agarwal",
-      "time": 1790569593000,
+      "title": "Mastering Python Beyond the Basics: OOP, Decorators, Concurrency, Generators & More",
+      "url": "https://deepawasthi.medium.com/python-advance-85048173fb13",
+      "by": "Deep Awasthi",
+      "time": 1790656265000,
       "tags": [
         "programming",
-        "technology",
-        "passive-income"
+        "coding",
+        "software-engineering"
       ]
     },
     {
-      "title": "After Enough Bugs, Bad Architecture, and Late Nights, These Coding Skills Stuck",
-      "url": "https://medium.com/codetodeploy/after-enough-bugs-bad-architecture-and-late-nights-these-coding-skills-stuck-a1f1772433dc",
-      "by": "Muhummad Zaki",
-      "time": 1790569487000,
+      "title": "5 DataWeave Mistakes MuleSoft Developers Make (and How to Fix Them)",
+      "url": "https://medium.com/@isitaghosh28/5-dataweave-mistakes-mulesoft-developers-make-and-how-to-fix-them-79c725346871",
+      "by": "Isitaghosh",
+      "time": 1790656263000,
       "tags": [
-        "technology",
-        "machine-learning",
-        "python"
-      ]
-    },
-    {
-      "title": "Why AI Needs So Much Memory?",
-      "url": "https://medium.com/@pottelisowmyasree/why-ai-needs-so-much-memory-8c247a831a54",
-      "by": "Sowmya Potteli",
-      "time": 1790569200000,
-      "tags": [
-        "artificial-intelligence",
+        "dataweave",
         "software-development",
-        "programming"
+        "api-development"
       ]
     },
     {
-      "title": "OpenAI’s Model Escaped Through DNS. It Took Humans 150 Minutes to Pull the Plug.",
-      "url": "https://medium.com/the-programmer/openais-model-escaped-through-dns-it-took-humans-150-minutes-to-pull-the-plug-6b99575c8241",
-      "by": "@pramodchandrayan",
-      "time": 1790569051000,
+      "title": "Spot Instance Strategies: Save 70–90% on Compute Without Sacrificing Reliability",
+      "url": "https://medium.com/devops-ai-decoded/spot-instance-strategies-save-70-90-on-compute-without-sacrificing-reliability-05340613956a",
+      "by": "Neel Shah",
+      "time": 1790656263000,
       "tags": [
-        "technology",
-        "openai",
-        "artificial-intelligence"
+        "devops",
+        "cloud-computing",
+        "technology"
       ]
     },
     {
-      "title": "8 Python Libraries That Solved Problems I Was Overengineering",
-      "url": "https://medium.com/codetodeploy/8-python-libraries-that-solved-problems-i-was-overengineering-25a6b78f774c",
-      "by": "Muhummad Zaki",
-      "time": 1790569050000,
+      "title": "Your Alerts Have No Identity",
+      "url": "https://medium.com/@hikmahtech/your-alerts-have-no-identity-3ecca6c280a1",
+      "by": "Arshad Ansari",
+      "time": 1790656200000,
       "tags": [
-        "machine-learning",
-        "data-science",
-        "programming"
+        "devops",
+        "ai-agent",
+        "observability"
       ]
     },
     {
-      "title": "Governing Agent Sprawl: A Practical Architecture for Enterprise Agentic AI",
-      "url": "https://medium.com/@moganakumaran/governing-agent-sprawl-a-practical-architecture-for-enterprise-agentic-ai-fe2bd3e81b54",
-      "by": "Mogana Kumaran",
-      "time": 1790568912000,
-      "tags": [
-        "software-engineering",
-        "machine-learning",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "OpenAI’s Alarm Rang in 12 Minutes. The Stop Took 2.5 Hours",
-      "url": "https://medium.com/write-a-catalyst/openais-alarm-rang-in-12-minutes-the-stop-took-2-5-hours-83673c3b4af4",
-      "by": "Sara Alch",
-      "time": 1790568767000,
+      "title": "Running Multiple Coding Agents Left Me With Too Many Windows",
+      "url": "https://medium.com/@dhmkchs/running-multiple-coding-agents-left-me-with-too-many-windows-39e035806a70",
+      "by": "Dhmkchs",
+      "time": 1790656193000,
       "tags": [
         "programming",
-        "artificial-intelligence",
-        "machine-learning"
+        "claude-code",
+        "developer-tools"
+      ]
+    },
+    {
+      "title": "I Worked Through Hundreds of Derivatives — These Are the 20 Every Beginner Should Know",
+      "url": "https://medium.com/@drpeterkattan/i-worked-through-hundreds-of-derivatives-these-are-the-20-every-beginner-should-know-8a8a717fa0e7",
+      "by": "Peter Kattan",
+      "time": 1790656023000,
+      "tags": [
+        "data-engineering",
+        "mathematics",
+        "engineering"
+      ]
+    },
+    {
+      "title": "Jev Won’t Chat With You, And That’s the Point",
+      "url": "https://medium.com/@khwajakhan/jev-wont-chat-with-you-and-that-s-the-point-90f7220b8ab3",
+      "by": "Khwaja Khan",
+      "time": 1790655910000,
+      "tags": [
+        "machine-learning",
+        "devops",
+        "llm"
+      ]
+    },
+    {
+      "title": "Day 16/90: Cracking the GenAI Interview: How many GPUs do you actually need to run an LLM?",
+      "url": "https://devopslearning.medium.com/day-16-90-cracking-the-genai-interview-how-many-gpus-do-you-actually-need-to-run-an-llm-0b286afccbe0",
+      "by": "Prashant Lakhera",
+      "time": 1790655722000,
+      "tags": [
+        "ai",
+        "devops",
+        "llm"
       ]
     }
   ]
