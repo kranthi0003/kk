@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-29T04:32:09.390Z",
+  "generated": "2026-09-30T04:33:06.863Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -12,6 +12,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/ff/Emperor_vs_Sarat_Chandra_poster.jpg/120px-Emperor_vs_Sarat_Chandra_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Emperor_vs_Sarat_Chandra",
       "imdb": "https://www.imdb.com/title/tt38090791/"
+    },
+    {
+      "title": "Ramayana: Part 1",
+      "lang": "Hindi",
+      "date": "2026-11-08",
+      "precision": "day",
+      "by": "Nitesh Tiwari",
+      "desc": "Upcoming Indian film by Nitesh Tiwari",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
+      "imdb": "https://www.imdb.com/title/tt27988879/"
     },
     {
       "title": "Yeh Prem Mol Liya",
@@ -143,17 +154,6 @@
       "desc": "Upcoming film by Windows Production",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
       "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
-      "imdb": null
-    },
-    {
-      "title": "Chitukurinji",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "Upcoming Indian Tamil-language film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
     }
   ]

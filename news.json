@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-29T04:33:20.019Z",
+  "generated": "2026-09-30T04:34:16.972Z",
   "reddit": [
     {
-      "title": "Needed 1+1, Built a Functional Programming Language",
-      "url": "https://www.reddit.com/r/programming/comments/1wsx9fe/needed_11_built_a_functional_programming_language/",
-      "by": "GenericAHHyoutuber",
-      "time": 1790646209000,
+      "title": "Everyone Should Know SIMD",
+      "url": "https://www.reddit.com/r/programming/comments/1wtv3vb/everyone_should_know_simd/",
+      "by": "fagnerbrack",
+      "time": 1790740854000,
       "sub": "r/programming"
     },
     {
-      "title": "Instala y crea un proyecto con Composer en IssuesPHP.",
-      "url": "https://www.reddit.com/r/programming/comments/1wsx94j/instala_y_crea_un_proyecto_con_composer_en/",
-      "by": "Ok-Picture7006",
-      "time": 1790646187000,
+      "title": "Custom encryption algorithm",
+      "url": "https://www.reddit.com/r/programming/comments/1wtothf/custom_encryption_algorithm/",
+      "by": "_ILoveSaturdays",
+      "time": 1790722651000,
       "sub": "r/programming"
     },
     {
-      "title": "Supporting native Rust in Workers with the new Emscripten target for wasm-bindgen",
-      "url": "https://www.reddit.com/r/programming/comments/1wsv1tt/supporting_native_rust_in_workers_with_the_new/",
+      "title": "Zero-Growth Stack, Real Gains: How Stack Allocation Can Save 10% CPU in Go",
+      "url": "https://www.reddit.com/r/programming/comments/1wtnwfs/zerogrowth_stack_real_gains_how_stack_allocation/",
       "by": "Ok_Stomach6651",
-      "time": 1790639995000,
+      "time": 1790720184000,
       "sub": "r/programming"
     },
     {
-      "title": "c++ graphics API - source code explain",
-      "url": "https://www.reddit.com/r/programming/comments/1wsta2z/c_graphics_api_source_code_explain/",
-      "by": "wizard_creator_seth",
-      "time": 1790635291000,
+      "title": "Help - Kubernetes rolling updates",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wtl65s/help_kubernetes_rolling_updates/",
+      "by": "Simple-Walrus1213",
+      "time": 1790713661000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Migrating AKS from local accounts to Entra ID + Kubernetes RBAC — anyone done this on production? What broke for you?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wtiu2d/migrating_aks_from_local_accounts_to_entra_id/",
+      "by": "Mahynderr",
+      "time": 1790708341000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Designing High-Performance Matrix Memory Layouts in Rust",
+      "url": "https://www.reddit.com/r/programming/comments/1wtii9n/designing_highperformance_matrix_memory_layouts/",
+      "by": "TechnologySubject259",
+      "time": 1790707592000,
       "sub": "r/programming"
     },
     {
-      "title": "example.com got modernized !",
-      "url": "https://www.reddit.com/r/programming/comments/1wsry20/examplecom_got_modernized/",
-      "by": "KaKi_87",
-      "time": 1790631928000,
+      "title": "Incident IQ",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wth5r5/incident_iq/",
+      "by": "C_Greeshhmaa",
+      "time": 1790704623000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Running CloudNativePG HA, Flux CD v2, and SOPS in a Sovereign K3s Cluster Behind CGNAT (Architecture, Trade-offs & 16 ADRs)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wtfvi3/running_cloudnativepg_ha_flux_cd_v2_and_sops_in_a/",
+      "by": "krvsc",
+      "time": 1790701731000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What concrete problem finally justified Kubernetes for your team?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wtfqxu/what_concrete_problem_finally_justified/",
+      "by": "Mr_LA",
+      "time": 1790701447000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "In Defense of the Visual Cortex",
+      "url": "https://www.reddit.com/r/programming/comments/1wtfh4j/in_defense_of_the_visual_cortex/",
+      "by": "Jernesstar",
+      "time": 1790700850000,
       "sub": "r/programming"
-    },
-    {
-      "title": "K8s Cilium integration with BGP using Cisco nexus switches",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wsoqrv/k8s_cilium_integration_with_bgp_using_cisco_nexus/",
-      "by": "Double_Car_703",
-      "time": 1790624731000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "What to check when Karpenter won't give you nodes",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wsmi9f/what_to_check_when_karpenter_wont_give_you_nodes/",
-      "by": "royLskyhook",
-      "time": 1790619853000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Groundcover buys Wand to add automated Kubernetes resource management",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wslzgg/groundcover_buys_wand_to_add_automated_kubernetes/",
-      "by": "ActualHorseShit",
-      "time": 1790618703000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "PSA: if Rancher's RBAC is denying you something that should obviously work, go check whether the UI secretly typo'd your role for you.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wslsyz/psa_if_ranchers_rbac_is_denying_you_something/",
-      "by": "Specialist_Horror400",
-      "time": 1790618322000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How are you isolating AI agents from each other in the cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wsh4ai/how_are_you_isolating_ai_agents_from_each_other/",
-      "by": "iamjessew",
-      "time": 1790608012000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Maker vs Checker: Keep Your OpenClaw Setup Lean with a Single Reviewer",
-      "url": "https://kd-agentic.medium.com/maker-vs-checker-keep-your-openclaw-setup-lean-with-a-single-reviewer-87564ad41d21",
-      "by": "KD Agentic",
-      "time": 1790656334000,
+      "title": "Every Placement Story Mentions This Programme. Here Is Why. Here Is What It Is.",
+      "url": "https://medium.com/@anjali.shah44350/every-placement-story-mentions-this-programme-here-is-why-here-is-what-it-is-1fe134cc1713",
+      "by": "Anjali Shah",
+      "time": 1790742453000,
       "tags": [
-        "artificial-intelligence",
-        "programming",
-        "technology"
+        "software-engineering",
+        "gujarat",
+        "campus-placements"
       ]
     },
     {
-      "title": "Still Using XAMPP? Meet 5 Modern Laravel Development Environments",
-      "url": "https://medium.com/codex/still-using-xampp-meet-5-modern-laravel-development-environments-5c7125b04ca3",
-      "by": "Developer Awam",
-      "time": 1790656319000,
+      "title": "GPT-6 Astra API Tutorial: From First Call to a Reliable Agent",
+      "url": "https://medium.com/@samavery9/gpt-6-astra-api-tutorial-from-first-call-to-a-reliable-agent-5ce1efe91d12",
+      "by": "Sam Avery",
+      "time": 1790742106000,
       "tags": [
-        "laravel",
-        "programming",
-        "web-development"
+        "api",
+        "software-engineering",
+        "ai-agent"
       ]
     },
     {
-      "title": "Mastering Python Beyond the Basics: OOP, Decorators, Concurrency, Generators & More",
-      "url": "https://deepawasthi.medium.com/python-advance-85048173fb13",
-      "by": "Deep Awasthi",
-      "time": 1790656265000,
-      "tags": [
-        "programming",
-        "coding",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "5 DataWeave Mistakes MuleSoft Developers Make (and How to Fix Them)",
-      "url": "https://medium.com/@isitaghosh28/5-dataweave-mistakes-mulesoft-developers-make-and-how-to-fix-them-79c725346871",
-      "by": "Isitaghosh",
-      "time": 1790656263000,
-      "tags": [
-        "dataweave",
-        "software-development",
-        "api-development"
-      ]
-    },
-    {
-      "title": "Spot Instance Strategies: Save 70–90% on Compute Without Sacrificing Reliability",
-      "url": "https://medium.com/devops-ai-decoded/spot-instance-strategies-save-70-90-on-compute-without-sacrificing-reliability-05340613956a",
-      "by": "Neel Shah",
-      "time": 1790656263000,
-      "tags": [
-        "devops",
-        "cloud-computing",
-        "technology"
-      ]
-    },
-    {
-      "title": "Your Alerts Have No Identity",
-      "url": "https://medium.com/@hikmahtech/your-alerts-have-no-identity-3ecca6c280a1",
-      "by": "Arshad Ansari",
-      "time": 1790656200000,
-      "tags": [
-        "devops",
-        "ai-agent",
-        "observability"
-      ]
-    },
-    {
-      "title": "Running Multiple Coding Agents Left Me With Too Many Windows",
-      "url": "https://medium.com/@dhmkchs/running-multiple-coding-agents-left-me-with-too-many-windows-39e035806a70",
-      "by": "Dhmkchs",
-      "time": 1790656193000,
-      "tags": [
-        "programming",
-        "claude-code",
-        "developer-tools"
-      ]
-    },
-    {
-      "title": "I Worked Through Hundreds of Derivatives — These Are the 20 Every Beginner Should Know",
-      "url": "https://medium.com/@drpeterkattan/i-worked-through-hundreds-of-derivatives-these-are-the-20-every-beginner-should-know-8a8a717fa0e7",
-      "by": "Peter Kattan",
-      "time": 1790656023000,
-      "tags": [
-        "data-engineering",
-        "mathematics",
-        "engineering"
-      ]
-    },
-    {
-      "title": "Jev Won’t Chat With You, And That’s the Point",
-      "url": "https://medium.com/@khwajakhan/jev-wont-chat-with-you-and-that-s-the-point-90f7220b8ab3",
-      "by": "Khwaja Khan",
-      "time": 1790655910000,
-      "tags": [
-        "machine-learning",
-        "devops",
-        "llm"
-      ]
-    },
-    {
-      "title": "Day 16/90: Cracking the GenAI Interview: How many GPUs do you actually need to run an LLM?",
-      "url": "https://devopslearning.medium.com/day-16-90-cracking-the-genai-interview-how-many-gpus-do-you-actually-need-to-run-an-llm-0b286afccbe0",
-      "by": "Prashant Lakhera",
-      "time": 1790655722000,
+      "title": "From Chat Bot To AI -How Agentic AI Actually Works",
+      "url": "https://medium.com/@pridham39/from-chat-bot-to-ai-how-agentic-ai-actually-works-c913ad2965c9",
+      "by": "Ridham Bhalala",
+      "time": 1790742014000,
       "tags": [
         "ai",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Mailinator: What Is It? A Quick Guide to Temporary Email",
+      "url": "https://medium.com/@rapdev.tech/mailinator-what-is-it-a-quick-guide-to-temporary-email-2aab8eb2118a",
+      "by": "Rapdev Tech",
+      "time": 1790741977000,
+      "tags": [
+        "web-development",
+        "programming",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "1111. Maximum Nesting Depth of Two Valid Parentheses Strings",
+      "url": "https://medium.com/@ranegirish24/1111-maximum-nesting-depth-of-two-valid-parentheses-strings-7c3f4877cd48",
+      "by": "Girish Rane",
+      "time": 1790741890000,
+      "tags": [
+        "coding",
+        "java",
+        "programming"
+      ]
+    },
+    {
+      "title": "Generative AI for Programmers: How I Use AI to Write Better Code, Not Just More Code",
+      "url": "https://ai.plainenglish.io/generative-ai-for-programmers-how-i-use-ai-to-write-better-code-not-just-more-code-5b026088820b",
+      "by": "AshokReddy",
+      "time": 1790741771000,
+      "tags": [
+        "generative-ai",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "We Gave AI Permission to Run Our Tests. Then It Started Testing the Wrong Thing.",
+      "url": "https://medium.com/@anurag.ydv36/we-gave-ai-permission-to-run-our-tests-then-it-started-testing-the-wrong-thing-6506096ee2e9",
+      "by": "The Next Exception",
+      "time": 1790741161000,
+      "tags": [
+        "ai",
+        "software-development",
+        "software-testing"
+      ]
+    },
+    {
+      "title": "Platform Adoption Is Not Platform Value",
+      "url": "https://medium.com/@arjun2075/platform-adoption-is-not-platform-value-2eb6654ec632",
+      "by": "Arjun Garg",
+      "time": 1790741125000,
+      "tags": [
+        "engineering-leadership",
+        "developer-experience",
+        "delivery-software"
+      ]
+    },
+    {
+      "title": "We Automated the Work Juniors Were Supposed to Learn From",
+      "url": "https://medium.com/@ishaqsaqib/we-automated-the-work-juniors-were-supposed-to-learn-from-19a429a23ebb",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1790740862000,
+      "tags": [
+        "artificial-intelligence",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "Azure DevOps Pipelines for Databricks Workspace & Unity Catalog Disaster Recovery Using Terraform…",
+      "url": "https://medium.com/@mike.sturwold/azure-devops-pipelines-for-databricks-workspace-unity-catalog-disaster-recovery-using-terraform-46e19d36d588",
+      "by": "Mike Sturwold",
+      "time": 1790740641000,
+      "tags": [
         "devops",
-        "llm"
+        "cloud-backup",
+        "data-engineering"
       ]
     }
   ]
