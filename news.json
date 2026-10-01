@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-30T04:34:16.972Z",
+  "generated": "2026-10-01T04:34:24.242Z",
   "reddit": [
     {
-      "title": "Everyone Should Know SIMD",
-      "url": "https://www.reddit.com/r/programming/comments/1wtv3vb/everyone_should_know_simd/",
-      "by": "fagnerbrack",
-      "time": 1790740854000,
+      "title": "Adding very basic 3d outside of a standard operating system - Floating points and basic 3d graphics",
+      "url": "https://www.reddit.com/r/programming/comments/1wumd96/adding_very_basic_3d_outside_of_a_standard/",
+      "by": "eccsoheccsseven",
+      "time": 1790817328000,
       "sub": "r/programming"
     },
     {
-      "title": "Custom encryption algorithm",
-      "url": "https://www.reddit.com/r/programming/comments/1wtothf/custom_encryption_algorithm/",
-      "by": "_ILoveSaturdays",
-      "time": 1790722651000,
+      "title": "c++ operating system level primitives 1",
+      "url": "https://www.reddit.com/r/programming/comments/1wulzdy/c_operating_system_level_primitives_1/",
+      "by": "wizard_creator_seth",
+      "time": 1790816233000,
       "sub": "r/programming"
     },
     {
-      "title": "Zero-Growth Stack, Real Gains: How Stack Allocation Can Save 10% CPU in Go",
-      "url": "https://www.reddit.com/r/programming/comments/1wtnwfs/zerogrowth_stack_real_gains_how_stack_allocation/",
-      "by": "Ok_Stomach6651",
-      "time": 1790720184000,
+      "title": "Page table memory consumption",
+      "url": "https://www.reddit.com/r/programming/comments/1wulcti/page_table_memory_consumption/",
+      "by": "andreiross",
+      "time": 1790814401000,
       "sub": "r/programming"
     },
     {
-      "title": "Help - Kubernetes rolling updates",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wtl65s/help_kubernetes_rolling_updates/",
-      "by": "Simple-Walrus1213",
-      "time": 1790713661000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Migrating AKS from local accounts to Entra ID + Kubernetes RBAC — anyone done this on production? What broke for you?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wtiu2d/migrating_aks_from_local_accounts_to_entra_id/",
-      "by": "Mahynderr",
-      "time": 1790708341000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Designing High-Performance Matrix Memory Layouts in Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1wtii9n/designing_highperformance_matrix_memory_layouts/",
-      "by": "TechnologySubject259",
-      "time": 1790707592000,
+      "title": "What TLA+ can and can't check",
+      "url": "https://www.reddit.com/r/programming/comments/1wuja3f/what_tla_can_and_cant_check/",
+      "by": "mttd",
+      "time": 1790808632000,
       "sub": "r/programming"
     },
     {
-      "title": "Incident IQ",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wth5r5/incident_iq/",
-      "by": "C_Greeshhmaa",
-      "time": 1790704623000,
+      "title": "Which lesser known tools saved your butt when you had to debug an application running in K8S?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wuh8sa/which_lesser_known_tools_saved_your_butt_when_you/",
+      "by": "segv",
+      "time": 1790803386000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Running CloudNativePG HA, Flux CD v2, and SOPS in a Sovereign K3s Cluster Behind CGNAT (Architecture, Trade-offs & 16 ADRs)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wtfvi3/running_cloudnativepg_ha_flux_cd_v2_and_sops_in_a/",
-      "by": "krvsc",
-      "time": 1790701731000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "What concrete problem finally justified Kubernetes for your team?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wtfqxu/what_concrete_problem_finally_justified/",
-      "by": "Mr_LA",
-      "time": 1790701447000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "In Defense of the Visual Cortex",
-      "url": "https://www.reddit.com/r/programming/comments/1wtfh4j/in_defense_of_the_visual_cortex/",
-      "by": "Jernesstar",
-      "time": 1790700850000,
+      "title": "It's the Kernel's Fault! Custom Page Fault Handling With bpf_fault",
+      "url": "https://www.reddit.com/r/programming/comments/1wugn5a/its_the_kernels_fault_custom_page_fault_handling/",
+      "by": "mttd",
+      "time": 1790801942000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Setting Up a k8s Cluster on Talos Linux",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wuaqet/setting_up_a_k8s_cluster_on_talos_linux/",
+      "by": "hostkey-com",
+      "time": 1790788433000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Cómo filtran el ruido de alertas en clusters Kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wu68tu/cómo_filtran_el_ruido_de_alertas_en_clusters/",
+      "by": "Tiny-Release-1925",
+      "time": 1790778084000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "As someone who has been using skaffold since 2019 i feel really sad about this",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wu5m34/as_someone_who_has_been_using_skaffold_since_2019/",
+      "by": "Proper_Raspberry_662",
+      "time": 1790776566000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How much of a portfolio project should I publish on GitHub?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wu51g9/how_much_of_a_portfolio_project_should_i_publish/",
+      "by": "Wide_Impact_9392",
+      "time": 1790775097000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Every Placement Story Mentions This Programme. Here Is Why. Here Is What It Is.",
-      "url": "https://medium.com/@anjali.shah44350/every-placement-story-mentions-this-programme-here-is-why-here-is-what-it-is-1fe134cc1713",
-      "by": "Anjali Shah",
-      "time": 1790742453000,
+      "title": "10 Free GitHub Projects That Make Claude More Useful for Developers",
+      "url": "https://medium.com/@startup_Ideas/10-free-github-projects-that-make-claude-more-useful-for-developers-60d49bc40efa",
+      "by": "Startup Ideas",
+      "time": 1790828602000,
       "tags": [
-        "software-engineering",
-        "gujarat",
-        "campus-placements"
-      ]
-    },
-    {
-      "title": "GPT-6 Astra API Tutorial: From First Call to a Reliable Agent",
-      "url": "https://medium.com/@samavery9/gpt-6-astra-api-tutorial-from-first-call-to-a-reliable-agent-5ce1efe91d12",
-      "by": "Sam Avery",
-      "time": 1790742106000,
-      "tags": [
-        "api",
-        "software-engineering",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "From Chat Bot To AI -How Agentic AI Actually Works",
-      "url": "https://medium.com/@pridham39/from-chat-bot-to-ai-how-agentic-ai-actually-works-c913ad2965c9",
-      "by": "Ridham Bhalala",
-      "time": 1790742014000,
-      "tags": [
-        "ai",
         "programming",
+        "artificial-intelligence",
         "software-development"
       ]
     },
     {
-      "title": "Mailinator: What Is It? A Quick Guide to Temporary Email",
-      "url": "https://medium.com/@rapdev.tech/mailinator-what-is-it-a-quick-guide-to-temporary-email-2aab8eb2118a",
-      "by": "Rapdev Tech",
-      "time": 1790741977000,
+      "title": "The Simplest AI Learning Roadmap for 2026: Learn AI Step by Step",
+      "url": "https://medium.com/@gawaisgtasleem/the-simplest-ai-learning-roadmap-for-2026-learn-ai-step-by-step-bcaeec7d6578",
+      "by": "perfcalcpro",
+      "time": 1790828474000,
       "tags": [
-        "web-development",
         "programming",
-        "cybersecurity"
+        "machine-learning",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "1111. Maximum Nesting Depth of Two Valid Parentheses Strings",
-      "url": "https://medium.com/@ranegirish24/1111-maximum-nesting-depth-of-two-valid-parentheses-strings-7c3f4877cd48",
-      "by": "Girish Rane",
-      "time": 1790741890000,
-      "tags": [
-        "coding",
-        "java",
-        "programming"
-      ]
-    },
-    {
-      "title": "Generative AI for Programmers: How I Use AI to Write Better Code, Not Just More Code",
-      "url": "https://ai.plainenglish.io/generative-ai-for-programmers-how-i-use-ai-to-write-better-code-not-just-more-code-5b026088820b",
-      "by": "AshokReddy",
-      "time": 1790741771000,
-      "tags": [
-        "generative-ai",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "We Gave AI Permission to Run Our Tests. Then It Started Testing the Wrong Thing.",
-      "url": "https://medium.com/@anurag.ydv36/we-gave-ai-permission-to-run-our-tests-then-it-started-testing-the-wrong-thing-6506096ee2e9",
-      "by": "The Next Exception",
-      "time": 1790741161000,
-      "tags": [
-        "ai",
-        "software-development",
-        "software-testing"
-      ]
-    },
-    {
-      "title": "Platform Adoption Is Not Platform Value",
-      "url": "https://medium.com/@arjun2075/platform-adoption-is-not-platform-value-2eb6654ec632",
-      "by": "Arjun Garg",
-      "time": 1790741125000,
-      "tags": [
-        "engineering-leadership",
-        "developer-experience",
-        "delivery-software"
-      ]
-    },
-    {
-      "title": "We Automated the Work Juniors Were Supposed to Learn From",
-      "url": "https://medium.com/@ishaqsaqib/we-automated-the-work-juniors-were-supposed-to-learn-from-19a429a23ebb",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1790740862000,
+      "title": "Why Your RAG Pipeline Dies on Real Documents",
+      "url": "https://medium.com/data-science-collective/why-your-rag-pipeline-dies-on-real-documents-d5e9f5c32dc2",
+      "by": "Paolo Perrone",
+      "time": 1790828403000,
       "tags": [
         "artificial-intelligence",
-        "software-engineering",
+        "data-science",
         "technology"
       ]
     },
     {
-      "title": "Azure DevOps Pipelines for Databricks Workspace & Unity Catalog Disaster Recovery Using Terraform…",
-      "url": "https://medium.com/@mike.sturwold/azure-devops-pipelines-for-databricks-workspace-unity-catalog-disaster-recovery-using-terraform-46e19d36d588",
-      "by": "Mike Sturwold",
-      "time": 1790740641000,
+      "title": "How I Built a 1,000-Person Waitlist With No Product, No Money, and No Followers.",
+      "url": "https://medium.com/@meerhadi0238/how-i-built-a-1-000-person-waitlist-with-no-product-no-money-and-no-followers-c87b5eada4a7",
+      "by": "Meerhadi",
+      "time": 1790828186000,
       "tags": [
-        "devops",
-        "cloud-backup",
-        "data-engineering"
+        "waitlist",
+        "side-hustle",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Came From Go. Rust Broke My Brain",
+      "url": "https://medium.com/devsameday/i-came-from-go-rust-broke-my-brain-f534372e1c94",
+      "by": "Galih Putro Aji",
+      "time": 1790827921000,
+      "tags": [
+        "rust",
+        "technology",
+        "programming"
+      ]
+    },
+    {
+      "title": "Linux Server Hardening: A Production Baseline Built From a Fresh Ubuntu Box",
+      "url": "https://medium.com/@ahadusman377/linux-server-hardening-a-production-baseline-built-from-a-fresh-ubuntu-box-725eee9b31f9",
+      "by": "MUHAMMAD AHAD USMAN",
+      "time": 1790827788000,
+      "tags": [
+        "ubuntu",
+        "system-administration",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "AI Agents Need Runtime Guardrails, Not Just Better Prompts",
+      "url": "https://medium.com/@pujamaheshvari5/ai-agents-need-runtime-guardrails-not-just-better-prompts-7115e8f2d44d",
+      "by": "Puja Maheshvari",
+      "time": 1790827672000,
+      "tags": [
+        "devsecops",
+        "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "Why Can’t Everyone Use the Best AI?",
+      "url": "https://medium.com/@pottelisowmyasree/why-cant-everyone-use-the-best-ai-a54cea58f991",
+      "by": "Sowmya Potteli",
+      "time": 1790827658000,
+      "tags": [
+        "artificial-intelligence",
+        "technology",
+        "data-science"
+      ]
+    },
+    {
+      "title": "My Plan for Moving From Full Stack Dev Into Cybersecurity",
+      "url": "https://medium.com/the-repo/my-plan-for-moving-from-full-stack-dev-into-cybersecurity-ian-gabriel-sanchez-f15c351e718d",
+      "by": "Ian Gabriel Sanchez",
+      "time": 1790827501000,
+      "tags": [
+        "software-engineering",
+        "cybersecurity",
+        "application-security"
+      ]
+    },
+    {
+      "title": "Why Retry Logic Can Accidentally Make Your System Worse",
+      "url": "https://medium.com/@gulsaba.fiha/why-retry-logic-can-accidentally-make-your-system-worse-7471fee74d00",
+      "by": "Gulsaba Fiha",
+      "time": 1790827270000,
+      "tags": [
+        "distributed-systems",
+        "python",
+        "django"
       ]
     }
   ]
