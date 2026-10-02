@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-01T04:33:14.003Z",
+  "generated": "2026-10-02T04:32:02.719Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -102,6 +102,17 @@
       "imdb": "https://www.imdb.com/title/tt38874778/"
     },
     {
+      "title": "Don't Trouble the Trouble",
+      "lang": "Telugu",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Upcoming 2026 Indian fantasy film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/ae/Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg/120px-Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg",
+      "url": "https://en.wikipedia.org/wiki/Don't_Trouble_the_Trouble",
+      "imdb": null
+    },
+    {
       "title": "Maatrubhumi: May War Rest in Peace",
       "lang": "Hindi",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Vettuvam",
       "imdb": "https://www.imdb.com/title/tt20225002/"
-    },
-    {
-      "title": "Bohurupi: The Golden Daku",
-      "lang": "Indian",
-      "date": null,
-      "precision": null,
-      "by": "Windows Production",
-      "desc": "Upcoming film by Windows Production",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
-      "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
-      "imdb": null
     }
   ]
 }

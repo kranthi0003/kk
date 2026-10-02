@@ -1,18 +1,60 @@
 {
-  "generated": "2026-10-01T04:34:24.242Z",
+  "generated": "2026-10-02T04:33:12.410Z",
   "reddit": [
+    {
+      "title": "Robert Seacord: \"Unsafe Rust\" | RustConf 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1wvf5qb/robert_seacord_unsafe_rust_rustconf_2026/",
+      "by": "_bijan_",
+      "time": 1790899045000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "New Python releases are out, 3.10.x reaches EOL, (and 3.15.0 is scheduled for today)!",
+      "url": "https://www.reddit.com/r/programming/comments/1wv4hph/new_python_releases_are_out_310x_reaches_eol_and/",
+      "by": "initcommit",
+      "time": 1790873133000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "All the Rails World 2026 talks are now online",
+      "url": "https://www.reddit.com/r/programming/comments/1wv3nxy/all_the_rails_world_2026_talks_are_now_online/",
+      "by": "robbyrussell",
+      "time": 1790871252000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The Second Golden Spike: Memory Safety Across the Valen/Rust Boundary",
+      "url": "https://www.reddit.com/r/programming/comments/1wv0fjv/the_second_golden_spike_memory_safety_across_the/",
+      "by": "verdagon",
+      "time": 1790863768000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "[Sebastian Lague] - I Tried Making a Pen Plotter to Draw Maps of the Moon",
+      "url": "https://www.reddit.com/r/programming/comments/1wv04z9/sebastian_lague_i_tried_making_a_pen_plotter_to/",
+      "by": "Pink401k",
+      "time": 1790863060000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "C64 Mercenary: a novel exploit bug in a 41-year-old game",
+      "url": "https://www.reddit.com/r/programming/comments/1wuzsdv/c64_mercenary_a_novel_exploit_bug_in_a_41yearold/",
+      "by": "a1r",
+      "time": 1790862187000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Getting ready for 2026 results: A look back on Developer Survey findings",
+      "url": "https://www.reddit.com/r/programming/comments/1wuwzxc/getting_ready_for_2026_results_a_look_back_on/",
+      "by": "mindondrugs",
+      "time": 1790854255000,
+      "sub": "r/programming"
+    },
     {
       "title": "Adding very basic 3d outside of a standard operating system - Floating points and basic 3d graphics",
       "url": "https://www.reddit.com/r/programming/comments/1wumd96/adding_very_basic_3d_outside_of_a_standard/",
       "by": "eccsoheccsseven",
       "time": 1790817328000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "c++ operating system level primitives 1",
-      "url": "https://www.reddit.com/r/programming/comments/1wulzdy/c_operating_system_level_primitives_1/",
-      "by": "wizard_creator_seth",
-      "time": 1790816233000,
       "sub": "r/programming"
     },
     {
@@ -28,159 +70,117 @@
       "by": "mttd",
       "time": 1790808632000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Which lesser known tools saved your butt when you had to debug an application running in K8S?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wuh8sa/which_lesser_known_tools_saved_your_butt_when_you/",
-      "by": "segv",
-      "time": 1790803386000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "It's the Kernel's Fault! Custom Page Fault Handling With bpf_fault",
-      "url": "https://www.reddit.com/r/programming/comments/1wugn5a/its_the_kernels_fault_custom_page_fault_handling/",
-      "by": "mttd",
-      "time": 1790801942000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Setting Up a k8s Cluster on Talos Linux",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wuaqet/setting_up_a_k8s_cluster_on_talos_linux/",
-      "by": "hostkey-com",
-      "time": 1790788433000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Cómo filtran el ruido de alertas en clusters Kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wu68tu/cómo_filtran_el_ruido_de_alertas_en_clusters/",
-      "by": "Tiny-Release-1925",
-      "time": 1790778084000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "As someone who has been using skaffold since 2019 i feel really sad about this",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wu5m34/as_someone_who_has_been_using_skaffold_since_2019/",
-      "by": "Proper_Raspberry_662",
-      "time": 1790776566000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How much of a portfolio project should I publish on GitHub?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wu51g9/how_much_of_a_portfolio_project_should_i_publish/",
-      "by": "Wide_Impact_9392",
-      "time": 1790775097000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "10 Free GitHub Projects That Make Claude More Useful for Developers",
-      "url": "https://medium.com/@startup_Ideas/10-free-github-projects-that-make-claude-more-useful-for-developers-60d49bc40efa",
-      "by": "Startup Ideas",
-      "time": 1790828602000,
+      "title": "Your AI Agent Wrote the Code. It Wrote the Tests Too. So Who Tested the AI?",
+      "url": "https://medium.com/@vineetverma_96127/your-ai-agent-wrote-the-code-it-wrote-the-tests-too-so-who-tested-the-ai-a24261b4638f",
+      "by": "Vineet Verma",
+      "time": 1790915463000,
       "tags": [
-        "programming",
-        "artificial-intelligence",
-        "software-development"
+        "software-engineering",
+        "ai",
+        "software-testing"
       ]
     },
     {
-      "title": "The Simplest AI Learning Roadmap for 2026: Learn AI Step by Step",
-      "url": "https://medium.com/@gawaisgtasleem/the-simplest-ai-learning-roadmap-for-2026-learn-ai-step-by-step-bcaeec7d6578",
-      "by": "perfcalcpro",
-      "time": 1790828474000,
+      "title": "Android 17 Behavior Changes for All Apps",
+      "url": "https://medium.com/code2mobile/android-17-behavior-changes-for-all-apps-fb2bf3ed515f",
+      "by": "Jayant Kumar",
+      "time": 1790915463000,
       "tags": [
-        "programming",
-        "machine-learning",
+        "android-app-development",
+        "software-development",
+        "android"
+      ]
+    },
+    {
+      "title": "OpenAI Shipped One Dot. I’d Been Building That Thing From Three Nouns.",
+      "url": "https://medium.com/@donk8r/openai-shipped-one-dot-id-been-building-that-thing-from-three-nouns-205530369969",
+      "by": "Don Karter",
+      "time": 1790915094000,
+      "tags": [
+        "startupş",
+        "productivity",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Why Your RAG Pipeline Dies on Real Documents",
-      "url": "https://medium.com/data-science-collective/why-your-rag-pipeline-dies-on-real-documents-d5e9f5c32dc2",
-      "by": "Paolo Perrone",
-      "time": 1790828403000,
+      "title": "My First FOSS Event: IndiaFOSS ‘26",
+      "url": "https://medium.com/@sagarmh6364/my-first-foss-event-indiafoss-26-1271809c0335",
+      "by": "Sagar Hutagi",
+      "time": 1790915083000,
       "tags": [
-        "artificial-intelligence",
-        "data-science",
-        "technology"
+        "foss",
+        "software-development",
+        "indiafoss"
       ]
     },
     {
-      "title": "How I Built a 1,000-Person Waitlist With No Product, No Money, and No Followers.",
-      "url": "https://medium.com/@meerhadi0238/how-i-built-a-1-000-person-waitlist-with-no-product-no-money-and-no-followers-c87b5eada4a7",
-      "by": "Meerhadi",
-      "time": 1790828186000,
-      "tags": [
-        "waitlist",
-        "side-hustle",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Came From Go. Rust Broke My Brain",
-      "url": "https://medium.com/devsameday/i-came-from-go-rust-broke-my-brain-f534372e1c94",
-      "by": "Galih Putro Aji",
-      "time": 1790827921000,
-      "tags": [
-        "rust",
-        "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "Linux Server Hardening: A Production Baseline Built From a Fresh Ubuntu Box",
-      "url": "https://medium.com/@ahadusman377/linux-server-hardening-a-production-baseline-built-from-a-fresh-ubuntu-box-725eee9b31f9",
-      "by": "MUHAMMAD AHAD USMAN",
-      "time": 1790827788000,
-      "tags": [
-        "ubuntu",
-        "system-administration",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "AI Agents Need Runtime Guardrails, Not Just Better Prompts",
-      "url": "https://medium.com/@pujamaheshvari5/ai-agents-need-runtime-guardrails-not-just-better-prompts-7115e8f2d44d",
-      "by": "Puja Maheshvari",
-      "time": 1790827672000,
-      "tags": [
-        "devsecops",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "Why Can’t Everyone Use the Best AI?",
-      "url": "https://medium.com/@pottelisowmyasree/why-cant-everyone-use-the-best-ai-a54cea58f991",
-      "by": "Sowmya Potteli",
-      "time": 1790827658000,
-      "tags": [
-        "artificial-intelligence",
-        "technology",
-        "data-science"
-      ]
-    },
-    {
-      "title": "My Plan for Moving From Full Stack Dev Into Cybersecurity",
-      "url": "https://medium.com/the-repo/my-plan-for-moving-from-full-stack-dev-into-cybersecurity-ian-gabriel-sanchez-f15c351e718d",
-      "by": "Ian Gabriel Sanchez",
-      "time": 1790827501000,
+      "title": "How a business gets found inside ChatGPT",
+      "url": "https://medium.com/@abhi_93773/how-a-business-gets-found-inside-chatgpt-10ab1a8f4347",
+      "by": "Abhi",
+      "time": 1790915073000,
       "tags": [
         "software-engineering",
-        "cybersecurity",
-        "application-security"
+        "artificial-intelligence",
+        "golang"
       ]
     },
     {
-      "title": "Why Retry Logic Can Accidentally Make Your System Worse",
-      "url": "https://medium.com/@gulsaba.fiha/why-retry-logic-can-accidentally-make-your-system-worse-7471fee74d00",
-      "by": "Gulsaba Fiha",
-      "time": 1790827270000,
+      "title": "Per-Bank Consumer Lanes: How We Solved Head-of-Line Blocking with the Bulkhead Pattern",
+      "url": "https://medium.com/gojekengineering/per-bank-consumer-lanes-how-we-solved-head-of-line-blocking-with-the-bulkhead-pattern-ef4220f9ad4f",
+      "by": "Dito Raharjo",
+      "time": 1790914769000,
       "tags": [
-        "distributed-systems",
-        "python",
-        "django"
+        "performance-optimization",
+        "software-engineering",
+        "system-architecture"
+      ]
+    },
+    {
+      "title": "Jev Is Not a Smaller LLM. It Is a Different Layer of the Stack.",
+      "url": "https://medium.com/@Fredtaylor1/jev-structured-decision-model-87ecc1623a09",
+      "by": "Frederick Taylor",
+      "time": 1790914308000,
+      "tags": [
+        "software-development",
+        "ai",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "How Enterprise Teams Can Make AI-Assisted Development Work in Practice: A Practical Playbook",
+      "url": "https://bibek-poudel.medium.com/how-enterprise-teams-can-make-ai-assisted-development-work-in-practice-a-practical-playbook-4bec2a77c29b",
+      "by": "Bibek Poudel",
+      "time": 1790914190000,
+      "tags": [
+        "programming",
+        "enterprise-architecture",
+        "llm"
+      ]
+    },
+    {
+      "title": "LLMjacking: The Config File Behind 97% Off AI",
+      "url": "https://medium.com/write-a-catalyst/llmjacking-the-config-file-behind-97-off-ai-57d3882d37ad",
+      "by": "Sara Alch",
+      "time": 1790914146000,
+      "tags": [
+        "machine-learning",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "Refactoring Is the Ship of Theseus. Your Codebase Already Knows It.",
+      "url": "https://medium.com/write-a-catalyst/refactoring-is-the-ship-of-theseus-your-codebase-already-knows-it-68d0d21c38e9",
+      "by": "Afreen",
+      "time": 1790914020000,
+      "tags": [
+        "software-engineering",
+        "artificial-intelligence",
+        "programming"
       ]
     }
   ]
