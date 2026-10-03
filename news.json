@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-02T04:33:12.410Z",
+  "generated": "2026-10-03T04:34:48.316Z",
   "reddit": [
     {
-      "title": "Robert Seacord: \"Unsafe Rust\" | RustConf 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1wvf5qb/robert_seacord_unsafe_rust_rustconf_2026/",
-      "by": "_bijan_",
-      "time": 1790899045000,
+      "title": "Loucura oque o mercado de Dev. tá vivendo, 20k pila para ficar com a bunda em casa.",
+      "url": "https://www.reddit.com/r/devops/comments/1wwe71w/loucura_oque_o_mercado_de_dev_tá_vivendo_20k_pila/",
+      "by": "Remote_Tax2235",
+      "time": 1791002032000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "is considered harmful, and why I couldn't login into Vanguard",
+      "url": "https://www.reddit.com/r/programming/comments/1ww842a/input_typepassword_maxlength20_is_considered/",
+      "by": "tanin47",
+      "time": 1790982897000,
       "sub": "r/programming"
     },
     {
-      "title": "New Python releases are out, 3.10.x reaches EOL, (and 3.15.0 is scheduled for today)!",
-      "url": "https://www.reddit.com/r/programming/comments/1wv4hph/new_python_releases_are_out_310x_reaches_eol_and/",
-      "by": "initcommit",
-      "time": 1790873133000,
+      "title": "0.17.0 Release Notes â¡ The Zig Programming Language",
+      "url": "https://www.reddit.com/r/programming/comments/1ww6bea/0170_release_notes_â_the_zig_programming_language/",
+      "by": "BrewedDoritos",
+      "time": 1790977963000,
       "sub": "r/programming"
     },
     {
-      "title": "All the Rails World 2026 talks are now online",
-      "url": "https://www.reddit.com/r/programming/comments/1wv3nxy/all_the_rails_world_2026_talks_are_now_online/",
-      "by": "robbyrussell",
-      "time": 1790871252000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The Second Golden Spike: Memory Safety Across the Valen/Rust Boundary",
-      "url": "https://www.reddit.com/r/programming/comments/1wv0fjv/the_second_golden_spike_memory_safety_across_the/",
-      "by": "verdagon",
-      "time": 1790863768000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "[Sebastian Lague] - I Tried Making a Pen Plotter to Draw Maps of the Moon",
-      "url": "https://www.reddit.com/r/programming/comments/1wv04z9/sebastian_lague_i_tried_making_a_pen_plotter_to/",
-      "by": "Pink401k",
-      "time": 1790863060000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "C64 Mercenary: a novel exploit bug in a 41-year-old game",
-      "url": "https://www.reddit.com/r/programming/comments/1wuzsdv/c64_mercenary_a_novel_exploit_bug_in_a_41yearold/",
-      "by": "a1r",
-      "time": 1790862187000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Getting ready for 2026 results: A look back on Developer Survey findings",
-      "url": "https://www.reddit.com/r/programming/comments/1wuwzxc/getting_ready_for_2026_results_a_look_back_on/",
-      "by": "mindondrugs",
-      "time": 1790854255000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Adding very basic 3d outside of a standard operating system - Floating points and basic 3d graphics",
-      "url": "https://www.reddit.com/r/programming/comments/1wumd96/adding_very_basic_3d_outside_of_a_standard/",
-      "by": "eccsoheccsseven",
-      "time": 1790817328000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Page table memory consumption",
-      "url": "https://www.reddit.com/r/programming/comments/1wulcti/page_table_memory_consumption/",
-      "by": "andreiross",
-      "time": 1790814401000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "What TLA+ can and can't check",
-      "url": "https://www.reddit.com/r/programming/comments/1wuja3f/what_tla_can_and_cant_check/",
+      "title": "GPU-Initiated Communication: Dissecting Down to the Bone",
+      "url": "https://www.reddit.com/r/programming/comments/1ww56qa/gpuinitiated_communication_dissecting_down_to_the/",
       "by": "mttd",
-      "time": 1790808632000,
+      "time": 1790975084000,
       "sub": "r/programming"
+    },
+    {
+      "title": "c++ first person controller",
+      "url": "https://www.reddit.com/r/programming/comments/1wvybtk/c_first_person_controller/",
+      "by": "wizard_creator_seth",
+      "time": 1790958607000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Minsky machine in ncurses terminfo",
+      "url": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/",
+      "by": "Dull_Replacement8890",
+      "time": 1790957883000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Forgejo runner needs to apply configuration on host as root",
+      "url": "https://www.reddit.com/r/devops/comments/1wvxe7x/forgejo_runner_needs_to_apply_configuration_on/",
+      "by": "71_101_105_99_111",
+      "time": 1790956393000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Am I cursed? Is this the end? Where did the clients go?",
+      "url": "https://www.reddit.com/r/devops/comments/1wvuprh/am_i_cursed_is_this_the_end_where_did_the_clients/",
+      "by": "Morfolk",
+      "time": 1790949953000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "When does self service infrastructure become too much self service?",
+      "url": "https://www.reddit.com/r/devops/comments/1wvsu17/when_does_self_service_infrastructure_become_too/",
+      "by": "TechnologyMatch",
+      "time": 1790945052000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What do you think of OneUptime?",
+      "url": "https://www.reddit.com/r/devops/comments/1wvq8n4/what_do_you_think_of_oneuptime/",
+      "by": "closetcruise",
+      "time": 1790936680000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Your AI Agent Wrote the Code. It Wrote the Tests Too. So Who Tested the AI?",
-      "url": "https://medium.com/@vineetverma_96127/your-ai-agent-wrote-the-code-it-wrote-the-tests-too-so-who-tested-the-ai-a24261b4638f",
-      "by": "Vineet Verma",
-      "time": 1790915463000,
-      "tags": [
-        "software-engineering",
-        "ai",
-        "software-testing"
-      ]
-    },
-    {
-      "title": "Android 17 Behavior Changes for All Apps",
-      "url": "https://medium.com/code2mobile/android-17-behavior-changes-for-all-apps-fb2bf3ed515f",
+      "title": "Building Agent-Driven UIs in Jetpack Compose with A2UI",
+      "url": "https://medium.com/code2mobile/building-agent-driven-uis-in-jetpack-compose-with-a2ui-95b3863b63bb",
       "by": "Jayant Kumar",
-      "time": 1790915463000,
+      "time": 1791001862000,
       "tags": [
-        "android-app-development",
+        "mobile-app-development",
+        "jetpack-compose",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Your AI Agent Worked Yesterday. How Do You Know It Still Works Today?",
+      "url": "https://medium.com/@newumaalweerasinghe/your-ai-agent-worked-yesterday-how-do-you-know-it-still-works-today-31b25512a124",
+      "by": "Newumal Weerasinghe",
+      "time": 1791001862000,
+      "tags": [
+        "agentic-system",
+        "large-language-models",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "Every Estimate Was Right. The Project Was Still Late.",
+      "url": "https://medium.com/@jaberadam2001/every-estimate-was-right-the-project-was-still-late-de10cb49cdab",
+      "by": "Adam Jaber",
+      "time": 1791001738000,
+      "tags": [
         "software-development",
-        "android"
-      ]
-    },
-    {
-      "title": "OpenAI Shipped One Dot. I’d Been Building That Thing From Three Nouns.",
-      "url": "https://medium.com/@donk8r/openai-shipped-one-dot-id-been-building-that-thing-from-three-nouns-205530369969",
-      "by": "Don Karter",
-      "time": 1790915094000,
-      "tags": [
-        "startupş",
-        "productivity",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "My First FOSS Event: IndiaFOSS ‘26",
-      "url": "https://medium.com/@sagarmh6364/my-first-foss-event-indiafoss-26-1271809c0335",
-      "by": "Sagar Hutagi",
-      "time": 1790915083000,
-      "tags": [
-        "foss",
-        "software-development",
-        "indiafoss"
-      ]
-    },
-    {
-      "title": "How a business gets found inside ChatGPT",
-      "url": "https://medium.com/@abhi_93773/how-a-business-gets-found-inside-chatgpt-10ab1a8f4347",
-      "by": "Abhi",
-      "time": 1790915073000,
-      "tags": [
         "software-engineering",
-        "artificial-intelligence",
-        "golang"
+        "career-advice"
       ]
     },
     {
-      "title": "Per-Bank Consumer Lanes: How We Solved Head-of-Line Blocking with the Bulkhead Pattern",
-      "url": "https://medium.com/gojekengineering/per-bank-consumer-lanes-how-we-solved-head-of-line-blocking-with-the-bulkhead-pattern-ef4220f9ad4f",
-      "by": "Dito Raharjo",
-      "time": 1790914769000,
+      "title": "What Is OSINT?",
+      "url": "https://medium.com/@drugdirectory96/what-is-osint-a040f0457f70",
+      "by": "Drugdirectory",
+      "time": 1791001508000,
       "tags": [
-        "performance-optimization",
-        "software-engineering",
-        "system-architecture"
+        "osint",
+        "cybersecurity",
+        "devops"
       ]
     },
     {
-      "title": "Jev Is Not a Smaller LLM. It Is a Different Layer of the Stack.",
-      "url": "https://medium.com/@Fredtaylor1/jev-structured-decision-model-87ecc1623a09",
-      "by": "Frederick Taylor",
-      "time": 1790914308000,
+      "title": "AI Makes Coding Easier. That’s Exactly Why These Skills Matter More",
+      "url": "https://medium.com/codetodeploy/ai-makes-coding-easier-thats-exactly-why-these-skills-matter-more-f8f7964937d2",
+      "by": "learn with her",
+      "time": 1791001499000,
       "tags": [
         "software-development",
         "ai",
-        "machine-learning"
+        "coding"
       ]
     },
     {
-      "title": "How Enterprise Teams Can Make AI-Assisted Development Work in Practice: A Practical Playbook",
-      "url": "https://bibek-poudel.medium.com/how-enterprise-teams-can-make-ai-assisted-development-work-in-practice-a-practical-playbook-4bec2a77c29b",
-      "by": "Bibek Poudel",
-      "time": 1790914190000,
+      "title": "Am I Learning, or Just Getting Answers?",
+      "url": "https://medium.com/@ahmadizulfan1998/am-i-learning-or-just-getting-answers-9a9ac96a90c9",
+      "by": "Zulfan Ahmadi",
+      "time": 1791001444000,
       "tags": [
+        "software-engineering",
+        "learning",
+        "programming"
+      ]
+    },
+    {
+      "title": "Why Feature Selection Matters in Machine Learning: A Practical Approach with SHAP and RFECV",
+      "url": "https://medium.com/@madhumitakhatua23042006/why-feature-selection-matters-in-machine-learning-a-practical-approach-with-shap-and-rfecv-584d650c33e8",
+      "by": "Madhumita Khatua",
+      "time": 1791001309000,
+      "tags": [
+        "artificial-intelligence",
         "programming",
-        "enterprise-architecture",
+        "machine-leraning"
+      ]
+    },
+    {
+      "title": "Aviation Solved AI Slop Before AI Existed",
+      "url": "https://medium.com/@litetechpoint1/aviation-solved-ai-slop-before-ai-existed-4763220b9201",
+      "by": "Lite",
+      "time": 1791000740000,
+      "tags": [
+        "python",
+        "ai",
         "llm"
       ]
     },
     {
-      "title": "LLMjacking: The Config File Behind 97% Off AI",
-      "url": "https://medium.com/write-a-catalyst/llmjacking-the-config-file-behind-97-off-ai-57d3882d37ad",
-      "by": "Sara Alch",
-      "time": 1790914146000,
+      "title": "7 Jev Workflows That Replace LLM Calls (And 3 Jobs It Still Fails At)",
+      "url": "https://medium.com/ai-engineering-simplified/7-jev-workflows-that-replace-llm-calls-and-3-jobs-it-still-fails-at-07049523464e",
+      "by": "Divy Yadav",
+      "time": 1791000530000,
       "tags": [
-        "machine-learning",
-        "ai",
-        "programming"
+        "artificial-intelligence",
+        "technology",
+        "software-development"
       ]
     },
     {
-      "title": "Refactoring Is the Ship of Theseus. Your Codebase Already Knows It.",
-      "url": "https://medium.com/write-a-catalyst/refactoring-is-the-ship-of-theseus-your-codebase-already-knows-it-68d0d21c38e9",
-      "by": "Afreen",
-      "time": 1790914020000,
+      "title": "Ralph Loop: Building Fully Workflow with Stateless — Part 2",
+      "url": "https://medium.com/@nutron/ralph-loop-building-fully-workflow-with-stateless-part-2-361b50f2731a",
+      "by": "Nutron",
+      "time": 1791000319000,
       "tags": [
         "software-engineering",
-        "artificial-intelligence",
-        "programming"
+        "ai-coding",
+        "loop-engineering"
       ]
     }
   ]
