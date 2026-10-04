@@ -1,186 +1,185 @@
 {
-  "generated": "2026-10-03T04:34:48.316Z",
+  "generated": "2026-10-04T05:58:13.758Z",
   "reddit": [
     {
-      "title": "Loucura oque o mercado de Dev. tá vivendo, 20k pila para ficar com a bunda em casa.",
-      "url": "https://www.reddit.com/r/devops/comments/1wwe71w/loucura_oque_o_mercado_de_dev_tá_vivendo_20k_pila/",
-      "by": "Remote_Tax2235",
-      "time": 1791002032000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "is considered harmful, and why I couldn't login into Vanguard",
-      "url": "https://www.reddit.com/r/programming/comments/1ww842a/input_typepassword_maxlength20_is_considered/",
-      "by": "tanin47",
-      "time": 1790982897000,
+      "title": "Building a browser runtime for automation without Chromium",
+      "url": "https://www.reddit.com/r/programming/comments/1wx839w/building_a_browser_runtime_for_automation_without/",
+      "by": "moreveal",
+      "time": 1791093304000,
       "sub": "r/programming"
     },
     {
-      "title": "0.17.0 Release Notes â¡ The Zig Programming Language",
-      "url": "https://www.reddit.com/r/programming/comments/1ww6bea/0170_release_notes_â_the_zig_programming_language/",
-      "by": "BrewedDoritos",
-      "time": 1790977963000,
-      "sub": "r/programming"
+      "title": "🚀 Got a Kubernetes interview coming up?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wx5v6h/got_a_kubernetes_interview_coming_up/",
+      "by": "devopslesson1",
+      "time": 1791085525000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "GPU-Initiated Communication: Dissecting Down to the Bone",
-      "url": "https://www.reddit.com/r/programming/comments/1ww56qa/gpuinitiated_communication_dissecting_down_to_the/",
-      "by": "mttd",
-      "time": 1790975084000,
-      "sub": "r/programming"
+      "title": "Running MCP servers on GKE and EKS: one Deployment per zone, header-routed by the Gateway/ALB, canary in place, namespaces torn down with the zone",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wx2lve/running_mcp_servers_on_gke_and_eks_one_deployment/",
+      "by": "Ok_Plum3595",
+      "time": 1791074970000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "c++ first person controller",
-      "url": "https://www.reddit.com/r/programming/comments/1wvybtk/c_first_person_controller/",
+      "title": "c++ math - did someone say math",
+      "url": "https://www.reddit.com/r/programming/comments/1wx1kb2/c_math_did_someone_say_math/",
       "by": "wizard_creator_seth",
-      "time": 1790958607000,
+      "time": 1791071817000,
       "sub": "r/programming"
     },
     {
-      "title": "A Minsky machine in ncurses terminfo",
-      "url": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/",
-      "by": "Dull_Replacement8890",
-      "time": 1790957883000,
+      "title": "c++ tone mapping",
+      "url": "https://www.reddit.com/r/programming/comments/1wx10be/c_tone_mapping/",
+      "by": "wizard_creator_seth",
+      "time": 1791070072000,
       "sub": "r/programming"
     },
     {
-      "title": "Forgejo runner needs to apply configuration on host as root",
-      "url": "https://www.reddit.com/r/devops/comments/1wvxe7x/forgejo_runner_needs_to_apply_configuration_on/",
-      "by": "71_101_105_99_111",
-      "time": 1790956393000,
-      "sub": "r/devops"
+      "title": "Making a mathematical model for better Indic keyboards",
+      "url": "https://www.reddit.com/r/programming/comments/1wx0bai/making_a_mathematical_model_for_better_indic/",
+      "by": "ZoneZealousideal4073",
+      "time": 1791068009000,
+      "sub": "r/programming"
     },
     {
-      "title": "Am I cursed? Is this the end? Where did the clients go?",
-      "url": "https://www.reddit.com/r/devops/comments/1wvuprh/am_i_cursed_is_this_the_end_where_did_the_clients/",
-      "by": "Morfolk",
-      "time": 1790949953000,
-      "sub": "r/devops"
+      "title": "From SSH to REST: A Security-Driven Modernization of Slack’s EMR Data Pipelines",
+      "url": "https://www.reddit.com/r/programming/comments/1wx02m9/from_ssh_to_rest_a_securitydriven_modernization/",
+      "by": "Ok_Stomach6651",
+      "time": 1791067276000,
+      "sub": "r/programming"
     },
     {
-      "title": "When does self service infrastructure become too much self service?",
-      "url": "https://www.reddit.com/r/devops/comments/1wvsu17/when_does_self_service_infrastructure_become_too/",
-      "by": "TechnologyMatch",
-      "time": 1790945052000,
-      "sub": "r/devops"
+      "title": "What's one thing you wish you knew before running k8s in prod?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wwqyf3/whats_one_thing_you_wish_you_knew_before_running/",
+      "by": "General-Inspector611",
+      "time": 1791043701000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "What do you think of OneUptime?",
-      "url": "https://www.reddit.com/r/devops/comments/1wvq8n4/what_do_you_think_of_oneuptime/",
-      "by": "closetcruise",
-      "time": 1790936680000,
-      "sub": "r/devops"
+      "title": "Question of resource allocation of multiple Spark applications",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wwetcu/question_of_resource_allocation_of_multiple_spark/",
+      "by": "ForeignCapital8624",
+      "time": 1791004181000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "gpu networking - k8s sriov",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1ww1cgn/gpu_networking_k8s_sriov/",
+      "by": "mm_123456",
+      "time": 1790965814000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Building Agent-Driven UIs in Jetpack Compose with A2UI",
-      "url": "https://medium.com/code2mobile/building-agent-driven-uis-in-jetpack-compose-with-a2ui-95b3863b63bb",
-      "by": "Jayant Kumar",
-      "time": 1791001862000,
+      "title": "How I Cut My API Response Time from 2s to 200ms",
+      "url": "https://medium.com/@learnwithsomnath/how-i-cut-my-api-response-time-from-2s-to-200ms-30e4605cd2ba",
+      "by": "Somnath Mukherjee",
+      "time": 1791092776000,
       "tags": [
-        "mobile-app-development",
-        "jetpack-compose",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Your AI Agent Worked Yesterday. How Do You Know It Still Works Today?",
-      "url": "https://medium.com/@newumaalweerasinghe/your-ai-agent-worked-yesterday-how-do-you-know-it-still-works-today-31b25512a124",
-      "by": "Newumal Weerasinghe",
-      "time": 1791001862000,
-      "tags": [
-        "agentic-system",
-        "large-language-models",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Every Estimate Was Right. The Project Was Still Late.",
-      "url": "https://medium.com/@jaberadam2001/every-estimate-was-right-the-project-was-still-late-de10cb49cdab",
-      "by": "Adam Jaber",
-      "time": 1791001738000,
-      "tags": [
+        "web-development",
         "software-development",
-        "software-engineering",
-        "career-advice"
-      ]
-    },
-    {
-      "title": "What Is OSINT?",
-      "url": "https://medium.com/@drugdirectory96/what-is-osint-a040f0457f70",
-      "by": "Drugdirectory",
-      "time": 1791001508000,
-      "tags": [
-        "osint",
-        "cybersecurity",
-        "devops"
-      ]
-    },
-    {
-      "title": "AI Makes Coding Easier. That’s Exactly Why These Skills Matter More",
-      "url": "https://medium.com/codetodeploy/ai-makes-coding-easier-thats-exactly-why-these-skills-matter-more-f8f7964937d2",
-      "by": "learn with her",
-      "time": 1791001499000,
-      "tags": [
-        "software-development",
-        "ai",
-        "coding"
-      ]
-    },
-    {
-      "title": "Am I Learning, or Just Getting Answers?",
-      "url": "https://medium.com/@ahmadizulfan1998/am-i-learning-or-just-getting-answers-9a9ac96a90c9",
-      "by": "Zulfan Ahmadi",
-      "time": 1791001444000,
-      "tags": [
-        "software-engineering",
-        "learning",
         "programming"
       ]
     },
     {
-      "title": "Why Feature Selection Matters in Machine Learning: A Practical Approach with SHAP and RFECV",
-      "url": "https://medium.com/@madhumitakhatua23042006/why-feature-selection-matters-in-machine-learning-a-practical-approach-with-shap-and-rfecv-584d650c33e8",
-      "by": "Madhumita Khatua",
-      "time": 1791001309000,
+      "title": "I Started Using These 7 Python Tools After My Projects Got Messy",
+      "url": "https://medium.com/codetodeploy/i-started-using-these-7-python-tools-after-my-projects-got-messy-14e21e2af395",
+      "by": "learn with her",
+      "time": 1791092773000,
       "tags": [
-        "artificial-intelligence",
         "programming",
-        "machine-leraning"
+        "coding",
+        "python-programming"
       ]
     },
     {
-      "title": "Aviation Solved AI Slop Before AI Existed",
-      "url": "https://medium.com/@litetechpoint1/aviation-solved-ai-slop-before-ai-existed-4763220b9201",
-      "by": "Lite",
-      "time": 1791000740000,
+      "title": "Java Foundations: From Your First Line of Code to How the JVM Works",
+      "url": "https://medium.com/@madhusmitamishra1604/java-foundations-from-your-first-line-of-code-to-how-the-jvm-works-21f6a6fd0407",
+      "by": "Madhusmita Mishra",
+      "time": 1791092653000,
       "tags": [
-        "python",
-        "ai",
-        "llm"
+        "core-java",
+        "coding",
+        "programming"
       ]
     },
     {
-      "title": "7 Jev Workflows That Replace LLM Calls (And 3 Jobs It Still Fails At)",
-      "url": "https://medium.com/ai-engineering-simplified/7-jev-workflows-that-replace-llm-calls-and-3-jobs-it-still-fails-at-07049523464e",
-      "by": "Divy Yadav",
-      "time": 1791000530000,
+      "title": "Hit Testing in Flutter: How a Tap Finds the Right RenderObject",
+      "url": "https://medium.com/fludev/hit-testing-in-flutter-how-a-tap-finds-the-right-renderobject-df5f163af078",
+      "by": "Developer Hub",
+      "time": 1791092461000,
       "tags": [
-        "artificial-intelligence",
-        "technology",
+        "programming",
+        "dart",
         "software-development"
       ]
     },
     {
-      "title": "Ralph Loop: Building Fully Workflow with Stateless — Part 2",
-      "url": "https://medium.com/@nutron/ralph-loop-building-fully-workflow-with-stateless-part-2-361b50f2731a",
-      "by": "Nutron",
-      "time": 1791000319000,
+      "title": "Stop Storing Passwords, API Keys & Secrets in Code: Meet HashiCorp Vault",
+      "url": "https://medium.com/@dilipkumargurijala18/stop-storing-passwords-api-keys-secrets-in-code-meet-hashicorp-vault-26fd16b07d12",
+      "by": "DIlip Kumar Gurijala",
+      "time": 1791092461000,
+      "tags": [
+        "hashicorp-vault",
+        "technology",
+        "java"
+      ]
+    },
+    {
+      "title": "How I Cut Write API Latency by 85% (1300ms to 195ms)",
+      "url": "https://ragug.medium.com/how-i-cut-write-api-latency-by-85-1300ms-to-195ms-bcb3239cba5a",
+      "by": "Ragu",
+      "time": 1791092069000,
+      "tags": [
+        "python",
+        "performance-optimization",
+        "database"
+      ]
+    },
+    {
+      "title": "8 Python Tools That Prevent Common Python Project Mistakes",
+      "url": "https://medium.com/codetodeploy/8-python-tools-that-prevent-common-python-project-mistakes-dfadf296acbc",
+      "by": "learn with her",
+      "time": 1791091849000,
+      "tags": [
+        "python",
+        "python-programming",
+        "programming"
+      ]
+    },
+    {
+      "title": "I Optimised. They Said I Hurt the Business",
+      "url": "https://medium.com/@askgaurav/i-optimised-they-said-i-hurt-the-business-569f9e26c2c9",
+      "by": "Gaurav Gupta",
+      "time": 1791091791000,
+      "tags": [
+        "the-unwritten-org",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "8 Python Libraries That Made My Old Python Code Look Ridiculous",
+      "url": "https://medium.com/codetodeploy/8-python-libraries-that-made-my-old-python-code-look-ridiculous-4e8ce2c7490a",
+      "by": "Muhummad Zaki",
+      "time": 1791091271000,
+      "tags": [
+        "python",
+        "programming",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "ALVIN Browser: Adult Entertainment, the Open Web and Remote Control of the Screen",
+      "url": "https://philautelitano.medium.com/alvin-browser-adult-entertainment-the-open-web-and-remote-control-of-the-screen-18ffc062a6cc",
+      "by": "Phil Autelitano",
+      "time": 1791091061000,
       "tags": [
         "software-engineering",
-        "ai-coding",
-        "loop-engineering"
+        "business",
+        "technology"
       ]
     }
   ]
