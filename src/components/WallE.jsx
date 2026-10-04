@@ -1206,7 +1206,7 @@ function Scene({ sfx, reduced, onReplay }) {
               All the best for your talk at the Tech Summit.
             </p>
             <p className="wl-f-line wl-f-soft wl-in" style={{ animationDelay: '1.7s' }}>
-              If the room feels big, pretend it’s just me in the front row.
+              If the room feels big, pretend your “Gadidha” is sitting in the front row. Be you and win BIG!
             </p>
             <p className="wl-f-te wl-in" style={{ animationDelay: '2.5s' }}>
               Adaragottey!
@@ -1705,7 +1705,7 @@ const WL_STYLE = `
 
   /* Short screens: tighten the message and stand the two of them a
      little smaller, so the last line never lands on his head. */
-  @media (max-height: 760px) {
+  @media (max-height: 820px) {
     .wl-copy { top: 60px; }
     .wl-f-eyebrow { margin-bottom: 10px; }
     .wl-f-title { font-size: clamp(1.7rem, 6vw, 2.6rem); margin-bottom: 10px; }
