@@ -47,6 +47,7 @@ const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const ExamPage = lazy(() => import('./components/ExamPage'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const Her = lazy(() => import('./components/Her'))
+const WallE = lazy(() => import('./components/WallE'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
@@ -488,6 +489,17 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#fbf7f4' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(162,102,110,0.5)' }}>loading…</div></div>}>
         <Her onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // WALL·E — a good-luck note for her talk at the Tech Summit, delivered
+  // by one small robot. Private and unlisted, shared directly by link.
+  // Not in nav.
+  if (route === '#/walle') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#211a30' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(242,207,156,0.6)' }}>charging…</div></div>}>
+        <WallE onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
