@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T16:24:41.895Z",
+  "generated": "2026-10-04T16:38:48.825Z",
   "reddit": [
     {
       "title": "Looking for a mentor to guide me and hold me accountabile",
@@ -74,6 +74,72 @@
   ],
   "medium": [
     {
+      "title": "What is Back-of-the-Envelope Estimation? System Design Guide",
+      "url": "https://medium.com/@adatiyavinayshaileshbhai/what-is-back-of-the-envelope-estimation-system-design-guide-c8532eec3498",
+      "by": "Vinay Adatiya",
+      "time": 1791131690000,
+      "tags": [
+        "system-design-interview",
+        "software-engineering",
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "How I Built a Production-Ready .gitignore Generator Instead of Another Template Copier",
+      "url": "https://medium.com/@alok0911verma/how-i-built-a-production-ready-gitignore-generator-instead-of-another-template-copier-3c64f9547b07",
+      "by": "Alok Verma",
+      "time": 1791131504000,
+      "tags": [
+        "github",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Rails Uniqueness: A Validation Is Not a Database Constraint",
+      "url": "https://medium.com/ruby-rails-in-practice/rails-uniqueness-a-validation-is-not-a-database-constraint-68e07f179467",
+      "by": "Alessio Bussolari",
+      "time": 1791131461000,
+      "tags": [
+        "web-development",
+        "software-development",
+        "ruby"
+      ]
+    },
+    {
+      "title": "How We Cut Vercel ISR Write Costs by 83%",
+      "url": "https://medium.com/@mariaHelllo/how-we-cut-vercel-isr-write-costs-by-83-0d4fd8b1b3fa",
+      "by": "Maria Kim",
+      "time": 1791131282000,
+      "tags": [
+        "web-development",
+        "software-engineering",
+        "seo"
+      ]
+    },
+    {
+      "title": "Every Spring Boot Tutorial Makes This Mistake",
+      "url": "https://medium.com/@nausheencode/every-spring-boot-tutorial-makes-this-mistake-194ae333eecc",
+      "by": "Nausheen",
+      "time": 1791131171000,
+      "tags": [
+        "spring-boot",
+        "backend-development",
+        "java"
+      ]
+    },
+    {
+      "title": "Data Analysis: The Top US Tech Companies Silently Scaling Engineering Teams in September",
+      "url": "https://medium.com/@tlparker.mba/data-analysis-the-top-us-tech-companies-silently-scaling-engineering-teams-in-september-9bc503f7b146",
+      "by": "Tamara Parker",
+      "time": 1791131161000,
+      "tags": [
+        "recruiting",
+        "jobs",
+        "hiring"
+      ]
+    },
+    {
       "title": "The Bug Wasn’t in My Code: How One Env Variable Sent My Local App to Production",
       "url": "https://medium.com/@syedahmedali.dev/the-bug-wasnt-in-my-code-how-one-env-variable-sent-my-local-app-to-production-9d5e6c9b1530",
       "by": "SyedAhmedAli",
@@ -115,72 +181,6 @@
         "enterprise",
         "practical",
         "programming"
-      ]
-    },
-    {
-      "title": "What Moving 40,000 Pages Taught Us About Next.js SEO",
-      "url": "https://medium.com/@mariaHelllo/what-moving-40-000-pages-taught-us-about-next-js-seo-d488f612e24f",
-      "by": "Maria Kim",
-      "time": 1791130186000,
-      "tags": [
-        "react",
-        "software-engineering",
-        "seo"
-      ]
-    },
-    {
-      "title": "Microservices Interview Questions: 50 Senior & Staff-Level Production Scenarios",
-      "url": "https://medium.com/engineering-playbook/microservices-interview-questions-50-senior-staff-level-production-scenarios-b2ad91d0220b",
-      "by": "SYSTEM DESIGN",
-      "time": 1791130147000,
-      "tags": [
-        "coding",
-        "software-architecture",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Rate Limiting: The Questions I Ask Before Choosing an Algorithm",
-      "url": "https://medium.com/@rajmihir945/rate-limiting-the-questions-i-ask-before-choosing-an-algorithm-11c1cb309364",
-      "by": "Rajmihir",
-      "time": 1791129979000,
-      "tags": [
-        "backend-engineering",
-        "api",
-        "rate-limiter"
-      ]
-    },
-    {
-      "title": "A Practical Guide to Kubernetes Production Troubleshooting",
-      "url": "https://medium.com/@sunilcns86/a-practical-guide-to-kubernetes-production-troubleshooting-beb8f866a953",
-      "by": "Sunilcns",
-      "time": 1791129915000,
-      "tags": [
-        "kubernetes",
-        "devops",
-        "troubleshooting"
-      ]
-    },
-    {
-      "title": "Database System Design Interview Questions: 40 Senior-Level Scenarios on Sharding, Replication &…",
-      "url": "https://medium.com/engineering-playbook/database-system-design-interview-questions-40-senior-level-scenarios-on-sharding-replication-ba1283e3d207",
-      "by": "SYSTEM DESIGN",
-      "time": 1791129820000,
-      "tags": [
-        "technology",
-        "artificial-intelligence",
-        "coding"
-      ]
-    },
-    {
-      "title": "Structured Outputs: Your AI Returned Valid JSON. Can You Trust It?",
-      "url": "https://medium.com/@rkdixit3/structured-outputs-your-ai-returned-valid-json-can-you-trust-it-cb5aec33feb3",
-      "by": "Rajesh Kumar",
-      "time": 1791129779000,
-      "tags": [
-        "ai",
-        "software-development",
-        "artificial-intelligence"
       ]
     }
   ]
