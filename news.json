@@ -1,40 +1,54 @@
 {
-  "generated": "2026-10-04T05:58:13.758Z",
+  "generated": "2026-10-04T16:24:41.895Z",
   "reddit": [
     {
-      "title": "Building a browser runtime for automation without Chromium",
-      "url": "https://www.reddit.com/r/programming/comments/1wx839w/building_a_browser_runtime_for_automation_without/",
-      "by": "moreveal",
-      "time": 1791093304000,
+      "title": "Looking for a mentor to guide me and hold me accountabile",
+      "url": "https://www.reddit.com/r/devops/comments/1wxhi9k/looking_for_a_mentor_to_guide_me_and_hold_me/",
+      "by": "donewithbeingaloser",
+      "time": 1791125371000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "AI agents observability in backstage with langfuse and OTEL",
+      "url": "https://www.reddit.com/r/devops/comments/1wxgt8n/ai_agents_observability_in_backstage_with/",
+      "by": "acarmisc",
+      "time": 1791123504000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Metal as a Service (MaaS): DIY server-management at scale",
+      "url": "https://www.reddit.com/r/programming/comments/1wxfaeo/metal_as_a_service_maas_diy_servermanagement_at/",
+      "by": "Ok_Stomach6651",
+      "time": 1791119276000,
       "sub": "r/programming"
     },
     {
-      "title": "🚀 Got a Kubernetes interview coming up?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wx5v6h/got_a_kubernetes_interview_coming_up/",
-      "by": "devopslesson1",
-      "time": 1791085525000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Running MCP servers on GKE and EKS: one Deployment per zone, header-routed by the Gateway/ALB, canary in place, namespaces torn down with the zone",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wx2lve/running_mcp_servers_on_gke_and_eks_one_deployment/",
-      "by": "Ok_Plum3595",
-      "time": 1791074970000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "c++ math - did someone say math",
-      "url": "https://www.reddit.com/r/programming/comments/1wx1kb2/c_math_did_someone_say_math/",
-      "by": "wizard_creator_seth",
-      "time": 1791071817000,
+      "title": "Red, green and mud: fixing color mixing in Total Draw",
+      "url": "https://www.reddit.com/r/programming/comments/1wxd33z/red_green_and_mud_fixing_color_mixing_in_total/",
+      "by": "Rupour",
+      "time": 1791112110000,
       "sub": "r/programming"
     },
     {
-      "title": "c++ tone mapping",
-      "url": "https://www.reddit.com/r/programming/comments/1wx10be/c_tone_mapping/",
-      "by": "wizard_creator_seth",
-      "time": 1791070072000,
-      "sub": "r/programming"
+      "title": "Has anyone ever tried listening to their infrastructure instead of watching it?",
+      "url": "https://www.reddit.com/r/devops/comments/1wxbzu3/has_anyone_ever_tried_listening_to_their/",
+      "by": "your_ghost_producer",
+      "time": 1791108099000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "If your company already uses AWS what would actually make you choose a second cloud provider?",
+      "url": "https://www.reddit.com/r/devops/comments/1wx9d17/if_your_company_already_uses_aws_what_would/",
+      "by": "harpeshwar",
+      "time": 1791097960000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Paid structured projects",
+      "url": "https://www.reddit.com/r/devops/comments/1wx8bcq/paid_structured_projects/",
+      "by": "ZachXandar",
+      "time": 1791094111000,
+      "sub": "r/devops"
     },
     {
       "title": "Making a mathematical model for better Indic keyboards",
@@ -51,135 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "What's one thing you wish you knew before running k8s in prod?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wwqyf3/whats_one_thing_you_wish_you_knew_before_running/",
-      "by": "General-Inspector611",
-      "time": 1791043701000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Question of resource allocation of multiple Spark applications",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wwetcu/question_of_resource_allocation_of_multiple_spark/",
-      "by": "ForeignCapital8624",
-      "time": 1791004181000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "gpu networking - k8s sriov",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1ww1cgn/gpu_networking_k8s_sriov/",
-      "by": "mm_123456",
-      "time": 1790965814000,
-      "sub": "r/kubernetes"
+      "title": "Hybrid Core Allocation: From Overallocation to Reliable Sharing",
+      "url": "https://www.reddit.com/r/programming/comments/1wwzeu7/hybrid_core_allocation_from_overallocation_to/",
+      "by": "Ok_Stomach6651",
+      "time": 1791065373000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "How I Cut My API Response Time from 2s to 200ms",
-      "url": "https://medium.com/@learnwithsomnath/how-i-cut-my-api-response-time-from-2s-to-200ms-30e4605cd2ba",
-      "by": "Somnath Mukherjee",
-      "time": 1791092776000,
+      "title": "The Bug Wasn’t in My Code: How One Env Variable Sent My Local App to Production",
+      "url": "https://medium.com/@syedahmedali.dev/the-bug-wasnt-in-my-code-how-one-env-variable-sent-my-local-app-to-production-9d5e6c9b1530",
+      "by": "SyedAhmedAli",
+      "time": 1791130764000,
       "tags": [
         "web-development",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Started Using These 7 Python Tools After My Projects Got Messy",
-      "url": "https://medium.com/codetodeploy/i-started-using-these-7-python-tools-after-my-projects-got-messy-14e21e2af395",
-      "by": "learn with her",
-      "time": 1791092773000,
-      "tags": [
-        "programming",
-        "coding",
-        "python-programming"
-      ]
-    },
-    {
-      "title": "Java Foundations: From Your First Line of Code to How the JVM Works",
-      "url": "https://medium.com/@madhusmitamishra1604/java-foundations-from-your-first-line-of-code-to-how-the-jvm-works-21f6a6fd0407",
-      "by": "Madhusmita Mishra",
-      "time": 1791092653000,
-      "tags": [
-        "core-java",
-        "coding",
-        "programming"
-      ]
-    },
-    {
-      "title": "Hit Testing in Flutter: How a Tap Finds the Right RenderObject",
-      "url": "https://medium.com/fludev/hit-testing-in-flutter-how-a-tap-finds-the-right-renderobject-df5f163af078",
-      "by": "Developer Hub",
-      "time": 1791092461000,
-      "tags": [
-        "programming",
-        "dart",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Stop Storing Passwords, API Keys & Secrets in Code: Meet HashiCorp Vault",
-      "url": "https://medium.com/@dilipkumargurijala18/stop-storing-passwords-api-keys-secrets-in-code-meet-hashicorp-vault-26fd16b07d12",
-      "by": "DIlip Kumar Gurijala",
-      "time": 1791092461000,
-      "tags": [
-        "hashicorp-vault",
-        "technology",
-        "java"
-      ]
-    },
-    {
-      "title": "How I Cut Write API Latency by 85% (1300ms to 195ms)",
-      "url": "https://ragug.medium.com/how-i-cut-write-api-latency-by-85-1300ms-to-195ms-bcb3239cba5a",
-      "by": "Ragu",
-      "time": 1791092069000,
-      "tags": [
-        "python",
-        "performance-optimization",
-        "database"
-      ]
-    },
-    {
-      "title": "8 Python Tools That Prevent Common Python Project Mistakes",
-      "url": "https://medium.com/codetodeploy/8-python-tools-that-prevent-common-python-project-mistakes-dfadf296acbc",
-      "by": "learn with her",
-      "time": 1791091849000,
-      "tags": [
-        "python",
-        "python-programming",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Optimised. They Said I Hurt the Business",
-      "url": "https://medium.com/@askgaurav/i-optimised-they-said-i-hurt-the-business-569f9e26c2c9",
-      "by": "Gaurav Gupta",
-      "time": 1791091791000,
-      "tags": [
-        "the-unwritten-org",
+        "debugging",
         "software-engineering"
       ]
     },
     {
-      "title": "8 Python Libraries That Made My Old Python Code Look Ridiculous",
-      "url": "https://medium.com/codetodeploy/8-python-libraries-that-made-my-old-python-code-look-ridiculous-4e8ce2c7490a",
-      "by": "Muhummad Zaki",
-      "time": 1791091271000,
+      "title": "Stop Hardcoding LLMs: The Case for Intent-Based Dynamic Routing",
+      "url": "https://medium.com/@naveed_munsif/stop-hardcoding-llms-the-case-for-intent-based-dynamic-routing-ba97fec1831f",
+      "by": "Naveed Munsif",
+      "time": 1791130431000,
       "tags": [
-        "python",
-        "programming",
-        "machine-learning"
+        "llm",
+        "software-engineering",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "ALVIN Browser: Adult Entertainment, the Open Web and Remote Control of the Screen",
-      "url": "https://philautelitano.medium.com/alvin-browser-adult-entertainment-the-open-web-and-remote-control-of-the-screen-18ffc062a6cc",
-      "by": "Phil Autelitano",
-      "time": 1791091061000,
+      "title": "In the Agent Era, What Should an Architect Actually Maintain?",
+      "url": "https://medium.com/jin-system-architect/in-the-agent-era-what-should-an-architect-actually-maintain-fe45e8901cb4",
+      "by": "JIN",
+      "time": 1791130321000,
       "tags": [
+        "loop-engineering",
         "software-engineering",
-        "business",
-        "technology"
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "Cybersecurity for Growing Businesses: A Complete Practical Guide",
+      "url": "https://medium.com/@sahilsinha1505/cybersecurity-for-growing-businesses-a-complete-practical-guide-01010c40104d",
+      "by": "Sahilsinha",
+      "time": 1791130295000,
+      "tags": [
+        "enterprise",
+        "practical",
+        "programming"
+      ]
+    },
+    {
+      "title": "What Moving 40,000 Pages Taught Us About Next.js SEO",
+      "url": "https://medium.com/@mariaHelllo/what-moving-40-000-pages-taught-us-about-next-js-seo-d488f612e24f",
+      "by": "Maria Kim",
+      "time": 1791130186000,
+      "tags": [
+        "react",
+        "software-engineering",
+        "seo"
+      ]
+    },
+    {
+      "title": "Microservices Interview Questions: 50 Senior & Staff-Level Production Scenarios",
+      "url": "https://medium.com/engineering-playbook/microservices-interview-questions-50-senior-staff-level-production-scenarios-b2ad91d0220b",
+      "by": "SYSTEM DESIGN",
+      "time": 1791130147000,
+      "tags": [
+        "coding",
+        "software-architecture",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Rate Limiting: The Questions I Ask Before Choosing an Algorithm",
+      "url": "https://medium.com/@rajmihir945/rate-limiting-the-questions-i-ask-before-choosing-an-algorithm-11c1cb309364",
+      "by": "Rajmihir",
+      "time": 1791129979000,
+      "tags": [
+        "backend-engineering",
+        "api",
+        "rate-limiter"
+      ]
+    },
+    {
+      "title": "A Practical Guide to Kubernetes Production Troubleshooting",
+      "url": "https://medium.com/@sunilcns86/a-practical-guide-to-kubernetes-production-troubleshooting-beb8f866a953",
+      "by": "Sunilcns",
+      "time": 1791129915000,
+      "tags": [
+        "kubernetes",
+        "devops",
+        "troubleshooting"
+      ]
+    },
+    {
+      "title": "Database System Design Interview Questions: 40 Senior-Level Scenarios on Sharding, Replication &…",
+      "url": "https://medium.com/engineering-playbook/database-system-design-interview-questions-40-senior-level-scenarios-on-sharding-replication-ba1283e3d207",
+      "by": "SYSTEM DESIGN",
+      "time": 1791129820000,
+      "tags": [
+        "technology",
+        "artificial-intelligence",
+        "coding"
+      ]
+    },
+    {
+      "title": "Structured Outputs: Your AI Returned Valid JSON. Can You Trust It?",
+      "url": "https://medium.com/@rkdixit3/structured-outputs-your-ai-returned-valid-json-can-you-trust-it-cb5aec33feb3",
+      "by": "Rajesh Kumar",
+      "time": 1791129779000,
+      "tags": [
+        "ai",
+        "software-development",
+        "artificial-intelligence"
       ]
     }
   ]
