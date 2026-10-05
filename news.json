@@ -1,19 +1,33 @@
 {
-  "generated": "2026-10-04T16:38:48.825Z",
+  "generated": "2026-10-05T04:45:19.670Z",
   "reddit": [
     {
-      "title": "Looking for a mentor to guide me and hold me accountabile",
-      "url": "https://www.reddit.com/r/devops/comments/1wxhi9k/looking_for_a_mentor_to_guide_me_and_hold_me/",
-      "by": "donewithbeingaloser",
-      "time": 1791125371000,
-      "sub": "r/devops"
+      "title": "Your Xiaomi phone may be sending you phishing notifications.",
+      "url": "https://www.reddit.com/r/programming/comments/1wxr63h/your_xiaomi_phone_may_be_sending_you_phishing/",
+      "by": "Cload_",
+      "time": 1791149423000,
+      "sub": "r/programming"
     },
     {
-      "title": "AI agents observability in backstage with langfuse and OTEL",
-      "url": "https://www.reddit.com/r/devops/comments/1wxgt8n/ai_agents_observability_in_backstage_with/",
-      "by": "acarmisc",
-      "time": 1791123504000,
-      "sub": "r/devops"
+      "title": "\"8-pinski\" - EIGHT(!) bytes intro for MSDOS",
+      "url": "https://www.reddit.com/r/programming/comments/1wxoefa/8pinski_eight_bytes_intro_for_msdos/",
+      "by": "double-happiness",
+      "time": 1791142441000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Azure Kubernetes version update",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wxl477/azure_kubernetes_version_update/",
+      "by": "Surajj1234",
+      "time": 1791134407000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Need advice: Kubernetes 1.34 → 1.35 upgrade with Elasticsearch running in the cluster",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wxl3ma/need_advice_kubernetes_134_135_upgrade_with/",
+      "by": "primeclassic",
+      "time": 1791134367000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Metal as a Service (MaaS): DIY server-management at scale",
@@ -23,6 +37,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Have you tried the Amazon EKS MCP server?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wxejv4/have_you_tried_the_amazon_eks_mcp_server/",
+      "by": "Oleksii_Bebych",
+      "time": 1791117019000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "Red, green and mud: fixing color mixing in Total Draw",
       "url": "https://www.reddit.com/r/programming/comments/1wxd33z/red_green_and_mud_fixing_color_mixing_in_total/",
       "by": "Rupour",
@@ -30,25 +51,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Has anyone ever tried listening to their infrastructure instead of watching it?",
-      "url": "https://www.reddit.com/r/devops/comments/1wxbzu3/has_anyone_ever_tried_listening_to_their/",
-      "by": "your_ghost_producer",
-      "time": 1791108099000,
-      "sub": "r/devops"
+      "title": "What are Kubernetes admin exam benefits",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wxc3i5/what_are_kubernetes_admin_exam_benefits/",
+      "by": "j7n5",
+      "time": 1791108487000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "If your company already uses AWS what would actually make you choose a second cloud provider?",
-      "url": "https://www.reddit.com/r/devops/comments/1wx9d17/if_your_company_already_uses_aws_what_would/",
-      "by": "harpeshwar",
-      "time": 1791097960000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Paid structured projects",
-      "url": "https://www.reddit.com/r/devops/comments/1wx8bcq/paid_structured_projects/",
-      "by": "ZachXandar",
-      "time": 1791094111000,
-      "sub": "r/devops"
+      "title": "Convince me I'm wrong: valaero and EKS/AKS/GKE",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1wx8ws2/convince_me_im_wrong_valaero_and_eksaksgke/",
+      "by": "No-Replacement-3501",
+      "time": 1791096346000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Making a mathematical model for better Indic keyboards",
@@ -56,131 +70,117 @@
       "by": "ZoneZealousideal4073",
       "time": 1791068009000,
       "sub": "r/programming"
-    },
-    {
-      "title": "From SSH to REST: A Security-Driven Modernization of Slack’s EMR Data Pipelines",
-      "url": "https://www.reddit.com/r/programming/comments/1wx02m9/from_ssh_to_rest_a_securitydriven_modernization/",
-      "by": "Ok_Stomach6651",
-      "time": 1791067276000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Hybrid Core Allocation: From Overallocation to Reliable Sharing",
-      "url": "https://www.reddit.com/r/programming/comments/1wwzeu7/hybrid_core_allocation_from_overallocation_to/",
-      "by": "Ok_Stomach6651",
-      "time": 1791065373000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "What is Back-of-the-Envelope Estimation? System Design Guide",
-      "url": "https://medium.com/@adatiyavinayshaileshbhai/what-is-back-of-the-envelope-estimation-system-design-guide-c8532eec3498",
-      "by": "Vinay Adatiya",
-      "time": 1791131690000,
+      "title": "My Unofficial Guide to Software Engineering at UNSW",
+      "url": "https://medium.com/@ihaveatan2/my-unofficial-guide-to-software-engineering-at-unsw-5c31958a64ad",
+      "by": "Ihaveatan",
+      "time": 1791175221000,
+      "tags": [
+        "commerce",
+        "fintech",
+        "ai"
+      ]
+    },
+    {
+      "title": "How I tricked an AI Shopping Agent to buy my book for $49.99, while others sell the same for $10",
+      "url": "https://medium.com/@gopikrishna0295/how-i-tricked-an-ai-shopping-agent-to-buy-my-book-for-49-99-while-others-sell-the-same-for-10-09af14d63c16",
+      "by": "gopi",
+      "time": 1791175111000,
+      "tags": [
+        "cybersecurity",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "What \"Senior Developer\" Actually Means in 2026",
+      "url": "https://medium.com/@jiteshkumawat2000jpr/what-senior-developer-actually-means-in-2026-03c21c333c9b",
+      "by": "Jiteshkumawatjpr",
+      "time": 1791174922000,
+      "tags": [
+        "software-engineering",
+        "leadership",
+        "careers"
+      ]
+    },
+    {
+      "title": "Why I Stopped Chasing New Frameworks (Mostly)",
+      "url": "https://medium.com/@jiteshkumawat2000jpr/why-i-stopped-chasing-new-frameworks-mostly-b71fd87dd38d",
+      "by": "Jiteshkumawatjpr",
+      "time": 1791174804000,
+      "tags": [
+        "web-development",
+        "programming",
+        "learning"
+      ]
+    },
+    {
+      "title": "Java Execution Explained So Simply, Anyone Can Understand It",
+      "url": "https://medium.com/@ashenbhagye/java-execution-explained-so-simply-anyone-can-understand-it-f477a570fdad",
+      "by": "Ashen Bhagya",
+      "time": 1791174666000,
+      "tags": [
+        "java",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "C# 的 Expression Function 是什麼？",
+      "url": "https://medium.com/@mindsteps.alex/c-%E7%9A%84-expression-function-%E6%98%AF%E4%BB%80%E9%BA%BC-75e8e3233ae1",
+      "by": "思維舞步 MindSteps",
+      "time": 1791174665000,
+      "tags": [
+        "programming",
+        "csharp",
+        "lambda-expressions"
+      ]
+    },
+    {
+      "title": "Data Integrity at Scale: PostgreSQL Triggers vs. Application-Level Atomicity",
+      "url": "https://medium.com/@amamit/data-integrity-at-scale-postgresql-triggers-vs-application-level-atomicity-a950c56a8eb2",
+      "by": "amit",
+      "time": 1791174663000,
       "tags": [
         "system-design-interview",
         "software-engineering",
-        "distributed-systems"
+        "database"
       ]
     },
     {
-      "title": "How I Built a Production-Ready .gitignore Generator Instead of Another Template Copier",
-      "url": "https://medium.com/@alok0911verma/how-i-built-a-production-ready-gitignore-generator-instead-of-another-template-copier-3c64f9547b07",
-      "by": "Alok Verma",
-      "time": 1791131504000,
+      "title": "AI Scribes in 2026: Buy Under 600 Clinicians, Build Above",
+      "url": "https://forasoft.medium.com/ai-scribes-in-2026-buy-under-600-clinicians-build-above-bafa1ea8359d",
+      "by": "Fora Soft",
+      "time": 1791174454000,
       "tags": [
-        "github",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Rails Uniqueness: A Validation Is Not a Database Constraint",
-      "url": "https://medium.com/ruby-rails-in-practice/rails-uniqueness-a-validation-is-not-a-database-constraint-68e07f179467",
-      "by": "Alessio Bussolari",
-      "time": 1791131461000,
-      "tags": [
-        "web-development",
-        "software-development",
-        "ruby"
-      ]
-    },
-    {
-      "title": "How We Cut Vercel ISR Write Costs by 83%",
-      "url": "https://medium.com/@mariaHelllo/how-we-cut-vercel-isr-write-costs-by-83-0d4fd8b1b3fa",
-      "by": "Maria Kim",
-      "time": 1791131282000,
-      "tags": [
-        "web-development",
-        "software-engineering",
-        "seo"
-      ]
-    },
-    {
-      "title": "Every Spring Boot Tutorial Makes This Mistake",
-      "url": "https://medium.com/@nausheencode/every-spring-boot-tutorial-makes-this-mistake-194ae333eecc",
-      "by": "Nausheen",
-      "time": 1791131171000,
-      "tags": [
-        "spring-boot",
-        "backend-development",
-        "java"
-      ]
-    },
-    {
-      "title": "Data Analysis: The Top US Tech Companies Silently Scaling Engineering Teams in September",
-      "url": "https://medium.com/@tlparker.mba/data-analysis-the-top-us-tech-companies-silently-scaling-engineering-teams-in-september-9bc503f7b146",
-      "by": "Tamara Parker",
-      "time": 1791131161000,
-      "tags": [
-        "recruiting",
-        "jobs",
-        "hiring"
-      ]
-    },
-    {
-      "title": "The Bug Wasn’t in My Code: How One Env Variable Sent My Local App to Production",
-      "url": "https://medium.com/@syedahmedali.dev/the-bug-wasnt-in-my-code-how-one-env-variable-sent-my-local-app-to-production-9d5e6c9b1530",
-      "by": "SyedAhmedAli",
-      "time": 1791130764000,
-      "tags": [
-        "web-development",
-        "debugging",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Stop Hardcoding LLMs: The Case for Intent-Based Dynamic Routing",
-      "url": "https://medium.com/@naveed_munsif/stop-hardcoding-llms-the-case-for-intent-based-dynamic-routing-ba97fec1831f",
-      "by": "Naveed Munsif",
-      "time": 1791130431000,
-      "tags": [
-        "llm",
+        "machine-learning",
         "software-engineering",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "In the Agent Era, What Should an Architect Actually Maintain?",
-      "url": "https://medium.com/jin-system-architect/in-the-agent-era-what-should-an-architect-actually-maintain-fe45e8901cb4",
-      "by": "JIN",
-      "time": 1791130321000,
+      "title": "A 125-Billion-Parameter Model Is Running on a Gaming PC. The Trick Is That Most of It Never Runs.",
+      "url": "https://mozzammeluiu.medium.com/a-125-billion-parameter-model-is-running-on-a-gaming-pc-the-trick-is-that-most-of-it-never-runs-d3a34da6a497",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1791174345000,
       "tags": [
-        "loop-engineering",
-        "software-engineering",
-        "ai-agent"
+        "open-source",
+        "artificial-intelligence",
+        "local-llm"
       ]
     },
     {
-      "title": "Cybersecurity for Growing Businesses: A Complete Practical Guide",
-      "url": "https://medium.com/@sahilsinha1505/cybersecurity-for-growing-businesses-a-complete-practical-guide-01010c40104d",
-      "by": "Sahilsinha",
-      "time": 1791130295000,
+      "title": "I Reviewed Hundreds of Calculus Problems — These 20 Explain How Calculus Really Works",
+      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-problems-these-20-explain-how-calculus-really-works-2259c2049bb9",
+      "by": "Peter Kattan",
+      "time": 1791174118000,
       "tags": [
-        "enterprise",
-        "practical",
-        "programming"
+        "writing-prompts",
+        "prompt-engineering",
+        "software-engineering"
       ]
     }
   ]
