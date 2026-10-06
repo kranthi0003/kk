@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-05T04:45:19.670Z",
+  "generated": "2026-10-06T04:33:47.131Z",
   "reddit": [
     {
-      "title": "Your Xiaomi phone may be sending you phishing notifications.",
-      "url": "https://www.reddit.com/r/programming/comments/1wxr63h/your_xiaomi_phone_may_be_sending_you_phishing/",
-      "by": "Cload_",
-      "time": 1791149423000,
+      "title": "Why moving artifacts into your customer’s VPC can be so annoying",
+      "url": "https://www.reddit.com/r/devops/comments/1wyrhf8/why_moving_artifacts_into_your_customers_vpc_can/",
+      "by": "aaaaaden",
+      "time": 1791254412000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Searching for Devops communities on Discord to help each other 🙃🙃",
+      "url": "https://www.reddit.com/r/devops/comments/1wyoeow/searching_for_devops_communities_on_discord_to/",
+      "by": "PotentialSilly2732",
+      "time": 1791245240000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "runbooks kinda suckk",
+      "url": "https://www.reddit.com/r/devops/comments/1wyoed1/runbooks_kinda_suckk/",
+      "by": "MachineDisastrous771",
+      "time": 1791245214000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Self-hosted HTTP tunnels with SSH and nginx",
+      "url": "https://www.reddit.com/r/programming/comments/1wym65x/selfhosted_http_tunnels_with_ssh_and_nginx/",
+      "by": "BrewedDoritos",
+      "time": 1791239062000,
       "sub": "r/programming"
     },
     {
-      "title": "\"8-pinski\" - EIGHT(!) bytes intro for MSDOS",
-      "url": "https://www.reddit.com/r/programming/comments/1wxoefa/8pinski_eight_bytes_intro_for_msdos/",
-      "by": "double-happiness",
-      "time": 1791142441000,
+      "title": "DevOps-focused SWE preparing for Amazon SDE OA - advice?",
+      "url": "https://www.reddit.com/r/devops/comments/1wykd6q/devopsfocused_swe_preparing_for_amazon_sde_oa/",
+      "by": "Ok_Reflection_4501",
+      "time": 1791234501000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "OSDI '26 - Incr: Faster Re-Execution via Bolt-On Incrementalization",
+      "url": "https://www.reddit.com/r/programming/comments/1wyjfbo/osdi_26_incr_faster_reexecution_via_bolton/",
+      "by": "mttd",
+      "time": 1791232271000,
       "sub": "r/programming"
     },
     {
-      "title": "Azure Kubernetes version update",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wxl477/azure_kubernetes_version_update/",
-      "by": "Surajj1234",
-      "time": 1791134407000,
-      "sub": "r/kubernetes"
+      "title": "For teams using a package firewall, does it still hold when an agent is the one installing?",
+      "url": "https://www.reddit.com/r/devops/comments/1wyj42m/for_teams_using_a_package_firewall_does_it_still/",
+      "by": "thenrich00",
+      "time": 1791231529000,
+      "sub": "r/devops"
     },
     {
-      "title": "Need advice: Kubernetes 1.34 → 1.35 upgrade with Elasticsearch running in the cluster",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wxl3ma/need_advice_kubernetes_134_135_upgrade_with/",
-      "by": "primeclassic",
-      "time": 1791134367000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Metal as a Service (MaaS): DIY server-management at scale",
-      "url": "https://www.reddit.com/r/programming/comments/1wxfaeo/metal_as_a_service_maas_diy_servermanagement_at/",
-      "by": "Ok_Stomach6651",
-      "time": 1791119276000,
+      "title": "First Steps into Memory Management in Python",
+      "url": "https://www.reddit.com/r/programming/comments/1wyiwl4/first_steps_into_memory_management_in_python/",
+      "by": "dfbaggins",
+      "time": 1791231036000,
       "sub": "r/programming"
     },
     {
-      "title": "Have you tried the Amazon EKS MCP server?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wxejv4/have_you_tried_the_amazon_eks_mcp_server/",
-      "by": "Oleksii_Bebych",
-      "time": 1791117019000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Red, green and mud: fixing color mixing in Total Draw",
-      "url": "https://www.reddit.com/r/programming/comments/1wxd33z/red_green_and_mud_fixing_color_mixing_in_total/",
-      "by": "Rupour",
-      "time": 1791112110000,
+      "title": "Achieving memory safety",
+      "url": "https://www.reddit.com/r/programming/comments/1wydryt/achieving_memory_safety/",
+      "by": "ThomasMertes",
+      "time": 1791219331000,
       "sub": "r/programming"
     },
     {
-      "title": "What are Kubernetes admin exam benefits",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wxc3i5/what_are_kubernetes_admin_exam_benefits/",
-      "by": "j7n5",
-      "time": 1791108487000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Convince me I'm wrong: valaero and EKS/AKS/GKE",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1wx8ws2/convince_me_im_wrong_valaero_and_eksaksgke/",
-      "by": "No-Replacement-3501",
-      "time": 1791096346000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Making a mathematical model for better Indic keyboards",
-      "url": "https://www.reddit.com/r/programming/comments/1wx0bai/making_a_mathematical_model_for_better_indic/",
-      "by": "ZoneZealousideal4073",
-      "time": 1791068009000,
+      "title": "Another Step Towards Elm 1.0",
+      "url": "https://www.reddit.com/r/programming/comments/1wy7in8/another_step_towards_elm_10/",
+      "by": "wheatBread",
+      "time": 1791204032000,
       "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "My Unofficial Guide to Software Engineering at UNSW",
-      "url": "https://medium.com/@ihaveatan2/my-unofficial-guide-to-software-engineering-at-unsw-5c31958a64ad",
-      "by": "Ihaveatan",
-      "time": 1791175221000,
-      "tags": [
-        "commerce",
-        "fintech",
-        "ai"
-      ]
-    },
-    {
-      "title": "How I tricked an AI Shopping Agent to buy my book for $49.99, while others sell the same for $10",
-      "url": "https://medium.com/@gopikrishna0295/how-i-tricked-an-ai-shopping-agent-to-buy-my-book-for-49-99-while-others-sell-the-same-for-10-09af14d63c16",
-      "by": "gopi",
-      "time": 1791175111000,
-      "tags": [
-        "cybersecurity",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "What \"Senior Developer\" Actually Means in 2026",
-      "url": "https://medium.com/@jiteshkumawat2000jpr/what-senior-developer-actually-means-in-2026-03c21c333c9b",
-      "by": "Jiteshkumawatjpr",
-      "time": 1791174922000,
+      "title": "8 Python Tools That Can Make Dependency Management Much Easier",
+      "url": "https://medium.com/algomart/8-python-tools-that-can-make-dependency-management-much-easier-7781a290fb9d",
+      "by": "Yash Jain",
+      "time": 1791261062000,
       "tags": [
         "software-engineering",
-        "leadership",
-        "careers"
-      ]
-    },
-    {
-      "title": "Why I Stopped Chasing New Frameworks (Mostly)",
-      "url": "https://medium.com/@jiteshkumawat2000jpr/why-i-stopped-chasing-new-frameworks-mostly-b71fd87dd38d",
-      "by": "Jiteshkumawatjpr",
-      "time": 1791174804000,
-      "tags": [
-        "web-development",
-        "programming",
-        "learning"
-      ]
-    },
-    {
-      "title": "Java Execution Explained So Simply, Anyone Can Understand It",
-      "url": "https://medium.com/@ashenbhagye/java-execution-explained-so-simply-anyone-can-understand-it-f477a570fdad",
-      "by": "Ashen Bhagya",
-      "time": 1791174666000,
-      "tags": [
-        "java",
         "software-development",
-        "programming"
+        "python"
       ]
     },
     {
-      "title": "C# 的 Expression Function 是什麼？",
-      "url": "https://medium.com/@mindsteps.alex/c-%E7%9A%84-expression-function-%E6%98%AF%E4%BB%80%E9%BA%BC-75e8e3233ae1",
-      "by": "思維舞步 MindSteps",
-      "time": 1791174665000,
+      "title": "Why Do So Many Developers Suddenly Write the Same Code?",
+      "url": "https://medium.com/@ishaqsaqib/why-do-so-many-developers-suddenly-write-the-same-code-d18024af7678",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1791261062000,
       "tags": [
-        "programming",
-        "csharp",
-        "lambda-expressions"
+        "artificial-intelligence",
+        "software-development",
+        "career-growth"
       ]
     },
     {
-      "title": "Data Integrity at Scale: PostgreSQL Triggers vs. Application-Level Atomicity",
-      "url": "https://medium.com/@amamit/data-integrity-at-scale-postgresql-triggers-vs-application-level-atomicity-a950c56a8eb2",
-      "by": "amit",
-      "time": 1791174663000,
+      "title": "React Native’s Strict TypeScript API Guide",
+      "url": "https://medium.com/react-native-lab/react-natives-strict-typescript-api-guide-75c7d7d7104e",
+      "by": "Jayant Kumar",
+      "time": 1791261062000,
       "tags": [
-        "system-design-interview",
         "software-engineering",
-        "database"
+        "software-development",
+        "react-native"
       ]
     },
     {
-      "title": "AI Scribes in 2026: Buy Under 600 Clinicians, Build Above",
-      "url": "https://forasoft.medium.com/ai-scribes-in-2026-buy-under-600-clinicians-build-above-bafa1ea8359d",
-      "by": "Fora Soft",
-      "time": 1791174454000,
+      "title": "OpenAI Dots Made Me Rethink What an AI Agent Actually Is",
+      "url": "https://manalisomani099.medium.com/openai-dots-made-me-rethink-what-an-ai-agent-actually-is-a5185a0f3640",
+      "by": "Manali Somani",
+      "time": 1791261062000,
       "tags": [
         "machine-learning",
+        "artificial-intelligence",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "12 Claude Code Techniques That Make AI Coding Feel More Like Engineering",
+      "url": "https://medium.com/blogflyer/12-claude-code-techniques-that-make-ai-coding-feel-more-like-engineering-3f1ab92cc301",
+      "by": "Aarush Jain",
+      "time": 1791261003000,
+      "tags": [
         "software-engineering",
+        "programming",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "A 125-Billion-Parameter Model Is Running on a Gaming PC. The Trick Is That Most of It Never Runs.",
-      "url": "https://mozzammeluiu.medium.com/a-125-billion-parameter-model-is-running-on-a-gaming-pc-the-trick-is-that-most-of-it-never-runs-d3a34da6a497",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1791174345000,
+      "title": "“’ll learn this properly later” is a loan",
+      "url": "https://medium.com/@lakindudesilva007/ll-learn-this-properly-later-is-a-loan-0ad5c6d9dd37",
+      "by": "Lakindu De Silva",
+      "time": 1791260687000,
       "tags": [
-        "open-source",
-        "artificial-intelligence",
-        "local-llm"
+        "learning",
+        "software-testing",
+        "software-engineering"
       ]
     },
     {
-      "title": "I Reviewed Hundreds of Calculus Problems — These 20 Explain How Calculus Really Works",
-      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-problems-these-20-explain-how-calculus-really-works-2259c2049bb9",
-      "by": "Peter Kattan",
-      "time": 1791174118000,
+      "title": "No Effect Before Its Cause: From Einstein to Yjs (Pratītyasamutpāda)",
+      "url": "https://medium.com/@buddhikagamage619/no-effect-before-its-cause-from-einstein-to-yjs-prat%C4%ABtyasamutp%C4%81da-7954b40fc381",
+      "by": "Buddhika Gamage",
+      "time": 1791260647000,
       "tags": [
-        "writing-prompts",
-        "prompt-engineering",
-        "software-engineering"
+        "physics",
+        "distributed-systems",
+        "philosophy"
+      ]
+    },
+    {
+      "title": "Article 31 — Where the Number Feels Accurate Before the Work Begins",
+      "url": "https://medium.com/@gurvinder372/article-31-where-the-number-feels-accurate-before-the-work-begins-7f6d10922012",
+      "by": "Gurvinder Pal Singh",
+      "time": 1791260629000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "short-story"
+      ]
+    },
+    {
+      "title": "Day 213 of Learning Android — Getting Familiar with Android Views and UI Components",
+      "url": "https://medium.com/@payalmehra3522/day-213-of-learning-android-getting-familiar-with-android-views-and-ui-components-484669f42340",
+      "by": "Payal Mehra",
+      "time": 1791260469000,
+      "tags": [
+        "android",
+        "coding",
+        "mobile-app-development"
+      ]
+    },
+    {
+      "title": "Why I Still Recommend Learning C (Even in 2026)",
+      "url": "https://medium.com/@suyadav2072005/why-i-still-recommend-learning-c-even-in-2026-54866269804a",
+      "by": "Sudheer Yadav",
+      "time": 1791260270000,
+      "tags": [
+        "coding",
+        "c-programming",
+        "programming"
       ]
     }
   ]

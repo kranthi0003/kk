@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05T04:44:09.140Z",
+  "generated": "2026-10-06T04:32:49.189Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -124,6 +124,17 @@
       "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
+      "title": "Nayyi Navelli",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/e3/Nayyi_Navelli_Poster.jpg/120px-Nayyi_Navelli_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Nayyi_Navelli",
+      "imdb": "https://www.imdb.com/title/tt40855841/"
+    },
+    {
       "title": "Scene",
       "lang": "Tamil",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Thudakkam",
       "imdb": "https://www.imdb.com/title/tt37510017/"
-    },
-    {
-      "title": "Vettuvam",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Pa. Ranjith",
-      "desc": "Upcoming Indian film by Pa. Ranjith",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Vettuvam",
-      "imdb": "https://www.imdb.com/title/tt20225002/"
     }
   ]
 }
