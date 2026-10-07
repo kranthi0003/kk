@@ -850,6 +850,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '📂', label: 'Source', action: () => window.dispatchEvent(new CustomEvent('toggle-code-browser')), full: true },
                 { icon: '📋', label: 'Changelog', action: () => window.dispatchEvent(new CustomEvent('toggle-changelog')), full: true },
                 { icon: '🤖', label: 'AI Chat', action: () => document.querySelector('[data-chatbot-btn]')?.click() },
+                { icon: '🎙️', label: 'Ask', action: () => { window.location.hash = '#/ask' } },
                 { icon: '📱', label: 'QR Card', action: () => window.dispatchEvent(new CustomEvent('toggle-qr-vcard')), full: true },
                 { icon: '😂', label: 'Meme Gen', action: () => window.dispatchEvent(new CustomEvent('toggle-meme-gen')), full: true },
                 { icon: '📖', label: 'Read Mode', action: () => document.body.classList.toggle('reading-mode') },
@@ -908,6 +909,16 @@ function BagIcon() {
   )
 }
 
+function MicIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="9" y="3" width="6" height="11" rx="3" />
+      <path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" />
+    </svg>
+  )
+}
+
 // A pod: the head-and-antenna shape the swarm mode turns the balls into.
 function PodIcon() {
   return (
@@ -949,6 +960,7 @@ function ToolsDropdown() {
     { icon: <CodeIcon />,   label: 'Source Code',       evt: 'toggle-code-browser' },
     { icon: <ClockIcon />,  label: 'Changelog',         evt: 'toggle-changelog' },
     { icon: <ChatIcon />,   label: 'AI Chat',           onClick: () => document.querySelector('[data-chatbot-btn]')?.click() },
+    { icon: <MicIcon />,    label: 'Ask the site',      onClick: () => { window.location.hash = '#/ask' } },
     { icon: <QRIcon />,     label: 'QR vCard',          evt: 'toggle-qr-vcard' },
     { icon: <MemeIcon />,   label: 'Meme Generator',    evt: 'toggle-meme-gen' },
     { icon: <NetIcon />,    label: 'Network DevTools',  evt: 'toggle-dev-net' },

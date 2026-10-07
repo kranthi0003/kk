@@ -4,6 +4,8 @@
 // The model is named here and nowhere else. Six features run through this
 // one function — the chatbot, the terminal, the meme generator, stranger
 // chat and the collab editor — and none of them pass a model of their own.
+// The site agent at #/ask calls tools, so it has its own function at the
+// bottom of this file, but its models are named here too.
 //
 // That turned out to matter. Groq decommissioned llama-3.1-8b-instant and
 // all six broke at once, quietly: the proxy still answers 200 with an
@@ -43,8 +45,8 @@ const SWITCHABLE = /model_not_found|model_decommissioned|does not exist|rate.?li
 
 let active = null // the model known to work this session
 
-async function call(model, messages, max_tokens, temperature) {
-  const body = { model, max_tokens, temperature, messages }
+async function call(model, messages, max_tokens, temperature, extra = {}, signal) {
+  const body = { model, max_tokens, temperature, messages, ...extra }
   if (wantsReasoningEffort(model)) body.reasoning_effort = 'low'
 
   const res = await fetch(`${SUPABASE_URL}/functions/v1/groq-proxy`, {
@@ -54,6 +56,7 @@ async function call(model, messages, max_tokens, temperature) {
       'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
     },
     body: JSON.stringify(body),
+    signal,
   })
 
   if (!res.ok) throw new Error(`Proxy error: ${res.status}`)
@@ -87,4 +90,68 @@ export async function groqChat(messages, { max_tokens = 150, temperature = 0.7, 
   }
   // Both are unhappy — hand back whichever said something more useful.
   return retry?.error ? retry : data
+}
+
+/* ------------------------------------------------------------------ *
+ * Tool calling, for the site agent at #/ask.
+ *
+ * The chat fallback above can't serve here: compound-* is an agent with
+ * its own fixed tools and won't take ours. Both gpt-oss models do, so
+ * this chain is 20b and then 120b, remembered separately from the chat
+ * one so a rate limit on one feature doesn't reroute the other.
+ *
+ * tool_use_failed is the model writing a malformed call, which the
+ * other model may well get right, so it counts as a reason to switch.
+ *
+ * It returns which model answered and how long it took, because the
+ * page shows both. It throws only when no model could be used at all,
+ * which is the agent's signal to fall back to its own router.
+ * ------------------------------------------------------------------ */
+const TOOL_MODELS = [PRIMARY, 'openai/gpt-oss-120b']
+const TOOL_SWITCHABLE = /tool_use_failed|model_not_found|model_decommissioned|does not exist|rate.?limit|capacity|unavailable/i
+
+let activeTool = null
+
+export async function groqTools(messages, { tools, tool_choice = 'auto', max_tokens = 150, temperature = 0.2, signal } = {}) {
+  const order = activeTool ? [activeTool, ...TOOL_MODELS.filter((m) => m !== activeTool)] : TOOL_MODELS
+  const skipped = []
+
+  for (const model of order) {
+    const t0 = performance.now()
+    let data
+    try {
+      data = await call(model, messages, max_tokens, temperature, tools ? { tools, tool_choice } : {}, signal)
+    } catch (e) {
+      if (e?.name === 'AbortError') throw e
+      skipped.push({ model, reason: e.message })
+      continue
+    }
+    const ms = Math.round(performance.now() - t0)
+
+    const err = data?.error
+    if (err) {
+      const reason = `${err.code || ''} ${err.message || ''}`.trim()
+      if (TOOL_SWITCHABLE.test(reason)) {
+        skipped.push({ model, reason })
+        continue
+      }
+      // A malformed request fails the same way on any model.
+      const e = new Error(err.message || 'The model rejected the request')
+      e.skipped = skipped
+      throw e
+    }
+
+    const message = data?.choices?.[0]?.message
+    if (!message?.tool_calls?.length && !(message?.content || '').trim()) {
+      skipped.push({ model, reason: 'empty reply' })
+      continue
+    }
+
+    activeTool = model
+    return { data, message, model, ms, skipped }
+  }
+
+  const e = new Error(skipped.map((s) => `${s.model}: ${s.reason}`).join('; ') || 'No model available')
+  e.skipped = skipped
+  throw e
 }

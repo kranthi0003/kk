@@ -32,6 +32,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 🎮 **3D Gamer Workspace** | Walkable desk scene, soldier NPC (`WASD`), LED strips, live GitHub feed on monitors (`#/workspace`) |
 | 🎨 **AstroDither** | Dithered astro/generative visual experience (`#/astro`) |
 | 🤖 **AI Chatbot** | Floating assistant trained on my bio |
+| 🎙️ **Site agent** | Ask by voice; gpt-oss calls tools over the F1, cricket and jobs data and every step is shown live (`#/ask`) |
 | ⚔️ **Battle & Collab** | Battle minigame (`#/battle`) + multiplayer Monaco editor (`#/collab`) |
 | 💬 **Stranger Chat** | Anonymous realtime chat (`#/stranger`) |
 | 🃏 **Truth or Dare** | Party game (`#/tod`) |
@@ -108,6 +109,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/notes` | Knowledge base / TILs |
 | `#/music` | Music library & playlists |
 | `#/reliability` | Reliability Lab (observability dashboard) |
+| `#/ask` | 🎙️ Voice agent over the F1, cricket and jobs data |
 | `#/vegas` | 🔒 Private, password-protected trip plan |
 | `#/europe` | 🔒 Private, password-protected winter-trip plan |
 | `#/allthebest`, `#/skota` | Private unlisted notes (shared by link) |

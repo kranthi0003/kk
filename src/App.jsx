@@ -40,6 +40,7 @@ const BrandsPage = lazy(() => import('./components/BrandsPage'))
 const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const StocksPage = lazy(() => import('./components/StocksPage'))
 const JobsPage = lazy(() => import('./components/JobsPage'))
+const AskPage = lazy(() => import('./components/AskPage'))
 const EbcPage = lazy(() => import('./components/EbcPage'))
 const CongratsPage = lazy(() => import('./components/CongratsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
@@ -416,6 +417,15 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <JobsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Ask — a voice agent over the site's F1, cricket and jobs data
+  if (route === '#/ask') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">waking the agent…</div></div>}>
+        <AskPage onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
