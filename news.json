@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-06T04:33:47.131Z",
+  "generated": "2026-10-07T04:34:47.218Z",
   "reddit": [
+    {
+      "title": "Would you rather have an AI coding assistant or an AI that handles your manager?",
+      "url": "https://www.reddit.com/r/devops/comments/1wzknsh/would_you_rather_have_an_ai_coding_assistant_or/",
+      "by": "No-Mood-7827",
+      "time": 1791338487000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "From Custom to Open: Scalable Network Probing and HTTP/3 Readiness with Prometheus",
+      "url": "https://www.reddit.com/r/programming/comments/1wzfp28/from_custom_to_open_scalable_network_probing_and/",
+      "by": "Ok_Stomach6651",
+      "time": 1791324240000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Release of Polars 2.0",
+      "url": "https://www.reddit.com/r/programming/comments/1wzf37b/release_of_polars_20/",
+      "by": "BrewedDoritos",
+      "time": 1791322693000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Sevalla is a total shit show",
+      "url": "https://www.reddit.com/r/devops/comments/1wzf28g/sevalla_is_a_total_shit_show/",
+      "by": "ConferenceOld6778",
+      "time": 1791322622000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Tuning a Server for Benchmarking",
+      "url": "https://www.reddit.com/r/programming/comments/1wzbo9p/tuning_a_server_for_benchmarking/",
+      "by": "david-alvarez-rosa",
+      "time": 1791314611000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to split tasks between CI/CD?",
+      "url": "https://www.reddit.com/r/devops/comments/1wz7zn9/how_to_split_tasks_between_cicd/",
+      "by": "TemplateRedditor",
+      "time": 1791306205000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "StackOverflow Developer Survey Results 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1wz64oa/stackoverflow_developer_survey_results_2026/",
+      "by": "sh_tomer",
+      "time": 1791301911000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Database security",
+      "url": "https://www.reddit.com/r/devops/comments/1wz5sk6/database_security/",
+      "by": "Eight111",
+      "time": 1791301096000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "The Problem of Communication",
+      "url": "https://www.reddit.com/r/programming/comments/1wz5hwg/the_problem_of_communication/",
+      "by": "realguy2300000",
+      "time": 1791300406000,
+      "sub": "r/programming"
+    },
     {
       "title": "Why moving artifacts into your customer’s VPC can be so annoying",
       "url": "https://www.reddit.com/r/devops/comments/1wyrhf8/why_moving_artifacts_into_your_customers_vpc_can/",
       "by": "aaaaaden",
       "time": 1791254412000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Searching for Devops communities on Discord to help each other 🙃🙃",
-      "url": "https://www.reddit.com/r/devops/comments/1wyoeow/searching_for_devops_communities_on_discord_to/",
-      "by": "PotentialSilly2732",
-      "time": 1791245240000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "runbooks kinda suckk",
-      "url": "https://www.reddit.com/r/devops/comments/1wyoed1/runbooks_kinda_suckk/",
-      "by": "MachineDisastrous771",
-      "time": 1791245214000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Self-hosted HTTP tunnels with SSH and nginx",
-      "url": "https://www.reddit.com/r/programming/comments/1wym65x/selfhosted_http_tunnels_with_ssh_and_nginx/",
-      "by": "BrewedDoritos",
-      "time": 1791239062000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "DevOps-focused SWE preparing for Amazon SDE OA - advice?",
-      "url": "https://www.reddit.com/r/devops/comments/1wykd6q/devopsfocused_swe_preparing_for_amazon_sde_oa/",
-      "by": "Ok_Reflection_4501",
-      "time": 1791234501000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "OSDI '26 - Incr: Faster Re-Execution via Bolt-On Incrementalization",
-      "url": "https://www.reddit.com/r/programming/comments/1wyjfbo/osdi_26_incr_faster_reexecution_via_bolton/",
-      "by": "mttd",
-      "time": 1791232271000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "For teams using a package firewall, does it still hold when an agent is the one installing?",
-      "url": "https://www.reddit.com/r/devops/comments/1wyj42m/for_teams_using_a_package_firewall_does_it_still/",
-      "by": "thenrich00",
-      "time": 1791231529000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "First Steps into Memory Management in Python",
-      "url": "https://www.reddit.com/r/programming/comments/1wyiwl4/first_steps_into_memory_management_in_python/",
-      "by": "dfbaggins",
-      "time": 1791231036000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Achieving memory safety",
-      "url": "https://www.reddit.com/r/programming/comments/1wydryt/achieving_memory_safety/",
-      "by": "ThomasMertes",
-      "time": 1791219331000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Another Step Towards Elm 1.0",
-      "url": "https://www.reddit.com/r/programming/comments/1wy7in8/another_step_towards_elm_10/",
-      "by": "wheatBread",
-      "time": 1791204032000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "8 Python Tools That Can Make Dependency Management Much Easier",
-      "url": "https://medium.com/algomart/8-python-tools-that-can-make-dependency-management-much-easier-7781a290fb9d",
-      "by": "Yash Jain",
-      "time": 1791261062000,
+      "title": "The Great Salary Shift in Tech: Why Some Skills Are Becoming More Valuable While Others Are Losing…",
+      "url": "https://medium.com/@somitbajpai/the-great-salary-shift-in-tech-why-some-skills-are-becoming-more-valuable-while-others-are-losing-5bf177a1d7ef",
+      "by": "Somitbajpai",
+      "time": 1791347243000,
+      "tags": [
+        "superintelligence",
+        "software-engineering",
+        "hiring-trend"
+      ]
+    },
+    {
+      "title": "The Enterprise Guide to AI Prompt Privacy & PII Redaction in 2026",
+      "url": "https://medium.com/@sahabbhutto694/the-enterprise-guide-to-ai-prompt-privacy-pii-redaction-in-2026-2e9a3440c7b3",
+      "by": "Sahabbhutto",
+      "time": 1791347014000,
+      "tags": [
+        "software-engineering",
+        "artificial-intelligence",
+        "technology"
+      ]
+    },
+    {
+      "title": "I Reviewed Hundreds of Calculus Lessons — These Are the 20 Concepts Worth Learning First",
+      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-lessons-these-are-the-20-concepts-worth-learning-first-1bdafce3c0da",
+      "by": "Peter Kattan",
+      "time": 1791346973000,
+      "tags": [
+        "writing-prompts",
+        "software-engineering",
+        "mathematics"
+      ]
+    },
+    {
+      "title": "random() % n is biased, and the JavaScript versions of the bug are easy to write",
+      "url": "https://mozzammeluiu.medium.com/random-n-is-biased-and-the-javascript-versions-of-the-bug-are-easy-to-write-13dcb27987e9",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1791346632000,
+      "tags": [
+        "software-engineering",
+        "javascript",
+        "programming"
+      ]
+    },
+    {
+      "title": "Production Postmortem #4: When OpenAI’s Agents Did More Than They Were Asked",
+      "url": "https://medium.com/system-design-mastery-series/production-postmortem-4-when-openais-agents-did-more-than-they-were-asked-4bafda169eca",
+      "by": "Suresh Kumar Ariya Gowder",
+      "time": 1791346452000,
+      "tags": [
+        "ai-agent",
+        "software-engineering",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "How to Turn a Screen Recording into a Seamless Looping GIF on iPhone (2026)",
+      "url": "https://medium.com/@yjia2175/how-to-turn-a-screen-recording-into-a-seamless-looping-gif-on-iphone-2026-2e3823efe86e",
+      "by": "南风的AI进化日记",
+      "time": 1791346366000,
+      "tags": [
+        "apple",
+        "ios",
+        "technology"
+      ]
+    },
+    {
+      "title": "Best iMessage Sticker Apps in 2026: An Honest Comparison",
+      "url": "https://medium.com/@yjia2175/best-imessage-sticker-apps-in-2026-an-honest-comparison-2814c147f489",
+      "by": "南风的AI进化日记",
+      "time": 1791346191000,
+      "tags": [
+        "apple",
+        "software-engineering",
+        "ios"
+      ]
+    },
+    {
+      "title": "2 Users Update the Same Row? Pessimistic Locking Can Save Your Data",
+      "url": "https://gainjavaknowledge.medium.com/2-users-update-the-same-row-pessimistic-locking-can-save-your-data-09b521b0c152",
+      "by": "Real World Java",
+      "time": 1791345794000,
+      "tags": [
+        "java",
+        "software-engineering",
+        "spring-data-jpa"
+      ]
+    },
+    {
+      "title": "Topological Telemetry & Subsurface Field Sensing",
+      "url": "https://zachbobby8.medium.com/topological-telemetry-subsurface-field-sensing-89ec13332bc3",
+      "by": "Möbius Braid",
+      "time": 1791345723000,
       "tags": [
         "software-engineering",
         "software-development",
-        "python"
+        "web-development"
       ]
     },
     {
-      "title": "Why Do So Many Developers Suddenly Write the Same Code?",
-      "url": "https://medium.com/@ishaqsaqib/why-do-so-many-developers-suddenly-write-the-same-code-d18024af7678",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1791261062000,
-      "tags": [
-        "artificial-intelligence",
-        "software-development",
-        "career-growth"
-      ]
-    },
-    {
-      "title": "React Native’s Strict TypeScript API Guide",
-      "url": "https://medium.com/react-native-lab/react-natives-strict-typescript-api-guide-75c7d7d7104e",
-      "by": "Jayant Kumar",
-      "time": 1791261062000,
-      "tags": [
-        "software-engineering",
-        "software-development",
-        "react-native"
-      ]
-    },
-    {
-      "title": "OpenAI Dots Made Me Rethink What an AI Agent Actually Is",
-      "url": "https://manalisomani099.medium.com/openai-dots-made-me-rethink-what-an-ai-agent-actually-is-a5185a0f3640",
-      "by": "Manali Somani",
-      "time": 1791261062000,
-      "tags": [
-        "machine-learning",
-        "artificial-intelligence",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "12 Claude Code Techniques That Make AI Coding Feel More Like Engineering",
-      "url": "https://medium.com/blogflyer/12-claude-code-techniques-that-make-ai-coding-feel-more-like-engineering-3f1ab92cc301",
-      "by": "Aarush Jain",
-      "time": 1791261003000,
+      "title": "AI Security Patches Failed 74% of the Time. Here's How to Review Any AI-Written Fix.",
+      "url": "https://medium.com/@sagaraglawe.pl/ai-security-patches-failed-74-of-the-time-heres-how-to-review-any-ai-written-fix-b3151d07800d",
+      "by": "sagar-aglawe",
+      "time": 1791345663000,
       "tags": [
         "software-engineering",
         "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "“’ll learn this properly later” is a loan",
-      "url": "https://medium.com/@lakindudesilva007/ll-learn-this-properly-later-is-a-loan-0ad5c6d9dd37",
-      "by": "Lakindu De Silva",
-      "time": 1791260687000,
-      "tags": [
-        "learning",
-        "software-testing",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "No Effect Before Its Cause: From Einstein to Yjs (Pratītyasamutpāda)",
-      "url": "https://medium.com/@buddhikagamage619/no-effect-before-its-cause-from-einstein-to-yjs-prat%C4%ABtyasamutp%C4%81da-7954b40fc381",
-      "by": "Buddhika Gamage",
-      "time": 1791260647000,
-      "tags": [
-        "physics",
-        "distributed-systems",
-        "philosophy"
-      ]
-    },
-    {
-      "title": "Article 31 — Where the Number Feels Accurate Before the Work Begins",
-      "url": "https://medium.com/@gurvinder372/article-31-where-the-number-feels-accurate-before-the-work-begins-7f6d10922012",
-      "by": "Gurvinder Pal Singh",
-      "time": 1791260629000,
-      "tags": [
-        "software-development",
-        "software-engineering",
-        "short-story"
-      ]
-    },
-    {
-      "title": "Day 213 of Learning Android — Getting Familiar with Android Views and UI Components",
-      "url": "https://medium.com/@payalmehra3522/day-213-of-learning-android-getting-familiar-with-android-views-and-ui-components-484669f42340",
-      "by": "Payal Mehra",
-      "time": 1791260469000,
-      "tags": [
-        "android",
-        "coding",
-        "mobile-app-development"
-      ]
-    },
-    {
-      "title": "Why I Still Recommend Learning C (Even in 2026)",
-      "url": "https://medium.com/@suyadav2072005/why-i-still-recommend-learning-c-even-in-2026-54866269804a",
-      "by": "Sudheer Yadav",
-      "time": 1791260270000,
-      "tags": [
-        "coding",
-        "c-programming",
-        "programming"
+        "debugging"
       ]
     }
   ]
