@@ -1,11 +1,60 @@
 {
-  "generated": "2026-10-07T04:34:47.218Z",
+  "generated": "2026-10-07T14:28:42.114Z",
   "reddit": [
     {
-      "title": "Would you rather have an AI coding assistant or an AI that handles your manager?",
-      "url": "https://www.reddit.com/r/devops/comments/1wzknsh/would_you_rather_have_an_ai_coding_assistant_or/",
-      "by": "No-Mood-7827",
-      "time": 1791338487000,
+      "title": "Moving off GitHub Actions doesn't get you off GitHub: your tool installs still depend on it",
+      "url": "https://www.reddit.com/r/programming/comments/1wzxplb/moving_off_github_actions_doesnt_get_you_off/",
+      "by": "Patient-Pollution46",
+      "time": 1791382628000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Anti-Patterns in Software Blogging",
+      "url": "https://www.reddit.com/r/programming/comments/1wzw4cw/antipatterns_in_software_blogging/",
+      "by": "mtlynch",
+      "time": 1791378604000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Post-mortem debuggable, minimal-size memory dumps on macOS",
+      "url": "https://www.reddit.com/r/programming/comments/1wzw1y7/postmortem_debuggable_minimalsize_memory_dumps_on/",
+      "by": "donpedro1337",
+      "time": 1791378420000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do I attribute API costs for AI?",
+      "url": "https://www.reddit.com/r/devops/comments/1wzuq7a/how_do_i_attribute_api_costs_for_ai/",
+      "by": "Odd-Competition-6948",
+      "time": 1791374615000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Porthole: an open-source Kubernetes desktop client built with Tauri + Rust",
+      "url": "https://www.reddit.com/r/devops/comments/1wzu0yt/porthole_an_opensource_kubernetes_desktop_client/",
+      "by": "young_dimm",
+      "time": 1791372423000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What are your opinions on AI? Wild take: Dear senior devs, you're fucked too",
+      "url": "https://www.reddit.com/r/devops/comments/1wzt03y/what_are_your_opinions_on_ai_wild_take_dear/",
+      "by": "Big-Lychee5971",
+      "time": 1791368801000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "A peek into Reddit's anti-spam internals",
+      "url": "https://www.reddit.com/r/programming/comments/1wzskuf/a_peek_into_reddits_antispam_internals/",
+      "by": "fagnerbrack",
+      "time": 1791367233000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Tornet? Kali_linux",
+      "url": "https://www.reddit.com/r/devops/comments/1wzqcqf/tornet_kali_linux/",
+      "by": "Background-Moment59",
+      "time": 1791358370000,
       "sub": "r/devops"
     },
     {
@@ -16,171 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "Release of Polars 2.0",
-      "url": "https://www.reddit.com/r/programming/comments/1wzf37b/release_of_polars_20/",
-      "by": "BrewedDoritos",
-      "time": 1791322693000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Sevalla is a total shit show",
       "url": "https://www.reddit.com/r/devops/comments/1wzf28g/sevalla_is_a_total_shit_show/",
       "by": "ConferenceOld6778",
       "time": 1791322622000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Tuning a Server for Benchmarking",
-      "url": "https://www.reddit.com/r/programming/comments/1wzbo9p/tuning_a_server_for_benchmarking/",
-      "by": "david-alvarez-rosa",
-      "time": 1791314611000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How to split tasks between CI/CD?",
-      "url": "https://www.reddit.com/r/devops/comments/1wz7zn9/how_to_split_tasks_between_cicd/",
-      "by": "TemplateRedditor",
-      "time": 1791306205000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "StackOverflow Developer Survey Results 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1wz64oa/stackoverflow_developer_survey_results_2026/",
-      "by": "sh_tomer",
-      "time": 1791301911000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Database security",
-      "url": "https://www.reddit.com/r/devops/comments/1wz5sk6/database_security/",
-      "by": "Eight111",
-      "time": 1791301096000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "The Problem of Communication",
-      "url": "https://www.reddit.com/r/programming/comments/1wz5hwg/the_problem_of_communication/",
-      "by": "realguy2300000",
-      "time": 1791300406000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Why moving artifacts into your customer’s VPC can be so annoying",
-      "url": "https://www.reddit.com/r/devops/comments/1wyrhf8/why_moving_artifacts_into_your_customers_vpc_can/",
-      "by": "aaaaaden",
-      "time": 1791254412000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "The Great Salary Shift in Tech: Why Some Skills Are Becoming More Valuable While Others Are Losing…",
-      "url": "https://medium.com/@somitbajpai/the-great-salary-shift-in-tech-why-some-skills-are-becoming-more-valuable-while-others-are-losing-5bf177a1d7ef",
-      "by": "Somitbajpai",
-      "time": 1791347243000,
+      "title": "Senior Backend Engineer Interview: 10 Database Questions That Get Much Harder After the Obvious…",
+      "url": "https://medium.com/engineering-playbook/senior-backend-engineer-interview-10-database-questions-that-get-much-harder-after-the-obvious-11e312b90d99",
+      "by": "The JVM Engineer",
+      "time": 1791383057000,
       "tags": [
-        "superintelligence",
-        "software-engineering",
-        "hiring-trend"
-      ]
-    },
-    {
-      "title": "The Enterprise Guide to AI Prompt Privacy & PII Redaction in 2026",
-      "url": "https://medium.com/@sahabbhutto694/the-enterprise-guide-to-ai-prompt-privacy-pii-redaction-in-2026-2e9a3440c7b3",
-      "by": "Sahabbhutto",
-      "time": 1791347014000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "technology"
-      ]
-    },
-    {
-      "title": "I Reviewed Hundreds of Calculus Lessons — These Are the 20 Concepts Worth Learning First",
-      "url": "https://medium.com/@drpeterkattan/i-reviewed-hundreds-of-calculus-lessons-these-are-the-20-concepts-worth-learning-first-1bdafce3c0da",
-      "by": "Peter Kattan",
-      "time": 1791346973000,
-      "tags": [
-        "writing-prompts",
-        "software-engineering",
-        "mathematics"
-      ]
-    },
-    {
-      "title": "random() % n is biased, and the JavaScript versions of the bug are easy to write",
-      "url": "https://mozzammeluiu.medium.com/random-n-is-biased-and-the-javascript-versions-of-the-bug-are-easy-to-write-13dcb27987e9",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1791346632000,
-      "tags": [
-        "software-engineering",
-        "javascript",
+        "coding",
+        "software-development",
         "programming"
       ]
     },
     {
-      "title": "Production Postmortem #4: When OpenAI’s Agents Did More Than They Were Asked",
-      "url": "https://medium.com/system-design-mastery-series/production-postmortem-4-when-openais-agents-did-more-than-they-were-asked-4bafda169eca",
-      "by": "Suresh Kumar Ariya Gowder",
-      "time": 1791346452000,
+      "title": "KI-Alltagsprodukte: 7 unbekannte Geräte aus Shenzhen",
+      "url": "https://everlastai.medium.com/ki-alltagsprodukte-7-unbekannte-ger%C3%A4te-aus-shenzhen-5056f77622b5",
+      "by": "Everlast AI",
+      "time": 1791383007000,
       "tags": [
-        "ai-agent",
-        "software-engineering",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "How to Turn a Screen Recording into a Seamless Looping GIF on iPhone (2026)",
-      "url": "https://medium.com/@yjia2175/how-to-turn-a-screen-recording-into-a-seamless-looping-gif-on-iphone-2026-2e3823efe86e",
-      "by": "南风的AI进化日记",
-      "time": 1791346366000,
-      "tags": [
-        "apple",
-        "ios",
+        "künstliche-intelligenz",
+        "ai",
         "technology"
       ]
     },
     {
-      "title": "Best iMessage Sticker Apps in 2026: An Honest Comparison",
-      "url": "https://medium.com/@yjia2175/best-imessage-sticker-apps-in-2026-an-honest-comparison-2814c147f489",
-      "by": "南风的AI进化日记",
-      "time": 1791346191000,
+      "title": "Top 10 Modern Replacements for Classic Unix Commands",
+      "url": "https://liu-111.medium.com/top-10-modern-replacements-for-classic-unix-commands-ddff7efe298f",
+      "by": "Jesse L",
+      "time": 1791382863000,
       "tags": [
-        "apple",
-        "software-engineering",
-        "ios"
+        "coding",
+        "software",
+        "programming"
       ]
     },
     {
-      "title": "2 Users Update the Same Row? Pessimistic Locking Can Save Your Data",
-      "url": "https://gainjavaknowledge.medium.com/2-users-update-the-same-row-pessimistic-locking-can-save-your-data-09b521b0c152",
-      "by": "Real World Java",
-      "time": 1791345794000,
+      "title": "Claude Code Wrote the Fix. Here’s How to Prove It Works.",
+      "url": "https://halilozel1903.medium.com/claude-code-wrote-the-fix-heres-how-to-prove-it-works-83c36eb7468c",
+      "by": "Halil Özel",
+      "time": 1791382861000,
       "tags": [
-        "java",
-        "software-engineering",
-        "spring-data-jpa"
-      ]
-    },
-    {
-      "title": "Topological Telemetry & Subsurface Field Sensing",
-      "url": "https://zachbobby8.medium.com/topological-telemetry-subsurface-field-sensing-89ec13332bc3",
-      "by": "Möbius Braid",
-      "time": 1791345723000,
-      "tags": [
-        "software-engineering",
         "software-development",
-        "web-development"
+        "programming",
+        "ai-agent"
       ]
     },
     {
-      "title": "AI Security Patches Failed 74% of the Time. Here's How to Review Any AI-Written Fix.",
-      "url": "https://medium.com/@sagaraglawe.pl/ai-security-patches-failed-74-of-the-time-heres-how-to-review-any-ai-written-fix-b3151d07800d",
-      "by": "sagar-aglawe",
-      "time": 1791345663000,
+      "title": "System Design Interview: How to Design a Rate Limiter That Survives Real Production Traffic",
+      "url": "https://medium.com/engineering-playbook/system-design-interview-how-to-design-a-rate-limiter-that-survives-real-production-traffic-105a976b01f2",
+      "by": "The JVM Engineer",
+      "time": 1791382800000,
       "tags": [
-        "software-engineering",
+        "backend-development",
         "programming",
-        "debugging"
+        "software-development"
+      ]
+    },
+    {
+      "title": "I Stopped Learning Cloud Services One by One. Here’s What I’m Doing Instead.",
+      "url": "https://medium.com/devops-weekly-update/i-stopped-learning-cloud-services-one-by-one-heres-what-i-m-doing-instead-4bf1520b6468",
+      "by": "Panchal Dhairya",
+      "time": 1791382786000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "github"
+      ]
+    },
+    {
+      "title": "The Job Stops Being About Writing Code",
+      "url": "https://liu-111.medium.com/the-job-stops-being-about-writing-code-ebca09e4e6e0",
+      "by": "Jesse L",
+      "time": 1791382780000,
+      "tags": [
+        "software-development",
+        "software",
+        "coding"
+      ]
+    },
+    {
+      "title": "System Design Interview: How to Design a Notification System That Doesn’t Collapse at 10 Million…",
+      "url": "https://medium.com/engineering-playbook/system-design-interview-how-to-design-a-notification-system-that-doesnt-collapse-at-10-million-4c9ed594fa98",
+      "by": "The JVM Engineer",
+      "time": 1791382719000,
+      "tags": [
+        "software-architecture",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Segregate front-end web traffic from back-end database traffic using encrypted overlay networks",
+      "url": "https://medium.com/@15.22.bobj/segregate-front-end-web-traffic-from-back-end-database-traffic-using-encrypted-overlay-networks-ff6094180290",
+      "by": "Bobj",
+      "time": 1791382654000,
+      "tags": [
+        "docker",
+        "docker-swarm",
+        "devops"
+      ]
+    },
+    {
+      "title": "We Skipped AGI and Went Straight to Superintelligence Talk",
+      "url": "https://medium.com/@mayhemcode/we-skipped-agi-and-went-straight-to-superintelligence-talk-81fc6fa0119b",
+      "by": "MayhemCode",
+      "time": 1791382575000,
+      "tags": [
+        "llm",
+        "software-development",
+        "technology"
       ]
     }
   ]
