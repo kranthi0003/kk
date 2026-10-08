@@ -1,6 +1,27 @@
 {
-  "generated": "2026-10-08T14:58:43.929Z",
+  "generated": "2026-10-08T16:00:42.293Z",
   "reddit": [
+    {
+      "title": "Java garbage collection in its own log: eight checks you can run",
+      "url": "https://www.reddit.com/r/programming/comments/1x0u5q9/java_garbage_collection_in_its_own_log_eight/",
+      "by": "huseyinbabal",
+      "time": 1791473846000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Resources to build a foundational understanding on Operating systems",
+      "url": "https://www.reddit.com/r/devops/comments/1x0u0r8/resources_to_build_a_foundational_understanding/",
+      "by": "redwing096399",
+      "time": 1791473523000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Sick of the UK.",
+      "url": "https://www.reddit.com/r/devops/comments/1x0taio/sick_of_the_uk/",
+      "by": "Electronic-Ad-4657",
+      "time": 1791471855000,
+      "sub": "r/devops"
+    },
     {
       "title": "ngl, dumping raw server logs into a massive context window is way better than writing regex",
       "url": "https://www.reddit.com/r/devops/comments/1x0syyd/ngl_dumping_raw_server_logs_into_a_massive/",
@@ -44,143 +65,120 @@
       "sub": "r/programming"
     },
     {
-      "title": "Deployment of Web and Mobile application",
-      "url": "https://www.reddit.com/r/devops/comments/1x0ozup/deployment_of_web_and_mobile_application/",
-      "by": "kuro_zip7",
-      "time": 1791460649000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Junior Java/Spring Boot developer looking to move towards AWS — Developer Associate or Solutions Architect Associate?",
-      "url": "https://www.reddit.com/r/devops/comments/1x0o64e/junior_javaspring_boot_developer_looking_to_move/",
-      "by": "Mother_Elevator_3563",
-      "time": 1791457937000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Does ClickHouse really need its own storage format?",
       "url": "https://www.reddit.com/r/programming/comments/1x0mma7/does_clickhouse_really_need_its_own_storage_format/",
       "by": "Giladkl",
       "time": 1791452336000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How much do companies publicly pay for open source? A count based only on published dollars",
-      "url": "https://www.reddit.com/r/programming/comments/1x0m1hh/how_much_do_companies_publicly_pay_for_open/",
-      "by": "MajorBaguette_",
-      "time": 1791450048000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Blockchain Node Infrastructure: Running, Scaling, and Monitoring",
-      "url": "https://medium.com/@john.galt_28062/blockchain-node-infrastructure-running-scaling-and-monitoring-16d92f10301a",
-      "by": "John Galt",
-      "time": 1791471211000,
+      "title": "Software Development is Infinite but our time is not",
+      "url": "https://medium.com/@gutierrezandresfelipe/software-development-is-infinite-but-our-time-is-not-98266c25c4c7",
+      "by": "Andres Gutierrez",
+      "time": 1791474512000,
       "tags": [
-        "devops",
-        "software-engineering",
-        "blockchain"
+        "csharp",
+        "programming",
+        "software-development"
       ]
     },
     {
-      "title": "From Community to R&D: My ICT Talent Internship Journey at Huawei Türkiye",
-      "url": "https://medium.com/@oyunus155/from-community-to-r-d-my-ict-talent-internship-journey-at-huawei-t%C3%BCrkiye-5712d5bdea1b",
-      "by": "Yunus Özdemir",
-      "time": 1791471092000,
+      "title": "Flutter Commands Every Developer Should Know",
+      "url": "https://blog.stackademic.com/flutter-commands-every-developer-should-know-8e379499dce7",
+      "by": "DevCode",
+      "time": 1791474496000,
       "tags": [
-        "artificial-intelligence",
-        "huawei",
-        "career-development"
+        "flutter-app-development",
+        "mobile-app-development",
+        "programming"
       ]
     },
     {
-      "title": "The Complete SaaS Asset Transfer Guide for Developers",
-      "url": "https://medium.com/@appsonbid/the-complete-saas-asset-transfer-guide-for-developers-a4b08107051f",
-      "by": "Appsonbid",
-      "time": 1791470981000,
+      "title": "Stop Kubernetes Pod Clumping: Topology Spread Constraints Explained 2026",
+      "url": "https://learnitguide.medium.com/stop-kubernetes-pod-clumping-topology-spread-constraints-explained-2026-6796ef7119a4",
+      "by": "Linux, DevOps, Cloud, Python, A…",
+      "time": 1791474410000,
       "tags": [
-        "entrepreneurship",
-        "startup",
+        "cloud-computing",
+        "kubernetes",
+        "podtopology"
+      ]
+    },
+    {
+      "title": "I Did 11 Technical Interviews in 60 Days. Here Is the Pattern Nobody Tells You.",
+      "url": "https://medium.com/@mukeshpatel96p/i-did-11-technical-interviews-in-60-days-here-is-the-pattern-nobody-tells-you-6b36d96e1595",
+      "by": "",
+      "time": 1791474370000,
+      "tags": [
         "software-engineering"
       ]
     },
     {
-      "title": "Stop saying AI development is just about debugging APIs!",
-      "url": "https://medium.com/@umeshnewcapg/stop-saying-ai-development-is-just-about-debugging-apis-17c9182c3a2e",
-      "by": "Photon neurons",
-      "time": 1791470838000,
+      "title": "Claude Haiku 5.5 Was Worth the Wait",
+      "url": "https://medium.com/the-ai-brief/claude-haiku-5-5-was-worth-the-wait-ba0175b34165",
+      "by": "Caspar Bannink - AI Engineer",
+      "time": 1791474233000,
       "tags": [
-        "ai-agent",
-        "ai",
-        "python"
-      ]
-    },
-    {
-      "title": "Is ByteByteGo Really Worth It for FAANG Interviews in 2027? My Review",
-      "url": "https://medium.com/javarevisited/is-bytebytego-really-worth-it-for-faang-interviews-in-2027-my-review-56e6b523fbd4",
-      "by": "Soma",
-      "time": 1791470741000,
-      "tags": [
-        "distributed-systems",
-        "review",
-        "coding-interviews"
-      ]
-    },
-    {
-      "title": "Best AI Video Models for Short Dramas (2026): 6 Picks｜GPTProto",
-      "url": "https://medium.com/@gptproto.team/best-ai-video-models-for-short-dramas-2026-6-picks-gptproto-63f336f4c642",
-      "by": "Jacob GPTProto",
-      "time": 1791470723000,
-      "tags": [
-        "programming",
+        "machine-learning",
         "technology",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Containers Didn’t Fix Our Hard Problems. They Just Gave Them a Nicer Suit.",
-      "url": "https://medium.com/@gurpreet.devops/containers-didnt-fix-our-hard-problems-they-just-gave-them-a-nicer-suit-cc4d7d265892",
-      "by": "Gurpreet Singh Kambo",
-      "time": 1791470536000,
+      "title": "Hypervisors in Automotive: A Complete Guide from Basics to Advanced",
+      "url": "https://medium.com/@bhargavamandapati/hypervisors-in-automotive-a-complete-guide-from-basics-to-advanced-14a0cf661af7",
+      "by": "Mandapati Bhargava",
+      "time": 1791474180000,
       "tags": [
-        "devops",
-        "kubernetes",
-        "containers"
+        "operating-systems",
+        "automotive",
+        "hypervisors"
       ]
     },
     {
-      "title": "Stop Writing Extra Lookups: Clean Up Your Rust HashMap Code",
-      "url": "https://medium.com/@monikasinghal713/stop-writing-extra-lookups-clean-up-your-rust-hashmap-code-ed77f15b2e4c",
-      "by": "Monika Singhal",
-      "time": 1791470453000,
+      "title": "AI Agents for Appium: How I Built Guardrails That Actually Work",
+      "url": "https://sonu-gupta.medium.com/ai-agents-for-appium-how-i-built-guardrails-that-actually-work-1a8c6ffb7081",
+      "by": "Sonu Gupta",
+      "time": 1791474153000,
       "tags": [
-        "rust",
+        "appium",
+        "software-engineering",
+        "ai-agents-in-action"
+      ]
+    },
+    {
+      "title": "Solving S = 1+(1+2)+..+(1+..+N) in Python",
+      "url": "https://medium.com/@diyapari2448/solving-s-1-1-2-1-n-in-python-8a7442b727b1",
+      "by": "Diyraxis",
+      "time": 1791474073000,
+      "tags": [
+        "math",
         "software-development",
+        "data-science"
+      ]
+    },
+    {
+      "title": "Every Codebase Is a Story (Most Are Just Bad Ones)",
+      "url": "https://medium.com/@juancarlosgarzon/every-codebase-is-a-story-most-are-just-bad-ones-72f64b11760b",
+      "by": "Juan Carlos Garzon",
+      "time": 1791473813000,
+      "tags": [
+        "story-driven-development",
+        "software-engineering",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Firefox’s AI Bet: Is It the Last Dance?",
+      "url": "https://canartuc.medium.com/firefoxs-ai-bet-is-it-the-last-dance-7ef80166a19c",
+      "by": "Can Artuc",
+      "time": 1791473766000,
+      "tags": [
+        "open-source",
+        "technology",
         "software-engineering"
-      ]
-    },
-    {
-      "title": "Musk, the Biggest Oligarch, Is Complaining That India’s Oligarchs Won’t Let Him In",
-      "url": "https://medium.com/the-geopolitical-economist/musk-the-biggest-oligarch-is-complaining-that-indias-oligarchs-won-t-let-him-in-dfe1cc0855fe",
-      "by": "Vikas",
-      "time": 1791470443000,
-      "tags": [
-        "politics",
-        "science",
-        "technology"
-      ]
-    },
-    {
-      "title": "Cloudflare Enters Resend’s Territory: Native Email Sending in a $5 Edge Runtime",
-      "url": "https://medium.com/kd-agentic/cloudflare-enters-resends-territory-native-email-sending-in-a-5-edge-runtime-89ecadf1ee8c",
-      "by": "KD Agentic",
-      "time": 1791470396000,
-      "tags": [
-        "cloudflare",
-        "serverless",
-        "programming"
       ]
     }
   ]
