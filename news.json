@@ -1,39 +1,67 @@
 {
-  "generated": "2026-10-07T14:28:42.114Z",
+  "generated": "2026-10-08T04:34:44.296Z",
   "reddit": [
     {
-      "title": "Moving off GitHub Actions doesn't get you off GitHub: your tool installs still depend on it",
-      "url": "https://www.reddit.com/r/programming/comments/1wzxplb/moving_off_github_actions_doesnt_get_you_off/",
-      "by": "Patient-Pollution46",
-      "time": 1791382628000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Anti-Patterns in Software Blogging",
-      "url": "https://www.reddit.com/r/programming/comments/1wzw4cw/antipatterns_in_software_blogging/",
-      "by": "mtlynch",
-      "time": 1791378604000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Post-mortem debuggable, minimal-size memory dumps on macOS",
-      "url": "https://www.reddit.com/r/programming/comments/1wzw1y7/postmortem_debuggable_minimalsize_memory_dumps_on/",
-      "by": "donpedro1337",
-      "time": 1791378420000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How do I attribute API costs for AI?",
-      "url": "https://www.reddit.com/r/devops/comments/1wzuq7a/how_do_i_attribute_api_costs_for_ai/",
-      "by": "Odd-Competition-6948",
-      "time": 1791374615000,
+      "title": "Terraform / OpenTofu engineers quick questions about your actual workflow",
+      "url": "https://www.reddit.com/r/devops/comments/1x0gvsh/terraform_opentofu_engineers_quick_questions/",
+      "by": "Legitimate-Complex32",
+      "time": 1791431180000,
       "sub": "r/devops"
     },
     {
-      "title": "Porthole: an open-source Kubernetes desktop client built with Tauri + Rust",
-      "url": "https://www.reddit.com/r/devops/comments/1wzu0yt/porthole_an_opensource_kubernetes_desktop_client/",
-      "by": "young_dimm",
-      "time": 1791372423000,
+      "title": "Europol urges early action to protect cryptocurrencies and sensitive data from quantum threats",
+      "url": "https://www.reddit.com/r/programming/comments/1x0ggel/europol_urges_early_action_to_protect/",
+      "by": "donutloop",
+      "time": 1791429794000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Are Developers obsolete?",
+      "url": "https://www.reddit.com/r/programming/comments/1x0g1iu/are_developers_obsolete/",
+      "by": "GenericAHHyoutuber",
+      "time": 1791428501000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Where do you keep up with AI agent tools for infra?",
+      "url": "https://www.reddit.com/r/devops/comments/1x0dihy/where_do_you_keep_up_with_ai_agent_tools_for_infra/",
+      "by": "vibe-co",
+      "time": 1791420934000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How Uber Conquered Database Overload: The Journey from Static Rate-Limiting to Intelligent Load Management",
+      "url": "https://www.reddit.com/r/programming/comments/1x0ckk1/how_uber_conquered_database_overload_the_journey/",
+      "by": "Ok_Stomach6651",
+      "time": 1791418130000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "State of Devs 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1x0asww/state_of_devs_2026/",
+      "by": "BrewedDoritos",
+      "time": 1791413284000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How savepoints quietly throttled our Postgres queue",
+      "url": "https://www.reddit.com/r/programming/comments/1x02iea/how_savepoints_quietly_throttled_our_postgres/",
+      "by": "shared_ptr",
+      "time": 1791393719000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Is “security by default” becoming more important now that everyone can ship software with AI?",
+      "url": "https://www.reddit.com/r/devops/comments/1x018u3/is_security_by_default_becoming_more_important/",
+      "by": "aisatsana__",
+      "time": 1791390850000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How much of your incident response do you automate?",
+      "url": "https://www.reddit.com/r/devops/comments/1wzzjvh/how_much_of_your_incident_response_do_you_automate/",
+      "by": "Chris__Codes",
+      "time": 1791386995000,
       "sub": "r/devops"
     },
     {
@@ -42,145 +70,117 @@
       "by": "Big-Lychee5971",
       "time": 1791368801000,
       "sub": "r/devops"
-    },
-    {
-      "title": "A peek into Reddit's anti-spam internals",
-      "url": "https://www.reddit.com/r/programming/comments/1wzskuf/a_peek_into_reddits_antispam_internals/",
-      "by": "fagnerbrack",
-      "time": 1791367233000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Tornet? Kali_linux",
-      "url": "https://www.reddit.com/r/devops/comments/1wzqcqf/tornet_kali_linux/",
-      "by": "Background-Moment59",
-      "time": 1791358370000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "From Custom to Open: Scalable Network Probing and HTTP/3 Readiness with Prometheus",
-      "url": "https://www.reddit.com/r/programming/comments/1wzfp28/from_custom_to_open_scalable_network_probing_and/",
-      "by": "Ok_Stomach6651",
-      "time": 1791324240000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Sevalla is a total shit show",
-      "url": "https://www.reddit.com/r/devops/comments/1wzf28g/sevalla_is_a_total_shit_show/",
-      "by": "ConferenceOld6778",
-      "time": 1791322622000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Senior Backend Engineer Interview: 10 Database Questions That Get Much Harder After the Obvious…",
-      "url": "https://medium.com/engineering-playbook/senior-backend-engineer-interview-10-database-questions-that-get-much-harder-after-the-obvious-11e312b90d99",
-      "by": "The JVM Engineer",
-      "time": 1791383057000,
+      "title": "How to Fix CrashLoopBackOff in Kubernetes: A Complete Debug Guide",
+      "url": "https://medium.com/devops-ai-decoded/how-to-fix-crashloopbackoff-in-kubernetes-a-complete-debug-guide-77a3c9fb78a4",
+      "by": "Neel Shah",
+      "time": 1791433862000,
       "tags": [
-        "coding",
-        "software-development",
+        "technology",
+        "crashloopbackoff",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "I tested the 300 ms benchmark rule against Python and Node startup",
+      "url": "https://mozzammeluiu.medium.com/i-tested-the-300-ms-benchmark-rule-against-python-and-node-startup-d310c720aba6",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1791433347000,
+      "tags": [
+        "nodejs",
+        "programming",
+        "python"
+      ]
+    },
+    {
+      "title": "How to Become an AI Engineer in 2026: The Complete Learning Roadmap",
+      "url": "https://medium.com/@spsingh02497/how-to-become-an-ai-engineer-in-2026-the-complete-learning-roadmap-1347e7ce7ec0",
+      "by": "AI, Money & Career",
+      "time": 1791433109000,
+      "tags": [
+        "ai-engineering",
+        "technology",
         "programming"
       ]
     },
     {
-      "title": "KI-Alltagsprodukte: 7 unbekannte Geräte aus Shenzhen",
-      "url": "https://everlastai.medium.com/ki-alltagsprodukte-7-unbekannte-ger%C3%A4te-aus-shenzhen-5056f77622b5",
-      "by": "Everlast AI",
-      "time": 1791383007000,
+      "title": "Driving Quality at Scale: Modern Azure DevOps Automated Testing and Next-Gen Test Management",
+      "url": "https://medium.com/@Global_Executive/driving-quality-at-scale-modern-azure-devops-automated-testing-and-next-gen-test-management-c05955625f71",
+      "by": "Olha Remeniak",
+      "time": 1791433073000,
       "tags": [
-        "künstliche-intelligenz",
-        "ai",
-        "technology"
+        "qa-automation",
+        "test-management",
+        "automated-testing"
       ]
     },
     {
-      "title": "Top 10 Modern Replacements for Classic Unix Commands",
-      "url": "https://liu-111.medium.com/top-10-modern-replacements-for-classic-unix-commands-ddff7efe298f",
-      "by": "Jesse L",
-      "time": 1791382863000,
+      "title": "Understanding Kubernetes Resources with kubectl api-resources and kubectl explain",
+      "url": "https://medium.com/@tushar.jadhav29/understanding-kubernetes-resources-with-kubectl-api-resources-and-kubectl-explain-5cf44d90c0d0",
+      "by": "DevOps voice",
+      "time": 1791432961000,
       "tags": [
-        "coding",
-        "software",
-        "programming"
+        "devops",
+        "kubernetes-cluster",
+        "kubernetes"
       ]
     },
     {
-      "title": "Claude Code Wrote the Fix. Here’s How to Prove It Works.",
-      "url": "https://halilozel1903.medium.com/claude-code-wrote-the-fix-heres-how-to-prove-it-works-83c36eb7468c",
-      "by": "Halil Özel",
-      "time": 1791382861000,
+      "title": "Route::query() in Laravel 13.35: A Cleaner Way to Build Search Endpoints",
+      "url": "https://medium.com/codex/route-query-in-laravel-13-35-a-cleaner-way-to-build-search-endpoints-b5eb6af6d6a5",
+      "by": "Developer Awam",
+      "time": 1791432811000,
       "tags": [
-        "software-development",
-        "programming",
-        "ai-agent"
+        "laravel",
+        "laravel-framework",
+        "web-development"
       ]
     },
     {
-      "title": "System Design Interview: How to Design a Rate Limiter That Survives Real Production Traffic",
-      "url": "https://medium.com/engineering-playbook/system-design-interview-how-to-design-a-rate-limiter-that-survives-real-production-traffic-105a976b01f2",
-      "by": "The JVM Engineer",
-      "time": 1791382800000,
-      "tags": [
-        "backend-development",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "I Stopped Learning Cloud Services One by One. Here’s What I’m Doing Instead.",
-      "url": "https://medium.com/devops-weekly-update/i-stopped-learning-cloud-services-one-by-one-heres-what-i-m-doing-instead-4bf1520b6468",
-      "by": "Panchal Dhairya",
-      "time": 1791382786000,
+      "title": "Phase 2 Starts in 5 Days — Tomorrow at 7 PM PST: We design a Production-Ready AWS Architecture",
+      "url": "https://devopslearning.medium.com/phase-2-starts-in-5-days-tomorrow-at-7-pm-pst-we-design-a-production-ready-aws-architecture-6e807bb309cf",
+      "by": "Prashant Lakhera",
+      "time": 1791432110000,
       "tags": [
         "cloud-computing",
         "devops",
-        "github"
+        "llm"
       ]
     },
     {
-      "title": "The Job Stops Being About Writing Code",
-      "url": "https://liu-111.medium.com/the-job-stops-being-about-writing-code-ebca09e4e6e0",
-      "by": "Jesse L",
-      "time": 1791382780000,
+      "title": "HSRP Series — Part 2: Why Human Representation Needs State, Time, and Uncertainty",
+      "url": "https://medium.com/@shahinasamir786/hsrp-series-part-2-why-human-representation-needs-state-time-and-uncertainty-062013b328f8",
+      "by": "shahina parveen",
+      "time": 1791431983000,
       "tags": [
-        "software-development",
-        "software",
-        "coding"
+        "artificial-intelligence",
+        "future",
+        "data-science"
       ]
     },
     {
-      "title": "System Design Interview: How to Design a Notification System That Doesn’t Collapse at 10 Million…",
-      "url": "https://medium.com/engineering-playbook/system-design-interview-how-to-design-a-notification-system-that-doesnt-collapse-at-10-million-4c9ed594fa98",
-      "by": "The JVM Engineer",
-      "time": 1791382719000,
+      "title": "The Exact Moment You Should Sell Your Side Project",
+      "url": "https://medium.com/@appsonbid/the-exact-moment-you-should-sell-your-side-project-09bce0206773",
+      "by": "Appsonbid",
+      "time": 1791431899000,
       "tags": [
-        "software-architecture",
+        "startup",
+        "indiehackers",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "I Gave My Java AI Agent 10 Tools. Then It Started Making the Wrong Decisions.",
+      "url": "https://medium.com/@ersumit077/i-gave-my-java-ai-agent-10-tools-then-it-started-making-the-wrong-decisions-ec68b14a49f7",
+      "by": "Java & AI Engineering",
+      "time": 1791431870000,
+      "tags": [
         "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Segregate front-end web traffic from back-end database traffic using encrypted overlay networks",
-      "url": "https://medium.com/@15.22.bobj/segregate-front-end-web-traffic-from-back-end-database-traffic-using-encrypted-overlay-networks-ff6094180290",
-      "by": "Bobj",
-      "time": 1791382654000,
-      "tags": [
-        "docker",
-        "docker-swarm",
-        "devops"
-      ]
-    },
-    {
-      "title": "We Skipped AGI and Went Straight to Superintelligence Talk",
-      "url": "https://medium.com/@mayhemcode/we-skipped-agi-and-went-straight-to-superintelligence-talk-81fc6fa0119b",
-      "by": "MayhemCode",
-      "time": 1791382575000,
-      "tags": [
-        "llm",
-        "software-development",
-        "technology"
+        "spring-boot",
+        "artificial-intelligence"
       ]
     }
   ]
