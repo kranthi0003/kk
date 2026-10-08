@@ -17,19 +17,23 @@ Something happens.
 
 You know exactly when the story begins.
 
-And then there are people who arrive so quietly that you don't realize you've just met someone who will remain somewhere inside you for years.
+And then there are people who arrive so quietly that you don't realize you've just met someone who will stay somewhere inside you for years.
 
-For me, it was her.
+For me, it was a girl.
 
-Amrutha.
+I'm not going to tell you her name.
 
-I was young when I first saw her.
+Not yet.
+
+You'll know it by the end.
+
+Maybe sooner.
+
+All you need to know for now is that I was young when I first saw her.
 
 I didn't know what love was.
 
-I didn't know what it meant to be drawn toward someone you had barely spoken to.
-
-I didn't know that a face you saw for a moment could become a name your mind carried long after the moment was gone.
+I didn't know that a face you see for a moment can stay with you long after the moment is gone.
 
 I only knew one thing.
 
@@ -39,7 +43,7 @@ And somehow, I never completely stopped.
 
 ---
 
-# **2018 — The First Time**
+# **Years ago — The First Time**
 
 I don't remember every detail of the day I first saw her.
 
@@ -47,13 +51,13 @@ But I remember the feeling.
 
 There she was.
 
-And for some reason, among all the people around me, my eyes found her.
+And for some reason, out of everyone around me, my eyes found her.
 
-I was not some confident guy who could simply walk up and introduce himself.
+I wasn't the kind of guy who could simply walk up and introduce himself.
 
 I was shy.
 
-I barely knew how to talk to girls properly.
+I barely knew how to talk to girls.
 
 So I did what shy boys do.
 
@@ -65,19 +69,17 @@ I noticed.
 
 I wondered.
 
-And then life continued.
+And then she was gone, and life carried on as if nothing had happened.
 
-The strange thing is that nothing really happened between us.
+Because nothing had.
 
-There was no relationship.
+No conversation.
 
 No confession.
 
 No beautiful teenage romance.
 
-Barely even a conversation.
-
-And yet she stayed in my head.
+And yet, she stayed in my head.
 
 Maybe that's how some stories begin.
 
@@ -85,9 +87,11 @@ Not with two people meeting.
 
 But with **one person noticing another.**
 
+It would take me eight years to understand why.
+
 ---
 
-# **2019 — Looking for Her**
+# **A year later — Looking for Her**
 
 College came.
 
@@ -95,7 +99,7 @@ Life started moving quickly.
 
 And somewhere along the way, I found out where she studied.
 
-Most people would probably have let the crush fade.
+Most people would have let a crush like that fade.
 
 I didn't.
 
@@ -103,49 +107,51 @@ I went to her college.
 
 **Twice.**
 
-Not because I had some elaborate plan.
+No plan.
 
-Not because I knew what I was going to say.
+No idea what I'd say if I actually found her.
 
-I just wanted to see if I could find her.
+Just a hope.
 
 Maybe I'd see her walking somewhere.
 
-Maybe we'd accidentally cross paths.
+Maybe we'd cross paths by accident.
 
-Maybe I'd finally get the courage to say something.
-
-Maybe something would happen.
-
-Nothing did.
+Maybe, this time, I'd finally say something.
 
 Both times, I came back without finding her.
 
-And looking back now, there's something almost funny about it.
+Looking back, it's almost funny.
 
-I hadn't even properly spoken to this girl.
+I had never really spoken to this girl.
 
-Yet some part of me was already afraid that I would never get the chance.
+And some part of me was already afraid I'd never get the chance.
 
-I didn't know it then, but this would become the first pattern of our story.
+I came home with nothing.
+
+Nothing but one thought I couldn't explain, and couldn't shake.
+
+*Don't let this go.*
+
+I didn't know it then, but this was the first time our story did the thing it would keep doing for years.
 
 **I would lose sight of her.**
 
-And then, somehow, life would give me another way to find her.
+And then, somehow, life would hand me another way to find her.
 
 ---
 
-# **2020 — Life Moves On**
+# **Two years later — Life Moves On**
 
-The world changed.
+Then the world changed.
 
-College continued.
+College went on.
 
 People moved.
 
-Everyone became busy becoming someone.
+Everyone got busy becoming someone.
 
-And I did too.
+So did I.
 
 She became a distant thought.
 
@@ -153,15 +159,23 @@ Not something I thought about every day.
 
 Not some dramatic obsession.
 
-Just a name that had somehow managed to survive in the back of my mind.
+Just a face that had somehow survived in the back of my mind.
 
 Life was getting bigger.
 
 And so was the distance between us.
 
+If you'd asked me then, I would have told you the story was over.
+
+But somewhere inside me, a light stayed on.
+
+Just in case.
+
+It turned out the story hadn't even started.
+
 ---
 
-# **2021 — Becoming Someone Else**
+# **Three years later — Becoming Someone Else**
 
 I was growing up.
 
@@ -187,43 +201,41 @@ How to lose.
 
 How to move forward.
 
-And somewhere in all of that, Amrutha remained a strange little unfinished sentence.
+And somewhere in all of that, she remained a strange little unfinished sentence.
 
-Not something I was actively waiting for.
+Not something I was waiting for.
 
 Just something that never got a full stop.
 
+The next year, the sentence picked itself back up.
+
 ---
 
-# **2022 — Amazon**
+# **Four years later — The Same Company**
 
-Then came the first truly bizarre coincidence.
+It started with a coincidence I still can't quite explain.
 
-**Amazon.**
+She joined the company I worked at.
 
-I found out that Amrutha had joined Amazon.
+Of all the companies in the world.
 
-Suddenly, the girl from years ago wasn't just a distant memory anymore.
+A place so big you could spend years inside it and never cross paths with the same person twice.
 
-She was somewhere inside the same enormous company.
+And somehow, the girl from years ago was in there too.
 
-The same professional world.
+Suddenly, she wasn't just a memory anymore.
 
-The same universe.
+Same company.
 
-It felt strange.
+Same work.
 
-Because I had spent years thinking of her as someone who belonged to another part of my life.
-
-And suddenly she was here.
+Same world.
 
 Not beside me.
 
-Not necessarily in my everyday life.
+Not in my everyday life.
 
 But close enough to be real again.
-
-And that changed something.
 
 It made me realize that maybe some people don't disappear.
 
@@ -231,39 +243,39 @@ Sometimes they just move to another chapter.
 
 ---
 
-# **2022–2023 — Another Door**
+# **Around the same time — Another Door**
 
 Work gave us something school never had.
 
 A reason to exist in the same world.
 
-There were professional platforms.
+Work chats.
 
-Slack.
-
-Work conversations.
-
-Small interactions.
+Small conversations.
 
 Little moments that, on their own, meant almost nothing.
 
 But to me, they mattered.
 
-Because every interaction was proof of something I had once thought impossible:
+Because every one of them was proof of something I had once thought impossible:
 
 **She was no longer just the girl I remembered.**
 
 She was someone I could actually reach.
 
-But I still didn't know what to do with that.
+And I still didn't know what to do with that.
 
-There were no grand declarations.
+No grand declarations.
 
 No movie scenes.
 
-Just two people living their own lives.
+Just two people, living two separate lives.
 
-And me, occasionally finding another little doorway through which I could see hers.
+Somewhere in those years, she bought a flat.
+
+I didn't know.
+
+And I wouldn't find out where it was for a long, long time.
 
 ---
 
@@ -281,25 +293,25 @@ Sometimes Instagram.
 
 Sometimes Snapchat.
 
-Sometimes a random interaction.
+Sometimes a random message.
 
 Sometimes nothing at all.
 
-The platform kept changing.
+The doors kept changing.
 
 The distance kept changing.
 
 Our lives kept changing.
 
-But somehow, every few years, I would find another way to cross her path.
+But every so often, I would find another way to cross her path.
 
-And then we'd disappear again.
+And then we'd both disappear again.
 
 It sounds almost ridiculous when you say it out loud.
 
 But that's exactly what happened.
 
-I wasn't sitting around waiting for her every day.
+I wasn't sitting around waiting for her.
 
 I had my own life.
 
@@ -311,15 +323,23 @@ My own problems.
 
 I kept moving.
 
-But whenever she appeared again, some tiny part of me still recognized her immediately.
+Every time she disappeared, I had a hundred reasons to give up.
+
+None of them were ever strong enough.
+
+Not because I was waiting.
+
+Because something in me simply refused to.
+
+Whenever she appeared again, some small part of me still recognized her instantly.
 
 **Oh. Her.**
 
 ---
 
-# **2023 — A Different Kind of Knowing**
+# **Five years later — A Different Kind of Knowing**
 
-By now, she wasn't just a girl I had seen years ago.
+By now, she wasn't just a girl I'd seen years ago.
 
 I knew more about her.
 
@@ -327,19 +347,15 @@ Her work.
 
 Her personality.
 
-The kind of person she was becoming.
+The person she was becoming.
 
 The things she cared about.
 
 And still, our lives weren't really connected.
 
-We were two people whose paths occasionally crossed.
-
 A message here.
 
-An interaction there.
-
-A social-media connection.
+A reply there.
 
 Then silence.
 
@@ -347,23 +363,21 @@ Then life again.
 
 It was never enough to become a story.
 
-But it was always enough to keep the story from completely disappearing.
+But it was always enough to keep the story from disappearing.
 
 ---
 
-# **2024 — Almost**
+# **Six years later — Almost**
 
-There are years that don't contain big events.
+Some years don't have big events in them.
 
-They contain almosts.
+They have almosts.
 
 Almost conversations.
 
 Almost connections.
 
-Almost opportunities.
-
-Almost moments when you think:
+Almost moments, when you catch yourself thinking:
 
 *Maybe this is finally going somewhere.*
 
@@ -385,13 +399,17 @@ And you tell yourself:
 
 And you move on.
 
-At least outwardly.
+At least, on the outside.
+
+On the inside, one thought never moved.
+
+*Don't let go.*
 
 ---
 
-# **2025 — The Girl Somewhere in the Background**
+# **Seven years later — Home**
 
-By 2025, I had lived enough life to know better than to romanticize every old feeling.
+By then, I had lived enough life to stop romanticizing every old feeling.
 
 People change.
 
@@ -399,37 +417,45 @@ Crushes change.
 
 Memories change.
 
-Sometimes you think you miss someone when really you miss who you were when you knew them.
+Sometimes you think you miss someone, when really you miss who you were when you knew them.
 
-So I didn't want to turn Amrutha into some perfect imaginary person.
+So I didn't want to turn her into some perfect, imaginary person.
 
 She had her own life.
 
 I had mine.
 
-And perhaps that was where our story would remain.
+Maybe that was where our story would stay.
 
-A beautiful coincidence.
+A coincidence.
 
 A girl I once noticed.
 
-A person I occasionally crossed paths with.
-
 A chapter that never quite became a book.
 
-Until 2026.
+That year, I bought a flat.
+
+Picked the place.
+
+Signed the papers.
+
+Picked up the keys.
+
+A new home.
+
+A fresh start.
+
+And I had no idea who was already living about a kilometer down the road.
 
 ---
 
-# **2026 — Finding Her Again**
+# **Eight years later — Finding Her Again**
 
-Something changed this year.
+Then, this year, something changed.
 
 Instagram.
 
 A follow.
-
-A connection.
 
 A message.
 
@@ -437,23 +463,23 @@ And suddenly, after all those years of tiny encounters and disappearing doors, w
 
 Properly.
 
-Not just as two people who happened to know of each other.
+Not as two people who happened to know of each other.
 
-But as two adults trying to figure out who the other person had become.
+But as two adults trying to work out who the other had become.
 
-And that was the part I hadn't expected.
+That was the part I hadn't expected.
 
-Because I had remembered the girl.
+I had remembered the girl.
 
 But I was meeting the woman.
 
 ---
 
-# **July — The Conversation**
+# **That July — The Conversation**
 
-July 2026 was different.
+July was different.
 
-This time, the conversation didn't feel like a random interaction that would disappear in a few days.
+This time, the conversation didn't feel like something that would vanish in a few days.
 
 It kept going.
 
@@ -461,27 +487,19 @@ We talked.
 
 And talked.
 
-And somewhere between all the normal conversations, something began to feel familiar.
-
 She told me about her life.
 
 Her family.
 
-Her experiences.
-
-Her thoughts.
-
 Her travels.
-
-The things she cared about.
 
 The things that made her happy.
 
-The things that frustrated her.
+The things that drove her mad.
 
 And I told her about mine.
 
-For the first time, we weren't just two people occasionally appearing on each other's screens.
+For the first time, we weren't two people who occasionally appeared on each other's screens.
 
 We were actually **getting to know each other.**
 
@@ -491,13 +509,11 @@ We were actually **getting to know each other.**
 
 Then came the little things.
 
-And I've always believed that the little things tell you more than the big ones.
+And I've always believed the little things tell you more than the big ones.
 
 She asked about my flights.
 
 She shared things from her day.
-
-She told me things privately.
 
 She sent photographs.
 
@@ -509,121 +525,19 @@ She asked questions.
 
 She started sharing parts of her life that didn't need to be shared.
 
-She told me she barely used Instagram and was using it just for me.
+She told me she barely used Instagram, and that she was using it just for me.
 
 And then she gave me her WhatsApp number.
 
-That tiny transition meant more than it probably looked like from the outside.
+That tiny step meant more than it probably looked like from the outside.
 
-Instagram was where two people who had rediscovered each other were talking.
+Instagram was where two people who had found each other again were talking.
 
 WhatsApp felt like:
 
 **Okay. You're actually part of my life now.**
 
----
-
-# **The Visa**
-
-Then there were the conversations about her US visa.
-
-She asked me about the B1/B2 interview.
-
-I helped where I could.
-
-And when she got the approval, she told me.
-
-A small thing.
-
-A normal thing.
-
-But I remember thinking how strange life was.
-
-Years ago, I had gone to her college twice just hoping to see her.
-
-Now she was messaging me about things happening in her actual life.
-
----
-
-# **The Kylaq**
-
-Then came the little things that made the connection feel increasingly personal.
-
-She told me about her car.
-
-The Škoda Kylaq.
-
-She shared it with me before most people knew.
-
-Maybe someone else would have looked at that and thought nothing of it.
-
-I noticed.
-
-Because after years of barely knowing where we stood, being one of the people she spontaneously shared things with felt meaningful.
-
-Not proof of romance.
-
-Just proof that I mattered enough to be included.
-
----
-
-# **The Shoes**
-
-Then came the Nike shoes.
-
-She picked them.
-
-I bought them.
-
-There was joking about reimbursement.
-
-There was the little excitement of choosing something for someone you care about.
-
-And suddenly, our relationship wasn't just words on a screen.
-
-There were physical objects travelling between our lives.
-
-A pair of shoes.
-
-A Lego car.
-
-Small things.
-
-But sometimes affection isn't expressed through grand declarations.
-
-Sometimes it's:
-
-**“I saw this and thought you'd like it.”**
-
----
-
-# **The Lego**
-
-Then came the Lego.
-
-The F1 connection.
-
-The excitement.
-
-Her reaction.
-
-The kind of happiness that makes you smile simply because someone else is happy.
-
-Those were the moments when I realized something.
-
-I wasn't interested only in being liked by her.
-
-I genuinely liked **making her happy.**
-
-There is a difference.
-
----
-
-# **And Then — WhatsApp**
-
-Instagram eventually became too small for what our conversations had become.
-
-WhatsApp became the place where we talked about everything.
+Soon it was where we talked about everything.
 
 Random things.
 
@@ -639,13 +553,9 @@ Work.
 
 Family.
 
-Life.
-
 Dreams.
 
-The kind of conversations that don't have an obvious beginning or ending.
-
-And somewhere in that endless stream of messages, the girl I had first seen years ago became someone whose name appearing on my phone could change my entire mood.
+And somewhere in that endless stream of messages, the girl I'd first noticed all those years ago became someone whose name on my phone could change my whole mood.
 
 ---
 
@@ -657,29 +567,21 @@ She started letting me see things that felt more private.
 
 Her thoughts.
 
-Her vulnerabilities.
+Her worries.
 
 Her family.
 
 Her dreams.
 
-Her insecurities.
-
-Things from her day.
-
-Little pieces of herself that weren't necessarily meant for everyone.
-
-There were photos.
+Little pieces of herself that weren't meant for everyone.
 
 Voice notes.
 
-Personal stories.
-
-Things she explicitly told me hadn't been shared with others.
+Stories she told me she hadn't told anyone else.
 
 And I understood something important.
 
-Maybe this wasn't necessarily romance.
+Maybe this wasn't romance.
 
 But it was **trust**.
 
@@ -689,7 +591,7 @@ And trust is something I never wanted to take lightly.
 
 # **The Girl I Thought I Knew**
 
-The more we talked, the more I realized how little I had actually known about her in 2018.
+The more we talked, the more I realized how little I had really known about her, all those years ago.
 
 Back then, I had fallen for an impression.
 
@@ -707,7 +609,13 @@ Her stubbornness.
 
 Her softness.
 
-Her ambition.
+How hard she works.
+
+How much she carries.
+
+How deeply she feels things.
+
+And how she still shows up, every single day.
 
 Her love for her family.
 
@@ -715,11 +623,9 @@ Her random interests.
 
 Her travel dreams.
 
-Her complicated thoughts about relationships and marriage.
+Her own ideas about love, and about the life she wants.
 
-Her desire to become successful.
-
-Her own vision of the woman she wanted to become.
+Her own picture of the woman she wants to become.
 
 And somehow...
 
@@ -739,43 +645,183 @@ And I didn't want to lie to myself.
 
 Maybe she simply felt safe with me.
 
-Maybe she genuinely enjoyed talking to me.
-
-Maybe there was attraction.
+Maybe she just enjoyed talking to me.
 
 Maybe there was something neither of us had named yet.
 
-I could interpret messages forever.
+I could read into messages forever.
 
-I could analyze emojis.
+Analyze emojis.
 
-I could count who initiated conversations.
+Count who texted first.
 
-I could look for signs.
+Look for signs.
 
-But eventually, there is only one thing that can answer the question.
+But in the end, only one thing answers a question like that.
 
 **Time.**
 
-And eventually, reality.
+And, eventually, real life.
+
+I had waited eight years without even knowing her.
+
+I could wait a little longer, now that I did.
+
+---
+
+# **One Kilometer**
+
+And then the coincidences started.
+
+The first one, I still can't quite believe.
+
+Somewhere in all those conversations, we got talking about where we lived.
+
+Remember the flat she bought, years ago?
+
+Remember the one I bought, the year before we found each other again?
+
+They were about a kilometer apart.
+
+**One kilometer.**
+
+Two different years.
+
+Two different decisions.
+
+Neither of us with any idea the other was anywhere near.
+
+After all those years of looking for doors, I had ended up living just down the road from her.
+
+And it wasn't the only one.
+
+The more we talked, the more of them we found.
+
+Things we had both chosen.
+
+Both loved.
+
+Both done.
+
+Without ever knowing the other had too.
+
+As if life had been quietly keeping us close all along.
+
+Just never close enough to notice.
+
+---
+
+# **The Visa**
+
+Then there were the conversations about her US visa.
+
+She asked me about the B1/B2 interview.
+
+I helped where I could.
+
+And when it was approved, she told me.
+
+A small thing.
+
+A normal thing.
+
+But I remember thinking how strange life was.
+
+Years ago, I had gone to her college twice, just hoping to see her.
+
+Now she was telling me the news of her actual life.
+
+---
+
+# **The Kylaq**
+
+Then she told me about her car.
+
+A Škoda Kylaq.
+
+She shared it with me before most people knew.
+
+Someone else might not have thought anything of it.
+
+I noticed.
+
+Because after years of barely knowing where we stood, being one of the first people she told felt like something.
+
+Not proof of romance.
+
+Just proof that I mattered enough to be included.
+
+---
+
+# **The Shoes**
+
+Then came the Nike shoes.
+
+She picked them.
+
+I bought them.
+
+There was joking about reimbursement.
+
+There was the little excitement of choosing something for someone you care about.
+
+And suddenly it wasn't just words on a screen anymore.
+
+Things were travelling between our lives.
+
+A pair of shoes.
+
+A Lego car.
+
+Small things.
+
+But sometimes affection isn't a grand declaration.
+
+Sometimes it's:
+
+**“I saw this and thought you'd like it.”**
+
+---
+
+# **The Lego**
+
+Then came the Lego.
+
+The F1 connection.
+
+The excitement.
+
+Her reaction.
+
+The kind of happiness that makes you smile just because someone else is happy.
+
+That's when I realized something.
+
+I didn't just want her to like me.
+
+I genuinely liked **making her happy.**
+
+There's a difference.
 
 ---
 
 # **July — Finally**
 
-After all those years, after all those platforms, after all those almost-connections...
+After all those years, all those doors, all those almosts...
 
 I finally met her.
 
-The girl I had first seen in 2018.
+The girl I first noticed all those years ago.
 
-The girl whose college I had visited twice in 2019 hoping to find.
+The girl whose college I went to twice, hoping to find her.
 
-The girl who somehow reappeared when she joined Amazon.
+The girl who turned up at the same company.
 
-The person I kept encountering through Slack, Instagram, Snapchat and the strange digital pathways of modern life.
+The person I kept running into through Slack, Instagram, Snapchat and every other strange little doorway of modern life.
 
 The person who had somehow survived every version of my life.
+
+Living a kilometer down the road.
 
 She was finally standing in front of me.
 
@@ -791,11 +837,11 @@ Not an Instagram account.
 
 **Her.**
 
-And suddenly all those years collapsed into one moment.
+And all those years collapsed into one moment.
 
-2018 didn't feel so far away.
+The first time didn't feel so far away.
 
-2019 didn't feel so ridiculous.
+The college visits didn't feel so ridiculous.
 
 All the years of almost finding her suddenly had somewhere to lead.
 
@@ -809,7 +855,7 @@ Now I didn't have to wonder.
 
 Maybe the strangest thing isn't that I liked her for so long.
 
-It's that our story never really followed a straight line.
+It's that our story never followed a straight line.
 
 It was never:
 
@@ -833,6 +879,8 @@ Snapchat.
 
 WhatsApp.
 
+A kilometer down the road.
+
 And finally...
 
 real life.
@@ -853,25 +901,17 @@ Maybe someday we'll look back at July 2026 and say:
 
 **“That's where everything began.”**
 
-Or maybe we'll remember it as the moment two people finally got to know each other properly after years of almosts.
+Or maybe we'll remember it as the moment two people finally got to know each other properly, after years of almosts.
 
 I don't know.
 
-But I know something I didn't know in 2018.
+But I know something I didn't know back then.
 
-Back then, I only knew that I wanted to see her.
+Back then, I only wanted to see her.
 
-In 2019, I went to her college twice just hoping I might find her.
+Then I went looking for her, and couldn't find her.
 
-In the years after that, life kept placing little doors between us.
-
-Amazon.
-
-Slack.
-
-Instagram.
-
-Snapchat.
+Then life kept putting little doors between us.
 
 Messages.
 
@@ -881,13 +921,13 @@ Then another message.
 
 And another.
 
-Until finally, in 2026, I didn't have to search for another door.
+Until, this year, I didn't have to search for another door.
 
 **She opened one herself.**
 
 And I walked through.
 
-The boy from 2018 never knew where this story would go.
+The boy who first noticed her never knew where this story would go.
 
 He didn't know he'd grow up.
 
@@ -897,42 +937,88 @@ He didn't know he'd get hurt.
 
 He didn't know he'd build a career and become someone completely different.
 
-He didn't know the girl he'd noticed would one day be sitting across from him as an adult.
+He didn't know the girl he'd noticed would one day be sitting across from him.
+
+Or living a kilometer down the road.
 
 He certainly didn't know he'd still care.
 
-But maybe that's the beauty of it.
+Maybe that's the beauty of it.
 
-We spend our lives thinking we are moving forward in a straight line.
-
-Sometimes we're not.
+We spend our lives thinking we're moving forward in a straight line.
 
 Sometimes we're walking in circles.
 
 Sometimes the person you thought belonged to your past is simply someone you haven't met **properly yet.**
 
-And after eight years of different versions of the same story...
+At the start of this, I said I wouldn't tell you her name.
 
-I finally met her.
+That you'd know it by the end.
 
-Not the girl from 2018.
+Maybe you guessed when she joined the same company.
 
-Not the memory.
+Maybe at the flat.
 
-Not the crush.
+Maybe the Kylaq gave it away.
 
-**Amrutha.**
+So I'll stop calling you *her*.
 
-The real one.
+Because this was never really a story about a girl.
 
-And whatever happens from here...
+It was a letter.
 
-I'll always be grateful that life gave me one more chance.
+To you.
 
-Because if someone had asked that boy in 2018 who the girl was...
+The girl I saw in 2018.
 
-he probably wouldn't have known how to answer.
+The college I went to, twice, in 2019.
 
-Now, eight years later, I do.
+Amazon.
 
-**It's always been her.**
+A kilometer down the road.
+
+Eight years.
+
+A hundred closed doors.
+
+A hundred reasons to give up.
+
+Not one of them was ever strong enough.
+
+Because behind every one of them, the same thought was waiting.
+
+*Don't let her go.*
+
+I never held on too tight.
+
+**But I never let go, either.**
+
+I used to think you were a chapter that never quite became a book.
+
+I was wrong.
+
+**You were the book.**
+
+Every chapter I wrote without you was still somehow finding its way back to you.
+
+And now that I actually know you, I understand why.
+
+You feel everything deeply.
+
+You work harder than anyone I know.
+
+You carry so much, and you still make room to care.
+
+Don't ever let anyone tell you that feeling deeply is a weakness.
+
+It's the bravest thing about you.
+
+And on the days you're tired, or doubting yourself, remember this:
+
+**Someone noticed you once, and never stopped.**
+
+If someone had asked that boy who the girl was, he wouldn't have known what to say.
+
+Eight years later, I do.
+
+**It was always you, Amrutha.**

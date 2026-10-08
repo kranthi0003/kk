@@ -1,4 +1,5 @@
-// The playlist for #/her.
+// The playlist for #/her — and, through createPlaylist, any page that wants
+// its own song played the same careful way (#/itsalwaysher plays one).
 //
 // The page used to hum a generated raga. Safe, but it was nobody's song. These
 // three are his, picked for her, so we play the real recordings — through
@@ -68,12 +69,14 @@ function loadAPI() {
   })
 }
 
-export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
+// Any list of tracks, each with candidate video ids in order of preference.
+// A single track simply loops.
+export function createPlaylist(tracks, { onTrack, onFail, onMuted } = {}) {
   let player = null
   let host = null
   let fade = null
   let vol = 0        // what we believe the volume is; see setVol below
-  let track = 0      // index into HER_TRACKS
+  let track = 0      // index into tracks
   let alt = 0        // index into that track's candidate ids
   let wanted = false // does the listener currently want sound
   let heard = false  // has a note actually reached the listener yet
@@ -83,7 +86,7 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
   let building = false
 
   const announce = () => {
-    try { onTrack && onTrack(wanted ? HER_TRACKS[track] : null) } catch {}
+    try { onTrack && onTrack(wanted ? tracks[track] : null) } catch {}
     try { onMuted && onMuted(wanted && muted) } catch {}
   }
 
@@ -120,7 +123,7 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
   // candidate — a dead link shouldn't cost the listener the slow opening.
   const cue = (ms) => {
     if (!player || dead) return
-    const t = HER_TRACKS[track]
+    const t = tracks[track]
     if (!t) return
     const id = t.ids[alt]
     if (!id) { skipTrack(ms); return }
@@ -132,7 +135,7 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
 
   const skipTrack = (ms) => {
     alt = 0
-    track = (track + 1) % HER_TRACKS.length
+    track = (track + 1) % tracks.length
     cue(ms)
   }
 
@@ -191,14 +194,14 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
   const onDeadVideo = () => {
     consecutiveFailures += 1
     // Every candidate of every track failed — YouTube is not going to work here.
-    if (consecutiveFailures > HER_TRACKS.reduce((n, t) => n + t.ids.length, 0)) {
+    if (consecutiveFailures > tracks.reduce((n, t) => n + t.ids.length, 0)) {
       wanted = false
       announce()
       try { onFail && onFail() } catch {}
       return
     }
     alt += 1
-    if (alt >= HER_TRACKS[track].ids.length) skipTrack(NEXT_FADE)
+    if (alt >= tracks[track].ids.length) skipTrack(NEXT_FADE)
     else cue(NEXT_FADE)
   }
 
@@ -214,7 +217,7 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
     document.body.appendChild(host)
 
     player = new window.YT.Player(host, {
-      videoId: HER_TRACKS[0].ids[0],
+      videoId: tracks[0].ids[0],
       playerVars: {
         // mute:1 is what makes unattended autoplay legal. If a click started
         // us we lift it immediately in onReady, so nobody notices.
@@ -250,7 +253,7 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
   }
 
   return {
-    tracks: HER_TRACKS,
+    tracks: tracks,
 
     // Begin on our own, silently, and wait for permission to be heard.
     autostart() {
@@ -319,4 +322,8 @@ export function createHerPlaylist({ onTrack, onFail, onMuted } = {}) {
       host = null
     },
   }
+}
+
+export function createHerPlaylist(opts) {
+  return createPlaylist(HER_TRACKS, opts)
 }
