@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-08T04:34:44.296Z",
+  "generated": "2026-10-08T14:58:43.929Z",
   "reddit": [
     {
-      "title": "Terraform / OpenTofu engineers quick questions about your actual workflow",
-      "url": "https://www.reddit.com/r/devops/comments/1x0gvsh/terraform_opentofu_engineers_quick_questions/",
-      "by": "Legitimate-Complex32",
-      "time": 1791431180000,
+      "title": "ngl, dumping raw server logs into a massive context window is way better than writing regex",
+      "url": "https://www.reddit.com/r/devops/comments/1x0syyd/ngl_dumping_raw_server_logs_into_a_massive/",
+      "by": "kim_deadja4951",
+      "time": 1791471098000,
       "sub": "r/devops"
     },
     {
-      "title": "Europol urges early action to protect cryptocurrencies and sensitive data from quantum threats",
-      "url": "https://www.reddit.com/r/programming/comments/1x0ggel/europol_urges_early_action_to_protect/",
-      "by": "donutloop",
-      "time": 1791429794000,
+      "title": "Bit arrays in the Linux kernel",
+      "url": "https://www.reddit.com/r/programming/comments/1x0sbg2/bit_arrays_in_the_linux_kernel/",
+      "by": "0xAX",
+      "time": 1791469518000,
       "sub": "r/programming"
     },
     {
-      "title": "Are Developers obsolete?",
-      "url": "https://www.reddit.com/r/programming/comments/1x0g1iu/are_developers_obsolete/",
-      "by": "GenericAHHyoutuber",
-      "time": 1791428501000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Where do you keep up with AI agent tools for infra?",
-      "url": "https://www.reddit.com/r/devops/comments/1x0dihy/where_do_you_keep_up_with_ai_agent_tools_for_infra/",
-      "by": "vibe-co",
-      "time": 1791420934000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How Uber Conquered Database Overload: The Journey from Static Rate-Limiting to Intelligent Load Management",
-      "url": "https://www.reddit.com/r/programming/comments/1x0ckk1/how_uber_conquered_database_overload_the_journey/",
+      "title": "Build better software to build software better",
+      "url": "https://www.reddit.com/r/programming/comments/1x0qyoq/build_better_software_to_build_software_better/",
       "by": "Ok_Stomach6651",
-      "time": 1791418130000,
+      "time": 1791466178000,
       "sub": "r/programming"
     },
     {
-      "title": "State of Devs 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1x0asww/state_of_devs_2026/",
-      "by": "BrewedDoritos",
-      "time": 1791413284000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How savepoints quietly throttled our Postgres queue",
-      "url": "https://www.reddit.com/r/programming/comments/1x02iea/how_savepoints_quietly_throttled_our_postgres/",
-      "by": "shared_ptr",
-      "time": 1791393719000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Is “security by default” becoming more important now that everyone can ship software with AI?",
-      "url": "https://www.reddit.com/r/devops/comments/1x018u3/is_security_by_default_becoming_more_important/",
+      "title": "The biggest production risk might be the engineer who noticed something and decided not to say it",
+      "url": "https://www.reddit.com/r/devops/comments/1x0pt2p/the_biggest_production_risk_might_be_the_engineer/",
       "by": "aisatsana__",
-      "time": 1791390850000,
+      "time": 1791463043000,
       "sub": "r/devops"
     },
     {
-      "title": "How much of your incident response do you automate?",
-      "url": "https://www.reddit.com/r/devops/comments/1wzzjvh/how_much_of_your_incident_response_do_you_automate/",
-      "by": "Chris__Codes",
-      "time": 1791386995000,
+      "title": "Devops| SRE| K8s platform engineering in Europe",
+      "url": "https://www.reddit.com/r/devops/comments/1x0pece/devops_sre_k8s_platform_engineering_in_europe/",
+      "by": "lahsiv_98",
+      "time": 1791461836000,
       "sub": "r/devops"
     },
     {
-      "title": "What are your opinions on AI? Wild take: Dear senior devs, you're fucked too",
-      "url": "https://www.reddit.com/r/devops/comments/1wzt03y/what_are_your_opinions_on_ai_wild_take_dear/",
-      "by": "Big-Lychee5971",
-      "time": 1791368801000,
+      "title": "Adopting Pyrefly as the Python type checker at Google",
+      "url": "https://www.reddit.com/r/programming/comments/1x0p1v8/adopting_pyrefly_as_the_python_type_checker_at/",
+      "by": "BeamMeUpBiscotti",
+      "time": 1791460813000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Deployment of Web and Mobile application",
+      "url": "https://www.reddit.com/r/devops/comments/1x0ozup/deployment_of_web_and_mobile_application/",
+      "by": "kuro_zip7",
+      "time": 1791460649000,
       "sub": "r/devops"
+    },
+    {
+      "title": "Junior Java/Spring Boot developer looking to move towards AWS — Developer Associate or Solutions Architect Associate?",
+      "url": "https://www.reddit.com/r/devops/comments/1x0o64e/junior_javaspring_boot_developer_looking_to_move/",
+      "by": "Mother_Elevator_3563",
+      "time": 1791457937000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Does ClickHouse really need its own storage format?",
+      "url": "https://www.reddit.com/r/programming/comments/1x0mma7/does_clickhouse_really_need_its_own_storage_format/",
+      "by": "Giladkl",
+      "time": 1791452336000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How much do companies publicly pay for open source? A count based only on published dollars",
+      "url": "https://www.reddit.com/r/programming/comments/1x0m1hh/how_much_do_companies_publicly_pay_for_open/",
+      "by": "MajorBaguette_",
+      "time": 1791450048000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "How to Fix CrashLoopBackOff in Kubernetes: A Complete Debug Guide",
-      "url": "https://medium.com/devops-ai-decoded/how-to-fix-crashloopbackoff-in-kubernetes-a-complete-debug-guide-77a3c9fb78a4",
-      "by": "Neel Shah",
-      "time": 1791433862000,
-      "tags": [
-        "technology",
-        "crashloopbackoff",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "I tested the 300 ms benchmark rule against Python and Node startup",
-      "url": "https://mozzammeluiu.medium.com/i-tested-the-300-ms-benchmark-rule-against-python-and-node-startup-d310c720aba6",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1791433347000,
-      "tags": [
-        "nodejs",
-        "programming",
-        "python"
-      ]
-    },
-    {
-      "title": "How to Become an AI Engineer in 2026: The Complete Learning Roadmap",
-      "url": "https://medium.com/@spsingh02497/how-to-become-an-ai-engineer-in-2026-the-complete-learning-roadmap-1347e7ce7ec0",
-      "by": "AI, Money & Career",
-      "time": 1791433109000,
-      "tags": [
-        "ai-engineering",
-        "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "Driving Quality at Scale: Modern Azure DevOps Automated Testing and Next-Gen Test Management",
-      "url": "https://medium.com/@Global_Executive/driving-quality-at-scale-modern-azure-devops-automated-testing-and-next-gen-test-management-c05955625f71",
-      "by": "Olha Remeniak",
-      "time": 1791433073000,
-      "tags": [
-        "qa-automation",
-        "test-management",
-        "automated-testing"
-      ]
-    },
-    {
-      "title": "Understanding Kubernetes Resources with kubectl api-resources and kubectl explain",
-      "url": "https://medium.com/@tushar.jadhav29/understanding-kubernetes-resources-with-kubectl-api-resources-and-kubectl-explain-5cf44d90c0d0",
-      "by": "DevOps voice",
-      "time": 1791432961000,
+      "title": "Blockchain Node Infrastructure: Running, Scaling, and Monitoring",
+      "url": "https://medium.com/@john.galt_28062/blockchain-node-infrastructure-running-scaling-and-monitoring-16d92f10301a",
+      "by": "John Galt",
+      "time": 1791471211000,
       "tags": [
         "devops",
-        "kubernetes-cluster",
-        "kubernetes"
+        "software-engineering",
+        "blockchain"
       ]
     },
     {
-      "title": "Route::query() in Laravel 13.35: A Cleaner Way to Build Search Endpoints",
-      "url": "https://medium.com/codex/route-query-in-laravel-13-35-a-cleaner-way-to-build-search-endpoints-b5eb6af6d6a5",
-      "by": "Developer Awam",
-      "time": 1791432811000,
-      "tags": [
-        "laravel",
-        "laravel-framework",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Phase 2 Starts in 5 Days — Tomorrow at 7 PM PST: We design a Production-Ready AWS Architecture",
-      "url": "https://devopslearning.medium.com/phase-2-starts-in-5-days-tomorrow-at-7-pm-pst-we-design-a-production-ready-aws-architecture-6e807bb309cf",
-      "by": "Prashant Lakhera",
-      "time": 1791432110000,
-      "tags": [
-        "cloud-computing",
-        "devops",
-        "llm"
-      ]
-    },
-    {
-      "title": "HSRP Series — Part 2: Why Human Representation Needs State, Time, and Uncertainty",
-      "url": "https://medium.com/@shahinasamir786/hsrp-series-part-2-why-human-representation-needs-state-time-and-uncertainty-062013b328f8",
-      "by": "shahina parveen",
-      "time": 1791431983000,
+      "title": "From Community to R&D: My ICT Talent Internship Journey at Huawei Türkiye",
+      "url": "https://medium.com/@oyunus155/from-community-to-r-d-my-ict-talent-internship-journey-at-huawei-t%C3%BCrkiye-5712d5bdea1b",
+      "by": "Yunus Özdemir",
+      "time": 1791471092000,
       "tags": [
         "artificial-intelligence",
-        "future",
-        "data-science"
+        "huawei",
+        "career-development"
       ]
     },
     {
-      "title": "The Exact Moment You Should Sell Your Side Project",
-      "url": "https://medium.com/@appsonbid/the-exact-moment-you-should-sell-your-side-project-09bce0206773",
+      "title": "The Complete SaaS Asset Transfer Guide for Developers",
+      "url": "https://medium.com/@appsonbid/the-complete-saas-asset-transfer-guide-for-developers-a4b08107051f",
       "by": "Appsonbid",
-      "time": 1791431899000,
+      "time": 1791470981000,
       "tags": [
+        "entrepreneurship",
         "startup",
-        "indiehackers",
         "software-engineering"
       ]
     },
     {
-      "title": "I Gave My Java AI Agent 10 Tools. Then It Started Making the Wrong Decisions.",
-      "url": "https://medium.com/@ersumit077/i-gave-my-java-ai-agent-10-tools-then-it-started-making-the-wrong-decisions-ec68b14a49f7",
-      "by": "Java & AI Engineering",
-      "time": 1791431870000,
+      "title": "Stop saying AI development is just about debugging APIs!",
+      "url": "https://medium.com/@umeshnewcapg/stop-saying-ai-development-is-just-about-debugging-apis-17c9182c3a2e",
+      "by": "Photon neurons",
+      "time": 1791470838000,
       "tags": [
-        "software-engineering",
-        "spring-boot",
+        "ai-agent",
+        "ai",
+        "python"
+      ]
+    },
+    {
+      "title": "Is ByteByteGo Really Worth It for FAANG Interviews in 2027? My Review",
+      "url": "https://medium.com/javarevisited/is-bytebytego-really-worth-it-for-faang-interviews-in-2027-my-review-56e6b523fbd4",
+      "by": "Soma",
+      "time": 1791470741000,
+      "tags": [
+        "distributed-systems",
+        "review",
+        "coding-interviews"
+      ]
+    },
+    {
+      "title": "Best AI Video Models for Short Dramas (2026): 6 Picks｜GPTProto",
+      "url": "https://medium.com/@gptproto.team/best-ai-video-models-for-short-dramas-2026-6-picks-gptproto-63f336f4c642",
+      "by": "Jacob GPTProto",
+      "time": 1791470723000,
+      "tags": [
+        "programming",
+        "technology",
         "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Containers Didn’t Fix Our Hard Problems. They Just Gave Them a Nicer Suit.",
+      "url": "https://medium.com/@gurpreet.devops/containers-didnt-fix-our-hard-problems-they-just-gave-them-a-nicer-suit-cc4d7d265892",
+      "by": "Gurpreet Singh Kambo",
+      "time": 1791470536000,
+      "tags": [
+        "devops",
+        "kubernetes",
+        "containers"
+      ]
+    },
+    {
+      "title": "Stop Writing Extra Lookups: Clean Up Your Rust HashMap Code",
+      "url": "https://medium.com/@monikasinghal713/stop-writing-extra-lookups-clean-up-your-rust-hashmap-code-ed77f15b2e4c",
+      "by": "Monika Singhal",
+      "time": 1791470453000,
+      "tags": [
+        "rust",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Musk, the Biggest Oligarch, Is Complaining That India’s Oligarchs Won’t Let Him In",
+      "url": "https://medium.com/the-geopolitical-economist/musk-the-biggest-oligarch-is-complaining-that-indias-oligarchs-won-t-let-him-in-dfe1cc0855fe",
+      "by": "Vikas",
+      "time": 1791470443000,
+      "tags": [
+        "politics",
+        "science",
+        "technology"
+      ]
+    },
+    {
+      "title": "Cloudflare Enters Resend’s Territory: Native Email Sending in a $5 Edge Runtime",
+      "url": "https://medium.com/kd-agentic/cloudflare-enters-resends-territory-native-email-sending-in-a-5-edge-runtime-89ecadf1ee8c",
+      "by": "KD Agentic",
+      "time": 1791470396000,
+      "tags": [
+        "cloudflare",
+        "serverless",
+        "programming"
       ]
     }
   ]
