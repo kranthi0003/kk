@@ -48,6 +48,7 @@ const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const ExamPage = lazy(() => import('./components/ExamPage'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const Her = lazy(() => import('./components/Her'))
+const ItsAlwaysHer = lazy(() => import('./components/ItsAlwaysHer'))
 const WallE = lazy(() => import('./components/WallE'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
@@ -510,6 +511,17 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#211a30' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(242,207,156,0.6)' }}>charging…</div></div>}>
         <WallE onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // It's always her — a private, unlisted long-form letter (shared
+  // directly by link). Not in nav. Matched loosely, because this link
+  // gets typed and pasted by hand.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/itsalwaysher') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#15100d' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(233,184,102,0.6)' }}>loading…</div></div>}>
+        <ItsAlwaysHer onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
