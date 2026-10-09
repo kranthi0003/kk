@@ -1,6 +1,13 @@
 {
-  "generated": "2026-10-09T01:56:22.247Z",
+  "generated": "2026-10-09T04:36:14.449Z",
   "reddit": [
+    {
+      "title": "Keys and Values Don't Always Belong Together",
+      "url": "https://www.reddit.com/r/programming/comments/1x1bxcn/keys_and_values_dont_always_belong_together/",
+      "by": "diagraphic",
+      "time": 1791519834000,
+      "sub": "r/programming"
+    },
     {
       "title": "The clearly best Gatway API implementation seems to be Istio?",
       "url": "https://www.reddit.com/r/kubernetes/comments/1x18jc0/the_clearly_best_gatway_api_implementation_seems/",
@@ -58,13 +65,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Java garbage collection in its own log: eight checks you can run",
-      "url": "https://www.reddit.com/r/programming/comments/1x0u5q9/java_garbage_collection_in_its_own_log_eight/",
-      "by": "huseyinbabal",
-      "time": 1791473846000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Still on bitnamilegacy for Postgres and Redis almost a year later — here’s how we’re getting off it",
       "url": "https://www.reddit.com/r/kubernetes/comments/1x0terw/still_on_bitnamilegacy_for_postgres_and_redis/",
       "by": "anirvedh",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "The Email Every IT Engineer Should Send Their Manager Before Annual Review",
-      "url": "https://medium.com/@prasantakumarroy1/the-email-every-it-engineer-should-send-their-manager-before-annual-review-c25a4e3a2a26",
-      "by": "Prasanta Kumar Roy",
-      "time": 1791509556000,
+      "title": "Data Integrity at Scale: Bridging OLTP to OLAP — Real-Time Analytics Streaming Without Locking…",
+      "url": "https://medium.com/@amamit/data-integrity-at-scale-bridging-oltp-to-olap-real-time-analytics-streaming-without-locking-93099d7c8a41",
+      "by": "amit",
+      "time": 1791520263000,
       "tags": [
-        "cloud-computing",
-        "windows",
-        "system-administration"
+        "software-development",
+        "software-architecture",
+        "system-design-interview"
       ]
     },
     {
-      "title": "The Infrastructure Documentation That Saves You at 2am — How to Build It Before You Need It",
-      "url": "https://medium.com/@prasantakumarroy1/the-infrastructure-documentation-that-saves-you-at-2am-how-to-build-it-before-you-need-it-7fd0d5afd524",
-      "by": "Prasanta Kumar Roy",
-      "time": 1791509550000,
+      "title": "Explained React Native Gradle Plugin",
+      "url": "https://medium.com/react-native-lab/explained-react-native-gradle-plugin-06ea6465e2a4",
+      "by": "Jayant Kumar",
+      "time": 1791520263000,
       "tags": [
-        "windows",
-        "system-administration",
-        "devops"
+        "mobile-app-development",
+        "react-native",
+        "software-engineering"
       ]
     },
     {
-      "title": "The AWS Services Every Windows Admin Needs to Know — Mapped to What You Already Understand",
-      "url": "https://medium.com/@prasantakumarroy1/the-aws-services-every-windows-admin-needs-to-know-mapped-to-what-you-already-understand-7e497791f47c",
-      "by": "Prasanta Kumar Roy",
-      "time": 1791509544000,
+      "title": "You Don’t Need to Feel Productive Every Day to Ship",
+      "url": "https://rsprasandike.medium.com/you-dont-need-to-feel-productive-every-day-to-ship-bdd93f2b5ef9",
+      "by": "Saliya Prasandike",
+      "time": 1791519875000,
       "tags": [
-        "system-administration",
-        "windows",
-        "devops"
+        "problem-solving",
+        "software-engineering",
+        "productivity"
       ]
     },
     {
-      "title": "Why I Started Writing About IT Infrastructure and What It’s Given Me Back",
-      "url": "https://medium.com/@prasantakumarroy1/why-i-started-writing-about-it-infrastructure-and-what-its-given-me-back-fd119ed25420",
-      "by": "Prasanta Kumar Roy",
-      "time": 1791509538000,
+      "title": "The Agentic Stack: Where This Is All Heading",
+      "url": "https://medium.com/@kannavkunal/the-agentic-stack-where-this-is-all-heading-33f614523c15",
+      "by": "Kunal Kannav",
+      "time": 1791519634000,
       "tags": [
-        "windows",
-        "cybersecurity",
-        "cloud-computing"
+        "llm",
+        "software-engineering",
+        "ai"
       ]
     },
     {
-      "title": "The Complete Guide to Windows Server 2025 — What’s New and What You Need to Know",
-      "url": "https://medium.com/@prasantakumarroy1/the-complete-guide-to-windows-server-2025-whats-new-and-what-you-need-to-know-298a3768c1df",
-      "by": "Prasanta Kumar Roy",
-      "time": 1791509531000,
+      "title": "Learned the ML Algorithms. But Where Are They Actually Used?",
+      "url": "https://medium.com/@rudrimehta11/learned-the-ml-algorithms-but-where-are-they-actually-used-8648b4d3a378",
+      "by": "Rudri Mehta",
+      "time": 1791519478000,
       "tags": [
-        "devops",
-        "windows",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "Node.js Runs TypeScript Files Now. It Ran One With a Type Error and Got $4,912 Instead of $61.",
-      "url": "https://medium.com/@reactbd/node-js-runs-typescript-files-now-it-ran-one-with-a-type-error-and-got-4-912-instead-of-61-8d6f06f17723",
-      "by": "Noor Mohammad",
-      "time": 1791509461000,
-      "tags": [
-        "nodejs",
-        "javascript",
+        "technology",
+        "data-science",
         "programming"
       ]
     },
     {
-      "title": "I Thought I Understood AI. I Really Didn’t.",
-      "url": "https://medium.com/@pujarikshitij/i-thought-i-understood-ai-i-really-didnt-0f75e3f740b6",
-      "by": "Kshitij Pujari",
-      "time": 1791509461000,
-      "tags": [
-        "this-happened-to-me",
-        "machine-learning",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "GitHub Actions vs. Jenkins vs. CircleCI: How FreeAgent Cut Its Test Infrastructure Spend by 90%",
-      "url": "https://medium.com/@ciphemicacademia/github-actions-vs-jenkins-vs-circleci-how-freeagent-cut-its-test-infrastructure-spend-by-90-58e16943342f",
-      "by": "Ciphemicacademia",
-      "time": 1791509316000,
-      "tags": [
-        "cicd",
-        "devops",
-        "github-actions"
-      ]
-    },
-    {
-      "title": "Why Browser Emulator Compatibility Is Hard: Lessons from ClassicEmu",
-      "url": "https://medium.com/@45117.com/why-browser-emulator-compatibility-is-hard-lessons-from-classicemu-15f939c4d218",
-      "by": "classic emulator game",
-      "time": 1791508191000,
+      "title": "UNIT TESTING STRATEGIES FROM A VERY SMART, VERY SENIOR ENGINEER™",
+      "url": "https://medium.com/@george.bearden/unit-testing-strategies-from-a-very-smart-very-senior-engineer-100a89494a89",
+      "by": "George Bearden",
+      "time": 1791519329000,
       "tags": [
         "software-engineering",
-        "web-development",
-        "gaming"
+        "agentic-ai",
+        "unit-testing"
       ]
     },
     {
-      "title": "Vibe Coding a ClassicEmu MVP: A Practical Seven-Day Plan",
-      "url": "https://medium.com/@45117.com/vibe-coding-a-classicemu-mvp-a-practical-seven-day-plan-1f8b5c88aa45",
-      "by": "classic emulator game",
-      "time": 1791508127000,
+      "title": "How I route SSH inside the kernel with SOCKMAP",
+      "url": "https://medium.com/@arasydafa/how-i-route-ssh-inside-the-kernel-with-sockmap-4d102aade0e3",
+      "by": "Arasy Dafa Sulistya Kurniawan",
+      "time": 1791519170000,
+      "tags": [
+        "programming",
+        "linux",
+        "ebpf"
+      ]
+    },
+    {
+      "title": "How AI-Powered Coding Is Transforming Software Development (And Why You Should Embrace It)",
+      "url": "https://medium.com/@chamodmadhushan2022/how-ai-powered-coding-is-transforming-software-development-and-why-you-should-embrace-it-054e8cbf5708",
+      "by": "Chamod Madushan",
+      "time": 1791519161000,
       "tags": [
         "artificial-intelligence",
-        "web-development",
+        "productivity",
+        "software-development"
+      ]
+    },
+    {
+      "title": "#Get Apple Developer Account",
+      "url": "https://medium.com/@12fsfnpcel/get-apple-developer-account-b0ee9d2b3b56",
+      "by": "Audrey M. Garcia",
+      "time": 1791519058000,
+      "tags": [
+        "apple",
+        "mobile-app-development",
         "programming"
+      ]
+    },
+    {
+      "title": "AI moves the bottlenecks, Agile needs to adapt",
+      "url": "https://medium.com/@ejsmont.artur/ai-moves-the-bottlenecks-agile-needs-to-adapt-b8c341ce57a0",
+      "by": "Artur Ejsmont",
+      "time": 1791518842000,
+      "tags": [
+        "ai-engineering",
+        "sdlc",
+        "software-engineering"
       ]
     }
   ]
