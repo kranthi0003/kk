@@ -137,7 +137,13 @@ export function AmbientProvider({ children }) {
         modestbranding: 1, playsinline: 1, rel: 0, iv_load_policy: 3,
       },
       events: {
-        onReady: (e) => { try { e.target.setVolume(vol) } catch {}; setBuilt(true) },
+        onReady: (e) => {
+          try { e.target.setVolume(vol) } catch {}
+          // Hidden, so it mustn't take keyboard focus either: it was the
+          // first thing Tab reached on every page.
+          try { e.target.getIframe().setAttribute('tabindex', '-1') } catch {}
+          setBuilt(true)
+        },
         onStateChange: (e) => {
           const YT = window.YT
           if (e.data === YT.PlayerState.ENDED) {

@@ -41,6 +41,7 @@ const TARGET_VOL = 32    // quiet enough to read over, present enough to mean so
 const FIRST_FADE = 7000  // the first one takes its time
 const NEXT_FADE = 2500   // later ones just need a soft edge
 const OUT_FADE = 1600
+const CONFIRM_MS = 4000 // how long a start gets to actually play before it counts as refused
 const STEP = 100
 
 // Loudness isn't linear in amplitude, so a straight ramp lands with a bump at
@@ -82,6 +83,9 @@ export function createPlaylist(tracks, { onTrack, onFail, onMuted } = {}) {
   let heard = false  // has a note actually reached the listener yet
   let muted = false  // playing, but silent, waiting for permission to be heard
   let byGesture = false // did a click start this, or did we start it ourselves
+  let listen = true  // before anyone asks, should any tap on the page bring the sound up
+  let ready = false  // the player's methods only exist once onReady has fired
+  let wantFade = null // the fade a start() asked for before the player was ready
   let dead = false
   let building = false
 
@@ -142,36 +146,62 @@ export function createPlaylist(tracks, { onTrack, onFail, onMuted } = {}) {
   // Every browser refuses to start audible sound on its own — that's the whole
   // autoplay policy, and it exists for good reasons. But muted playback is
   // always allowed. So the song genuinely starts by itself, silently, and the
-  // first time she touches the page at all we lift the mute and fade the sound
-  // up. She never has to go looking for a play button.
+  // first time she taps the page we lift the mute and fade the sound up.
   //
-  // Note that scroll and wheel do not count as "user activation" under the
-  // spec, only pointer/touch/key events do. We listen for scroll anyway because
-  // on a touchscreen the touchstart that begins a scroll does count, and by the
-  // time the scroll event fires we usually already have permission.
-  const GESTURES = ['pointerdown', 'touchstart', 'keydown', 'click', 'wheel', 'scroll']
+  // Only a tap, a click or a key press gives a page that permission. Scrolling
+  // never does, on any browser — and unmuting without permission doesn't simply
+  // fail: the browser pauses the video. This used to listen for scroll, so the
+  // first scroll paused the song for good while the button said it was playing.
+  // Now nothing is tried until the page has permission, and every attempt is
+  // checked against what the player is actually doing.
+  const GESTURES = ['pointerup', 'touchend', 'mousedown', 'keydown', 'click']
   let armed = false
+  let trying = false
+
+  // navigator.userActivation is missing in older Safari; there, only the
+  // events above ever reach tryUnmute, and all of them can carry permission.
+  const permitted = () => {
+    const ua = typeof navigator !== 'undefined' ? navigator.userActivation : null
+    return !ua || ua.hasBeenActive
+  }
+
+  // Unmute and come up, then watch what the player really does. A refused
+  // unmute doesn't fail outright: the browser pauses the video, and YouTube
+  // goes on reporting it as buffering. So only actually playing counts, and
+  // real buffering gets a few seconds. If it never plays, go back to playing
+  // silently, say so, and wait for the next tap.
+  const lift = (ms) => {
+    if (!player || !ready || dead) return
+    try { setVol(0); player.unMute(); player.playVideo() } catch { return }
+    muted = false
+    disarm()
+    announce()
+    fadeTo(TARGET_VOL, ms)
+    trying = true
+    const until = Date.now() + CONFIRM_MS
+    const check = () => {
+      if (!player || dead || !wanted || muted) { trying = false; return }
+      let state = -1
+      let silent = true
+      try { state = player.getPlayerState(); silent = player.isMuted() } catch {}
+      const PS = window.YT && window.YT.PlayerState
+      if (PS && !silent && state === PS.PLAYING) { trying = false; heard = true; return }
+      if (Date.now() < until) { setTimeout(check, 400); return }
+      trying = false
+      stopFade()
+      setVol(0)
+      try { player.mute(); player.playVideo() } catch {}
+      muted = true
+      announce()
+      arm()
+    }
+    setTimeout(check, 400)
+  }
 
   const tryUnmute = () => {
-    if (!player || !wanted || !muted || dead) return
-    try {
-      setVol(0)
-      player.unMute()
-      player.playVideo()
-    } catch { return }
-    // unMute() can be ignored when the browser still hasn't granted us
-    // activation, so confirm rather than assume, and stay armed if it refused.
-    setTimeout(() => {
-      if (!player || dead || !muted) return
-      let stillMuted = true
-      try { stillMuted = player.isMuted() } catch {}
-      if (stillMuted) return
-      muted = false
-      heard = true
-      disarm()
-      announce()
-      fadeTo(TARGET_VOL, FIRST_FADE)
-    }, 220)
+    if (!player || !ready || !wanted || !muted || dead || trying) return
+    if (!permitted()) return
+    lift(heard ? NEXT_FADE : FIRST_FADE)
   }
 
   const disarm = () => {
@@ -226,19 +256,20 @@ export function createPlaylist(tracks, { onTrack, onFail, onMuted } = {}) {
       },
       events: {
         onReady: (e) => {
+          ready = true
+          // Hidden, so it mustn't take keyboard focus either.
+          try { e.target.getIframe().setAttribute('tabindex', '-1') } catch {}
           setVol(0)
           if (!wanted) return
           try { e.target.mute(); e.target.playVideo() } catch {}
           if (byGesture) {
-            // A click is all the permission a browser needs.
-            muted = false
-            try { e.target.unMute() } catch {}
-            announce()
-            fadeTo(TARGET_VOL, FIRST_FADE)
+            // Someone already tapped for it, which is all the permission a
+            // browser needs, even if the player took a while to arrive.
+            lift(wantFade ?? FIRST_FADE)
           } else {
             muted = true
             announce()
-            arm()
+            if (listen) arm()
           }
         },
         onStateChange: (e) => {
@@ -255,40 +286,38 @@ export function createPlaylist(tracks, { onTrack, onFail, onMuted } = {}) {
   return {
     tracks: tracks,
 
-    // Begin on our own, silently, and wait for permission to be heard.
-    autostart() {
+    // Begin on our own, silently, and wait for permission to be heard. With
+    // listen: false nothing on the page lifts the mute; the page will call
+    // start() itself when the moment comes.
+    autostart({ listen: on = true } = {}) {
       if (player || dead) return
       wanted = true
       byGesture = false
+      listen = on
       build()
     },
 
-    // Begin because someone asked for it — no muting, no waiting.
-    start() {
+    // Begin because someone asked for it. Call it from inside the tap that
+    // asked: that tap is the permission. fromStart rewinds a song that has
+    // been playing silently in the meantime; fade overrides the fade-in.
+    start({ fromStart = false, fade } = {}) {
       wanted = true
       byGesture = true
+      wantFade = fade ?? null
       if (!player) { build(); return true }
-      if (muted) { muted = false; try { player.unMute() } catch {} }
+      if (!ready) return true // onReady sees byGesture and brings it up
+      if (fromStart) { try { player.seekTo(0, true) } catch {} }
       let started = 0
       try { started = player.getCurrentTime() || 0 } catch {}
-      try { player.playVideo() } catch {}
-      disarm()
-      announce()
-      fadeTo(TARGET_VOL, started > 0 && heard ? NEXT_FADE : FIRST_FADE)
+      lift(fade ?? (started > 0 && heard ? NEXT_FADE : FIRST_FADE))
       return true
     },
 
-    // Lift the mute now, because they asked rather than because they scrolled.
-    // If this is the first thing they'll actually hear, give it the slow fade.
+    // Lift the mute now, because they asked. If this is the first thing
+    // they'll actually hear, give it the slow fade.
     unmute() {
-      if (!player || !muted) return
-      const first = !heard
-      muted = false
-      heard = true
-      disarm()
-      try { setVol(0); player.unMute(); player.playVideo() } catch {}
-      announce()
-      fadeTo(TARGET_VOL, first ? FIRST_FADE : NEXT_FADE)
+      if (!player || !ready || !muted) return
+      lift(heard ? NEXT_FADE : FIRST_FADE)
     },
 
     stop() {

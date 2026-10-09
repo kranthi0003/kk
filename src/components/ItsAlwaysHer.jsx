@@ -19,8 +19,10 @@ import STORY from '../lib/itsAlwaysHer.md?raw'
  * behind a door at the top, a doodle draws itself between every
  * chapter, and the last door opens on the teddy holding a heart.
  *
- * The song is About You by The 1975, played the way #/her plays its
- * music: it starts silently on arrival and fades up at her first touch.
+ * The song is About You by The 1975. No browser lets a page make a sound
+ * before the visitor's first tap, so the page opens on a closed door, and
+ * the tap that opens it is the tap that starts the song, from the top.
+ * The player warms up silently behind the door, so there's no wait.
  *
  * Private and unlisted, shared directly by link. Not in nav. Her name
  * appears once, in the last line, because that's the point.
@@ -290,6 +292,9 @@ function DoorArt({ uid, pose }) {
         </g>
       </g>
       <g className="iah-leaf">
+        {/* A solid backing: the crayon grain lets light through, and the
+            teddy shouldn't be seen until the door opens. */}
+        <path d={ARCH} fill="#6f52c2" />
         <path d={ARCH} fill="url(#iah-hatch-door)" stroke={INK} strokeWidth="3" vectorEffect="non-scaling-stroke" filter="url(#iah-crayon)" />
         <path d="M80 152 A40 40 0 0 1 160 152 V176 H80 Z" fill="none" stroke="#6f52c2" strokeWidth="3" vectorEffect="non-scaling-stroke" />
         <rect x="80" y="190" width="80" height="54" rx="6" fill="none" stroke="#6f52c2" strokeWidth="3" vectorEffect="non-scaling-stroke" />
@@ -417,6 +422,8 @@ export default function ItsAlwaysHer({ onBack }) {
   const ajar = useRef(0)
   const opened = useRef(0)
   const celebrated = useRef(false)
+  const openRef = useRef(false)
+  const [open, setOpen] = useState(false)
   const reduced = useRef(typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
 
   const [music, setMusic] = useState(false)
@@ -466,15 +473,16 @@ export default function ItsAlwaysHer({ onBack }) {
     return player.current
   }, [])
 
-  // Starts on arrival, silently — browsers allow nothing else — and
-  // fades up at her first touch. Turned off once, it stays off.
+  // Starts on arrival, silently — browsers allow nothing else — so it's
+  // loaded and playing by the time she opens the door. Nothing but the
+  // door brings the sound up. Turned off once, it stays off.
   useEffect(() => {
     let off = false
     try {
       off = sessionStorage.getItem('iah_music_off') === '1'
     } catch {}
     if (off) return
-    ensurePlayer().autostart()
+    ensurePlayer().autostart({ listen: false })
     setMusic(true)
   }, [ensurePlayer])
 
@@ -512,9 +520,9 @@ export default function ItsAlwaysHer({ onBack }) {
 
   /* ---------------- the door at the top ---------------- */
 
-  // It eases ajar on arrival so the teddy can peek out, then opens the
-  // rest of the way as you scroll into the story — and swings back if
-  // you scroll up to it again.
+  // Shut, with the teddy behind it, until she taps it. Then it swings
+  // open, and opens the rest of the way as she scrolls into the story —
+  // and swings back if she scrolls up to it again.
   const paintHero = useCallback(() => {
     const el = heroDoorRef.current
     if (!el) return
@@ -525,8 +533,8 @@ export default function ItsAlwaysHer({ onBack }) {
   }, [])
 
   useEffect(() => {
-    if (reduced.current) {
-      ajar.current = 1
+    if (!open || reduced.current) {
+      ajar.current = open ? 1 : 0
       paintHero()
       return
     }
@@ -534,30 +542,24 @@ export default function ItsAlwaysHer({ onBack }) {
     let t0 = 0
     const step = (t) => {
       if (!t0) t0 = t
-      const x = clamp01((t - t0 - 500) / 1900)
+      const x = clamp01((t - t0) / 1500)
       ajar.current = ease(x)
       paintHero()
       if (x < 1) raf = requestAnimationFrame(step)
     }
-    paintHero()
     raf = requestAnimationFrame(step)
     return () => cancelAnimationFrame(raf)
-  }, [paintHero])
+  }, [open, paintHero])
 
-  /* ---------------- the last door ---------------- */
-
-  // Hearts and stars, once, when the last door opens.
-  const celebrate = useCallback(() => {
-    if (celebrated.current || reduced.current) return
-    celebrated.current = true
+  // Hearts and stars, flying out of a door.
+  const burst = useCallback((door, { count, delay, at }) => {
     const host = fxRef.current
-    const door = rootRef.current?.querySelector('.iah-end-door')
-    if (!host || !door) return
-    const r = door.getBoundingClientRect()
-    const x0 = r.left + r.width / 2
-    const y0 = r.top + r.height * 0.62
+    if (!host || !door || reduced.current) return
     setTimeout(() => {
-      for (let i = 0; i < 46; i++) {
+      const r = door.getBoundingClientRect()
+      const x0 = r.left + r.width / 2
+      const y0 = r.top + r.height * at
+      for (let i = 0; i < count; i++) {
         const s = document.createElement('span')
         s.className = 'iah-bit'
         s.textContent = CONFETTI[i % CONFETTI.length]
@@ -574,8 +576,49 @@ export default function ItsAlwaysHer({ onBack }) {
         host.appendChild(s)
         s.addEventListener('animationend', () => s.remove(), { once: true })
       }
-    }, 1900)
+    }, delay)
   }, [])
+
+  // The tap that opens the door is the one that starts the song. It has
+  // to happen inside this handler: the tap is the browser's permission.
+  const openDoor = useCallback(() => {
+    if (openRef.current) return
+    openRef.current = true
+    let off = false
+    try {
+      off = sessionStorage.getItem('iah_music_off') === '1'
+    } catch {}
+    if (!off) {
+      ensurePlayer().start({ fromStart: true, fade: 2600 })
+      setMusic(true)
+    }
+    setOpen(true)
+    burst(heroDoorRef.current, { count: 28, delay: 380, at: 0.5 })
+  }, [ensurePlayer, burst])
+
+  // Shut, Enter or Space opens it from anywhere. A focused button, the
+  // door included, is left to handle its own keys: Space clicks a button
+  // on release, which would otherwise land on the already-open door.
+  useEffect(() => {
+    if (open) return
+    const onKey = (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return
+      if (e.target?.closest?.('button, a, input, textarea, select')) return
+      e.preventDefault()
+      openDoor()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, openDoor])
+
+  /* ---------------- the last door ---------------- */
+
+  // Hearts and stars, once, when the last door opens.
+  const celebrate = useCallback(() => {
+    if (celebrated.current) return
+    celebrated.current = true
+    burst(rootRef.current?.querySelector('.iah-end-door'), { count: 46, delay: 1900, at: 0.62 })
+  }, [burst])
 
   /* ---------------- scrolling ---------------- */
 
@@ -674,7 +717,7 @@ export default function ItsAlwaysHer({ onBack }) {
   const musicLabel = !music ? 'Play the song' : silent ? 'Tap for sound' : 'Pause the song'
 
   return (
-    <div ref={rootRef} className="iah-root fixed inset-0 z-[300] overflow-y-auto overflow-x-hidden">
+    <div ref={rootRef} className={`iah-root fixed inset-0 z-[300] overflow-y-auto overflow-x-hidden${open ? ' is-open' : ''}`}>
       <style>{IAH_STYLE}</style>
       <Defs />
       <div className="iah-grain" aria-hidden="true" />
@@ -702,7 +745,7 @@ export default function ItsAlwaysHer({ onBack }) {
         </svg>
         <span className="iah-chip-t">Back</span>
       </button>
-      {musicOk && (
+      {musicOk && open && (
         <button
           type="button"
           onClick={toggleMusic}
@@ -721,22 +764,51 @@ export default function ItsAlwaysHer({ onBack }) {
       )}
 
       <article>
-        <header className="iah-hero">
-          <div ref={heroDoorRef} className="iah-hero-door" onClick={begin}>
+        {/* Shut, the whole screen is the door: a tap anywhere opens it. */}
+        <header className="iah-hero" onClick={open ? undefined : openDoor}>
+          <button
+            ref={heroDoorRef}
+            type="button"
+            className="iah-hero-door"
+            onClick={open ? begin : openDoor}
+            aria-label={open ? 'Start reading' : 'Open the letter'}
+          >
             <DoorArt uid="hero" pose="wave" />
-          </div>
-          <h1 className="iah-hero-title">
-            {TITLE_LEAD && <span className="iah-t1">{TITLE_LEAD}</span>} <span className="iah-t2">{TITLE_LAST}</span>
-          </h1>
-          {DATA.subtitle && <p className="iah-hero-sub">{DATA.subtitle}</p>}
-          <button type="button" className="iah-cue" onClick={begin} aria-label="Start reading">
-            <svg viewBox="0 0 40 56" aria-hidden="true" focusable="false">
-              <path d="M20 6 C18 18 22 30 20 44 M10 34 L20 46 L30 34" fill="none" stroke={YELLOW} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" filter="url(#iah-crayon)" />
-            </svg>
           </button>
+          <div className="iah-hero-under">
+            <div className="iah-gate" aria-hidden="true">
+              <svg className="iah-gate-arrow" viewBox="0 0 40 46" focusable="false">
+                <path d="M20 42 C17 32 23 22 20 9 M11 17 L20 7 L29 17" fill="none" stroke={YELLOW} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" filter="url(#iah-crayon)" />
+              </svg>
+              <p className="iah-gate-tap">tap the door</p>
+              <p className="iah-gate-sound">
+                <svg viewBox="0 0 24 24" width="18" height="18" focusable="false">
+                  <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="currentColor" />
+                  <path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                </svg>
+                best with sound on
+              </p>
+            </div>
+            <h1 className="iah-hero-title">
+              {TITLE_LEAD && <span className="iah-t1">{TITLE_LEAD}</span>} <span className="iah-t2">{TITLE_LAST}</span>
+            </h1>
+            {DATA.subtitle && <p className="iah-hero-sub">{DATA.subtitle}</p>}
+            <button
+              type="button"
+              className="iah-cue"
+              onClick={begin}
+              aria-label="Start reading"
+              tabIndex={open ? 0 : -1}
+              aria-hidden={open ? undefined : 'true'}
+            >
+              <svg viewBox="0 0 40 56" aria-hidden="true" focusable="false">
+                <path d="M20 6 C18 18 22 30 20 44 M10 34 L20 46 L30 34" fill="none" stroke={YELLOW} strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" filter="url(#iah-crayon)" />
+              </svg>
+            </button>
+          </div>
         </header>
 
-        <div className="iah-body">
+        <div className="iah-body" inert={open ? undefined : ''}>
           {DATA.chapters.map((c, i) => (
             <section key={c.id} id={c.id} className="iah-ch" style={{ '--c': c.color }} aria-labelledby={c.title ? `${c.id}-h` : undefined}>
               {i > 0 && (
@@ -763,7 +835,7 @@ export default function ItsAlwaysHer({ onBack }) {
         </div>
 
         {DATA.close && (
-          <section className="iah-rv iah-end" aria-label="The last line">
+          <section className="iah-rv iah-end" aria-label="The last line" inert={open ? undefined : ''}>
             <div className="iah-end-door">
               <DoorArt uid="end" pose="heart" />
             </div>
@@ -775,7 +847,7 @@ export default function ItsAlwaysHer({ onBack }) {
         )}
       </article>
 
-      <footer className="iah-foot">
+      <footer className="iah-foot" inert={open ? undefined : ''}>
         {DATA.span && <p className="iah-foot-years">{DATA.span}</p>}
         <button type="button" onClick={toTop} className="iah-again">
           Read it again
@@ -802,6 +874,8 @@ const IAH_STYLE = `
   .iah-root::-webkit-scrollbar { width: 0; height: 0; }
   .iah-root { scrollbar-width: none; }
   .iah-root > article { overflow-x: hidden; overflow-x: clip; }
+  /* Nothing to scroll to until the door is open. */
+  .iah-root:not(.is-open) { overflow-y: hidden; }
 
   /* The tooth of dark drawing paper. */
   .iah-grain {
@@ -873,7 +947,8 @@ const IAH_STYLE = `
   }
   .iah-spill { opacity: var(--spill, 0.15); transition: opacity 2.2s ease 0.35s; }
   .iah-sparks path { transform-box: fill-box; transform-origin: center; animation: iahTwinkle 2.6s ease-in-out infinite; animation-delay: calc(var(--i) * -0.55s); }
-  .iah-ted-wave { transform-box: fill-box; transform-origin: 16% 98%; animation: iahWave 1.5s ease-in-out 1s 3 both; }
+  .iah-ted-wave { transform-box: fill-box; transform-origin: 16% 98%; }
+  .is-open .iah-ted-wave { animation: iahWave 1.5s ease-in-out 1.3s 3 both; }
   .iah-hero-door .iah-leaf, .iah-hero-door .iah-spill { transition: none; }
 
   /* ---------- opening ---------- */
@@ -883,7 +958,35 @@ const IAH_STYLE = `
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 4.4rem 1.25rem 2rem;
   }
-  .iah-hero-door { width: clamp(210px, 60vw, 320px); cursor: pointer; }
+  .iah-hero-door {
+    display: block; width: clamp(210px, 60vw, 320px); padding: 0; border: 0; background: none;
+    cursor: pointer; border-radius: 28px; touch-action: manipulation;
+  }
+  .iah-hero-door:focus-visible { outline: 3px solid ${YELLOW}; outline-offset: 4px; box-shadow: none; border-radius: 28px; }
+  /* Shut, it gives a little knock every few seconds. */
+  .iah-root:not(.is-open) .iah-hero-door .iah-doorart { transform-origin: 50% 86%; animation: iahKnock 3.4s ease-in-out 1.2s infinite; }
+  .iah-root:not(.is-open) .iah-hero { cursor: pointer; }
+
+  .iah-hero-under { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .iah-gate {
+    position: absolute; left: 50%; top: 0.2rem; transform: translateX(-50%);
+    width: max-content; max-width: 92vw; display: flex; flex-direction: column; align-items: center;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .is-open .iah-gate {
+    opacity: 0; visibility: hidden; transform: translate(-50%, -10px); pointer-events: none;
+    transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s linear 0.45s;
+  }
+  .iah-gate-arrow { display: block; width: 30px; height: 40px; overflow: visible; animation: iahPoint 1.6s ease-in-out infinite; }
+  .iah-gate-tap {
+    margin: 0.2rem 0 0;
+    font: 700 clamp(2.1rem, 8.4vw, 2.7rem)/1 'Gaegu', 'Nunito', system-ui, sans-serif;
+    color: ${YELLOW}; text-shadow: 3px 3px 0 #000;
+  }
+  .iah-gate-sound {
+    margin: 0.8rem 0 0; display: inline-flex; align-items: center; gap: 0.4rem;
+    font: 400 1.18rem/1.2 'Gaegu', 'Nunito', system-ui, sans-serif; color: ${CHALK_SOFT};
+  }
   .iah-hero-title {
     margin: 0.4rem 0 0; display: flex; flex-direction: column; align-items: center;
     font-family: 'Fredoka', 'Nunito', system-ui, sans-serif; line-height: 0.95;
@@ -891,26 +994,31 @@ const IAH_STYLE = `
   .iah-t1 {
     font-weight: 600; font-size: clamp(1.5rem, 6.6vw, 2.6rem); letter-spacing: 0.06em;
     color: ${YELLOW}; text-shadow: 3px 3px 0 #000;
-    opacity: 0; animation: iahPop 0.7s cubic-bezier(0.3, 1.5, 0.5, 1) 1.1s forwards;
+    opacity: 0;
   }
+  .is-open .iah-t1 { animation: iahPop 0.7s cubic-bezier(0.3, 1.5, 0.5, 1) 0.75s forwards; }
   .iah-t2 {
     display: inline-block; margin-top: 0.06em;
     font-weight: 700; font-size: clamp(4rem, 22vw, 8.5rem); letter-spacing: 0.02em;
     color: ${PINK}; text-shadow: 5px 5px 0 #000;
-    opacity: 0; animation: iahPopTilt 0.8s cubic-bezier(0.3, 1.6, 0.5, 1) 1.45s forwards;
+    opacity: 0;
   }
+  .is-open .iah-t2 { animation: iahPopTilt 0.8s cubic-bezier(0.3, 1.6, 0.5, 1) 1.1s forwards; }
   .iah-hero-sub {
     margin: 1rem auto 0; max-width: 21rem;
     font-family: 'Gaegu', 'Nunito', system-ui, sans-serif; font-weight: 400;
     font-size: clamp(1.32rem, 4.6vw, 1.6rem); line-height: 1.22; color: ${CHALK_SOFT};
     text-wrap: balance;
-    opacity: 0; animation: iahRise 0.9s ease 2s forwards;
+    opacity: 0;
   }
+  .is-open .iah-hero-sub { animation: iahRise 0.9s ease 1.65s forwards; }
   .iah-cue {
     margin-top: 1rem; width: 44px; height: 60px; border: 0; padding: 0; background: none; cursor: pointer;
-    opacity: 0; animation: iahRise 0.9s ease 2.7s forwards;
+    opacity: 0; pointer-events: none;
   }
-  .iah-cue svg { display: block; width: 100%; height: 100%; animation: iahBob 2.2s ease-in-out 3.6s infinite; }
+  .is-open .iah-cue { animation: iahRise 0.9s ease 2.3s forwards; pointer-events: auto; }
+  .iah-cue svg { display: block; width: 100%; height: 100%; }
+  .is-open .iah-cue svg { animation: iahBob 2.2s ease-in-out 3.2s infinite; }
   .iah-cue:focus-visible { outline: none; box-shadow: 0 0 0 3px ${YELLOW}; border-radius: 12px; }
 
   /* ---------- the story ---------- */
@@ -1050,6 +1158,12 @@ const IAH_STYLE = `
   @keyframes iahPopTilt { from { opacity: 0; transform: scale(0.4) rotate(-12deg); } to { opacity: 1; transform: rotate(-3deg); } }
   @keyframes iahRise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   @keyframes iahBob { 0%, 100% { transform: translateY(-4px); } 50% { transform: translateY(5px); } }
+  @keyframes iahPoint { 0%, 100% { transform: translateY(4px); } 50% { transform: translateY(-5px); } }
+  @keyframes iahKnock {
+    0%, 80%, 100% { transform: rotate(0deg); }
+    84% { transform: rotate(-2.4deg); } 88% { transform: rotate(2.2deg); }
+    92% { transform: rotate(-1.4deg); } 96% { transform: rotate(0.8deg); }
+  }
   @keyframes iahTwinkle { 0%, 100% { transform: scale(0.55) rotate(0deg); opacity: 0.5; } 50% { transform: scale(1.1) rotate(25deg); opacity: 1; } }
   @keyframes iahWave { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-16deg); } 75% { transform: rotate(12deg); } }
   @keyframes iahBar { 0%, 100% { height: 4px; } 50% { height: 14px; } }
@@ -1064,9 +1178,11 @@ const IAH_STYLE = `
   /* Reduced motion: every word, every drawing, nothing moving. */
   @media (prefers-reduced-motion: reduce) {
     .iah-rv { opacity: 1; transform: none; transition: none; }
-    .iah-t1, .iah-hero-sub, .iah-cue { animation: none; opacity: 1; }
-    .iah-t2 { animation: none; opacity: 1; transform: rotate(-3deg); }
-    .iah-cue svg, .iah-sparks path, .iah-ted-wave, .iah-music.is-silent, .iah-music.is-on .iah-bars > i,
+    .is-open .iah-t1, .is-open .iah-hero-sub, .is-open .iah-cue { animation: none; opacity: 1; }
+    .is-open .iah-t2 { animation: none; opacity: 1; transform: rotate(-3deg); }
+    .iah-gate, .iah-gate-arrow { transition: none; animation: none; }
+    .iah-root:not(.is-open) .iah-hero-door .iah-doorart { animation: none; }
+    .is-open .iah-cue svg, .is-open .iah-ted-wave, .iah-sparks path, .iah-music.is-silent, .iah-music.is-on .iah-bars > i,
     .iah-end.is-in .iah-ted-heart { animation: none; }
     .iah-leaf, .iah-spill { transition: none; }
     .iah-doodle-div path, .iah-squiggle path { stroke-dashoffset: 0; transition: none; }
