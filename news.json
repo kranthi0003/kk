@@ -1,6 +1,62 @@
 {
-  "generated": "2026-10-08T16:00:42.293Z",
+  "generated": "2026-10-09T01:56:22.247Z",
   "reddit": [
+    {
+      "title": "The clearly best Gatway API implementation seems to be Istio?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x18jc0/the_clearly_best_gatway_api_implementation_seems/",
+      "by": "New_Bid2903",
+      "time": 1791509270000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Adding Go's defer to the TypeScript Compiler",
+      "url": "https://www.reddit.com/r/programming/comments/1x18013/adding_gos_defer_to_the_typescript_compiler/",
+      "by": "fagnerbrack",
+      "time": 1791507657000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "We halved our criticals and container vulnerability remediation still eats a day a week",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x17wi2/we_halved_our_criticals_and_container/",
+      "by": "TightRegister2068",
+      "time": 1791507370000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How big is a Git commit?",
+      "url": "https://www.reddit.com/r/programming/comments/1x144ok/how_big_is_a_git_commit/",
+      "by": "fagnerbrack",
+      "time": 1791496815000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Tracing np.add, all the way down",
+      "url": "https://www.reddit.com/r/programming/comments/1x11ujr/tracing_npadd_all_the_way_down/",
+      "by": "alexeyr",
+      "time": 1791491307000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "GitOps Promotion in a Landscape with UAT Environment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x0yy25/gitops_promotion_in_a_landscape_with_uat/",
+      "by": "razr_69",
+      "time": 1791484721000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "anyone actually using AI SREs / agents to debug k8s incidents in prod?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x0wbf3/anyone_actually_using_ai_sres_agents_to_debug_k8s/",
+      "by": "royLskyhook",
+      "time": 1791478772000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Two-Way Doors: Don’t Code Yourself into a Corner",
+      "url": "https://www.reddit.com/r/programming/comments/1x0vmxt/twoway_doors_dont_code_yourself_into_a_corner/",
+      "by": "ghled",
+      "time": 1791477205000,
+      "sub": "r/programming"
+    },
     {
       "title": "Java garbage collection in its own log: eight checks you can run",
       "url": "https://www.reddit.com/r/programming/comments/1x0u5q9/java_garbage_collection_in_its_own_log_eight/",
@@ -9,176 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "Resources to build a foundational understanding on Operating systems",
-      "url": "https://www.reddit.com/r/devops/comments/1x0u0r8/resources_to_build_a_foundational_understanding/",
-      "by": "redwing096399",
-      "time": 1791473523000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Sick of the UK.",
-      "url": "https://www.reddit.com/r/devops/comments/1x0taio/sick_of_the_uk/",
-      "by": "Electronic-Ad-4657",
-      "time": 1791471855000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "ngl, dumping raw server logs into a massive context window is way better than writing regex",
-      "url": "https://www.reddit.com/r/devops/comments/1x0syyd/ngl_dumping_raw_server_logs_into_a_massive/",
-      "by": "kim_deadja4951",
-      "time": 1791471098000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Bit arrays in the Linux kernel",
-      "url": "https://www.reddit.com/r/programming/comments/1x0sbg2/bit_arrays_in_the_linux_kernel/",
-      "by": "0xAX",
-      "time": 1791469518000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Build better software to build software better",
-      "url": "https://www.reddit.com/r/programming/comments/1x0qyoq/build_better_software_to_build_software_better/",
-      "by": "Ok_Stomach6651",
-      "time": 1791466178000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The biggest production risk might be the engineer who noticed something and decided not to say it",
-      "url": "https://www.reddit.com/r/devops/comments/1x0pt2p/the_biggest_production_risk_might_be_the_engineer/",
-      "by": "aisatsana__",
-      "time": 1791463043000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Devops| SRE| K8s platform engineering in Europe",
-      "url": "https://www.reddit.com/r/devops/comments/1x0pece/devops_sre_k8s_platform_engineering_in_europe/",
-      "by": "lahsiv_98",
-      "time": 1791461836000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Adopting Pyrefly as the Python type checker at Google",
-      "url": "https://www.reddit.com/r/programming/comments/1x0p1v8/adopting_pyrefly_as_the_python_type_checker_at/",
-      "by": "BeamMeUpBiscotti",
-      "time": 1791460813000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Does ClickHouse really need its own storage format?",
-      "url": "https://www.reddit.com/r/programming/comments/1x0mma7/does_clickhouse_really_need_its_own_storage_format/",
-      "by": "Giladkl",
-      "time": 1791452336000,
-      "sub": "r/programming"
+      "title": "Still on bitnamilegacy for Postgres and Redis almost a year later — here’s how we’re getting off it",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x0terw/still_on_bitnamilegacy_for_postgres_and_redis/",
+      "by": "anirvedh",
+      "time": 1791472133000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Software Development is Infinite but our time is not",
-      "url": "https://medium.com/@gutierrezandresfelipe/software-development-is-infinite-but-our-time-is-not-98266c25c4c7",
-      "by": "Andres Gutierrez",
-      "time": 1791474512000,
+      "title": "The Email Every IT Engineer Should Send Their Manager Before Annual Review",
+      "url": "https://medium.com/@prasantakumarroy1/the-email-every-it-engineer-should-send-their-manager-before-annual-review-c25a4e3a2a26",
+      "by": "Prasanta Kumar Roy",
+      "time": 1791509556000,
       "tags": [
-        "csharp",
-        "programming",
-        "software-development"
+        "cloud-computing",
+        "windows",
+        "system-administration"
       ]
     },
     {
-      "title": "Flutter Commands Every Developer Should Know",
-      "url": "https://blog.stackademic.com/flutter-commands-every-developer-should-know-8e379499dce7",
-      "by": "DevCode",
-      "time": 1791474496000,
+      "title": "The Infrastructure Documentation That Saves You at 2am — How to Build It Before You Need It",
+      "url": "https://medium.com/@prasantakumarroy1/the-infrastructure-documentation-that-saves-you-at-2am-how-to-build-it-before-you-need-it-7fd0d5afd524",
+      "by": "Prasanta Kumar Roy",
+      "time": 1791509550000,
       "tags": [
-        "flutter-app-development",
-        "mobile-app-development",
+        "windows",
+        "system-administration",
+        "devops"
+      ]
+    },
+    {
+      "title": "The AWS Services Every Windows Admin Needs to Know — Mapped to What You Already Understand",
+      "url": "https://medium.com/@prasantakumarroy1/the-aws-services-every-windows-admin-needs-to-know-mapped-to-what-you-already-understand-7e497791f47c",
+      "by": "Prasanta Kumar Roy",
+      "time": 1791509544000,
+      "tags": [
+        "system-administration",
+        "windows",
+        "devops"
+      ]
+    },
+    {
+      "title": "Why I Started Writing About IT Infrastructure and What It’s Given Me Back",
+      "url": "https://medium.com/@prasantakumarroy1/why-i-started-writing-about-it-infrastructure-and-what-its-given-me-back-fd119ed25420",
+      "by": "Prasanta Kumar Roy",
+      "time": 1791509538000,
+      "tags": [
+        "windows",
+        "cybersecurity",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "The Complete Guide to Windows Server 2025 — What’s New and What You Need to Know",
+      "url": "https://medium.com/@prasantakumarroy1/the-complete-guide-to-windows-server-2025-whats-new-and-what-you-need-to-know-298a3768c1df",
+      "by": "Prasanta Kumar Roy",
+      "time": 1791509531000,
+      "tags": [
+        "devops",
+        "windows",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "Node.js Runs TypeScript Files Now. It Ran One With a Type Error and Got $4,912 Instead of $61.",
+      "url": "https://medium.com/@reactbd/node-js-runs-typescript-files-now-it-ran-one-with-a-type-error-and-got-4-912-instead-of-61-8d6f06f17723",
+      "by": "Noor Mohammad",
+      "time": 1791509461000,
+      "tags": [
+        "nodejs",
+        "javascript",
         "programming"
       ]
     },
     {
-      "title": "Stop Kubernetes Pod Clumping: Topology Spread Constraints Explained 2026",
-      "url": "https://learnitguide.medium.com/stop-kubernetes-pod-clumping-topology-spread-constraints-explained-2026-6796ef7119a4",
-      "by": "Linux, DevOps, Cloud, Python, A…",
-      "time": 1791474410000,
+      "title": "I Thought I Understood AI. I Really Didn’t.",
+      "url": "https://medium.com/@pujarikshitij/i-thought-i-understood-ai-i-really-didnt-0f75e3f740b6",
+      "by": "Kshitij Pujari",
+      "time": 1791509461000,
       "tags": [
-        "cloud-computing",
-        "kubernetes",
-        "podtopology"
-      ]
-    },
-    {
-      "title": "I Did 11 Technical Interviews in 60 Days. Here Is the Pattern Nobody Tells You.",
-      "url": "https://medium.com/@mukeshpatel96p/i-did-11-technical-interviews-in-60-days-here-is-the-pattern-nobody-tells-you-6b36d96e1595",
-      "by": "",
-      "time": 1791474370000,
-      "tags": [
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Claude Haiku 5.5 Was Worth the Wait",
-      "url": "https://medium.com/the-ai-brief/claude-haiku-5-5-was-worth-the-wait-ba0175b34165",
-      "by": "Caspar Bannink - AI Engineer",
-      "time": 1791474233000,
-      "tags": [
+        "this-happened-to-me",
         "machine-learning",
-        "technology",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Hypervisors in Automotive: A Complete Guide from Basics to Advanced",
-      "url": "https://medium.com/@bhargavamandapati/hypervisors-in-automotive-a-complete-guide-from-basics-to-advanced-14a0cf661af7",
-      "by": "Mandapati Bhargava",
-      "time": 1791474180000,
+      "title": "GitHub Actions vs. Jenkins vs. CircleCI: How FreeAgent Cut Its Test Infrastructure Spend by 90%",
+      "url": "https://medium.com/@ciphemicacademia/github-actions-vs-jenkins-vs-circleci-how-freeagent-cut-its-test-infrastructure-spend-by-90-58e16943342f",
+      "by": "Ciphemicacademia",
+      "time": 1791509316000,
       "tags": [
-        "operating-systems",
-        "automotive",
-        "hypervisors"
+        "cicd",
+        "devops",
+        "github-actions"
       ]
     },
     {
-      "title": "AI Agents for Appium: How I Built Guardrails That Actually Work",
-      "url": "https://sonu-gupta.medium.com/ai-agents-for-appium-how-i-built-guardrails-that-actually-work-1a8c6ffb7081",
-      "by": "Sonu Gupta",
-      "time": 1791474153000,
+      "title": "Why Browser Emulator Compatibility Is Hard: Lessons from ClassicEmu",
+      "url": "https://medium.com/@45117.com/why-browser-emulator-compatibility-is-hard-lessons-from-classicemu-15f939c4d218",
+      "by": "classic emulator game",
+      "time": 1791508191000,
       "tags": [
-        "appium",
         "software-engineering",
-        "ai-agents-in-action"
+        "web-development",
+        "gaming"
       ]
     },
     {
-      "title": "Solving S = 1+(1+2)+..+(1+..+N) in Python",
-      "url": "https://medium.com/@diyapari2448/solving-s-1-1-2-1-n-in-python-8a7442b727b1",
-      "by": "Diyraxis",
-      "time": 1791474073000,
+      "title": "Vibe Coding a ClassicEmu MVP: A Practical Seven-Day Plan",
+      "url": "https://medium.com/@45117.com/vibe-coding-a-classicemu-mvp-a-practical-seven-day-plan-1f8b5c88aa45",
+      "by": "classic emulator game",
+      "time": 1791508127000,
       "tags": [
-        "math",
-        "software-development",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Every Codebase Is a Story (Most Are Just Bad Ones)",
-      "url": "https://medium.com/@juancarlosgarzon/every-codebase-is-a-story-most-are-just-bad-ones-72f64b11760b",
-      "by": "Juan Carlos Garzon",
-      "time": 1791473813000,
-      "tags": [
-        "story-driven-development",
-        "software-engineering",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "Firefox’s AI Bet: Is It the Last Dance?",
-      "url": "https://canartuc.medium.com/firefoxs-ai-bet-is-it-the-last-dance-7ef80166a19c",
-      "by": "Can Artuc",
-      "time": 1791473766000,
-      "tags": [
-        "open-source",
-        "technology",
-        "software-engineering"
+        "artificial-intelligence",
+        "web-development",
+        "programming"
       ]
     }
   ]
