@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-09T04:36:14.449Z",
+  "generated": "2026-10-10T04:33:51.045Z",
   "reddit": [
     {
-      "title": "Keys and Values Don't Always Belong Together",
-      "url": "https://www.reddit.com/r/programming/comments/1x1bxcn/keys_and_values_dont_always_belong_together/",
-      "by": "diagraphic",
-      "time": 1791519834000,
+      "title": "Deno is joining Cloudflare",
+      "url": "https://www.reddit.com/r/programming/comments/1x23sn2/deno_is_joining_cloudflare/",
+      "by": "matthieuC",
+      "time": 1791599164000,
       "sub": "r/programming"
     },
     {
-      "title": "The clearly best Gatway API implementation seems to be Istio?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x18jc0/the_clearly_best_gatway_api_implementation_seems/",
-      "by": "New_Bid2903",
-      "time": 1791509270000,
-      "sub": "r/kubernetes"
+      "title": "explaining prod server migration while hungry cause i cant afford groceries",
+      "url": "https://www.reddit.com/r/devops/comments/1x23f1r/explaining_prod_server_migration_while_hungry/",
+      "by": "retromani",
+      "time": 1791597966000,
+      "sub": "r/devops"
     },
     {
-      "title": "Adding Go's defer to the TypeScript Compiler",
-      "url": "https://www.reddit.com/r/programming/comments/1x18013/adding_gos_defer_to_the_typescript_compiler/",
-      "by": "fagnerbrack",
-      "time": 1791507657000,
+      "title": "You're Not Crazy, They Never Sent FIN",
+      "url": "https://www.reddit.com/r/devops/comments/1x21no2/youre_not_crazy_they_never_sent_fin/",
+      "by": "Confident_Milk6013",
+      "time": 1791592598000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "We Should Still Send Home Assignments in Engineering Interviews",
+      "url": "https://www.reddit.com/r/programming/comments/1x1ysqj/we_should_still_send_home_assignments_in/",
+      "by": "mtyurt",
+      "time": 1791584562000,
       "sub": "r/programming"
     },
     {
-      "title": "We halved our criticals and container vulnerability remediation still eats a day a week",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x17wi2/we_halved_our_criticals_and_container/",
-      "by": "TightRegister2068",
-      "time": 1791507370000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How big is a Git commit?",
-      "url": "https://www.reddit.com/r/programming/comments/1x144ok/how_big_is_a_git_commit/",
-      "by": "fagnerbrack",
-      "time": 1791496815000,
+      "title": "ClickHouse outcompresses Parquet: Surprises from our migration",
+      "url": "https://www.reddit.com/r/programming/comments/1x1v9c8/clickhouse_outcompresses_parquet_surprises_from/",
+      "by": "IiIIIlllllLliLl",
+      "time": 1791575727000,
       "sub": "r/programming"
     },
     {
-      "title": "Tracing np.add, all the way down",
-      "url": "https://www.reddit.com/r/programming/comments/1x11ujr/tracing_npadd_all_the_way_down/",
-      "by": "alexeyr",
-      "time": 1791491307000,
+      "title": "GitOps for infrastructure management - anyone doing this with OpenStack?",
+      "url": "https://www.reddit.com/r/devops/comments/1x1rjk9/gitops_for_infrastructure_management_anyone_doing/",
+      "by": "product-marketer2017",
+      "time": 1791567097000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Python Release Python 3.15.0",
+      "url": "https://www.reddit.com/r/programming/comments/1x1pypx/python_release_python_3150/",
+      "by": "BrewedDoritos",
+      "time": 1791563413000,
       "sub": "r/programming"
     },
     {
-      "title": "GitOps Promotion in a Landscape with UAT Environment",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x0yy25/gitops_promotion_in_a_landscape_with_uat/",
-      "by": "razr_69",
-      "time": 1791484721000,
-      "sub": "r/kubernetes"
+      "title": "AI generated code review",
+      "url": "https://www.reddit.com/r/devops/comments/1x1olt9/ai_generated_code_review/",
+      "by": "Shitmfman",
+      "time": 1791560304000,
+      "sub": "r/devops"
     },
     {
-      "title": "anyone actually using AI SREs / agents to debug k8s incidents in prod?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x0wbf3/anyone_actually_using_ai_sres_agents_to_debug_k8s/",
-      "by": "royLskyhook",
-      "time": 1791478772000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Two-Way Doors: Don’t Code Yourself into a Corner",
-      "url": "https://www.reddit.com/r/programming/comments/1x0vmxt/twoway_doors_dont_code_yourself_into_a_corner/",
-      "by": "ghled",
-      "time": 1791477205000,
+      "title": "A Redis cache in Node.js after the first request: five checks you can run",
+      "url": "https://www.reddit.com/r/programming/comments/1x1oksq/a_redis_cache_in_nodejs_after_the_first_request/",
+      "by": "huseyinbabal",
+      "time": 1791560236000,
       "sub": "r/programming"
     },
     {
-      "title": "Still on bitnamilegacy for Postgres and Redis almost a year later — here’s how we’re getting off it",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x0terw/still_on_bitnamilegacy_for_postgres_and_redis/",
-      "by": "anirvedh",
-      "time": 1791472133000,
-      "sub": "r/kubernetes"
+      "title": "Do EKS users really deploy more than 2 Clusters?",
+      "url": "https://www.reddit.com/r/devops/comments/1x1jmyv/do_eks_users_really_deploy_more_than_2_clusters/",
+      "by": "Zestyclose_Race_1646",
+      "time": 1791547629000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Data Integrity at Scale: Bridging OLTP to OLAP — Real-Time Analytics Streaming Without Locking…",
-      "url": "https://medium.com/@amamit/data-integrity-at-scale-bridging-oltp-to-olap-real-time-analytics-streaming-without-locking-93099d7c8a41",
-      "by": "amit",
-      "time": 1791520263000,
+      "title": "Kubernetes Pod Stuck in Pending State: 7 Causes and Fixes",
+      "url": "https://medium.com/devops-ai-decoded/kubernetes-pod-stuck-in-pending-state-7-causes-and-fixes-55f27b8e9d14",
+      "by": "Neel Shah",
+      "time": 1791606663000,
       "tags": [
-        "software-development",
-        "software-architecture",
+        "technology",
+        "kubernetes",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "I Used Postgres Connection Pooling Defaults for Four Years.",
+      "url": "https://medium.com/@elias.codeforge/postgres-connection-pool-timeout-reindex-outage-d059a53aaf9a",
+      "by": "Elias Codeforge",
+      "time": 1791606662000,
+      "tags": [
+        "database",
+        "backend-development",
+        "devops"
+      ]
+    },
+    {
+      "title": "If I Had to Start Coding from Scratch, This Is How I Would Do It",
+      "url": "https://medium.com/@tanisha.fonseca2807/if-i-had-to-start-coding-from-scratch-this-is-how-i-would-do-it-da4db091e503",
+      "by": "Tanisha fonseca",
+      "time": 1791605992000,
+      "tags": [
+        "programming-guide",
+        "programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "PostgreSQL + Python: Your Database Isn’t Slow. Your Python Code Is.",
+      "url": "https://medium.com/@techybob/postgresql-python-your-database-isnt-slow-your-python-code-is-8d7422c8770a",
+      "by": "techybob",
+      "time": 1791605461000,
+      "tags": [
+        "python",
+        "postgresql",
+        "data-science"
+      ]
+    },
+    {
+      "title": "5 Guardrails Every AI Agent Needs Before You Ship It",
+      "url": "https://medium.com/skillstuff/5-guardrails-every-ai-agent-needs-before-you-ship-it-5702e52bed21",
+      "by": "TechByRahmat",
+      "time": 1791605461000,
+      "tags": [
+        "artificial-intelligence",
+        "ai-agents-in-action",
         "system-design-interview"
       ]
     },
     {
-      "title": "Explained React Native Gradle Plugin",
-      "url": "https://medium.com/react-native-lab/explained-react-native-gradle-plugin-06ea6465e2a4",
-      "by": "Jayant Kumar",
-      "time": 1791520263000,
+      "title": "A Small Python Trick That Makes Loops Cleaner",
+      "url": "https://nazmulix.medium.com/a-small-python-trick-that-makes-loops-cleaner-ca2505b320e4",
+      "by": "Nazmul Hussain",
+      "time": 1791605394000,
       "tags": [
-        "mobile-app-development",
-        "react-native",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "You Don’t Need to Feel Productive Every Day to Ship",
-      "url": "https://rsprasandike.medium.com/you-dont-need-to-feel-productive-every-day-to-ship-bdd93f2b5ef9",
-      "by": "Saliya Prasandike",
-      "time": 1791519875000,
-      "tags": [
-        "problem-solving",
-        "software-engineering",
-        "productivity"
-      ]
-    },
-    {
-      "title": "The Agentic Stack: Where This Is All Heading",
-      "url": "https://medium.com/@kannavkunal/the-agentic-stack-where-this-is-all-heading-33f614523c15",
-      "by": "Kunal Kannav",
-      "time": 1791519634000,
-      "tags": [
-        "llm",
-        "software-engineering",
-        "ai"
-      ]
-    },
-    {
-      "title": "Learned the ML Algorithms. But Where Are They Actually Used?",
-      "url": "https://medium.com/@rudrimehta11/learned-the-ml-algorithms-but-where-are-they-actually-used-8648b4d3a378",
-      "by": "Rudri Mehta",
-      "time": 1791519478000,
-      "tags": [
-        "technology",
-        "data-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "UNIT TESTING STRATEGIES FROM A VERY SMART, VERY SENIOR ENGINEER™",
-      "url": "https://medium.com/@george.bearden/unit-testing-strategies-from-a-very-smart-very-senior-engineer-100a89494a89",
-      "by": "George Bearden",
-      "time": 1791519329000,
-      "tags": [
-        "software-engineering",
-        "agentic-ai",
-        "unit-testing"
-      ]
-    },
-    {
-      "title": "How I route SSH inside the kernel with SOCKMAP",
-      "url": "https://medium.com/@arasydafa/how-i-route-ssh-inside-the-kernel-with-sockmap-4d102aade0e3",
-      "by": "Arasy Dafa Sulistya Kurniawan",
-      "time": 1791519170000,
-      "tags": [
+        "ai",
         "programming",
-        "linux",
-        "ebpf"
+        "python"
       ]
     },
     {
-      "title": "How AI-Powered Coding Is Transforming Software Development (And Why You Should Embrace It)",
-      "url": "https://medium.com/@chamodmadhushan2022/how-ai-powered-coding-is-transforming-software-development-and-why-you-should-embrace-it-054e8cbf5708",
-      "by": "Chamod Madushan",
-      "time": 1791519161000,
+      "title": "Your Engineering Roadmap Is Only as Fast as Your Hiring",
+      "url": "https://medium.com/@alli.martin/your-engineering-roadmap-is-only-as-fast-as-your-hiring-ca2dca08d99e",
+      "by": "Allison Martin",
+      "time": 1791605161000,
       "tags": [
-        "artificial-intelligence",
-        "productivity",
+        "software-engineering",
+        "technology",
+        "startup"
+      ]
+    },
+    {
+      "title": "Kubernetes Deployments Explained: Rolling Updates, Rollbacks, and Scaling",
+      "url": "https://medium.com/@harristarstech/kubernetes-deployments-explained-rolling-updates-rollbacks-and-scaling-f09737d234b8",
+      "by": "Harristar Tech",
+      "time": 1791605100000,
+      "tags": [
+        "devops",
+        "cloud-computing",
         "software-development"
       ]
     },
     {
-      "title": "#Get Apple Developer Account",
-      "url": "https://medium.com/@12fsfnpcel/get-apple-developer-account-b0ee9d2b3b56",
-      "by": "Audrey M. Garcia",
-      "time": 1791519058000,
+      "title": "Our Service Started Fine With a Typo in Its Config. It Failed Three Weeks Later at 3am.",
+      "url": "https://chen0625tung.medium.com/our-service-started-fine-with-a-typo-in-its-config-it-failed-three-weeks-later-at-3am-3f9115b232d7",
+      "by": "Kevin Tung",
+      "time": 1791605024000,
       "tags": [
-        "apple",
-        "mobile-app-development",
-        "programming"
+        "reliability",
+        "software-engineering",
+        "devops"
       ]
     },
     {
-      "title": "AI moves the bottlenecks, Agile needs to adapt",
-      "url": "https://medium.com/@ejsmont.artur/ai-moves-the-bottlenecks-agile-needs-to-adapt-b8c341ce57a0",
-      "by": "Artur Ejsmont",
-      "time": 1791518842000,
+      "title": "Linux SSH Security: Secure Remote Access with SSH Keys, Firewall Rules, and Root Login Restrictions",
+      "url": "https://medium.com/@harristarstech/linux-ssh-security-secure-remote-access-with-ssh-keys-firewall-rules-and-root-login-restrictions-ac52fc4d8f6b",
+      "by": "Harristar Tech",
+      "time": 1791604295000,
       "tags": [
-        "ai-engineering",
-        "sdlc",
-        "software-engineering"
+        "linux",
+        "system-administration",
+        "devops"
       ]
     }
   ]
