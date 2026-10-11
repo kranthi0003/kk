@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10T04:33:56.440Z",
+  "generated": "2026-10-11T04:34:51.512Z",
   "season": "2026",
   "sources": [
     {
@@ -103,9 +103,9 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 34,
-        "points": 3968,
-        "rating": 117
+        "matches": 36,
+        "points": 4112,
+        "rating": 115
       },
       {
         "pos": 2,
@@ -199,19 +199,19 @@
     "t20i": [
       {
         "pos": 1,
-        "code": "IND",
-        "team": "India",
-        "matches": 68,
-        "points": 18334,
-        "rating": 270
-      },
-      {
-        "pos": 2,
         "code": "ENG",
         "team": "England",
         "matches": 41,
         "points": 11021,
         "rating": 269
+      },
+      {
+        "pos": 2,
+        "code": "IND",
+        "team": "India",
+        "matches": 69,
+        "points": 18517,
+        "rating": 268
       },
       {
         "pos": 3,
@@ -241,17 +241,17 @@
         "pos": 6,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 59,
-        "points": 14172,
-        "rating": 240
+        "matches": 60,
+        "points": 14443,
+        "rating": 241
       },
       {
         "pos": 7,
         "code": "WIN",
         "team": "West Indies",
-        "matches": 57,
-        "points": 13298,
-        "rating": 233
+        "matches": 58,
+        "points": 13618,
+        "rating": 235
       },
       {
         "pos": 8,
@@ -265,9 +265,9 @@
         "pos": 9,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 49,
-        "points": 10817,
-        "rating": 221
+        "matches": 50,
+        "points": 11007,
+        "rating": 220
       },
       {
         "pos": 10,

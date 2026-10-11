@@ -1,11 +1,67 @@
 {
-  "generated": "2026-10-10T04:33:51.045Z",
+  "generated": "2026-10-11T04:34:45.816Z",
   "reddit": [
     {
-      "title": "Deno is joining Cloudflare",
-      "url": "https://www.reddit.com/r/programming/comments/1x23sn2/deno_is_joining_cloudflare/",
-      "by": "matthieuC",
-      "time": 1791599164000,
+      "title": "Stop reaching for WebSockets by default: WebSockets vs SSE vs Long Polling",
+      "url": "https://www.reddit.com/r/programming/comments/1x2r88r/stop_reaching_for_websockets_by_default/",
+      "by": "Dull-File6231",
+      "time": 1791669459000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Worth switching from ChatGPT Plus to Claude Pro for an OpenShift / IBM CP4I / WSO2 stack?",
+      "url": "https://www.reddit.com/r/devops/comments/1x2pvj1/worth_switching_from_chatgpt_plus_to_claude_pro/",
+      "by": "turtle_jump",
+      "time": 1791665825000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Ipv4 vs Ipv6, explained from scratch",
+      "url": "https://www.reddit.com/r/devops/comments/1x2mpxi/ipv4_vs_ipv6_explained_from_scratch/",
+      "by": "huseyinbabal",
+      "time": 1791657769000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Networking a 3-Node Kubernetes Homelab with Cilium, Gateway API and Cloudflare Tunnel",
+      "url": "https://www.reddit.com/r/devops/comments/1x2mjo9/networking_a_3node_kubernetes_homelab_with_cilium/",
+      "by": "root0ps",
+      "time": 1791657327000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Can AI actually write production-ready scripts end-to-end without human intervention?",
+      "url": "https://www.reddit.com/r/devops/comments/1x2mhoj/can_ai_actually_write_productionready_scripts/",
+      "by": "Business-Quiet-5805",
+      "time": 1791657184000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What's the Cost of Object-Relational Mapping?",
+      "url": "https://www.reddit.com/r/programming/comments/1x2mabk/whats_the_cost_of_objectrelational_mapping/",
+      "by": "fykup",
+      "time": 1791656673000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Speedticket - a different take on a Semaphore, explained as a swimming pool",
+      "url": "https://www.reddit.com/r/programming/comments/1x2fowp/speedticket_a_different_take_on_a_semaphore/",
+      "by": "alexsnaps",
+      "time": 1791639929000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Rewriting an entire UI in Rust",
+      "url": "https://www.reddit.com/r/programming/comments/1x2et1j/rewriting_an_entire_ui_in_rust/",
+      "by": "SpecialBread_",
+      "time": 1791637409000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Concrete Lessons from Conway’s Game of Life",
+      "url": "https://www.reddit.com/r/programming/comments/1x26xoh/concrete_lessons_from_conways_game_of_life/",
+      "by": "kichelmn",
+      "time": 1791609575000,
       "sub": "r/programming"
     },
     {
@@ -14,173 +70,117 @@
       "by": "retromani",
       "time": 1791597966000,
       "sub": "r/devops"
-    },
-    {
-      "title": "You're Not Crazy, They Never Sent FIN",
-      "url": "https://www.reddit.com/r/devops/comments/1x21no2/youre_not_crazy_they_never_sent_fin/",
-      "by": "Confident_Milk6013",
-      "time": 1791592598000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "We Should Still Send Home Assignments in Engineering Interviews",
-      "url": "https://www.reddit.com/r/programming/comments/1x1ysqj/we_should_still_send_home_assignments_in/",
-      "by": "mtyurt",
-      "time": 1791584562000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "ClickHouse outcompresses Parquet: Surprises from our migration",
-      "url": "https://www.reddit.com/r/programming/comments/1x1v9c8/clickhouse_outcompresses_parquet_surprises_from/",
-      "by": "IiIIIlllllLliLl",
-      "time": 1791575727000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "GitOps for infrastructure management - anyone doing this with OpenStack?",
-      "url": "https://www.reddit.com/r/devops/comments/1x1rjk9/gitops_for_infrastructure_management_anyone_doing/",
-      "by": "product-marketer2017",
-      "time": 1791567097000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Python Release Python 3.15.0",
-      "url": "https://www.reddit.com/r/programming/comments/1x1pypx/python_release_python_3150/",
-      "by": "BrewedDoritos",
-      "time": 1791563413000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "AI generated code review",
-      "url": "https://www.reddit.com/r/devops/comments/1x1olt9/ai_generated_code_review/",
-      "by": "Shitmfman",
-      "time": 1791560304000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "A Redis cache in Node.js after the first request: five checks you can run",
-      "url": "https://www.reddit.com/r/programming/comments/1x1oksq/a_redis_cache_in_nodejs_after_the_first_request/",
-      "by": "huseyinbabal",
-      "time": 1791560236000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Do EKS users really deploy more than 2 Clusters?",
-      "url": "https://www.reddit.com/r/devops/comments/1x1jmyv/do_eks_users_really_deploy_more_than_2_clusters/",
-      "by": "Zestyclose_Race_1646",
-      "time": 1791547629000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Kubernetes Pod Stuck in Pending State: 7 Causes and Fixes",
-      "url": "https://medium.com/devops-ai-decoded/kubernetes-pod-stuck-in-pending-state-7-causes-and-fixes-55f27b8e9d14",
-      "by": "Neel Shah",
-      "time": 1791606663000,
+      "title": "Sampling Profiler vs. Deterministic Profiler in Python: Which One Should You Use?",
+      "url": "https://medium.com/algomart/sampling-profiler-vs-deterministic-profiler-in-python-which-one-should-you-use-5bcbcbc5d3b6",
+      "by": "Yash Jain",
+      "time": 1791692941000,
       "tags": [
-        "technology",
-        "kubernetes",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "I Used Postgres Connection Pooling Defaults for Four Years.",
-      "url": "https://medium.com/@elias.codeforge/postgres-connection-pool-timeout-reindex-outage-d059a53aaf9a",
-      "by": "Elias Codeforge",
-      "time": 1791606662000,
-      "tags": [
-        "database",
-        "backend-development",
-        "devops"
-      ]
-    },
-    {
-      "title": "If I Had to Start Coding from Scratch, This Is How I Would Do It",
-      "url": "https://medium.com/@tanisha.fonseca2807/if-i-had-to-start-coding-from-scratch-this-is-how-i-would-do-it-da4db091e503",
-      "by": "Tanisha fonseca",
-      "time": 1791605992000,
-      "tags": [
-        "programming-guide",
-        "programming",
-        "coding"
-      ]
-    },
-    {
-      "title": "PostgreSQL + Python: Your Database Isn’t Slow. Your Python Code Is.",
-      "url": "https://medium.com/@techybob/postgresql-python-your-database-isnt-slow-your-python-code-is-8d7422c8770a",
-      "by": "techybob",
-      "time": 1791605461000,
-      "tags": [
-        "python",
-        "postgresql",
-        "data-science"
-      ]
-    },
-    {
-      "title": "5 Guardrails Every AI Agent Needs Before You Ship It",
-      "url": "https://medium.com/skillstuff/5-guardrails-every-ai-agent-needs-before-you-ship-it-5702e52bed21",
-      "by": "TechByRahmat",
-      "time": 1791605461000,
-      "tags": [
-        "artificial-intelligence",
-        "ai-agents-in-action",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "A Small Python Trick That Makes Loops Cleaner",
-      "url": "https://nazmulix.medium.com/a-small-python-trick-that-makes-loops-cleaner-ca2505b320e4",
-      "by": "Nazmul Hussain",
-      "time": 1791605394000,
-      "tags": [
-        "ai",
-        "programming",
+        "performance-testing",
+        "software-development",
         "python"
       ]
     },
     {
-      "title": "Your Engineering Roadmap Is Only as Fast as Your Hiring",
-      "url": "https://medium.com/@alli.martin/your-engineering-roadmap-is-only-as-fast-as-your-hiring-ca2dca08d99e",
-      "by": "Allison Martin",
-      "time": 1791605161000,
+      "title": "Are You Building for Yourself or for Strangers? The Three Types of Builders",
+      "url": "https://medium.com/@naro7217/are-you-building-for-yourself-or-for-strangers-the-three-types-of-builders-7e97f788855f",
+      "by": "Naro",
+      "time": 1791692420000,
       "tags": [
-        "software-engineering",
-        "technology",
-        "startup"
+        "entrepreneurship",
+        "startup",
+        "product-development"
       ]
     },
     {
-      "title": "Kubernetes Deployments Explained: Rolling Updates, Rollbacks, and Scaling",
-      "url": "https://medium.com/@harristarstech/kubernetes-deployments-explained-rolling-updates-rollbacks-and-scaling-f09737d234b8",
-      "by": "Harristar Tech",
-      "time": 1791605100000,
+      "title": "PewDiePie Went From YouTube to Building AI Models. The Real Lesson Isn’t the Model.",
+      "url": "https://medium.com/@loengnavy/pewdiepie-went-from-youtube-to-building-ai-models-the-real-lesson-isnt-the-model-317fa9220e2d",
+      "by": "Loengnavy",
+      "time": 1791692271000,
       "tags": [
-        "devops",
+        "productivity",
+        "programming",
+        "open-source"
+      ]
+    },
+    {
+      "title": "10,000 People Opened the Same Recipe at Once: Here’s What Broke",
+      "url": "https://medium.com/@highsongs2020/10-000-people-opened-the-same-recipe-at-once-heres-what-broke-41703a57021e",
+      "by": "SOVANNARO",
+      "time": 1791692192000,
+      "tags": [
         "cloud-computing",
+        "backend-development",
         "software-development"
       ]
     },
     {
-      "title": "Our Service Started Fine With a Typo in Its Config. It Failed Three Weeks Later at 3am.",
-      "url": "https://chen0625tung.medium.com/our-service-started-fine-with-a-typo-in-its-config-it-failed-three-weeks-later-at-3am-3f9115b232d7",
-      "by": "Kevin Tung",
-      "time": 1791605024000,
+      "title": "Advanced Asset Management in UiPath Orchestrator",
+      "url": "https://medium.com/@praveenb0927/advanced-asset-management-in-uipath-orchestrator-319e9f16a5aa",
+      "by": "Praveen BK",
+      "time": 1791692161000,
       "tags": [
-        "reliability",
         "software-engineering",
-        "devops"
+        "self-improvement",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Linux SSH Security: Secure Remote Access with SSH Keys, Firewall Rules, and Root Login Restrictions",
-      "url": "https://medium.com/@harristarstech/linux-ssh-security-secure-remote-access-with-ssh-keys-firewall-rules-and-root-login-restrictions-ac52fc4d8f6b",
-      "by": "Harristar Tech",
-      "time": 1791604295000,
+      "title": "How to Fix 100% Disk Usage in Linux: A Step-by-Step Troubleshooting Guide",
+      "url": "https://medium.com/@ambetazam/how-to-fix-100-disk-usage-in-linux-a-step-by-step-troubleshooting-guide-6703d6ea0f11",
+      "by": "Ambetazam",
+      "time": 1791692079000,
       "tags": [
-        "linux",
-        "system-administration",
-        "devops"
+        "linux-system-admin",
+        "devops",
+        "linux-troubleshooting"
+      ]
+    },
+    {
+      "title": "Woman Beach Wall Decor AI File format",
+      "url": "https://medium.com/@ivaylostoyanov_42562/woman-beach-wall-decor-ai-file-format-1eb5a7561f94",
+      "by": "Ivaylo Stoyanov",
+      "time": 1791691922000,
+      "tags": [
+        "social-media",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "From SPL Roles to Agent Skills: Reusing Engineering Expertise, Not Just Code",
+      "url": "https://medium.com/@iyakin.yz/from-spl-roles-to-agent-skills-reusing-engineering-expertise-not-just-code-b4788648538a",
+      "by": "Old Developer",
+      "time": 1791691848000,
+      "tags": [
+        "ai-agent",
+        "software-engineering",
+        "software-product-lines"
+      ]
+    },
+    {
+      "title": "A CDC Pipeline We Forgot About Filled Our Primary Database’s Disk.",
+      "url": "https://chen0625tung.medium.com/a-cdc-pipeline-we-forgot-about-filled-our-primary-databases-disk-495daa75ad6f",
+      "by": "Kevin Tung",
+      "time": 1791691781000,
+      "tags": [
+        "database",
+        "data-engineering",
+        "postgresql"
+      ]
+    },
+    {
+      "title": "lekhak Gaurav pal Chhatrapati",
+      "url": "https://medium.com/@gauravchhatrapati19/lekhak-gaurav-pal-chhatrapati-9aa85f9b92ca",
+      "by": "Gaurav Pal Chhatrapati",
+      "time": 1791691178000,
+      "tags": [
+        "education",
+        "writing",
+        "programming"
       ]
     }
   ]
