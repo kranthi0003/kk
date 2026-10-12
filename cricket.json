@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T04:34:51.512Z",
+  "generated": "2026-10-12T04:43:57.925Z",
   "season": "2026",
   "sources": [
     {
@@ -209,9 +209,9 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 69,
-        "points": 18517,
-        "rating": 268
+        "matches": 70,
+        "points": 18802,
+        "rating": 269
       },
       {
         "pos": 3,
@@ -241,16 +241,16 @@
         "pos": 6,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 60,
-        "points": 14443,
+        "matches": 61,
+        "points": 14713,
         "rating": 241
       },
       {
         "pos": 7,
         "code": "WIN",
         "team": "West Indies",
-        "matches": 58,
-        "points": 13618,
+        "matches": 59,
+        "points": 13836,
         "rating": 235
       },
       {
@@ -265,8 +265,8 @@
         "pos": 9,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 50,
-        "points": 11007,
+        "matches": 51,
+        "points": 11198,
         "rating": 220
       },
       {

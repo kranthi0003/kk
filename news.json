@@ -1,18 +1,60 @@
 {
-  "generated": "2026-10-11T04:34:45.816Z",
+  "generated": "2026-10-12T04:42:49.956Z",
   "reddit": [
     {
-      "title": "Stop reaching for WebSockets by default: WebSockets vs SSE vs Long Polling",
-      "url": "https://www.reddit.com/r/programming/comments/1x2r88r/stop_reaching_for_websockets_by_default/",
-      "by": "Dull-File6231",
-      "time": 1791669459000,
+      "title": "Coding lessons taught by Boston University students!",
+      "url": "https://www.reddit.com/r/programming/comments/1x3qo4l/coding_lessons_taught_by_boston_university/",
+      "by": "ComfortableWriter996",
+      "time": 1791773461000,
       "sub": "r/programming"
     },
     {
-      "title": "Worth switching from ChatGPT Plus to Claude Pro for an OpenShift / IBM CP4I / WSO2 stack?",
-      "url": "https://www.reddit.com/r/devops/comments/1x2pvj1/worth_switching_from_chatgpt_plus_to_claude_pro/",
-      "by": "turtle_jump",
-      "time": 1791665825000,
+      "title": "Testing secure links through OMV, Filebrowser Quantum and Cloudflare",
+      "url": "https://www.reddit.com/r/programming/comments/1x3m543/testing_secure_links_through_omv_filebrowser/",
+      "by": "RodTGG",
+      "time": 1791759781000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "What's your monthly GitHub Actions bill, and does anyone actually worry about it?",
+      "url": "https://www.reddit.com/r/devops/comments/1x3lio1/whats_your_monthly_github_actions_bill_and_does/",
+      "by": "Zealousideal_Tip4089",
+      "time": 1791758003000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How Games Are Decompiled: Reverse Engineering Byte by Byte",
+      "url": "https://www.reddit.com/r/programming/comments/1x3kdnn/how_games_are_decompiled_reverse_engineering_byte/",
+      "by": "r_retrohacking_mod2",
+      "time": 1791754964000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "DevOps for Wordpress",
+      "url": "https://www.reddit.com/r/devops/comments/1x3fq1d/devops_for_wordpress/",
+      "by": "OhMyTechticlesHurts",
+      "time": 1791743595000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Python 3.15 vs Python 3.14 – performance testing",
+      "url": "https://www.reddit.com/r/programming/comments/1x3djbz/python_315_vs_python_314_performance_testing/",
+      "by": "BestRef",
+      "time": 1791738445000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Reverse engineering a commercial spatial audio effect",
+      "url": "https://www.reddit.com/r/programming/comments/1x3akgr/reverse_engineering_a_commercial_spatial_audio/",
+      "by": "epestr",
+      "time": 1791731314000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I gave my AI access to the shell. Built this after it almost \"helped\" me too much.",
+      "url": "https://www.reddit.com/r/devops/comments/1x363lp/i_gave_my_ai_access_to_the_shell_built_this_after/",
+      "by": "comrad254",
+      "time": 1791718931000,
       "sub": "r/devops"
     },
     {
@@ -28,159 +70,117 @@
       "by": "root0ps",
       "time": 1791657327000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Can AI actually write production-ready scripts end-to-end without human intervention?",
-      "url": "https://www.reddit.com/r/devops/comments/1x2mhoj/can_ai_actually_write_productionready_scripts/",
-      "by": "Business-Quiet-5805",
-      "time": 1791657184000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What's the Cost of Object-Relational Mapping?",
-      "url": "https://www.reddit.com/r/programming/comments/1x2mabk/whats_the_cost_of_objectrelational_mapping/",
-      "by": "fykup",
-      "time": 1791656673000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Speedticket - a different take on a Semaphore, explained as a swimming pool",
-      "url": "https://www.reddit.com/r/programming/comments/1x2fowp/speedticket_a_different_take_on_a_semaphore/",
-      "by": "alexsnaps",
-      "time": 1791639929000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Rewriting an entire UI in Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1x2et1j/rewriting_an_entire_ui_in_rust/",
-      "by": "SpecialBread_",
-      "time": 1791637409000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Concrete Lessons from Conway’s Game of Life",
-      "url": "https://www.reddit.com/r/programming/comments/1x26xoh/concrete_lessons_from_conways_game_of_life/",
-      "by": "kichelmn",
-      "time": 1791609575000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "explaining prod server migration while hungry cause i cant afford groceries",
-      "url": "https://www.reddit.com/r/devops/comments/1x23f1r/explaining_prod_server_migration_while_hungry/",
-      "by": "retromani",
-      "time": 1791597966000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Sampling Profiler vs. Deterministic Profiler in Python: Which One Should You Use?",
-      "url": "https://medium.com/algomart/sampling-profiler-vs-deterministic-profiler-in-python-which-one-should-you-use-5bcbcbc5d3b6",
-      "by": "Yash Jain",
-      "time": 1791692941000,
+      "title": "I Tested 100+ GitHub Repos for Claude Code. Only 6 Stayed.",
+      "url": "https://medium.com/ai-engineering-simplified/i-tested-100-github-repos-for-claude-code-only-6-stayed-d86747d33840",
+      "by": "Divy Yadav",
+      "time": 1791779869000,
       "tags": [
-        "performance-testing",
-        "software-development",
-        "python"
-      ]
-    },
-    {
-      "title": "Are You Building for Yourself or for Strangers? The Three Types of Builders",
-      "url": "https://medium.com/@naro7217/are-you-building-for-yourself-or-for-strangers-the-three-types-of-builders-7e97f788855f",
-      "by": "Naro",
-      "time": 1791692420000,
-      "tags": [
-        "entrepreneurship",
-        "startup",
-        "product-development"
-      ]
-    },
-    {
-      "title": "PewDiePie Went From YouTube to Building AI Models. The Real Lesson Isn’t the Model.",
-      "url": "https://medium.com/@loengnavy/pewdiepie-went-from-youtube-to-building-ai-models-the-real-lesson-isnt-the-model-317fa9220e2d",
-      "by": "Loengnavy",
-      "time": 1791692271000,
-      "tags": [
-        "productivity",
+        "technology",
         "programming",
-        "open-source"
-      ]
-    },
-    {
-      "title": "10,000 People Opened the Same Recipe at Once: Here’s What Broke",
-      "url": "https://medium.com/@highsongs2020/10-000-people-opened-the-same-recipe-at-once-heres-what-broke-41703a57021e",
-      "by": "SOVANNARO",
-      "time": 1791692192000,
-      "tags": [
-        "cloud-computing",
-        "backend-development",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Advanced Asset Management in UiPath Orchestrator",
-      "url": "https://medium.com/@praveenb0927/advanced-asset-management-in-uipath-orchestrator-319e9f16a5aa",
-      "by": "Praveen BK",
-      "time": 1791692161000,
-      "tags": [
-        "software-engineering",
-        "self-improvement",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "How to Fix 100% Disk Usage in Linux: A Step-by-Step Troubleshooting Guide",
-      "url": "https://medium.com/@ambetazam/how-to-fix-100-disk-usage-in-linux-a-step-by-step-troubleshooting-guide-6703d6ea0f11",
-      "by": "Ambetazam",
-      "time": 1791692079000,
+      "title": "WidgetsFlutterBinding.ensureInitialized() in Flutter: What It Really Does",
+      "url": "https://medium.com/@savaliya.ravi.rs/widgetsflutterbinding-ensureinitialized-in-flutter-what-it-really-does-21afbfdc4335",
+      "by": "Ravi Savaliya",
+      "time": 1791779761000,
       "tags": [
-        "linux-system-admin",
-        "devops",
-        "linux-troubleshooting"
+        "mobile-app-development",
+        "programming",
+        "technology"
       ]
     },
     {
-      "title": "Woman Beach Wall Decor AI File format",
-      "url": "https://medium.com/@ivaylostoyanov_42562/woman-beach-wall-decor-ai-file-format-1eb5a7561f94",
-      "by": "Ivaylo Stoyanov",
-      "time": 1791691922000,
+      "title": "Grouping On Multiple Columns Using Power Query(.pbix included)",
+      "url": "https://medium.com/@shashanka.shekhar02/grouping-on-multiple-columns-using-power-query-pbix-included-8b3b0adfe242",
+      "by": "Shashanka Shekhar",
+      "time": 1791779463000,
       "tags": [
-        "social-media",
-        "software-development",
+        "data-science",
+        "power-bi-tutorials",
+        "programming"
+      ]
+    },
+    {
+      "title": "How to Debug Kubernetes Networking Issues Step by Step",
+      "url": "https://medium.com/devops-ai-decoded/how-to-debug-kubernetes-networking-issues-step-by-step-0c707a91fec4",
+      "by": "Neel Shah",
+      "time": 1791779462000,
+      "tags": [
+        "tech",
+        "kubernetes",
+        "devops"
+      ]
+    },
+    {
+      "title": "10 Free DevOps Labs That Will Help You Build Real-World Skills in 2026",
+      "url": "https://medium.com/@arvindverma021/10-free-devops-labs-that-will-help-you-build-real-world-skills-in-2026-47f47592c793",
+      "by": "Arvind Verma",
+      "time": 1791779462000,
+      "tags": [
+        "devops",
+        "aws",
+        "ai"
+      ]
+    },
+    {
+      "title": "How Intelligent Chatbots Are Transforming Incident Management in DevOps",
+      "url": "https://medium.com/@Invensis_Learning/how-intelligent-chatbots-are-transforming-incident-management-in-devops-12ad560f43ad",
+      "by": "Invensis Learning",
+      "time": 1791779387000,
+      "tags": [
+        "devops",
+        "intelligent-automation",
+        "chatbots"
+      ]
+    },
+    {
+      "title": "What If Everyone Forgot How to Code?",
+      "url": "https://medium.com/@erik.corkran/what-if-everyone-forgot-how-to-code-93bbb445bb46",
+      "by": "Erik Corkran",
+      "time": 1791779029000,
+      "tags": [
+        "programming",
+        "future-of-work",
         "software-engineering"
       ]
     },
     {
-      "title": "From SPL Roles to Agent Skills: Reusing Engineering Expertise, Not Just Code",
-      "url": "https://medium.com/@iyakin.yz/from-spl-roles-to-agent-skills-reusing-engineering-expertise-not-just-code-b4788648538a",
-      "by": "Old Developer",
-      "time": 1791691848000,
+      "title": "When the Model Isn’t the Problem",
+      "url": "https://mddennis.medium.com/when-the-model-isnt-the-problem-acdbdac07074",
+      "by": "Dennis Kipngetich",
+      "time": 1791778885000,
       "tags": [
-        "ai-agent",
         "software-engineering",
-        "software-product-lines"
+        "machine-learning",
+        "data-science"
       ]
     },
     {
-      "title": "A CDC Pipeline We Forgot About Filled Our Primary Database’s Disk.",
-      "url": "https://chen0625tung.medium.com/a-cdc-pipeline-we-forgot-about-filled-our-primary-databases-disk-495daa75ad6f",
-      "by": "Kevin Tung",
-      "time": 1791691781000,
+      "title": "Free Custom Domain Options for Developers in 2026, Compared",
+      "url": "https://codeminer.medium.com/free-custom-domain-options-for-developers-in-2026-compared-5c823b113454",
+      "by": "Code Miner",
+      "time": 1791778805000,
       "tags": [
-        "database",
-        "data-engineering",
-        "postgresql"
+        "web-development",
+        "programming",
+        "domain-names"
       ]
     },
     {
-      "title": "lekhak Gaurav pal Chhatrapati",
-      "url": "https://medium.com/@gauravchhatrapati19/lekhak-gaurav-pal-chhatrapati-9aa85f9b92ca",
-      "by": "Gaurav Pal Chhatrapati",
-      "time": 1791691178000,
+      "title": "Consistent Hashing — System Design Interview Notes",
+      "url": "https://medium.com/@CTOAbhishekSingh/consistent-hashing-system-design-interview-notes-5d49ec6dba92",
+      "by": "Abhishek Singh",
+      "time": 1791778745000,
       "tags": [
-        "education",
-        "writing",
-        "programming"
+        "coding",
+        "software-development",
+        "interview"
       ]
     }
   ]
