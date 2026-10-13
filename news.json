@@ -1,12 +1,61 @@
 {
-  "generated": "2026-10-12T04:42:49.956Z",
+  "generated": "2026-10-13T04:39:18.870Z",
   "reddit": [
     {
-      "title": "Coding lessons taught by Boston University students!",
-      "url": "https://www.reddit.com/r/programming/comments/1x3qo4l/coding_lessons_taught_by_boston_university/",
-      "by": "ComfortableWriter996",
-      "time": 1791773461000,
+      "title": "Upgrading your K8s KinD .. is possible w/out having to destroy your cluster!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x4k3at/upgrading_your_k8s_kind_is_possible_wout_having/",
+      "by": "ProgR0ck",
+      "time": 1791855874000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "KubeCon worth attending as a data / AI early-career professional?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x4ignx/kubecon_worth_attending_as_a_data_ai_earlycareer/",
+      "by": "ssriram12",
+      "time": 1791851101000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Optimizing Our E2E Pipeline",
+      "url": "https://www.reddit.com/r/programming/comments/1x4eiym/optimizing_our_e2e_pipeline/",
+      "by": "Ok_Stomach6651",
+      "time": 1791840500000,
       "sub": "r/programming"
+    },
+    {
+      "title": "C3 0.8.5 - A windowing library and a C backend??",
+      "url": "https://www.reddit.com/r/programming/comments/1x4cr91/c3_085_a_windowing_library_and_a_c_backend/",
+      "by": "Nuoji",
+      "time": 1791836356000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Python 3.15 Has a New Keyword: lazy (and 5 More Things I Tested)",
+      "url": "https://www.reddit.com/r/programming/comments/1x43z6z/python_315_has_a_new_keyword_lazy_and_5_more/",
+      "by": "huseyinbabal",
+      "time": 1791816809000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Tailscale on Talos Linux: Secure Remote Access to a Kubernetes Homelab",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x41hk0/tailscale_on_talos_linux_secure_remote_access_to/",
+      "by": "root0ps",
+      "time": 1791810706000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Any agentic AI that can migrate to Eg from kong or mulesoft, also provide support for configuration and plugin development?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x3y59h/any_agentic_ai_that_can_migrate_to_eg_from_kong/",
+      "by": "Big-Obligation9645",
+      "time": 1791800265000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How small is too small for Kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x3xdv9/how_small_is_too_small_for_kubernetes/",
+      "by": "Dizzy-Bug-7744",
+      "time": 1791797458000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Testing secure links through OMV, Filebrowser Quantum and Cloudflare",
@@ -16,171 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "What's your monthly GitHub Actions bill, and does anyone actually worry about it?",
-      "url": "https://www.reddit.com/r/devops/comments/1x3lio1/whats_your_monthly_github_actions_bill_and_does/",
-      "by": "Zealousideal_Tip4089",
-      "time": 1791758003000,
-      "sub": "r/devops"
-    },
-    {
       "title": "How Games Are Decompiled: Reverse Engineering Byte by Byte",
       "url": "https://www.reddit.com/r/programming/comments/1x3kdnn/how_games_are_decompiled_reverse_engineering_byte/",
       "by": "r_retrohacking_mod2",
       "time": 1791754964000,
       "sub": "r/programming"
-    },
-    {
-      "title": "DevOps for Wordpress",
-      "url": "https://www.reddit.com/r/devops/comments/1x3fq1d/devops_for_wordpress/",
-      "by": "OhMyTechticlesHurts",
-      "time": 1791743595000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Python 3.15 vs Python 3.14 – performance testing",
-      "url": "https://www.reddit.com/r/programming/comments/1x3djbz/python_315_vs_python_314_performance_testing/",
-      "by": "BestRef",
-      "time": 1791738445000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Reverse engineering a commercial spatial audio effect",
-      "url": "https://www.reddit.com/r/programming/comments/1x3akgr/reverse_engineering_a_commercial_spatial_audio/",
-      "by": "epestr",
-      "time": 1791731314000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I gave my AI access to the shell. Built this after it almost \"helped\" me too much.",
-      "url": "https://www.reddit.com/r/devops/comments/1x363lp/i_gave_my_ai_access_to_the_shell_built_this_after/",
-      "by": "comrad254",
-      "time": 1791718931000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Ipv4 vs Ipv6, explained from scratch",
-      "url": "https://www.reddit.com/r/devops/comments/1x2mpxi/ipv4_vs_ipv6_explained_from_scratch/",
-      "by": "huseyinbabal",
-      "time": 1791657769000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Networking a 3-Node Kubernetes Homelab with Cilium, Gateway API and Cloudflare Tunnel",
-      "url": "https://www.reddit.com/r/devops/comments/1x2mjo9/networking_a_3node_kubernetes_homelab_with_cilium/",
-      "by": "root0ps",
-      "time": 1791657327000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "I Tested 100+ GitHub Repos for Claude Code. Only 6 Stayed.",
-      "url": "https://medium.com/ai-engineering-simplified/i-tested-100-github-repos-for-claude-code-only-6-stayed-d86747d33840",
-      "by": "Divy Yadav",
-      "time": 1791779869000,
+      "title": "Our Sidebar Kept Eating People’s Comments. React 19.2 Finally Gave Us a Fix",
+      "url": "https://medium.com/@faisalmujtaba/our-sidebar-kept-eating-peoples-comments-react-19-2-finally-gave-us-a-fix-be3b3b0c27b5",
+      "by": "Faisal Mujtaba",
+      "time": 1791866175000,
       "tags": [
-        "technology",
-        "programming",
-        "artificial-intelligence"
+        "javascript",
+        "frontend-development",
+        "web-development"
       ]
     },
     {
-      "title": "WidgetsFlutterBinding.ensureInitialized() in Flutter: What It Really Does",
-      "url": "https://medium.com/@savaliya.ravi.rs/widgetsflutterbinding-ensureinitialized-in-flutter-what-it-really-does-21afbfdc4335",
-      "by": "Ravi Savaliya",
-      "time": 1791779761000,
+      "title": "9 Python Engineering Tools That Help You Build Faster, Safer, and More Reliable Software",
+      "url": "https://medium.com/algomart/9-python-engineering-tools-that-help-you-build-faster-safer-and-more-reliable-software-0373119e9111",
+      "by": "Yash Jain",
+      "time": 1791865863000,
       "tags": [
-        "mobile-app-development",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Grouping On Multiple Columns Using Power Query(.pbix included)",
-      "url": "https://medium.com/@shashanka.shekhar02/grouping-on-multiple-columns-using-power-query-pbix-included-8b3b0adfe242",
-      "by": "Shashanka Shekhar",
-      "time": 1791779463000,
-      "tags": [
-        "data-science",
-        "power-bi-tutorials",
-        "programming"
-      ]
-    },
-    {
-      "title": "How to Debug Kubernetes Networking Issues Step by Step",
-      "url": "https://medium.com/devops-ai-decoded/how-to-debug-kubernetes-networking-issues-step-by-step-0c707a91fec4",
-      "by": "Neel Shah",
-      "time": 1791779462000,
-      "tags": [
-        "tech",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "10 Free DevOps Labs That Will Help You Build Real-World Skills in 2026",
-      "url": "https://medium.com/@arvindverma021/10-free-devops-labs-that-will-help-you-build-real-world-skills-in-2026-47f47592c793",
-      "by": "Arvind Verma",
-      "time": 1791779462000,
-      "tags": [
-        "devops",
-        "aws",
+        "coding",
+        "software-development",
         "ai"
       ]
     },
     {
-      "title": "How Intelligent Chatbots Are Transforming Incident Management in DevOps",
-      "url": "https://medium.com/@Invensis_Learning/how-intelligent-chatbots-are-transforming-incident-management-in-devops-12ad560f43ad",
-      "by": "Invensis Learning",
-      "time": 1791779387000,
+      "title": "How to Reduce LLM API Costs in Production (With Real Math)",
+      "url": "https://medium.com/@i_plus_t_solution/how-to-reduce-llm-api-costs-in-production-with-real-math-b0e2b21c3529",
+      "by": "I Plus T Solution",
+      "time": 1791865863000,
       "tags": [
-        "devops",
-        "intelligent-automation",
-        "chatbots"
-      ]
-    },
-    {
-      "title": "What If Everyone Forgot How to Code?",
-      "url": "https://medium.com/@erik.corkran/what-if-everyone-forgot-how-to-code-93bbb445bb46",
-      "by": "Erik Corkran",
-      "time": 1791779029000,
-      "tags": [
-        "programming",
-        "future-of-work",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "When the Model Isn’t the Problem",
-      "url": "https://mddennis.medium.com/when-the-model-isnt-the-problem-acdbdac07074",
-      "by": "Dennis Kipngetich",
-      "time": 1791778885000,
-      "tags": [
-        "software-engineering",
         "machine-learning",
-        "data-science"
+        "artificial-intelligence",
+        "llm"
       ]
     },
     {
-      "title": "Free Custom Domain Options for Developers in 2026, Compared",
-      "url": "https://codeminer.medium.com/free-custom-domain-options-for-developers-in-2026-compared-5c823b113454",
-      "by": "Code Miner",
-      "time": 1791778805000,
+      "title": "IP Addresses and Classes: The System That Organised the Internet",
+      "url": "https://medium.com/@cyberfox282/ip-addresses-and-classes-the-system-that-organised-the-internet-76d30a8ea89c",
+      "by": "Cyberfox",
+      "time": 1791865863000,
       "tags": [
-        "web-development",
-        "programming",
-        "domain-names"
-      ]
-    },
-    {
-      "title": "Consistent Hashing — System Design Interview Notes",
-      "url": "https://medium.com/@CTOAbhishekSingh/consistent-hashing-system-design-interview-notes-5d49ec6dba92",
-      "by": "Abhishek Singh",
-      "time": 1791778745000,
-      "tags": [
-        "coding",
         "software-development",
-        "interview"
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "JavaScript Microtasks vs Tasks: What Runs First?",
+      "url": "https://javascript.plainenglish.io/javascript-microtasks-vs-tasks-what-runs-first-0f5e641957a5",
+      "by": "Ariful Islam",
+      "time": 1791865032000,
+      "tags": [
+        "javascript",
+        "front-end-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "ConfigureAwait(false) Doesn't Do What You Think It Does",
+      "url": "https://medium.com/codetodeploy/configureawait-false-doesnt-do-what-you-think-it-does-bd8dbe1d279a",
+      "by": "Gulam Ali H.",
+      "time": 1791864647000,
+      "tags": [
+        "dotnet",
+        "software-development",
+        "microsoft"
+      ]
+    },
+    {
+      "title": "The Django ORM Is Convenient- Until You Count the Queries",
+      "url": "https://medium.com/@gulsaba.fiha/the-django-orm-is-convenient-until-you-count-the-queries-5731585278a4",
+      "by": "Gulsaba Fiha",
+      "time": 1791864501000,
+      "tags": [
+        "django",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "Beyond 3D Models: How Digital Twins Are Transforming Static Asset Lifecycle Management",
+      "url": "https://medium.com/@kasthuris0769/beyond-3d-models-how-digital-twins-are-transforming-static-asset-lifecycle-management-8bafba15b6c2",
+      "by": "Kasthuris",
+      "time": 1791864478000,
+      "tags": [
+        "asset-lifecycle",
+        "software-engineering",
+        "ai-software-engineering"
+      ]
+    },
+    {
+      "title": "Although They're All Called SSDs, There Are Many Types—Performance Can Vary Drastically Between…",
+      "url": "https://hackernews.medium.com/although-theyre-all-called-ssds-there-are-many-types-performance-can-vary-drastically-between-ea21209402cf",
+      "by": "Cissy",
+      "time": 1791864315000,
+      "tags": [
+        "ssd",
+        "devops",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "Printing a poster from the browser: 5 things that broke and how I fixed them",
+      "url": "https://medium.com/@clotjin/printing-a-poster-from-the-browser-5-things-that-broke-and-how-i-fixed-them-90bb50f04e1d",
+      "by": "Ed15on",
+      "time": 1791864199000,
+      "tags": [
+        "programming",
+        "javascript",
+        "web-development"
       ]
     }
   ]

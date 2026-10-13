@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T04:43:55.042Z",
+  "generated": "2026-10-13T04:39:21.628Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -746,7 +746,12 @@
       "lng": 103.864,
       "start": "2026-10-11T12:00:00Z",
       "date": "2026-10-11",
-      "winner": null,
+      "winner": {
+        "last": "Verstappen",
+        "code": "VER",
+        "team": "Red Bull",
+        "teamId": "red_bull"
+      },
       "pole": null
     },
     {
@@ -829,11 +834,11 @@
     }
   ],
   "lastRace": {
-    "round": 16,
-    "name": "Bahrain Grand Prix in Malaysia",
-    "circuit": "Sepang International Circuit",
-    "country": "Malaysia",
-    "date": "2026-10-04",
+    "round": 17,
+    "name": "Singapore Grand Prix",
+    "circuit": "Marina Bay Street Circuit",
+    "country": "Singapore",
+    "date": "2026-10-11",
     "podium": [
       {
         "pos": 1,
@@ -842,33 +847,33 @@
         "code": "VER",
         "team": "Red Bull",
         "teamId": "red_bull",
-        "time": "1:47:14.808",
+        "time": "1:42:00.785",
         "points": 25
       },
       {
         "pos": 2,
+        "first": "Charles",
+        "last": "Leclerc",
+        "code": "LEC",
+        "team": "Ferrari",
+        "teamId": "ferrari",
+        "time": "+7.335",
+        "points": 18
+      },
+      {
+        "pos": 3,
         "first": "Andrea Kimi",
         "last": "Antonelli",
         "code": "ANT",
         "team": "Mercedes",
         "teamId": "mercedes",
-        "time": "+2.307",
-        "points": 18
-      },
-      {
-        "pos": 3,
-        "first": "Lewis",
-        "last": "Hamilton",
-        "code": "HAM",
-        "team": "Ferrari",
-        "teamId": "ferrari",
-        "time": "+4.919",
+        "time": "+24.573",
         "points": 15
       }
     ],
     "fastestLap": {
-      "time": "1:38.220",
-      "driver": "Verstappen"
+      "time": "1:35.202",
+      "driver": "Leclerc"
     }
   }
 }
