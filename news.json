@@ -1,19 +1,61 @@
 {
-  "generated": "2026-10-13T04:39:18.870Z",
+  "generated": "2026-10-14T04:32:48.729Z",
   "reddit": [
     {
-      "title": "Upgrading your K8s KinD .. is possible w/out having to destroy your cluster!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x4k3at/upgrading_your_k8s_kind_is_possible_wout_having/",
-      "by": "ProgR0ck",
-      "time": 1791855874000,
-      "sub": "r/kubernetes"
+      "title": "I built a DevOps platform and want to know what are good ways to test it for security",
+      "url": "https://www.reddit.com/r/devops/comments/1x5dnn8/i_built_a_devops_platform_and_want_to_know_what/",
+      "by": "VelCloud",
+      "time": 1791938633000,
+      "sub": "r/devops"
     },
     {
-      "title": "KubeCon worth attending as a data / AI early-career professional?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x4ignx/kubecon_worth_attending_as_a_data_ai_earlycareer/",
-      "by": "ssriram12",
-      "time": 1791851101000,
-      "sub": "r/kubernetes"
+      "title": "A declarative WAF built in Prolog. Try to hack it As A Research",
+      "url": "https://www.reddit.com/r/programming/comments/1x5cwtc/a_declarative_waf_built_in_prolog_try_to_hack_it/",
+      "by": "lokinpendawa",
+      "time": 1791936477000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "syllabus for a undergrad devops course",
+      "url": "https://www.reddit.com/r/devops/comments/1x57ib9/syllabus_for_a_undergrad_devops_course/",
+      "by": "ToTonhoForJesus2020",
+      "time": 1791922594000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Has anyone heard of SST?",
+      "url": "https://www.reddit.com/r/devops/comments/1x54zym/has_anyone_heard_of_sst/",
+      "by": "TwoWrongsAreSoRight",
+      "time": 1791916943000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "GitHub Actions self-hosted runner gets stuck downloading Java 17 with setup-java — curl: (18) Transferred a partial file",
+      "url": "https://www.reddit.com/r/devops/comments/1x52qgg/github_actions_selfhosted_runner_gets_stuck/",
+      "by": "CSE_GEEKboy",
+      "time": 1791912010000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Built-in alternatives to pre-commit-hooks in prek and hk",
+      "url": "https://www.reddit.com/r/programming/comments/1x4x5b4/builtin_alternatives_to_precommithooks_in_prek/",
+      "by": "alefteris",
+      "time": 1791899353000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Is from FULL STACK DEV to DEVOPS a good run?",
+      "url": "https://www.reddit.com/r/devops/comments/1x4tcc3/is_from_full_stack_dev_to_devops_a_good_run/",
+      "by": "dhruvermafz",
+      "time": 1791888376000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "More, Better, Faster: How we automate Metabase releases",
+      "url": "https://www.reddit.com/r/programming/comments/1x4sw6i/more_better_faster_how_we_automate_metabase/",
+      "by": "jessillions",
+      "time": 1791886782000,
+      "sub": "r/programming"
     },
     {
       "title": "Optimizing Our E2E Pipeline",
@@ -28,159 +70,117 @@
       "by": "Nuoji",
       "time": 1791836356000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Python 3.15 Has a New Keyword: lazy (and 5 More Things I Tested)",
-      "url": "https://www.reddit.com/r/programming/comments/1x43z6z/python_315_has_a_new_keyword_lazy_and_5_more/",
-      "by": "huseyinbabal",
-      "time": 1791816809000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Tailscale on Talos Linux: Secure Remote Access to a Kubernetes Homelab",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x41hk0/tailscale_on_talos_linux_secure_remote_access_to/",
-      "by": "root0ps",
-      "time": 1791810706000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Any agentic AI that can migrate to Eg from kong or mulesoft, also provide support for configuration and plugin development?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x3y59h/any_agentic_ai_that_can_migrate_to_eg_from_kong/",
-      "by": "Big-Obligation9645",
-      "time": 1791800265000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How small is too small for Kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x3xdv9/how_small_is_too_small_for_kubernetes/",
-      "by": "Dizzy-Bug-7744",
-      "time": 1791797458000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Testing secure links through OMV, Filebrowser Quantum and Cloudflare",
-      "url": "https://www.reddit.com/r/programming/comments/1x3m543/testing_secure_links_through_omv_filebrowser/",
-      "by": "RodTGG",
-      "time": 1791759781000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How Games Are Decompiled: Reverse Engineering Byte by Byte",
-      "url": "https://www.reddit.com/r/programming/comments/1x3kdnn/how_games_are_decompiled_reverse_engineering_byte/",
-      "by": "r_retrohacking_mod2",
-      "time": 1791754964000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Our Sidebar Kept Eating People’s Comments. React 19.2 Finally Gave Us a Fix",
-      "url": "https://medium.com/@faisalmujtaba/our-sidebar-kept-eating-peoples-comments-react-19-2-finally-gave-us-a-fix-be3b3b0c27b5",
-      "by": "Faisal Mujtaba",
-      "time": 1791866175000,
+      "title": "RAG Explained: How AI Retrieves Information Before Answering",
+      "url": "https://medium.com/@muralikanna825/rag-explained-how-ai-retrieves-information-before-answering-ec42f14cd5a7",
+      "by": "Murali S",
+      "time": 1791952348000,
       "tags": [
-        "javascript",
-        "frontend-development",
-        "web-development"
-      ]
-    },
-    {
-      "title": "9 Python Engineering Tools That Help You Build Faster, Safer, and More Reliable Software",
-      "url": "https://medium.com/algomart/9-python-engineering-tools-that-help-you-build-faster-safer-and-more-reliable-software-0373119e9111",
-      "by": "Yash Jain",
-      "time": 1791865863000,
-      "tags": [
-        "coding",
-        "software-development",
+        "software-engineering",
+        "technology",
         "ai"
       ]
     },
     {
-      "title": "How to Reduce LLM API Costs in Production (With Real Math)",
-      "url": "https://medium.com/@i_plus_t_solution/how-to-reduce-llm-api-costs-in-production-with-real-math-b0e2b21c3529",
-      "by": "I Plus T Solution",
-      "time": 1791865863000,
+      "title": "Why Coding Alone May Not Be Enough for Freshers in the AI Era",
+      "url": "https://medium.com/@muralikanna825/why-coding-alone-may-not-be-enough-for-freshers-in-the-ai-era-ebc27c8ac085",
+      "by": "Murali S",
+      "time": 1791952165000,
       "tags": [
-        "machine-learning",
         "artificial-intelligence",
-        "llm"
+        "careers",
+        "software-engineering"
       ]
     },
     {
-      "title": "IP Addresses and Classes: The System That Organised the Internet",
-      "url": "https://medium.com/@cyberfox282/ip-addresses-and-classes-the-system-that-organised-the-internet-76d30a8ea89c",
-      "by": "Cyberfox",
-      "time": 1791865863000,
+      "title": "Stop Copy-Pasting Query Results: Connect Your Local Database to AI with MCP",
+      "url": "https://towardsdev.com/stop-copy-pasting-query-results-connect-your-local-database-to-ai-with-mcp-d87c1b599aa5",
+      "by": "Developer Awam",
+      "time": 1791952066000,
       "tags": [
-        "software-development",
-        "software-engineering",
-        "technology"
-      ]
-    },
-    {
-      "title": "JavaScript Microtasks vs Tasks: What Runs First?",
-      "url": "https://javascript.plainenglish.io/javascript-microtasks-vs-tasks-what-runs-first-0f5e641957a5",
-      "by": "Ariful Islam",
-      "time": 1791865032000,
-      "tags": [
-        "javascript",
-        "front-end-development",
+        "web-development",
+        "mcp-server",
         "programming"
       ]
     },
     {
-      "title": "ConfigureAwait(false) Doesn't Do What You Think It Does",
-      "url": "https://medium.com/codetodeploy/configureawait-false-doesnt-do-what-you-think-it-does-bd8dbe1d279a",
-      "by": "Gulam Ali H.",
-      "time": 1791864647000,
+      "title": "Claude Code /compact vs /clear: When to use each",
+      "url": "https://medium.com/@BuildShift/claude-code-compact-vs-clear-when-to-use-each-0b98f9b335ad",
+      "by": "BuildShift",
+      "time": 1791952015000,
       "tags": [
-        "dotnet",
         "software-development",
-        "microsoft"
-      ]
-    },
-    {
-      "title": "The Django ORM Is Convenient- Until You Count the Queries",
-      "url": "https://medium.com/@gulsaba.fiha/the-django-orm-is-convenient-until-you-count-the-queries-5731585278a4",
-      "by": "Gulsaba Fiha",
-      "time": 1791864501000,
-      "tags": [
-        "django",
-        "software-development",
+        "coding",
         "programming"
       ]
     },
     {
-      "title": "Beyond 3D Models: How Digital Twins Are Transforming Static Asset Lifecycle Management",
-      "url": "https://medium.com/@kasthuris0769/beyond-3d-models-how-digital-twins-are-transforming-static-asset-lifecycle-management-8bafba15b6c2",
-      "by": "Kasthuris",
-      "time": 1791864478000,
+      "title": "5 Rust CLI tools that make everyday terminal work easier",
+      "url": "https://medium.com/@dev_tips/5-rust-cli-tools-that-make-everyday-terminal-work-easier-b94e239973d4",
+      "by": "",
+      "time": 1791951924000,
       "tags": [
-        "asset-lifecycle",
-        "software-engineering",
-        "ai-software-engineering"
+        "technology",
+        "software-development",
+        "rust"
       ]
     },
     {
-      "title": "Although They're All Called SSDs, There Are Many Types—Performance Can Vary Drastically Between…",
-      "url": "https://hackernews.medium.com/although-theyre-all-called-ssds-there-are-many-types-performance-can-vary-drastically-between-ea21209402cf",
-      "by": "Cissy",
-      "time": 1791864315000,
+      "title": "I Tested Dozens of AI Coding Tools. These 5 Actually Doubled My Output.",
+      "url": "https://medium.com/@chamodmadhushan2022/i-tested-dozens-of-ai-coding-tools-these-5-actually-doubled-my-output-81b6bb44c60f",
+      "by": "Chamod Madushan",
+      "time": 1791951890000,
       "tags": [
-        "ssd",
-        "devops",
-        "computer-science"
-      ]
-    },
-    {
-      "title": "Printing a poster from the browser: 5 things that broke and how I fixed them",
-      "url": "https://medium.com/@clotjin/printing-a-poster-from-the-browser-5-things-that-broke-and-how-i-fixed-them-90bb50f04e1d",
-      "by": "Ed15on",
-      "time": 1791864199000,
-      "tags": [
-        "programming",
-        "javascript",
+        "software-development",
+        "productivity",
         "web-development"
+      ]
+    },
+    {
+      "title": "AI writes most of the code now. Where does that leave software engineers?",
+      "url": "https://medium.com/@4msar/ai-writes-most-of-the-code-now-where-does-that-leave-software-engineers-8a758491a5ee",
+      "by": "Saiful Alam Rakib",
+      "time": 1791951736000,
+      "tags": [
+        "ai",
+        "ai-jobs",
+        "careers"
+      ]
+    },
+    {
+      "title": "AI Agents with Python 2026 — Part 9: AI Agent Security, Guardrails and Reliability",
+      "url": "https://abkarikari23.medium.com/ai-agents-with-python-2026-part-9-ai-agent-security-guardrails-and-reliability-54f4462492b0",
+      "by": "Abraham Karikari",
+      "time": 1791951733000,
+      "tags": [
+        "python",
+        "generative-ai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "A Reminder for Every Software Engineer in the Age of AI",
+      "url": "https://medium.com/@prakashchandramuduli007/a-reminder-for-every-software-engineer-in-the-age-of-ai-f35bc7ecf018",
+      "by": "Prakash Chandra Muduli",
+      "time": 1791951726000,
+      "tags": [
+        "productivity",
+        "artificial-intelligence",
+        "work-life-balance"
+      ]
+    },
+    {
+      "title": "Decoding Performance Testing: Types, Strategies, and Modern QA Automation",
+      "url": "https://medium.com/@Global_Executive/decoding-performance-testing-types-strategies-and-modern-qa-automation-511dfc035960",
+      "by": "Olha Remeniak",
+      "time": 1791951467000,
+      "tags": [
+        "performance-testing",
+        "software-testing",
+        "test-automation"
       ]
     }
   ]
