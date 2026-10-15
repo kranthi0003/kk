@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-14T04:32:48.729Z",
+  "generated": "2026-10-15T04:30:17.894Z",
   "reddit": [
     {
-      "title": "I built a DevOps platform and want to know what are good ways to test it for security",
-      "url": "https://www.reddit.com/r/devops/comments/1x5dnn8/i_built_a_devops_platform_and_want_to_know_what/",
-      "by": "VelCloud",
-      "time": 1791938633000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "A declarative WAF built in Prolog. Try to hack it As A Research",
-      "url": "https://www.reddit.com/r/programming/comments/1x5cwtc/a_declarative_waf_built_in_prolog_try_to_hack_it/",
-      "by": "lokinpendawa",
-      "time": 1791936477000,
+      "title": "Do you still need to drain the response body in Go 1.27?",
+      "url": "https://www.reddit.com/r/programming/comments/1x6a1vp/do_you_still_need_to_drain_the_response_body_in/",
+      "by": "Efficient_File",
+      "time": 1792031304000,
       "sub": "r/programming"
     },
     {
-      "title": "syllabus for a undergrad devops course",
-      "url": "https://www.reddit.com/r/devops/comments/1x57ib9/syllabus_for_a_undergrad_devops_course/",
-      "by": "ToTonhoForJesus2020",
-      "time": 1791922594000,
-      "sub": "r/devops"
+      "title": "Getting Into a Kubernetes Cluster With Nothing but SSH",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x6465j/getting_into_a_kubernetes_cluster_with_nothing/",
+      "by": "dmilic",
+      "time": 1792014612000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Has anyone heard of SST?",
-      "url": "https://www.reddit.com/r/devops/comments/1x54zym/has_anyone_heard_of_sst/",
-      "by": "TwoWrongsAreSoRight",
-      "time": 1791916943000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "GitHub Actions self-hosted runner gets stuck downloading Java 17 with setup-java — curl: (18) Transferred a partial file",
-      "url": "https://www.reddit.com/r/devops/comments/1x52qgg/github_actions_selfhosted_runner_gets_stuck/",
-      "by": "CSE_GEEKboy",
-      "time": 1791912010000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Built-in alternatives to pre-commit-hooks in prek and hk",
-      "url": "https://www.reddit.com/r/programming/comments/1x4x5b4/builtin_alternatives_to_precommithooks_in_prek/",
-      "by": "alefteris",
-      "time": 1791899353000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Is from FULL STACK DEV to DEVOPS a good run?",
-      "url": "https://www.reddit.com/r/devops/comments/1x4tcc3/is_from_full_stack_dev_to_devops_a_good_run/",
-      "by": "dhruvermafz",
-      "time": 1791888376000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "More, Better, Faster: How we automate Metabase releases",
-      "url": "https://www.reddit.com/r/programming/comments/1x4sw6i/more_better_faster_how_we_automate_metabase/",
-      "by": "jessillions",
-      "time": 1791886782000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Optimizing Our E2E Pipeline",
-      "url": "https://www.reddit.com/r/programming/comments/1x4eiym/optimizing_our_e2e_pipeline/",
+      "title": "How Netflix Simplified Batch Compute with Kueue",
+      "url": "https://www.reddit.com/r/programming/comments/1x63fdq/how_netflix_simplified_batch_compute_with_kueue/",
       "by": "Ok_Stomach6651",
-      "time": 1791840500000,
+      "time": 1792012752000,
       "sub": "r/programming"
     },
     {
-      "title": "C3 0.8.5 - A windowing library and a C backend??",
-      "url": "https://www.reddit.com/r/programming/comments/1x4cr91/c3_085_a_windowing_library_and_a_c_backend/",
-      "by": "Nuoji",
-      "time": 1791836356000,
+      "title": "Kubernetes Secrets Explained (in the woods)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x62xae/kubernetes_secrets_explained_in_the_woods/",
+      "by": "finncmdbar",
+      "time": 1792011538000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "A C++ Trick Question - Blog Post",
+      "url": "https://www.reddit.com/r/programming/comments/1x62x6p/a_c_trick_question_blog_post/",
+      "by": "MegaGreenLightning",
+      "time": 1792011531000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Heir: run Kubernetes control planes as pods, and stop paying for 3 control-plane nodes per cluster",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x6043h/heir_run_kubernetes_control_planes_as_pods_and/",
+      "by": "PlatformStriker8287",
+      "time": 1792004887000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Frenemies chat: Istio maintainer and two Linkerd folks. Bring your questions!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x5yw5i/frenemies_chat_istio_maintainer_and_two_linkerd/",
+      "by": "__Flynn___",
+      "time": 1792002161000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "how do you decide a k8s resource request is actually safe to lower?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x5ydk7/how_do_you_decide_a_k8s_resource_request_is/",
+      "by": "royLskyhook",
+      "time": 1792001003000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Can I offer you a nice CI Pipeline in this trying time?",
+      "url": "https://www.reddit.com/r/programming/comments/1x5xzr0/can_i_offer_you_a_nice_ci_pipeline_in_this_trying/",
+      "by": "sgr_nz",
+      "time": 1792000168000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Black-Box HashDoS: Attacking Hash Tables Without Knowing the Hash Function",
+      "url": "https://www.reddit.com/r/programming/comments/1x5w7hh/blackbox_hashdos_attacking_hash_tables_without/",
+      "by": "nightcracker",
+      "time": 1791996140000,
       "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "RAG Explained: How AI Retrieves Information Before Answering",
-      "url": "https://medium.com/@muralikanna825/rag-explained-how-ai-retrieves-information-before-answering-ec42f14cd5a7",
-      "by": "Murali S",
-      "time": 1791952348000,
+      "title": "Graceful shutdown for WebSocket servers on Kubernetes",
+      "url": "https://medium.com/@abhi_93773/graceful-shutdown-for-websocket-servers-on-kubernetes-8962793e0980",
+      "by": "Abhi",
+      "time": 1792038421000,
+      "tags": [
+        "kubernetes",
+        "websocket",
+        "golang"
+      ]
+    },
+    {
+      "title": "Anthropic just moved off Git. Here’s why that matters beyond Anthropic",
+      "url": "https://medium.com/@loop.infinite.03/anthropic-just-moved-off-git-heres-why-that-matters-beyond-anthropic-e8767575a42b",
+      "by": "Aishwary Agrawal",
+      "time": 1792038362000,
+      "tags": [
+        "anthropics",
+        "software-engineering",
+        "devops"
+      ]
+    },
+    {
+      "title": "pg_vectorsearch benchmarked: 14x faster index builds, a tie with IVFFlat on queries",
+      "url": "https://mozzammeluiu.medium.com/pg-vectorsearch-benchmarked-14x-faster-index-builds-a-tie-with-ivfflat-on-queries-730e4bac99b2",
+      "by": "Muhammad Mozzammel Haque",
+      "time": 1792037886000,
+      "tags": [
+        "pgvector",
+        "software-engineering",
+        "vector-database"
+      ]
+    },
+    {
+      "title": "Amazon, Meta and Google Are Moving Past LeetCode.",
+      "url": "https://bitsofanant.medium.com/amazon-meta-and-google-are-moving-past-leetcode-7df1fc1881f3",
+      "by": "Anant Singh Raghuvanshi",
+      "time": 1792037822000,
+      "tags": [
+        "careers",
+        "coding-interviews",
+        "programming"
+      ]
+    },
+    {
+      "title": "9 Core Infrastructure Concepts You Need to Master to Become a DevOps Engineer",
+      "url": "https://medium.com/skillstuff/9-core-infrastructure-concepts-you-need-to-master-to-become-a-devops-engineer-929c06461871",
+      "by": "TechByRahmat",
+      "time": 1792037461000,
+      "tags": [
+        "cloud-computing",
+        "linux",
+        "devops"
+      ]
+    },
+    {
+      "title": "Using Nginx as a Reverse Proxy: What I Learned Deploying to AWS EC2",
+      "url": "https://medium.com/@kushagrasuryawanshii/using-nginx-as-a-reverse-proxy-what-i-learned-deploying-to-aws-ec2-a931c730660b",
+      "by": "Kush",
+      "time": 1792037461000,
       "tags": [
         "software-engineering",
+        "docker",
+        "nginx-reverse-proxy"
+      ]
+    },
+    {
+      "title": "AI Writes the Code Nobody Has Time to Review Anymore",
+      "url": "https://medium.com/@theOpinionBoard/ai-writes-the-code-nobody-has-time-to-review-anymore-c5fa076a9d4c",
+      "by": "The Opinion Board",
+      "time": 1792037291000,
+      "tags": [
+        "developer-experience",
+        "ai-productivity",
+        "engineering-leadership"
+      ]
+    },
+    {
+      "title": "Our CTO Replaced 6 Developers With AI Agents. Three Months Later, a Junior Engineer Named Jake Found",
+      "url": "https://medium.com/engineering-playbook/our-cto-replaced-6-developers-with-ai-agents-three-months-later-a-junior-engineer-named-jake-found-7dfed281512c",
+      "by": "Software Engineering Knowledge",
+      "time": 1792037046000,
+      "tags": [
+        "programming",
         "technology",
-        "ai"
-      ]
-    },
-    {
-      "title": "Why Coding Alone May Not Be Enough for Freshers in the AI Era",
-      "url": "https://medium.com/@muralikanna825/why-coding-alone-may-not-be-enough-for-freshers-in-the-ai-era-ebc27c8ac085",
-      "by": "Murali S",
-      "time": 1791952165000,
-      "tags": [
-        "artificial-intelligence",
-        "careers",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Stop Copy-Pasting Query Results: Connect Your Local Database to AI with MCP",
-      "url": "https://towardsdev.com/stop-copy-pasting-query-results-connect-your-local-database-to-ai-with-mcp-d87c1b599aa5",
-      "by": "Developer Awam",
-      "time": 1791952066000,
-      "tags": [
-        "web-development",
-        "mcp-server",
-        "programming"
-      ]
-    },
-    {
-      "title": "Claude Code /compact vs /clear: When to use each",
-      "url": "https://medium.com/@BuildShift/claude-code-compact-vs-clear-when-to-use-each-0b98f9b335ad",
-      "by": "BuildShift",
-      "time": 1791952015000,
-      "tags": [
-        "software-development",
-        "coding",
-        "programming"
-      ]
-    },
-    {
-      "title": "5 Rust CLI tools that make everyday terminal work easier",
-      "url": "https://medium.com/@dev_tips/5-rust-cli-tools-that-make-everyday-terminal-work-easier-b94e239973d4",
-      "by": "",
-      "time": 1791951924000,
-      "tags": [
-        "technology",
-        "software-development",
-        "rust"
-      ]
-    },
-    {
-      "title": "I Tested Dozens of AI Coding Tools. These 5 Actually Doubled My Output.",
-      "url": "https://medium.com/@chamodmadhushan2022/i-tested-dozens-of-ai-coding-tools-these-5-actually-doubled-my-output-81b6bb44c60f",
-      "by": "Chamod Madushan",
-      "time": 1791951890000,
-      "tags": [
-        "software-development",
-        "productivity",
-        "web-development"
-      ]
-    },
-    {
-      "title": "AI writes most of the code now. Where does that leave software engineers?",
-      "url": "https://medium.com/@4msar/ai-writes-most-of-the-code-now-where-does-that-leave-software-engineers-8a758491a5ee",
-      "by": "Saiful Alam Rakib",
-      "time": 1791951736000,
-      "tags": [
-        "ai",
-        "ai-jobs",
-        "careers"
-      ]
-    },
-    {
-      "title": "AI Agents with Python 2026 — Part 9: AI Agent Security, Guardrails and Reliability",
-      "url": "https://abkarikari23.medium.com/ai-agents-with-python-2026-part-9-ai-agent-security-guardrails-and-reliability-54f4462492b0",
-      "by": "Abraham Karikari",
-      "time": 1791951733000,
-      "tags": [
-        "python",
-        "generative-ai",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "A Reminder for Every Software Engineer in the Age of AI",
-      "url": "https://medium.com/@prakashchandramuduli007/a-reminder-for-every-software-engineer-in-the-age-of-ai-f35bc7ecf018",
-      "by": "Prakash Chandra Muduli",
-      "time": 1791951726000,
+      "title": "Our Best Programmer Failed a Coding Interview. A Junior Named Ethan Passed the Same Test in 18 Minut",
+      "url": "https://medium.com/engineering-playbook/our-best-programmer-failed-a-coding-interview-a-junior-named-ethan-passed-the-same-test-in-18-minut-2436d9013f9e",
+      "by": "Software Engineering Knowledge",
+      "time": 1792036845000,
       "tags": [
-        "productivity",
-        "artificial-intelligence",
-        "work-life-balance"
+        "software-development",
+        "data-science",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Decoding Performance Testing: Types, Strategies, and Modern QA Automation",
-      "url": "https://medium.com/@Global_Executive/decoding-performance-testing-types-strategies-and-modern-qa-automation-511dfc035960",
-      "by": "Olha Remeniak",
-      "time": 1791951467000,
+      "title": "8 AI Concepts You Should Understand Before Everyone Starts Talking About Them.",
+      "url": "https://medium.com/@legacy.hydra.ayan/8-ai-concepts-you-should-understand-before-everyone-starts-talking-about-them-dac556ece418",
+      "by": "Hydra",
+      "time": 1792036665000,
       "tags": [
-        "performance-testing",
-        "software-testing",
-        "test-automation"
+        "artificial-intelligence",
+        "machine-learning",
+        "programming"
       ]
     }
   ]

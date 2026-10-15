@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T04:31:37.913Z",
+  "generated": "2026-10-15T04:29:25.960Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -56,17 +56,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
       "imdb": "https://www.imdb.com/title/tt21438726/"
-    },
-    {
-      "title": "Jailer 2",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Nelson Dilipkumar",
-      "desc": "Upcoming Indian film by Nelson Dilipkumar",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/dc/Jailer_2_poster.jpg/120px-Jailer_2_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Jailer_2",
-      "imdb": "https://www.imdb.com/title/tt33318732/"
     },
     {
       "title": "Kathanar – The Wild Sorcerer",
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Thudakkam",
       "imdb": "https://www.imdb.com/title/tt37510017/"
+    },
+    {
+      "title": "Vettuvam",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Pa. Ranjith",
+      "desc": "Upcoming Indian film by Pa. Ranjith",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Vettuvam",
+      "imdb": "https://www.imdb.com/title/tt20225002/"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T04:32:52.985Z",
+  "generated": "2026-10-15T04:30:26.677Z",
   "season": "2026",
   "sources": [
     {
@@ -61,7 +61,7 @@
         "pos": 6,
         "code": "BAN",
         "team": "Bangladesh",
-        "matches": 24,
+        "matches": 25,
         "points": 1878,
         "rating": 78
       },
@@ -70,8 +70,8 @@
         "code": "SL",
         "team": "Sri Lanka",
         "matches": 19,
-        "points": 1434,
-        "rating": 75
+        "points": 1916,
+        "rating": 77
       },
       {
         "pos": 8,
@@ -209,9 +209,9 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 70,
-        "points": 18802,
-        "rating": 269
+        "matches": 71,
+        "points": 18987,
+        "rating": 267
       },
       {
         "pos": 3,
@@ -241,17 +241,17 @@
         "pos": 6,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 61,
-        "points": 14713,
+        "matches": 62,
+        "points": 14883,
         "rating": 241
       },
       {
         "pos": 7,
         "code": "WIN",
         "team": "West Indies",
-        "matches": 59,
-        "points": 13836,
-        "rating": 235
+        "matches": 60,
+        "points": 14155,
+        "rating": 236
       },
       {
         "pos": 8,
@@ -265,9 +265,9 @@
         "pos": 9,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 51,
-        "points": 11198,
-        "rating": 220
+        "matches": 52,
+        "points": 11489,
+        "rating": 221
       },
       {
         "pos": 10,
@@ -818,6 +818,822 @@
   ],
   "recent": [
     {
+      "date": "2026-10-14",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Bangladesh Women tour of Australia",
+      "teams": [
+        "Bangladesh",
+        "Australia"
+      ],
+      "winner": "Australia",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Allan Border Field, Brisbane",
+      "city": "Brisbane",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Mongolia",
+        "Myanmar"
+      ],
+      "winner": "Myanmar",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Bahrain",
+        "Qatar"
+      ],
+      "winner": "Qatar",
+      "margin": "2 wickets",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Thailand",
+        "Bhutan"
+      ],
+      "winner": "Thailand",
+      "margin": "37 runs",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "China",
+        "Malaysia"
+      ],
+      "winner": "Malaysia",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Hong Kong",
+        "Singapore"
+      ],
+      "winner": "Hong Kong",
+      "margin": "38 runs",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-14",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Saudi Arabia",
+        "Maldives"
+      ],
+      "winner": "Saudi Arabia",
+      "margin": "125 runs",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-13",
+      "type": "Test",
+      "gender": "male",
+      "event": "Australia tour of South Africa",
+      "teams": [
+        "Australia",
+        "South Africa"
+      ],
+      "winner": "Australia",
+      "margin": "214 runs",
+      "method": null,
+      "venue": "Kingsmead, Durban",
+      "city": "Durban",
+      "international": true
+    },
+    {
+      "date": "2026-10-13",
+      "type": "T20",
+      "gender": "male",
+      "event": "Sri Lanka tour of Pakistan",
+      "teams": [
+        "Pakistan",
+        "Sri Lanka"
+      ],
+      "winner": "Sri Lanka",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Rawalpindi Cricket Stadium",
+      "city": "Rawalpindi",
+      "international": true
+    },
+    {
+      "date": "2026-10-13",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Nepal",
+        "Oman"
+      ],
+      "winner": "Nepal",
+      "margin": "113 runs",
+      "method": null,
+      "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
+      "city": "Al Amarat",
+      "international": true
+    },
+    {
+      "date": "2026-10-13",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup (Australia)",
+      "teams": [
+        "Tasmania",
+        "New South Wales"
+      ],
+      "winner": "Tasmania",
+      "margin": "57 runs",
+      "method": "D/L",
+      "venue": "Cricket Central, Sydney",
+      "city": "Sydney",
+      "international": false
+    },
+    {
+      "date": "2026-10-13",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup (Australia)",
+      "teams": [
+        "Queensland",
+        "Western Australia"
+      ],
+      "winner": "Queensland",
+      "margin": "15 runs",
+      "method": null,
+      "venue": "WACA, Perth",
+      "city": "Perth",
+      "international": false
+    },
+    {
+      "date": "2026-10-13",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "United States of America",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Grand Prairie Stadium, Dallas",
+      "city": "Dallas",
+      "international": false
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Qatar",
+        "Mongolia"
+      ],
+      "winner": null,
+      "margin": "no result",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Myanmar",
+        "Thailand"
+      ],
+      "winner": "Thailand",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Bhutan",
+        "Kuwait"
+      ],
+      "winner": "Kuwait",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Malaysia",
+        "Singapore"
+      ],
+      "winner": "Malaysia",
+      "margin": "37 runs",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Hong Kong",
+        "Maldives"
+      ],
+      "winner": null,
+      "margin": "no result",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Saudi Arabia",
+        "China"
+      ],
+      "winner": "Saudi Arabia",
+      "margin": "64 runs",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-12",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup (Australia)",
+      "teams": [
+        "South Australia",
+        "Victoria"
+      ],
+      "winner": "South Australia",
+      "margin": "70 runs",
+      "method": null,
+      "venue": "Junction Oval, Melbourne",
+      "city": "Melbourne",
+      "international": false
+    },
+    {
+      "date": "2026-10-11",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Bangladesh Women tour of Australia",
+      "teams": [
+        "Bangladesh",
+        "Australia"
+      ],
+      "winner": "Australia",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Allan Border Field, Brisbane",
+      "city": "Brisbane",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "West Indies tour of India",
+      "teams": [
+        "India",
+        "West Indies"
+      ],
+      "winner": "India",
+      "margin": "14 runs",
+      "method": null,
+      "venue": "Holkar Cricket Stadium, Indore",
+      "city": "Indore",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "Sri Lanka tour of Pakistan",
+      "teams": [
+        "Pakistan",
+        "Sri Lanka"
+      ],
+      "winner": "Pakistan",
+      "margin": "82 runs",
+      "method": null,
+      "venue": "Rawalpindi Cricket Stadium",
+      "city": "Rawalpindi",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Nepal",
+        "Canada"
+      ],
+      "winner": "Nepal",
+      "margin": "24 runs",
+      "method": null,
+      "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
+      "city": "Al Amarat",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Myanmar",
+        "Kuwait"
+      ],
+      "winner": "Kuwait",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Bhutan",
+        "Qatar"
+      ],
+      "winner": "Qatar",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Mongolia",
+        "Bahrain"
+      ],
+      "winner": "Bahrain",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Saudi Arabia",
+        "Hong Kong"
+      ],
+      "winner": "Saudi Arabia",
+      "margin": "10 runs",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Maldives",
+        "Malaysia"
+      ],
+      "winner": "Malaysia",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Singapore",
+        "China"
+      ],
+      "winner": "Singapore",
+      "margin": "50 runs",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-11",
+      "type": "MDM",
+      "gender": "male",
+      "event": "Sheffield Shield",
+      "teams": [
+        "Tasmania",
+        "New South Wales"
+      ],
+      "winner": null,
+      "margin": "draw",
+      "method": null,
+      "venue": "Cricket Central, Sydney",
+      "city": "Sydney",
+      "international": false
+    },
+    {
+      "date": "2026-10-11",
+      "type": "MDM",
+      "gender": "male",
+      "event": "Sheffield Shield",
+      "teams": [
+        "Queensland",
+        "Western Australia"
+      ],
+      "winner": "Western Australia",
+      "margin": "2 wickets",
+      "method": null,
+      "venue": "WACA, Perth",
+      "city": "Perth",
+      "international": false
+    },
+    {
+      "date": "2026-10-11",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "United Arab Emirates",
+        "United States of America"
+      ],
+      "winner": "United States of America",
+      "margin": "5 wickets",
+      "method": null,
+      "venue": "Grand Prairie Stadium, Dallas",
+      "city": "Dallas",
+      "international": false
+    },
+    {
+      "date": "2026-10-10",
+      "type": "MDM",
+      "gender": "male",
+      "event": "Sheffield Shield",
+      "teams": [
+        "Victoria",
+        "South Australia"
+      ],
+      "winner": "South Australia",
+      "margin": "an innings and 40 runs",
+      "method": null,
+      "venue": "Junction Oval, Melbourne",
+      "city": "Melbourne",
+      "international": false
+    },
+    {
+      "date": "2026-10-09",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Bangladesh Women tour of Australia",
+      "teams": [
+        "Bangladesh",
+        "Australia"
+      ],
+      "winner": "Australia",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Allan Border Field, Brisbane",
+      "city": "Brisbane",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "West Indies tour of India",
+      "teams": [
+        "India",
+        "West Indies"
+      ],
+      "winner": "West Indies",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "JSCA International Stadium Complex, Ranchi",
+      "city": "Ranchi",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "Sri Lanka tour of Pakistan",
+      "teams": [
+        "Sri Lanka",
+        "Pakistan"
+      ],
+      "winner": "Pakistan",
+      "margin": "4 wickets",
+      "method": null,
+      "venue": "Rawalpindi Cricket Stadium",
+      "city": "Rawalpindi",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "United Arab Emirates",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Grand Prairie Stadium, Dallas",
+      "city": "Dallas",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Oman",
+        "Canada"
+      ],
+      "winner": "Oman",
+      "margin": "41 runs",
+      "method": null,
+      "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
+      "city": "Al Amarat",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Thailand",
+        "Mongolia"
+      ],
+      "winner": "Thailand",
+      "margin": "183 runs",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Kuwait",
+        "Bahrain"
+      ],
+      "winner": "Bahrain",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Myanmar",
+        "Qatar"
+      ],
+      "winner": "Qatar",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Malaysia",
+        "Saudi Arabia"
+      ],
+      "winner": "Saudi Arabia",
+      "margin": "3 wickets",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "China",
+        "Hong Kong"
+      ],
+      "winner": "Hong Kong",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-09",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Singapore",
+        "Maldives"
+      ],
+      "winner": "Singapore",
+      "margin": "33 runs",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Thailand",
+        "Kuwait"
+      ],
+      "winner": "Kuwait",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Bhutan",
+        "Mongolia"
+      ],
+      "winner": "Bhutan",
+      "margin": "136 runs",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier A",
+      "teams": [
+        "Myanmar",
+        "Bahrain"
+      ],
+      "winner": "Bahrain",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "China",
+        "Maldives"
+      ],
+      "winner": "Maldives",
+      "margin": "10 wickets",
+      "method": null,
+      "venue": "Bayuemas Oval, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Saudi Arabia",
+        "Singapore"
+      ],
+      "winner": "Saudi Arabia",
+      "margin": "75 runs",
+      "method": null,
+      "venue": "YSD-UKM Cricket Oval, Bangi",
+      "city": "Bangi",
+      "international": true
+    },
+    {
+      "date": "2026-10-08",
+      "type": "T20",
+      "gender": "male",
+      "event": "ICC Men's T20 World Cup Sub Regional Asia Qualifier B",
+      "teams": [
+        "Hong Kong",
+        "Malaysia"
+      ],
+      "winner": "Hong Kong",
+      "margin": "7 runs",
+      "method": "D/L",
+      "venue": "Selangor Turf Club, Kuala Lumpur",
+      "city": "Kuala Lumpur",
+      "international": true
+    },
+    {
       "date": "2026-10-07",
       "type": "T20",
       "gender": "female",
@@ -832,6 +1648,22 @@
       "venue": "Takashinga Sports Club, Highfield, Harare",
       "city": "Harare",
       "international": true
+    },
+    {
+      "date": "2026-10-07",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Namibia",
+        "United States of America"
+      ],
+      "winner": "United States of America",
+      "margin": "4 wickets",
+      "method": null,
+      "venue": "Grand Prairie Stadium, Dallas",
+      "city": "Dallas",
+      "international": false
     },
     {
       "date": "2026-10-06",
@@ -1424,838 +2256,6 @@
       "venue": "Uplands College, White River",
       "city": "White River",
       "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "T20",
-      "gender": "male",
-      "event": "Asian Games Men's Cricket Competition",
-      "teams": [
-        "Nepal",
-        "Japan"
-      ],
-      "winner": null,
-      "margin": "no result",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-26",
-      "type": "T20",
-      "gender": "male",
-      "event": "North America Cup",
-      "teams": [
-        "Bahamas",
-        "Bermuda"
-      ],
-      "winner": "Bermuda",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Jimmy Powell Oval, Cayman Islands",
-      "city": "George Town",
-      "international": true
-    },
-    {
-      "date": "2026-09-26",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nigeria Quadrangular T20 Series",
-      "teams": [
-        "Nigeria",
-        "Ghana"
-      ],
-      "winner": "Nigeria",
-      "margin": "91 runs",
-      "method": null,
-      "venue": "Tafawa Balewa Square Cricket Oval, Lagos",
-      "city": "Lagos",
-      "international": true
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Leicestershire",
-        "Warwickshire"
-      ],
-      "winner": "Warwickshire",
-      "margin": "an innings and 79 runs",
-      "method": null,
-      "venue": "Edgbaston",
-      "city": "Birmingham",
-      "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Nottinghamshire",
-        "Yorkshire"
-      ],
-      "winner": "Yorkshire",
-      "margin": "1 wicket",
-      "method": null,
-      "venue": "Trent Bridge",
-      "city": "Nottingham",
-      "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Sussex",
-        "Hampshire"
-      ],
-      "winner": "Sussex",
-      "margin": "197 runs",
-      "method": null,
-      "venue": "The Rose Bowl, Southampton",
-      "city": "Southampton",
-      "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Gloucestershire",
-        "Kent"
-      ],
-      "winner": "Kent",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "St Lawrence Ground, Canterbury",
-      "city": "Canterbury",
-      "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Northamptonshire",
-        "Middlesex"
-      ],
-      "winner": "Middlesex",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Lord's",
-      "city": "London",
-      "international": false
-    },
-    {
-      "date": "2026-09-26",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Worcestershire",
-        "Derbyshire"
-      ],
-      "winner": "Worcestershire",
-      "margin": "175 runs",
-      "method": null,
-      "venue": "New Road, Worcester",
-      "city": "Worcester",
-      "international": false
-    },
-    {
-      "date": "2026-09-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "Asian Games Men's Cricket Competition",
-      "teams": [
-        "Hong Kong",
-        "Oman"
-      ],
-      "winner": "Hong Kong",
-      "margin": "41 runs",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nigeria Quadrangular T20 Series",
-      "teams": [
-        "Sierra Leone",
-        "Ghana"
-      ],
-      "winner": "Sierra Leone",
-      "margin": "13 runs",
-      "method": "D/L",
-      "venue": "Tafawa Balewa Square Cricket Oval, Lagos",
-      "city": "Lagos",
-      "international": true
-    },
-    {
-      "date": "2026-09-25",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "New South Wales",
-        "Victoria"
-      ],
-      "winner": "New South Wales",
-      "margin": "47 runs",
-      "method": "D/L",
-      "venue": "Junction Oval, Melbourne",
-      "city": "Melbourne",
-      "international": false
-    },
-    {
-      "date": "2026-09-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "CSA Pro20",
-      "teams": [
-        "Western Province",
-        "Titans"
-      ],
-      "winner": "Titans",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Centurion Park",
-      "city": "Centurion",
-      "international": false
-    },
-    {
-      "date": "2026-09-25",
-      "type": "T20",
-      "gender": "female",
-      "event": "South American Women's Championships",
-      "teams": [
-        "Chile",
-        "Costa Rica"
-      ],
-      "winner": "Costa Rica",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Pocos Oval, Pocos de Caldas",
-      "city": "Minas Gerias",
-      "international": false
-    },
-    {
-      "date": "2026-09-24",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Sri Lanka tour of England",
-      "teams": [
-        "Sri Lanka",
-        "England"
-      ],
-      "winner": "Sri Lanka",
-      "margin": "16 runs",
-      "method": null,
-      "venue": "Headingley",
-      "city": "Leeds",
-      "international": true
-    },
-    {
-      "date": "2026-09-24",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Australia tour of South Africa",
-      "teams": [
-        "South Africa",
-        "Australia"
-      ],
-      "winner": "South Africa",
-      "margin": "67 runs",
-      "method": null,
-      "venue": "Kingsmead, Durban",
-      "city": "Durban",
-      "international": true
-    },
-    {
-      "date": "2026-09-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "Asian Games Men's Cricket Competition",
-      "teams": [
-        "Hong Kong",
-        "Malaysia"
-      ],
-      "winner": "Malaysia",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "North America Cup",
-      "teams": [
-        "Cayman Islands",
-        "Bahamas"
-      ],
-      "winner": "Cayman Islands",
-      "margin": "131 runs",
-      "method": null,
-      "venue": "Jimmy Powell Oval, Cayman Islands",
-      "city": "George Town",
-      "international": true
-    },
-    {
-      "date": "2026-09-24",
-      "type": "ODI",
-      "gender": "female",
-      "event": "West Indies Women tour of Zimbabwe",
-      "teams": [
-        "West Indies",
-        "Zimbabwe"
-      ],
-      "winner": "West Indies",
-      "margin": "99 runs",
-      "method": null,
-      "venue": "Harare Sports Club",
-      "city": "Harare",
-      "international": true
-    },
-    {
-      "date": "2026-09-23",
-      "type": "T20",
-      "gender": "male",
-      "event": "North America Cup",
-      "teams": [
-        "Cayman Islands",
-        "Bermuda"
-      ],
-      "winner": "Bermuda",
-      "margin": "10 wickets",
-      "method": null,
-      "venue": "Jimmy Powell Oval, Cayman Islands",
-      "city": "George Town",
-      "international": true
-    },
-    {
-      "date": "2026-09-23",
-      "type": "T20",
-      "gender": "male",
-      "event": "North America Cup",
-      "teams": [
-        "Bermuda",
-        "Cayman Islands"
-      ],
-      "winner": "Cayman Islands",
-      "margin": "2 wickets",
-      "method": null,
-      "venue": "Jimmy Powell Oval, Cayman Islands",
-      "city": "George Town",
-      "international": true
-    },
-    {
-      "date": "2026-09-23",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "South Australia",
-        "Tasmania"
-      ],
-      "winner": "South Australia",
-      "margin": "7 runs",
-      "method": null,
-      "venue": "Karen Rolton Oval, Adelaide",
-      "city": "Adelaide",
-      "international": false
-    },
-    {
-      "date": "2026-09-23",
-      "type": "T20",
-      "gender": "female",
-      "event": "South American Women's Championships",
-      "teams": [
-        "Chile",
-        "Costa Rica"
-      ],
-      "winner": "Costa Rica",
-      "margin": "9 wickets",
-      "method": null,
-      "venue": "Pocos Oval, Pocos de Caldas",
-      "city": "Minas Gerias",
-      "international": false
-    },
-    {
-      "date": "2026-09-22",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Sri Lanka tour of England",
-      "teams": [
-        "England",
-        "Sri Lanka"
-      ],
-      "winner": "England",
-      "margin": "89 runs",
-      "method": null,
-      "venue": "Riverside Ground, Chester-le-Street",
-      "city": "Chester-le-Street",
-      "international": true
-    },
-    {
-      "date": "2026-09-22",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "Pakistan",
-        "Bangladesh"
-      ],
-      "winner": "Pakistan",
-      "margin": "31 runs",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-22",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "India",
-        "Sri Lanka"
-      ],
-      "winner": "India",
-      "margin": "147 runs",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-22",
-      "type": "T20",
-      "gender": "male",
-      "event": "India tour of Japan",
-      "teams": [
-        "India",
-        "Japan"
-      ],
-      "winner": "India",
-      "margin": "2 runs",
-      "method": null,
-      "venue": "Sano International Cricket Ground",
-      "city": "Sano",
-      "international": true
-    },
-    {
-      "date": "2026-09-22",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nigeria Quadrangular T20 Series",
-      "teams": [
-        "Ghana",
-        "Sierra Leone"
-      ],
-      "winner": "Sierra Leone",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Tafawa Balewa Square Cricket Oval, Lagos",
-      "city": "Lagos",
-      "international": true
-    },
-    {
-      "date": "2026-09-22",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "Queensland",
-        "New South Wales"
-      ],
-      "winner": "New South Wales",
-      "margin": "4 wickets",
-      "method": null,
-      "venue": "Allan Border Field, Brisbane",
-      "city": "Brisbane",
-      "international": false
-    },
-    {
-      "date": "2026-09-21",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nigeria Quadrangular T20 Series",
-      "teams": [
-        "Ghana",
-        "Nigeria"
-      ],
-      "winner": "Nigeria",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Tafawa Balewa Square Cricket Oval, Lagos",
-      "city": "Lagos",
-      "international": true
-    },
-    {
-      "date": "2026-09-20",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Australia tour of Zimbabwe",
-      "teams": [
-        "Zimbabwe",
-        "Australia"
-      ],
-      "winner": "Australia",
-      "margin": "1 wicket",
-      "method": null,
-      "venue": "Harare Sports Club",
-      "city": "Harare",
-      "international": true
-    },
-    {
-      "date": "2026-09-20",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "Pakistan",
-        "Sri Lanka"
-      ],
-      "winner": "Sri Lanka",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-20",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "India",
-        "Bangladesh"
-      ],
-      "winner": "India",
-      "margin": "114 runs",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-20",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup",
-      "teams": [
-        "Middlesex",
-        "Leicestershire"
-      ],
-      "winner": "Middlesex",
-      "margin": "31 runs",
-      "method": null,
-      "venue": "Trent Bridge",
-      "city": "Nottingham",
-      "international": false
-    },
-    {
-      "date": "2026-09-20",
-      "type": "T20",
-      "gender": "male",
-      "event": "Caribbean Premier League",
-      "teams": [
-        "Jamaica Kingsmen",
-        "Antigua and Barbuda Falcons"
-      ],
-      "winner": "Antigua and Barbuda Falcons",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Kensington Oval",
-      "city": "Bridgetown",
-      "international": false
-    },
-    {
-      "date": "2026-09-20",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "Western Australia",
-        "Tasmania"
-      ],
-      "winner": "Tasmania",
-      "margin": "9 wickets",
-      "method": null,
-      "venue": "WACA, Perth",
-      "city": "Perth",
-      "international": false
-    },
-    {
-      "date": "2026-09-20",
-      "type": "T20",
-      "gender": "male",
-      "event": "European T20 Premier League",
-      "teams": [
-        "Belfast Wolves",
-        "Edinburgh Castle Rockers"
-      ],
-      "winner": "Edinburgh Castle Rockers",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Malahide Cricket Ground, Dublin",
-      "city": "Dublin",
-      "international": false
-    },
-    {
-      "date": "2026-09-19",
-      "type": "T20",
-      "gender": "male",
-      "event": "Sri Lanka tour of England",
-      "teams": [
-        "Sri Lanka",
-        "England"
-      ],
-      "winner": "England",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Old Trafford",
-      "city": "Manchester",
-      "international": true
-    },
-    {
-      "date": "2026-09-19",
-      "type": "T20",
-      "gender": "female",
-      "event": "South Africa Women tour of Zimbabwe",
-      "teams": [
-        "South Africa",
-        "Zimbabwe"
-      ],
-      "winner": "South Africa",
-      "margin": "14 runs",
-      "method": null,
-      "venue": "Queens Sports Club, Bulawayo",
-      "city": "Bulawayo",
-      "international": true
-    },
-    {
-      "date": "2026-09-19",
-      "type": "T20",
-      "gender": "male",
-      "event": "Hong Kong tour of Japan",
-      "teams": [
-        "Japan",
-        "Hong Kong"
-      ],
-      "winner": "Hong Kong",
-      "margin": "4 wickets",
-      "method": null,
-      "venue": "Sano International Cricket Ground",
-      "city": "Sano",
-      "international": true
-    },
-    {
-      "date": "2026-09-19",
-      "type": "T20",
-      "gender": "male",
-      "event": "Africa Continental Cup",
-      "teams": [
-        "Kenya",
-        "Uganda"
-      ],
-      "winner": "Kenya",
-      "margin": "39 runs",
-      "method": null,
-      "venue": "Gahanga International Cricket Stadium",
-      "city": "Kigali City",
-      "international": true
-    },
-    {
-      "date": "2026-09-19",
-      "type": "ODM",
-      "gender": "female",
-      "event": "ECB Women's One-Day Cup",
-      "teams": [
-        "Hampshire",
-        "The Blaze"
-      ],
-      "winner": "The Blaze",
-      "margin": "3 wickets",
-      "method": null,
-      "venue": "The Rose Bowl, Southampton",
-      "city": "Southampton",
-      "international": false
-    },
-    {
-      "date": "2026-09-19",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "Queensland",
-        "Victoria"
-      ],
-      "winner": "Victoria",
-      "margin": "3 wickets",
-      "method": null,
-      "venue": "Allan Border Field, Brisbane",
-      "city": "Brisbane",
-      "international": false
-    },
-    {
-      "date": "2026-09-19",
-      "type": "T20",
-      "gender": "male",
-      "event": "European T20 Premier League",
-      "teams": [
-        "Amsterdam Flames",
-        "Belfast Wolves"
-      ],
-      "winner": "Belfast Wolves",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Malahide Cricket Ground, Dublin",
-      "city": "Dublin",
-      "international": false
-    },
-    {
-      "date": "2026-09-18",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Australia tour of Zimbabwe",
-      "teams": [
-        "Australia",
-        "Zimbabwe"
-      ],
-      "winner": "Australia",
-      "margin": "84 runs",
-      "method": null,
-      "venue": "Harare Sports Club",
-      "city": "Harare",
-      "international": true
-    },
-    {
-      "date": "2026-09-18",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "Sri Lanka",
-        "Malaysia"
-      ],
-      "winner": "Sri Lanka",
-      "margin": "86 runs",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-18",
-      "type": "T20",
-      "gender": "female",
-      "event": "Asian Games Women's Cricket Competition",
-      "teams": [
-        "Japan",
-        "India"
-      ],
-      "winner": "India",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Korogi Sports Park",
-      "city": "Nisshin",
-      "international": true
-    },
-    {
-      "date": "2026-09-18",
-      "type": "T20",
-      "gender": "male",
-      "event": "Africa Continental Cup",
-      "teams": [
-        "Uganda",
-        "Kenya"
-      ],
-      "winner": "Uganda",
-      "margin": "47 runs",
-      "method": null,
-      "venue": "Gahanga International Cricket Stadium",
-      "city": "Kigali City",
-      "international": true
-    },
-    {
-      "date": "2026-09-18",
-      "type": "T20",
-      "gender": "male",
-      "event": "Africa Continental Cup",
-      "teams": [
-        "Botswana",
-        "Sierra Leone"
-      ],
-      "winner": "Botswana",
-      "margin": "21 runs",
-      "method": null,
-      "venue": "Gahanga International Cricket Stadium",
-      "city": "Kigali City",
-      "international": true
-    },
-    {
-      "date": "2026-09-18",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Hampshire",
-        "Leicestershire"
-      ],
-      "winner": "Leicestershire",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Grace Road, Leicester",
-      "city": "Leicester",
-      "international": false
-    },
-    {
-      "date": "2026-09-18",
-      "type": "MDM",
-      "gender": "male",
-      "event": "County Championship",
-      "teams": [
-        "Yorkshire",
-        "Somerset"
-      ],
-      "winner": "Yorkshire",
-      "margin": "185 runs",
-      "method": null,
-      "venue": "Headingley",
-      "city": "Leeds",
-      "international": false
-    },
-    {
-      "date": "2026-09-17",
-      "type": "T20",
-      "gender": "male",
-      "event": "Sri Lanka tour of England",
-      "teams": [
-        "Sri Lanka",
-        "England"
-      ],
-      "winner": "England",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Sophia Gardens, Cardiff",
-      "city": "Cardiff",
-      "international": true
     }
   ]
 }
