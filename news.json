@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-15T04:30:17.894Z",
+  "generated": "2026-10-16T04:30:47.861Z",
   "reddit": [
     {
-      "title": "Do you still need to drain the response body in Go 1.27?",
-      "url": "https://www.reddit.com/r/programming/comments/1x6a1vp/do_you_still_need_to_drain_the_response_body_in/",
-      "by": "Efficient_File",
-      "time": 1792031304000,
+      "title": "Any good arguments for getting AI agents approved by security?",
+      "url": "https://www.reddit.com/r/devops/comments/1x71nob/any_good_arguments_for_getting_ai_agents_approved/",
+      "by": "vibe-co",
+      "time": 1792109081000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Feels like we're about to enter the next fad skill that gets you hired",
+      "url": "https://www.reddit.com/r/devops/comments/1x701h7/feels_like_were_about_to_enter_the_next_fad_skill/",
+      "by": "planbskte11",
+      "time": 1792104652000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "[PDF] Getting a subroutine right: a case study",
+      "url": "https://www.reddit.com/r/programming/comments/1x7002l/pdf_getting_a_subroutine_right_a_case_study/",
+      "by": "mttd",
+      "time": 1792104546000,
       "sub": "r/programming"
     },
     {
-      "title": "Getting Into a Kubernetes Cluster With Nothing but SSH",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x6465j/getting_into_a_kubernetes_cluster_with_nothing/",
-      "by": "dmilic",
-      "time": 1792014612000,
-      "sub": "r/kubernetes"
+      "title": "For those of you who use open-spec, what's your method for tracking work alongside proposed changes to the spec?",
+      "url": "https://www.reddit.com/r/devops/comments/1x6ythy/for_those_of_you_who_use_openspec_whats_your/",
+      "by": "NK534PNXMb556VU7p",
+      "time": 1792101436000,
+      "sub": "r/devops"
     },
     {
-      "title": "How Netflix Simplified Batch Compute with Kueue",
-      "url": "https://www.reddit.com/r/programming/comments/1x63fdq/how_netflix_simplified_batch_compute_with_kueue/",
-      "by": "Ok_Stomach6651",
-      "time": 1792012752000,
+      "title": "Faster, Better, Stronger is not a Strategy",
+      "url": "https://www.reddit.com/r/programming/comments/1x6y26l/faster_better_stronger_is_not_a_strategy/",
+      "by": "SerCeMan",
+      "time": 1792099474000,
       "sub": "r/programming"
     },
     {
-      "title": "Kubernetes Secrets Explained (in the woods)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x62xae/kubernetes_secrets_explained_in_the_woods/",
-      "by": "finncmdbar",
-      "time": 1792011538000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A C++ Trick Question - Blog Post",
-      "url": "https://www.reddit.com/r/programming/comments/1x62x6p/a_c_trick_question_blog_post/",
-      "by": "MegaGreenLightning",
-      "time": 1792011531000,
+      "title": "BIPM announces the end of leap seconds",
+      "url": "https://www.reddit.com/r/programming/comments/1x6uhya/bipm_announces_the_end_of_leap_seconds/",
+      "by": "BoppreH",
+      "time": 1792091101000,
       "sub": "r/programming"
     },
     {
-      "title": "Heir: run Kubernetes control planes as pods, and stop paying for 3 control-plane nodes per cluster",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x6043h/heir_run_kubernetes_control_planes_as_pods_and/",
-      "by": "PlatformStriker8287",
-      "time": 1792004887000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Frenemies chat: Istio maintainer and two Linkerd folks. Bring your questions!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x5yw5i/frenemies_chat_istio_maintainer_and_two_linkerd/",
-      "by": "__Flynn___",
-      "time": 1792002161000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "how do you decide a k8s resource request is actually safe to lower?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x5ydk7/how_do_you_decide_a_k8s_resource_request_is/",
-      "by": "royLskyhook",
-      "time": 1792001003000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Can I offer you a nice CI Pipeline in this trying time?",
-      "url": "https://www.reddit.com/r/programming/comments/1x5xzr0/can_i_offer_you_a_nice_ci_pipeline_in_this_trying/",
-      "by": "sgr_nz",
-      "time": 1792000168000,
+      "title": "Go Was Burning 60% CPU Just Running GC. The Fix Was a Memory Limit.",
+      "url": "https://www.reddit.com/r/programming/comments/1x6tmvq/go_was_burning_60_cpu_just_running_gc_the_fix_was/",
+      "by": "Lopsided-Delivery710",
+      "time": 1792089175000,
       "sub": "r/programming"
     },
     {
-      "title": "Black-Box HashDoS: Attacking Hash Tables Without Knowing the Hash Function",
-      "url": "https://www.reddit.com/r/programming/comments/1x5w7hh/blackbox_hashdos_attacking_hash_tables_without/",
-      "by": "nightcracker",
-      "time": 1791996140000,
+      "title": "Spring Boot Connection Pools: 20 vs 2 Idle PostgreSQL Connections",
+      "url": "https://www.reddit.com/r/programming/comments/1x6tmjo/spring_boot_connection_pools_20_vs_2_idle/",
+      "by": "fykup",
+      "time": 1792089152000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Why are we still reviewing massive PRs in alphabetical file order?",
+      "url": "https://www.reddit.com/r/devops/comments/1x6nzsy/why_are_we_still_reviewing_massive_prs_in/",
+      "by": "Chris__Codes",
+      "time": 1792076461000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Title: What does your deployment actually verify?",
+      "url": "https://www.reddit.com/r/devops/comments/1x6nilu/title_what_does_your_deployment_actually_verify/",
+      "by": "srikanth_builds",
+      "time": 1792075402000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Graceful shutdown for WebSocket servers on Kubernetes",
-      "url": "https://medium.com/@abhi_93773/graceful-shutdown-for-websocket-servers-on-kubernetes-8962793e0980",
-      "by": "Abhi",
-      "time": 1792038421000,
+      "title": "How We Cut Visitor Errors 97% on Cloudflare’s Free Plan",
+      "url": "https://medium.com/@dibasdev/cut-visitor-errors-cloudflare-free-plan-5de9f70d0b28",
+      "by": "Dibas",
+      "time": 1792124088000,
       "tags": [
-        "kubernetes",
-        "websocket",
-        "golang"
+        "devops",
+        "cybersecurity",
+        "web-security"
       ]
     },
     {
-      "title": "Anthropic just moved off Git. Here’s why that matters beyond Anthropic",
-      "url": "https://medium.com/@loop.infinite.03/anthropic-just-moved-off-git-heres-why-that-matters-beyond-anthropic-e8767575a42b",
-      "by": "Aishwary Agrawal",
-      "time": 1792038362000,
+      "title": "WebRTC ICE Candidate Pair Selection and Nomination: How WebRTC Chooses a Working Network Path",
+      "url": "https://medium.com/@suman.shil.942/webrtc-ice-candidate-pair-selection-and-nomination-how-webrtc-chooses-a-working-network-path-9d622ee44e11",
+      "by": "Suman Shil",
+      "time": 1792124056000,
       "tags": [
-        "anthropics",
-        "software-engineering",
-        "devops"
+        "webrtc",
+        "android",
+        "software-engineering"
       ]
     },
     {
-      "title": "pg_vectorsearch benchmarked: 14x faster index builds, a tie with IVFFlat on queries",
-      "url": "https://mozzammeluiu.medium.com/pg-vectorsearch-benchmarked-14x-faster-index-builds-a-tie-with-ivfflat-on-queries-730e4bac99b2",
-      "by": "Muhammad Mozzammel Haque",
-      "time": 1792037886000,
+      "title": "How to Benchmark AI Sandbox Providers Without Fooling Yourself",
+      "url": "https://chierhu.medium.com/how-to-benchmark-ai-sandbox-providers-without-fooling-yourself-513d6cd9815c",
+      "by": "Chier Hu",
+      "time": 1792124002000,
       "tags": [
-        "pgvector",
-        "software-engineering",
-        "vector-database"
-      ]
-    },
-    {
-      "title": "Amazon, Meta and Google Are Moving Past LeetCode.",
-      "url": "https://bitsofanant.medium.com/amazon-meta-and-google-are-moving-past-leetcode-7df1fc1881f3",
-      "by": "Anant Singh Raghuvanshi",
-      "time": 1792037822000,
-      "tags": [
-        "careers",
-        "coding-interviews",
-        "programming"
-      ]
-    },
-    {
-      "title": "9 Core Infrastructure Concepts You Need to Master to Become a DevOps Engineer",
-      "url": "https://medium.com/skillstuff/9-core-infrastructure-concepts-you-need-to-master-to-become-a-devops-engineer-929c06461871",
-      "by": "TechByRahmat",
-      "time": 1792037461000,
-      "tags": [
+        "devops",
         "cloud-computing",
-        "linux",
-        "devops"
+        "agentic-ai"
       ]
     },
     {
-      "title": "Using Nginx as a Reverse Proxy: What I Learned Deploying to AWS EC2",
-      "url": "https://medium.com/@kushagrasuryawanshii/using-nginx-as-a-reverse-proxy-what-i-learned-deploying-to-aws-ec2-a931c730660b",
-      "by": "Kush",
-      "time": 1792037461000,
+      "title": "When AI Sandboxes Stop Scaling: The Case for Moving workloads and building in-house",
+      "url": "https://chierhu.medium.com/when-ai-sandboxes-stop-scaling-the-case-for-moving-workloads-and-building-in-house-69074f21b38a",
+      "by": "Chier Hu",
+      "time": 1792124001000,
       "tags": [
+        "devops",
+        "agentic-ai",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "JavaScript Debouncing Explained: Control Rapid Events Without Wasting Work",
+      "url": "https://javascript.plainenglish.io/javascript-debouncing-explained-control-rapid-events-without-wasting-work-47fe96d04ae4",
+      "by": "Zayd Islam",
+      "time": 1792123923000,
+      "tags": [
+        "javascript-development",
         "software-engineering",
-        "docker",
-        "nginx-reverse-proxy"
+        "javascript"
       ]
     },
     {
-      "title": "AI Writes the Code Nobody Has Time to Review Anymore",
-      "url": "https://medium.com/@theOpinionBoard/ai-writes-the-code-nobody-has-time-to-review-anymore-c5fa076a9d4c",
-      "by": "The Opinion Board",
-      "time": 1792037291000,
-      "tags": [
-        "developer-experience",
-        "ai-productivity",
-        "engineering-leadership"
-      ]
-    },
-    {
-      "title": "Our CTO Replaced 6 Developers With AI Agents. Three Months Later, a Junior Engineer Named Jake Found",
-      "url": "https://medium.com/engineering-playbook/our-cto-replaced-6-developers-with-ai-agents-three-months-later-a-junior-engineer-named-jake-found-7dfed281512c",
-      "by": "Software Engineering Knowledge",
-      "time": 1792037046000,
-      "tags": [
-        "programming",
-        "technology",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Our Best Programmer Failed a Coding Interview. A Junior Named Ethan Passed the Same Test in 18 Minut",
-      "url": "https://medium.com/engineering-playbook/our-best-programmer-failed-a-coding-interview-a-junior-named-ethan-passed-the-same-test-in-18-minut-2436d9013f9e",
-      "by": "Software Engineering Knowledge",
-      "time": 1792036845000,
+      "title": "Bean Validation Groups: When They Help and When They Confuse",
+      "url": "https://medium.com/@theturtlecode/bean-validation-groups-when-they-help-and-when-they-confuse-aae1f3b66dde",
+      "by": "The Turtle Code",
+      "time": 1792123861000,
       "tags": [
         "software-development",
-        "data-science",
+        "programming",
+        "back-end-development"
+      ]
+    },
+    {
+      "title": "JavaScript Prototype Chain: How Objects Inherit Properties",
+      "url": "https://medium.com/@arifbipubd3/javascript-prototype-chain-how-objects-inherit-properties-bc78b5cd704c",
+      "by": "Ariful Islam",
+      "time": 1792123861000,
+      "tags": [
+        "programming",
+        "javascript",
+        "front-end-development"
+      ]
+    },
+    {
+      "title": "The Django save() Method Isn't a Safety Net. Here's Why.",
+      "url": "https://medium.com/@gulsaba.fiha/the-django-save-method-isnt-a-safety-net-here-s-why-d5a8a0ee0eec",
+      "by": "Gulsaba Fiha",
+      "time": 1792123561000,
+      "tags": [
+        "python",
+        "django",
+        "programming"
+      ]
+    },
+    {
+      "title": "If AI Writes the Code, Why Are We Still Using Human-Designed Programming Languages?",
+      "url": "https://medium.com/@iyakin.yz/if-ai-writes-the-code-why-are-we-still-using-human-designed-programming-languages-3a6c403b2eac",
+      "by": "Old Developer",
+      "time": 1792123549000,
+      "tags": [
+        "ai-coding",
+        "software-engineering",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "8 AI Concepts You Should Understand Before Everyone Starts Talking About Them.",
-      "url": "https://medium.com/@legacy.hydra.ayan/8-ai-concepts-you-should-understand-before-everyone-starts-talking-about-them-dac556ece418",
-      "by": "Hydra",
-      "time": 1792036665000,
+      "title": "Python Performance Optimization: Profiling, Caching, and Faster Code",
+      "url": "https://python.plainenglish.io/python-performance-optimization-profiling-caching-and-faster-code-7bd4a2d955c7",
+      "by": "Zayd Islam",
+      "time": 1792123366000,
       "tags": [
-        "artificial-intelligence",
-        "machine-learning",
-        "programming"
+        "software-development",
+        "software-engineering",
+        "python3"
       ]
     }
   ]

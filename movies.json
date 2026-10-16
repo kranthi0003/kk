@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T04:29:25.960Z",
+  "generated": "2026-10-16T04:29:38.088Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -14,14 +14,14 @@
       "imdb": "https://www.imdb.com/title/tt38090791/"
     },
     {
-      "title": "Ramayana: Part 1",
+      "title": "Ramayana: Rise of Legend",
       "lang": "Hindi",
       "date": "2026-11-08",
       "precision": "day",
       "by": "Nitesh Tiwari",
       "desc": "Upcoming film by Nitesh Tiwari",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
+      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Rise_of_Legend",
       "imdb": "https://www.imdb.com/title/tt27988879/"
     },
     {
@@ -31,7 +31,7 @@
       "precision": "day",
       "by": "Sooraj Barjatya",
       "desc": "Upcoming 2026 Hindi film directed by Sooraj Barjatya",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cf/Yeh_Prem_Mol_Liya_film_poster.jpg/120px-Yeh_Prem_Mol_Liya_film_poster.jpg",
+      "poster": null,
       "url": "https://en.wikipedia.org/wiki/Yeh_Prem_Mol_Liya",
       "imdb": "https://www.imdb.com/title/tt38907401/"
     },
@@ -113,24 +113,13 @@
       "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
-      "title": "Nayyi Navelli",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/e3/Nayyi_Navelli_Poster.jpg/120px-Nayyi_Navelli_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Nayyi_Navelli",
-      "imdb": "https://www.imdb.com/title/tt40855841/"
-    },
-    {
       "title": "Scene",
       "lang": "Tamil",
       "date": null,
       "precision": null,
       "by": "Jithu Madhavan",
       "desc": "Upcoming Indian film by Jithu Madhavan",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
+      "poster": null,
       "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
       "imdb": null
     },
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Vettuvam",
       "imdb": "https://www.imdb.com/title/tt20225002/"
+    },
+    {
+      "title": "Bohurupi: The Golden Daku",
+      "lang": "Indian",
+      "date": null,
+      "precision": null,
+      "by": "Windows Production",
+      "desc": "2026 film by Windows Production",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Bohurupi_The_Golden_Daku.jpg/120px-Bohurupi_The_Golden_Daku.jpg",
+      "url": "https://en.wikipedia.org/wiki/Bohurupi%3A_The_Golden_Daku",
+      "imdb": null
     }
   ]
 }
