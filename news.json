@@ -1,186 +1,185 @@
 {
-  "generated": "2026-10-16T04:30:47.861Z",
+  "generated": "2026-10-17T04:28:45.140Z",
   "reddit": [
     {
-      "title": "Any good arguments for getting AI agents approved by security?",
-      "url": "https://www.reddit.com/r/devops/comments/1x71nob/any_good_arguments_for_getting_ai_agents_approved/",
-      "by": "vibe-co",
-      "time": 1792109081000,
+      "title": "Improving heuristics for A* search",
+      "url": "https://www.reddit.com/r/programming/comments/1x80isg/improving_heuristics_for_a_search/",
+      "by": "fagnerbrack",
+      "time": 1792209654000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Compression is prediction",
+      "url": "https://www.reddit.com/r/programming/comments/1x7x6dq/compression_is_prediction/",
+      "by": "fagnerbrack",
+      "time": 1792198859000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Same JavaScript file plays Tetris in the browser and Snake after formatting",
+      "url": "https://www.reddit.com/r/programming/comments/1x7v2i1/same_javascript_file_plays_tetris_in_the_browser/",
+      "by": "trustsigRobert",
+      "time": 1792192700000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Why do dumb sites take whole team?",
+      "url": "https://www.reddit.com/r/devops/comments/1x7sh7e/why_do_dumb_sites_take_whole_team/",
+      "by": "Few-Compote-2693",
+      "time": 1792185902000,
       "sub": "r/devops"
     },
     {
-      "title": "Feels like we're about to enter the next fad skill that gets you hired",
-      "url": "https://www.reddit.com/r/devops/comments/1x701h7/feels_like_were_about_to_enter_the_next_fad_skill/",
-      "by": "planbskte11",
-      "time": 1792104652000,
+      "title": "on-call routing/escalation in small teams, what do you actually use?",
+      "url": "https://www.reddit.com/r/devops/comments/1x7rfha/oncall_routingescalation_in_small_teams_what_do/",
+      "by": "Benjamin-7933",
+      "time": 1792183326000,
       "sub": "r/devops"
     },
     {
-      "title": "[PDF] Getting a subroutine right: a case study",
-      "url": "https://www.reddit.com/r/programming/comments/1x7002l/pdf_getting_a_subroutine_right_a_case_study/",
-      "by": "mttd",
-      "time": 1792104546000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "For those of you who use open-spec, what's your method for tracking work alongside proposed changes to the spec?",
-      "url": "https://www.reddit.com/r/devops/comments/1x6ythy/for_those_of_you_who_use_openspec_whats_your/",
-      "by": "NK534PNXMb556VU7p",
-      "time": 1792101436000,
+      "title": "How do you get your first DevOps job when every position requires experience?",
+      "url": "https://www.reddit.com/r/devops/comments/1x7re8v/how_do_you_get_your_first_devops_job_when_every/",
+      "by": "rahma_begag1",
+      "time": 1792183243000,
       "sub": "r/devops"
     },
     {
-      "title": "Faster, Better, Stronger is not a Strategy",
-      "url": "https://www.reddit.com/r/programming/comments/1x6y26l/faster_better_stronger_is_not_a_strategy/",
-      "by": "SerCeMan",
-      "time": 1792099474000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "BIPM announces the end of leap seconds",
-      "url": "https://www.reddit.com/r/programming/comments/1x6uhya/bipm_announces_the_end_of_leap_seconds/",
-      "by": "BoppreH",
-      "time": 1792091101000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Go Was Burning 60% CPU Just Running GC. The Fix Was a Memory Limit.",
-      "url": "https://www.reddit.com/r/programming/comments/1x6tmvq/go_was_burning_60_cpu_just_running_gc_the_fix_was/",
-      "by": "Lopsided-Delivery710",
-      "time": 1792089175000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Spring Boot Connection Pools: 20 vs 2 Idle PostgreSQL Connections",
-      "url": "https://www.reddit.com/r/programming/comments/1x6tmjo/spring_boot_connection_pools_20_vs_2_idle/",
-      "by": "fykup",
-      "time": 1792089152000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Why are we still reviewing massive PRs in alphabetical file order?",
-      "url": "https://www.reddit.com/r/devops/comments/1x6nzsy/why_are_we_still_reviewing_massive_prs_in/",
-      "by": "Chris__Codes",
-      "time": 1792076461000,
+      "title": "DevOps is cooked.",
+      "url": "https://www.reddit.com/r/devops/comments/1x7ra5d/devops_is_cooked/",
+      "by": "Dubinko",
+      "time": 1792182958000,
       "sub": "r/devops"
     },
     {
-      "title": "Title: What does your deployment actually verify?",
-      "url": "https://www.reddit.com/r/devops/comments/1x6nilu/title_what_does_your_deployment_actually_verify/",
-      "by": "srikanth_builds",
-      "time": 1792075402000,
+      "title": "Domain-Driven Design (DDD) — The Complete Guide | Visually Explained",
+      "url": "https://www.reddit.com/r/programming/comments/1x7o6km/domaindriven_design_ddd_the_complete_guide/",
+      "by": "correctMeIfImcorrect",
+      "time": 1792175685000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Learning Postgres extensions using Zig",
+      "url": "https://www.reddit.com/r/programming/comments/1x7mmu6/learning_postgres_extensions_using_zig/",
+      "by": "pseudocharleskk",
+      "time": 1792172174000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I abandoned the open-source database anonymizer. Should I kill it?",
+      "url": "https://www.reddit.com/r/devops/comments/1x7c147/i_abandoned_the_opensource_database_anonymizer/",
+      "by": "ihorklymchuk",
+      "time": 1792144391000,
       "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "How We Cut Visitor Errors 97% on Cloudflare’s Free Plan",
-      "url": "https://medium.com/@dibasdev/cut-visitor-errors-cloudflare-free-plan-5de9f70d0b28",
-      "by": "Dibas",
-      "time": 1792124088000,
+      "title": "10 CSS Secrets Most Developers Overlook",
+      "url": "https://medium.com/skillstuff/10-css-secrets-most-developers-overlook-f34bbc057c41",
+      "by": "CodeByUmar",
+      "time": 1792210866000,
       "tags": [
-        "devops",
-        "cybersecurity",
-        "web-security"
-      ]
-    },
-    {
-      "title": "WebRTC ICE Candidate Pair Selection and Nomination: How WebRTC Chooses a Working Network Path",
-      "url": "https://medium.com/@suman.shil.942/webrtc-ice-candidate-pair-selection-and-nomination-how-webrtc-chooses-a-working-network-path-9d622ee44e11",
-      "by": "Suman Shil",
-      "time": 1792124056000,
-      "tags": [
-        "webrtc",
-        "android",
+        "software-development",
+        "web-development",
         "software-engineering"
       ]
     },
     {
-      "title": "How to Benchmark AI Sandbox Providers Without Fooling Yourself",
-      "url": "https://chierhu.medium.com/how-to-benchmark-ai-sandbox-providers-without-fooling-yourself-513d6cd9815c",
-      "by": "Chier Hu",
-      "time": 1792124002000,
+      "title": "5 Clean Code Habits That Will Make You a Better Developer in 2026",
+      "url": "https://medium.com/@chamodmadhushan2022/5-clean-code-habits-that-will-make-you-a-better-developer-in-2026-d0e362ffb527",
+      "by": "Chamod Madushan",
+      "time": 1792210103000,
       "tags": [
-        "devops",
-        "cloud-computing",
-        "agentic-ai"
-      ]
-    },
-    {
-      "title": "When AI Sandboxes Stop Scaling: The Case for Moving workloads and building in-house",
-      "url": "https://chierhu.medium.com/when-ai-sandboxes-stop-scaling-the-case-for-moving-workloads-and-building-in-house-69074f21b38a",
-      "by": "Chier Hu",
-      "time": 1792124001000,
-      "tags": [
-        "devops",
-        "agentic-ai",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "JavaScript Debouncing Explained: Control Rapid Events Without Wasting Work",
-      "url": "https://javascript.plainenglish.io/javascript-debouncing-explained-control-rapid-events-without-wasting-work-47fe96d04ae4",
-      "by": "Zayd Islam",
-      "time": 1792123923000,
-      "tags": [
-        "javascript-development",
         "software-engineering",
+        "programming",
         "javascript"
       ]
     },
     {
-      "title": "Bean Validation Groups: When They Help and When They Confuse",
-      "url": "https://medium.com/@theturtlecode/bean-validation-groups-when-they-help-and-when-they-confuse-aae1f3b66dde",
-      "by": "The Turtle Code",
-      "time": 1792123861000,
+      "title": "I Built a Trading Engine in Java. The Hardest Problems Had Nothing to Do With Trading",
+      "url": "https://czetsuya.medium.com/building-a-trading-engine-in-java-beyond-trading-signals-ff03c61c2975",
+      "by": "czetsuya",
+      "time": 1792210078000,
       "tags": [
-        "software-development",
-        "programming",
-        "back-end-development"
+        "software-architecture",
+        "software-engineering",
+        "algorithmic-trading"
       ]
     },
     {
-      "title": "JavaScript Prototype Chain: How Objects Inherit Properties",
-      "url": "https://medium.com/@arifbipubd3/javascript-prototype-chain-how-objects-inherit-properties-bc78b5cd704c",
-      "by": "Ariful Islam",
-      "time": 1792123861000,
+      "title": "CS 373 Fall 2026: David Ordonez, Blog #8",
+      "url": "https://agentic0.medium.com/cs-373-fall-2026-david-ordonez-blog-8-f3a8bcd2747d",
+      "by": "David Virgilio Ordonez",
+      "time": 1792210012000,
       "tags": [
-        "programming",
-        "javascript",
-        "front-end-development"
+        "ut-austin",
+        "software-engineering"
       ]
     },
     {
-      "title": "The Django save() Method Isn't a Safety Net. Here's Why.",
-      "url": "https://medium.com/@gulsaba.fiha/the-django-save-method-isnt-a-safety-net-here-s-why-d5a8a0ee0eec",
-      "by": "Gulsaba Fiha",
-      "time": 1792123561000,
+      "title": "AI hamari naukriyan le rahi hai—ya kaam ka tareeqa badal rahi hai?",
+      "url": "https://medium.com/@alibaloch155876/ai-hamari-naukriyan-le-rahi-hai-ya-kaam-ka-tareeqa-badal-rahi-hai-0c5623a78bf8",
+      "by": "Alibaloch",
+      "time": 1792209723000,
       "tags": [
+        "ai-agent",
+        "data-science",
+        "software-development"
+      ]
+    },
+    {
+      "title": "I’m Learning Python — Understanding Conditions, Operators, and Loops",
+      "url": "https://medium.com/@bhaskar-nakka/im-learning-python-understanding-conditions-operators-and-loops-945f4278cfdc",
+      "by": "Bhaskar Nakka",
+      "time": 1792209661000,
+      "tags": [
+        "data-anlytics",
+        "python-programming",
+        "learning-to-code"
+      ]
+    },
+    {
+      "title": "Ten Databases, Ten Different Handoffs: What You Give Up When You Choose One",
+      "url": "https://medium.com/jin-system-architect/ten-databases-ten-different-handoffs-what-you-give-up-when-you-choose-one-ca67429d6fe4",
+      "by": "JIN",
+      "time": 1792209624000,
+      "tags": [
+        "data",
+        "backend-engineering",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Stop Writing Counting Loops. The Standard Library Already Did",
+      "url": "https://medium.com/becomebetter-dev/stop-writing-counting-loops-the-standard-library-already-did-56ec5ef28d8d",
+      "by": "Lucas Samba",
+      "time": 1792209508000,
+      "tags": [
+        "programming",
         "python",
-        "django",
-        "programming"
+        "coding"
       ]
     },
     {
-      "title": "If AI Writes the Code, Why Are We Still Using Human-Designed Programming Languages?",
-      "url": "https://medium.com/@iyakin.yz/if-ai-writes-the-code-why-are-we-still-using-human-designed-programming-languages-3a6c403b2eac",
-      "by": "Old Developer",
-      "time": 1792123549000,
+      "title": "722 Commits, Zero Real Customers Harmed",
+      "url": "https://canerduzenli.medium.com/722-commits-zero-real-customers-harmed-007cece39688",
+      "by": "Caner Duzenli",
+      "time": 1792208956000,
       "tags": [
-        "ai-coding",
         "software-engineering",
-        "artificial-intelligence"
+        "devops",
+        "engineering-management"
       ]
     },
     {
-      "title": "Python Performance Optimization: Profiling, Caching, and Faster Code",
-      "url": "https://python.plainenglish.io/python-performance-optimization-profiling-caching-and-faster-code-7bd4a2d955c7",
-      "by": "Zayd Islam",
-      "time": 1792123366000,
+      "title": "Shared Hosting vs VPS vs Cloud Hosting: I Compared All Three. Here’s Where Your Money Should Go.",
+      "url": "https://linuxteck.medium.com/shared-hosting-vs-vps-vs-cloud-hosting-i-compared-all-three-heres-where-your-money-should-go-4628c6ff414d",
+      "by": "John Britto",
+      "time": 1792208660000,
       "tags": [
-        "software-development",
-        "software-engineering",
-        "python3"
+        "cloud-computing",
+        "vps",
+        "web-hosting"
       ]
     }
   ]
