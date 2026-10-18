@@ -1,6 +1,62 @@
 {
-  "generated": "2026-10-17T04:28:45.140Z",
+  "generated": "2026-10-18T04:29:48.447Z",
   "reddit": [
+    {
+      "title": "How do I actually scan for CVEs for Javascript?",
+      "url": "https://www.reddit.com/r/devops/comments/1x8peyq/how_do_i_actually_scan_for_cves_for_javascript/",
+      "by": "saifxhatem",
+      "time": 1792282846000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I Traced a Postgres INSERT to Raw Bytes on Disk",
+      "url": "https://www.reddit.com/r/programming/comments/1x8gk1v/i_traced_a_postgres_insert_to_raw_bytes_on_disk/",
+      "by": "IndicationAntique667",
+      "time": 1792259478000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Much Ado About Seven Bytes",
+      "url": "https://www.reddit.com/r/programming/comments/1x8fvz1/much_ado_about_seven_bytes/",
+      "by": "zeroone",
+      "time": 1792257800000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Python's binary wheels and supply chain attacks",
+      "url": "https://www.reddit.com/r/programming/comments/1x8eqt6/pythons_binary_wheels_and_supply_chain_attacks/",
+      "by": "f311a",
+      "time": 1792255050000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Who else has a \"no deploys on Friday\" rule, and what's the story behind it?",
+      "url": "https://www.reddit.com/r/devops/comments/1x8b8ks/who_else_has_a_no_deploys_on_friday_rule_and/",
+      "by": "Stromedy1",
+      "time": 1792246303000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How Not to Build a Five-in-a-Row Game Engine",
+      "url": "https://www.reddit.com/r/programming/comments/1x88p5f/how_not_to_build_a_fiveinarow_game_engine/",
+      "by": "OtherwisePush6424",
+      "time": 1792239066000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Looking for an affordable production-grade VPS/EC2 instance as a solo developer (4 vCPU, 8 GB RAM)",
+      "url": "https://www.reddit.com/r/devops/comments/1x86u37/looking_for_an_affordable_productiongrade_vpsec2/",
+      "by": "Abdullah_Shahid24",
+      "time": 1792232640000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Jr Software Engineer Here! Was wondering, how do you manage, monitor, and stress-test your production VPS setups (like DigitalOcean)?",
+      "url": "https://www.reddit.com/r/devops/comments/1x82z03/jr_software_engineer_here_was_wondering_how_do/",
+      "by": "foss-octopus",
+      "time": 1792218227000,
+      "sub": "r/devops"
+    },
     {
       "title": "Improving heuristics for A* search",
       "url": "https://www.reddit.com/r/programming/comments/1x80isg/improving_heuristics_for_a_search/",
@@ -9,177 +65,121 @@
       "sub": "r/programming"
     },
     {
-      "title": "Compression is prediction",
-      "url": "https://www.reddit.com/r/programming/comments/1x7x6dq/compression_is_prediction/",
-      "by": "fagnerbrack",
-      "time": 1792198859000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Same JavaScript file plays Tetris in the browser and Snake after formatting",
-      "url": "https://www.reddit.com/r/programming/comments/1x7v2i1/same_javascript_file_plays_tetris_in_the_browser/",
-      "by": "trustsigRobert",
-      "time": 1792192700000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Why do dumb sites take whole team?",
       "url": "https://www.reddit.com/r/devops/comments/1x7sh7e/why_do_dumb_sites_take_whole_team/",
       "by": "Few-Compote-2693",
       "time": 1792185902000,
       "sub": "r/devops"
-    },
-    {
-      "title": "on-call routing/escalation in small teams, what do you actually use?",
-      "url": "https://www.reddit.com/r/devops/comments/1x7rfha/oncall_routingescalation_in_small_teams_what_do/",
-      "by": "Benjamin-7933",
-      "time": 1792183326000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How do you get your first DevOps job when every position requires experience?",
-      "url": "https://www.reddit.com/r/devops/comments/1x7re8v/how_do_you_get_your_first_devops_job_when_every/",
-      "by": "rahma_begag1",
-      "time": 1792183243000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "DevOps is cooked.",
-      "url": "https://www.reddit.com/r/devops/comments/1x7ra5d/devops_is_cooked/",
-      "by": "Dubinko",
-      "time": 1792182958000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Domain-Driven Design (DDD) — The Complete Guide | Visually Explained",
-      "url": "https://www.reddit.com/r/programming/comments/1x7o6km/domaindriven_design_ddd_the_complete_guide/",
-      "by": "correctMeIfImcorrect",
-      "time": 1792175685000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Learning Postgres extensions using Zig",
-      "url": "https://www.reddit.com/r/programming/comments/1x7mmu6/learning_postgres_extensions_using_zig/",
-      "by": "pseudocharleskk",
-      "time": 1792172174000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I abandoned the open-source database anonymizer. Should I kill it?",
-      "url": "https://www.reddit.com/r/devops/comments/1x7c147/i_abandoned_the_opensource_database_anonymizer/",
-      "by": "ihorklymchuk",
-      "time": 1792144391000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "10 CSS Secrets Most Developers Overlook",
-      "url": "https://medium.com/skillstuff/10-css-secrets-most-developers-overlook-f34bbc057c41",
-      "by": "CodeByUmar",
-      "time": 1792210866000,
+      "title": "Install Azure CLI on Ubuntu — A Beginner’s Guide",
+      "url": "https://medium.com/@bsrinivasancbe/install-azure-cli-on-ubuntu-a-beginners-guide-74f37f04a81f",
+      "by": "Srinivasan Baskaran",
+      "time": 1792297261000,
       "tags": [
-        "software-development",
-        "web-development",
+        "azure-cli",
+        "ubuntu",
+        "devops"
+      ]
+    },
+    {
+      "title": "1,500 npm Packages Were Open to Takeover. No Password Needed",
+      "url": "https://martin128.medium.com/1-500-npm-packages-were-open-to-takeover-no-password-needed-faba8a76bc5d",
+      "by": "Martin",
+      "time": 1792296661000,
+      "tags": [
+        "nodejs",
+        "security",
         "software-engineering"
       ]
     },
     {
-      "title": "5 Clean Code Habits That Will Make You a Better Developer in 2026",
-      "url": "https://medium.com/@chamodmadhushan2022/5-clean-code-habits-that-will-make-you-a-better-developer-in-2026-d0e362ffb527",
-      "by": "Chamod Madushan",
-      "time": 1792210103000,
+      "title": "6 Codex Beginner Techniques That Turn It into a Reliable Teammate",
+      "url": "https://kd-agentic.medium.com/6-codex-beginner-techniques-that-turn-it-into-a-reliable-teammate-8cb0995a4f43",
+      "by": "KD Agentic",
+      "time": 1792296605000,
       "tags": [
-        "software-engineering",
+        "technology",
         "programming",
-        "javascript"
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "I Built a Trading Engine in Java. The Hardest Problems Had Nothing to Do With Trading",
-      "url": "https://czetsuya.medium.com/building-a-trading-engine-in-java-beyond-trading-signals-ff03c61c2975",
-      "by": "czetsuya",
-      "time": 1792210078000,
+      "title": "Advanced Data Service Techniques in UiPath",
+      "url": "https://medium.com/@praveenb0927/advanced-data-service-techniques-in-uipath-fc02c77e2875",
+      "by": "Praveen BK",
+      "time": 1792296361000,
       "tags": [
-        "software-architecture",
-        "software-engineering",
-        "algorithmic-trading"
-      ]
-    },
-    {
-      "title": "CS 373 Fall 2026: David Ordonez, Blog #8",
-      "url": "https://agentic0.medium.com/cs-373-fall-2026-david-ordonez-blog-8-f3a8bcd2747d",
-      "by": "David Virgilio Ordonez",
-      "time": 1792210012000,
-      "tags": [
-        "ut-austin",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AI hamari naukriyan le rahi hai—ya kaam ka tareeqa badal rahi hai?",
-      "url": "https://medium.com/@alibaloch155876/ai-hamari-naukriyan-le-rahi-hai-ya-kaam-ka-tareeqa-badal-rahi-hai-0c5623a78bf8",
-      "by": "Alibaloch",
-      "time": 1792209723000,
-      "tags": [
-        "ai-agent",
-        "data-science",
+        "javascript",
+        "artificial-intelligence",
         "software-development"
       ]
     },
     {
-      "title": "I’m Learning Python — Understanding Conditions, Operators, and Loops",
-      "url": "https://medium.com/@bhaskar-nakka/im-learning-python-understanding-conditions-operators-and-loops-945f4278cfdc",
-      "by": "Bhaskar Nakka",
-      "time": 1792209661000,
+      "title": "Claude Writes 90% of Claude Code. Here’s Who Still Approves the Merge.",
+      "url": "https://medium.com/@sairamkotha/claude-writes-90-of-claude-code-heres-who-still-approves-the-merge-a0ab80c57e2f",
+      "by": "Sai Ram Kotha",
+      "time": 1792296284000,
       "tags": [
-        "data-anlytics",
-        "python-programming",
-        "learning-to-code"
-      ]
-    },
-    {
-      "title": "Ten Databases, Ten Different Handoffs: What You Give Up When You Choose One",
-      "url": "https://medium.com/jin-system-architect/ten-databases-ten-different-handoffs-what-you-give-up-when-you-choose-one-ca67429d6fe4",
-      "by": "JIN",
-      "time": 1792209624000,
-      "tags": [
-        "data",
-        "backend-engineering",
+        "artificial-intelligence",
         "software-engineering"
       ]
     },
     {
-      "title": "Stop Writing Counting Loops. The Standard Library Already Did",
-      "url": "https://medium.com/becomebetter-dev/stop-writing-counting-loops-the-standard-library-already-did-56ec5ef28d8d",
-      "by": "Lucas Samba",
-      "time": 1792209508000,
+      "title": "REA Isn’t a Better Decompiler. It’s a Change in Who Holds the Pen",
+      "url": "https://jinlow.medium.com/rea-isnt-a-better-decompiler-it-s-a-change-in-who-holds-the-pen-5c7b1d2a0482",
+      "by": "JIN",
+      "time": 1792296154000,
+      "tags": [
+        "reverse-engineering",
+        "ai-agent",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "OpenAI’s “Astra” Raises a New Cybersecurity Question?",
+      "url": "https://medium.com/@shreyanmehta/openais-astra-raises-a-new-cybersecurity-question-13bfb56aa38e",
+      "by": "Shreyan Mehta",
+      "time": 1792296062000,
       "tags": [
         "programming",
-        "python",
-        "coding"
+        "gpt-6-astra",
+        "ai-agent"
       ]
     },
     {
-      "title": "722 Commits, Zero Real Customers Harmed",
-      "url": "https://canerduzenli.medium.com/722-commits-zero-real-customers-harmed-007cece39688",
-      "by": "Caner Duzenli",
-      "time": 1792208956000,
+      "title": "8 Things I’d Put in My GitHub Portfolio Before Applying for Developer Jobs",
+      "url": "https://medium.com/skillstuff/8-things-id-put-in-my-github-portfolio-before-applying-for-developer-jobs-f798658a99c9",
+      "by": "TechByRahmat",
+      "time": 1792296061000,
       "tags": [
+        "programming",
+        "job-search",
+        "github"
+      ]
+    },
+    {
+      "title": "Computer Science Fundamentals Every Software Developer Should Know",
+      "url": "https://medium.com/@jalismahamud31/computer-science-fundamentals-every-software-developer-should-know-8f64b47cc398",
+      "by": "Jalismahamud",
+      "time": 1792295483000,
+      "tags": [
+        "technology",
         "software-engineering",
-        "devops",
-        "engineering-management"
+        "data-structures"
       ]
     },
     {
-      "title": "Shared Hosting vs VPS vs Cloud Hosting: I Compared All Three. Here’s Where Your Money Should Go.",
-      "url": "https://linuxteck.medium.com/shared-hosting-vs-vps-vs-cloud-hosting-i-compared-all-three-heres-where-your-money-should-go-4628c6ff414d",
-      "by": "John Britto",
-      "time": 1792208660000,
+      "title": "Ask an AI Why It Did That. You’ll Get a Story, Not a Reason.",
+      "url": "https://medium.com/@jaberadam2001/ask-an-ai-why-it-did-that-youll-get-a-story-not-a-reason-02c815448897",
+      "by": "Adam Jaber",
+      "time": 1792295145000,
       "tags": [
-        "cloud-computing",
-        "vps",
-        "web-hosting"
+        "technology",
+        "machine-learning",
+        "programming"
       ]
     }
   ]

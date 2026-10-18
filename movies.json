@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-17T04:27:47.431Z",
+  "generated": "2026-10-18T04:28:38.654Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -42,7 +42,7 @@
       "precision": "day",
       "by": "Siddharth Anand",
       "desc": "Upcoming Indian film by Siddharth Anand",
-      "poster": null,
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/fd/King_%28Hindi_film%29.jpg/120px-King_%28Hindi_film%29.jpg",
       "url": "https://en.wikipedia.org/wiki/King_(2026_film)",
       "imdb": "https://www.imdb.com/title/tt28228084/"
     },
