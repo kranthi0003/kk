@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T04:29:53.285Z",
+  "generated": "2026-10-19T04:33:19.252Z",
   "season": "2026",
   "sources": [
     {
@@ -135,9 +135,9 @@
         "pos": 5,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 32,
-        "points": 3215,
-        "rating": 100
+        "matches": 33,
+        "points": 3360,
+        "rating": 102
       },
       {
         "pos": 6,
@@ -151,9 +151,9 @@
         "pos": 7,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 39,
-        "points": 3702,
-        "rating": 95
+        "matches": 40,
+        "points": 3752,
+        "rating": 94
       },
       {
         "pos": 8,
@@ -167,9 +167,9 @@
         "pos": 9,
         "code": "BAN",
         "team": "Bangladesh",
-        "matches": 39,
-        "points": 3251,
-        "rating": 83
+        "matches": 40,
+        "points": 3262,
+        "rating": 82
       },
       {
         "pos": 10,
@@ -183,9 +183,9 @@
         "pos": 11,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 18,
-        "points": 1096,
-        "rating": 61
+        "matches": 19,
+        "points": 1229,
+        "rating": 65
       },
       {
         "pos": 12,

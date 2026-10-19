@@ -1,185 +1,186 @@
 {
-  "generated": "2026-10-18T04:29:48.447Z",
+  "generated": "2026-10-19T04:33:13.782Z",
   "reddit": [
     {
-      "title": "How do I actually scan for CVEs for Javascript?",
-      "url": "https://www.reddit.com/r/devops/comments/1x8peyq/how_do_i_actually_scan_for_cves_for_javascript/",
-      "by": "saifxhatem",
-      "time": 1792282846000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I Traced a Postgres INSERT to Raw Bytes on Disk",
-      "url": "https://www.reddit.com/r/programming/comments/1x8gk1v/i_traced_a_postgres_insert_to_raw_bytes_on_disk/",
-      "by": "IndicationAntique667",
-      "time": 1792259478000,
+      "title": "What is the best book or resource for system design?",
+      "url": "https://www.reddit.com/r/programming/comments/1x9hvrt/what_is_the_best_book_or_resource_for_system/",
+      "by": "mixsrc",
+      "time": 1792367025000,
       "sub": "r/programming"
     },
     {
-      "title": "Much Ado About Seven Bytes",
-      "url": "https://www.reddit.com/r/programming/comments/1x8fvz1/much_ado_about_seven_bytes/",
-      "by": "zeroone",
-      "time": 1792257800000,
+      "title": "Longhorn fails to mount encrypted volume",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x9fra0/longhorn_fails_to_mount_encrypted_volume/",
+      "by": "minomy13",
+      "time": 1792361023000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How tough can emoji be?",
+      "url": "https://www.reddit.com/r/programming/comments/1x9ecjd/how_tough_can_emoji_be/",
+      "by": "Rupour",
+      "time": 1792357403000,
       "sub": "r/programming"
     },
     {
-      "title": "Python's binary wheels and supply chain attacks",
-      "url": "https://www.reddit.com/r/programming/comments/1x8eqt6/pythons_binary_wheels_and_supply_chain_attacks/",
-      "by": "f311a",
-      "time": 1792255050000,
+      "title": "ANN: Free Pascal Compiler Now Has Dynamic Package Support",
+      "url": "https://www.reddit.com/r/programming/comments/1x9av5j/ann_free_pascal_compiler_now_has_dynamic_package/",
+      "by": "sysrpl",
+      "time": 1792349018000,
       "sub": "r/programming"
     },
     {
-      "title": "Who else has a \"no deploys on Friday\" rule, and what's the story behind it?",
-      "url": "https://www.reddit.com/r/devops/comments/1x8b8ks/who_else_has_a_no_deploys_on_friday_rule_and/",
-      "by": "Stromedy1",
-      "time": 1792246303000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How Not to Build a Five-in-a-Row Game Engine",
-      "url": "https://www.reddit.com/r/programming/comments/1x88p5f/how_not_to_build_a_fiveinarow_game_engine/",
-      "by": "OtherwisePush6424",
-      "time": 1792239066000,
+      "title": "Durable workflows without replay: freezing the VM instead of re-running the code",
+      "url": "https://www.reddit.com/r/programming/comments/1x9akv3/durable_workflows_without_replay_freezing_the_vm/",
+      "by": "dani-but-g",
+      "time": 1792348323000,
       "sub": "r/programming"
     },
     {
-      "title": "Looking for an affordable production-grade VPS/EC2 instance as a solo developer (4 vCPU, 8 GB RAM)",
-      "url": "https://www.reddit.com/r/devops/comments/1x86u37/looking_for_an_affordable_productiongrade_vpsec2/",
-      "by": "Abdullah_Shahid24",
-      "time": 1792232640000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Jr Software Engineer Here! Was wondering, how do you manage, monitor, and stress-test your production VPS setups (like DigitalOcean)?",
-      "url": "https://www.reddit.com/r/devops/comments/1x82z03/jr_software_engineer_here_was_wondering_how_do/",
-      "by": "foss-octopus",
-      "time": 1792218227000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Improving heuristics for A* search",
-      "url": "https://www.reddit.com/r/programming/comments/1x80isg/improving_heuristics_for_a_search/",
-      "by": "fagnerbrack",
-      "time": 1792209654000,
+      "title": "Trials and Tribulation of Native Lua Compilation",
+      "url": "https://www.reddit.com/r/programming/comments/1x97ww8/trials_and_tribulation_of_native_lua_compilation/",
+      "by": "_SamT",
+      "time": 1792341968000,
       "sub": "r/programming"
     },
     {
-      "title": "Why do dumb sites take whole team?",
-      "url": "https://www.reddit.com/r/devops/comments/1x7sh7e/why_do_dumb_sites_take_whole_team/",
-      "by": "Few-Compote-2693",
-      "time": 1792185902000,
-      "sub": "r/devops"
+      "title": "AI Agents Are Having Their Kubernetes Moment 👀",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x8xjpd/ai_agents_are_having_their_kubernetes_moment/",
+      "by": "Many_Audience7660",
+      "time": 1792310358000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Kubernetes event-banglore oct 31st",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x8wmx7/kubernetes_eventbanglore_oct_31st/",
+      "by": "carrot3469",
+      "time": 1792306984000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "PSA: EKS charges 6× once a cluster falls out of standard support. I built a checker for EKS/AKS/GKE/OpenShift support dates and costs",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x8s0th/psa_eks_charges_6_once_a_cluster_falls_out_of/",
+      "by": "jsandhu0780",
+      "time": 1792291021000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Linux CPU Limits Explained: cpu.weight vs cpu.max, Quota, Period & Throttling (part2)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x8hg64/linux_cpu_limits_explained_cpuweight_vs_cpumax/",
+      "by": "makivili2s",
+      "time": 1792261662000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Install Azure CLI on Ubuntu — A Beginner’s Guide",
-      "url": "https://medium.com/@bsrinivasancbe/install-azure-cli-on-ubuntu-a-beginners-guide-74f37f04a81f",
-      "by": "Srinivasan Baskaran",
-      "time": 1792297261000,
+      "title": "SSE vs WebSocket for AI Chat: Fixing an 8-Second First Token",
+      "url": "https://generativeai.pub/sse-vs-websocket-for-ai-chat-fixing-an-8-second-first-token-b916ea18380b",
+      "by": "Ray Hu",
+      "time": 1792383788000,
       "tags": [
-        "azure-cli",
-        "ubuntu",
+        "programming",
+        "software-development",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Data Structures Made Easy: A Beginner-Friendly Guide to Understanding Them",
+      "url": "https://medium.com/@jalismahamud31/data-structures-made-easy-a-beginner-friendly-guide-to-understanding-them-bb219ce76820",
+      "by": "Jalismahamud",
+      "time": 1792383784000,
+      "tags": [
+        "programming",
+        "computer-science",
+        "algorithms"
+      ]
+    },
+    {
+      "title": "The Distracted Forward Deployed Officer | Bazyl Horsey",
+      "url": "https://medium.com/@bazylichabodhorsey/the-distracted-forward-deployed-officer-bazyl-horsey-2f671fbcd317",
+      "by": "Bazyl Horsey",
+      "time": 1792383670000,
+      "tags": [
+        "careers",
+        "startup",
+        "leadership"
+      ]
+    },
+    {
+      "title": "Getting Started with Azure App Service: A Guide for Students",
+      "url": "https://medium.com/@sandakelumdineth120/getting-started-with-azure-app-service-a-guide-for-students-1d188d11411f",
+      "by": "Dineth Sandakelum Herath",
+      "time": 1792383585000,
+      "tags": [
+        "azure-for-students",
+        "azure-app-service",
         "devops"
       ]
     },
     {
-      "title": "1,500 npm Packages Were Open to Takeover. No Password Needed",
-      "url": "https://martin128.medium.com/1-500-npm-packages-were-open-to-takeover-no-password-needed-faba8a76bc5d",
-      "by": "Martin",
-      "time": 1792296661000,
+      "title": "Finding Your First Job After CSE Graduation in the Age of AI",
+      "url": "https://medium.com/@liza5757/finding-your-first-job-after-cse-graduation-in-the-age-of-ai-f0f5a6975f73",
+      "by": "Kaniz Fatima",
+      "time": 1792383466000,
       "tags": [
-        "nodejs",
-        "security",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "6 Codex Beginner Techniques That Turn It into a Reliable Teammate",
-      "url": "https://kd-agentic.medium.com/6-codex-beginner-techniques-that-turn-it-into-a-reliable-teammate-8cb0995a4f43",
-      "by": "KD Agentic",
-      "time": 1792296605000,
-      "tags": [
-        "technology",
+        "ai",
         "programming",
-        "artificial-intelligence"
+        "computer-science"
       ]
     },
     {
-      "title": "Advanced Data Service Techniques in UiPath",
-      "url": "https://medium.com/@praveenb0927/advanced-data-service-techniques-in-uipath-fc02c77e2875",
-      "by": "Praveen BK",
-      "time": 1792296361000,
+      "title": "40 Java Backend Interview Questions to Prepare for in 2026 | 25–30 LPA Salary Range",
+      "url": "https://medium.com/@pardeepgill82/40-java-backend-interview-questions-to-prepare-for-in-2026-25-30-lpa-salary-range-9ff73757416c",
+      "by": "Interview Playbook",
+      "time": 1792383291000,
       "tags": [
-        "javascript",
-        "artificial-intelligence",
-        "software-development"
+        "java",
+        "jobs",
+        "programming"
       ]
     },
     {
-      "title": "Claude Writes 90% of Claude Code. Here’s Who Still Approves the Merge.",
-      "url": "https://medium.com/@sairamkotha/claude-writes-90-of-claude-code-heres-who-still-approves-the-merge-a0ab80c57e2f",
-      "by": "Sai Ram Kotha",
-      "time": 1792296284000,
+      "title": "The Future of Software Engineering: Will AI Agents Replace the Traditional Development Team?",
+      "url": "https://thegeekplanets.medium.com/the-future-of-software-engineering-will-ai-agents-replace-the-traditional-development-team-8e617460bda1",
+      "by": "@thegeekplanets",
+      "time": 1792383180000,
       "tags": [
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "REA Isn’t a Better Decompiler. It’s a Change in Who Holds the Pen",
-      "url": "https://jinlow.medium.com/rea-isnt-a-better-decompiler-it-s-a-change-in-who-holds-the-pen-5c7b1d2a0482",
-      "by": "JIN",
-      "time": 1792296154000,
-      "tags": [
-        "reverse-engineering",
-        "ai-agent",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "OpenAI’s “Astra” Raises a New Cybersecurity Question?",
-      "url": "https://medium.com/@shreyanmehta/openais-astra-raises-a-new-cybersecurity-question-13bfb56aa38e",
-      "by": "Shreyan Mehta",
-      "time": 1792296062000,
-      "tags": [
-        "programming",
-        "gpt-6-astra",
+        "future-of-work",
+        "ai",
         "ai-agent"
       ]
     },
     {
-      "title": "8 Things I’d Put in My GitHub Portfolio Before Applying for Developer Jobs",
-      "url": "https://medium.com/skillstuff/8-things-id-put-in-my-github-portfolio-before-applying-for-developer-jobs-f798658a99c9",
-      "by": "TechByRahmat",
-      "time": 1792296061000,
+      "title": "Gemini 4 Argon Is Here. Your Bill Doubles on 1 December",
+      "url": "https://martin128.medium.com/gemini-4-argon-is-here-your-bill-doubles-on-1-december-b3bdd85ac1e0",
+      "by": "Martin",
+      "time": 1792383061000,
       "tags": [
         "programming",
-        "job-search",
-        "github"
+        "google",
+        "javascript"
       ]
     },
     {
-      "title": "Computer Science Fundamentals Every Software Developer Should Know",
-      "url": "https://medium.com/@jalismahamud31/computer-science-fundamentals-every-software-developer-should-know-8f64b47cc398",
-      "by": "Jalismahamud",
-      "time": 1792295483000,
+      "title": "The Query Was the Same. The Database Did Less Work.",
+      "url": "https://medium.com/@matuteiglesias/the-query-was-the-same-the-database-did-less-work-5d4577a067ce",
+      "by": "Matías Iglesias",
+      "time": 1792382976000,
       "tags": [
-        "technology",
-        "software-engineering",
-        "data-structures"
-      ]
-    },
-    {
-      "title": "Ask an AI Why It Did That. You’ll Get a Story, Not a Reason.",
-      "url": "https://medium.com/@jaberadam2001/ask-an-ai-why-it-did-that-youll-get-a-story-not-a-reason-02c815448897",
-      "by": "Adam Jaber",
-      "time": 1792295145000,
-      "tags": [
-        "technology",
-        "machine-learning",
+        "education",
+        "data-engineering",
         "programming"
+      ]
+    },
+    {
+      "title": "Beyond the Notebook: How I Built an End-to-End AI Disease Prediction & Health Guidance System",
+      "url": "https://medium.com/@muthuparadoxx/beyond-the-notebook-how-i-built-an-end-to-end-ai-disease-prediction-health-guidance-system-7563681a52af",
+      "by": "Paradoxx",
+      "time": 1792382909000,
+      "tags": [
+        "artificial-intelligence",
+        "software-engineering",
+        "healthcare-technology"
       ]
     }
   ]

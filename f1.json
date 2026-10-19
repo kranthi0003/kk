@@ -1,14 +1,14 @@
 {
-  "generated": "2026-08-20T10:32:48.589Z",
+  "generated": "2026-10-19T04:33:16.807Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
-  "round": 11,
+  "round": 17,
   "drivers": [
     {
       "pos": 1,
-      "points": 219,
-      "wins": 6,
+      "points": 340,
+      "wins": 8,
       "code": "ANT",
       "number": 12,
       "first": "Andrea Kimi",
@@ -19,7 +19,19 @@
     },
     {
       "pos": 2,
-      "points": 169,
+      "points": 238,
+      "wins": 3,
+      "code": "RUS",
+      "number": 63,
+      "first": "George",
+      "last": "Russell",
+      "nationality": "British",
+      "team": "Mercedes",
+      "teamId": "mercedes"
+    },
+    {
+      "pos": 3,
+      "points": 229,
       "wins": 1,
       "code": "HAM",
       "number": 44,
@@ -30,20 +42,20 @@
       "teamId": "ferrari"
     },
     {
-      "pos": 3,
-      "points": 160,
+      "pos": 4,
+      "points": 221,
       "wins": 2,
-      "code": "RUS",
-      "number": 63,
-      "first": "George",
-      "last": "Russell",
-      "nationality": "British",
-      "team": "Mercedes",
-      "teamId": "mercedes"
+      "code": "VER",
+      "number": 3,
+      "first": "Max",
+      "last": "Verstappen",
+      "nationality": "Dutch",
+      "team": "Red Bull",
+      "teamId": "red_bull"
     },
     {
-      "pos": 4,
-      "points": 138,
+      "pos": 5,
+      "points": 215,
       "wins": 1,
       "code": "LEC",
       "number": 16,
@@ -54,9 +66,9 @@
       "teamId": "ferrari"
     },
     {
-      "pos": 5,
-      "points": 128,
-      "wins": 1,
+      "pos": 6,
+      "points": 201,
+      "wins": 2,
       "code": "NOR",
       "number": 1,
       "first": "Lando",
@@ -66,20 +78,8 @@
       "teamId": "mclaren"
     },
     {
-      "pos": 6,
-      "points": 109,
-      "wins": 0,
-      "code": "VER",
-      "number": 3,
-      "first": "Max",
-      "last": "Verstappen",
-      "nationality": "Dutch",
-      "team": "Red Bull",
-      "teamId": "red_bull"
-    },
-    {
       "pos": 7,
-      "points": 92,
+      "points": 138,
       "wins": 0,
       "code": "PIA",
       "number": 81,
@@ -91,7 +91,7 @@
     },
     {
       "pos": 8,
-      "points": 68,
+      "points": 97,
       "wins": 0,
       "code": "HAD",
       "number": 6,
@@ -103,19 +103,19 @@
     },
     {
       "pos": 9,
-      "points": 43,
+      "points": 75,
       "wins": 0,
       "code": "LAW",
       "number": 30,
       "first": "Liam",
       "last": "Lawson",
       "nationality": "New Zealander",
-      "team": "RB F1 Team",
-      "teamId": "rb"
+      "team": "Red Bull",
+      "teamId": "red_bull"
     },
     {
       "pos": 10,
-      "points": 42,
+      "points": 41,
       "wins": 0,
       "code": "GAS",
       "number": 10,
@@ -127,7 +127,7 @@
     },
     {
       "pos": 11,
-      "points": 23,
+      "points": 38,
       "wins": 0,
       "code": "LIN",
       "number": 41,
@@ -139,7 +139,7 @@
     },
     {
       "pos": 12,
-      "points": 19,
+      "points": 27,
       "wins": 0,
       "code": "COL",
       "number": 43,
@@ -151,7 +151,7 @@
     },
     {
       "pos": 13,
-      "points": 18,
+      "points": 23,
       "wins": 0,
       "code": "BEA",
       "number": 87,
@@ -163,6 +163,18 @@
     },
     {
       "pos": 14,
+      "points": 13,
+      "wins": 0,
+      "code": "HUL",
+      "number": 27,
+      "first": "Nico",
+      "last": "Hülkenberg",
+      "nationality": "German",
+      "team": "Audi",
+      "teamId": "audi"
+    },
+    {
+      "pos": 15,
       "points": 10,
       "wins": 0,
       "code": "BOR",
@@ -174,8 +186,32 @@
       "teamId": "audi"
     },
     {
-      "pos": 15,
-      "points": 6,
+      "pos": 16,
+      "points": 7,
+      "wins": 0,
+      "code": "OCO",
+      "number": 31,
+      "first": "Esteban",
+      "last": "Ocon",
+      "nationality": "French",
+      "team": "Haas F1 Team",
+      "teamId": "haas"
+    },
+    {
+      "pos": 17,
+      "points": 7,
+      "wins": 0,
+      "code": "ALO",
+      "number": 14,
+      "first": "Fernando",
+      "last": "Alonso",
+      "nationality": "Spanish",
+      "team": "Aston Martin",
+      "teamId": "aston_martin"
+    },
+    {
+      "pos": 18,
+      "points": 7,
       "wins": 0,
       "code": "SAI",
       "number": 55,
@@ -186,7 +222,7 @@
       "teamId": "williams"
     },
     {
-      "pos": 16,
+      "pos": 19,
       "points": 5,
       "wins": 0,
       "code": "ALB",
@@ -198,43 +234,19 @@
       "teamId": "williams"
     },
     {
-      "pos": 17,
-      "points": 3,
-      "wins": 0,
-      "code": "OCO",
-      "number": 31,
-      "first": "Esteban",
-      "last": "Ocon",
-      "nationality": "French",
-      "team": "Haas F1 Team",
-      "teamId": "haas"
-    },
-    {
-      "pos": 18,
-      "points": 2,
-      "wins": 0,
-      "code": "HUL",
-      "number": 27,
-      "first": "Nico",
-      "last": "Hülkenberg",
-      "nationality": "German",
-      "team": "Audi",
-      "teamId": "audi"
-    },
-    {
-      "pos": 19,
+      "pos": 20,
       "points": 1,
       "wins": 0,
-      "code": "ALO",
-      "number": 14,
-      "first": "Fernando",
-      "last": "Alonso",
-      "nationality": "Spanish",
-      "team": "Aston Martin",
-      "teamId": "aston_martin"
+      "code": "TSU",
+      "number": 22,
+      "first": "Yuki",
+      "last": "Tsunoda",
+      "nationality": "Japanese",
+      "team": "RB F1 Team",
+      "teamId": "rb"
     },
     {
-      "pos": 20,
+      "pos": 21,
       "points": 0,
       "wins": 0,
       "code": "STR",
@@ -246,7 +258,7 @@
       "teamId": "aston_martin"
     },
     {
-      "pos": 21,
+      "pos": 22,
       "points": 0,
       "wins": 0,
       "code": "BOT",
@@ -258,7 +270,7 @@
       "teamId": "cadillac"
     },
     {
-      "pos": 22,
+      "pos": 23,
       "points": 0,
       "wins": 0,
       "code": "PER",
@@ -273,15 +285,15 @@
   "constructors": [
     {
       "pos": 1,
-      "points": 379,
-      "wins": 8,
+      "points": 578,
+      "wins": 11,
       "name": "Mercedes",
       "teamId": "mercedes",
       "nationality": "German"
     },
     {
       "pos": 2,
-      "points": 307,
+      "points": 444,
       "wins": 2,
       "name": "Ferrari",
       "teamId": "ferrari",
@@ -289,23 +301,23 @@
     },
     {
       "pos": 3,
-      "points": 220,
-      "wins": 1,
+      "points": 339,
+      "wins": 2,
       "name": "McLaren",
       "teamId": "mclaren",
       "nationality": "British"
     },
     {
       "pos": 4,
-      "points": 177,
-      "wins": 0,
+      "points": 332,
+      "wins": 2,
       "name": "Red Bull",
       "teamId": "red_bull",
       "nationality": "Austrian"
     },
     {
       "pos": 5,
-      "points": 66,
+      "points": 100,
       "wins": 0,
       "name": "RB F1 Team",
       "teamId": "rb",
@@ -313,7 +325,7 @@
     },
     {
       "pos": 6,
-      "points": 61,
+      "points": 68,
       "wins": 0,
       "name": "Alpine F1 Team",
       "teamId": "alpine",
@@ -321,7 +333,7 @@
     },
     {
       "pos": 7,
-      "points": 21,
+      "points": 30,
       "wins": 0,
       "name": "Haas F1 Team",
       "teamId": "haas",
@@ -329,7 +341,7 @@
     },
     {
       "pos": 8,
-      "points": 12,
+      "points": 23,
       "wins": 0,
       "name": "Audi",
       "teamId": "audi",
@@ -337,7 +349,7 @@
     },
     {
       "pos": 9,
-      "points": 11,
+      "points": 12,
       "wins": 0,
       "name": "Williams",
       "teamId": "williams",
@@ -345,7 +357,7 @@
     },
     {
       "pos": 10,
-      "points": 1,
+      "points": 7,
       "wins": 0,
       "name": "Aston Martin",
       "teamId": "aston_martin",
@@ -371,12 +383,7 @@
       "lng": 144.968,
       "start": "2026-03-08T04:00:00Z",
       "date": "2026-03-08",
-      "winner": {
-        "last": "Russell",
-        "code": "RUS",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -394,12 +401,7 @@
       "lng": 121.22,
       "start": "2026-03-15T07:00:00Z",
       "date": "2026-03-15",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -417,12 +419,7 @@
       "lng": 136.541,
       "start": "2026-03-29T05:00:00Z",
       "date": "2026-03-29",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -440,12 +437,7 @@
       "lng": -80.2389,
       "start": "2026-05-03T20:00:00Z",
       "date": "2026-05-03",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -463,12 +455,7 @@
       "lng": -73.5228,
       "start": "2026-05-24T20:00:00Z",
       "date": "2026-05-24",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -486,12 +473,7 @@
       "lng": 7.42056,
       "start": "2026-06-07T13:00:00Z",
       "date": "2026-06-07",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -509,12 +491,7 @@
       "lng": 2.26111,
       "start": "2026-06-14T13:00:00Z",
       "date": "2026-06-14",
-      "winner": {
-        "last": "Hamilton",
-        "code": "HAM",
-        "team": "Ferrari",
-        "teamId": "ferrari"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -532,12 +509,7 @@
       "lng": 14.7647,
       "start": "2026-06-28T13:00:00Z",
       "date": "2026-06-28",
-      "winner": {
-        "last": "Russell",
-        "code": "RUS",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Russell",
         "code": "RUS",
@@ -555,12 +527,7 @@
       "lng": -1.01694,
       "start": "2026-07-05T14:00:00Z",
       "date": "2026-07-05",
-      "winner": {
-        "last": "Leclerc",
-        "code": "LEC",
-        "team": "Ferrari",
-        "teamId": "ferrari"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -578,12 +545,7 @@
       "lng": 5.97139,
       "start": "2026-07-19T13:00:00Z",
       "date": "2026-07-19",
-      "winner": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes"
-      },
+      "winner": null,
       "pole": {
         "last": "Antonelli",
         "code": "ANT",
@@ -601,12 +563,7 @@
       "lng": 19.2486,
       "start": "2026-07-26T13:00:00Z",
       "date": "2026-07-26",
-      "winner": {
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren"
-      },
+      "winner": null,
       "pole": {
         "last": "Norris",
         "code": "NOR",
@@ -625,7 +582,12 @@
       "start": "2026-08-23T13:00:00Z",
       "date": "2026-08-23",
       "winner": null,
-      "pole": null
+      "pole": {
+        "last": "Norris",
+        "code": "NOR",
+        "teamId": "mclaren",
+        "time": "1:11.163"
+      }
     },
     {
       "round": 13,
@@ -638,7 +600,12 @@
       "start": "2026-09-06T13:00:00Z",
       "date": "2026-09-06",
       "winner": null,
-      "pole": null
+      "pole": {
+        "last": "Gasly",
+        "code": "GAS",
+        "teamId": "alpine",
+        "time": "1:21.786"
+      }
     },
     {
       "round": 14,
@@ -651,7 +618,12 @@
       "start": "2026-09-13T13:00:00Z",
       "date": "2026-09-13",
       "winner": null,
-      "pole": null
+      "pole": {
+        "last": "Norris",
+        "code": "NOR",
+        "teamId": "mclaren",
+        "time": "1:31.824"
+      }
     },
     {
       "round": 15,
@@ -664,7 +636,12 @@
       "start": "2026-09-26T11:00:00Z",
       "date": "2026-09-26",
       "winner": null,
-      "pole": null
+      "pole": {
+        "last": "Russell",
+        "code": "RUS",
+        "teamId": "mercedes",
+        "time": "1:42.526"
+      }
     },
     {
       "round": 16,
@@ -747,7 +724,7 @@
     {
       "round": 22,
       "name": "Qatar Grand Prix",
-      "circuit": "Losail International Circuit",
+      "circuit": "Lusail International Circuit",
       "locality": "Lusail",
       "country": "Qatar",
       "lat": 25.49,
@@ -772,30 +749,30 @@
     }
   ],
   "lastRace": {
-    "round": 11,
-    "name": "Hungarian Grand Prix",
-    "circuit": "Hungaroring",
-    "country": "Hungary",
-    "date": "2026-07-26",
+    "round": 17,
+    "name": "Singapore Grand Prix",
+    "circuit": "Marina Bay Street Circuit",
+    "country": "Singapore",
+    "date": "2026-10-11",
     "podium": [
       {
         "pos": 1,
-        "first": "Lando",
-        "last": "Norris",
-        "code": "NOR",
-        "team": "McLaren",
-        "teamId": "mclaren",
-        "time": "1:39:56.180",
-        "points": 25
-      },
-      {
-        "pos": 2,
         "first": "Max",
         "last": "Verstappen",
         "code": "VER",
         "team": "Red Bull",
         "teamId": "red_bull",
-        "time": "+15.080",
+        "time": "1:42:00.785",
+        "points": 25
+      },
+      {
+        "pos": 2,
+        "first": "Charles",
+        "last": "Leclerc",
+        "code": "LEC",
+        "team": "Ferrari",
+        "teamId": "ferrari",
+        "time": "+7.335",
         "points": 18
       },
       {
@@ -805,12 +782,12 @@
         "code": "ANT",
         "team": "Mercedes",
         "teamId": "mercedes",
-        "time": "+18.728",
+        "time": "+24.573",
         "points": 15
       }
     ],
     "fastestLap": {
-      "time": "1:22.000",
+      "time": "1:35.202",
       "driver": "Leclerc"
     }
   }
