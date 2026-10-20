@@ -1,12 +1,61 @@
 {
-  "generated": "2026-10-19T04:33:13.782Z",
+  "generated": "2026-10-20T04:42:20.008Z",
   "reddit": [
     {
-      "title": "What is the best book or resource for system design?",
-      "url": "https://www.reddit.com/r/programming/comments/1x9hvrt/what_is_the_best_book_or_resource_for_system/",
-      "by": "mixsrc",
-      "time": 1792367025000,
+      "title": "Solving Strange Website Behavior Found in the Wild",
+      "url": "https://www.reddit.com/r/programming/comments/1xah04z/solving_strange_website_behavior_found_in_the_wild/",
+      "by": "Tornado547",
+      "time": 1792465281000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Rendering untrusted HTML email, safely",
+      "url": "https://www.reddit.com/r/programming/comments/1xadl8d/rendering_untrusted_html_email_safely/",
+      "by": "kiteska",
+      "time": 1792455423000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to Gaslight JavaScript Programmers",
+      "url": "https://www.reddit.com/r/programming/comments/1xaaife/how_to_gaslight_javascript_programmers/",
+      "by": "ythl",
+      "time": 1792447308000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "The reverts will continue until morale improves [PostgreSQL 19]",
+      "url": "https://www.reddit.com/r/programming/comments/1xa9h5w/the_reverts_will_continue_until_morale_improves/",
+      "by": "currentscurrents",
+      "time": 1792444823000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Making software is an artistic activity",
+      "url": "https://www.reddit.com/r/programming/comments/1xa4bck/making_software_is_an_artistic_activity/",
+      "by": "foobear777",
+      "time": 1792433378000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Why \"vibecoding\" infrastructure is an existential risk: lessons from 30 years on call",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x9wadx/why_vibecoding_infrastructure_is_an_existential/",
+      "by": "vmosidze",
+      "time": 1792414911000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Sidecar, service, or application middleware for data protection?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x9tbyh/sidecar_service_or_application_middleware_for/",
+      "by": "eggsandrawr",
+      "time": 1792405976000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Terraform not deleting the nodes created by Karpenter !!!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1x9rdvn/terraform_not_deleting_the_nodes_created_by/",
+      "by": "CartoonistWooden9737",
+      "time": 1792398788000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Longhorn fails to mount encrypted volume",
@@ -16,171 +65,120 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "How tough can emoji be?",
-      "url": "https://www.reddit.com/r/programming/comments/1x9ecjd/how_tough_can_emoji_be/",
-      "by": "Rupour",
-      "time": 1792357403000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "ANN: Free Pascal Compiler Now Has Dynamic Package Support",
-      "url": "https://www.reddit.com/r/programming/comments/1x9av5j/ann_free_pascal_compiler_now_has_dynamic_package/",
-      "by": "sysrpl",
-      "time": 1792349018000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Durable workflows without replay: freezing the VM instead of re-running the code",
-      "url": "https://www.reddit.com/r/programming/comments/1x9akv3/durable_workflows_without_replay_freezing_the_vm/",
-      "by": "dani-but-g",
-      "time": 1792348323000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Trials and Tribulation of Native Lua Compilation",
-      "url": "https://www.reddit.com/r/programming/comments/1x97ww8/trials_and_tribulation_of_native_lua_compilation/",
-      "by": "_SamT",
-      "time": 1792341968000,
-      "sub": "r/programming"
-    },
-    {
       "title": "AI Agents Are Having Their Kubernetes Moment 👀",
       "url": "https://www.reddit.com/r/kubernetes/comments/1x8xjpd/ai_agents_are_having_their_kubernetes_moment/",
       "by": "Many_Audience7660",
       "time": 1792310358000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes event-banglore oct 31st",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x8wmx7/kubernetes_eventbanglore_oct_31st/",
-      "by": "carrot3469",
-      "time": 1792306984000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "PSA: EKS charges 6× once a cluster falls out of standard support. I built a checker for EKS/AKS/GKE/OpenShift support dates and costs",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x8s0th/psa_eks_charges_6_once_a_cluster_falls_out_of/",
-      "by": "jsandhu0780",
-      "time": 1792291021000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Linux CPU Limits Explained: cpu.weight vs cpu.max, Quota, Period & Throttling (part2)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x8hg64/linux_cpu_limits_explained_cpuweight_vs_cpumax/",
-      "by": "makivili2s",
-      "time": 1792261662000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "SSE vs WebSocket for AI Chat: Fixing an 8-Second First Token",
-      "url": "https://generativeai.pub/sse-vs-websocket-for-ai-chat-fixing-an-8-second-first-token-b916ea18380b",
-      "by": "Ray Hu",
-      "time": 1792383788000,
+      "title": "Engineering Quality Metrics: Data-Driven KPIs for Modern Test Automation",
+      "url": "https://medium.com/@Global_Executive/engineering-quality-metrics-data-driven-kpis-for-modern-test-automation-afab1af47b91",
+      "by": "Olha Remeniak",
+      "time": 1792471064000,
       "tags": [
-        "programming",
-        "software-development",
-        "artificial-intelligence"
+        "analytics",
+        "devops",
+        "quality-assurance"
       ]
     },
     {
-      "title": "Data Structures Made Easy: A Beginner-Friendly Guide to Understanding Them",
-      "url": "https://medium.com/@jalismahamud31/data-structures-made-easy-a-beginner-friendly-guide-to-understanding-them-bb219ce76820",
-      "by": "Jalismahamud",
-      "time": 1792383784000,
+      "title": "Building iOS Native UI Components in React Native",
+      "url": "https://medium.com/react-native-lab/building-ios-native-ui-components-in-react-native-e426207f0051",
+      "by": "Jayant Kumar",
+      "time": 1792470663000,
       "tags": [
-        "programming",
-        "computer-science",
-        "algorithms"
+        "mobile-app-development",
+        "software-engineering",
+        "software-development"
       ]
     },
     {
-      "title": "The Distracted Forward Deployed Officer | Bazyl Horsey",
-      "url": "https://medium.com/@bazylichabodhorsey/the-distracted-forward-deployed-officer-bazyl-horsey-2f671fbcd317",
-      "by": "Bazyl Horsey",
-      "time": 1792383670000,
+      "title": "The Unified Platform for Your DevOps Lifecycle",
+      "url": "https://medium.com/@marketing.nucleusbox/the-unified-platform-for-your-devops-lifecycle-b06bb9158fe1",
+      "by": "Nucleusbox",
+      "time": 1792470488000,
       "tags": [
-        "careers",
-        "startup",
-        "leadership"
-      ]
-    },
-    {
-      "title": "Getting Started with Azure App Service: A Guide for Students",
-      "url": "https://medium.com/@sandakelumdineth120/getting-started-with-azure-app-service-a-guide-for-students-1d188d11411f",
-      "by": "Dineth Sandakelum Herath",
-      "time": 1792383585000,
-      "tags": [
-        "azure-for-students",
-        "azure-app-service",
         "devops"
       ]
     },
     {
-      "title": "Finding Your First Job After CSE Graduation in the Age of AI",
-      "url": "https://medium.com/@liza5757/finding-your-first-job-after-cse-graduation-in-the-age-of-ai-f0f5a6975f73",
-      "by": "Kaniz Fatima",
-      "time": 1792383466000,
+      "title": "Master JavaScript Promises — states,\nchaining, Promise.all and error handling!",
+      "url": "https://medium.com/@ishwaryagopinathan/master-javascript-promises-states-chaining-promise-all-and-error-handling-f3098a329b10",
+      "by": "Ishwarya Gopinathan",
+      "time": 1792470452000,
       "tags": [
-        "ai",
+        "web-development",
         "programming",
-        "computer-science"
+        "coding-for-beginners"
       ]
     },
     {
-      "title": "40 Java Backend Interview Questions to Prepare for in 2026 | 25–30 LPA Salary Range",
-      "url": "https://medium.com/@pardeepgill82/40-java-backend-interview-questions-to-prepare-for-in-2026-25-30-lpa-salary-range-9ff73757416c",
-      "by": "Interview Playbook",
-      "time": 1792383291000,
+      "title": "8 axios Interceptors Hid Every Bug in Our App",
+      "url": "https://javascript.plainenglish.io/8-axios-interceptors-hid-every-bug-in-our-app-664d0c24a85b",
+      "by": "Ray Hu",
+      "time": 1792470218000,
       "tags": [
-        "java",
-        "jobs",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Future of Software Engineering: Will AI Agents Replace the Traditional Development Team?",
-      "url": "https://thegeekplanets.medium.com/the-future-of-software-engineering-will-ai-agents-replace-the-traditional-development-team-8e617460bda1",
-      "by": "@thegeekplanets",
-      "time": 1792383180000,
-      "tags": [
-        "future-of-work",
-        "ai",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Gemini 4 Argon Is Here. Your Bill Doubles on 1 December",
-      "url": "https://martin128.medium.com/gemini-4-argon-is-here-your-bill-doubles-on-1-december-b3bdd85ac1e0",
-      "by": "Martin",
-      "time": 1792383061000,
-      "tags": [
+        "web-development",
         "programming",
-        "google",
-        "javascript"
+        "frontend-development"
       ]
     },
     {
-      "title": "The Query Was the Same. The Database Did Less Work.",
-      "url": "https://medium.com/@matuteiglesias/the-query-was-the-same-the-database-did-less-work-5d4577a067ce",
-      "by": "Matías Iglesias",
-      "time": 1792382976000,
+      "title": "The Kubernetes Bug Where Your Own Controller Became the Attacker: Lessons From CVE-2026–2270",
+      "url": "https://medium.com/@ascendrixtech/the-kubernetes-bug-where-your-own-controller-became-the-attacker-lessons-from-cve-2026-2270-3244e1d4a9fe",
+      "by": "Ascendrix Technologies",
+      "time": 1792470214000,
       "tags": [
-        "education",
-        "data-engineering",
-        "programming"
+        "cybersecurity",
+        "devops",
+        "cloud-native"
       ]
     },
     {
-      "title": "Beyond the Notebook: How I Built an End-to-End AI Disease Prediction & Health Guidance System",
-      "url": "https://medium.com/@muthuparadoxx/beyond-the-notebook-how-i-built-an-end-to-end-ai-disease-prediction-health-guidance-system-7563681a52af",
-      "by": "Paradoxx",
-      "time": 1792382909000,
+      "title": "CSS Can Count Now: Delete Your --i Hack",
+      "url": "https://javascript.plainenglish.io/css-can-count-now-delete-your-i-hack-63fe03174fd7",
+      "by": "Ray Hu",
+      "time": 1792470060000,
       "tags": [
+        "css",
+        "frontend-development",
+        "web-development"
+      ]
+    },
+    {
+      "title": "JPMorgan Chase Interview Questions: DSA, System Design, SQL, and Backend Engineering",
+      "url": "https://medium.com/@preetjit82/jpmorgan-chase-interview-questions-dsa-system-design-sql-and-backend-engineering-a5201d034052",
+      "by": "Interview Simplified",
+      "time": 1792470021000,
+      "tags": [
+        "interview",
+        "programming",
+        "jobs"
+      ]
+    },
+    {
+      "title": "I’ve Been a Software Engineer for 8+ Years. Here’s What AI Actually Changed in My Workflow",
+      "url": "https://medium.com/@saif.rehman00002/ive-been-a-software-engineer-for-8-years-here-s-what-ai-actually-changed-in-my-workflow-7cb8464d951b",
+      "by": "Saif Rehman",
+      "time": 1792469992000,
+      "tags": [
+        "software-development",
         "artificial-intelligence",
-        "software-engineering",
-        "healthcare-technology"
+        "ai"
+      ]
+    },
+    {
+      "title": "10 C# Mistakes Even Experienced Developers Still Make",
+      "url": "https://medium.com/@karthikns999/10-csharp-mistakes-experienced-developers-make-e80899ab56b4",
+      "by": "Karthikeyan NS",
+      "time": 1792469877000,
+      "tags": [
+        "dotnet",
+        "software-development",
+        "csharp"
       ]
     }
   ]
