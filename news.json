@@ -1,184 +1,186 @@
 {
-  "generated": "2026-10-20T04:42:20.008Z",
+  "generated": "2026-10-21T04:31:46.758Z",
   "reddit": [
     {
-      "title": "Solving Strange Website Behavior Found in the Wild",
-      "url": "https://www.reddit.com/r/programming/comments/1xah04z/solving_strange_website_behavior_found_in_the_wild/",
-      "by": "Tornado547",
-      "time": 1792465281000,
+      "title": "Critical Vulnerabilities in PHP",
+      "url": "https://www.reddit.com/r/programming/comments/1xbcv7y/critical_vulnerabilities_in_php/",
+      "by": "LordAlfredo",
+      "time": 1792554534000,
       "sub": "r/programming"
     },
     {
-      "title": "Rendering untrusted HTML email, safely",
-      "url": "https://www.reddit.com/r/programming/comments/1xadl8d/rendering_untrusted_html_email_safely/",
-      "by": "kiteska",
-      "time": 1792455423000,
+      "title": "What’s the worst production failure your monitoring didn’t catch?",
+      "url": "https://www.reddit.com/r/devops/comments/1xbbpob/whats_the_worst_production_failure_your/",
+      "by": "The_Ritvik",
+      "time": 1792550978000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "C vs C#: racing VLC's Gaussian blur",
+      "url": "https://www.reddit.com/r/programming/comments/1xbbkuq/c_vs_c_racing_vlcs_gaussian_blur/",
+      "by": "mtz94",
+      "time": 1792550582000,
       "sub": "r/programming"
     },
     {
-      "title": "How to Gaslight JavaScript Programmers",
-      "url": "https://www.reddit.com/r/programming/comments/1xaaife/how_to_gaslight_javascript_programmers/",
-      "by": "ythl",
-      "time": 1792447308000,
+      "title": "Make yourself replaceable",
+      "url": "https://www.reddit.com/r/programming/comments/1xb7t0x/make_yourself_replaceable/",
+      "by": "maroun-baydoun",
+      "time": 1792539736000,
       "sub": "r/programming"
     },
     {
-      "title": "The reverts will continue until morale improves [PostgreSQL 19]",
-      "url": "https://www.reddit.com/r/programming/comments/1xa9h5w/the_reverts_will_continue_until_morale_improves/",
-      "by": "currentscurrents",
-      "time": 1792444823000,
+      "title": "New Season Upgrades Vol 3: Split Keyboard Adventures! · cekrem.github.io",
+      "url": "https://www.reddit.com/r/programming/comments/1xb34av/new_season_upgrades_vol_3_split_keyboard/",
+      "by": "cekrem",
+      "time": 1792527780000,
       "sub": "r/programming"
     },
     {
-      "title": "Making software is an artistic activity",
-      "url": "https://www.reddit.com/r/programming/comments/1xa4bck/making_software_is_an_artistic_activity/",
-      "by": "foobear777",
-      "time": 1792433378000,
+      "title": "eMudhra Intermediate CA Compromise",
+      "url": "https://www.reddit.com/r/programming/comments/1xb32yj/emudhra_intermediate_ca_compromise/",
+      "by": "the_gnarts",
+      "time": 1792527690000,
       "sub": "r/programming"
     },
     {
-      "title": "Why \"vibecoding\" infrastructure is an existential risk: lessons from 30 years on call",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x9wadx/why_vibecoding_infrastructure_is_an_existential/",
-      "by": "vmosidze",
-      "time": 1792414911000,
-      "sub": "r/kubernetes"
+      "title": "Too many internal tools are becoming hard to maintain",
+      "url": "https://www.reddit.com/r/devops/comments/1xb0b5k/too_many_internal_tools_are_becoming_hard_to/",
+      "by": "rtpro",
+      "time": 1792521452000,
+      "sub": "r/devops"
     },
     {
-      "title": "Sidecar, service, or application middleware for data protection?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x9tbyh/sidecar_service_or_application_middleware_for/",
-      "by": "eggsandrawr",
-      "time": 1792405976000,
-      "sub": "r/kubernetes"
+      "title": "Kubernetes probes keep restarting services that just need more time",
+      "url": "https://www.reddit.com/r/devops/comments/1xatqcs/kubernetes_probes_keep_restarting_services_that/",
+      "by": "Round-Classic-7746",
+      "time": 1792506746000,
+      "sub": "r/devops"
     },
     {
-      "title": "Terraform not deleting the nodes created by Karpenter !!!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x9rdvn/terraform_not_deleting_the_nodes_created_by/",
-      "by": "CartoonistWooden9737",
-      "time": 1792398788000,
-      "sub": "r/kubernetes"
+      "title": "Homelab runner for Gitea",
+      "url": "https://www.reddit.com/r/devops/comments/1xatqay/homelab_runner_for_gitea/",
+      "by": "Keensworth",
+      "time": 1792506742000,
+      "sub": "r/devops"
     },
     {
-      "title": "Longhorn fails to mount encrypted volume",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x9fra0/longhorn_fails_to_mount_encrypted_volume/",
-      "by": "minomy13",
-      "time": 1792361023000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "AI Agents Are Having Their Kubernetes Moment 👀",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1x8xjpd/ai_agents_are_having_their_kubernetes_moment/",
-      "by": "Many_Audience7660",
-      "time": 1792310358000,
-      "sub": "r/kubernetes"
+      "title": "Sonatype Nexus now requires mandatory telemetry gathering",
+      "url": "https://www.reddit.com/r/devops/comments/1xaremm/sonatype_nexus_now_requires_mandatory_telemetry/",
+      "by": "blingmuppet",
+      "time": 1792500982000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Engineering Quality Metrics: Data-Driven KPIs for Modern Test Automation",
-      "url": "https://medium.com/@Global_Executive/engineering-quality-metrics-data-driven-kpis-for-modern-test-automation-afab1af47b91",
-      "by": "Olha Remeniak",
-      "time": 1792471064000,
+      "title": "The Death of Generic SaaS: Why Vibe Coding Makes PaaS the New King",
+      "url": "https://towardsdev.com/the-death-of-generic-saas-why-vibe-coding-makes-paas-the-new-king-25284f338c81",
+      "by": "Developer Awam",
+      "time": 1792556625000,
       "tags": [
-        "analytics",
-        "devops",
-        "quality-assurance"
-      ]
-    },
-    {
-      "title": "Building iOS Native UI Components in React Native",
-      "url": "https://medium.com/react-native-lab/building-ios-native-ui-components-in-react-native-e426207f0051",
-      "by": "Jayant Kumar",
-      "time": 1792470663000,
-      "tags": [
-        "mobile-app-development",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Unified Platform for Your DevOps Lifecycle",
-      "url": "https://medium.com/@marketing.nucleusbox/the-unified-platform-for-your-devops-lifecycle-b06bb9158fe1",
-      "by": "Nucleusbox",
-      "time": 1792470488000,
-      "tags": [
-        "devops"
-      ]
-    },
-    {
-      "title": "Master JavaScript Promises — states,\nchaining, Promise.all and error handling!",
-      "url": "https://medium.com/@ishwaryagopinathan/master-javascript-promises-states-chaining-promise-all-and-error-handling-f3098a329b10",
-      "by": "Ishwarya Gopinathan",
-      "time": 1792470452000,
-      "tags": [
-        "web-development",
         "programming",
-        "coding-for-beginners"
+        "generative-ai-tools",
+        "agentic-ai"
       ]
     },
     {
-      "title": "8 axios Interceptors Hid Every Bug in Our App",
-      "url": "https://javascript.plainenglish.io/8-axios-interceptors-hid-every-bug-in-our-app-664d0c24a85b",
+      "title": "From Classroom Code to Global Communities: Navigating Tech Mentorship and Open Collaboration",
+      "url": "https://medium.com/@kicaest03/from-classroom-code-to-global-communities-navigating-tech-mentorship-and-open-collaboration-90c4b779f2e4",
+      "by": "Kicaest",
+      "time": 1792555955000,
+      "tags": [
+        "personal-development",
+        "career-development",
+        "mentorship"
+      ]
+    },
+    {
+      "title": "Like Button at 180K Writes/Sec: Redis Is Only Half the Fix",
+      "url": "https://medium.com/@coolercoder/like-button-at-180k-writes-sec-redis-is-only-half-the-fix-d61a33f6fa96",
       "by": "Ray Hu",
-      "time": 1792470218000,
+      "time": 1792555881000,
       "tags": [
-        "web-development",
         "programming",
-        "frontend-development"
+        "software-development",
+        "redis"
       ]
     },
     {
-      "title": "The Kubernetes Bug Where Your Own Controller Became the Attacker: Lessons From CVE-2026–2270",
-      "url": "https://medium.com/@ascendrixtech/the-kubernetes-bug-where-your-own-controller-became-the-attacker-lessons-from-cve-2026-2270-3244e1d4a9fe",
-      "by": "Ascendrix Technologies",
-      "time": 1792470214000,
+      "title": "IDOR / BOLA: How to Find the #1 API Vulnerability — and Actually Prove It",
+      "url": "https://xalgord.medium.com/idor-bola-how-to-find-the-1-api-vulnerability-and-actually-prove-it-cfb5cff0ba80",
+      "by": "Krishna Kumar",
+      "time": 1792555741000,
       "tags": [
+        "web-security",
         "cybersecurity",
-        "devops",
-        "cloud-native"
+        "bug-bounty"
       ]
     },
     {
-      "title": "CSS Can Count Now: Delete Your --i Hack",
-      "url": "https://javascript.plainenglish.io/css-can-count-now-delete-your-i-hack-63fe03174fd7",
-      "by": "Ray Hu",
-      "time": 1792470060000,
+      "title": "the Creator of Linux and Git on AI Coding Hype",
+      "url": "https://medium.com/@yurinovicow/the-creator-of-linux-and-git-on-ai-coding-hype-89e06c1f6433",
+      "by": "Yurii",
+      "time": 1792555407000,
       "tags": [
-        "css",
-        "frontend-development",
-        "web-development"
+        "ai-coding",
+        "artificial-intelligence",
+        "programming"
       ]
     },
     {
-      "title": "JPMorgan Chase Interview Questions: DSA, System Design, SQL, and Backend Engineering",
-      "url": "https://medium.com/@preetjit82/jpmorgan-chase-interview-questions-dsa-system-design-sql-and-backend-engineering-a5201d034052",
-      "by": "Interview Simplified",
-      "time": 1792470021000,
-      "tags": [
-        "interview",
-        "programming",
-        "jobs"
-      ]
-    },
-    {
-      "title": "I’ve Been a Software Engineer for 8+ Years. Here’s What AI Actually Changed in My Workflow",
-      "url": "https://medium.com/@saif.rehman00002/ive-been-a-software-engineer-for-8-years-here-s-what-ai-actually-changed-in-my-workflow-7cb8464d951b",
-      "by": "Saif Rehman",
-      "time": 1792469992000,
+      "title": "MCP Is Useful. Just Probably Not for the Reason You Think",
+      "url": "https://medium.com/my-computer-can-talk/mcp-is-useful-just-probably-not-for-the-reason-you-think-61d156f270ff",
+      "by": "Sergey Egorenkov",
+      "time": 1792555397000,
       "tags": [
         "software-development",
-        "artificial-intelligence",
+        "mcp-server",
         "ai"
       ]
     },
     {
-      "title": "10 C# Mistakes Even Experienced Developers Still Make",
-      "url": "https://medium.com/@karthikns999/10-csharp-mistakes-experienced-developers-make-e80899ab56b4",
-      "by": "Karthikeyan NS",
-      "time": 1792469877000,
+      "title": "AI Automation for Developers: Washing Machines, Pilots and Architects Saw This Coming",
+      "url": "https://thejenildgohel.medium.com/ai-automation-for-developers-washing-machines-pilots-and-architects-saw-this-coming-9fdcce735232",
+      "by": "Jenil D Gohel",
+      "time": 1792555261000,
       "tags": [
-        "dotnet",
-        "software-development",
-        "csharp"
+        "programming",
+        "flutter",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "The New Software Stack: Agent + MCP + Tools",
+      "url": "https://medium.com/@shreyanmehta/the-new-software-stack-agent-mcp-tools-7b349853a860",
+      "by": "Shreyan Mehta",
+      "time": 1792555261000,
+      "tags": [
+        "programming",
+        "technology",
+        "ai"
+      ]
+    },
+    {
+      "title": "11 Angular Signals Mistakes That Can Make Your App Harder to Debug",
+      "url": "https://medium.com/@sourabhda1998/11-angular-signals-mistakes-that-can-make-your-app-harder-to-debug-a83e28d722a8",
+      "by": "Coding Mentor",
+      "time": 1792554923000,
+      "tags": [
+        "software-engineering",
+        "angular-signals",
+        "typescript"
+      ]
+    },
+    {
+      "title": "YubiKey for SSH and Signed Git Commits: A Practical Guide",
+      "url": "https://medium.com/@sr42946/yubikey-for-ssh-and-signed-git-commits-a-practical-guide-82565566227c",
+      "by": "Swapnil Roy",
+      "time": 1792554832000,
+      "tags": [
+        "cybersecurity",
+        "git",
+        "software-development"
       ]
     }
   ]

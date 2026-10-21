@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T04:41:26.550Z",
+  "generated": "2026-10-21T04:30:54.506Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -12,6 +12,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/9/93/Titanic_2026_poster.jpg/120px-Titanic_2026_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Titanic_(2026_film)",
       "imdb": "https://www.imdb.com/title/tt7852926/"
+    },
+    {
+      "title": "Scene",
+      "lang": "Tamil",
+      "date": "2026-11-06",
+      "precision": "day",
+      "by": "Jithu Madhavan",
+      "desc": "Upcoming Indian film by Jithu Madhavan",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
+      "imdb": null
     },
     {
       "title": "Ramayana: Part 1",
@@ -111,17 +122,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
       "imdb": "https://www.imdb.com/title/tt27610832/"
-    },
-    {
-      "title": "Scene",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Jithu Madhavan",
-      "desc": "Upcoming Indian film by Jithu Madhavan",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
-      "imdb": null
     },
     {
       "title": "Thudakkam",
