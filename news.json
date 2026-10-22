@@ -1,19 +1,61 @@
 {
-  "generated": "2026-10-21T04:31:46.758Z",
+  "generated": "2026-10-22T04:31:11.619Z",
   "reddit": [
+    {
+      "title": "go/ links that live in a file in your repo (open source)",
+      "url": "https://www.reddit.com/r/programming/comments/1xbxzz2/go_links_that_live_in_a_file_in_your_repo_open/",
+      "by": "Gaia_fawkes",
+      "time": 1792613421000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+      "url": "https://www.reddit.com/r/programming/comments/1xbxrns/todays_php_security_release_and_how_were/",
+      "by": "elizabethn",
+      "time": 1792612906000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "JPA vs Hibernate vs JDBC: What Each One Actually Does | Visually Explained",
+      "url": "https://www.reddit.com/r/programming/comments/1xbrs3g/jpa_vs_hibernate_vs_jdbc_what_each_one_actually/",
+      "by": "correctMeIfImcorrect",
+      "time": 1792599838000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Unintended Computations @ hack.lu",
+      "url": "https://www.reddit.com/r/programming/comments/1xbp8ti/unintended_computations_hacklu/",
+      "by": "Dull_Replacement8890",
+      "time": 1792594209000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "PHP2Shell: Critical vulnerabilities in the backbone of the web",
+      "url": "https://www.reddit.com/r/programming/comments/1xbo19y/php2shell_critical_vulnerabilities_in_the/",
+      "by": "sagitz_",
+      "time": 1792591402000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Summary of Major Changes Between Python Versions (2026 Update)",
+      "url": "https://www.reddit.com/r/programming/comments/1xbm5hd/summary_of_major_changes_between_python_versions/",
+      "by": "nicholashairs",
+      "time": 1792586665000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Eight Bits of Trust; eMudhra's CA keys cracked in milliseconds",
+      "url": "https://www.reddit.com/r/programming/comments/1xbl8y1/eight_bits_of_trust_emudhras_ca_keys_cracked_in/",
+      "by": "Dear-Economics-315",
+      "time": 1792584114000,
+      "sub": "r/programming"
+    },
     {
       "title": "Critical Vulnerabilities in PHP",
       "url": "https://www.reddit.com/r/programming/comments/1xbcv7y/critical_vulnerabilities_in_php/",
       "by": "LordAlfredo",
       "time": 1792554534000,
       "sub": "r/programming"
-    },
-    {
-      "title": "What’s the worst production failure your monitoring didn’t catch?",
-      "url": "https://www.reddit.com/r/devops/comments/1xbbpob/whats_the_worst_production_failure_your/",
-      "by": "The_Ritvik",
-      "time": 1792550978000,
-      "sub": "r/devops"
     },
     {
       "title": "C vs C#: racing VLC's Gaussian blur",
@@ -28,159 +70,117 @@
       "by": "maroun-baydoun",
       "time": 1792539736000,
       "sub": "r/programming"
-    },
-    {
-      "title": "New Season Upgrades Vol 3: Split Keyboard Adventures! · cekrem.github.io",
-      "url": "https://www.reddit.com/r/programming/comments/1xb34av/new_season_upgrades_vol_3_split_keyboard/",
-      "by": "cekrem",
-      "time": 1792527780000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "eMudhra Intermediate CA Compromise",
-      "url": "https://www.reddit.com/r/programming/comments/1xb32yj/emudhra_intermediate_ca_compromise/",
-      "by": "the_gnarts",
-      "time": 1792527690000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Too many internal tools are becoming hard to maintain",
-      "url": "https://www.reddit.com/r/devops/comments/1xb0b5k/too_many_internal_tools_are_becoming_hard_to/",
-      "by": "rtpro",
-      "time": 1792521452000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Kubernetes probes keep restarting services that just need more time",
-      "url": "https://www.reddit.com/r/devops/comments/1xatqcs/kubernetes_probes_keep_restarting_services_that/",
-      "by": "Round-Classic-7746",
-      "time": 1792506746000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Homelab runner for Gitea",
-      "url": "https://www.reddit.com/r/devops/comments/1xatqay/homelab_runner_for_gitea/",
-      "by": "Keensworth",
-      "time": 1792506742000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Sonatype Nexus now requires mandatory telemetry gathering",
-      "url": "https://www.reddit.com/r/devops/comments/1xaremm/sonatype_nexus_now_requires_mandatory_telemetry/",
-      "by": "blingmuppet",
-      "time": 1792500982000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "The Death of Generic SaaS: Why Vibe Coding Makes PaaS the New King",
-      "url": "https://towardsdev.com/the-death-of-generic-saas-why-vibe-coding-makes-paas-the-new-king-25284f338c81",
+      "title": "How to Find Which Project Is Running on a Port on Mac",
+      "url": "https://medium.com/@anmolsethi.01/how-to-find-which-project-is-running-on-a-port-on-mac-9978208f15c7",
+      "by": "Anmol Sethi",
+      "time": 1792643423000,
+      "tags": [
+        "programming",
+        "web-development",
+        "developer-tools"
+      ]
+    },
+    {
+      "title": "The Git Time Traveler: How to Undo, Recover, and Fix Your Worst Mistakes",
+      "url": "https://medium.com/@sudumahaththaya.kdx/the-git-time-traveler-how-to-undo-recover-and-fix-your-worst-mistakes-a56100c51ea3",
+      "by": "Sudumahaththaya Kdx",
+      "time": 1792643325000,
+      "tags": [
+        "git",
+        "software-development",
+        "github"
+      ]
+    },
+    {
+      "title": "Angular for AI Dashboards and Real-Time Applications: Building Smarter, Faster User Experiences",
+      "url": "https://medium.com/@roshannavale7/angular-for-ai-dashboards-and-real-time-applications-building-smarter-faster-user-experiences-4a057a8a8fbf",
+      "by": "Roshan Navale",
+      "time": 1792643003000,
+      "tags": [
+        "angular",
+        "software-engineering",
+        "coding"
+      ]
+    },
+    {
+      "title": "Update PHP Now: Two Critical RCE Flaws Can Be Exploited Without Login",
+      "url": "https://medium.com/codex/update-php-now-two-critical-rce-flaws-can-be-exploited-without-login-ab2bdcf07f93",
       "by": "Developer Awam",
-      "time": 1792556625000,
+      "time": 1792642836000,
       "tags": [
-        "programming",
-        "generative-ai-tools",
-        "agentic-ai"
+        "php-development",
+        "web-development",
+        "php-developers"
       ]
     },
     {
-      "title": "From Classroom Code to Global Communities: Navigating Tech Mentorship and Open Collaboration",
-      "url": "https://medium.com/@kicaest03/from-classroom-code-to-global-communities-navigating-tech-mentorship-and-open-collaboration-90c4b779f2e4",
-      "by": "Kicaest",
-      "time": 1792555955000,
+      "title": "The Art of the Pull Request: How to Collaborate Without Breaking the Code",
+      "url": "https://medium.com/@sudumahaththaya.kdx/the-art-of-the-pull-request-how-to-collaborate-without-breaking-the-code-33ff794bde6e",
+      "by": "Sudumahaththaya Kdx",
+      "time": 1792642740000,
       "tags": [
-        "personal-development",
-        "career-development",
-        "mentorship"
+        "web-development",
+        "git",
+        "github"
       ]
     },
     {
-      "title": "Like Button at 180K Writes/Sec: Redis Is Only Half the Fix",
-      "url": "https://medium.com/@coolercoder/like-button-at-180k-writes-sec-redis-is-only-half-the-fix-d61a33f6fa96",
-      "by": "Ray Hu",
-      "time": 1792555881000,
+      "title": "Beyond Docker: Building Sub-Millisecond Microservices with WebAssembly (Wasm) on Bare Metal",
+      "url": "https://medium.com/@media_96456/beyond-docker-building-sub-millisecond-microservices-with-webassembly-wasm-on-bare-metal-fc9bfcfdb36f",
+      "by": "iRexta",
+      "time": 1792642627000,
       "tags": [
-        "programming",
-        "software-development",
-        "redis"
+        "rust",
+        "docker",
+        "devops"
       ]
     },
     {
-      "title": "IDOR / BOLA: How to Find the #1 API Vulnerability — and Actually Prove It",
-      "url": "https://xalgord.medium.com/idor-bola-how-to-find-the-1-api-vulnerability-and-actually-prove-it-cfb5cff0ba80",
-      "by": "Krishna Kumar",
-      "time": 1792555741000,
+      "title": "MCP, Explained Like You’re Building It: How AI Agents Actually Plug Into Your Tools",
+      "url": "https://medium.com/@peeyushkmisra_79926/mcp-explained-like-youre-building-it-how-ai-agents-actually-plug-into-your-tools-78be821afbec",
+      "by": "Peeyush Kant Misra",
+      "time": 1792642619000,
       "tags": [
-        "web-security",
-        "cybersecurity",
-        "bug-bounty"
-      ]
-    },
-    {
-      "title": "the Creator of Linux and Git on AI Coding Hype",
-      "url": "https://medium.com/@yurinovicow/the-creator-of-linux-and-git-on-ai-coding-hype-89e06c1f6433",
-      "by": "Yurii",
-      "time": 1792555407000,
-      "tags": [
-        "ai-coding",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "MCP Is Useful. Just Probably Not for the Reason You Think",
-      "url": "https://medium.com/my-computer-can-talk/mcp-is-useful-just-probably-not-for-the-reason-you-think-61d156f270ff",
-      "by": "Sergey Egorenkov",
-      "time": 1792555397000,
-      "tags": [
-        "software-development",
-        "mcp-server",
-        "ai"
-      ]
-    },
-    {
-      "title": "AI Automation for Developers: Washing Machines, Pilots and Architects Saw This Coming",
-      "url": "https://thejenildgohel.medium.com/ai-automation-for-developers-washing-machines-pilots-and-architects-saw-this-coming-9fdcce735232",
-      "by": "Jenil D Gohel",
-      "time": 1792555261000,
-      "tags": [
-        "programming",
-        "flutter",
+        "model-context-protocol",
+        "software-engineering",
         "ai-agent"
       ]
     },
     {
-      "title": "The New Software Stack: Agent + MCP + Tools",
-      "url": "https://medium.com/@shreyanmehta/the-new-software-stack-agent-mcp-tools-7b349853a860",
-      "by": "Shreyan Mehta",
-      "time": 1792555261000,
+      "title": "Bash Scripting in Linux: The Complete Step-by-Step Guide for Beginners",
+      "url": "https://medium.com/@amit.it0007/bash-scripting-in-linux-the-complete-step-by-step-guide-for-beginners-cad4c0d2b32c",
+      "by": "Tengeeks",
+      "time": 1792642591000,
       "tags": [
-        "programming",
-        "technology",
-        "ai"
+        "linux",
+        "linux-tutorial",
+        "technology"
       ]
     },
     {
-      "title": "11 Angular Signals Mistakes That Can Make Your App Harder to Debug",
-      "url": "https://medium.com/@sourabhda1998/11-angular-signals-mistakes-that-can-make-your-app-harder-to-debug-a83e28d722a8",
-      "by": "Coding Mentor",
-      "time": 1792554923000,
+      "title": "pg_stat_statements: The PostgreSQL Extension I Wish I Had Enabled Before the Database Became Slow",
+      "url": "https://medium.com/@techybob/pg-stat-statements-the-postgresql-extension-i-wish-i-had-enabled-before-the-database-became-slow-17c511d88d0b",
+      "by": "techybob",
+      "time": 1792642123000,
       "tags": [
+        "database",
+        "postgresql",
+        "data-engineering"
+      ]
+    },
+    {
+      "title": "Your LLM Coding Tools Need a Control Plane, Not More Prompts",
+      "url": "https://medium.com/@enok.jesus/your-llm-coding-tools-need-a-control-plane-not-more-prompts-89ee5787e72f",
+      "by": "Enok Antônio de Jesus",
+      "time": 1792642113000,
+      "tags": [
+        "software-architecture",
         "software-engineering",
-        "angular-signals",
-        "typescript"
-      ]
-    },
-    {
-      "title": "YubiKey for SSH and Signed Git Commits: A Practical Guide",
-      "url": "https://medium.com/@sr42946/yubikey-for-ssh-and-signed-git-commits-a-practical-guide-82565566227c",
-      "by": "Swapnil Roy",
-      "time": 1792554832000,
-      "tags": [
-        "cybersecurity",
-        "git",
-        "software-development"
+        "large-language-models"
       ]
     }
   ]
