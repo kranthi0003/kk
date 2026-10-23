@@ -1,18 +1,7 @@
 {
-  "generated": "2026-10-22T04:30:01.547Z",
+  "generated": "2026-10-23T04:30:50.872Z",
   "source": "Wikipedia + Wikidata",
   "films": [
-    {
-      "title": "Titanic",
-      "lang": "Tamil",
-      "date": "2026-10-23",
-      "precision": "day",
-      "by": null,
-      "desc": "Upcoming Tamil film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/9/93/Titanic_2026_poster.jpg/120px-Titanic_2026_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Titanic_(2026_film)",
-      "imdb": "https://www.imdb.com/title/tt7852926/"
-    },
     {
       "title": "Scene",
       "lang": "Tamil",
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
+    },
+    {
+      "title": "Demonte Colony 3",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "R. Ajay Gnanamuthu",
+      "desc": "Upcoming Indian film by R. Ajay Gnanamuthu",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/70/Demonte_Colony_3.jpg/120px-Demonte_Colony_3.jpg",
+      "url": "https://en.wikipedia.org/wiki/Demonte_Colony_3",
+      "imdb": "https://www.imdb.com/title/tt36554405/"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-22T04:31:15.943Z",
+  "generated": "2026-10-23T04:31:49.269Z",
   "season": "2026",
   "sources": [
     {
@@ -125,6 +125,14 @@
       },
       {
         "pos": 4,
+        "code": "PAK",
+        "team": "Pakistan",
+        "matches": 34,
+        "points": 3505,
+        "rating": 103
+      },
+      {
+        "pos": 5,
         "code": "AUS",
         "team": "Australia",
         "matches": 35,
@@ -132,44 +140,36 @@
         "rating": 102
       },
       {
-        "pos": 5,
-        "code": "PAK",
-        "team": "Pakistan",
-        "matches": 33,
-        "points": 3360,
-        "rating": 102
-      },
-      {
         "pos": 6,
-        "code": "ENG",
-        "team": "England",
-        "matches": 34,
-        "points": 3235,
+        "code": "SL",
+        "team": "Sri Lanka",
+        "matches": 41,
+        "points": 3886,
         "rating": 95
       },
       {
         "pos": 7,
-        "code": "SL",
-        "team": "Sri Lanka",
-        "matches": 40,
-        "points": 3752,
+        "code": "AFG",
+        "team": "Afghanistan",
+        "matches": 30,
+        "points": 2812,
         "rating": 94
       },
       {
         "pos": 8,
-        "code": "AFG",
-        "team": "Afghanistan",
-        "matches": 28,
-        "points": 2565,
-        "rating": 92
+        "code": "ENG",
+        "team": "England",
+        "matches": 36,
+        "points": 3331,
+        "rating": 93
       },
       {
         "pos": 9,
         "code": "BAN",
         "team": "Bangladesh",
         "matches": 40,
-        "points": 3262,
-        "rating": 82
+        "points": 3304,
+        "rating": 81
       },
       {
         "pos": 10,
@@ -183,17 +183,17 @@
         "pos": 11,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 19,
-        "points": 1229,
-        "rating": 65
+        "matches": 20,
+        "points": 1271,
+        "rating": 64
       },
       {
         "pos": 12,
         "code": "IRE",
         "team": "Ireland",
-        "matches": 16,
-        "points": 815,
-        "rating": 51
+        "matches": 17,
+        "points": 897,
+        "rating": 53
       }
     ],
     "t20i": [
@@ -209,9 +209,9 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 71,
-        "points": 18987,
-        "rating": 267
+        "matches": 72,
+        "points": 19284,
+        "rating": 268
       },
       {
         "pos": 3,
@@ -225,9 +225,9 @@
         "pos": 4,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 50,
-        "points": 12348,
-        "rating": 247
+        "matches": 51,
+        "points": 12565,
+        "rating": 246
       },
       {
         "pos": 5,

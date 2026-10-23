@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-22T04:31:11.619Z",
+  "generated": "2026-10-23T04:31:44.194Z",
   "reddit": [
     {
-      "title": "go/ links that live in a file in your repo (open source)",
-      "url": "https://www.reddit.com/r/programming/comments/1xbxzz2/go_links_that_live_in_a_file_in_your_repo_open/",
-      "by": "Gaia_fawkes",
-      "time": 1792613421000,
+      "title": "October: Bad Software Month",
+      "url": "https://www.reddit.com/r/programming/comments/1xczzoc/october_bad_software_month/",
+      "by": "GenericAHHyoutuber",
+      "time": 1792716721000,
       "sub": "r/programming"
     },
     {
-      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
-      "url": "https://www.reddit.com/r/programming/comments/1xbxrns/todays_php_security_release_and_how_were/",
-      "by": "elizabethn",
-      "time": 1792612906000,
+      "title": "Enforcing SAST and DAST Tools at Enterprise Level",
+      "url": "https://www.reddit.com/r/devops/comments/1xcyyiv/enforcing_sast_and_dast_tools_at_enterprise_level/",
+      "by": "gotchanose",
+      "time": 1792713813000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Assigning production firewall access to a one-month hire, and AI changes nobody reviews",
+      "url": "https://www.reddit.com/r/devops/comments/1xcyhk4/assigning_production_firewall_access_to_a/",
+      "by": "IntroVert_Daemon",
+      "time": 1792712546000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Where did my freed memory (not) go?",
+      "url": "https://www.reddit.com/r/programming/comments/1xcwsc3/where_did_my_freed_memory_not_go/",
+      "by": "JameEnder",
+      "time": 1792708028000,
       "sub": "r/programming"
     },
     {
-      "title": "JPA vs Hibernate vs JDBC: What Each One Actually Does | Visually Explained",
-      "url": "https://www.reddit.com/r/programming/comments/1xbrs3g/jpa_vs_hibernate_vs_jdbc_what_each_one_actually/",
-      "by": "correctMeIfImcorrect",
-      "time": 1792599838000,
+      "title": "examining the macOS gcc binary",
+      "url": "https://www.reddit.com/r/programming/comments/1xcwe3o/examining_the_macos_gcc_binary/",
+      "by": "kiteska",
+      "time": 1792706993000,
       "sub": "r/programming"
     },
     {
-      "title": "Unintended Computations @ hack.lu",
-      "url": "https://www.reddit.com/r/programming/comments/1xbp8ti/unintended_computations_hacklu/",
-      "by": "Dull_Replacement8890",
-      "time": 1792594209000,
+      "title": "Has anyone found a way to automate SOC2 audits using AI?",
+      "url": "https://www.reddit.com/r/devops/comments/1xctzwl/has_anyone_found_a_way_to_automate_soc2_audits/",
+      "by": "AffectionateTune9251",
+      "time": 1792701199000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "how are you confirming the fix actually reached your running containers?",
+      "url": "https://www.reddit.com/r/devops/comments/1xcrscq/how_are_you_confirming_the_fix_actually_reached/",
+      "by": "royLskyhook",
+      "time": 1792696293000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I'm a one man DevOps team and my production runs for $0.64 a day. Here's the real story.",
+      "url": "https://www.reddit.com/r/devops/comments/1xcpuj4/im_a_one_man_devops_team_and_my_production_runs/",
+      "by": "PsychologicalFlan877",
+      "time": 1792692008000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Coding Magic the Gathering in C# - PART TWO - The Impossible Magic Card",
+      "url": "https://www.reddit.com/r/programming/comments/1xcp40x/coding_magic_the_gathering_in_c_part_two_the/",
+      "by": "nickproud",
+      "time": 1792690393000,
       "sub": "r/programming"
     },
     {
-      "title": "PHP2Shell: Critical vulnerabilities in the backbone of the web",
-      "url": "https://www.reddit.com/r/programming/comments/1xbo19y/php2shell_critical_vulnerabilities_in_the/",
-      "by": "sagitz_",
-      "time": 1792591402000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Summary of Major Changes Between Python Versions (2026 Update)",
-      "url": "https://www.reddit.com/r/programming/comments/1xbm5hd/summary_of_major_changes_between_python_versions/",
-      "by": "nicholashairs",
-      "time": 1792586665000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Eight Bits of Trust; eMudhra's CA keys cracked in milliseconds",
-      "url": "https://www.reddit.com/r/programming/comments/1xbl8y1/eight_bits_of_trust_emudhras_ca_keys_cracked_in/",
-      "by": "Dear-Economics-315",
-      "time": 1792584114000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Critical Vulnerabilities in PHP",
-      "url": "https://www.reddit.com/r/programming/comments/1xbcv7y/critical_vulnerabilities_in_php/",
-      "by": "LordAlfredo",
-      "time": 1792554534000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "C vs C#: racing VLC's Gaussian blur",
-      "url": "https://www.reddit.com/r/programming/comments/1xbbkuq/c_vs_c_racing_vlcs_gaussian_blur/",
-      "by": "mtz94",
-      "time": 1792550582000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Make yourself replaceable",
-      "url": "https://www.reddit.com/r/programming/comments/1xb7t0x/make_yourself_replaceable/",
-      "by": "maroun-baydoun",
-      "time": 1792539736000,
+      "title": "I Tried to Find Out How ClickHouse Keeper Takes Non-Blocking Snapshots",
+      "url": "https://www.reddit.com/r/programming/comments/1xchal4/i_tried_to_find_out_how_clickhouse_keeper_takes/",
+      "by": "IndicationAntique667",
+      "time": 1792672346000,
       "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "How to Find Which Project Is Running on a Port on Mac",
-      "url": "https://medium.com/@anmolsethi.01/how-to-find-which-project-is-running-on-a-port-on-mac-9978208f15c7",
-      "by": "Anmol Sethi",
-      "time": 1792643423000,
+      "title": "GPT-6.1 Sol vs GPT-6 Astra: Which Model Makes More Sense for Coding?",
+      "url": "https://medium.com/skillstuff/gpt-6-1-sol-vs-gpt-6-astra-which-model-makes-more-sense-for-coding-6e1ca9f66bd5",
+      "by": "TechByRahmat",
+      "time": 1792729609000,
       "tags": [
+        "chatgpt",
+        "ai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "AI didn’t steal my job.",
+      "url": "https://medium.com/@chamodmadhushan2022/ai-didnt-steal-my-job-4f3ea13765d6",
+      "by": "Chamod Madushan",
+      "time": 1792729322000,
+      "tags": [
+        "software-engineering",
         "programming",
-        "web-development",
-        "developer-tools"
+        "productivity"
       ]
     },
     {
-      "title": "The Git Time Traveler: How to Undo, Recover, and Fix Your Worst Mistakes",
-      "url": "https://medium.com/@sudumahaththaya.kdx/the-git-time-traveler-how-to-undo-recover-and-fix-your-worst-mistakes-a56100c51ea3",
-      "by": "Sudumahaththaya Kdx",
-      "time": 1792643325000,
+      "title": "Stop Nodding Along in Tech Meetings: 12 AI Engineering Terms Decoded",
+      "url": "https://medium.com/@JustSnehal/stop-nodding-along-in-tech-meetings-12-ai-engineering-terms-decoded-f17e7013e920",
+      "by": "Snehal Singh",
+      "time": 1792728961000,
       "tags": [
-        "git",
-        "software-development",
-        "github"
-      ]
-    },
-    {
-      "title": "Angular for AI Dashboards and Real-Time Applications: Building Smarter, Faster User Experiences",
-      "url": "https://medium.com/@roshannavale7/angular-for-ai-dashboards-and-real-time-applications-building-smarter-faster-user-experiences-4a057a8a8fbf",
-      "by": "Roshan Navale",
-      "time": 1792643003000,
-      "tags": [
-        "angular",
-        "software-engineering",
-        "coding"
-      ]
-    },
-    {
-      "title": "Update PHP Now: Two Critical RCE Flaws Can Be Exploited Without Login",
-      "url": "https://medium.com/codex/update-php-now-two-critical-rce-flaws-can-be-exploited-without-login-ab2bdcf07f93",
-      "by": "Developer Awam",
-      "time": 1792642836000,
-      "tags": [
-        "php-development",
-        "web-development",
-        "php-developers"
-      ]
-    },
-    {
-      "title": "The Art of the Pull Request: How to Collaborate Without Breaking the Code",
-      "url": "https://medium.com/@sudumahaththaya.kdx/the-art-of-the-pull-request-how-to-collaborate-without-breaking-the-code-33ff794bde6e",
-      "by": "Sudumahaththaya Kdx",
-      "time": 1792642740000,
-      "tags": [
-        "web-development",
-        "git",
-        "github"
-      ]
-    },
-    {
-      "title": "Beyond Docker: Building Sub-Millisecond Microservices with WebAssembly (Wasm) on Bare Metal",
-      "url": "https://medium.com/@media_96456/beyond-docker-building-sub-millisecond-microservices-with-webassembly-wasm-on-bare-metal-fc9bfcfdb36f",
-      "by": "iRexta",
-      "time": 1792642627000,
-      "tags": [
-        "rust",
-        "docker",
-        "devops"
-      ]
-    },
-    {
-      "title": "MCP, Explained Like You’re Building It: How AI Agents Actually Plug Into Your Tools",
-      "url": "https://medium.com/@peeyushkmisra_79926/mcp-explained-like-youre-building-it-how-ai-agents-actually-plug-into-your-tools-78be821afbec",
-      "by": "Peeyush Kant Misra",
-      "time": 1792642619000,
-      "tags": [
-        "model-context-protocol",
-        "software-engineering",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Bash Scripting in Linux: The Complete Step-by-Step Guide for Beginners",
-      "url": "https://medium.com/@amit.it0007/bash-scripting-in-linux-the-complete-step-by-step-guide-for-beginners-cad4c0d2b32c",
-      "by": "Tengeeks",
-      "time": 1792642591000,
-      "tags": [
-        "linux",
-        "linux-tutorial",
+        "artificial-intelligence",
+        "ai-agent",
         "technology"
       ]
     },
     {
-      "title": "pg_stat_statements: The PostgreSQL Extension I Wish I Had Enabled Before the Database Became Slow",
-      "url": "https://medium.com/@techybob/pg-stat-statements-the-postgresql-extension-i-wish-i-had-enabled-before-the-database-became-slow-17c511d88d0b",
-      "by": "techybob",
-      "time": 1792642123000,
+      "title": "How to Choose the Right Software Training Institute in Kerala: A 2026 Checklist",
+      "url": "https://medium.com/@offensomarketing/how-to-choose-the-right-software-training-institute-in-kerala-a-2026-checklist-6e9277045502",
+      "by": "Mr Robot",
+      "time": 1792728497000,
       "tags": [
-        "database",
-        "postgresql",
-        "data-engineering"
+        "programming",
+        "career-advice",
+        "software-training"
       ]
     },
     {
-      "title": "Your LLM Coding Tools Need a Control Plane, Not More Prompts",
-      "url": "https://medium.com/@enok.jesus/your-llm-coding-tools-need-a-control-plane-not-more-prompts-89ee5787e72f",
-      "by": "Enok Antônio de Jesus",
-      "time": 1792642113000,
+      "title": "The Future of Angular Development (2026–2031): 7 Trends Every Developer Should Prepare For",
+      "url": "https://medium.com/@roshannavale7/the-future-of-angular-development-2026-2031-7-trends-every-developer-should-prepare-for-06c19a2bd1ee",
+      "by": "Roshan Navale",
+      "time": 1792728442000,
       "tags": [
-        "software-architecture",
+        "software-development",
+        "coding",
+        "typescript"
+      ]
+    },
+    {
+      "title": "You Can’t Read Your Way Into a New Codebase",
+      "url": "https://medium.com/@jaberadam2001/you-cant-read-your-way-into-a-new-codebase-c50369813b12",
+      "by": "Adam Jaber",
+      "time": 1792728435000,
+      "tags": [
+        "software-development",
         "software-engineering",
-        "large-language-models"
+        "programming"
+      ]
+    },
+    {
+      "title": "The Reality of Landing an IT Job Today",
+      "url": "https://medium.com/@nitishchauhan.dev/the-reality-of-landing-an-it-job-today-1d66b0a13265",
+      "by": "Nitishchauhan Dev",
+      "time": 1792728289000,
+      "tags": [
+        "careers",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "Microsoft is bringing an MCP firewall to Entra!",
+      "url": "https://medium.com/@shreyanmehta/microsoft-is-bringing-an-mcp-firewall-to-entra-e2a8226b4181",
+      "by": "Shreyan Mehta",
+      "time": 1792728062000,
+      "tags": [
+        "microsoft",
+        "technology",
+        "mcp-server"
+      ]
+    },
+    {
+      "title": "Why Your Xero CSV Import Fails on Tax Rates (And How to Fix It)",
+      "url": "https://medium.com/@nishant.shaligram/why-your-xero-csv-import-fails-on-tax-rates-and-how-to-fix-it-ede3c9bc6511",
+      "by": "Nishant Shaligram",
+      "time": 1792728062000,
+      "tags": [
+        "accounting",
+        "software-engineering",
+        "finance"
+      ]
+    },
+    {
+      "title": "Who Is Allowed to See the Future?",
+      "url": "https://medium.com/@ankursaran_59645/who-is-allowed-to-see-the-future-7f836498d077",
+      "by": "Ankur Saran",
+      "time": 1792727967000,
+      "tags": [
+        "machine-learning",
+        "product-management",
+        "software-engineering"
       ]
     }
   ]
