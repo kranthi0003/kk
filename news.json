@@ -1,186 +1,180 @@
 {
-  "generated": "2026-10-23T04:31:44.194Z",
+  "generated": "2026-10-24T04:29:17.044Z",
   "reddit": [
     {
-      "title": "October: Bad Software Month",
-      "url": "https://www.reddit.com/r/programming/comments/1xczzoc/october_bad_software_month/",
-      "by": "GenericAHHyoutuber",
-      "time": 1792716721000,
+      "title": "PHP2Shell reminds me of Heartbleed but backwards and an extra step",
+      "url": "https://www.reddit.com/r/programming/comments/1xdv25j/php2shell_reminds_me_of_heartbleed_but_backwards/",
+      "by": "bigorangemachine",
+      "time": 1792802906000,
       "sub": "r/programming"
     },
     {
-      "title": "Enforcing SAST and DAST Tools at Enterprise Level",
-      "url": "https://www.reddit.com/r/devops/comments/1xcyyiv/enforcing_sast_and_dast_tools_at_enterprise_level/",
-      "by": "gotchanose",
-      "time": 1792713813000,
-      "sub": "r/devops"
+      "title": "Lessons learned benchmarking eBPF (Grafana Beyla) vs. OTel + Linux PSI + cAdvisor for diagnosing LLM tail-latency spikes on Kubernetes",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xdmmj9/lessons_learned_benchmarking_ebpf_grafana_beyla/",
+      "by": "iyedM",
+      "time": 1792781525000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Assigning production firewall access to a one-month hire, and AI changes nobody reviews",
-      "url": "https://www.reddit.com/r/devops/comments/1xcyhk4/assigning_production_firewall_access_to_a/",
-      "by": "IntroVert_Daemon",
-      "time": 1792712546000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Where did my freed memory (not) go?",
-      "url": "https://www.reddit.com/r/programming/comments/1xcwsc3/where_did_my_freed_memory_not_go/",
-      "by": "JameEnder",
-      "time": 1792708028000,
+      "title": "03 control flow",
+      "url": "https://www.reddit.com/r/programming/comments/1xdlzxr/03_control_flow/",
+      "by": "Repulsive-Metal-4178",
+      "time": 1792780111000,
       "sub": "r/programming"
     },
     {
-      "title": "examining the macOS gcc binary",
-      "url": "https://www.reddit.com/r/programming/comments/1xcwe3o/examining_the_macos_gcc_binary/",
-      "by": "kiteska",
-      "time": 1792706993000,
+      "title": "How close can pure FP get to C?",
+      "url": "https://www.reddit.com/r/programming/comments/1xdjru9/how_close_can_pure_fp_get_to_c/",
+      "by": "bosyluke",
+      "time": 1792775076000,
       "sub": "r/programming"
     },
     {
-      "title": "Has anyone found a way to automate SOC2 audits using AI?",
-      "url": "https://www.reddit.com/r/devops/comments/1xctzwl/has_anyone_found_a_way_to_automate_soc2_audits/",
-      "by": "AffectionateTune9251",
-      "time": 1792701199000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "how are you confirming the fix actually reached your running containers?",
-      "url": "https://www.reddit.com/r/devops/comments/1xcrscq/how_are_you_confirming_the_fix_actually_reached/",
-      "by": "royLskyhook",
-      "time": 1792696293000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I'm a one man DevOps team and my production runs for $0.64 a day. Here's the real story.",
-      "url": "https://www.reddit.com/r/devops/comments/1xcpuj4/im_a_one_man_devops_team_and_my_production_runs/",
-      "by": "PsychologicalFlan877",
-      "time": 1792692008000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Coding Magic the Gathering in C# - PART TWO - The Impossible Magic Card",
-      "url": "https://www.reddit.com/r/programming/comments/1xcp40x/coding_magic_the_gathering_in_c_part_two_the/",
-      "by": "nickproud",
-      "time": 1792690393000,
+      "title": "THE ATTACK !! PHP2Shell explained visually, from the first bug to the shutdowns",
+      "url": "https://www.reddit.com/r/programming/comments/1xdihhk/the_attack_php2shell_explained_visually_from_the/",
+      "by": "correctMeIfImcorrect",
+      "time": 1792772183000,
       "sub": "r/programming"
     },
     {
-      "title": "I Tried to Find Out How ClickHouse Keeper Takes Non-Blocking Snapshots",
-      "url": "https://www.reddit.com/r/programming/comments/1xchal4/i_tried_to_find_out_how_clickhouse_keeper_takes/",
-      "by": "IndicationAntique667",
-      "time": 1792672346000,
+      "title": "No CPU limit at all, or a loose one at 4x the request? Curious what people running without limits picked.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xdibux/no_cpu_limit_at_all_or_a_loose_one_at_4x_the/",
+      "by": "michaelzion",
+      "time": 1792771834000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "NVIDIA OpenShell vs Anthropic sandbox-runtime vs Docker Sandboxes: what's in the walls, and how much a pod with default-deny egress already gave you",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xdhawc/nvidia_openshell_vs_anthropic_sandboxruntime_vs/",
+      "by": "Forsaken_Parfait_185",
+      "time": 1792769572000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How to Make Things, and Why - Stuart Halloway (Clojure/Conj 2026)",
+      "url": "https://www.reddit.com/r/programming/comments/1xdh3hh/how_to_make_things_and_why_stuart_halloway/",
+      "by": "alexdmiller",
+      "time": 1792769101000,
       "sub": "r/programming"
+    },
+    {
+      "title": "One headless Service with zero Pods stopped every nginx router from starting (Monzo 2017), and why a normal Service wouldn't have",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xdgnzm/one_headless_service_with_zero_pods_stopped_every/",
+      "by": "Interesting-Ease3774",
+      "time": 1792768118000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xd9uky/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1792749616000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "GPT-6.1 Sol vs GPT-6 Astra: Which Model Makes More Sense for Coding?",
-      "url": "https://medium.com/skillstuff/gpt-6-1-sol-vs-gpt-6-astra-which-model-makes-more-sense-for-coding-6e1ca9f66bd5",
-      "by": "TechByRahmat",
-      "time": 1792729609000,
+      "title": "Java Interview Questions: Core Concepts Every Developer Should Know",
+      "url": "https://medium.com/@pardeepgill82/java-interview-questions-core-concepts-every-developer-should-know-ac8404d2988c",
+      "by": "Interview Playbook",
+      "time": 1792815104000,
       "tags": [
-        "chatgpt",
-        "ai",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "AI didn’t steal my job.",
-      "url": "https://medium.com/@chamodmadhushan2022/ai-didnt-steal-my-job-4f3ea13765d6",
-      "by": "Chamod Madushan",
-      "time": 1792729322000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "productivity"
-      ]
-    },
-    {
-      "title": "Stop Nodding Along in Tech Meetings: 12 AI Engineering Terms Decoded",
-      "url": "https://medium.com/@JustSnehal/stop-nodding-along-in-tech-meetings-12-ai-engineering-terms-decoded-f17e7013e920",
-      "by": "Snehal Singh",
-      "time": 1792728961000,
-      "tags": [
-        "artificial-intelligence",
-        "ai-agent",
-        "technology"
-      ]
-    },
-    {
-      "title": "How to Choose the Right Software Training Institute in Kerala: A 2026 Checklist",
-      "url": "https://medium.com/@offensomarketing/how-to-choose-the-right-software-training-institute-in-kerala-a-2026-checklist-6e9277045502",
-      "by": "Mr Robot",
-      "time": 1792728497000,
-      "tags": [
-        "programming",
-        "career-advice",
-        "software-training"
-      ]
-    },
-    {
-      "title": "The Future of Angular Development (2026–2031): 7 Trends Every Developer Should Prepare For",
-      "url": "https://medium.com/@roshannavale7/the-future-of-angular-development-2026-2031-7-trends-every-developer-should-prepare-for-06c19a2bd1ee",
-      "by": "Roshan Navale",
-      "time": 1792728442000,
-      "tags": [
-        "software-development",
-        "coding",
-        "typescript"
-      ]
-    },
-    {
-      "title": "You Can’t Read Your Way Into a New Codebase",
-      "url": "https://medium.com/@jaberadam2001/you-cant-read-your-way-into-a-new-codebase-c50369813b12",
-      "by": "Adam Jaber",
-      "time": 1792728435000,
-      "tags": [
-        "software-development",
-        "software-engineering",
+        "java",
+        "jobs",
         "programming"
       ]
     },
     {
-      "title": "The Reality of Landing an IT Job Today",
-      "url": "https://medium.com/@nitishchauhan.dev/the-reality-of-landing-an-it-job-today-1d66b0a13265",
-      "by": "Nitishchauhan Dev",
-      "time": 1792728289000,
+      "title": "AWS Just Made the Load Balancer Setup for ECS Disappear",
+      "url": "https://martin128.medium.com/aws-just-made-the-load-balancer-setup-for-ecs-disappear-a083dc1787a6",
+      "by": "Martin",
+      "time": 1792815061000,
       "tags": [
-        "careers",
+        "cloud-computing",
+        "aws",
+        "devops"
+      ]
+    },
+    {
+      "title": "Before You Upgrade Claude Code, Run This 10-Minute Context Audit",
+      "url": "https://medium.com/@everythingtechandAI/before-you-upgrade-claude-code-run-this-10-minute-context-audit-03c14369fb3a",
+      "by": "Tech Alien",
+      "time": 1792814675000,
+      "tags": [
         "software-engineering",
-        "technology"
+        "artificial-intelligence",
+        "programming"
       ]
     },
     {
-      "title": "Microsoft is bringing an MCP firewall to Entra!",
-      "url": "https://medium.com/@shreyanmehta/microsoft-is-bringing-an-mcp-firewall-to-entra-e2a8226b4181",
-      "by": "Shreyan Mehta",
-      "time": 1792728062000,
+      "title": "Building the Foundations Together — and Keeping the Receipts",
+      "url": "https://medium.com/@rantnrave31/building-the-foundations-together-and-keeping-the-receipts-aa080e85e26d",
+      "by": "Don Gunter",
+      "time": 1792814517000,
       "tags": [
-        "microsoft",
-        "technology",
-        "mcp-server"
-      ]
-    },
-    {
-      "title": "Why Your Xero CSV Import Fails on Tax Rates (And How to Fix It)",
-      "url": "https://medium.com/@nishant.shaligram/why-your-xero-csv-import-fails-on-tax-rates-and-how-to-fix-it-ede3c9bc6511",
-      "by": "Nishant Shaligram",
-      "time": 1792728062000,
-      "tags": [
-        "accounting",
-        "software-engineering",
-        "finance"
-      ]
-    },
-    {
-      "title": "Who Is Allowed to See the Future?",
-      "url": "https://medium.com/@ankursaran_59645/who-is-allowed-to-see-the-future-7f836498d077",
-      "by": "Ankur Saran",
-      "time": 1792727967000,
-      "tags": [
-        "machine-learning",
-        "product-management",
+        "business-intelligence",
+        "programming",
         "software-engineering"
+      ]
+    },
+    {
+      "title": "The Illusion of Intelligence: Why We Must Kill the “Mega-Prompt” and Build Autonomous Workflows",
+      "url": "https://engineer-logs.medium.com/the-illusion-of-intelligence-why-we-must-kill-the-mega-prompt-and-build-autonomous-workflows-8a4aa53d6dee",
+      "by": "My Logs",
+      "time": 1792814140000,
+      "tags": [
+        "technology",
+        "data-science",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Edge Computing Trap: Why Modern Web Dev Overcomplicated Simple Things",
+      "url": "https://engineer-logs.medium.com/the-edge-computing-trap-why-modern-web-dev-overcomplicated-simple-things-0ddccd847220",
+      "by": "My Logs",
+      "time": 1792814132000,
+      "tags": [
+        "system-design-interview",
+        "programming",
+        "web-development"
+      ]
+    },
+    {
+      "title": "So Good News，Go 1.28 Finally Introduces Inferred Composite Literals: A Proposal That Took 11 Years",
+      "url": "https://medium.com/@2084267015/so-good-news-go-1-28-finally-introduces-inferred-composite-literals-a-proposal-that-took-11-years-e9b253bd4475",
+      "by": "golang学习记",
+      "time": 1792813919000,
+      "tags": [
+        "productivity",
+        "google",
+        "programming"
+      ]
+    },
+    {
+      "title": "Week 04 of My DevOps Micro-Internship: Mastering Git & GitHub",
+      "url": "https://medium.com/@zakariya.arqam1086/week-04-of-my-devops-micro-internship-mastering-git-github-3b3b3d531390",
+      "by": "Zakariya Arqam",
+      "time": 1792813863000,
+      "tags": [
+        "devops"
+      ]
+    },
+    {
+      "title": "Week 03 of My DevOps Micro-Internship: Linux, Bash & Real-World DevOps",
+      "url": "https://medium.com/@zakariya.arqam1086/week-03-of-my-devops-micro-internship-linux-bash-real-world-devops-dc52ee1044a6",
+      "by": "Zakariya Arqam",
+      "time": 1792813755000,
+      "tags": [
+        "devops"
+      ]
+    },
+    {
+      "title": "Week 02 of My DevOps Micro-Internship: Exploring the World of Agentic AI",
+      "url": "https://medium.com/@zakariya.arqam1086/week-02-of-my-devops-micro-internship-exploring-the-world-of-agentic-ai-bf673485e35a",
+      "by": "Zakariya Arqam",
+      "time": 1792813574000,
+      "tags": [
+        "devops"
       ]
     }
   ]
