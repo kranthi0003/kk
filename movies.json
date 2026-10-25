@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T04:28:24.389Z",
+  "generated": "2026-10-25T04:29:17.176Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -113,17 +113,6 @@
       "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
-      "title": "Thudakkam",
-      "lang": "Malayalam",
-      "date": null,
-      "precision": null,
-      "by": "Jude Anthany Joseph",
-      "desc": "2026 film by Jude Anthany Joseph",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Thudakkam",
-      "imdb": "https://www.imdb.com/title/tt37510017/"
-    },
-    {
       "title": "Vettuvam",
       "lang": "Tamil",
       "date": null,
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/70/Demonte_Colony_3.jpg/120px-Demonte_Colony_3.jpg",
       "url": "https://en.wikipedia.org/wiki/Demonte_Colony_3",
       "imdb": "https://www.imdb.com/title/tt36554405/"
+    },
+    {
+      "title": "Fauzi",
+      "lang": "Telugu",
+      "date": null,
+      "precision": null,
+      "by": "Hanu Raghavapudi",
+      "desc": "Upcoming Indian film by Hanu Raghavapudi",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/eb/Fauzi_%282027_film%29_poster.jpg/120px-Fauzi_%282027_film%29_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Fauzi_(film)",
+      "imdb": "https://www.imdb.com/title/tt29295821/"
     }
   ]
 }

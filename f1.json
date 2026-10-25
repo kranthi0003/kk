@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T04:29:19.721Z",
+  "generated": "2026-10-25T04:30:18.601Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -833,5 +833,47 @@
       "pole": null
     }
   ],
-  "lastRace": null
+  "lastRace": {
+    "round": 17,
+    "name": "Singapore Grand Prix",
+    "circuit": "Marina Bay Street Circuit",
+    "country": "Singapore",
+    "date": "2026-10-11",
+    "podium": [
+      {
+        "pos": 1,
+        "first": "Max",
+        "last": "Verstappen",
+        "code": "VER",
+        "team": "Red Bull",
+        "teamId": "red_bull",
+        "time": "1:42:00.785",
+        "points": 25
+      },
+      {
+        "pos": 2,
+        "first": "Charles",
+        "last": "Leclerc",
+        "code": "LEC",
+        "team": "Ferrari",
+        "teamId": "ferrari",
+        "time": "+7.335",
+        "points": 18
+      },
+      {
+        "pos": 3,
+        "first": "Andrea Kimi",
+        "last": "Antonelli",
+        "code": "ANT",
+        "team": "Mercedes",
+        "teamId": "mercedes",
+        "time": "+24.573",
+        "points": 15
+      }
+    ],
+    "fastestLap": {
+      "time": "1:35.202",
+      "driver": "Leclerc"
+    }
+  }
 }

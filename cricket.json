@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T04:29:22.178Z",
+  "generated": "2026-10-25T04:30:21.334Z",
   "season": "2026",
   "sources": [
     {
@@ -151,8 +151,8 @@
         "pos": 7,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 30,
-        "points": 2812,
+        "matches": 31,
+        "points": 2926,
         "rating": 94
       },
       {
@@ -167,7 +167,7 @@
         "pos": 9,
         "code": "BAN",
         "team": "Bangladesh",
-        "matches": 40,
+        "matches": 41,
         "points": 3304,
         "rating": 81
       },
@@ -183,17 +183,17 @@
         "pos": 11,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 20,
-        "points": 1271,
-        "rating": 64
+        "matches": 21,
+        "points": 1315,
+        "rating": 63
       },
       {
         "pos": 12,
         "code": "IRE",
         "team": "Ireland",
-        "matches": 17,
-        "points": 897,
-        "rating": 53
+        "matches": 18,
+        "points": 878,
+        "rating": 49
       }
     ],
     "t20i": [
@@ -209,8 +209,8 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 72,
-        "points": 19284,
+        "matches": 73,
+        "points": 19580,
         "rating": 268
       },
       {
@@ -225,8 +225,8 @@
         "pos": 4,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 51,
-        "points": 12565,
+        "matches": 52,
+        "points": 12783,
         "rating": 246
       },
       {

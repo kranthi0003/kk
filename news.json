@@ -1,11 +1,46 @@
 {
-  "generated": "2026-10-24T04:29:17.044Z",
+  "generated": "2026-10-25T04:30:15.689Z",
   "reddit": [
     {
-      "title": "PHP2Shell reminds me of Heartbleed but backwards and an extra step",
-      "url": "https://www.reddit.com/r/programming/comments/1xdv25j/php2shell_reminds_me_of_heartbleed_but_backwards/",
-      "by": "bigorangemachine",
-      "time": 1792802906000,
+      "title": "There is no ‘now’ in a distributed system",
+      "url": "https://www.reddit.com/r/programming/comments/1xeqtzb/there_is_no_now_in_a_distributed_system/",
+      "by": "H_chibaX",
+      "time": 1792895898000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Heroku at KubeCon NA",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xeecw6/heroku_at_kubecon_na/",
+      "by": "ken-at-heroku",
+      "time": 1792862458000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "¿PHP 5.4 en producción en pleno 2026? Decime que no sos el único 💀",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xedcbo/php_54_en_producción_en_pleno_2026_decime_que_no/",
+      "by": "Hungry-Librarian5408",
+      "time": 1792860044000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Broccoli2Shell: Brotli decoder RCE (CVE-2026-111497) in Node.js, Python and more",
+      "url": "https://www.reddit.com/r/programming/comments/1xe7dp8/broccoli2shell_brotli_decoder_rce_cve2026111497/",
+      "by": "CircumspectCapybara",
+      "time": 1792844894000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Optimize KServe cold starts: 134 s → 9 s with warmctl",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xe3xhk/optimize_kserve_cold_starts_134_s_9_s_with_warmctl/",
+      "by": "kbesplv",
+      "time": 1792832999000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Why Lean is faster than Rust",
+      "url": "https://www.reddit.com/r/programming/comments/1xe1d60/why_lean_is_faster_than_rust/",
+      "by": "alexeyr",
+      "time": 1792823495000,
       "sub": "r/programming"
     },
     {
@@ -14,13 +49,6 @@
       "by": "iyedM",
       "time": 1792781525000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "03 control flow",
-      "url": "https://www.reddit.com/r/programming/comments/1xdlzxr/03_control_flow/",
-      "by": "Repulsive-Metal-4178",
-      "time": 1792780111000,
-      "sub": "r/programming"
     },
     {
       "title": "How close can pure FP get to C?",
@@ -42,139 +70,116 @@
       "by": "michaelzion",
       "time": 1792771834000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "NVIDIA OpenShell vs Anthropic sandbox-runtime vs Docker Sandboxes: what's in the walls, and how much a pod with default-deny egress already gave you",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xdhawc/nvidia_openshell_vs_anthropic_sandboxruntime_vs/",
-      "by": "Forsaken_Parfait_185",
-      "time": 1792769572000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How to Make Things, and Why - Stuart Halloway (Clojure/Conj 2026)",
-      "url": "https://www.reddit.com/r/programming/comments/1xdh3hh/how_to_make_things_and_why_stuart_halloway/",
-      "by": "alexdmiller",
-      "time": 1792769101000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "One headless Service with zero Pods stopped every nginx router from starting (Monzo 2017), and why a normal Service wouldn't have",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xdgnzm/one_headless_service_with_zero_pods_stopped_every/",
-      "by": "Interesting-Ease3774",
-      "time": 1792768118000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xd9uky/weekly_share_your_victories_thread/",
-      "by": "AutoModerator",
-      "time": 1792749616000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Java Interview Questions: Core Concepts Every Developer Should Know",
-      "url": "https://medium.com/@pardeepgill82/java-interview-questions-core-concepts-every-developer-should-know-ac8404d2988c",
-      "by": "Interview Playbook",
-      "time": 1792815104000,
-      "tags": [
-        "java",
-        "jobs",
-        "programming"
-      ]
-    },
-    {
-      "title": "AWS Just Made the Load Balancer Setup for ECS Disappear",
-      "url": "https://martin128.medium.com/aws-just-made-the-load-balancer-setup-for-ecs-disappear-a083dc1787a6",
-      "by": "Martin",
-      "time": 1792815061000,
-      "tags": [
-        "cloud-computing",
-        "aws",
-        "devops"
-      ]
-    },
-    {
-      "title": "Before You Upgrade Claude Code, Run This 10-Minute Context Audit",
-      "url": "https://medium.com/@everythingtechandAI/before-you-upgrade-claude-code-run-this-10-minute-context-audit-03c14369fb3a",
-      "by": "Tech Alien",
-      "time": 1792814675000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "Building the Foundations Together — and Keeping the Receipts",
-      "url": "https://medium.com/@rantnrave31/building-the-foundations-together-and-keeping-the-receipts-aa080e85e26d",
-      "by": "Don Gunter",
-      "time": 1792814517000,
-      "tags": [
-        "business-intelligence",
-        "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Illusion of Intelligence: Why We Must Kill the “Mega-Prompt” and Build Autonomous Workflows",
-      "url": "https://engineer-logs.medium.com/the-illusion-of-intelligence-why-we-must-kill-the-mega-prompt-and-build-autonomous-workflows-8a4aa53d6dee",
-      "by": "My Logs",
-      "time": 1792814140000,
+      "title": "Beyond the Laboratory: How Near-Infrared Technology Could Change the Future of Cannabis",
+      "url": "https://medium.com/@thecannabisacolyte/beyond-the-laboratory-how-near-infrared-technology-could-change-the-future-of-cannabis-65b779f65218",
+      "by": "Jason Coughlin",
+      "time": 1792902193000,
       "tags": [
         "technology",
-        "data-science",
-        "software-engineering"
+        "education",
+        "science"
       ]
     },
     {
-      "title": "The Edge Computing Trap: Why Modern Web Dev Overcomplicated Simple Things",
-      "url": "https://engineer-logs.medium.com/the-edge-computing-trap-why-modern-web-dev-overcomplicated-simple-things-0ddccd847220",
-      "by": "My Logs",
-      "time": 1792814132000,
+      "title": "Variable in C: Concept, Data Types, Operators, and Input/Output",
+      "url": "https://medium.com/@roshinante678/variable-in-c-concept-data-types-operators-and-input-output-15fe0eb83957",
+      "by": "Alfriza Akhmad Rahadi",
+      "time": 1792902042000,
       "tags": [
-        "system-design-interview",
         "programming",
-        "web-development"
+        "c-programming"
       ]
     },
     {
-      "title": "So Good News，Go 1.28 Finally Introduces Inferred Composite Literals: A Proposal That Took 11 Years",
-      "url": "https://medium.com/@2084267015/so-good-news-go-1-28-finally-introduces-inferred-composite-literals-a-proposal-that-took-11-years-e9b253bd4475",
-      "by": "golang学习记",
-      "time": 1792813919000,
+      "title": "A CPU Task Froze My Node.js Server for 7 Seconds. Worker Threads Fixed It",
+      "url": "https://martin128.medium.com/a-cpu-task-froze-my-node-js-server-for-7-seconds-worker-threads-fixed-it-5226b35a10e8",
+      "by": "Martin",
+      "time": 1792901461000,
       "tags": [
-        "productivity",
-        "google",
+        "backend-development",
+        "performance",
         "programming"
       ]
     },
     {
-      "title": "Week 04 of My DevOps Micro-Internship: Mastering Git & GitHub",
-      "url": "https://medium.com/@zakariya.arqam1086/week-04-of-my-devops-micro-internship-mastering-git-github-3b3b3d531390",
-      "by": "Zakariya Arqam",
-      "time": 1792813863000,
+      "title": "5 Ways to Make Money With Python (Ranked by Speed)",
+      "url": "https://python.plainenglish.io/5-ways-to-make-money-with-python-ranked-by-speed-6bb3c10d8784",
+      "by": "Codebook Fusion",
+      "time": 1792901293000,
       "tags": [
-        "devops"
+        "entrepreneurship",
+        "python",
+        "freelancing"
       ]
     },
     {
-      "title": "Week 03 of My DevOps Micro-Internship: Linux, Bash & Real-World DevOps",
-      "url": "https://medium.com/@zakariya.arqam1086/week-03-of-my-devops-micro-internship-linux-bash-real-world-devops-dc52ee1044a6",
-      "by": "Zakariya Arqam",
-      "time": 1792813755000,
+      "title": "MCP Had Its Biggest Rewrite Ever — Here’s Everything You Need To Know",
+      "url": "https://medium.com/@shreyanmehta/mcp-had-its-biggest-rewrite-ever-heres-everything-you-need-to-know-9bc301ff5bb0",
+      "by": "Shreyan Mehta",
+      "time": 1792900862000,
       "tags": [
-        "devops"
+        "technology",
+        "mcp-server",
+        "ai-agent"
       ]
     },
     {
-      "title": "Week 02 of My DevOps Micro-Internship: Exploring the World of Agentic AI",
-      "url": "https://medium.com/@zakariya.arqam1086/week-02-of-my-devops-micro-internship-exploring-the-world-of-agentic-ai-bf673485e35a",
-      "by": "Zakariya Arqam",
-      "time": 1792813574000,
+      "title": "AI Is Finishing Our Projects and Killing the Fun: Phineas and Ferb Saw It Coming",
+      "url": "https://thejenildgohel.medium.com/ai-is-finishing-our-projects-and-killing-the-fun-phineas-and-ferb-saw-it-coming-9c263cdaf184",
+      "by": "Jenil D Gohel",
+      "time": 1792900861000,
       "tags": [
-        "devops"
+        "programming",
+        "software-development",
+        "flutter"
+      ]
+    },
+    {
+      "title": "Google Maps Finds Quickest Route in Seconds. Crazy Computing Power or Clever Algorithms?",
+      "url": "https://medium.com/@neetyapujara/google-maps-finds-quickest-route-in-seconds-crazy-computing-power-or-clever-algorithms-6a5c0119554a",
+      "by": "Neetyapujara",
+      "time": 1792900782000,
+      "tags": [
+        "algorithms",
+        "google",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "Bambu Lab threatened one developer. The backlash raised $250,007.",
+      "url": "https://medium.com/@dev_tips/bambu-lab-threatened-one-developer-the-backlash-raised-250-007-8ae7496bd27e",
+      "by": "",
+      "time": 1792900734000,
+      "tags": [
+        "programming",
+        "technology",
+        "coding"
+      ]
+    },
+    {
+      "title": "Breaking the Token Ceiling : Meta Byte Models",
+      "url": "https://medium.com/data-science-in-your-pocket/breaking-the-token-ceiling-meta-byte-models-b208bc3488fc",
+      "by": "Mehul Gupta",
+      "time": 1792900436000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "data-science"
+      ]
+    },
+    {
+      "title": "The Day Our “Quick Change” Took Down Production (And Other Lies We Were Told)",
+      "url": "https://er-raj-aryan.medium.com/the-day-our-quick-change-took-down-production-and-other-lies-we-were-told-4e1e5509a04d",
+      "by": "Er Raj Aryan",
+      "time": 1792899816000,
+      "tags": [
+        "software-engineering",
+        "developer",
+        "leadership"
       ]
     }
   ]
