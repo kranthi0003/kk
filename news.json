@@ -1,32 +1,53 @@
 {
-  "generated": "2026-10-25T04:30:15.689Z",
+  "generated": "2026-10-26T04:34:20.159Z",
   "reddit": [
     {
-      "title": "There is no ‘now’ in a distributed system",
-      "url": "https://www.reddit.com/r/programming/comments/1xeqtzb/there_is_no_now_in_a_distributed_system/",
-      "by": "H_chibaX",
-      "time": 1792895898000,
+      "title": "Talk from JavaOne 2026 -- What's Going Wrong with My JVM?! A Guide to First-Time Failure Diagnosis",
+      "url": "https://www.reddit.com/r/programming/comments/1xfjqcj/talk_from_javaone_2026_whats_going_wrong_with_my/",
+      "by": "davidalayachew",
+      "time": 1792978112000,
       "sub": "r/programming"
     },
     {
-      "title": "Heroku at KubeCon NA",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xeecw6/heroku_at_kubecon_na/",
-      "by": "ken-at-heroku",
-      "time": 1792862458000,
+      "title": "Run recurring jobs on Stripe without a cron server",
+      "url": "https://www.reddit.com/r/programming/comments/1xfj011/run_recurring_jobs_on_stripe_without_a_cron_server/",
+      "by": "Ok_Stomach6651",
+      "time": 1792976066000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "what is shell vs terminal vs bash vs zsh",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xfd7um/what_is_shell_vs_terminal_vs_bash_vs_zsh/",
+      "by": "DueBid3298",
+      "time": 1792960862000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "¿PHP 5.4 en producción en pleno 2026? Decime que no sos el único 💀",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xedcbo/php_54_en_producción_en_pleno_2026_decime_que_no/",
-      "by": "Hungry-Librarian5408",
-      "time": 1792860044000,
+      "title": "Envoy Gateway vs Traefik — Anyone used both in production?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xf5r8k/envoy_gateway_vs_traefik_anyone_used_both_in/",
+      "by": "tibtibo1212",
+      "time": 1792943273000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Broccoli2Shell: Brotli decoder RCE (CVE-2026-111497) in Node.js, Python and more",
-      "url": "https://www.reddit.com/r/programming/comments/1xe7dp8/broccoli2shell_brotli_decoder_rce_cve2026111497/",
-      "by": "CircumspectCapybara",
-      "time": 1792844894000,
+      "title": "Just finished my multiplayer system in C and turns out we can support 50k players in a single server at 60hz simulation tick",
+      "url": "https://www.reddit.com/r/programming/comments/1xf4c5d/just_finished_my_multiplayer_system_in_c_and/",
+      "by": "dechichi",
+      "time": 1792939838000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Rewinding the exponential: How we keep hardware usage down",
+      "url": "https://www.reddit.com/r/programming/comments/1xf0aai/rewinding_the_exponential_how_we_keep_hardware/",
+      "by": "Ok_Stomach6651",
+      "time": 1792928764000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "HTMX creator on the history of REST and why he thinks we got it wrong",
+      "url": "https://www.reddit.com/r/programming/comments/1xezyoh/htmx_creator_on_the_history_of_rest_and_why_he/",
+      "by": "creasta29",
+      "time": 1792927691000,
       "sub": "r/programming"
     },
     {
@@ -37,149 +58,129 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "Why Lean is faster than Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1xe1d60/why_lean_is_faster_than_rust/",
-      "by": "alexeyr",
-      "time": 1792823495000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Lessons learned benchmarking eBPF (Grafana Beyla) vs. OTel + Linux PSI + cAdvisor for diagnosing LLM tail-latency spikes on Kubernetes",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xdmmj9/lessons_learned_benchmarking_ebpf_grafana_beyla/",
-      "by": "iyedM",
-      "time": 1792781525000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How close can pure FP get to C?",
-      "url": "https://www.reddit.com/r/programming/comments/1xdjru9/how_close_can_pure_fp_get_to_c/",
-      "by": "bosyluke",
-      "time": 1792775076000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "THE ATTACK !! PHP2Shell explained visually, from the first bug to the shutdowns",
-      "url": "https://www.reddit.com/r/programming/comments/1xdihhk/the_attack_php2shell_explained_visually_from_the/",
-      "by": "correctMeIfImcorrect",
-      "time": 1792772183000,
-      "sub": "r/programming"
-    },
-    {
       "title": "No CPU limit at all, or a loose one at 4x the request? Curious what people running without limits picked.",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xdibux/no_cpu_limit_at_all_or_a_loose_one_at_4x_the/",
       "by": "michaelzion",
       "time": 1792771834000,
       "sub": "r/kubernetes"
+    },
+    {
+      "title": "NVIDIA OpenShell vs Anthropic sandbox-runtime vs Docker Sandboxes: what's in the walls, and how much a pod with default-deny egress already gave you",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xdhawc/nvidia_openshell_vs_anthropic_sandboxruntime_vs/",
+      "by": "Forsaken_Parfait_185",
+      "time": 1792769572000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Beyond the Laboratory: How Near-Infrared Technology Could Change the Future of Cannabis",
-      "url": "https://medium.com/@thecannabisacolyte/beyond-the-laboratory-how-near-infrared-technology-could-change-the-future-of-cannabis-65b779f65218",
-      "by": "Jason Coughlin",
-      "time": 1792902193000,
+      "title": "Java Heap Space: Why OutOfMemoryError Keeps Coming Back Even After Increasing -Xmx",
+      "url": "https://medium.com/it-simplified/java-heap-space-why-outofmemoryerror-keeps-coming-back-even-after-increasing-xmx-bacdc03dddb8",
+      "by": "Ganesh Kumar Murugesan",
+      "time": 1792988806000,
       "tags": [
-        "technology",
-        "education",
-        "science"
+        "jvm",
+        "java-memory-management",
+        "software-engineering"
       ]
     },
     {
-      "title": "Variable in C: Concept, Data Types, Operators, and Input/Output",
-      "url": "https://medium.com/@roshinante678/variable-in-c-concept-data-types-operators-and-input-output-15fe0eb83957",
-      "by": "Alfriza Akhmad Rahadi",
-      "time": 1792902042000,
+      "title": "The Developer’s Urgent Checklist for Recent PHP Vulnerabilities IN 2026",
+      "url": "https://ademawan.medium.com/the-developers-urgent-checklist-for-recent-php-vulnerabilities-in-2026-d15264796876",
+      "by": "Ade Mawan",
+      "time": 1792988716000,
       "tags": [
-        "programming",
-        "c-programming"
-      ]
-    },
-    {
-      "title": "A CPU Task Froze My Node.js Server for 7 Seconds. Worker Threads Fixed It",
-      "url": "https://martin128.medium.com/a-cpu-task-froze-my-node-js-server-for-7-seconds-worker-threads-fixed-it-5226b35a10e8",
-      "by": "Martin",
-      "time": 1792901461000,
-      "tags": [
-        "backend-development",
-        "performance",
-        "programming"
-      ]
-    },
-    {
-      "title": "5 Ways to Make Money With Python (Ranked by Speed)",
-      "url": "https://python.plainenglish.io/5-ways-to-make-money-with-python-ranked-by-speed-6bb3c10d8784",
-      "by": "Codebook Fusion",
-      "time": 1792901293000,
-      "tags": [
-        "entrepreneurship",
-        "python",
-        "freelancing"
-      ]
-    },
-    {
-      "title": "MCP Had Its Biggest Rewrite Ever — Here’s Everything You Need To Know",
-      "url": "https://medium.com/@shreyanmehta/mcp-had-its-biggest-rewrite-ever-heres-everything-you-need-to-know-9bc301ff5bb0",
-      "by": "Shreyan Mehta",
-      "time": 1792900862000,
-      "tags": [
-        "technology",
-        "mcp-server",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "AI Is Finishing Our Projects and Killing the Fun: Phineas and Ferb Saw It Coming",
-      "url": "https://thejenildgohel.medium.com/ai-is-finishing-our-projects-and-killing-the-fun-phineas-and-ferb-saw-it-coming-9c263cdaf184",
-      "by": "Jenil D Gohel",
-      "time": 1792900861000,
-      "tags": [
-        "programming",
+        "php",
         "software-development",
-        "flutter"
+        "vulnerability"
       ]
     },
     {
-      "title": "Google Maps Finds Quickest Route in Seconds. Crazy Computing Power or Clever Algorithms?",
-      "url": "https://medium.com/@neetyapujara/google-maps-finds-quickest-route-in-seconds-crazy-computing-power-or-clever-algorithms-6a5c0119554a",
-      "by": "Neetyapujara",
-      "time": 1792900782000,
+      "title": "I Chose Speed Over Architecture Once. It Cost Two Years, Not Two Weeks.",
+      "url": "https://thechrisverse.medium.com/i-chose-speed-over-architecture-once-it-cost-two-years-not-two-weeks-e5bd981413f9",
+      "by": "Chris Ng",
+      "time": 1792988639000,
       "tags": [
-        "algorithms",
-        "google",
-        "computer-science"
+        "design-systems",
+        "engineering-leadership",
+        "software-engineering"
       ]
     },
     {
-      "title": "Bambu Lab threatened one developer. The backlash raised $250,007.",
-      "url": "https://medium.com/@dev_tips/bambu-lab-threatened-one-developer-the-backlash-raised-250-007-8ae7496bd27e",
-      "by": "",
-      "time": 1792900734000,
+      "title": "GitHub Shipped More CSS. Its Pages Got Faster. Your Performance Checklist Has a Blind Spot.",
+      "url": "https://medium.com/@developeryusuf/github-shipped-more-css-its-pages-got-faster-your-performance-checklist-has-a-blind-spot-da6365f470ed",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1792988226000,
       "tags": [
         "programming",
+        "coding",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The Tech Career Roadmap Is Broken: Why I Built an AI Mentor Instead of Following Generic Advice",
+      "url": "https://alt.ctrlmag.com/the-tech-career-roadmap-is-broken-why-i-built-an-ai-mentor-instead-of-following-generic-advice-2566046707bd",
+      "by": "Adarsh Jayprakash Mishra",
+      "time": 1792988164000,
+      "tags": [
         "technology",
+        "software-engineering",
+        "career-advice"
+      ]
+    },
+    {
+      "title": "We Saved 38% on Compute. Recovery Lost Its Spare Capacity.",
+      "url": "https://blog.stackademic.com/we-saved-38-on-compute-recovery-lost-its-spare-capacity-f59579df3c61",
+      "by": "Dev Yusuf Seyitoglu",
+      "time": 1792988124000,
+      "tags": [
+        "programming",
+        "web-development",
         "coding"
       ]
     },
     {
-      "title": "Breaking the Token Ceiling : Meta Byte Models",
-      "url": "https://medium.com/data-science-in-your-pocket/breaking-the-token-ceiling-meta-byte-models-b208bc3488fc",
-      "by": "Mehul Gupta",
-      "time": 1792900436000,
+      "title": "Our Recovery Drill Restored Every Server. The Business Still Couldn’t Reopen.",
+      "url": "https://blog.stackademic.com/our-recovery-drill-restored-every-server-the-business-still-couldnt-reopen-e085a1663d99",
+      "by": "Dev Yusuf Seyitoglu",
+      "time": 1792988021000,
       "tags": [
         "programming",
-        "artificial-intelligence",
-        "data-science"
+        "software-development",
+        "docker"
       ]
     },
     {
-      "title": "The Day Our “Quick Change” Took Down Production (And Other Lies We Were Told)",
-      "url": "https://er-raj-aryan.medium.com/the-day-our-quick-change-took-down-production-and-other-lies-we-were-told-4e1e5509a04d",
-      "by": "Er Raj Aryan",
-      "time": 1792899816000,
+      "title": "Top Security Mistakes Angular Developers Still Make",
+      "url": "https://medium.com/@roshannavale7/top-security-mistakes-angular-developers-still-make-57b8480c1a24",
+      "by": "Roshan Navale",
+      "time": 1792987987000,
+      "tags": [
+        "software-development",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Things I learning about Docker",
+      "url": "https://blog.devgenius.io/things-i-learning-about-docker-65f2cf64d52d",
+      "by": "FAIZAL",
+      "time": 1792987977000,
       "tags": [
         "software-engineering",
-        "developer",
-        "leadership"
+        "docker-compose",
+        "docker"
+      ]
+    },
+    {
+      "title": "sonic-rs Parsed 1.5 GB of JSON 2x Faster Than serde_json. simd-json Had a Catch",
+      "url": "https://martin128.medium.com/sonic-rs-parsed-1-5-gb-of-json-2x-faster-than-serde-json-simd-json-had-a-catch-0ba5adc3b892",
+      "by": "Martin",
+      "time": 1792987861000,
+      "tags": [
+        "json",
+        "rust",
+        "software-engineering"
       ]
     }
   ]
