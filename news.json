@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-26T04:34:20.159Z",
+  "generated": "2026-10-27T04:31:52.571Z",
   "reddit": [
     {
-      "title": "Talk from JavaOne 2026 -- What's Going Wrong with My JVM?! A Guide to First-Time Failure Diagnosis",
-      "url": "https://www.reddit.com/r/programming/comments/1xfjqcj/talk_from_javaone_2026_whats_going_wrong_with_my/",
-      "by": "davidalayachew",
-      "time": 1792978112000,
+      "title": "Devops job switch guidance",
+      "url": "https://www.reddit.com/r/devops/comments/1xgig73/devops_job_switch_guidance/",
+      "by": "Moist-End-9867",
+      "time": 1793073285000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Iframes should have an api",
+      "url": "https://www.reddit.com/r/programming/comments/1xgftsd/iframes_should_have_an_api/",
+      "by": "Chun",
+      "time": 1793065650000,
       "sub": "r/programming"
     },
     {
-      "title": "Run recurring jobs on Stripe without a cron server",
-      "url": "https://www.reddit.com/r/programming/comments/1xfj011/run_recurring_jobs_on_stripe_without_a_cron_server/",
-      "by": "Ok_Stomach6651",
-      "time": 1792976066000,
+      "title": "Building a music engraving engine from scratch",
+      "url": "https://www.reddit.com/r/programming/comments/1xgd7gv/building_a_music_engraving_engine_from_scratch/",
+      "by": "kopophobia",
+      "time": 1793058675000,
       "sub": "r/programming"
     },
     {
-      "title": "what is shell vs terminal vs bash vs zsh",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xfd7um/what_is_shell_vs_terminal_vs_bash_vs_zsh/",
-      "by": "DueBid3298",
-      "time": 1792960862000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Envoy Gateway vs Traefik — Anyone used both in production?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xf5r8k/envoy_gateway_vs_traefik_anyone_used_both_in/",
-      "by": "tibtibo1212",
-      "time": 1792943273000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Just finished my multiplayer system in C and turns out we can support 50k players in a single server at 60hz simulation tick",
-      "url": "https://www.reddit.com/r/programming/comments/1xf4c5d/just_finished_my_multiplayer_system_in_c_and/",
-      "by": "dechichi",
-      "time": 1792939838000,
+      "title": "Every Angular Version Explained in 14 Minutes (2 to 22) | Visually Explained",
+      "url": "https://www.reddit.com/r/programming/comments/1xg5pem/every_angular_version_explained_in_14_minutes_2/",
+      "by": "correctMeIfImcorrect",
+      "time": 1793040904000,
       "sub": "r/programming"
     },
     {
-      "title": "Rewinding the exponential: How we keep hardware usage down",
-      "url": "https://www.reddit.com/r/programming/comments/1xf0aai/rewinding_the_exponential_how_we_keep_hardware/",
-      "by": "Ok_Stomach6651",
-      "time": 1792928764000,
+      "title": "Why Lean is faster than Rust",
+      "url": "https://www.reddit.com/r/programming/comments/1xg1n2u/why_lean_is_faster_than_rust/",
+      "by": "_bijan_",
+      "time": 1793031995000,
       "sub": "r/programming"
     },
     {
-      "title": "HTMX creator on the history of REST and why he thinks we got it wrong",
-      "url": "https://www.reddit.com/r/programming/comments/1xezyoh/htmx_creator_on_the_history_of_rest_and_why_he/",
-      "by": "creasta29",
-      "time": 1792927691000,
+      "title": "How to write a \"bug hunt\" blog post",
+      "url": "https://www.reddit.com/r/programming/comments/1xfwnaz/how_to_write_a_bug_hunt_blog_post/",
+      "by": "JackfruitMammoth565",
+      "time": 1793020877000,
       "sub": "r/programming"
     },
     {
-      "title": "Optimize KServe cold starts: 134 s → 9 s with warmctl",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xe3xhk/optimize_kserve_cold_starts_134_s_9_s_with_warmctl/",
-      "by": "kbesplv",
-      "time": 1792832999000,
-      "sub": "r/kubernetes"
+      "title": "Making attacking agents pay with Context Bombs",
+      "url": "https://www.reddit.com/r/devops/comments/1xfsq7l/making_attacking_agents_pay_with_context_bombs/",
+      "by": "tracebit",
+      "time": 1793009266000,
+      "sub": "r/devops"
     },
     {
-      "title": "No CPU limit at all, or a loose one at 4x the request? Curious what people running without limits picked.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xdibux/no_cpu_limit_at_all_or_a_loose_one_at_4x_the/",
-      "by": "michaelzion",
-      "time": 1792771834000,
-      "sub": "r/kubernetes"
+      "title": "Weekly Self Promotion Thread",
+      "url": "https://www.reddit.com/r/devops/comments/1xfq7qc/weekly_self_promotion_thread/",
+      "by": "AutoModerator",
+      "time": 1792999816000,
+      "sub": "r/devops"
     },
     {
-      "title": "NVIDIA OpenShell vs Anthropic sandbox-runtime vs Docker Sandboxes: what's in the walls, and how much a pod with default-deny egress already gave you",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xdhawc/nvidia_openshell_vs_anthropic_sandboxruntime_vs/",
-      "by": "Forsaken_Parfait_185",
-      "time": 1792769572000,
-      "sub": "r/kubernetes"
+      "title": "Two widely used npm packages had their security advisories withdrawn. How should we handle false positives in dependency audits?",
+      "url": "https://www.reddit.com/r/devops/comments/1xfikfb/two_widely_used_npm_packages_had_their_security/",
+      "by": "r2vcap",
+      "time": 1792974845000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Open Source Contribution Recommendations for projects related to DevOps and Platform Engineering",
+      "url": "https://www.reddit.com/r/devops/comments/1xfg9xz/open_source_contribution_recommendations_for/",
+      "by": "bright-polaris",
+      "time": 1792968670000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Java Heap Space: Why OutOfMemoryError Keeps Coming Back Even After Increasing -Xmx",
-      "url": "https://medium.com/it-simplified/java-heap-space-why-outofmemoryerror-keeps-coming-back-even-after-increasing-xmx-bacdc03dddb8",
-      "by": "Ganesh Kumar Murugesan",
-      "time": 1792988806000,
+      "title": "How to monitor network traffic on Linux",
+      "url": "https://medium.com/@getopservo/how-to-monitor-network-traffic-on-linux-bad46432ac13",
+      "by": "Opservo",
+      "time": 1793075219000,
       "tags": [
-        "jvm",
-        "java-memory-management",
-        "software-engineering"
+        "linux",
+        "devops",
+        "sysadmin"
       ]
     },
     {
-      "title": "The Developer’s Urgent Checklist for Recent PHP Vulnerabilities IN 2026",
-      "url": "https://ademawan.medium.com/the-developers-urgent-checklist-for-recent-php-vulnerabilities-in-2026-d15264796876",
-      "by": "Ade Mawan",
-      "time": 1792988716000,
+      "title": "Critical Token Guard Auth Bypass in Laravel (CVSS 9.2): Update to 13.29 or 12.68",
+      "url": "https://medium.com/codex/critical-token-guard-auth-bypass-in-laravel-cvss-9-2-update-to-13-29-or-12-68-2e7f28459b27",
+      "by": "Developer Awam",
+      "time": 1793075008000,
       "tags": [
         "php",
-        "software-development",
-        "vulnerability"
+        "laravel-framework",
+        "web-development"
       ]
     },
     {
-      "title": "I Chose Speed Over Architecture Once. It Cost Two Years, Not Two Weeks.",
-      "url": "https://thechrisverse.medium.com/i-chose-speed-over-architecture-once-it-cost-two-years-not-two-weeks-e5bd981413f9",
-      "by": "Chris Ng",
-      "time": 1792988639000,
+      "title": "Meta and Sierra Just Proposed a Sign-In Standard for AI Agents.",
+      "url": "https://sadiqueali.medium.com/meta-and-sierra-just-proposed-a-sign-in-standard-for-ai-agents-0590fb6c7a85",
+      "by": "Sadique Ali",
+      "time": 1793074855000,
       "tags": [
-        "design-systems",
-        "engineering-leadership",
-        "software-engineering"
+        "php",
+        "web-development",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "GitHub Shipped More CSS. Its Pages Got Faster. Your Performance Checklist Has a Blind Spot.",
-      "url": "https://medium.com/@developeryusuf/github-shipped-more-css-its-pages-got-faster-your-performance-checklist-has-a-blind-spot-da6365f470ed",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1792988226000,
+      "title": "Posting at 3:33 pm my time, it hasn't ended guys, this chapter isn't a long trek, it's the most…",
+      "url": "https://medium.com/@Hidden-rain-maker/posting-at-3-33-pm-my-time-it-hasnt-ended-guys-this-chapter-isn-t-a-long-trek-it-s-the-most-03112dd99a07",
+      "by": "Straybrothers Alkebulan Ancient…",
+      "time": 1793074843000,
       "tags": [
+        "art",
         "programming",
-        "coding",
-        "software-development"
+        "government"
       ]
     },
     {
-      "title": "The Tech Career Roadmap Is Broken: Why I Built an AI Mentor Instead of Following Generic Advice",
-      "url": "https://alt.ctrlmag.com/the-tech-career-roadmap-is-broken-why-i-built-an-ai-mentor-instead-of-following-generic-advice-2566046707bd",
-      "by": "Adarsh Jayprakash Mishra",
-      "time": 1792988164000,
+      "title": "STOP GUESSING WHY YOUR AZURE APPLICATION IS FAILING. LEARN KQL!",
+      "url": "https://medium.com/@mailtosyedmohamed/stop-guessing-why-your-azure-application-is-failing-learn-kql-05900629ddc0",
+      "by": "Syed Mohamed",
+      "time": 1793074250000,
+      "tags": [
+        "azure",
+        "troubleshooting",
+        "devops"
+      ]
+    },
+    {
+      "title": "PHP2Shell: Why Patching Your App Is Not Enough When the Runtime Itself Breaks",
+      "url": "https://medium.com/@kazemmortazavi/php2shell-why-patching-your-app-is-not-enough-when-the-runtime-itself-breaks-c1b3a14a3de7",
+      "by": "Kazem Mortazavi",
+      "time": 1793074240000,
+      "tags": [
+        "cybersecurity",
+        "web-development",
+        "information-security"
+      ]
+    },
+    {
+      "title": "I used Claude Code the simple way for too long. Here is what I missed",
+      "url": "https://medium.com/@himanshubhoir/i-used-claude-code-the-simple-way-for-too-long-here-is-what-i-missed-1cabb2835b60",
+      "by": "Himanshu Bhoir",
+      "time": 1793074175000,
+      "tags": [
+        "productivity",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "Key Takeaways from Tech at Agoda: From Assistants to AI Agents",
+      "url": "https://medium.com/agoda-engineering/key-takeaways-from-tech-at-agoda-from-assistants-to-ai-agents-b0e9187730bb",
+      "by": "Agoda Engineering",
+      "time": 1793073839000,
       "tags": [
         "technology",
-        "software-engineering",
-        "career-advice"
-      ]
-    },
-    {
-      "title": "We Saved 38% on Compute. Recovery Lost Its Spare Capacity.",
-      "url": "https://blog.stackademic.com/we-saved-38-on-compute-recovery-lost-its-spare-capacity-f59579df3c61",
-      "by": "Dev Yusuf Seyitoglu",
-      "time": 1792988124000,
-      "tags": [
-        "programming",
-        "web-development",
-        "coding"
-      ]
-    },
-    {
-      "title": "Our Recovery Drill Restored Every Server. The Business Still Couldn’t Reopen.",
-      "url": "https://blog.stackademic.com/our-recovery-drill-restored-every-server-the-business-still-couldnt-reopen-e085a1663d99",
-      "by": "Dev Yusuf Seyitoglu",
-      "time": 1792988021000,
-      "tags": [
-        "programming",
-        "software-development",
-        "docker"
-      ]
-    },
-    {
-      "title": "Top Security Mistakes Angular Developers Still Make",
-      "url": "https://medium.com/@roshannavale7/top-security-mistakes-angular-developers-still-make-57b8480c1a24",
-      "by": "Roshan Navale",
-      "time": 1792987987000,
-      "tags": [
-        "software-development",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Things I learning about Docker",
-      "url": "https://blog.devgenius.io/things-i-learning-about-docker-65f2cf64d52d",
-      "by": "FAIZAL",
-      "time": 1792987977000,
-      "tags": [
-        "software-engineering",
-        "docker-compose",
-        "docker"
-      ]
-    },
-    {
-      "title": "sonic-rs Parsed 1.5 GB of JSON 2x Faster Than serde_json. simd-json Had a Catch",
-      "url": "https://martin128.medium.com/sonic-rs-parsed-1-5-gb-of-json-2x-faster-than-serde-json-simd-json-had-a-catch-0ba5adc3b892",
-      "by": "Martin",
-      "time": 1792987861000,
-      "tags": [
-        "json",
-        "rust",
+        "engineering",
         "software-engineering"
+      ]
+    },
+    {
+      "title": "Caddy Web Server: A Practical Guide to Docker, HTTPS & Production",
+      "url": "https://medium.com/@naveedkumbhar/caddy-web-server-a-practical-guide-to-docker-https-production-942f3e727362",
+      "by": "Naveed Ahmed",
+      "time": 1793073800000,
+      "tags": [
+        "devops",
+        "web-server",
+        "caddy"
+      ]
+    },
+    {
+      "title": "Advent of Code in Java 25: 10 Language Features That Make Puzzle Solutions Shorter",
+      "url": "https://medium.com/boot-camp-java/advent-of-code-in-java-25-10-language-features-that-make-puzzle-solutions-shorter-ea05077e2efe",
+      "by": "Navya Devadiga",
+      "time": 1793073743000,
+      "tags": [
+        "java25",
+        "software-development",
+        "java"
       ]
     }
   ]
