@@ -1,39 +1,28 @@
 {
-  "generated": "2026-10-27T04:30:42.682Z",
+  "generated": "2026-08-07T15:36:02.425Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
-      "title": "Scene",
-      "lang": "Tamil",
-      "date": "2026-11-06",
+      "title": "Toxic",
+      "lang": "Kannada",
+      "date": "2026-08-26",
       "precision": "day",
-      "by": "Jithu Madhavan",
-      "desc": "Upcoming Indian film by Jithu Madhavan",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
-      "imdb": null
+      "by": "Geetu Mohandas",
+      "desc": "Upcoming Indian film by Geetu Mohandas",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg/120px-Toxic-_A_Fairy_Tale_for_Grown-Ups_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Toxic_(2026_film)",
+      "imdb": "https://www.imdb.com/title/tt27530512/"
     },
     {
-      "title": "Ramayana: Part 1",
+      "title": "Ramayana",
       "lang": "Hindi",
       "date": "2026-11-08",
       "precision": "day",
       "by": "Nitesh Tiwari",
-      "desc": "Upcoming film by Nitesh Tiwari",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
+      "desc": "Upcoming Indian film by Nitesh Tiwari",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Ramayana_(2026_film)",
       "imdb": "https://www.imdb.com/title/tt27988879/"
-    },
-    {
-      "title": "Yeh Prem Mol Liya",
-      "lang": "Hindi",
-      "date": "2026-11-27",
-      "precision": "day",
-      "by": "Sooraj Barjatya",
-      "desc": "Upcoming 2026 Hindi film directed by Sooraj Barjatya",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cf/Yeh_Prem_Mol_Liya_film_poster.jpg/120px-Yeh_Prem_Mol_Liya_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Yeh_Prem_Mol_Liya",
-      "imdb": "https://www.imdb.com/title/tt38907401/"
     },
     {
       "title": "King",
@@ -41,8 +30,8 @@
       "date": "2026-12-24",
       "precision": "day",
       "by": "Siddharth Anand",
-      "desc": "Upcoming Indian film by Siddharth Anand",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/fd/King_%28Hindi_film%29.jpg/120px-King_%28Hindi_film%29.jpg",
+      "desc": "Upcoming Hindi film by Siddharth Anand",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/King_%28Hindi_film%29.jpg/120px-King_%28Hindi_film%29.jpg",
       "url": "https://en.wikipedia.org/wiki/King_(2026_film)",
       "imdb": "https://www.imdb.com/title/tt28228084/"
     },
@@ -53,9 +42,42 @@
       "precision": null,
       "by": "S. S. Rajamouli",
       "desc": "Upcoming Indian film by S. S. Rajamouli",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
       "imdb": "https://www.imdb.com/title/tt21438726/"
+    },
+    {
+      "title": "Jailer 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Nelson Dilipkumar",
+      "desc": "Upcoming Indian film by Nelson Dilipkumar",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Jailer_2_poster.jpg/120px-Jailer_2_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Jailer_2",
+      "imdb": "https://www.imdb.com/title/tt33318732/"
+    },
+    {
+      "title": "Mirzapur",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Gurmeet Singh",
+      "desc": "Upcoming Indian film by Gurmeet Singh",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Mirzapur_%28film%29.jpg/120px-Mirzapur_%28film%29.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mirzapur_(film)",
+      "imdb": "https://www.imdb.com/title/tt34339725/"
+    },
+    {
+      "title": "Batwara 1947",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": "Rajkumar Santoshi",
+      "desc": "Upcoming Hindi film directed by Rajkumar Santoshi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Batwara_1947_film_poster.jpg/120px-Batwara_1947_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Batwara_1947",
+      "imdb": "https://www.imdb.com/title/tt29330744/"
     },
     {
       "title": "Kathanar – The Wild Sorcerer",
@@ -64,9 +86,20 @@
       "precision": null,
       "by": null,
       "desc": "Upcoming Indian period fantasy film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/87/Kathanar_-_The_Wild_Sorcerer_poster.jpg/120px-Kathanar_-_The_Wild_Sorcerer_poster.jpg",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Kathanar_-_The_Wild_Sorcerer_poster.jpg/120px-Kathanar_-_The_Wild_Sorcerer_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Kathanar_%E2%80%93_The_Wild_Sorcerer",
       "imdb": "https://www.imdb.com/title/tt11026686/"
+    },
+    {
+      "title": "Mookuthi Amman 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Sundar C",
+      "desc": "Upcoming film by Sundar C",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Mookuthi_Amman_2.jpg/120px-Mookuthi_Amman_2.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mookuthi_Amman_2",
+      "imdb": "https://www.imdb.com/title/tt32909364/"
     },
     {
       "title": "Aakasamlo Oka Tara",
@@ -75,7 +108,7 @@
       "precision": null,
       "by": "Pavan Sadineni",
       "desc": "Upcoming Indian film by Pavan Sadineni",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d2/Aakasamlo_Oka_Tara.jpg/120px-Aakasamlo_Oka_Tara.jpg",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Aakasamlo_Oka_Tara.jpg/120px-Aakasamlo_Oka_Tara.jpg",
       "url": "https://en.wikipedia.org/wiki/Aakasamlo_Oka_Tara",
       "imdb": "https://www.imdb.com/title/tt33044571/"
     },
@@ -86,75 +119,42 @@
       "precision": null,
       "by": "Ashwath Marimuthu",
       "desc": "Upcoming Indian film by Ashwath Marimuthu",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a8/Dharman_poster.jpg/120px-Dharman_poster.jpg",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Dharman_poster.jpg/120px-Dharman_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Dharman",
       "imdb": "https://www.imdb.com/title/tt38874778/"
     },
     {
-      "title": "Don't Trouble the Trouble",
-      "lang": "Telugu",
+      "title": "Mandaadi",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Mathimaran Pugazhendhi",
+      "desc": "Upcoming film directed by Mathimaran Pugazhendhi",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Mandaadi.jpg/120px-Mandaadi.jpg",
+      "url": "https://en.wikipedia.org/wiki/Mandaadi",
+      "imdb": "https://www.imdb.com/title/tt36596965/"
+    },
+    {
+      "title": "Sardar 2",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "P. S. Mithran",
+      "desc": "Upcoming Indian film by P. S. Mithran",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sardar_2_Poster.jpg/120px-Sardar_2_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Sardar_2",
+      "imdb": "https://www.imdb.com/title/tt28541577/"
+    },
+    {
+      "title": "Thudakkam",
+      "lang": "Malayalam",
       "date": null,
       "precision": null,
       "by": null,
-      "desc": "Upcoming 2026 Indian fantasy film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/ae/Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg/120px-Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg",
-      "url": "https://en.wikipedia.org/wiki/Don't_Trouble_the_Trouble",
-      "imdb": "https://www.imdb.com/title/tt31841170/"
-    },
-    {
-      "title": "Maatrubhumi: May War Rest in Peace",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": "Apoorva Lakhia",
-      "desc": "Upcoming Indian film by Apoorva Lakhia",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
-      "imdb": "https://www.imdb.com/title/tt27610832/"
-    },
-    {
-      "title": "Vettuvam",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "Pa. Ranjith",
-      "desc": "Upcoming Indian film by Pa. Ranjith",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Vettuvam_poster.jpg/120px-Vettuvam_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Vettuvam",
-      "imdb": "https://www.imdb.com/title/tt20225002/"
-    },
-    {
-      "title": "Chitukurinji",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "Upcoming Indian Tamil-language film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chitukurinji-poster.jpg/120px-Chitukurinji-poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Chitukurinji",
-      "imdb": null
-    },
-    {
-      "title": "Demonte Colony 3",
-      "lang": "Tamil",
-      "date": null,
-      "precision": null,
-      "by": "R. Ajay Gnanamuthu",
-      "desc": "Upcoming Indian film by R. Ajay Gnanamuthu",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/70/Demonte_Colony_3.jpg/120px-Demonte_Colony_3.jpg",
-      "url": "https://en.wikipedia.org/wiki/Demonte_Colony_3",
-      "imdb": "https://www.imdb.com/title/tt36554405/"
-    },
-    {
-      "title": "Fauzi",
-      "lang": "Telugu",
-      "date": null,
-      "precision": null,
-      "by": "Hanu Raghavapudi",
-      "desc": "Upcoming Indian film by Hanu Raghavapudi",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/eb/Fauzi_%282027_film%29_poster.jpg/120px-Fauzi_%282027_film%29_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Fauzi_(film)",
-      "imdb": "https://www.imdb.com/title/tt29295821/"
+      "desc": "Upcoming Indian Malayalam-language film",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Thudakkam_Movie_First_Look_Poster.jpg/120px-Thudakkam_Movie_First_Look_Poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Thudakkam",
+      "imdb": "https://www.imdb.com/title/tt37510017/"
     }
   ]
 }

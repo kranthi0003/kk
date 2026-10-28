@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-27T04:31:52.571Z",
+  "generated": "2026-10-28T04:24:49.457Z",
   "reddit": [
     {
-      "title": "Devops job switch guidance",
-      "url": "https://www.reddit.com/r/devops/comments/1xgig73/devops_job_switch_guidance/",
-      "by": "Moist-End-9867",
-      "time": 1793073285000,
+      "title": "Python jettisons the native JIT, at least for now",
+      "url": "https://www.reddit.com/r/programming/comments/1xhbl06/python_jettisons_the_native_jit_at_least_for_now/",
+      "by": "nicholashairs",
+      "time": 1793152534000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Choose Your Backend: Three TLS Bugs in GoAhead",
+      "url": "https://www.reddit.com/r/programming/comments/1xh84hz/choose_your_backend_three_tls_bugs_in_goahead/",
+      "by": "alexeyr",
+      "time": 1793143214000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How I added dynamic social preview images to my site for almost nothing",
+      "url": "https://www.reddit.com/r/programming/comments/1xh55mz/how_i_added_dynamic_social_preview_images_to_my/",
+      "by": "iximiuz",
+      "time": 1793135982000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "HEXAGON",
+      "url": "https://www.reddit.com/r/programming/comments/1xh4iav/hexagon/",
+      "by": "therealrealgun1969",
+      "time": 1793134483000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Billion-query-per-second lookup tables in C++",
+      "url": "https://www.reddit.com/r/programming/comments/1xh15vv/billionquerypersecond_lookup_tables_in_c/",
+      "by": "alexeyr",
+      "time": 1793127027000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Any beginner-friendly DevOps Discord servers or Slack communities?",
+      "url": "https://www.reddit.com/r/devops/comments/1xgw5xd/any_beginnerfriendly_devops_discord_servers_or/",
+      "by": "Outrageous-Dot-48",
+      "time": 1793116152000,
       "sub": "r/devops"
     },
     {
-      "title": "Iframes should have an api",
-      "url": "https://www.reddit.com/r/programming/comments/1xgftsd/iframes_should_have_an_api/",
-      "by": "Chun",
-      "time": 1793065650000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Building a music engraving engine from scratch",
-      "url": "https://www.reddit.com/r/programming/comments/1xgd7gv/building_a_music_engraving_engine_from_scratch/",
-      "by": "kopophobia",
-      "time": 1793058675000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Every Angular Version Explained in 14 Minutes (2 to 22) | Visually Explained",
-      "url": "https://www.reddit.com/r/programming/comments/1xg5pem/every_angular_version_explained_in_14_minutes_2/",
-      "by": "correctMeIfImcorrect",
-      "time": 1793040904000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Why Lean is faster than Rust",
-      "url": "https://www.reddit.com/r/programming/comments/1xg1n2u/why_lean_is_faster_than_rust/",
-      "by": "_bijan_",
-      "time": 1793031995000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How to write a \"bug hunt\" blog post",
-      "url": "https://www.reddit.com/r/programming/comments/1xfwnaz/how_to_write_a_bug_hunt_blog_post/",
-      "by": "JackfruitMammoth565",
-      "time": 1793020877000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Making attacking agents pay with Context Bombs",
-      "url": "https://www.reddit.com/r/devops/comments/1xfsq7l/making_attacking_agents_pay_with_context_bombs/",
-      "by": "tracebit",
-      "time": 1793009266000,
+      "title": "why is everyone still using cloud llms just to route tool calls? tested local cpu embeddings vs bm25 on 100k tools",
+      "url": "https://www.reddit.com/r/devops/comments/1xgsv6a/why_is_everyone_still_using_cloud_llms_just_to/",
+      "by": "Key_Coconut_9269",
+      "time": 1793108512000,
       "sub": "r/devops"
     },
     {
-      "title": "Weekly Self Promotion Thread",
-      "url": "https://www.reddit.com/r/devops/comments/1xfq7qc/weekly_self_promotion_thread/",
-      "by": "AutoModerator",
-      "time": 1792999816000,
+      "title": "What APM tool does your team actually rely on, and why?",
+      "url": "https://www.reddit.com/r/devops/comments/1xgo0k0/what_apm_tool_does_your_team_actually_rely_on_and/",
+      "by": "IntelligentKale8216",
+      "time": 1793093872000,
       "sub": "r/devops"
     },
     {
-      "title": "Two widely used npm packages had their security advisories withdrawn. How should we handle false positives in dependency audits?",
-      "url": "https://www.reddit.com/r/devops/comments/1xfikfb/two_widely_used_npm_packages_had_their_security/",
-      "by": "r2vcap",
-      "time": 1792974845000,
+      "title": "Anyone interested for DevOps discussions/sessions?",
+      "url": "https://www.reddit.com/r/devops/comments/1xgl5vw/anyone_interested_for_devops_discussionssessions/",
+      "by": "AdventurousDebt6064",
+      "time": 1793082751000,
       "sub": "r/devops"
     },
     {
-      "title": "Open Source Contribution Recommendations for projects related to DevOps and Platform Engineering",
-      "url": "https://www.reddit.com/r/devops/comments/1xfg9xz/open_source_contribution_recommendations_for/",
-      "by": "bright-polaris",
-      "time": 1792968670000,
+      "title": "First-year DevOps student, 5 months to finish an individual project, feeling overwhelmed. Any advice?",
+      "url": "https://www.reddit.com/r/devops/comments/1xgjty5/firstyear_devops_student_5_months_to_finish_an/",
+      "by": "SuspiciousQuit653",
+      "time": 1793077825000,
       "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "How to monitor network traffic on Linux",
-      "url": "https://medium.com/@getopservo/how-to-monitor-network-traffic-on-linux-bad46432ac13",
-      "by": "Opservo",
-      "time": 1793075219000,
+      "title": "Cloud Vector Databases vs. Local RAG: The Real Cost of Analyzing 5,000 Private Documents",
+      "url": "https://medium.com/@chhinsoportrakhou/cloud-vector-databases-vs-local-rag-the-real-cost-of-analyzing-5-000-private-documents-198e5e5d4852",
+      "by": "Chhinsoportrakhou",
+      "time": 1793160782000,
       "tags": [
-        "linux",
-        "devops",
-        "sysadmin"
+        "technology",
+        "artificial-intelligence",
+        "programming"
       ]
     },
     {
-      "title": "Critical Token Guard Auth Bypass in Laravel (CVSS 9.2): Update to 13.29 or 12.68",
-      "url": "https://medium.com/codex/critical-token-guard-auth-bypass-in-laravel-cvss-9-2-update-to-13-29-or-12-68-2e7f28459b27",
-      "by": "Developer Awam",
-      "time": 1793075008000,
+      "title": "A tiny CLI that finds broken links in your Markdown",
+      "url": "https://medium.com/@dmw2007/a-tiny-cli-that-finds-broken-links-in-your-markdown-d57db8816ef6",
+      "by": "Ido Lempert",
+      "time": 1793160738000,
       "tags": [
-        "php",
-        "laravel-framework",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Meta and Sierra Just Proposed a Sign-In Standard for AI Agents.",
-      "url": "https://sadiqueali.medium.com/meta-and-sierra-just-proposed-a-sign-in-standard-for-ai-agents-0590fb6c7a85",
-      "by": "Sadique Ali",
-      "time": 1793074855000,
-      "tags": [
-        "php",
-        "web-development",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Posting at 3:33 pm my time, it hasn't ended guys, this chapter isn't a long trek, it's the most…",
-      "url": "https://medium.com/@Hidden-rain-maker/posting-at-3-33-pm-my-time-it-hasnt-ended-guys-this-chapter-isn-t-a-long-trek-it-s-the-most-03112dd99a07",
-      "by": "Straybrothers Alkebulan Ancient…",
-      "time": 1793074843000,
-      "tags": [
-        "art",
+        "nodejs",
         "programming",
-        "government"
+        "cli"
       ]
     },
     {
-      "title": "STOP GUESSING WHY YOUR AZURE APPLICATION IS FAILING. LEARN KQL!",
-      "url": "https://medium.com/@mailtosyedmohamed/stop-guessing-why-your-azure-application-is-failing-learn-kql-05900629ddc0",
-      "by": "Syed Mohamed",
-      "time": 1793074250000,
+      "title": "Rust vs Go for a CLI Tool: 0.3 MB vs 2.4 MB, and the Build-Time Surprise",
+      "url": "https://martin128.medium.com/rust-vs-go-for-a-cli-tool-0-3-mb-vs-2-4-mb-and-the-build-time-surprise-63973093050e",
+      "by": "Martin",
+      "time": 1793160661000,
       "tags": [
-        "azure",
-        "troubleshooting",
-        "devops"
+        "programming",
+        "command-line",
+        "software-engineering"
       ]
     },
     {
-      "title": "PHP2Shell: Why Patching Your App Is Not Enough When the Runtime Itself Breaks",
-      "url": "https://medium.com/@kazemmortazavi/php2shell-why-patching-your-app-is-not-enough-when-the-runtime-itself-breaks-c1b3a14a3de7",
-      "by": "Kazem Mortazavi",
-      "time": 1793074240000,
+      "title": "Does more context always help? A 31-line experiment",
+      "url": "https://medium.com/@dmw2007/does-more-context-always-help-a-31-line-experiment-2332e54dcf8c",
+      "by": "Ido Lempert",
+      "time": 1793160502000,
       "tags": [
-        "cybersecurity",
-        "web-development",
-        "information-security"
+        "nlp",
+        "data-science",
+        "python"
       ]
     },
     {
-      "title": "I used Claude Code the simple way for too long. Here is what I missed",
-      "url": "https://medium.com/@himanshubhoir/i-used-claude-code-the-simple-way-for-too-long-here-is-what-i-missed-1cabb2835b60",
-      "by": "Himanshu Bhoir",
-      "time": 1793074175000,
+      "title": "Build a Search API with Elasticsearch or Meilisearch",
+      "url": "https://javascript.plainenglish.io/build-a-search-api-with-elasticsearch-or-meilisearch-0eafc40d4c04",
+      "by": "Muhammad Qasim",
+      "time": 1793160295000,
       "tags": [
-        "productivity",
+        "programming",
+        "javascript",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Spring Security 6 + JWT: Working Code, 9 Passing Tests",
+      "url": "https://medium.com/@coolercoder/spring-security-6-jwt-working-code-9-passing-tests-dff688f2aff6",
+      "by": "Ray Hu",
+      "time": 1793160264000,
+      "tags": [
+        "software-engineering",
         "software-development",
         "programming"
       ]
     },
     {
-      "title": "Key Takeaways from Tech at Agoda: From Assistants to AI Agents",
-      "url": "https://medium.com/agoda-engineering/key-takeaways-from-tech-at-agoda-from-assistants-to-ai-agents-b0e9187730bb",
-      "by": "Agoda Engineering",
-      "time": 1793073839000,
+      "title": "Your AI Is a Junior Teammate, Not Your Replacement",
+      "url": "https://medium.com/@TheLazyDev0/your-ai-is-a-junior-teammate-not-your-replacement-1b1339aa30ee",
+      "by": "The Lazy Developer",
+      "time": 1793160257000,
       "tags": [
-        "technology",
-        "engineering",
-        "software-engineering"
+        "artificial-intelligence",
+        "productivity",
+        "human-in-the-loop"
       ]
     },
     {
-      "title": "Caddy Web Server: A Practical Guide to Docker, HTTPS & Production",
-      "url": "https://medium.com/@naveedkumbhar/caddy-web-server-a-practical-guide-to-docker-https-production-942f3e727362",
-      "by": "Naveed Ahmed",
-      "time": 1793073800000,
+      "title": "Six generative art pieces in one Python file, no dependencies",
+      "url": "https://medium.com/@dmw2007/six-generative-art-pieces-in-one-python-file-no-dependencies-3187d503b7f4",
+      "by": "Ido Lempert",
+      "time": 1793160186000,
       "tags": [
-        "devops",
-        "web-server",
-        "caddy"
+        "art",
+        "programming",
+        "svg"
       ]
     },
     {
-      "title": "Advent of Code in Java 25: 10 Language Features That Make Puzzle Solutions Shorter",
-      "url": "https://medium.com/boot-camp-java/advent-of-code-in-java-25-10-language-features-that-make-puzzle-solutions-shorter-ea05077e2efe",
-      "by": "Navya Devadiga",
-      "time": 1793073743000,
+      "title": "Why Your Xero CSV Import Fails on Amounts & Symbols (And How We Engineered the Fix)",
+      "url": "https://medium.com/@nishant.shaligram/why-your-xero-csv-import-fails-on-amounts-symbols-and-how-we-engineered-the-fix-04b4e261570d",
+      "by": "Nishant Shaligram",
+      "time": 1793160061000,
       "tags": [
-        "java25",
-        "software-development",
-        "java"
+        "finance",
+        "sync2zero",
+        "accounting"
+      ]
+    },
+    {
+      "title": "React Native Is Still One of the Best Choices for Mobile Apps.",
+      "url": "https://ankitmohanta.medium.com/react-native-is-still-one-of-the-best-choices-for-mobile-apps-222a6d94de95",
+      "by": "ANKIT MOHANTA",
+      "time": 1793160056000,
+      "tags": [
+        "mobile-app-development",
+        "react",
+        "software-development"
       ]
     }
   ]
