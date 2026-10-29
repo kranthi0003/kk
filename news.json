@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-28T04:24:49.457Z",
+  "generated": "2026-10-29T04:25:13.924Z",
   "reddit": [
     {
-      "title": "Python jettisons the native JIT, at least for now",
-      "url": "https://www.reddit.com/r/programming/comments/1xhbl06/python_jettisons_the_native_jit_at_least_for_now/",
-      "by": "nicholashairs",
-      "time": 1793152534000,
+      "title": "Learn Any ML Library by Rebuilding It: NumPy, pandas, scikit-learn, PyTorch and sentence-transformer",
+      "url": "https://www.reddit.com/r/programming/comments/1xi4nhc/learn_any_ml_library_by_rebuilding_it_numpy/",
+      "by": "DeepRatAI",
+      "time": 1793231624000,
       "sub": "r/programming"
     },
     {
-      "title": "Choose Your Backend: Three TLS Bugs in GoAhead",
-      "url": "https://www.reddit.com/r/programming/comments/1xh84hz/choose_your_backend_three_tls_bugs_in_goahead/",
-      "by": "alexeyr",
-      "time": 1793143214000,
+      "title": "Local-First Means Three Different Things",
+      "url": "https://www.reddit.com/r/programming/comments/1xi3p7g/localfirst_means_three_different_things/",
+      "by": "BartBlast",
+      "time": 1793229173000,
       "sub": "r/programming"
     },
     {
-      "title": "How I added dynamic social preview images to my site for almost nothing",
-      "url": "https://www.reddit.com/r/programming/comments/1xh55mz/how_i_added_dynamic_social_preview_images_to_my/",
-      "by": "iximiuz",
-      "time": 1793135982000,
+      "title": "If-statement that caused HTTP2Shell was itself undisclosed patch of vulnerability",
+      "url": "https://www.reddit.com/r/programming/comments/1xi16s3/ifstatement_that_caused_http2shell_was_itself/",
+      "by": "klaasvanschelven",
+      "time": 1793223026000,
       "sub": "r/programming"
     },
     {
-      "title": "HEXAGON",
-      "url": "https://www.reddit.com/r/programming/comments/1xh4iav/hexagon/",
-      "by": "therealrealgun1969",
-      "time": 1793134483000,
+      "title": "Why Don’t We Have Bug Free Code?",
+      "url": "https://www.reddit.com/r/programming/comments/1xhup1w/why_dont_we_have_bug_free_code/",
+      "by": "DavidThi303",
+      "time": 1793208727000,
       "sub": "r/programming"
     },
     {
-      "title": "Billion-query-per-second lookup tables in C++",
-      "url": "https://www.reddit.com/r/programming/comments/1xh15vv/billionquerypersecond_lookup_tables_in_c/",
-      "by": "alexeyr",
-      "time": 1793127027000,
+      "title": "I built kube-tz to manage Kubernetes Pod timezones without running an admission webhook — looking for technical feedback",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xhsfeh/i_built_kubetz_to_manage_kubernetes_pod_timezones/",
+      "by": "kube-tz",
+      "time": 1793203909000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Looking for help with side project - no self-promotion",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xhrlj9/looking_for_help_with_side_project_no/",
+      "by": "Slow-Ad8620",
+      "time": 1793202156000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Making SIMD Code Scale to Any Vector Width",
+      "url": "https://www.reddit.com/r/programming/comments/1xhpagj/making_simd_code_scale_to_any_vector_width/",
+      "by": "MyNameIsTrez",
+      "time": 1793196997000,
       "sub": "r/programming"
     },
     {
-      "title": "Any beginner-friendly DevOps Discord servers or Slack communities?",
-      "url": "https://www.reddit.com/r/devops/comments/1xgw5xd/any_beginnerfriendly_devops_discord_servers_or/",
-      "by": "Outrageous-Dot-48",
-      "time": 1793116152000,
-      "sub": "r/devops"
+      "title": "Mock exams",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xhp12i/mock_exams/",
+      "by": "Future-Zone2872",
+      "time": 1793196368000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "why is everyone still using cloud llms just to route tool calls? tested local cpu embeddings vs bm25 on 100k tools",
-      "url": "https://www.reddit.com/r/devops/comments/1xgsv6a/why_is_everyone_still_using_cloud_llms_just_to/",
-      "by": "Key_Coconut_9269",
-      "time": 1793108512000,
-      "sub": "r/devops"
+      "title": "quick breakdown of containers vs gvisor vs kata vs full vms (took me a while to get this straight)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xho98v/quick_breakdown_of_containers_vs_gvisor_vs_kata/",
+      "by": "cthiriet",
+      "time": 1793194545000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "What APM tool does your team actually rely on, and why?",
-      "url": "https://www.reddit.com/r/devops/comments/1xgo0k0/what_apm_tool_does_your_team_actually_rely_on_and/",
-      "by": "IntelligentKale8216",
-      "time": 1793093872000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Anyone interested for DevOps discussions/sessions?",
-      "url": "https://www.reddit.com/r/devops/comments/1xgl5vw/anyone_interested_for_devops_discussionssessions/",
-      "by": "AdventurousDebt6064",
-      "time": 1793082751000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "First-year DevOps student, 5 months to finish an individual project, feeling overwhelmed. Any advice?",
-      "url": "https://www.reddit.com/r/devops/comments/1xgjty5/firstyear_devops_student_5_months_to_finish_an/",
-      "by": "SuspiciousQuit653",
-      "time": 1793077825000,
-      "sub": "r/devops"
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xhjwe9/weekly_show_off_your_new_tools_and_projects_thread/",
+      "by": "AutoModerator",
+      "time": 1793181659000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Cloud Vector Databases vs. Local RAG: The Real Cost of Analyzing 5,000 Private Documents",
-      "url": "https://medium.com/@chhinsoportrakhou/cloud-vector-databases-vs-local-rag-the-real-cost-of-analyzing-5-000-private-documents-198e5e5d4852",
-      "by": "Chhinsoportrakhou",
-      "time": 1793160782000,
+      "title": "What If Software Didn’t Need to Be Deployed at All?",
+      "url": "https://nittikkin.medium.com/what-if-software-didnt-need-to-be-deployed-at-all-af86020d54e1",
+      "by": "Koshy",
+      "time": 1793247337000,
       "tags": [
-        "technology",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "A tiny CLI that finds broken links in your Markdown",
-      "url": "https://medium.com/@dmw2007/a-tiny-cli-that-finds-broken-links-in-your-markdown-d57db8816ef6",
-      "by": "Ido Lempert",
-      "time": 1793160738000,
-      "tags": [
-        "nodejs",
-        "programming",
-        "cli"
-      ]
-    },
-    {
-      "title": "Rust vs Go for a CLI Tool: 0.3 MB vs 2.4 MB, and the Build-Time Surprise",
-      "url": "https://martin128.medium.com/rust-vs-go-for-a-cli-tool-0-3-mb-vs-2-4-mb-and-the-build-time-surprise-63973093050e",
-      "by": "Martin",
-      "time": 1793160661000,
-      "tags": [
-        "programming",
-        "command-line",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Does more context always help? A 31-line experiment",
-      "url": "https://medium.com/@dmw2007/does-more-context-always-help-a-31-line-experiment-2332e54dcf8c",
-      "by": "Ido Lempert",
-      "time": 1793160502000,
-      "tags": [
-        "nlp",
-        "data-science",
-        "python"
-      ]
-    },
-    {
-      "title": "Build a Search API with Elasticsearch or Meilisearch",
-      "url": "https://javascript.plainenglish.io/build-a-search-api-with-elasticsearch-or-meilisearch-0eafc40d4c04",
-      "by": "Muhammad Qasim",
-      "time": 1793160295000,
-      "tags": [
-        "programming",
-        "javascript",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Spring Security 6 + JWT: Working Code, 9 Passing Tests",
-      "url": "https://medium.com/@coolercoder/spring-security-6-jwt-working-code-9-passing-tests-dff688f2aff6",
-      "by": "Ray Hu",
-      "time": 1793160264000,
-      "tags": [
+        "future-of-work",
         "software-engineering",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Next.js vs TanStack Start: “It Deploys Anywhere” Is Only Half the Argument.",
+      "url": "https://medium.com/@developeryusuf/next-js-vs-tanstack-start-it-deploys-anywhere-is-only-half-the-argument-4dfdff41990b",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1793247308000,
+      "tags": [
+        "programming",
+        "coding",
+        "devops"
+      ]
+    },
+    {
+      "title": "Googles Gemini 4 Carbon has a Cybersecurity Superpower. It Also Raises a Question.",
+      "url": "https://medium.com/@saisagarsylada/googles-gemini-4-carbon-has-a-cybersecurity-superpower-it-also-raises-a-question-1689ce2b51b7",
+      "by": "sagarsylada",
+      "time": 1793247241000,
+      "tags": [
+        "self-improvement",
         "software-development",
         "programming"
       ]
     },
     {
-      "title": "Your AI Is a Junior Teammate, Not Your Replacement",
-      "url": "https://medium.com/@TheLazyDev0/your-ai-is-a-junior-teammate-not-your-replacement-1b1339aa30ee",
-      "by": "The Lazy Developer",
-      "time": 1793160257000,
+      "title": "Go vs Rust Just Got a Better Test: The Same TypeScript Compiler.",
+      "url": "https://medium.com/@developeryusuf/go-vs-rust-just-got-a-better-test-the-same-typescript-compiler-93ec53093e24",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1793247094000,
       "tags": [
-        "artificial-intelligence",
-        "productivity",
-        "human-in-the-loop"
+        "rust",
+        "devops",
+        "javascript"
       ]
     },
     {
-      "title": "Six generative art pieces in one Python file, no dependencies",
-      "url": "https://medium.com/@dmw2007/six-generative-art-pieces-in-one-python-file-no-dependencies-3187d503b7f4",
-      "by": "Ido Lempert",
-      "time": 1793160186000,
+      "title": "Node.js 26 Is the New LTS. Temporal Replaces the Date Object",
+      "url": "https://martin128.medium.com/node-js-26-is-the-new-lts-temporal-replaces-the-date-object-f45ca848e76e",
+      "by": "Martin",
+      "time": 1793247061000,
       "tags": [
-        "art",
+        "software-engineering",
+        "backend",
+        "javascript"
+      ]
+    },
+    {
+      "title": "JWT vs Sessions: The Logout Button Exposes the Real Trade-Off.",
+      "url": "https://blog.stackademic.com/jwt-vs-sessions-the-logout-button-exposes-the-real-trade-off-c5758be102dc",
+      "by": "Dev Yusuf Seyitoglu",
+      "time": 1793246979000,
+      "tags": [
         "programming",
-        "svg"
-      ]
-    },
-    {
-      "title": "Why Your Xero CSV Import Fails on Amounts & Symbols (And How We Engineered the Fix)",
-      "url": "https://medium.com/@nishant.shaligram/why-your-xero-csv-import-fails-on-amounts-symbols-and-how-we-engineered-the-fix-04b4e261570d",
-      "by": "Nishant Shaligram",
-      "time": 1793160061000,
-      "tags": [
-        "finance",
-        "sync2zero",
-        "accounting"
-      ]
-    },
-    {
-      "title": "React Native Is Still One of the Best Choices for Mobile Apps.",
-      "url": "https://ankitmohanta.medium.com/react-native-is-still-one-of-the-best-choices-for-mobile-apps-222a6d94de95",
-      "by": "ANKIT MOHANTA",
-      "time": 1793160056000,
-      "tags": [
-        "mobile-app-development",
-        "react",
+        "web-development",
         "software-development"
+      ]
+    },
+    {
+      "title": "Grep is enough for your coding agent. Until it isn’t.",
+      "url": "https://medium.com/@aakashpawar1999/grep-is-enough-for-your-coding-agent-until-it-isnt-047201fa648e",
+      "by": "Aakash Pawar",
+      "time": 1793246902000,
+      "tags": [
+        "programming",
+        "open-source",
+        "software-development"
+      ]
+    },
+    {
+      "title": "AI in 2026: Is Artificial Intelligence Replacing Humans or Redefining Work?",
+      "url": "https://medium.com/@iq.asif.530/ai-in-2026-is-artificial-intelligence-replacing-humans-or-redefining-work-35abda09bc74",
+      "by": "Asif",
+      "time": 1793246719000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "productivity"
+      ]
+    },
+    {
+      "title": "JavaScript Promise Combinators: race(), all(), allSettled(), and any()",
+      "url": "https://javascript.plainenglish.io/javascript-promise-combinators-race-all-allsettled-and-any-3f013d3807c2",
+      "by": "M A Saraswathi",
+      "time": 1793246665000,
+      "tags": [
+        "asynchronous-programming",
+        "web-development",
+        "frontend-development"
+      ]
+    },
+    {
+      "title": "AI Can Write the Code. But Can You Explain It Without AI?",
+      "url": "https://medium.com/mr-plan-publication/ai-can-write-the-code-but-can-you-explain-it-without-ai-18d50a084b9f",
+      "by": "Fozia Saleem",
+      "time": 1793245834000,
+      "tags": [
+        "python",
+        "programming",
+        "artificial-intelligence"
       ]
     }
   ]
