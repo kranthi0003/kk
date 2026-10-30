@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-29T04:25:13.924Z",
+  "generated": "2026-10-30T04:24:21.106Z",
   "reddit": [
     {
-      "title": "Learn Any ML Library by Rebuilding It: NumPy, pandas, scikit-learn, PyTorch and sentence-transformer",
-      "url": "https://www.reddit.com/r/programming/comments/1xi4nhc/learn_any_ml_library_by_rebuilding_it_numpy/",
-      "by": "DeepRatAI",
-      "time": 1793231624000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Local-First Means Three Different Things",
-      "url": "https://www.reddit.com/r/programming/comments/1xi3p7g/localfirst_means_three_different_things/",
-      "by": "BartBlast",
-      "time": 1793229173000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "If-statement that caused HTTP2Shell was itself undisclosed patch of vulnerability",
-      "url": "https://www.reddit.com/r/programming/comments/1xi16s3/ifstatement_that_caused_http2shell_was_itself/",
-      "by": "klaasvanschelven",
-      "time": 1793223026000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Why Don’t We Have Bug Free Code?",
-      "url": "https://www.reddit.com/r/programming/comments/1xhup1w/why_dont_we_have_bug_free_code/",
-      "by": "DavidThi303",
-      "time": 1793208727000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I built kube-tz to manage Kubernetes Pod timezones without running an admission webhook — looking for technical feedback",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xhsfeh/i_built_kubetz_to_manage_kubernetes_pod_timezones/",
-      "by": "kube-tz",
-      "time": 1793203909000,
+      "title": "I made a free Prometheus disk sizing calculator (WAL + compaction headroom included). Do these assumptions match your servers?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xj39rv/i_made_a_free_prometheus_disk_sizing_calculator/",
+      "by": "kkkevinkkkk",
+      "time": 1793326364000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Looking for help with side project - no self-promotion",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xhrlj9/looking_for_help_with_side_project_no/",
-      "by": "Slow-Ad8620",
-      "time": 1793202156000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Making SIMD Code Scale to Any Vector Width",
-      "url": "https://www.reddit.com/r/programming/comments/1xhpagj/making_simd_code_scale_to_any_vector_width/",
-      "by": "MyNameIsTrez",
-      "time": 1793196997000,
+      "title": "AMD's ROCm HRX Loom v0.1 released for targeting AMD CPUs, GPUs & NPUs",
+      "url": "https://www.reddit.com/r/programming/comments/1xisevc/amds_rocm_hrx_loom_v01_released_for_targeting_amd/",
+      "by": "Fcking_Chuck",
+      "time": 1793299360000,
       "sub": "r/programming"
     },
     {
-      "title": "Mock exams",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xhp12i/mock_exams/",
-      "by": "Future-Zone2872",
-      "time": 1793196368000,
+      "title": "The Last Proof of Human Craft: Forging a Microsoft Edge Full Chain with Logic Bugs Only!",
+      "url": "https://www.reddit.com/r/programming/comments/1xiq9r7/the_last_proof_of_human_craft_forging_a_microsoft/",
+      "by": "alexeyr",
+      "time": 1793294590000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Linux Kernel TCP Flaw With 9.8 CVSS Score Affects Ubuntu, Red Hat and Other Distributions",
+      "url": "https://www.reddit.com/r/programming/comments/1xiq8we/linux_kernel_tcp_flaw_with_98_cvss_score_affects/",
+      "by": "CircumspectCapybara",
+      "time": 1793294537000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I want to create a Google chrome extension",
+      "url": "https://www.reddit.com/r/programming/comments/1xippf9/i_want_to_create_a_google_chrome_extension/",
+      "by": "FakeGrape823",
+      "time": 1793293366000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "FYI an open source k8s tool just took first place on sregym, the AI SRE leaderboard from uiuc researchers. who wants to beat it?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xipnyt/fyi_an_open_source_k8s_tool_just_took_first_place/",
+      "by": "royLskyhook",
+      "time": 1793293283000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "quick breakdown of containers vs gvisor vs kata vs full vms (took me a while to get this straight)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xho98v/quick_breakdown_of_containers_vs_gvisor_vs_kata/",
-      "by": "cthiriet",
-      "time": 1793194545000,
+      "title": "It's the memory latency, stupid",
+      "url": "https://www.reddit.com/r/programming/comments/1xiopmn/its_the_memory_latency_stupid/",
+      "by": "bobbymk10",
+      "time": 1793291215000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Data ingestion benchmark for Kubernetes-like logs: popular open source databases for logs",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xiohvq/data_ingestion_benchmark_for_kuberneteslike_logs/",
+      "by": "Charming_Skin_8549",
+      "time": 1793290742000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xhjwe9/weekly_show_off_your_new_tools_and_projects_thread/",
-      "by": "AutoModerator",
-      "time": 1793181659000,
+      "title": "Free backup for KubeVirt VMs and OpenShift (Plakar)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xindwb/free_backup_for_kubevirt_vms_and_openshift_plakar/",
+      "by": "nickjj_",
+      "time": 1793288320000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Running soci, stargz or nydus? containerd 2.5 finally puts a deadline on proxy snapshotter calls",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xiifx4/running_soci_stargz_or_nydus_containerd_25/",
+      "by": "Fabulous-Confection6",
+      "time": 1793276440000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "What If Software Didn’t Need to Be Deployed at All?",
-      "url": "https://nittikkin.medium.com/what-if-software-didnt-need-to-be-deployed-at-all-af86020d54e1",
-      "by": "Koshy",
-      "time": 1793247337000,
+      "title": "Protobuf Was 49% Smaller Than JSON. After gzip, JSON Won",
+      "url": "https://martin128.medium.com/protobuf-was-49-smaller-than-json-after-gzip-json-won-2cf79713deed",
+      "by": "Martin",
+      "time": 1793333461000,
       "tags": [
-        "future-of-work",
-        "software-engineering",
-        "software-architecture"
+        "javascript",
+        "api",
+        "programming"
       ]
     },
     {
-      "title": "Next.js vs TanStack Start: “It Deploys Anywhere” Is Only Half the Argument.",
-      "url": "https://medium.com/@developeryusuf/next-js-vs-tanstack-start-it-deploys-anywhere-is-only-half-the-argument-4dfdff41990b",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1793247308000,
+      "title": "Top 10 API Testing Tools Every Developer and QA Engineer Should Know",
+      "url": "https://developerchandan.medium.com/top-10-api-testing-tools-every-developer-and-qa-engineer-should-know-b9dfc902b9c1",
+      "by": "Chandan Kumar",
+      "time": 1793333461000,
+      "tags": [
+        "api",
+        "software-testing",
+        "programming"
+      ]
+    },
+    {
+      "title": "Business Analyst In Action: A Practical Framework for Gap Analysis",
+      "url": "https://medium.com/@jaroenwut/business-analyst-in-action-a-practical-framework-for-gap-analysis-840be788e819",
+      "by": "Blog Chip",
+      "time": 1793333289000,
+      "tags": [
+        "software-development",
+        "business",
+        "product-management"
+      ]
+    },
+    {
+      "title": "MEDIUM",
+      "url": "https://medium.com/@acphub.in/medium-c1408a0a22bc",
+      "by": "acphub.in",
+      "time": 1793333086000,
+      "tags": [
+        "education",
+        "artificial-intelligence",
+        "design"
+      ]
+    },
+    {
+      "title": "K-Nearest Neighbors (KNN): A Beginner’s Guide to Machine Learning",
+      "url": "https://medium.com/@skalthaf505/k-nearest-neighbors-knn-a-beginners-guide-to-machine-learning-9a5a4caa965c",
+      "by": "Althaf Shaik",
+      "time": 1793332862000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
+        "data-science"
+      ]
+    },
+    {
+      "title": "Java Interview Preparation: 8 Key Areas Every Developer Should Master",
+      "url": "https://medium.com/@pardeepgill82/java-interview-preparation-8-key-areas-every-developer-should-master-c21ef0212777",
+      "by": "Interview Playbook",
+      "time": 1793332837000,
       "tags": [
         "programming",
-        "coding",
+        "interview",
+        "java"
+      ]
+    },
+    {
+      "title": "I Closed Port 22 on My Home Network. I Still Reach My Terminal From Anywhere.",
+      "url": "https://medium.com/@phule9225/i-closed-port-22-on-my-home-network-i-still-reach-my-terminal-from-anywhere-0d088c99049e",
+      "by": "PhuLe",
+      "time": 1793332490000,
+      "tags": [
+        "developer-tools",
+        "ssh",
         "devops"
       ]
     },
     {
-      "title": "Googles Gemini 4 Carbon has a Cybersecurity Superpower. It Also Raises a Question.",
-      "url": "https://medium.com/@saisagarsylada/googles-gemini-4-carbon-has-a-cybersecurity-superpower-it-also-raises-a-question-1689ce2b51b7",
-      "by": "sagarsylada",
-      "time": 1793247241000,
+      "title": "What is Architecture Pricing?",
+      "url": "https://medium.com/@kgthedev/what-is-architecture-pricing-e48ddf76df42",
+      "by": "Kaleb Garner",
+      "time": 1793332444000,
       "tags": [
-        "self-improvement",
+        "technology",
+        "product-management",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Publish Button Was Enabled. Clicking It Did Nothing.",
+      "url": "https://bobde-yagyesh.medium.com/the-publish-button-was-enabled-clicking-it-did-nothing-95c1a295df2a",
+      "by": "Yagyesh Bobde",
+      "time": 1793332392000,
+      "tags": [
+        "automation",
         "software-development",
         "programming"
       ]
     },
     {
-      "title": "Go vs Rust Just Got a Better Test: The Same TypeScript Compiler.",
-      "url": "https://medium.com/@developeryusuf/go-vs-rust-just-got-a-better-test-the-same-typescript-compiler-93ec53093e24",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1793247094000,
+      "title": "I Built an AI Test Runner That Can Adapt Without Guessing",
+      "url": "https://medium.com/lets-code-future/i-built-an-ai-test-runner-that-can-adapt-without-guessing-ed20fbd79c24",
+      "by": "FutureStack",
+      "time": 1793332226000,
       "tags": [
-        "rust",
-        "devops",
-        "javascript"
-      ]
-    },
-    {
-      "title": "Node.js 26 Is the New LTS. Temporal Replaces the Date Object",
-      "url": "https://martin128.medium.com/node-js-26-is-the-new-lts-temporal-replaces-the-date-object-f45ca848e76e",
-      "by": "Martin",
-      "time": 1793247061000,
-      "tags": [
-        "software-engineering",
-        "backend",
-        "javascript"
-      ]
-    },
-    {
-      "title": "JWT vs Sessions: The Logout Button Exposes the Real Trade-Off.",
-      "url": "https://blog.stackademic.com/jwt-vs-sessions-the-logout-button-exposes-the-real-trade-off-c5758be102dc",
-      "by": "Dev Yusuf Seyitoglu",
-      "time": 1793246979000,
-      "tags": [
-        "programming",
-        "web-development",
+        "self-improvement",
+        "ai",
         "software-development"
-      ]
-    },
-    {
-      "title": "Grep is enough for your coding agent. Until it isn’t.",
-      "url": "https://medium.com/@aakashpawar1999/grep-is-enough-for-your-coding-agent-until-it-isnt-047201fa648e",
-      "by": "Aakash Pawar",
-      "time": 1793246902000,
-      "tags": [
-        "programming",
-        "open-source",
-        "software-development"
-      ]
-    },
-    {
-      "title": "AI in 2026: Is Artificial Intelligence Replacing Humans or Redefining Work?",
-      "url": "https://medium.com/@iq.asif.530/ai-in-2026-is-artificial-intelligence-replacing-humans-or-redefining-work-35abda09bc74",
-      "by": "Asif",
-      "time": 1793246719000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "productivity"
-      ]
-    },
-    {
-      "title": "JavaScript Promise Combinators: race(), all(), allSettled(), and any()",
-      "url": "https://javascript.plainenglish.io/javascript-promise-combinators-race-all-allsettled-and-any-3f013d3807c2",
-      "by": "M A Saraswathi",
-      "time": 1793246665000,
-      "tags": [
-        "asynchronous-programming",
-        "web-development",
-        "frontend-development"
-      ]
-    },
-    {
-      "title": "AI Can Write the Code. But Can You Explain It Without AI?",
-      "url": "https://medium.com/mr-plan-publication/ai-can-write-the-code-but-can-you-explain-it-without-ai-18d50a084b9f",
-      "by": "Fozia Saleem",
-      "time": 1793245834000,
-      "tags": [
-        "python",
-        "programming",
-        "artificial-intelligence"
       ]
     }
   ]

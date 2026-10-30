@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T04:24:03.977Z",
+  "generated": "2026-10-30T04:23:27.472Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -11,18 +11,7 @@
       "desc": "Upcoming Indian film by Jithu Madhavan",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
       "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
-      "imdb": null
-    },
-    {
-      "title": "Ramayana: Part 1",
-      "lang": "Hindi",
-      "date": "2026-11-08",
-      "precision": "day",
-      "by": "Nitesh Tiwari",
-      "desc": "Upcoming film by Nitesh Tiwari",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/48/Ramayana_Part_1_%28poster%29.jpg/120px-Ramayana_Part_1_%28poster%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Ramayana%3A_Part_1",
-      "imdb": "https://www.imdb.com/title/tt27988879/"
+      "imdb": "https://www.imdb.com/title/tt38192494/"
     },
     {
       "title": "Yeh Prem Mol Liya",
@@ -155,6 +144,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/eb/Fauzi_%282027_film%29_poster.jpg/120px-Fauzi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Fauzi_(film)",
       "imdb": "https://www.imdb.com/title/tt29295821/"
+    },
+    {
+      "title": "Jai Hind Jai Sindh: A Love Story",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Indian film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Jai_Hind_Jai_Sindh%3A_A_Love_Story",
+      "imdb": "https://www.imdb.com/title/tt40412562/"
     }
   ]
 }

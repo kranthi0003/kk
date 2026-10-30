@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T04:25:18.422Z",
+  "generated": "2026-10-30T04:24:26.341Z",
   "season": "2026",
   "sources": [
     {
@@ -143,9 +143,9 @@
         "pos": 6,
         "code": "SL",
         "team": "Sri Lanka",
-        "matches": 42,
-        "points": 4050,
-        "rating": 96
+        "matches": 43,
+        "points": 4091,
+        "rating": 95
       },
       {
         "pos": 7,
@@ -159,9 +159,9 @@
         "pos": 8,
         "code": "ENG",
         "team": "England",
-        "matches": 37,
-        "points": 3384,
-        "rating": 91
+        "matches": 38,
+        "points": 3530,
+        "rating": 93
       },
       {
         "pos": 9,
@@ -273,9 +273,9 @@
         "pos": 10,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 41,
-        "points": 8925,
-        "rating": 218
+        "matches": 43,
+        "points": 9428,
+        "rating": 219
       },
       {
         "pos": 11,
@@ -289,9 +289,9 @@
         "pos": 12,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 59,
-        "points": 11911,
-        "rating": 202
+        "matches": 61,
+        "points": 12248,
+        "rating": 201
       }
     ]
   },
