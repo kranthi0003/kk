@@ -1,186 +1,186 @@
 {
-  "generated": "2026-10-30T04:24:21.106Z",
+  "generated": "2026-10-31T04:20:48.208Z",
   "reddit": [
     {
-      "title": "I made a free Prometheus disk sizing calculator (WAL + compaction headroom included). Do these assumptions match your servers?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xj39rv/i_made_a_free_prometheus_disk_sizing_calculator/",
-      "by": "kkkevinkkkk",
-      "time": 1793326364000,
-      "sub": "r/kubernetes"
+      "title": "Which is more used in industry: ArgoCD or Flux?",
+      "url": "https://www.reddit.com/r/devops/comments/1xjx85h/which_is_more_used_in_industry_argocd_or_flux/",
+      "by": "ferriematthew",
+      "time": 1793409532000,
+      "sub": "r/devops"
     },
     {
-      "title": "AMD's ROCm HRX Loom v0.1 released for targeting AMD CPUs, GPUs & NPUs",
-      "url": "https://www.reddit.com/r/programming/comments/1xisevc/amds_rocm_hrx_loom_v01_released_for_targeting_amd/",
-      "by": "Fcking_Chuck",
-      "time": 1793299360000,
+      "title": "How hard is it to check for whitespace?",
+      "url": "https://www.reddit.com/r/programming/comments/1xjtach/how_hard_is_it_to_check_for_whitespace/",
+      "by": "SerCeMan",
+      "time": 1793399073000,
       "sub": "r/programming"
     },
     {
-      "title": "The Last Proof of Human Craft: Forging a Microsoft Edge Full Chain with Logic Bugs Only!",
-      "url": "https://www.reddit.com/r/programming/comments/1xiq9r7/the_last_proof_of_human_craft_forging_a_microsoft/",
-      "by": "alexeyr",
-      "time": 1793294590000,
+      "title": "Break Stuff on Purpose",
+      "url": "https://www.reddit.com/r/programming/comments/1xjriux/break_stuff_on_purpose/",
+      "by": "Ok_Stomach6651",
+      "time": 1793394658000,
       "sub": "r/programming"
     },
     {
-      "title": "Linux Kernel TCP Flaw With 9.8 CVSS Score Affects Ubuntu, Red Hat and Other Distributions",
-      "url": "https://www.reddit.com/r/programming/comments/1xiq8we/linux_kernel_tcp_flaw_with_98_cvss_score_affects/",
-      "by": "CircumspectCapybara",
-      "time": 1793294537000,
+      "title": "Yet another performance degradation research induced by mutex in an unexpected hotpath in a mature database code.",
+      "url": "https://www.reddit.com/r/programming/comments/1xjo2ar/yet_another_performance_degradation_research/",
+      "by": "drrtuy-b",
+      "time": 1793386605000,
       "sub": "r/programming"
     },
     {
-      "title": "I want to create a Google chrome extension",
-      "url": "https://www.reddit.com/r/programming/comments/1xippf9/i_want_to_create_a_google_chrome_extension/",
-      "by": "FakeGrape823",
-      "time": 1793293366000,
+      "title": "I miss the part of programming where I figure it out myself",
+      "url": "https://www.reddit.com/r/programming/comments/1xjjr9z/i_miss_the_part_of_programming_where_i_figure_it/",
+      "by": "Overall-Beach-9801",
+      "time": 1793377038000,
       "sub": "r/programming"
     },
     {
-      "title": "FYI an open source k8s tool just took first place on sregym, the AI SRE leaderboard from uiuc researchers. who wants to beat it?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xipnyt/fyi_an_open_source_k8s_tool_just_took_first_place/",
-      "by": "royLskyhook",
-      "time": 1793293283000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "It's the memory latency, stupid",
-      "url": "https://www.reddit.com/r/programming/comments/1xiopmn/its_the_memory_latency_stupid/",
-      "by": "bobbymk10",
-      "time": 1793291215000,
+      "title": "Mastering CSS Shapes with border-shape for Dynamic Designs",
+      "url": "https://www.reddit.com/r/programming/comments/1xjj2n5/mastering_css_shapes_with_bordershape_for_dynamic/",
+      "by": "GarethX",
+      "time": 1793375555000,
       "sub": "r/programming"
     },
     {
-      "title": "Data ingestion benchmark for Kubernetes-like logs: popular open source databases for logs",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xiohvq/data_ingestion_benchmark_for_kuberneteslike_logs/",
-      "by": "Charming_Skin_8549",
-      "time": 1793290742000,
-      "sub": "r/kubernetes"
+      "title": "Datadog: We're paying the bill, so why the hell can't we access our cost data?",
+      "url": "https://www.reddit.com/r/devops/comments/1xjgjek/datadog_were_paying_the_bill_so_why_the_hell_cant/",
+      "by": "pussyseal",
+      "time": 1793369716000,
+      "sub": "r/devops"
     },
     {
-      "title": "Free backup for KubeVirt VMs and OpenShift (Plakar)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xindwb/free_backup_for_kubevirt_vms_and_openshift_plakar/",
-      "by": "nickjj_",
-      "time": 1793288320000,
-      "sub": "r/kubernetes"
+      "title": "Has the recent vulnpocalypse changed how you think about infrastructure security?",
+      "url": "https://www.reddit.com/r/devops/comments/1xjfw5p/has_the_recent_vulnpocalypse_changed_how_you/",
+      "by": "Significant-Fennel79",
+      "time": 1793368181000,
+      "sub": "r/devops"
     },
     {
-      "title": "Running soci, stargz or nydus? containerd 2.5 finally puts a deadline on proxy snapshotter calls",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xiifx4/running_soci_stargz_or_nydus_containerd_25/",
-      "by": "Fabulous-Confection6",
-      "time": 1793276440000,
-      "sub": "r/kubernetes"
+      "title": "Who is leading the pack in AI workloads AWS or Azure?",
+      "url": "https://www.reddit.com/r/devops/comments/1xjemaz/who_is_leading_the_pack_in_ai_workloads_aws_or/",
+      "by": "No-Reflection-4001",
+      "time": 1793364938000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Do you think Devops is less exposed to « IA replacement » than a software engineer ?",
+      "url": "https://www.reddit.com/r/devops/comments/1xjd9dv/do_you_think_devops_is_less_exposed_to_ia/",
+      "by": "Weary_Account9815",
+      "time": 1793361139000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Protobuf Was 49% Smaller Than JSON. After gzip, JSON Won",
-      "url": "https://martin128.medium.com/protobuf-was-49-smaller-than-json-after-gzip-json-won-2cf79713deed",
-      "by": "Martin",
-      "time": 1793333461000,
+      "title": "I Connected a Language Model to a Physical Device.",
+      "url": "https://medium.com/h7w/i-connected-a-language-model-to-a-physical-device-4993751aaf3d",
+      "by": "Dr.Michael",
+      "time": 1793419401000,
       "tags": [
-        "javascript",
-        "api",
+        "robotics",
+        "ai",
         "programming"
       ]
     },
     {
-      "title": "Top 10 API Testing Tools Every Developer and QA Engineer Should Know",
-      "url": "https://developerchandan.medium.com/top-10-api-testing-tools-every-developer-and-qa-engineer-should-know-b9dfc902b9c1",
-      "by": "Chandan Kumar",
-      "time": 1793333461000,
-      "tags": [
-        "api",
-        "software-testing",
-        "programming"
-      ]
-    },
-    {
-      "title": "Business Analyst In Action: A Practical Framework for Gap Analysis",
-      "url": "https://medium.com/@jaroenwut/business-analyst-in-action-a-practical-framework-for-gap-analysis-840be788e819",
-      "by": "Blog Chip",
-      "time": 1793333289000,
-      "tags": [
-        "software-development",
-        "business",
-        "product-management"
-      ]
-    },
-    {
-      "title": "MEDIUM",
-      "url": "https://medium.com/@acphub.in/medium-c1408a0a22bc",
-      "by": "acphub.in",
-      "time": 1793333086000,
-      "tags": [
-        "education",
-        "artificial-intelligence",
-        "design"
-      ]
-    },
-    {
-      "title": "K-Nearest Neighbors (KNN): A Beginner’s Guide to Machine Learning",
-      "url": "https://medium.com/@skalthaf505/k-nearest-neighbors-knn-a-beginners-guide-to-machine-learning-9a5a4caa965c",
-      "by": "Althaf Shaik",
-      "time": 1793332862000,
-      "tags": [
-        "machine-learning",
-        "artificial-intelligence",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Java Interview Preparation: 8 Key Areas Every Developer Should Master",
-      "url": "https://medium.com/@pardeepgill82/java-interview-preparation-8-key-areas-every-developer-should-master-c21ef0212777",
-      "by": "Interview Playbook",
-      "time": 1793332837000,
+      "title": "Building a Fully Local Jarvis on a 16GB Mac Mini: The Fits16 Series",
+      "url": "https://medium.com/@aiwithjsdev/building-a-fully-local-jarvis-on-a-16gb-mac-mini-the-fits16-series-5d5d4f51c5ad",
+      "by": "AIWITHJSDev",
+      "time": 1793419302000,
       "tags": [
         "programming",
-        "interview",
-        "java"
+        "ai-agent",
+        "machine-learning"
       ]
     },
     {
-      "title": "I Closed Port 22 on My Home Network. I Still Reach My Terminal From Anywhere.",
-      "url": "https://medium.com/@phule9225/i-closed-port-22-on-my-home-network-i-still-reach-my-terminal-from-anywhere-0d088c99049e",
-      "by": "PhuLe",
-      "time": 1793332490000,
+      "title": "Evaluation Metrics for Classification and Regression: A Beginner’s Guide",
+      "url": "https://medium.com/@skalthaf505/evaluation-metrics-for-classification-and-regression-a-beginners-guide-9c615cc0280d",
+      "by": "Althaf Shaik",
+      "time": 1793419262000,
       "tags": [
-        "developer-tools",
-        "ssh",
-        "devops"
+        "programming",
+        "artificial-intelligence",
+        "python"
       ]
     },
     {
-      "title": "What is Architecture Pricing?",
-      "url": "https://medium.com/@kgthedev/what-is-architecture-pricing-e48ddf76df42",
-      "by": "Kaleb Garner",
-      "time": 1793332444000,
+      "title": "I Ran 4 Lines of C# With dotnet run and JsonSerializer Crashed",
+      "url": "https://medium.com/@patelrajni31/i-ran-4-lines-of-c-with-dotnet-run-and-jsonserializer-crashed-a3f0591a08f7",
+      "by": "Rajni Kavathiya",
+      "time": 1793419127000,
+      "tags": [
+        "programming",
+        "aspnetcore",
+        "software-development"
+      ]
+    },
+    {
+      "title": "20 Real-World Java Interview Scenarios",
+      "url": "https://medium.com/@preetjit82/20-real-world-java-interview-scenarios-f74cdae31b9e",
+      "by": "Interview Simplified",
+      "time": 1793418411000,
+      "tags": [
+        "java",
+        "programming",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "Why Hardcoding One LLM API Key in Production Is a Ticking Time Bomb",
+      "url": "https://alexapinotes.medium.com/why-hardcoding-one-llm-api-key-in-production-is-a-ticking-time-bomb-6f282c8d47b8",
+      "by": "Alex",
+      "time": 1793417665000,
+      "tags": [
+        "llm",
+        "programming",
+        "api"
+      ]
+    },
+    {
+      "title": "Why Python for AI?",
+      "url": "https://medium.com/@meeturadi402/why-python-for-ai-3021103f08ac",
+      "by": "Aditya Kaki",
+      "time": 1793417461000,
+      "tags": [
+        "machine-learning",
+        "learning-to-code",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Moving an AI Workstation From Windows to a Mac: What the Move Exposed",
+      "url": "https://medium.com/@anuj.sadani/moving-an-ai-workstation-from-windows-to-a-mac-what-the-move-exposed-dcfbec05be4f",
+      "by": "Anuj Sadani",
+      "time": 1793417461000,
       "tags": [
         "technology",
-        "product-management",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Publish Button Was Enabled. Clicking It Did Nothing.",
-      "url": "https://bobde-yagyesh.medium.com/the-publish-button-was-enabled-clicking-it-did-nothing-95c1a295df2a",
-      "by": "Yagyesh Bobde",
-      "time": 1793332392000,
-      "tags": [
-        "automation",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "I Built an AI Test Runner That Can Adapt Without Guessing",
-      "url": "https://medium.com/lets-code-future/i-built-an-ai-test-runner-that-can-adapt-without-guessing-ed20fbd79c24",
-      "by": "FutureStack",
-      "time": 1793332226000,
-      "tags": [
-        "self-improvement",
-        "ai",
+        "programming",
         "software-development"
+      ]
+    },
+    {
+      "title": "Two Transactions Pass Alone. Together, They Break the Business Rule.",
+      "url": "https://manishsaini74.medium.com/two-transactions-pass-alone-together-they-break-the-business-rule-0df5ba7baa46",
+      "by": "Manish Saini",
+      "time": 1793417461000,
+      "tags": [
+        "software-engineering",
+        "quality-assurance",
+        "test-automation"
+      ]
+    },
+    {
+      "title": "Just Now，VS Code’s Website Got a Silent Update",
+      "url": "https://medium.com/@2084267015/just-now-vs-codes-website-got-a-silent-update-d085d7f92be7",
+      "by": "golang学习记",
+      "time": 1793417354000,
+      "tags": [
+        "vscode",
+        "productivity",
+        "ai"
       ]
     }
   ]

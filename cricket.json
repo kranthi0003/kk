@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-30T04:24:26.341Z",
+  "generated": "2026-10-31T04:20:53.141Z",
   "season": "2026",
   "sources": [
     {
@@ -191,9 +191,9 @@
         "pos": 12,
         "code": "IRE",
         "team": "Ireland",
-        "matches": 19,
-        "points": 862,
-        "rating": 45
+        "matches": 20,
+        "points": 948,
+        "rating": 47
       }
     ],
     "t20i": [
@@ -209,9 +209,9 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 74,
-        "points": 19876,
-        "rating": 269
+        "matches": 75,
+        "points": 20071,
+        "rating": 268
       },
       {
         "pos": 3,
@@ -225,9 +225,9 @@
         "pos": 4,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 53,
-        "points": 13001,
-        "rating": 245
+        "matches": 54,
+        "points": 13320,
+        "rating": 247
       },
       {
         "pos": 5,
