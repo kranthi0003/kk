@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-31T04:20:53.141Z",
+  "generated": "2026-11-01T04:21:19.280Z",
   "season": "2026",
   "sources": [
     {
@@ -19,19 +19,19 @@
     "test": [
       {
         "pos": 1,
-        "code": "AUS",
-        "team": "Australia",
-        "matches": 27,
-        "points": 3411,
-        "rating": 126
+        "code": "SA",
+        "team": "South Africa",
+        "matches": 23,
+        "points": 2860,
+        "rating": 124
       },
       {
         "pos": 2,
-        "code": "SA",
-        "team": "South Africa",
-        "matches": 19,
-        "points": 2256,
-        "rating": 119
+        "code": "AUS",
+        "team": "Australia",
+        "matches": 31,
+        "points": 3787,
+        "rating": 122
       },
       {
         "pos": 3,

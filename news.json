@@ -1,12 +1,33 @@
 {
-  "generated": "2026-10-31T04:20:48.208Z",
+  "generated": "2026-11-01T04:21:14.990Z",
   "reddit": [
     {
-      "title": "Which is more used in industry: ArgoCD or Flux?",
-      "url": "https://www.reddit.com/r/devops/comments/1xjx85h/which_is_more_used_in_industry_argocd_or_flux/",
-      "by": "ferriematthew",
-      "time": 1793409532000,
-      "sub": "r/devops"
+      "title": "Free TLS for internal services on AWS",
+      "url": "https://www.reddit.com/r/programming/comments/1xkoqft/free_tls_for_internal_services_on_aws/",
+      "by": "wineandcode",
+      "time": 1793490204000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
+      "by": "danielfree19",
+      "time": 1793454046000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Beating the compiler at signed 32-bit division",
+      "url": "https://www.reddit.com/r/programming/comments/1xka27q/beating_the_compiler_at_signed_32bit_division/",
+      "by": "alexeyr",
+      "time": 1793452828000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
+      "by": "FlatwormStunning9931",
+      "time": 1793426601000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "How hard is it to check for whitespace?",
@@ -30,157 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "I miss the part of programming where I figure it out myself",
-      "url": "https://www.reddit.com/r/programming/comments/1xjjr9z/i_miss_the_part_of_programming_where_i_figure_it/",
-      "by": "Overall-Beach-9801",
-      "time": 1793377038000,
-      "sub": "r/programming"
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xjb8gh/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1793354415000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Mastering CSS Shapes with border-shape for Dynamic Designs",
-      "url": "https://www.reddit.com/r/programming/comments/1xjj2n5/mastering_css_shapes_with_bordershape_for_dynamic/",
-      "by": "GarethX",
-      "time": 1793375555000,
-      "sub": "r/programming"
+      "title": "I wrote an empirical research paper on Stateful Container Live Migration - would love to get your feedback and critique!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xj9lvq/i_wrote_an_empirical_research_paper_on_stateful/",
+      "by": "Heavy_Cow5349",
+      "time": 1793348204000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Datadog: We're paying the bill, so why the hell can't we access our cost data?",
-      "url": "https://www.reddit.com/r/devops/comments/1xjgjek/datadog_were_paying_the_bill_so_why_the_hell_cant/",
-      "by": "pussyseal",
-      "time": 1793369716000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Has the recent vulnpocalypse changed how you think about infrastructure security?",
-      "url": "https://www.reddit.com/r/devops/comments/1xjfw5p/has_the_recent_vulnpocalypse_changed_how_you/",
-      "by": "Significant-Fennel79",
-      "time": 1793368181000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Who is leading the pack in AI workloads AWS or Azure?",
-      "url": "https://www.reddit.com/r/devops/comments/1xjemaz/who_is_leading_the_pack_in_ai_workloads_aws_or/",
-      "by": "No-Reflection-4001",
-      "time": 1793364938000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Do you think Devops is less exposed to « IA replacement » than a software engineer ?",
-      "url": "https://www.reddit.com/r/devops/comments/1xjd9dv/do_you_think_devops_is_less_exposed_to_ia/",
-      "by": "Weary_Account9815",
-      "time": 1793361139000,
-      "sub": "r/devops"
+      "title": "Stuck Between IT and RKE2: Need Advice on Operating Without Sudo Access",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xj9awj/stuck_between_it_and_rke2_need_advice_on/",
+      "by": "Equivalent_Berry3525",
+      "time": 1793347029000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "I Connected a Language Model to a Physical Device.",
-      "url": "https://medium.com/h7w/i-connected-a-language-model-to-a-physical-device-4993751aaf3d",
-      "by": "Dr.Michael",
-      "time": 1793419401000,
-      "tags": [
-        "robotics",
-        "ai",
-        "programming"
-      ]
-    },
-    {
-      "title": "Building a Fully Local Jarvis on a 16GB Mac Mini: The Fits16 Series",
-      "url": "https://medium.com/@aiwithjsdev/building-a-fully-local-jarvis-on-a-16gb-mac-mini-the-fits16-series-5d5d4f51c5ad",
-      "by": "AIWITHJSDev",
-      "time": 1793419302000,
-      "tags": [
-        "programming",
-        "ai-agent",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "Evaluation Metrics for Classification and Regression: A Beginner’s Guide",
-      "url": "https://medium.com/@skalthaf505/evaluation-metrics-for-classification-and-regression-a-beginners-guide-9c615cc0280d",
-      "by": "Althaf Shaik",
-      "time": 1793419262000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "python"
-      ]
-    },
-    {
-      "title": "I Ran 4 Lines of C# With dotnet run and JsonSerializer Crashed",
-      "url": "https://medium.com/@patelrajni31/i-ran-4-lines-of-c-with-dotnet-run-and-jsonserializer-crashed-a3f0591a08f7",
-      "by": "Rajni Kavathiya",
-      "time": 1793419127000,
-      "tags": [
-        "programming",
-        "aspnetcore",
-        "software-development"
-      ]
-    },
-    {
-      "title": "20 Real-World Java Interview Scenarios",
-      "url": "https://medium.com/@preetjit82/20-real-world-java-interview-scenarios-f74cdae31b9e",
-      "by": "Interview Simplified",
-      "time": 1793418411000,
-      "tags": [
-        "java",
-        "programming",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "Why Hardcoding One LLM API Key in Production Is a Ticking Time Bomb",
-      "url": "https://alexapinotes.medium.com/why-hardcoding-one-llm-api-key-in-production-is-a-ticking-time-bomb-6f282c8d47b8",
-      "by": "Alex",
-      "time": 1793417665000,
+      "title": "Evaluating AI Agents: Why the Right Result Is Not Enough?",
+      "url": "https://medium.com/@sainitesh/evaluating-ai-agents-why-the-right-result-is-not-enough-235f49b1ba58",
+      "by": "Sai Nitesh Palamakula",
+      "time": 1793506385000,
       "tags": [
         "llm",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Entendiendo cAdvisor: La pieza clave para la recolectación de métricas de contenedores en…",
+      "url": "https://jhonnypong.medium.com/entendiendo-cadvisor-la-pieza-clave-para-la-recolectaci%C3%B3n-de-m%C3%A9tricas-de-contenedores-en-7fd548dfb479",
+      "by": "Jhonnata Gil Chaves",
+      "time": 1793506362000,
+      "tags": [
+        "devops",
+        "docker",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Node.js Coverage Said 100%. One File Had No Tests at All",
+      "url": "https://martin128.medium.com/node-js-coverage-said-100-one-file-had-no-tests-at-all-3b156e2a8af3",
+      "by": "Martin",
+      "time": 1793506261000,
+      "tags": [
+        "testing",
         "programming",
-        "api"
+        "nodejs"
       ]
     },
     {
-      "title": "Why Python for AI?",
-      "url": "https://medium.com/@meeturadi402/why-python-for-ai-3021103f08ac",
-      "by": "Aditya Kaki",
-      "time": 1793417461000,
+      "title": "The $6.3 Billion Binance Hack: How Hackers May Have Used One Employee’s Laptop",
+      "url": "https://medium.com/@arifbipubd3/the-6-3-billion-binance-hack-how-hackers-may-have-used-one-employees-laptop-3559304e2139",
+      "by": "Ariful Islam",
+      "time": 1793506171000,
       "tags": [
-        "machine-learning",
-        "learning-to-code",
-        "artificial-intelligence"
+        "cybersecurity",
+        "binence",
+        "software-engineering"
       ]
     },
     {
-      "title": "Moving an AI Workstation From Windows to a Mac: What the Move Exposed",
-      "url": "https://medium.com/@anuj.sadani/moving-an-ai-workstation-from-windows-to-a-mac-what-the-move-exposed-dcfbec05be4f",
-      "by": "Anuj Sadani",
-      "time": 1793417461000,
+      "title": "The Cloud AI Bubble is Hitting a Wall: Why My New App is 100% Offline",
+      "url": "https://medium.com/@navgankarakshay/the-cloud-ai-bubble-is-hitting-a-wall-why-my-new-app-is-100-offline-b7ea12e7b353",
+      "by": "Navgankarakshay",
+      "time": 1793505933000,
       "tags": [
-        "technology",
-        "programming",
-        "software-development"
+        "artificial-intelligence",
+        "llm",
+        "ai-agent"
       ]
     },
     {
-      "title": "Two Transactions Pass Alone. Together, They Break the Business Rule.",
-      "url": "https://manishsaini74.medium.com/two-transactions-pass-alone-together-they-break-the-business-rule-0df5ba7baa46",
-      "by": "Manish Saini",
-      "time": 1793417461000,
+      "title": "LLMs in 2026: A Recap",
+      "url": "https://medium.com/@briangoh.junw/llms-in-2026-a-recap-6d7b30cbfd2f",
+      "by": "Brian Goh",
+      "time": 1793505780000,
       "tags": [
+        "llm",
         "software-engineering",
-        "quality-assurance",
-        "test-automation"
+        "ai"
       ]
     },
     {
-      "title": "Just Now，VS Code’s Website Got a Silent Update",
-      "url": "https://medium.com/@2084267015/just-now-vs-codes-website-got-a-silent-update-d085d7f92be7",
-      "by": "golang学习记",
-      "time": 1793417354000,
+      "title": "Naive Bayes Algorithm: Understanding Probability in Machine Learning",
+      "url": "https://medium.com/@skalthaf505/naive-bayes-algorithm-understanding-probability-in-machine-learning-a92c2fc8f99f",
+      "by": "Althaf Shaik",
+      "time": 1793505661000,
       "tags": [
-        "vscode",
-        "productivity",
-        "ai"
+        "programming",
+        "python",
+        "data-science"
+      ]
+    },
+    {
+      "title": "That Helpful AI Skill Might Be a Malware Installer",
+      "url": "https://medium.com/@lelianto.eko/that-helpful-ai-skill-might-be-a-malware-installer-b749f18624a3",
+      "by": "Lelianto Eko Pradana",
+      "time": 1793505500000,
+      "tags": [
+        "artificial-intelligence",
+        "ai-agent",
+        "malware"
+      ]
+    },
+    {
+      "title": "AI Coding Agents Are Changing Web Development — What Should Beginner Developers Learn Now?",
+      "url": "https://medium.com/@mdtharick25/ai-coding-agents-are-changing-web-development-what-should-beginner-developers-learn-now-9b9ccb32a99d",
+      "by": "Mohammed Tharick",
+      "time": 1793505391000,
+      "tags": [
+        "web-development",
+        "programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "Two sentences, two hours, a signed train.How",
+      "url": "https://medium.com/@marcin.marzec_77573/two-sentences-two-hours-a-signed-train-how-0dc40e977009",
+      "by": "Marcin Marzec",
+      "time": 1793505282000,
+      "tags": [
+        "ai-agent",
+        "software-development",
+        "devops"
       ]
     }
   ]

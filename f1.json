@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-31T04:20:50.786Z",
+  "generated": "2026-11-01T04:21:17.644Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
-  "round": 18,
+  "round": 19,
   "drivers": [
     {
       "pos": 1,
@@ -280,6 +280,17 @@
       "nationality": "Mexican",
       "team": "Cadillac F1 Team",
       "teamId": "cadillac"
+    },
+    {
+      "pos": 24,
+      "points": 0,
+      "wins": 0,
+      "code": "HIR",
+      "number": null,
+      "first": "Ryo",
+      "last": "Hirakawa",
+      "team": "Haas F1 Team",
+      "teamId": "haas"
     }
   ],
   "constructors": [
