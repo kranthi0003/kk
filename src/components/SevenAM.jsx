@@ -28,7 +28,9 @@ async function unlock(pass) {
 // In memory only, keyed by the link it came from.
 let cached = null
 
-const readKey = () => (/^#\/7am\/([A-Za-z0-9_-]{8,})\/?$/i.exec(window.location.hash || '') || [])[1] || ''
+// The key may be a short word, so allow three characters and up, and
+// read it in lower case so a capital letter typed by hand still works.
+const readKey = () => ((/^#\/7am\/([A-Za-z0-9_-]{3,})\/?$/i.exec(window.location.hash || '') || [])[1] || '').toLowerCase()
 
 const FONTS_ID = 'am-fonts'
 const FONTS_HREF =
