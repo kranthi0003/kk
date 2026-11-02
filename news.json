@@ -1,19 +1,33 @@
 {
-  "generated": "2026-11-02T10:07:44.137Z",
+  "generated": "2026-11-02T12:00:16.557Z",
   "reddit": [
+    {
+      "title": "CheerpJ 5.0: Java 21/25 in the browser, full OpenJDK, and a new WasmGC engine",
+      "url": "https://www.reddit.com/r/programming/comments/1xlutld/cheerpj_50_java_2125_in_the_browser_full_openjdk/",
+      "by": "alexp_lt",
+      "time": 1793619286000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Reducing “synthetic” content with programming language design",
+      "url": "https://www.reddit.com/r/programming/comments/1xlu1sz/reducing_synthetic_content_with_programming/",
+      "by": "wheatBread",
+      "time": 1793616653000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "For Buying voucher ?? shall i trust!",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xlu1dl/for_buying_voucher_shall_i_trust/",
+      "by": "Nims_Dai",
+      "time": 1793616611000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "Designsystemet, Now in Elm · cekrem.github.io",
       "url": "https://www.reddit.com/r/programming/comments/1xlsnmi/designsystemet_now_in_elm_cekremgithubio/",
       "by": "cekrem",
       "time": 1793611506000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Weekly Self Promotion Thread",
-      "url": "https://www.reddit.com/r/devops/comments/1xlqwcb/weekly_self_promotion_thread/",
-      "by": "AutoModerator",
-      "time": 1793604614000,
-      "sub": "r/devops"
     },
     {
       "title": "The fastest double-to-string algorithm you’ve never heard of",
@@ -23,11 +37,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "What’s your experience using incident.io for on-call and incident response?",
-      "url": "https://www.reddit.com/r/devops/comments/1xlom45/whats_your_experience_using_incidentio_for_oncall/",
-      "by": "Particular-Sell2617",
-      "time": 1793596373000,
-      "sub": "r/devops"
+      "title": "Kuberenetes home lab suggestion",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xlozgi/kuberenetes_home_lab_suggestion/",
+      "by": "lispLaiBhari",
+      "time": 1793597625000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
@@ -37,150 +51,136 @@
       "sub": "r/programming"
     },
     {
-      "title": "How many apps have non-engineers at your company built with Claude/Cursor/Lovable, and who owns them when they break?",
-      "url": "https://www.reddit.com/r/devops/comments/1xlhrh8/how_many_apps_have_nonengineers_at_your_company/",
-      "by": "lightninja987",
-      "time": 1793575770000,
-      "sub": "r/devops"
+      "title": "How to monitor eks cluster health",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
+      "by": "Calm_Pick_4250",
+      "time": 1793552223000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "AI taking over Devops.",
-      "url": "https://www.reddit.com/r/devops/comments/1xldkq0/ai_taking_over_devops/",
-      "by": "Glittering_Ad4197",
-      "time": 1793565042000,
-      "sub": "r/devops"
+      "title": "Monthly: Who is hiring?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
+      "by": "AutoModerator",
+      "time": 1793530811000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "The Developer Communication Handbook",
-      "url": "https://www.reddit.com/r/programming/comments/1xl9z9b/the_developer_communication_handbook/",
-      "by": "alexeyr",
-      "time": 1793556511000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Jepsen on ParticleDB: \"We tested versions 1.1.4 through 1.1.18.11.rc-22 and found that ParticleDB’s claims of “Full ACID” were somewhat premature\"",
-      "url": "https://www.reddit.com/r/programming/comments/1xl8d57/jepsen_on_particledb_we_tested_versions_114/",
-      "by": "alexeyr",
-      "time": 1793552787000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Building a fast perimeter security auditor in Next.js: Handling Anti-SSRF, RFC 1918 ranges, and socket timeouts",
-      "url": "https://www.reddit.com/r/devops/comments/1xkomdn/building_a_fast_perimeter_security_auditor_in/",
-      "by": "Some-Onion4062",
-      "time": 1793489862000,
-      "sub": "r/devops"
+      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
+      "by": "danielfree19",
+      "time": 1793454046000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "AI Can Generate an Entire .NET Application in Minutes. Here Are 7 Things It Still Cannot Guarantee.",
-      "url": "https://medium.com/@mohsho10/ai-can-generate-an-entire-net-application-in-minutes-here-are-7-things-it-still-cannot-guarantee-ef4ed87267c7",
-      "by": "Mohammad Shoeb",
-      "time": 1793613663000,
+      "title": "My Senior Engineer Added One @Transactional Annotation. We Charged 312 Customers Twice.",
+      "url": "https://medium.com/@gkhanalkan_71996/my-senior-engineer-added-one-transactional-annotation-we-charged-312-customers-twice-fefa320b31e7",
+      "by": "SYSTEM DESIGN & Java Spring Boot",
+      "time": 1793620509000,
       "tags": [
         "programming",
-        "csharp",
-        "architecture"
+        "software-development",
+        "java"
       ]
     },
     {
-      "title": "Deep Observability with eBPF: Kernel-Level Telemetry and Zero-Overhead Security for Amazon EKS",
-      "url": "https://medium.com/@naeemulhaq/deep-observability-with-ebpf-kernel-level-telemetry-and-zero-overhead-security-for-amazon-eks-a907d7cf064b",
-      "by": "Naeem ul Haq",
-      "time": 1793613168000,
+      "title": "How RIGOR Implements Two Native Assets in One UTXO Ledger",
+      "url": "https://medium.com/@rigorchain/how-rigor-implements-two-native-assets-in-one-utxo-ledger-443a7ff6413f",
+      "by": "Rigorchain Project",
+      "time": 1793620459000,
       "tags": [
-        "devops",
-        "cloud-computing",
-        "cybersecurity"
+        "software-engineering",
+        "cryptography",
+        "blockchain"
       ]
     },
     {
-      "title": "AI Agent Entitlement Mapping Is the One Governance Job That Is Easier for Agents Than for People",
-      "url": "https://medium.com/@hrshit.kunwar/ai-agent-entitlement-mapping-is-the-one-governance-job-that-is-easier-for-agents-than-for-people-1eda5509f20c",
-      "by": "Hrshit Kunwar",
-      "time": 1793613116000,
+      "title": "The Staff Engineer Interview Was Going Perfectly. Then He Said “Exactly Once.”",
+      "url": "https://medium.com/codetodeploy/the-staff-engineer-interview-was-going-perfectly-then-he-said-exactly-once-8bdb0f489033",
+      "by": "SYSTEM DESIGN & Java Spring Boot",
+      "time": 1793620223000,
       "tags": [
-        "security",
-        "devops",
-        "ai-agent"
+        "programming",
+        "leadership",
+        "java"
       ]
     },
     {
-      "title": "Why is Linux so important for a DevOps engineer?",
-      "url": "https://medium.com/@saranyamg10/why-is-linux-so-important-for-a-devops-engineer-4c8ef3234117",
-      "by": "Saranya M G",
-      "time": 1793612922000,
+      "title": "Our Kafka Consumer Lag Hit 4 Million. Adding 20 Pods Made the Outage Worse",
+      "url": "https://javascript.plainenglish.io/our-kafka-consumer-lag-hit-4-million-adding-20-pods-made-the-outage-worse-223e162d859e",
+      "by": "SYSTEM DESIGN & Java Spring Boot",
+      "time": 1793620135000,
       "tags": [
-        "linux",
-        "devopslearners",
-        "technology"
+        "coding",
+        "java",
+        "programming"
       ]
     },
     {
-      "title": "Your AI Cuts Off Your Hardest Answers First",
-      "url": "https://medium.com/@jaberadam2001/your-ai-cuts-off-your-hardest-answers-first-1daf5f9ca781",
-      "by": "Adam Jaber",
-      "time": 1793612633000,
+      "title": "Our PostgreSQL Query Took 12ms. Then the Sixth Execution Changed Everything.",
+      "url": "https://medium.com/engineering-playbook/our-postgresql-query-took-12ms-then-the-sixth-execution-changed-everything-b8fd0f2ff995",
+      "by": "SYSTEM DESIGN & Java Spring Boot",
+      "time": 1793619997000,
       "tags": [
-        "openai",
-        "artificial-intelligence",
+        "programming",
+        "spring-boot",
         "software-engineering"
       ]
     },
     {
-      "title": "I Built and Launched a Multiplayer 3D Game on a Week of Leave — The AI Was Not the Hard Part.",
-      "url": "https://medium.com/@abonuoha/i-built-and-launched-a-multiplayer-3d-game-on-a-week-of-leave-the-ai-was-not-the-hard-part-edb142bac7ce",
-      "by": "Onuoha Abel",
-      "time": 1793612426000,
+      "title": "Where to Add Guardrails in Your AI Application",
+      "url": "https://medium.com/ai-tools-digest/where-to-add-guardrails-in-your-ai-application-6d19a560067e",
+      "by": "bytebantz",
+      "time": 1793619971000,
       "tags": [
-        "programming",
-        "software-engineering",
-        "generative-ai"
+        "langgraph",
+        "ai-agent",
+        "langchain"
       ]
     },
     {
-      "title": "AI Agents vs Chatbots: Why Developers Disagree About the AI Hype",
-      "url": "https://levelup.gitconnected.com/ai-agents-vs-chatbots-why-developers-disagree-about-the-ai-hype-a3291c91fc39",
-      "by": "",
-      "time": 1793612175000,
+      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
+      "url": "https://medium.com/@shyannvrhowemws385/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-eb6ad23f6508",
+      "by": "Casino en ligne",
+      "time": 1793619802000,
       "tags": [
-        "software-engineering",
+        "programming",
         "technology",
-        "software-development"
+        "devops"
       ]
     },
     {
-      "title": "Best AWS and DevOps Course in India 2026: The Ultimate Cloud Career Roadmap",
-      "url": "https://medium.com/@vdksaikiran08/best-aws-and-devops-course-in-india-2026-the-ultimate-cloud-career-roadmap-5de76f8cd40d",
-      "by": "Vdksaikiran",
-      "time": 1793611986000,
+      "title": "Standardizing Dev Environments with Devcontainers and VS Code",
+      "url": "https://medium.com/@agbassahr/standardizing-dev-environments-with-devcontainers-and-vs-code-3ff7eaa2e74c",
+      "by": "Agbassah Roodolphe",
+      "time": 1793619665000,
       "tags": [
-        "devops",
-        "ai",
-        "roadmaps"
+        "software-engineering",
+        "cloud-native",
+        "beginner-coding"
       ]
     },
     {
-      "title": "Üretimden Notlar #8 — Deployment’ı Geri Aldık. Veritabanı Eski Haline Dönmedi.",
-      "url": "https://medium.com/@tanjubozok/%C3%BCretimden-notlar-8-deployment%C4%B1-geri-ald%C4%B1k-veritaban%C4%B1-eski-haline-d%C3%B6nmedi-e15463dcf59e",
-      "by": "Tanju BOZOK",
-      "time": 1793611861000,
+      "title": "Custom Software Development Cost in 2026: What Businesses Need to Know",
+      "url": "https://medium.com/@ebadurrehman366/custom-software-development-cost-in-2026-what-businesses-need-to-know-ebffb9651c4b",
+      "by": "Ebadurrehman",
+      "time": 1793619628000,
       "tags": [
-        "software-architecture",
-        "dotnet",
-        "software-development"
+        "software-development",
+        "software-testing",
+        "software-engineering"
       ]
     },
     {
-      "title": "Core Web Vitals Remediation: Fix LCP & INP · SazM",
-      "url": "https://medium.com/@sazmco/core-web-vitals-remediation-fix-lcp-inp-sazm-75655d79c461",
-      "by": "Saravana Bhava",
-      "time": 1793611707000,
+      "title": "Agents Started 40% of GitHub Pull Requests in September, and GitHub’s Report Never Says If the Code…",
+      "url": "https://meetcyber.net/agents-started-40-of-github-pull-requests-in-september-and-githubs-report-never-says-if-the-code-8c4d0e695b05",
+      "by": "Aya Mahmoud",
+      "time": 1793619577000,
       "tags": [
-        "programming",
-        "seo",
-        "wordpress"
+        "technology",
+        "machine-learning",
+        "business"
       ]
     }
   ]

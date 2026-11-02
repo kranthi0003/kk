@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T10:07:47.717Z",
+  "generated": "2026-11-02T12:00:22.404Z",
   "season": "2026",
   "sources": [
     {
@@ -62,16 +62,16 @@
         "code": "BAN",
         "team": "Bangladesh",
         "matches": 25,
-        "points": 1878,
-        "rating": 78
+        "points": 1916,
+        "rating": 77
       },
       {
         "pos": 7,
         "code": "SL",
         "team": "Sri Lanka",
         "matches": 19,
-        "points": 1916,
-        "rating": 77
+        "points": 1434,
+        "rating": 75
       },
       {
         "pos": 8,
@@ -127,9 +127,9 @@
         "pos": 4,
         "code": "PAK",
         "team": "Pakistan",
-        "matches": 36,
-        "points": 3693,
-        "rating": 103
+        "matches": 37,
+        "points": 3838,
+        "rating": 104
       },
       {
         "pos": 5,
@@ -141,18 +141,18 @@
       },
       {
         "pos": 6,
-        "code": "SL",
-        "team": "Sri Lanka",
-        "matches": 43,
-        "points": 4091,
-        "rating": 95
-      },
-      {
-        "pos": 7,
         "code": "AFG",
         "team": "Afghanistan",
         "matches": 31,
         "points": 2926,
+        "rating": 94
+      },
+      {
+        "pos": 7,
+        "code": "SL",
+        "team": "Sri Lanka",
+        "matches": 44,
+        "points": 4144,
         "rating": 94
       },
       {
@@ -209,9 +209,9 @@
         "pos": 2,
         "code": "IND",
         "team": "India",
-        "matches": 75,
-        "points": 20071,
-        "rating": 268
+        "matches": 76,
+        "points": 20268,
+        "rating": 267
       },
       {
         "pos": 3,
@@ -225,9 +225,9 @@
         "pos": 4,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 54,
-        "points": 13320,
-        "rating": 247
+        "matches": 55,
+        "points": 13638,
+        "rating": 248
       },
       {
         "pos": 5,
@@ -273,9 +273,9 @@
         "pos": 10,
         "code": "AFG",
         "team": "Afghanistan",
-        "matches": 43,
-        "points": 9428,
-        "rating": 219
+        "matches": 44,
+        "points": 9679,
+        "rating": 220
       },
       {
         "pos": 11,
@@ -289,9 +289,9 @@
         "pos": 12,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 61,
-        "points": 12248,
-        "rating": 201
+        "matches": 62,
+        "points": 12417,
+        "rating": 200
       }
     ]
   },
