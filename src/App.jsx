@@ -50,6 +50,7 @@ const ExamPage = lazy(() => import('./components/ExamPage'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
 const Her = lazy(() => import('./components/Her'))
 const ItsAlwaysHer = lazy(() => import('./components/ItsAlwaysHer'))
+const SevenAM = lazy(() => import('./components/SevenAM'))
 const WallE = lazy(() => import('./components/WallE'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
@@ -533,6 +534,16 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#15100d' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(233,184,102,0.6)' }}>loading…</div></div>}>
         <ItsAlwaysHer onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // A private, unlisted note that opens only from its link: the key to
+  // its encrypted words rides in the hash after #/7am/, never a server.
+  if (/^#\/7am(\/|$)/i.test(route)) {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b1022' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(255,211,107,0.6)' }}>loading…</div></div>}>
+        <SevenAM onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
