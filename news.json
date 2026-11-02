@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T04:22:15.853Z",
+  "generated": "2026-11-02T04:35:19.180Z",
   "reddit": [
     {
       "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
@@ -73,6 +73,39 @@
     }
   ],
   "medium": [
+    {
+      "title": "10 MCP Servers You Probably Didn’t Know Existed",
+      "url": "https://python.plainenglish.io/10-mcp-servers-you-probably-didnt-know-existed-26ba60a597af",
+      "by": "Arham Ali",
+      "time": 1793593655000,
+      "tags": [
+        "data-science",
+        "artificial-intelligence",
+        "mcp-server"
+      ]
+    },
+    {
+      "title": "10 Laravel Errors That Make Beginners Panic (and How to Fix Them)",
+      "url": "https://medium.com/codex/10-laravel-errors-that-make-beginners-panic-and-how-to-fix-them-5dc000a2eaa4",
+      "by": "Developer Awam",
+      "time": 1793592987000,
+      "tags": [
+        "php",
+        "laravel-framework",
+        "programming"
+      ]
+    },
+    {
+      "title": "5 Python Skills That Matter More Than Memorizing Syntax in the AI Era",
+      "url": "https://python.plainenglish.io/5-python-skills-that-matter-more-than-memorizing-syntax-in-the-ai-era-530fcd5acb6e",
+      "by": "Dr Abdullah Azhar",
+      "time": 1793592983000,
+      "tags": [
+        "programming",
+        "coding",
+        "python"
+      ]
+    },
     {
       "title": "Linear Regression: Understanding Relationships and Making Predictions",
       "url": "https://medium.com/@skalthaf505/linear-regression-understanding-relationships-and-making-predictions-b116c0f61f79",
@@ -148,39 +181,6 @@
         "software-development",
         "programming",
         "react-native"
-      ]
-    },
-    {
-      "title": "The New Engineering in the AI Era",
-      "url": "https://medium.com/@ertugrulhaskan/the-new-engineering-in-the-ai-era-24b65cf912a2",
-      "by": "Ertugrul Alex Haskan",
-      "time": 1793591564000,
-      "tags": [
-        "software-engineering",
-        "future-of-work",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "TypeScript Utility Types",
-      "url": "https://medium.com/@dahamakalanka2000/typescript-utility-types-b099c88254ce",
-      "by": "Dahamakalanka",
-      "time": 1793591493000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "type"
-      ]
-    },
-    {
-      "title": "Forget the BFF — HTMX Deleted 40 Endpoints From Our Stack",
-      "url": "https://medium.com/@ArkProtocol1/forget-the-bff-htmx-deleted-40-endpoints-from-our-stack-4bee614e5ec2",
-      "by": "Ark Protocol",
-      "time": 1793591407000,
-      "tags": [
-        "react",
-        "programming",
-        "htmx"
       ]
     }
   ]
