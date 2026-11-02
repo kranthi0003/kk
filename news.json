@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-02T05:20:14.343Z",
+  "generated": "2026-11-02T08:14:37.526Z",
   "reddit": [
     {
-      "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
-      "url": "https://www.reddit.com/r/programming/comments/1xlll2u/bad_apple_running_on_the_nand2tetris_cpu_simulator/",
-      "by": "Key_Oven4854",
-      "time": 1793586756000,
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How much do you agree with this opinion",
+      "url": "https://www.reddit.com/r/programming/comments/1vi205l/how_much_do_you_agree_with_this_opinion/",
+      "by": "sidneysweeneysrack",
+      "time": 1786112509000,
       "sub": "r/programming"
     },
     {
-      "title": "The Developer Communication Handbook",
-      "url": "https://www.reddit.com/r/programming/comments/1xl9z9b/the_developer_communication_handbook/",
-      "by": "alexeyr",
-      "time": 1793556511000,
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "From constraint models to playable puzzle games",
+      "url": "https://www.reddit.com/r/programming/comments/1vhxjpv/from_constraint_models_to_playable_puzzle_games/",
+      "by": "mzl",
+      "time": 1786100710000,
       "sub": "r/programming"
     },
     {
-      "title": "Jepsen on ParticleDB: \"We tested versions 1.1.4 through 1.1.18.11.rc-22 and found that ParticleDB’s claims of “Full ACID” were somewhat premature\"",
-      "url": "https://www.reddit.com/r/programming/comments/1xl8d57/jepsen_on_particledb_we_tested_versions_114/",
-      "by": "alexeyr",
-      "time": 1793552787000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How to monitor eks cluster health",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
-      "by": "Calm_Pick_4250",
-      "time": 1793552223000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "What do you get when you put every character that exists on a single page?",
-      "url": "https://www.reddit.com/r/programming/comments/1xl7yhp/what_do_you_get_when_you_put_every_character_that/",
-      "by": "alexeyr",
-      "time": 1793551856000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Turbo Haskell",
-      "url": "https://www.reddit.com/r/programming/comments/1xl7lsn/turbo_haskell/",
-      "by": "alexeyr",
-      "time": 1793551024000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Monthly: Who is hiring?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
-      "by": "AutoModerator",
-      "time": 1793530811000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
-      "by": "danielfree19",
-      "time": 1793454046000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
-      "by": "FlatwormStunning9931",
-      "time": 1793426601000,
-      "sub": "r/kubernetes"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     },
     {
       "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xjb8gh/weekly_share_your_victories_thread/",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
-      "time": 1793354415000,
+      "time": 1786096817000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How do you guys manage backups of servers?",
+      "url": "https://www.reddit.com/r/devops/comments/1vhvnf3/how_do_you_guys_manage_backups_of_servers/",
+      "by": "hronak",
+      "time": 1786094328000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Java in 2026, totally worth it",
+      "url": "https://www.reddit.com/r/programming/comments/1vhpezn/java_in_2026_totally_worth_it/",
+      "by": "OSBY_Glabay",
+      "time": 1786073317000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "From Task to Production: Letting AI Agents Handle the Entire Workflow",
-      "url": "https://medium.com/@moeedbhatti77/from-task-to-production-letting-ai-agents-handle-the-entire-workflow-8cf924bd8197",
-      "by": "Moeed Bhatti",
-      "time": 1793596541000,
-      "tags": [
-        "claude",
-        "ai-agent",
-        "ci-cd-pipeline"
-      ]
-    },
-    {
-      "title": "A config 5x longer took 28.7x longer to validate",
-      "url": "https://levelup.gitconnected.com/graph-valid-tree-in-go-count-the-links-then-union-find-4c7d2ef237c5",
-      "by": "Archit Agarwal",
-      "time": 1793596509000,
+      "title": "What an AI Production Readiness Review Actually Rejects.",
+      "url": "https://dmytronasyrov.medium.com/ai-production-readiness-review-release-rejections-3d80c4158004",
+      "by": "Dmytro Nasyrov",
+      "time": 1793606682000,
       "tags": [
         "software-engineering",
-        "performance",
-        "algorithms"
-      ]
-    },
-    {
-      "title": "System Design Is Just Knowing What Breaks Next",
-      "url": "https://levelup.gitconnected.com/system-design-is-just-knowing-what-breaks-next-cd3c064d25fd",
-      "by": "KanishkSingh",
-      "time": 1793596498000,
-      "tags": [
-        "programming",
-        "system-design-concepts",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "How I Organize a Go Service When I Don’t Want Clean Architecture Bloat",
-      "url": "https://levelup.gitconnected.com/how-i-organize-a-go-service-when-i-dont-want-clean-architecture-bloat-62c880802739",
-      "by": "syarif",
-      "time": 1793596488000,
-      "tags": [
-        "backend-development",
-        "software-engineering",
-        "golang"
-      ]
-    },
-    {
-      "title": "999 more stores made the delivery map 213x slower",
-      "url": "https://levelup.gitconnected.com/distance-to-nearest-store-in-go-two-sweeps-not-a-queue-fb2948e1e15d",
-      "by": "Archit Agarwal",
-      "time": 1793596479000,
-      "tags": [
-        "golang",
-        "performance",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Godfather of AI Admits We Don’t Know How It Works",
-      "url": "https://levelup.gitconnected.com/why-we-dont-understand-how-ai-works-hinton-truth-4014dc469127",
-      "by": "Nikhil Varma",
-      "time": 1793596469000,
-      "tags": [
-        "machine-learning",
-        "programming",
+        "reliability-engineering",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "I Gave the Same SQL Queries 994 Fewer Files to Read",
-      "url": "https://levelup.gitconnected.com/i-gave-the-same-sql-queries-994-fewer-files-to-read-a413e287de5d",
-      "by": "Thomas Reid",
-      "time": 1793596464000,
+      "title": "You Probably Don’t Need Jest for Most Node.js Testing Anymore",
+      "url": "https://habtesoft.medium.com/you-probably-dont-need-jest-for-most-node-js-testing-anymore-6792be11a693",
+      "by": "habtesoft",
+      "time": 1793606462000,
       "tags": [
         "programming",
-        "technology",
-        "apache-iceberg"
+        "nodejs",
+        "software-development"
       ]
     },
     {
-      "title": "How Does Java Fit Into the World of AI — and How Can It Become an Even Better Fit?",
-      "url": "https://levelup.gitconnected.com/how-does-java-fit-into-the-world-of-ai-and-how-can-it-become-an-even-better-fit-7d1bb02a9b1c",
-      "by": "Rahul Soni",
-      "time": 1793596379000,
+      "title": "OVHcloud Now Bills Disks and IPv4 Apart, Up to 21.9%",
+      "url": "https://medium.com/@andy.a.g/ovhcloud-now-bills-disks-and-ipv4-apart-up-to-21-9-79039fff9abb",
+      "by": "Andy.G",
+      "time": 1793606462000,
       "tags": [
-        "software-engineering",
-        "java",
-        "tech"
+        "startup",
+        "small-business",
+        "software-development"
       ]
     },
     {
-      "title": "Extension Object Pattern in .NET C#: From GetExtension to feature collections (2026)",
-      "url": "https://levelup.gitconnected.com/extension-object-pattern-in-net-c-from-getextension-to-feature-collections-2026-4a6d2a7140ab",
-      "by": "Emanuele Longo",
-      "time": 1793596372000,
+      "title": "Part 4: Monitoring and Alerting on a Budget",
+      "url": "https://medium.com/@lilstex4good/part-4-monitoring-and-alerting-on-a-budget-3430075e9df8",
+      "by": "Emmanuel Mbagwu",
+      "time": 1793606462000,
       "tags": [
-        "design-patterns",
-        "dotnet",
-        "software-architecture"
+        "devops",
+        "azure",
+        "azure-cost-management"
       ]
     },
     {
-      "title": "Why Learning a Programming Language Is Not the Same as Learning to Code",
-      "url": "https://medium.com/codetodeploy/why-learning-a-programming-language-is-not-the-same-as-learning-to-code-80e9b62b4a8e",
-      "by": "Fozia Saleem",
-      "time": 1793596349000,
+      "title": "Software Engineering Different Diagrams",
+      "url": "https://medium.com/@dr30031102/software-engineering-different-diagrams-a0726d4f2d38",
+      "by": "Devansh Roy",
+      "time": 1793606461000,
+      "tags": [
+        "coding",
+        "software-requirements",
+        "programming"
+      ]
+    },
+    {
+      "title": "A Science Girlie’s Python Journey",
+      "url": "https://medium.com/@prateekshaar/a-science-girlies-python-journey-bef093350d12",
+      "by": "Prateekshaar",
+      "time": 1793606403000,
       "tags": [
         "programming",
-        "learning-to-code",
-        "python"
+        "python",
+        "sofware-development"
+      ]
+    },
+    {
+      "title": "Consistent Hashing Explained Simply: From Load Balancing Failures to Virtual Nodes",
+      "url": "https://medium.com/@adatiyavinayshaileshbhai/consistent-hashing-explained-simply-from-load-balancing-failures-to-virtual-nodes-504a04162711",
+      "by": "Vinay Adatiya",
+      "time": 1793606394000,
+      "tags": [
+        "distributed-systems",
+        "backend-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Faster Fleet Restarts with AWS CodeDeploy RESTART Mode: The Complete Guide",
+      "url": "https://medium.com/@support_95015/faster-fleet-restarts-with-aws-codedeploy-restart-mode-the-complete-guide-2d2fca8e5778",
+      "by": "MetaSips Official",
+      "time": 1793606193000,
+      "tags": [
+        "ci-cd-devops",
+        "cloud-computing",
+        "aws"
+      ]
+    },
+    {
+      "title": "What to Do When You Feel Behind in Tech",
+      "url": "https://medium.com/@lauren.m45/what-to-do-when-you-feel-behind-in-tech-b41c15172022",
+      "by": "Lauren M.",
+      "time": 1793606139000,
+      "tags": [
+        "programming",
+        "software-development",
+        "technology"
+      ]
+    },
+    {
+      "title": "Optimizing a SwiftUI Animated Background with Core Animation",
+      "url": "https://carolanelefebvre.medium.com/optimizing-a-swiftui-animated-background-with-core-animation-440e28d563b3",
+      "by": "Carolane Lefebvre",
+      "time": 1793605861000,
+      "tags": [
+        "swiftui",
+        "swift",
+        "programming"
       ]
     }
   ]
