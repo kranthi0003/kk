@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 // "Hey" said around the world — rolls through greetings in many languages
-// while the rest of the line ("I'm Kiran") stays put. A few native scripts
+// while the rest of the line ("I'm Kranthi") stays put. A few native scripts
 // are mixed in (incl. Telugu, home turf) for flavour; all left-to-right.
 const GREETINGS = [
   'Hey',        // English

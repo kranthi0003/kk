@@ -64,7 +64,7 @@ Go to **WhatsApp Manager → Message templates → Create template**:
 Paste exactly this as the **body**:
 
 ```
-Hi Kiran, here is your site digest for {{1}}.
+Hi Kranthi, here is your site digest for {{1}}.
 
 {{2}}
 

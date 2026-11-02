@@ -1,6 +1,6 @@
 name: Daily digest
 
-# Sends Kiran one WhatsApp message a day with birthdays and new guestbook
+# Sends Kranthi one WhatsApp message a day with birthdays and new guestbook
 # notes. Deliberately separate from "Build and Deploy" so a messaging failure
 # can never block a site deploy, and vice versa.
 on:

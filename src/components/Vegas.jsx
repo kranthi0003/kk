@@ -394,7 +394,8 @@ export default function Vegas({ onBack }) {
       { id: 'elplan', label: 'El-plan', group: 'plan' },
       ...days.map(d => ({ id: d.id, label: d.dow, group: 'day' })),
       { id: 'chaitra', label: 'Chaitra', group: 'people' },
-      { id: 'kiran', label: 'Kiran', group: 'people' },
+      // The id stays 'kiran' so lists already saved on devices keep loading.
+      { id: 'kiran', label: 'Kranthi', group: 'people' },
     ]
     const activeDay = days.find(d => d.id === tab)
 
@@ -461,7 +462,7 @@ export default function Vegas({ onBack }) {
           ) : activeDay ? (
             <DayView key={activeDay.id} day={activeDay} />
           ) : (
-            <VegasPersonal key={tab} person={tab} name={tab === 'chaitra' ? 'Chaitra' : 'Kiran'} />
+            <VegasPersonal key={tab} person={tab} name={tab === 'chaitra' ? 'Chaitra' : 'Kranthi'} />
           )}
         </div>
       </div>

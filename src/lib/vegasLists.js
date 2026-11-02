@@ -1,5 +1,5 @@
 // Local, persistent storage for the per-person spaces on the private Vegas page
-// (Chaitra / Kiran), and for the per-day "tickets & links". Each list is a set
+// (Chaitra / Kranthi), and for the per-day "tickets & links". Each list is a set
 // of items you can add, check off, and delete. Everything is saved in
 // localStorage on the device, so it survives reloads and is there whenever you
 // come back. Nothing leaves the browser.

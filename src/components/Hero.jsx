@@ -72,7 +72,7 @@ export default function Hero({ onResumeClick }) {
               }}
             >
               <span className="block font-medium text-2xl sm:text-3xl lg:text-4xl mb-1"><RollingGreeting />,</span>
-              I'm Kiran
+              I'm Kranthi
             </h1>
 
             <h2

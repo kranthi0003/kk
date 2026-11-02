@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Daily WhatsApp digest for Kiran.
+ * Daily WhatsApp digest for Kranthi.
  *
  * Runs from GitHub Actions on a schedule and sends ONE WhatsApp message with:
  *   - birthdays today, each with a one-tap wa.me link that opens WhatsApp with
@@ -8,7 +8,7 @@
  *   - birthdays in the next few days, as a heads-up
  *   - guestbook notes left on the site since the last run
  *
- * This never messages anyone but Kiran. Wishes are sent by tapping the link,
+ * This never messages anyone but Kranthi. Wishes are sent by tapping the link,
  * from his own number: WhatsApp's policy requires opt-in from every recipient
  * of an API message, and an auto-sent template is a worse birthday wish anyway.
  *
@@ -30,7 +30,7 @@ const GRAPH_VERSION = 'v26.0'
 // ─── time ───────────────────────────────────────────────────────────────────
 // Actions runners are UTC. Deciding "is it someone's birthday" in UTC fires a
 // day early for every date between 18:30 UTC and midnight IST, so every date
-// decision below is made explicitly in Kiran's timezone.
+// decision below is made explicitly in Kranthi's timezone.
 
 function todayIn(tz) {
   const parts = new Intl.DateTimeFormat('en-CA', {
