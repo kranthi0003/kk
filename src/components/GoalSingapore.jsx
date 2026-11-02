@@ -691,6 +691,81 @@ function Sources({ b }) {
   )
 }
 
+/* A two-column comparison. On a phone each row stacks, and every value
+ * carries its column name with it. */
+function Compare({ b }) {
+  const cols = b.cols || []
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <div className="sg-card sg-cmp-wrap">
+        <table className="sg-cmp">
+          <thead>
+            <tr><td />{cols.map((c, i) => <th key={i} scope="col">{c}</th>)}</tr>
+          </thead>
+          <tbody>
+            {(b.rows || []).map((r, i) => (
+              <tr key={i}>
+                <th scope="row">{r[0]}</th>
+                {cols.map((c, j) => <td key={j} data-col={c}><span><Inline text={r[j + 1]} /></span></td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {b.footer && <p className="sg-aside"><Inline text={b.footer} /></p>}
+    </section>
+  )
+}
+
+/* Lines that add up, then the total, set large. */
+function Tally({ b }) {
+  const t = b.total
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <div className="sg-card sg-tally">
+        <dl>
+          {(b.rows || []).map((r, i) => (
+            <div key={i} className={r.kind === 'out' ? 'sg-ta-row out' : 'sg-ta-row'}>
+              <dt>{r.k}{r.sub && <small>{r.sub}</small>}</dt>
+              <dd>{r.v}</dd>
+            </div>
+          ))}
+        </dl>
+        {t && (
+          <p className="sg-ta-total">
+            <span className="sg-k">{t.k}</span>
+            <b>{t.v}</b>
+            {t.sub && <small>{t.sub}</small>}
+          </p>
+        )}
+      </div>
+      {b.note && <p className="sg-note"><Inline text={b.note} /></p>}
+    </section>
+  )
+}
+
+function Ranked({ b }) {
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <ol className="sg-ranked">
+        {(b.items || []).map((it, i) => (
+          <li key={i} className={i === 0 ? 'sg-card sg-rank top' : 'sg-card sg-rank'}>
+            <span className="sg-rank-n" aria-hidden="true">{i + 1}</span>
+            <span className="sg-rank-b"><b>{it.title}</b>{it.body && <span><Inline text={it.body} /></span>}</span>
+          </li>
+        ))}
+      </ol>
+      {b.footer && <p className="sg-aside"><Inline text={b.footer} /></p>}
+    </section>
+  )
+}
+
 /* ----------------------------- the page --------------------------- */
 
 function Plan({ data, onBack }) {
@@ -747,6 +822,9 @@ function Plan({ data, onBack }) {
       case 'folds': return <Folds b={b} prog={prog} toggle={toggle} />
       case 'tiles': return <Tiles b={b} />
       case 'resources': return <Resources b={b} prog={prog} toggle={toggle} />
+      case 'compare': return <Compare b={b} />
+      case 'tally': return <Tally b={b} />
+      case 'ranked': return <Ranked b={b} />
       default: return null
     }
   }
@@ -1142,6 +1220,47 @@ body:has(.sg-root) { background: #070b14 !important; background-image: none !imp
 .sg-part-bar { height: 4px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
 .sg-part-bar span { display: block; height: 100%; border-radius: inherit; background: var(--red); transition: width .4s; }
 .sg-part-n { font: 600 11px/1 'JetBrains Mono', ui-monospace, monospace; color: var(--soft); text-align: right; }
+
+/* compare */
+.sg-cmp-wrap { margin-top: 1rem; padding: .3rem .25rem; }
+.sg-cmp { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.45; }
+.sg-cmp thead th { padding: .7rem .75rem .55rem; text-align: left; font: 600 10.5px/1.3 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.sg-cmp tbody th { width: 30%; padding: .75rem; text-align: left; vertical-align: top; font-weight: 600; color: #fff; }
+.sg-cmp td { padding: .75rem; vertical-align: top; color: var(--soft); }
+.sg-cmp tbody tr + tr > * { border-top: 1px solid var(--line); }
+@media (max-width: 560px) {
+  .sg-cmp thead { display: none; }
+  .sg-cmp, .sg-cmp tbody, .sg-cmp tr, .sg-cmp th, .sg-cmp td { display: block; width: auto; }
+  .sg-cmp tbody tr { padding: .75rem .75rem .65rem; }
+  .sg-cmp tbody tr + tr { border-top: 1px solid var(--line); }
+  .sg-cmp tbody tr + tr > * { border-top: 0; }
+  .sg-cmp tbody th { padding: 0 0 .35rem; }
+  .sg-cmp td { display: grid; grid-template-columns: 7.2rem 1fr; gap: .6rem; padding: .2rem 0; }
+  .sg-cmp td::before { content: attr(data-col); padding-top: .2rem; font: 600 10px/1.4 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+}
+
+/* tally */
+.sg-tally { margin-top: 1rem; padding: .35rem 1.1rem 1.1rem; }
+.sg-tally dl { margin: 0; }
+.sg-ta-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .75rem 0; border-bottom: 1px dashed var(--line); }
+.sg-ta-row dt { font-size: .95rem; line-height: 1.4; color: var(--text); }
+.sg-ta-row dt small { display: block; margin-top: .1rem; font-size: .78rem; color: var(--dim); }
+.sg-ta-row dd { margin: 0; white-space: nowrap; font: 500 .98rem/1.2 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; color: #fff; }
+.sg-ta-row.out dd { color: #ff9aa5; }
+.sg-ta-total { margin: 1rem 0 0; display: grid; gap: .35rem; padding: 1rem 1rem 1.05rem; border-radius: .9rem; border: 1px solid rgba(255,197,107,.38); background: rgba(255,197,107,.08); }
+.sg-ta-total b { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(2.3rem, 10vw, 3rem); line-height: 1; color: var(--gold); font-variant-numeric: lining-nums; }
+.sg-ta-total small { font-size: .86rem; line-height: 1.45; color: var(--soft); }
+
+/* ranked */
+.sg-ranked { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; }
+.sg-rank { display: flex; align-items: flex-start; gap: .9rem; padding: .9rem 1rem; }
+.sg-rank-n { flex: none; width: 2.1rem; height: 2.1rem; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.22);
+  font: 500 1.05rem/1 'Newsreader', Georgia, serif; color: var(--soft); }
+.sg-rank.top { border-color: rgba(255,197,107,.45); background: radial-gradient(120% 120% at 0% 0%, rgba(255,197,107,.1), transparent 60%), var(--card); }
+.sg-rank.top .sg-rank-n { border-color: var(--gold); background: var(--gold); color: #1b1205; }
+.sg-rank-b { display: grid; gap: .25rem; padding-top: .2rem; }
+.sg-rank-b b { font-size: 1rem; font-weight: 600; line-height: 1.35; color: #fff; }
+.sg-rank-b span { font-size: .88rem; line-height: 1.55; color: var(--soft); }
 
 /* folds */
 .sg-folds { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .7rem; }
