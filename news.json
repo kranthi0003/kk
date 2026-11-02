@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T04:35:19.180Z",
+  "generated": "2026-11-02T05:20:14.343Z",
   "reddit": [
     {
       "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "10 MCP Servers You Probably Didn’t Know Existed",
-      "url": "https://python.plainenglish.io/10-mcp-servers-you-probably-didnt-know-existed-26ba60a597af",
-      "by": "Arham Ali",
-      "time": 1793593655000,
+      "title": "From Task to Production: Letting AI Agents Handle the Entire Workflow",
+      "url": "https://medium.com/@moeedbhatti77/from-task-to-production-letting-ai-agents-handle-the-entire-workflow-8cf924bd8197",
+      "by": "Moeed Bhatti",
+      "time": 1793596541000,
       "tags": [
-        "data-science",
-        "artificial-intelligence",
-        "mcp-server"
+        "claude",
+        "ai-agent",
+        "ci-cd-pipeline"
       ]
     },
     {
-      "title": "10 Laravel Errors That Make Beginners Panic (and How to Fix Them)",
-      "url": "https://medium.com/codex/10-laravel-errors-that-make-beginners-panic-and-how-to-fix-them-5dc000a2eaa4",
-      "by": "Developer Awam",
-      "time": 1793592987000,
+      "title": "A config 5x longer took 28.7x longer to validate",
+      "url": "https://levelup.gitconnected.com/graph-valid-tree-in-go-count-the-links-then-union-find-4c7d2ef237c5",
+      "by": "Archit Agarwal",
+      "time": 1793596509000,
       "tags": [
-        "php",
-        "laravel-framework",
-        "programming"
+        "software-engineering",
+        "performance",
+        "algorithms"
       ]
     },
     {
-      "title": "5 Python Skills That Matter More Than Memorizing Syntax in the AI Era",
-      "url": "https://python.plainenglish.io/5-python-skills-that-matter-more-than-memorizing-syntax-in-the-ai-era-530fcd5acb6e",
-      "by": "Dr Abdullah Azhar",
-      "time": 1793592983000,
+      "title": "System Design Is Just Knowing What Breaks Next",
+      "url": "https://levelup.gitconnected.com/system-design-is-just-knowing-what-breaks-next-cd3c064d25fd",
+      "by": "KanishkSingh",
+      "time": 1793596498000,
       "tags": [
         "programming",
-        "coding",
-        "python"
+        "system-design-concepts",
+        "system-design-interview"
       ]
     },
     {
-      "title": "Linear Regression: Understanding Relationships and Making Predictions",
-      "url": "https://medium.com/@skalthaf505/linear-regression-understanding-relationships-and-making-predictions-b116c0f61f79",
-      "by": "Althaf Shaik",
-      "time": 1793592661000,
+      "title": "How I Organize a Go Service When I Don’t Want Clean Architecture Bloat",
+      "url": "https://levelup.gitconnected.com/how-i-organize-a-go-service-when-i-dont-want-clean-architecture-bloat-62c880802739",
+      "by": "syarif",
+      "time": 1793596488000,
       "tags": [
-        "python",
-        "data-science",
-        "artificial-intelligence"
+        "backend-development",
+        "software-engineering",
+        "golang"
       ]
     },
     {
-      "title": "Your Node.js App Uses One Core. cluster Gave Me 3.8x the Throughput",
-      "url": "https://martin128.medium.com/your-node-js-app-uses-one-core-cluster-gave-me-3-8x-the-throughput-312443d17253",
-      "by": "Martin",
-      "time": 1793592661000,
+      "title": "999 more stores made the delivery map 213x slower",
+      "url": "https://levelup.gitconnected.com/distance-to-nearest-store-in-go-two-sweeps-not-a-queue-fb2948e1e15d",
+      "by": "Archit Agarwal",
+      "time": 1793596479000,
       "tags": [
+        "golang",
         "performance",
-        "nodejs",
-        "javascript"
+        "software-engineering"
       ]
     },
     {
-      "title": "SQLite Is WAY More Powerful Than You Think: 5 Advanced Features That Go Beyond CRUD",
-      "url": "https://medium.com/@bibibo.25296/sqlite-is-way-more-powerful-than-you-think-5-advanced-features-that-go-beyond-crud-5c8ca37ef3b8",
-      "by": "Bi",
-      "time": 1793592416000,
+      "title": "The Godfather of AI Admits We Don’t Know How It Works",
+      "url": "https://levelup.gitconnected.com/why-we-dont-understand-how-ai-works-hinton-truth-4014dc469127",
+      "by": "Nikhil Varma",
+      "time": 1793596469000,
       "tags": [
-        "software-development",
-        "sqlite",
+        "machine-learning",
+        "programming",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "iSOLID — Your Daily Space to Learn, Code, and Prepare",
-      "url": "https://medium.com/@andersonnikko1/isolid-your-daily-space-to-learn-code-and-prepare-891801b00657",
-      "by": "Anderson Niko",
-      "time": 1793592343000,
-      "tags": [
-        "swiftui",
-        "swift",
-        "solid-principles"
-      ]
-    },
-    {
-      "title": "Nine Out of Ten AI Agents Gave Themselves More Money When Nobody Was Looking",
-      "url": "https://medium.com/@aftab001x/nine-out-of-ten-ai-agents-gave-themselves-more-money-when-nobody-was-looking-eed5cf5266df",
-      "by": "Aftab",
-      "time": 1793591914000,
+      "title": "I Gave the Same SQL Queries 994 Fewer Files to Read",
+      "url": "https://levelup.gitconnected.com/i-gave-the-same-sql-queries-994-fewer-files-to-read-a413e287de5d",
+      "by": "Thomas Reid",
+      "time": 1793596464000,
       "tags": [
         "programming",
         "technology",
-        "artificial-intelligence"
+        "apache-iceberg"
       ]
     },
     {
-      "title": "Our Slowest Postgres Query Went From 14 Seconds to 4 ms — With One Line of SQL",
-      "url": "https://medium.com/@maahisoft20/our-slowest-postgres-query-went-from-14-seconds-to-4-ms-with-one-line-of-sql-9b56a9ca209d",
-      "by": "The Thread Whisperer",
-      "time": 1793591638000,
+      "title": "How Does Java Fit Into the World of AI — and How Can It Become an Even Better Fit?",
+      "url": "https://levelup.gitconnected.com/how-does-java-fit-into-the-world-of-ai-and-how-can-it-become-an-even-better-fit-7d1bb02a9b1c",
+      "by": "Rahul Soni",
+      "time": 1793596379000,
       "tags": [
         "software-engineering",
-        "sql",
-        "database"
+        "java",
+        "tech"
       ]
     },
     {
-      "title": "My App Spoke English With Spanish Weekdays. useMemo Was Hiding the Language.",
-      "url": "https://bobde-yagyesh.medium.com/my-app-spoke-english-with-spanish-weekdays-usememo-was-hiding-the-language-797dcbd8880a",
-      "by": "Yagyesh Bobde",
-      "time": 1793591594000,
+      "title": "Extension Object Pattern in .NET C#: From GetExtension to feature collections (2026)",
+      "url": "https://levelup.gitconnected.com/extension-object-pattern-in-net-c-from-getextension-to-feature-collections-2026-4a6d2a7140ab",
+      "by": "Emanuele Longo",
+      "time": 1793596372000,
       "tags": [
-        "software-development",
+        "design-patterns",
+        "dotnet",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Why Learning a Programming Language Is Not the Same as Learning to Code",
+      "url": "https://medium.com/codetodeploy/why-learning-a-programming-language-is-not-the-same-as-learning-to-code-80e9b62b4a8e",
+      "by": "Fozia Saleem",
+      "time": 1793596349000,
+      "tags": [
         "programming",
-        "react-native"
+        "learning-to-code",
+        "python"
       ]
     }
   ]
