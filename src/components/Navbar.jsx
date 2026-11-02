@@ -676,6 +676,7 @@ function SidecarMenu() {
   const items = [
     { label: 'Vegas', emoji: '🎰', hash: '#/vegas' },
     { label: 'Europe', emoji: '❄️', hash: '#/europe' },
+    { label: 'Goal · Singapore', emoji: '🇸🇬', hash: '#/singapore' },
   ]
   const go = (hash) => { setOpen(false); window.location.hash = hash }
 

@@ -25,6 +25,7 @@ const AstroDither = lazy(() => import('./components/AstroDither'))
 const TruthOrDare = lazy(() => import('./components/TruthOrDare'))
 const Vegas = lazy(() => import('./components/Vegas'))
 const Europe = lazy(() => import('./components/Europe'))
+const GoalSingapore = lazy(() => import('./components/GoalSingapore'))
 const ReliabilityLab = lazy(() => import('./components/ReliabilityLab'))
 const Blog = lazy(() => import('./components/Blog'))
 const LongGame = lazy(() => import('./components/LongGame'))
@@ -332,6 +333,16 @@ export default function App() {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <Europe onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Goal · Singapore — private, password-protected goal page via #/singapore
+  // (#/goal-singapore too). Matched loosely, because it gets typed by hand.
+  if (['#/singapore', '#/goal-singapore'].includes(route.toLowerCase().replace(/\/+$/, ''))) {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <GoalSingapore onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

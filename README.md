@@ -45,7 +45,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music pages |
-| 🔒 **Private pages** | Password-protected Vegas & Europe trip plans |
+| 🔒 **Private pages** | Password-protected Vegas & Europe trip plans and a Singapore goal page, encrypted with `scripts/private-payload.mjs` |
 | 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
 
@@ -112,6 +112,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/ask` | 🎙️ Voice agent over the F1, cricket and jobs data |
 | `#/vegas` | 🔒 Private, password-protected trip plan |
 | `#/europe` | 🔒 Private, password-protected winter-trip plan |
+| `#/singapore` | 🔒 Private, password-protected goal page (also `#/goal-singapore`) |
 | `#/allthebest`, `#/skota` | Private unlisted notes (shared by link) |
 
 ---
@@ -125,7 +126,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 ├── postcss.config.js
 ├── package.json              # scripts & deps
 ├── CNAME                     # custom domain for GitHub Pages
-├── scripts/                  # postbuild generators (feed, movies, news)
+├── scripts/                  # postbuild generators (feed, movies, news) + private-payload.mjs
 ├── supabase/                 # Supabase config / functions
 ├── public/                   # static assets, models, planet textures, PWA assets
 ├── assets/
