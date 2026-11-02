@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-01T04:21:17.644Z",
+  "generated": "2026-11-02T04:22:18.089Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -7,7 +7,7 @@
   "drivers": [
     {
       "pos": 1,
-      "points": 365,
+      "points": 380,
       "wins": 9,
       "code": "ANT",
       "number": 12,
@@ -19,19 +19,19 @@
     },
     {
       "pos": 2,
-      "points": 242,
+      "points": 261,
       "wins": 3,
-      "code": "RUS",
-      "number": 63,
-      "first": "George",
-      "last": "Russell",
-      "nationality": "British",
-      "team": "Mercedes",
-      "teamId": "mercedes"
+      "code": "VER",
+      "number": 3,
+      "first": "Max",
+      "last": "Verstappen",
+      "nationality": "Dutch",
+      "team": "Red Bull",
+      "teamId": "red_bull"
     },
     {
       "pos": 3,
-      "points": 241,
+      "points": 259,
       "wins": 1,
       "code": "HAM",
       "number": 44,
@@ -43,19 +43,19 @@
     },
     {
       "pos": 4,
-      "points": 236,
-      "wins": 2,
-      "code": "VER",
-      "number": 3,
-      "first": "Max",
-      "last": "Verstappen",
-      "nationality": "Dutch",
-      "team": "Red Bull",
-      "teamId": "red_bull"
+      "points": 250,
+      "wins": 3,
+      "code": "RUS",
+      "number": 63,
+      "first": "George",
+      "last": "Russell",
+      "nationality": "British",
+      "team": "Mercedes",
+      "teamId": "mercedes"
     },
     {
       "pos": 5,
-      "points": 233,
+      "points": 245,
       "wins": 1,
       "code": "LEC",
       "number": 16,
@@ -67,7 +67,7 @@
     },
     {
       "pos": 6,
-      "points": 211,
+      "points": 221,
       "wins": 2,
       "code": "NOR",
       "number": 1,
@@ -79,7 +79,7 @@
     },
     {
       "pos": 7,
-      "points": 144,
+      "points": 150,
       "wins": 0,
       "code": "PIA",
       "number": 81,
@@ -103,7 +103,7 @@
     },
     {
       "pos": 9,
-      "points": 77,
+      "points": 79,
       "wins": 0,
       "code": "LAW",
       "number": 30,
@@ -115,7 +115,7 @@
     },
     {
       "pos": 10,
-      "points": 42,
+      "points": 43,
       "wins": 0,
       "code": "GAS",
       "number": 10,
@@ -139,7 +139,7 @@
     },
     {
       "pos": 12,
-      "points": 27,
+      "points": 31,
       "wins": 0,
       "code": "COL",
       "number": 43,
@@ -273,6 +273,18 @@
       "pos": 23,
       "points": 0,
       "wins": 0,
+      "code": "HIR",
+      "number": 50,
+      "first": "Ryo",
+      "last": "Hirakawa",
+      "nationality": "Japanese",
+      "team": "Haas F1 Team",
+      "teamId": "haas"
+    },
+    {
+      "pos": 24,
+      "points": 0,
+      "wins": 0,
       "code": "PER",
       "number": 11,
       "first": "Sergio",
@@ -280,23 +292,12 @@
       "nationality": "Mexican",
       "team": "Cadillac F1 Team",
       "teamId": "cadillac"
-    },
-    {
-      "pos": 24,
-      "points": 0,
-      "wins": 0,
-      "code": "HIR",
-      "number": null,
-      "first": "Ryo",
-      "last": "Hirakawa",
-      "team": "Haas F1 Team",
-      "teamId": "haas"
     }
   ],
   "constructors": [
     {
       "pos": 1,
-      "points": 607,
+      "points": 630,
       "wins": 12,
       "name": "Mercedes",
       "teamId": "mercedes",
@@ -304,7 +305,7 @@
     },
     {
       "pos": 2,
-      "points": 474,
+      "points": 504,
       "wins": 2,
       "name": "Ferrari",
       "teamId": "ferrari",
@@ -312,15 +313,15 @@
     },
     {
       "pos": 3,
-      "points": 355,
-      "wins": 2,
+      "points": 380,
+      "wins": 3,
       "name": "Red Bull",
       "teamId": "red_bull",
       "nationality": "Austrian"
     },
     {
       "pos": 4,
-      "points": 355,
+      "points": 371,
       "wins": 2,
       "name": "McLaren",
       "teamId": "mclaren",
@@ -328,7 +329,7 @@
     },
     {
       "pos": 5,
-      "points": 102,
+      "points": 104,
       "wins": 0,
       "name": "RB F1 Team",
       "teamId": "rb",
@@ -336,7 +337,7 @@
     },
     {
       "pos": 6,
-      "points": 69,
+      "points": 74,
       "wins": 0,
       "name": "Alpine F1 Team",
       "teamId": "alpine",
@@ -400,12 +401,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:18.518"
-      }
+      "pole": null
     },
     {
       "round": 2,
@@ -423,12 +419,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:32.064"
-      }
+      "pole": null
     },
     {
       "round": 3,
@@ -446,12 +437,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:28.778"
-      }
+      "pole": null
     },
     {
       "round": 4,
@@ -469,12 +455,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:27.798"
-      }
+      "pole": null
     },
     {
       "round": 5,
@@ -492,12 +473,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:12.578"
-      }
+      "pole": null
     },
     {
       "round": 6,
@@ -515,12 +491,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:12.051"
-      }
+      "pole": null
     },
     {
       "round": 7,
@@ -538,12 +509,7 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:14.679"
-      }
+      "pole": null
     },
     {
       "round": 8,
@@ -561,12 +527,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:06.113"
-      }
+      "pole": null
     },
     {
       "round": 9,
@@ -584,12 +545,7 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:28.111"
-      }
+      "pole": null
     },
     {
       "round": 10,
@@ -607,12 +563,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:44.361"
-      }
+      "pole": null
     },
     {
       "round": 11,
@@ -630,12 +581,7 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:17.207"
-      }
+      "pole": null
     },
     {
       "round": 12,
@@ -653,12 +599,7 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:11.163"
-      }
+      "pole": null
     },
     {
       "round": 13,
@@ -676,12 +617,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Gasly",
-        "code": "GAS",
-        "teamId": "alpine",
-        "time": "1:21.786"
-      }
+      "pole": null
     },
     {
       "round": 14,
@@ -699,12 +635,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:31.824"
-      }
+      "pole": null
     },
     {
       "round": 15,
@@ -722,12 +653,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:42.526"
-      }
+      "pole": null
     },
     {
       "round": 16,
@@ -793,7 +719,12 @@
       "lng": -99.0907,
       "start": "2026-11-01T20:00:00Z",
       "date": "2026-11-01",
-      "winner": null,
+      "winner": {
+        "last": "Verstappen",
+        "code": "VER",
+        "team": "Red Bull",
+        "teamId": "red_bull"
+      },
       "pole": null
     },
     {
@@ -849,47 +780,5 @@
       "pole": null
     }
   ],
-  "lastRace": {
-    "round": 18,
-    "name": "United States Grand Prix",
-    "circuit": "Circuit of the Americas",
-    "country": "USA",
-    "date": "2026-10-25",
-    "podium": [
-      {
-        "pos": 1,
-        "first": "Andrea Kimi",
-        "last": "Antonelli",
-        "code": "ANT",
-        "team": "Mercedes",
-        "teamId": "mercedes",
-        "time": "1:35:16.650",
-        "points": 25
-      },
-      {
-        "pos": 2,
-        "first": "Charles",
-        "last": "Leclerc",
-        "code": "LEC",
-        "team": "Ferrari",
-        "teamId": "ferrari",
-        "time": "+13.078",
-        "points": 18
-      },
-      {
-        "pos": 3,
-        "first": "Max",
-        "last": "Verstappen",
-        "code": "VER",
-        "team": "Red Bull",
-        "teamId": "red_bull",
-        "time": "+17.485",
-        "points": 15
-      }
-    ],
-    "fastestLap": {
-      "time": "1:37.976",
-      "driver": "Leclerc"
-    }
-  }
+  "lastRace": null
 }

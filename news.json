@@ -1,12 +1,54 @@
 {
-  "generated": "2026-11-01T04:21:14.990Z",
+  "generated": "2026-11-02T04:22:15.853Z",
   "reddit": [
     {
-      "title": "Free TLS for internal services on AWS",
-      "url": "https://www.reddit.com/r/programming/comments/1xkoqft/free_tls_for_internal_services_on_aws/",
-      "by": "wineandcode",
-      "time": 1793490204000,
+      "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
+      "url": "https://www.reddit.com/r/programming/comments/1xlll2u/bad_apple_running_on_the_nand2tetris_cpu_simulator/",
+      "by": "Key_Oven4854",
+      "time": 1793586756000,
       "sub": "r/programming"
+    },
+    {
+      "title": "The Developer Communication Handbook",
+      "url": "https://www.reddit.com/r/programming/comments/1xl9z9b/the_developer_communication_handbook/",
+      "by": "alexeyr",
+      "time": 1793556511000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Jepsen on ParticleDB: \"We tested versions 1.1.4 through 1.1.18.11.rc-22 and found that ParticleDB’s claims of “Full ACID” were somewhat premature\"",
+      "url": "https://www.reddit.com/r/programming/comments/1xl8d57/jepsen_on_particledb_we_tested_versions_114/",
+      "by": "alexeyr",
+      "time": 1793552787000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to monitor eks cluster health",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
+      "by": "Calm_Pick_4250",
+      "time": 1793552223000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What do you get when you put every character that exists on a single page?",
+      "url": "https://www.reddit.com/r/programming/comments/1xl7yhp/what_do_you_get_when_you_put_every_character_that/",
+      "by": "alexeyr",
+      "time": 1793551856000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Turbo Haskell",
+      "url": "https://www.reddit.com/r/programming/comments/1xl7lsn/turbo_haskell/",
+      "by": "alexeyr",
+      "time": 1793551024000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Monthly: Who is hiring?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
+      "by": "AutoModerator",
+      "time": 1793530811000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
@@ -16,13 +58,6 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "Beating the compiler at signed 32-bit division",
-      "url": "https://www.reddit.com/r/programming/comments/1xka27q/beating_the_compiler_at_signed_32bit_division/",
-      "by": "alexeyr",
-      "time": 1793452828000,
-      "sub": "r/programming"
-    },
-    {
       "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
       "by": "FlatwormStunning9931",
@@ -30,157 +65,122 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "How hard is it to check for whitespace?",
-      "url": "https://www.reddit.com/r/programming/comments/1xjtach/how_hard_is_it_to_check_for_whitespace/",
-      "by": "SerCeMan",
-      "time": 1793399073000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Break Stuff on Purpose",
-      "url": "https://www.reddit.com/r/programming/comments/1xjriux/break_stuff_on_purpose/",
-      "by": "Ok_Stomach6651",
-      "time": 1793394658000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Yet another performance degradation research induced by mutex in an unexpected hotpath in a mature database code.",
-      "url": "https://www.reddit.com/r/programming/comments/1xjo2ar/yet_another_performance_degradation_research/",
-      "by": "drrtuy-b",
-      "time": 1793386605000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Weekly: Share your victories thread",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xjb8gh/weekly_share_your_victories_thread/",
       "by": "AutoModerator",
       "time": 1793354415000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "I wrote an empirical research paper on Stateful Container Live Migration - would love to get your feedback and critique!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xj9lvq/i_wrote_an_empirical_research_paper_on_stateful/",
-      "by": "Heavy_Cow5349",
-      "time": 1793348204000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Stuck Between IT and RKE2: Need Advice on Operating Without Sudo Access",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xj9awj/stuck_between_it_and_rke2_need_advice_on/",
-      "by": "Equivalent_Berry3525",
-      "time": 1793347029000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Evaluating AI Agents: Why the Right Result Is Not Enough?",
-      "url": "https://medium.com/@sainitesh/evaluating-ai-agents-why-the-right-result-is-not-enough-235f49b1ba58",
-      "by": "Sai Nitesh Palamakula",
-      "time": 1793506385000,
-      "tags": [
-        "llm",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Entendiendo cAdvisor: La pieza clave para la recolectación de métricas de contenedores en…",
-      "url": "https://jhonnypong.medium.com/entendiendo-cadvisor-la-pieza-clave-para-la-recolectaci%C3%B3n-de-m%C3%A9tricas-de-contenedores-en-7fd548dfb479",
-      "by": "Jhonnata Gil Chaves",
-      "time": 1793506362000,
-      "tags": [
-        "devops",
-        "docker",
-        "kubernetes"
-      ]
-    },
-    {
-      "title": "Node.js Coverage Said 100%. One File Had No Tests at All",
-      "url": "https://martin128.medium.com/node-js-coverage-said-100-one-file-had-no-tests-at-all-3b156e2a8af3",
-      "by": "Martin",
-      "time": 1793506261000,
-      "tags": [
-        "testing",
-        "programming",
-        "nodejs"
-      ]
-    },
-    {
-      "title": "The $6.3 Billion Binance Hack: How Hackers May Have Used One Employee’s Laptop",
-      "url": "https://medium.com/@arifbipubd3/the-6-3-billion-binance-hack-how-hackers-may-have-used-one-employees-laptop-3559304e2139",
-      "by": "Ariful Islam",
-      "time": 1793506171000,
-      "tags": [
-        "cybersecurity",
-        "binence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "The Cloud AI Bubble is Hitting a Wall: Why My New App is 100% Offline",
-      "url": "https://medium.com/@navgankarakshay/the-cloud-ai-bubble-is-hitting-a-wall-why-my-new-app-is-100-offline-b7ea12e7b353",
-      "by": "Navgankarakshay",
-      "time": 1793505933000,
-      "tags": [
-        "artificial-intelligence",
-        "llm",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "LLMs in 2026: A Recap",
-      "url": "https://medium.com/@briangoh.junw/llms-in-2026-a-recap-6d7b30cbfd2f",
-      "by": "Brian Goh",
-      "time": 1793505780000,
-      "tags": [
-        "llm",
-        "software-engineering",
-        "ai"
-      ]
-    },
-    {
-      "title": "Naive Bayes Algorithm: Understanding Probability in Machine Learning",
-      "url": "https://medium.com/@skalthaf505/naive-bayes-algorithm-understanding-probability-in-machine-learning-a92c2fc8f99f",
+      "title": "Linear Regression: Understanding Relationships and Making Predictions",
+      "url": "https://medium.com/@skalthaf505/linear-regression-understanding-relationships-and-making-predictions-b116c0f61f79",
       "by": "Althaf Shaik",
-      "time": 1793505661000,
+      "time": 1793592661000,
       "tags": [
-        "programming",
         "python",
-        "data-science"
+        "data-science",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "That Helpful AI Skill Might Be a Malware Installer",
-      "url": "https://medium.com/@lelianto.eko/that-helpful-ai-skill-might-be-a-malware-installer-b749f18624a3",
-      "by": "Lelianto Eko Pradana",
-      "time": 1793505500000,
+      "title": "Your Node.js App Uses One Core. cluster Gave Me 3.8x the Throughput",
+      "url": "https://martin128.medium.com/your-node-js-app-uses-one-core-cluster-gave-me-3-8x-the-throughput-312443d17253",
+      "by": "Martin",
+      "time": 1793592661000,
       "tags": [
-        "artificial-intelligence",
-        "ai-agent",
-        "malware"
+        "performance",
+        "nodejs",
+        "javascript"
       ]
     },
     {
-      "title": "AI Coding Agents Are Changing Web Development — What Should Beginner Developers Learn Now?",
-      "url": "https://medium.com/@mdtharick25/ai-coding-agents-are-changing-web-development-what-should-beginner-developers-learn-now-9b9ccb32a99d",
-      "by": "Mohammed Tharick",
-      "time": 1793505391000,
+      "title": "SQLite Is WAY More Powerful Than You Think: 5 Advanced Features That Go Beyond CRUD",
+      "url": "https://medium.com/@bibibo.25296/sqlite-is-way-more-powerful-than-you-think-5-advanced-features-that-go-beyond-crud-5c8ca37ef3b8",
+      "by": "Bi",
+      "time": 1793592416000,
       "tags": [
-        "web-development",
-        "programming",
-        "coding"
-      ]
-    },
-    {
-      "title": "Two sentences, two hours, a signed train.How",
-      "url": "https://medium.com/@marcin.marzec_77573/two-sentences-two-hours-a-signed-train-how-0dc40e977009",
-      "by": "Marcin Marzec",
-      "time": 1793505282000,
-      "tags": [
-        "ai-agent",
         "software-development",
-        "devops"
+        "sqlite",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "iSOLID — Your Daily Space to Learn, Code, and Prepare",
+      "url": "https://medium.com/@andersonnikko1/isolid-your-daily-space-to-learn-code-and-prepare-891801b00657",
+      "by": "Anderson Niko",
+      "time": 1793592343000,
+      "tags": [
+        "swiftui",
+        "swift",
+        "solid-principles"
+      ]
+    },
+    {
+      "title": "Nine Out of Ten AI Agents Gave Themselves More Money When Nobody Was Looking",
+      "url": "https://medium.com/@aftab001x/nine-out-of-ten-ai-agents-gave-themselves-more-money-when-nobody-was-looking-eed5cf5266df",
+      "by": "Aftab",
+      "time": 1793591914000,
+      "tags": [
+        "programming",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Our Slowest Postgres Query Went From 14 Seconds to 4 ms — With One Line of SQL",
+      "url": "https://medium.com/@maahisoft20/our-slowest-postgres-query-went-from-14-seconds-to-4-ms-with-one-line-of-sql-9b56a9ca209d",
+      "by": "The Thread Whisperer",
+      "time": 1793591638000,
+      "tags": [
+        "software-engineering",
+        "sql",
+        "database"
+      ]
+    },
+    {
+      "title": "My App Spoke English With Spanish Weekdays. useMemo Was Hiding the Language.",
+      "url": "https://bobde-yagyesh.medium.com/my-app-spoke-english-with-spanish-weekdays-usememo-was-hiding-the-language-797dcbd8880a",
+      "by": "Yagyesh Bobde",
+      "time": 1793591594000,
+      "tags": [
+        "software-development",
+        "programming",
+        "react-native"
+      ]
+    },
+    {
+      "title": "The New Engineering in the AI Era",
+      "url": "https://medium.com/@ertugrulhaskan/the-new-engineering-in-the-ai-era-24b65cf912a2",
+      "by": "Ertugrul Alex Haskan",
+      "time": 1793591564000,
+      "tags": [
+        "software-engineering",
+        "future-of-work",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "TypeScript Utility Types",
+      "url": "https://medium.com/@dahamakalanka2000/typescript-utility-types-b099c88254ce",
+      "by": "Dahamakalanka",
+      "time": 1793591493000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "type"
+      ]
+    },
+    {
+      "title": "Forget the BFF — HTMX Deleted 40 Endpoints From Our Stack",
+      "url": "https://medium.com/@ArkProtocol1/forget-the-bff-htmx-deleted-40-endpoints-from-our-stack-4bee614e5ec2",
+      "by": "Ark Protocol",
+      "time": 1793591407000,
+      "tags": [
+        "react",
+        "programming",
+        "htmx"
       ]
     }
   ]
