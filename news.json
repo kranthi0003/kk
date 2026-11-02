@@ -1,6 +1,13 @@
 {
-  "generated": "2026-11-02T08:43:13.438Z",
+  "generated": "2026-11-02T09:10:42.747Z",
   "reddit": [
+    {
+      "title": "Weekly Self Promotion Thread",
+      "url": "https://www.reddit.com/r/devops/comments/1xlqwcb/weekly_self_promotion_thread/",
+      "by": "AutoModerator",
+      "time": 1793604614000,
+      "sub": "r/devops"
+    },
     {
       "title": "The fastest double-to-string algorithm you’ve never heard of",
       "url": "https://www.reddit.com/r/programming/comments/1xlqfb6/the_fastest_doubletostring_algorithm_youve_never/",
@@ -9,11 +16,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "Kuberenetes home lab suggestion",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xlozgi/kuberenetes_home_lab_suggestion/",
-      "by": "lispLaiBhari",
-      "time": 1793597625000,
-      "sub": "r/kubernetes"
+      "title": "What’s your experience using incident.io for on-call and incident response?",
+      "url": "https://www.reddit.com/r/devops/comments/1xlom45/whats_your_experience_using_incidentio_for_oncall/",
+      "by": "Particular-Sell2617",
+      "time": 1793596373000,
+      "sub": "r/devops"
     },
     {
       "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
@@ -21,6 +28,20 @@
       "by": "Key_Oven4854",
       "time": 1793586756000,
       "sub": "r/programming"
+    },
+    {
+      "title": "How many apps have non-engineers at your company built with Claude/Cursor/Lovable, and who owns them when they break?",
+      "url": "https://www.reddit.com/r/devops/comments/1xlhrh8/how_many_apps_have_nonengineers_at_your_company/",
+      "by": "lightninja987",
+      "time": 1793575770000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "AI taking over Devops.",
+      "url": "https://www.reddit.com/r/devops/comments/1xldkq0/ai_taking_over_devops/",
+      "by": "Glittering_Ad4197",
+      "time": 1793565042000,
+      "sub": "r/devops"
     },
     {
       "title": "The Developer Communication Handbook",
@@ -37,13 +58,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "How to monitor eks cluster health",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
-      "by": "Calm_Pick_4250",
-      "time": 1793552223000,
-      "sub": "r/kubernetes"
-    },
-    {
       "title": "What do you get when you put every character that exists on a single page?",
       "url": "https://www.reddit.com/r/programming/comments/1xl7yhp/what_do_you_get_when_you_put_every_character_that/",
       "by": "alexeyr",
@@ -51,136 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "Monthly: Who is hiring?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
-      "by": "AutoModerator",
-      "time": 1793530811000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
-      "by": "danielfree19",
-      "time": 1793454046000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
-      "by": "FlatwormStunning9931",
-      "time": 1793426601000,
-      "sub": "r/kubernetes"
+      "title": "Building a fast perimeter security auditor in Next.js: Handling Anti-SSRF, RFC 1918 ranges, and socket timeouts",
+      "url": "https://www.reddit.com/r/devops/comments/1xkomdn/building_a_fast_perimeter_security_auditor_in/",
+      "by": "Some-Onion4062",
+      "time": 1793489862000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "The code on GitHub was clean. The package you installed wasn’t.",
-      "url": "https://medium.com/@aditimishra_541/the-code-on-github-was-clean-the-package-you-installed-wasnt-8043a6461f45",
-      "by": "Aditi Mishra",
-      "time": 1793608199000,
+      "title": "Legacy Modernization: Two Strategies, Real-World Risks, and Where AI Fits",
+      "url": "https://medium.com/@hello.trellissoftai/legacy-modernization-two-strategies-real-world-risks-and-where-ai-fits-de2e28fd5859",
+      "by": "Trellissoft AI",
+      "time": 1793610326000,
       "tags": [
-        "supply-chain-security",
-        "software-engineering",
-        "security"
+        "artificial-intelligence",
+        "enterprise-software",
+        "digital-transformation"
       ]
     },
     {
-      "title": "Part-2: Unlocking Reliable Communication Between Microservices, A Deep Dive into Fault Tolerance…",
-      "url": "https://medium.com/@sachinarora1555/part-2-unlocking-reliable-communication-between-microservices-a-deep-dive-into-fault-tolerance-6c117d1fed90",
-      "by": "Sachinarora",
-      "time": 1793607930000,
+      "title": "The Decorator Pattern in Spring: Wrap a Bean With Caching or Metrics Without Touching It",
+      "url": "https://medium.com/@cemdrman/the-decorator-pattern-in-spring-wrap-a-bean-with-caching-or-metrics-without-touching-it-afcfbd1a7536",
+      "by": "Cem Dırman",
+      "time": 1793610062000,
       "tags": [
+        "software-engineering",
         "software-development",
-        "backend-engineering",
-        "software-engineering"
+        "java"
       ]
     },
     {
-      "title": "Horizontal Pod Autoscaler in Kubernetes: From Metrics Collection to Automatic Pod Scaling",
-      "url": "https://medium.com/@arushk494/horizontal-pod-autoscaler-in-kubernetes-from-metrics-collection-to-automatic-pod-scaling-e59e0b2767ed",
-      "by": "Arush Kumar",
-      "time": 1793607726000,
+      "title": "11-Building for the People Who Will Maintain It: The Part of Software Development We Often Overlook",
+      "url": "https://medium.com/@fomawill/11-building-for-the-people-who-will-maintain-it-the-part-of-software-development-we-often-overlook-5874d4d7d8b3",
+      "by": "William Foma",
+      "time": 1793610062000,
       "tags": [
-        "cloud-native",
-        "devops",
-        "platform-engineering"
+        "aws",
+        "software-development",
+        "devops"
       ]
     },
     {
-      "title": "Code Is Cheap. Complexity Isn’t: Rethinking Software Engineering in the Age of AI Agents",
-      "url": "https://durva7px.medium.com/code-is-cheap-complexity-isnt-rethinking-software-engineering-in-the-age-of-ai-agents-6120287e300e",
-      "by": "Durva Deshpande",
-      "time": 1793607685000,
+      "title": "Building Kwa Ground",
+      "url": "https://medium.com/@andyaketch/building-kwa-ground-a5086ec0b5a8",
+      "by": "andyaketch",
+      "time": 1793609932000,
       "tags": [
-        "job-market",
-        "ai-agent",
-        "vibe-coding"
+        "api",
+        "geoapify",
+        "maps"
       ]
     },
     {
-      "title": "Bridging Telecom and the Web: Integrating a Self-Hosted Asterisk PBX into a MERN Stack CRM",
-      "url": "https://medium.com/@malekmostafa0051/bridging-telecom-and-the-web-integrating-a-self-hosted-asterisk-pbx-into-a-mern-stack-crm-010272dfd8dd",
-      "by": "Malek Mostafa",
-      "time": 1793607633000,
+      "title": "Judge AI by the Task It Finishes, Not the Answer It Gives",
+      "url": "https://medium.com/@advantageworks/judge-ai-by-the-task-it-finishes-not-the-answer-it-gives-e4e2d2893f0a",
+      "by": "AdvantageWorks",
+      "time": 1793609771000,
       "tags": [
         "software-engineering",
-        "voip",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Cited Is Not Calibrated: Your Research Agent Sounds More Certain Than Its Sources",
-      "url": "https://medium.com/@igoreduardoai/cited-is-not-calibrated-your-research-agent-sounds-more-certain-than-its-sources-acc3b2acb266",
-      "by": "Igor Eduardo",
-      "time": 1793607624000,
-      "tags": [
-        "machine-learning",
-        "software-engineering",
+        "model-context-protocol",
         "ai-agent"
       ]
     },
     {
-      "title": "From “It Works on My Machine” to GitHub: Preparing a Data Engineering Project for the Community",
-      "url": "https://medium.com/@gigilinux/from-it-works-on-my-machine-to-github-preparing-a-data-engineering-project-for-the-community-9c832fd9cc39",
-      "by": "Luigi Majellaro",
-      "time": 1793607484000,
+      "title": "Cloud Migrations Go Wrong Before the First Server Moves",
+      "url": "https://medium.com/@mohsinarshadazad.qa/cloud-migration-steps-before-cutover-383031c6b969",
+      "by": "Mohsin Arshad",
+      "time": 1793609650000,
       "tags": [
-        "software-engineering",
-        "docker",
-        "airflow"
+        "software-development",
+        "cloud-computing",
+        "technology"
       ]
     },
     {
-      "title": "Part-1: Unlocking Reliable Communication Between Microservices, A Deep Dive into Fault Tolerance…",
-      "url": "https://medium.com/@sachinarora1555/part-1-unlocking-reliable-communication-between-microservices-a-deep-dive-into-fault-tolerance-906654d07f25",
-      "by": "Sachinarora",
-      "time": 1793607448000,
+      "title": "I Deleted 2,000 Lines of Code and Shipped Zero New Features. It Was the Best Thing I Did All Year.",
+      "url": "https://medium.com/@patheditor1/i-deleted-2-000-lines-of-code-and-shipped-zero-new-features-it-was-the-best-thing-i-did-all-year-273bd4e4e4fc",
+      "by": "Ryan Mercer",
+      "time": 1793609588000,
       "tags": [
-        "microservices",
         "software-development",
+        "coding",
+        "web-development"
+      ]
+    },
+    {
+      "title": "Conway’s Law Still Shapes How Your Frontend and Backend Teams Split Their Code",
+      "url": "https://medium.com/@mark.w.1987/conways-law-still-shapes-how-your-frontend-and-backend-teams-split-their-code-c97f225d2228",
+      "by": "Mark W.",
+      "time": 1793609523000,
+      "tags": [
+        "software-engineering",
+        "design-systems",
         "software-architecture"
       ]
     },
     {
-      "title": "Getting to Know Ballerina: My Experience Learning and Using It",
-      "url": "https://medium.com/@oshadhigoon/getting-to-know-ballerina-my-experience-learning-and-using-it-f04e1b92b0c6",
-      "by": "Oshadhi Goonewardena",
-      "time": 1793607296000,
+      "title": "DeepSeek’s New Coding Agent Doesn’t Wait for Your Prompt. It Waits for Your Team to Need It.",
+      "url": "https://abdulwahabdev.medium.com/deepseeks-new-coding-agent-doesn-t-wait-for-your-prompt-it-waits-for-your-team-to-need-it-784e48dca98b",
+      "by": "Abdul Wahab",
+      "time": 1793609407000,
       "tags": [
-        "software-development",
-        "api",
-        "programming"
+        "ai-agent",
+        "deepseek",
+        "github"
       ]
     },
     {
-      "title": "AI Is Changing Our World: 5 Things Beginners Should Know",
-      "url": "https://medium.com/@amanalikalhoro8/ai-is-changing-our-world-5-things-beginners-should-know-ea4322011d58",
-      "by": "Amanalikalhoro",
-      "time": 1793607286000,
+      "title": "“Here’s How I Programmed a Real Quantum Computer From My Laptop at Home. “You can do it too!”",
+      "url": "https://medium.com/@rabjot03/heres-how-i-programmed-a-real-quantum-computer-from-my-laptop-at-home-you-can-do-it-too-53b65ab4b97f",
+      "by": "Rabjot",
+      "time": 1793609307000,
       "tags": [
-        "software-engineering",
-        "education",
-        "chatgpt"
+        "math",
+        "quantum-computing",
+        "programming"
       ]
     }
   ]
