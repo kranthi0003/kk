@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-02T08:14:37.526Z",
+  "generated": "2026-11-02T08:43:13.438Z",
   "reddit": [
     {
-      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
-      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
-      "by": "adonis4000",
-      "time": 1786116648000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How much do you agree with this opinion",
-      "url": "https://www.reddit.com/r/programming/comments/1vi205l/how_much_do_you_agree_with_this_opinion/",
-      "by": "sidneysweeneysrack",
-      "time": 1786112509000,
+      "title": "The fastest double-to-string algorithm you’ve never heard of",
+      "url": "https://www.reddit.com/r/programming/comments/1xlqfb6/the_fastest_doubletostring_algorithm_youve_never/",
+      "by": "fagnerbrack",
+      "time": 1793602829000,
       "sub": "r/programming"
     },
     {
-      "title": "I am making a free single binary to optimize s3 read, writes and updates",
-      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
-      "by": "ankush2324235",
-      "time": 1786107372000,
-      "sub": "r/devops"
+      "title": "Kuberenetes home lab suggestion",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xlozgi/kuberenetes_home_lab_suggestion/",
+      "by": "lispLaiBhari",
+      "time": 1793597625000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "From constraint models to playable puzzle games",
-      "url": "https://www.reddit.com/r/programming/comments/1vhxjpv/from_constraint_models_to_playable_puzzle_games/",
-      "by": "mzl",
-      "time": 1786100710000,
+      "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
+      "url": "https://www.reddit.com/r/programming/comments/1xlll2u/bad_apple_running_on_the_nand2tetris_cpu_simulator/",
+      "by": "Key_Oven4854",
+      "time": 1793586756000,
       "sub": "r/programming"
     },
     {
-      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
-      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
-      "by": "jagdip",
-      "time": 1786100332000,
-      "sub": "r/devops"
+      "title": "The Developer Communication Handbook",
+      "url": "https://www.reddit.com/r/programming/comments/1xl9z9b/the_developer_communication_handbook/",
+      "by": "alexeyr",
+      "time": 1793556511000,
+      "sub": "r/programming"
     },
     {
-      "title": "Weekly: Share your victories thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "title": "Jepsen on ParticleDB: \"We tested versions 1.1.4 through 1.1.18.11.rc-22 and found that ParticleDB’s claims of “Full ACID” were somewhat premature\"",
+      "url": "https://www.reddit.com/r/programming/comments/1xl8d57/jepsen_on_particledb_we_tested_versions_114/",
+      "by": "alexeyr",
+      "time": 1793552787000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to monitor eks cluster health",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
+      "by": "Calm_Pick_4250",
+      "time": 1793552223000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What do you get when you put every character that exists on a single page?",
+      "url": "https://www.reddit.com/r/programming/comments/1xl7yhp/what_do_you_get_when_you_put_every_character_that/",
+      "by": "alexeyr",
+      "time": 1793551856000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Monthly: Who is hiring?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
       "by": "AutoModerator",
-      "time": 1786096817000,
+      "time": 1793530811000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you guys manage backups of servers?",
-      "url": "https://www.reddit.com/r/devops/comments/1vhvnf3/how_do_you_guys_manage_backups_of_servers/",
-      "by": "hronak",
-      "time": 1786094328000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How do you turn CNCF projects into a complete developer platform?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
-      "by": "Waste_Bat_4525",
-      "time": 1786087237000,
+      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
+      "by": "danielfree19",
+      "time": 1793454046000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Java in 2026, totally worth it",
-      "url": "https://www.reddit.com/r/programming/comments/1vhpezn/java_in_2026_totally_worth_it/",
-      "by": "OSBY_Glabay",
-      "time": 1786073317000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
-      "by": "devensawant1",
-      "time": 1786029193000,
+      "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
+      "by": "FlatwormStunning9931",
+      "time": 1793426601000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "What an AI Production Readiness Review Actually Rejects.",
-      "url": "https://dmytronasyrov.medium.com/ai-production-readiness-review-release-rejections-3d80c4158004",
-      "by": "Dmytro Nasyrov",
-      "time": 1793606682000,
+      "title": "The code on GitHub was clean. The package you installed wasn’t.",
+      "url": "https://medium.com/@aditimishra_541/the-code-on-github-was-clean-the-package-you-installed-wasnt-8043a6461f45",
+      "by": "Aditi Mishra",
+      "time": 1793608199000,
       "tags": [
+        "supply-chain-security",
         "software-engineering",
-        "reliability-engineering",
-        "artificial-intelligence"
+        "security"
       ]
     },
     {
-      "title": "You Probably Don’t Need Jest for Most Node.js Testing Anymore",
-      "url": "https://habtesoft.medium.com/you-probably-dont-need-jest-for-most-node-js-testing-anymore-6792be11a693",
-      "by": "habtesoft",
-      "time": 1793606462000,
+      "title": "Part-2: Unlocking Reliable Communication Between Microservices, A Deep Dive into Fault Tolerance…",
+      "url": "https://medium.com/@sachinarora1555/part-2-unlocking-reliable-communication-between-microservices-a-deep-dive-into-fault-tolerance-6c117d1fed90",
+      "by": "Sachinarora",
+      "time": 1793607930000,
       "tags": [
-        "programming",
-        "nodejs",
-        "software-development"
-      ]
-    },
-    {
-      "title": "OVHcloud Now Bills Disks and IPv4 Apart, Up to 21.9%",
-      "url": "https://medium.com/@andy.a.g/ovhcloud-now-bills-disks-and-ipv4-apart-up-to-21-9-79039fff9abb",
-      "by": "Andy.G",
-      "time": 1793606462000,
-      "tags": [
-        "startup",
-        "small-business",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Part 4: Monitoring and Alerting on a Budget",
-      "url": "https://medium.com/@lilstex4good/part-4-monitoring-and-alerting-on-a-budget-3430075e9df8",
-      "by": "Emmanuel Mbagwu",
-      "time": 1793606462000,
-      "tags": [
-        "devops",
-        "azure",
-        "azure-cost-management"
-      ]
-    },
-    {
-      "title": "Software Engineering Different Diagrams",
-      "url": "https://medium.com/@dr30031102/software-engineering-different-diagrams-a0726d4f2d38",
-      "by": "Devansh Roy",
-      "time": 1793606461000,
-      "tags": [
-        "coding",
-        "software-requirements",
-        "programming"
-      ]
-    },
-    {
-      "title": "A Science Girlie’s Python Journey",
-      "url": "https://medium.com/@prateekshaar/a-science-girlies-python-journey-bef093350d12",
-      "by": "Prateekshaar",
-      "time": 1793606403000,
-      "tags": [
-        "programming",
-        "python",
-        "sofware-development"
-      ]
-    },
-    {
-      "title": "Consistent Hashing Explained Simply: From Load Balancing Failures to Virtual Nodes",
-      "url": "https://medium.com/@adatiyavinayshaileshbhai/consistent-hashing-explained-simply-from-load-balancing-failures-to-virtual-nodes-504a04162711",
-      "by": "Vinay Adatiya",
-      "time": 1793606394000,
-      "tags": [
-        "distributed-systems",
-        "backend-development",
+        "software-development",
+        "backend-engineering",
         "software-engineering"
       ]
     },
     {
-      "title": "Faster Fleet Restarts with AWS CodeDeploy RESTART Mode: The Complete Guide",
-      "url": "https://medium.com/@support_95015/faster-fleet-restarts-with-aws-codedeploy-restart-mode-the-complete-guide-2d2fca8e5778",
-      "by": "MetaSips Official",
-      "time": 1793606193000,
+      "title": "Horizontal Pod Autoscaler in Kubernetes: From Metrics Collection to Automatic Pod Scaling",
+      "url": "https://medium.com/@arushk494/horizontal-pod-autoscaler-in-kubernetes-from-metrics-collection-to-automatic-pod-scaling-e59e0b2767ed",
+      "by": "Arush Kumar",
+      "time": 1793607726000,
       "tags": [
-        "ci-cd-devops",
-        "cloud-computing",
-        "aws"
+        "cloud-native",
+        "devops",
+        "platform-engineering"
       ]
     },
     {
-      "title": "What to Do When You Feel Behind in Tech",
-      "url": "https://medium.com/@lauren.m45/what-to-do-when-you-feel-behind-in-tech-b41c15172022",
-      "by": "Lauren M.",
-      "time": 1793606139000,
+      "title": "Code Is Cheap. Complexity Isn’t: Rethinking Software Engineering in the Age of AI Agents",
+      "url": "https://durva7px.medium.com/code-is-cheap-complexity-isnt-rethinking-software-engineering-in-the-age-of-ai-agents-6120287e300e",
+      "by": "Durva Deshpande",
+      "time": 1793607685000,
       "tags": [
-        "programming",
+        "job-market",
+        "ai-agent",
+        "vibe-coding"
+      ]
+    },
+    {
+      "title": "Bridging Telecom and the Web: Integrating a Self-Hosted Asterisk PBX into a MERN Stack CRM",
+      "url": "https://medium.com/@malekmostafa0051/bridging-telecom-and-the-web-integrating-a-self-hosted-asterisk-pbx-into-a-mern-stack-crm-010272dfd8dd",
+      "by": "Malek Mostafa",
+      "time": 1793607633000,
+      "tags": [
+        "software-engineering",
+        "voip",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Cited Is Not Calibrated: Your Research Agent Sounds More Certain Than Its Sources",
+      "url": "https://medium.com/@igoreduardoai/cited-is-not-calibrated-your-research-agent-sounds-more-certain-than-its-sources-acc3b2acb266",
+      "by": "Igor Eduardo",
+      "time": 1793607624000,
+      "tags": [
+        "machine-learning",
+        "software-engineering",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "From “It Works on My Machine” to GitHub: Preparing a Data Engineering Project for the Community",
+      "url": "https://medium.com/@gigilinux/from-it-works-on-my-machine-to-github-preparing-a-data-engineering-project-for-the-community-9c832fd9cc39",
+      "by": "Luigi Majellaro",
+      "time": 1793607484000,
+      "tags": [
+        "software-engineering",
+        "docker",
+        "airflow"
+      ]
+    },
+    {
+      "title": "Part-1: Unlocking Reliable Communication Between Microservices, A Deep Dive into Fault Tolerance…",
+      "url": "https://medium.com/@sachinarora1555/part-1-unlocking-reliable-communication-between-microservices-a-deep-dive-into-fault-tolerance-906654d07f25",
+      "by": "Sachinarora",
+      "time": 1793607448000,
+      "tags": [
+        "microservices",
         "software-development",
-        "technology"
+        "software-architecture"
       ]
     },
     {
-      "title": "Optimizing a SwiftUI Animated Background with Core Animation",
-      "url": "https://carolanelefebvre.medium.com/optimizing-a-swiftui-animated-background-with-core-animation-440e28d563b3",
-      "by": "Carolane Lefebvre",
-      "time": 1793605861000,
+      "title": "Getting to Know Ballerina: My Experience Learning and Using It",
+      "url": "https://medium.com/@oshadhigoon/getting-to-know-ballerina-my-experience-learning-and-using-it-f04e1b92b0c6",
+      "by": "Oshadhi Goonewardena",
+      "time": 1793607296000,
       "tags": [
-        "swiftui",
-        "swift",
+        "software-development",
+        "api",
         "programming"
+      ]
+    },
+    {
+      "title": "AI Is Changing Our World: 5 Things Beginners Should Know",
+      "url": "https://medium.com/@amanalikalhoro8/ai-is-changing-our-world-5-things-beginners-should-know-ea4322011d58",
+      "by": "Amanalikalhoro",
+      "time": 1793607286000,
+      "tags": [
+        "software-engineering",
+        "education",
+        "chatgpt"
       ]
     }
   ]
