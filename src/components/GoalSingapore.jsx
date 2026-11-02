@@ -9,10 +9,11 @@ import { SINGAPORE_PAYLOAD as PAYLOAD } from '../lib/singaporePayload'
  * the passphrase. Every word of the plan, section titles included, lives
  * inside the payload, so this file is a generic renderer and says
  * nothing on its own. Edit the content with scripts/private-payload.mjs
- * (decrypt → edit → encrypt).
+ * (decrypt → edit → encrypt). The payload is { meta, tabs: [{ id, label,
+ * blocks }] }; an older { meta, blocks } payload renders as one tab.
  *
- * Ticks and the target date stay in localStorage: per device, ids and
- * booleans only, never the text.
+ * Ticks, the target date and the open tab stay in localStorage: per
+ * device, ids and booleans only, never the text.
  * ------------------------------------------------------------------ */
 
 const ITER = PAYLOAD.iter || 200000
@@ -28,7 +29,11 @@ async function unlock(pass) {
   )
   const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToU8(PAYLOAD.iv) }, key, b64ToU8(PAYLOAD.ct))
   const obj = JSON.parse(dec.decode(pt))
-  return { meta: obj.meta || {}, blocks: Array.isArray(obj.blocks) ? obj.blocks : [] }
+  const list = (b) => (Array.isArray(b) ? b : [])
+  const tabs = Array.isArray(obj.tabs) && obj.tabs.length
+    ? obj.tabs.map((t, i) => ({ id: String(t.id || `tab${i}`), label: t.label || `Part ${i + 1}`, blocks: list(t.blocks) }))
+    : [{ id: 'plan', label: 'Plan', blocks: list(obj.blocks) }]
+  return { meta: obj.meta || {}, tabs }
 }
 
 // In-memory only, so coming back within the same page load stays
@@ -43,10 +48,11 @@ function loadProgress() {
       return {
         done: v.done && typeof v.done === 'object' ? v.done : {},
         target: typeof v.target === 'string' ? v.target : '',
+        tab: typeof v.tab === 'string' ? v.tab : '',
       }
     }
   } catch {}
-  return { done: {}, target: '' }
+  return { done: {}, target: '', tab: '' }
 }
 const saveProgress = (p) => { try { localStorage.setItem(KEY, JSON.stringify(p)) } catch {} }
 
@@ -330,6 +336,78 @@ function Stat({ b }) {
   )
 }
 
+const plain = (t) => String(t || '').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+
+// Every id that can be ticked in a block, for the progress counts.
+function tickables(b) {
+  switch (b.type) {
+    case 'road':
+    case 'checklist': return (b.items || []).map((it) => it.id).filter(Boolean)
+    case 'resources': return (b.groups || []).flatMap((g) => (g.items || []).map((it) => it.id)).filter(Boolean)
+    case 'folds': return (b.items || []).flatMap((c) => (c.ticks || []).map((it) => it.id)).filter(Boolean)
+    default: return []
+  }
+}
+
+const k = (n) => `${Math.round(n * 10) / 10}k`
+
+// r.range is [low, high] in thousands. Every word around it, and the mark
+// it is measured against, come from the block's `scale` in the payload.
+function RangeLine({ r, scale = {} }) {
+  const range = Array.isArray(r.range) && r.range.length === 2 ? r.range : null
+  let mark = null
+  if (range && scale.mark) {
+    mark = range[0] >= scale.mark ? ['ok', scale.above]
+      : range[1] >= scale.mark ? ['mid', scale.within]
+        : ['low', scale.below]
+    if (!mark[1]) mark = null
+  }
+  const head = range
+    ? <span className="sg-rl-a"><b>{scale.prefix || ''}{k(range[0])}–{k(range[1])}</b>{scale.suffix ? ` ${scale.suffix}` : ''}</span>
+    : scale.none ? <span className="sg-rl-a">{scale.none}</span> : null
+  return (
+    <span className="sg-rl">
+      {(head || mark) && <span className="sg-rl-row">{head}{mark && <span className={`sg-v ${mark[0]}`}>{mark[1]}</span>}</span>}
+      {r.req && <span className="sg-rl-b">{scale.req ? `${scale.req} ` : ''}{r.req}</span>}
+    </span>
+  )
+}
+
+// A tickable row. With a link, the box and the link are separate targets:
+// the title opens the resource, the box marks it done.
+function CheckRow({ it, on, toggle }) {
+  if (!it.url) {
+    return (
+      <li>
+        <label className="sg-check">
+          <span className="sg-hit">
+            <input type="checkbox" className="sg-cb" checked={on} onChange={() => toggle(it.id)} />
+            <span className="sg-box" aria-hidden="true"><Tick /></span>
+          </span>
+          <span className="sg-check-t">
+            <Inline text={it.text} />
+            {it.note && <small><Inline text={it.note} /></small>}
+          </span>
+        </label>
+      </li>
+    )
+  }
+  return (
+    <li className={on ? 'sg-res is-done' : 'sg-res'}>
+      <label className="sg-hit">
+        <input type="checkbox" className="sg-cb" checked={on} onChange={() => toggle(it.id)} aria-label={`Done: ${plain(it.text)}`} />
+        <span className="sg-box" aria-hidden="true"><Tick /></span>
+      </label>
+      <span className="sg-check-t">
+        <a className="sg-res-a" href={it.url} target="_blank" rel="noopener noreferrer">
+          {plain(it.text)}<span className="sg-ext" aria-hidden="true">{'\u00a0'}↗</span>
+        </a>
+        {it.note && <small><Inline text={it.note} /></small>}
+      </span>
+    </li>
+  )
+}
+
 function Checklist({ b, prog, toggle }) {
   const items = b.items || []
   const done = items.filter((it) => prog.done[it.id]).length
@@ -339,20 +417,164 @@ function Checklist({ b, prog, toggle }) {
       <Head b={b} aside={<span className={full ? 'sg-pill full' : 'sg-pill'}>{done} / {items.length}</span>} />
       {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
       <ul className="sg-card sg-checks">
-        {items.map((it) => (
-          <li key={it.id}>
-            <label className="sg-check">
-              <input type="checkbox" className="sg-cb" checked={!!prog.done[it.id]} onChange={() => toggle(it.id)} />
-              <span className="sg-box" aria-hidden="true"><Tick /></span>
-              <span className="sg-check-t">
-                <Inline text={it.text} />
-                {it.note && <small><Inline text={it.note} /></small>}
-              </span>
-            </label>
+        {items.map((it) => <CheckRow key={it.id} it={it} on={!!prog.done[it.id]} toggle={toggle} />)}
+      </ul>
+      {b.footer && <p className="sg-aside"><Inline text={b.footer} /></p>}
+    </section>
+  )
+}
+
+function Progress({ b, blocks, prog, jump }) {
+  const parts = blocks.map((x, i) => ({ i, x, ids: tickables(x) })).filter((p) => p.ids.length)
+  const all = parts.flatMap((p) => p.ids)
+  const done = all.filter((id) => prog.done[id]).length
+  const pct = (d, n) => `${n ? (d / n) * 100 : 0}%`
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <div className="sg-card sg-prog">
+        <p className="sg-count"><b>{done}</b><span>of {all.length} done</span></p>
+        <div className="sg-track" role="progressbar" aria-label="Progress" aria-valuemin={0} aria-valuemax={all.length} aria-valuenow={done}>
+          <span style={{ width: pct(done, all.length) }} />
+        </div>
+        <ul className="sg-parts">
+          {parts.map((p) => {
+            const d = p.ids.filter((id) => prog.done[id]).length
+            return (
+              <li key={p.i}>
+                <button type="button" className="sg-part" onClick={() => jump(p.i)}>
+                  <span className="sg-part-l">{p.x.short || p.x.kicker || p.x.title}</span>
+                  <span className="sg-part-bar" aria-hidden="true"><span style={{ width: pct(d, p.ids.length) }} /></span>
+                  <span className="sg-part-n">{d}/{p.ids.length}</span>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+const Chevron = () => (
+  <svg className="sg-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+)
+
+// Collapsible cards: a heading, rows with a range line, link pills and
+// tickable items. The words between them come from the block's `words`.
+function Folds({ b, prog, toggle }) {
+  const items = b.items || []
+  const w = b.words || {}
+  const [open, setOpen] = useState(() => (items[0] ? { [items[0].id]: true } : {}))
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <ul className="sg-folds">
+        {items.map((c) => {
+          const ids = (c.ticks || []).map((p) => p.id)
+          const d = ids.filter((id) => prog.done[id]).length
+          const rows = c.rows || []
+          return (
+            <li key={c.id}>
+              <details className="sg-card sg-fold" open={!!open[c.id]}
+                onToggle={(e) => { const o = e.currentTarget.open; setOpen((s) => (!!s[c.id] === o ? s : { ...s, [c.id]: o })) }}>
+                <summary>
+                  <span className="sg-fold-h">
+                    <span className="sg-fold-n">{c.name}</span>
+                    {c.tag && <span className={c.best ? 'sg-tag best' : 'sg-tag'}>{c.tag}</span>}
+                    <Chevron />
+                  </span>
+                  {c.line && <span className="sg-fold-line"><Inline text={c.line} /></span>}
+                  <span className="sg-fold-meta">
+                    {rows.length}{rows.length === 1 ? (w.one ? ` ${w.one}` : '') : (w.many ? ` ${w.many}` : '')}
+                    {ids.length > 0 && <> · {w.ticks ? `${w.ticks} ` : ''}<b className={d === ids.length ? 'full' : undefined}>{d}/{ids.length}</b></>}
+                  </span>
+                </summary>
+                <div className="sg-fold-body">
+                  {rows.length > 0 && (
+                    <>
+                      {w.rowsHead && <p className="sg-sub">{w.rowsHead}</p>}
+                      <ul className="sg-fold-rows">
+                        {rows.map((r, i) => (
+                          <li key={i}>
+                            {r.url
+                              ? <a className="sg-row-t" href={r.url} target="_blank" rel="noopener noreferrer">{r.title}<span className="sg-ext" aria-hidden="true">{'\u00a0'}↗</span></a>
+                              : <span className="sg-row-t">{r.title}</span>}
+                            <RangeLine r={r} scale={b.scale} />
+                            {r.note && <span className="sg-row-n"><Inline text={r.note} /></span>}
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                  {Array.isArray(c.links) && c.links.length > 0 && (
+                    <p className="sg-fold-links">
+                      {c.links.map((l, i) => (
+                        <a key={i} className="sg-linkpill" href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true">↗</span></a>
+                      ))}
+                    </p>
+                  )}
+                  {ids.length > 0 && (
+                    <>
+                      {w.ticksHead && <p className="sg-sub">{w.ticksHead}</p>}
+                      <ul className="sg-checks sg-flat">
+                        {(c.ticks || []).map((it) => <CheckRow key={it.id} it={it} on={!!prog.done[it.id]} toggle={toggle} />)}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              </details>
+            </li>
+          )
+        })}
+      </ul>
+      {b.note && <p className="sg-note"><Inline text={b.note} /></p>}
+    </section>
+  )
+}
+
+function Tiles({ b }) {
+  return (
+    <section className="sg-sec">
+      <Head b={b} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      <ul className="sg-tiles">
+        {(b.items || []).map((it, i) => (
+          <li key={i}>
+            <a className="sg-card sg-tile" href={it.url} target="_blank" rel="noopener noreferrer">
+              <span className="sg-tile-k">{it.name}</span>
+              <span className="sg-row-t">{it.title}<span className="sg-ext" aria-hidden="true">{'\u00a0'}↗</span></span>
+              <RangeLine r={it} scale={b.scale} />
+              {it.note && <span className="sg-row-n"><Inline text={it.note} /></span>}
+            </a>
           </li>
         ))}
       </ul>
-      {b.footer && <p className="sg-aside"><Inline text={b.footer} /></p>}
+    </section>
+  )
+}
+
+function Resources({ b, prog, toggle }) {
+  const ids = tickables(b)
+  const done = ids.filter((id) => prog.done[id]).length
+  const full = ids.length > 0 && done === ids.length
+  return (
+    <section className="sg-sec">
+      <Head b={b} aside={ids.length > 0 && <span className={full ? 'sg-pill full' : 'sg-pill'}>{done} / {ids.length}</span>} />
+      {b.intro && <p className="sg-intro"><Inline text={b.intro} /></p>}
+      {(b.groups || []).map((g, gi) => (
+        <div key={gi} className="sg-group">
+          {g.title && <p className="sg-sub">{g.title}</p>}
+          <ul className="sg-card sg-checks">
+            {(g.items || []).map((it) => <CheckRow key={it.id} it={it} on={!!prog.done[it.id]} toggle={toggle} />)}
+          </ul>
+        </div>
+      ))}
+      {b.note && <p className="sg-note"><Inline text={b.note} /></p>}
     </section>
   )
 }
@@ -472,39 +694,86 @@ function Sources({ b }) {
 /* ----------------------------- the page --------------------------- */
 
 function Plan({ data, onBack }) {
-  const { meta, blocks } = data
+  const { meta, tabs } = data
   const [prog, setProg] = useState(loadProgress)
+  const topRef = useRef(null)
+  const mainRef = useRef(null)
+  const tabRefs = useRef([])
   useEffect(() => { saveProgress(prog) }, [prog])
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
+  const active = tabs.find((t) => t.id === prog.tab) || tabs[0]
   const toggle = (id) => setProg((p) => ({ ...p, done: { ...p.done, [id]: !p.done[id] } }))
   const setTarget = (target) => setProg((p) => ({ ...p, target }))
   const lines = Array.isArray(meta.lines) ? meta.lines : meta.line ? [meta.line] : []
+  const smooth = () => (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth')
+
+  // Bring the start of the content up under the bar: a new tab should
+  // never open half-way down, or below the hero out of sight.
+  const showContent = () => requestAnimationFrame(() => {
+    const el = mainRef.current
+    if (!el) return
+    const top = el.getBoundingClientRect().top + window.scrollY - (topRef.current?.offsetHeight || 0)
+    window.scrollTo({ top: Math.max(0, top), behavior: smooth() })
+  })
+  const pick = (id) => {
+    if (id !== active.id) setProg((p) => ({ ...p, tab: id }))
+    showContent()
+  }
+  const onTabKey = (e) => {
+    const i = tabs.findIndex((t) => t.id === active.id)
+    const n = { ArrowRight: (i + 1) % tabs.length, ArrowLeft: (i - 1 + tabs.length) % tabs.length, Home: 0, End: tabs.length - 1 }[e.key]
+    if (n === undefined) return
+    e.preventDefault()
+    pick(tabs[n].id)
+    tabRefs.current[n]?.focus()
+  }
+  // Sections are reached with buttons, not #anchors: the hash is the route.
+  const jump = (i) => document.getElementById(`sg-${active.id}-${i}`)?.scrollIntoView({ behavior: smooth(), block: 'start' })
 
   const block = (b, i) => {
     switch (b.type) {
-      case 'road': return <Road key={i} b={b} prog={prog} toggle={toggle} setTarget={setTarget} />
-      case 'stat': return <Stat key={i} b={b} />
-      case 'checklist': return <Checklist key={i} b={b} prog={prog} toggle={toggle} />
-      case 'cards': return <Cards key={i} b={b} />
-      case 'roles': return <Roles key={i} b={b} />
-      case 'steps': return <Steps key={i} b={b} />
-      case 'grid': return <Grid key={i} b={b} />
-      case 'list': return <List key={i} b={b} />
-      case 'rule': return <Rule key={i} b={b} />
-      case 'sources': return <Sources key={i} b={b} />
+      case 'road': return <Road b={b} prog={prog} toggle={toggle} setTarget={setTarget} />
+      case 'stat': return <Stat b={b} />
+      case 'checklist': return <Checklist b={b} prog={prog} toggle={toggle} />
+      case 'cards': return <Cards b={b} />
+      case 'roles': return <Roles b={b} />
+      case 'steps': return <Steps b={b} />
+      case 'grid': return <Grid b={b} />
+      case 'list': return <List b={b} />
+      case 'rule': return <Rule b={b} />
+      case 'sources': return <Sources b={b} />
+      case 'progress': return <Progress b={b} blocks={active.blocks} prog={prog} jump={jump} />
+      case 'folds': return <Folds b={b} prog={prog} toggle={toggle} />
+      case 'tiles': return <Tiles b={b} />
+      case 'resources': return <Resources b={b} prog={prog} toggle={toggle} />
       default: return null
     }
   }
+  const multi = tabs.length > 1
 
   return (
     <div className="sg-root">
       <style>{CSS}</style>
-      <div className="sg-top">
-        <div className="sg-top-in">
+      <div className="sg-top" ref={topRef}>
+        <div className={multi ? 'sg-top-in has-tabs' : 'sg-top-in'}>
           <button type="button" className="sg-back" onClick={onBack}>
             <BackIcon /><span>Back to site</span>
           </button>
+          {multi && (
+            <div className="sg-tabs" role="tablist" aria-label="Sections" onKeyDown={onTabKey}>
+              {tabs.map((t, i) => {
+                const on = t.id === active.id
+                return (
+                  <button key={t.id} ref={(el) => { tabRefs.current[i] = el }} type="button" role="tab"
+                    id={`sg-tab-${t.id}`} aria-selected={on} aria-controls="sg-panel" tabIndex={on ? 0 : -1}
+                    className={on ? 'sg-tab on' : 'sg-tab'} onClick={() => pick(t.id)}>
+                    {t.label}
+                  </button>
+                )
+              })}
+            </div>
+          )}
           <span className="sg-mono">{meta.bar || 'Private'}</span>
         </div>
       </div>
@@ -530,8 +799,11 @@ function Plan({ data, onBack }) {
         <Skyline className="sg-city" />
       </header>
 
-      <main className="sg-main">
-        {blocks.map(block)}
+      <main className="sg-main" ref={mainRef} id="sg-panel"
+        {...(multi ? { role: 'tabpanel', 'aria-labelledby': `sg-tab-${active.id}` } : {})}>
+        {active.blocks.map((b, i) => (
+          <div key={`${active.id}-${i}`} id={`sg-${active.id}-${i}`} className="sg-anchor">{block(b, i)}</div>
+        ))}
         <p className="sg-end"><LockIcon className="sg-end-i" />Encrypted · decrypts only in this browser</p>
       </main>
     </div>
@@ -666,7 +938,7 @@ body:has(.sg-root) { background: #070b14 !important; background-image: none !imp
 }
 .sg-root :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 6px; }
 .sg-root strong { color: #fff; font-weight: 600; }
-.sg-root p a, .sg-root li > a:not(.sg-role) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,90,105,.6); text-underline-offset: 3px; }
+.sg-root p a:not([class]), .sg-root li > a:not([class]) { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,90,105,.6); text-underline-offset: 3px; }
 
 .sg-top { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line);
   background: rgba(7,11,20,.74); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); }
@@ -765,14 +1037,21 @@ body:has(.sg-root) { background: #070b14 !important; background-image: none !imp
 .sg-pill.full { background: var(--gold); border-color: var(--gold); color: #1b1205; }
 .sg-checks { list-style: none; margin: 1rem 0 0; padding: .35rem; }
 .sg-checks > li { position: relative; }
-.sg-check { display: flex; align-items: flex-start; gap: .8rem; padding: .7rem; border-radius: .8rem; cursor: pointer; transition: background .2s; }
+.sg-check { display: flex; align-items: flex-start; gap: .1rem; padding: .15rem .25rem; border-radius: .8rem; cursor: pointer; transition: background .2s; }
 .sg-check:hover { background: rgba(255,255,255,.03); }
-.sg-box { flex: none; margin-top: .1rem; width: 1.3rem; height: 1.3rem; border-radius: .4rem; display: grid; place-items: center;
+.sg-hit { flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: .7rem; cursor: pointer; }
+.sg-box { flex: none; width: 1.3rem; height: 1.3rem; border-radius: .4rem; display: grid; place-items: center;
   border: 1.5px solid rgba(255,255,255,.24); color: transparent; transition: background .2s, border-color .2s, color .2s; }
 .sg-box svg { width: .85rem; height: .85rem; }
 .sg-cb:checked + .sg-box { background: var(--flag); border-color: var(--flag); color: #fff; }
-.sg-check-t { font-size: .95rem; line-height: 1.5; color: var(--text); }
+.sg-check-t { flex: 1; min-width: 0; padding: .62rem .45rem .62rem 0; font-size: .95rem; line-height: 1.5; color: var(--text); }
 .sg-check-t small { display: block; margin-top: .2rem; font-size: .8rem; line-height: 1.5; color: var(--dim); }
+.sg-check:hover .sg-box, .sg-hit:hover .sg-box { border-color: rgba(255,90,105,.65); }
+.sg-res { display: flex; align-items: flex-start; gap: .1rem; padding: .15rem .25rem; }
+.sg-res-a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,.28); text-underline-offset: 3px; }
+.sg-res-a:hover { text-decoration-color: var(--red); }
+.sg-res.is-done .sg-res-a, .sg-check:has(.sg-cb:checked) .sg-check-t { color: var(--soft); }
+.sg-ext { color: var(--red); font-weight: 600; }
 
 .sg-cards { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: 1fr; }
 @media (min-width: 640px) { .sg-cards { grid-template-columns: 1fr 1fr; } }
@@ -836,6 +1115,76 @@ body:has(.sg-root) { background: #070b14 !important; background-image: none !imp
 .sg-gate-city { position: fixed; left: 0; right: 0; bottom: 0; aspect-ratio: 1200 / 260; max-height: 34vh; z-index: 0; pointer-events: none;
   color: var(--color-foreground); opacity: .07; }
 .sg-gate-svg { display: block; width: 100%; height: 100%; }
+
+/* tabs */
+.sg-top-in.has-tabs { display: grid; grid-template-columns: auto 1fr; padding-top: .5rem; padding-bottom: .5rem; }
+.sg-top-in.has-tabs .sg-mono { display: none; }
+.sg-tabs { justify-self: end; display: inline-flex; gap: .2rem; padding: .18rem; border-radius: 99px;
+  border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+.sg-tab { min-width: 4.6rem; min-height: 2.15rem; padding: .3rem 1rem; border: 1px solid transparent; border-radius: 99px; background: none;
+  cursor: pointer; font: 500 .86rem/1 'Sora', system-ui, sans-serif; color: var(--soft); transition: background .2s, color .2s, border-color .2s; }
+.sg-tab:hover { color: var(--text); }
+.sg-tab.on { background: rgba(255,90,105,.16); border-color: rgba(255,90,105,.55); color: #fff; font-weight: 600; }
+@media (min-width: 720px) {
+  .sg-top-in.has-tabs { grid-template-columns: 1fr auto 1fr; }
+  .sg-top-in.has-tabs .sg-tabs { justify-self: center; }
+  .sg-top-in.has-tabs .sg-mono { display: block; justify-self: end; }
+}
+.sg-anchor { scroll-margin-top: 4.5rem; }
+
+/* progress */
+.sg-prog { margin-top: 1rem; padding: 1.1rem 1.1rem .8rem; }
+.sg-parts { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; gap: .1rem; }
+.sg-part { width: 100%; display: grid; grid-template-columns: 6.2rem 1fr 2.8rem; align-items: center; gap: .75rem; min-height: 2.6rem;
+  padding: .45rem .4rem; border: 0; border-radius: .6rem; background: none; cursor: pointer; font: inherit; color: var(--text); text-align: left; }
+.sg-part:hover { background: rgba(255,255,255,.04); }
+.sg-part-l { font-size: .88rem; }
+.sg-part-bar { height: 4px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+.sg-part-bar span { display: block; height: 100%; border-radius: inherit; background: var(--red); transition: width .4s; }
+.sg-part-n { font: 600 11px/1 'JetBrains Mono', ui-monospace, monospace; color: var(--soft); text-align: right; }
+
+/* folds */
+.sg-folds { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .7rem; }
+.sg-fold > summary { list-style: none; cursor: pointer; display: grid; gap: .4rem; padding: 1rem 1.1rem 1.05rem; border-radius: inherit; }
+.sg-fold > summary::-webkit-details-marker { display: none; }
+.sg-fold > summary:hover { background: rgba(255,255,255,.025); }
+.sg-fold[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.sg-fold-h { display: flex; align-items: center; gap: .6rem; }
+.sg-fold-n { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 1.45rem; line-height: 1.1; color: #fff; }
+.sg-chev { flex: none; width: 1.15rem; height: 1.15rem; margin-left: auto; color: var(--soft); transition: transform .25s; }
+.sg-fold[open] .sg-chev { transform: rotate(180deg); }
+.sg-fold-line { font-size: .9rem; line-height: 1.5; color: var(--soft); }
+.sg-fold-meta { font: 500 11px/1.3 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .04em; color: var(--dim); }
+.sg-fold-meta b { font-weight: 600; color: var(--text); }
+.sg-fold-meta b.full { color: var(--gold); }
+.sg-fold-body { padding: .1rem 1.1rem 1rem; border-top: 1px solid var(--line); }
+.sg-sub { margin: 1.15rem 0 .55rem; font: 600 10px/1.2 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.sg-sub + .sg-checks { margin-top: 0; }
+.sg-fold-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.sg-fold-rows > li { display: grid; gap: .32rem; padding: .75rem .85rem; border-radius: .8rem; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+.sg-row-t { font-size: .95rem; font-weight: 600; line-height: 1.4; color: #fff; text-decoration: none; }
+a.sg-row-t:hover { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+.sg-row-n { font-size: .82rem; line-height: 1.5; color: var(--dim); }
+.sg-rl { display: grid; gap: .3rem; font-size: .82rem; line-height: 1.45; color: var(--soft); }
+.sg-rl-row { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .55rem; }
+.sg-rl-a b { font-weight: 600; color: var(--gold); }
+.sg-v { padding: .24rem .45rem; border-radius: 99px; border: 1px solid; font: 600 10px/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .03em; white-space: nowrap; }
+.sg-v.ok { color: #7ee2ae; border-color: rgba(95,212,154,.4); background: rgba(95,212,154,.1); }
+.sg-v.mid { color: var(--gold); border-color: rgba(255,197,107,.4); background: rgba(255,197,107,.08); }
+.sg-v.low { color: #ff8a95; border-color: rgba(255,90,105,.4); background: rgba(255,90,105,.08); }
+.sg-fold-links { margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.sg-linkpill { display: inline-flex; align-items: center; gap: .3rem; min-height: 2.3rem; padding: .35rem .85rem; border-radius: 99px;
+  border: 1px solid rgba(255,90,105,.45); color: #fff; font-size: .82rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+.sg-linkpill:hover { background: rgba(255,90,105,.1); }
+.sg-checks.sg-flat { margin: 0; padding: 0; }
+
+/* tiles */
+.sg-tiles { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .sg-tiles { grid-template-columns: 1fr 1fr; } }
+.sg-tiles > li { display: grid; }
+.sg-tile { display: grid; align-content: start; gap: .32rem; padding: .9rem 1rem; color: inherit; text-decoration: none; transition: border-color .2s, background .2s; }
+.sg-tile:hover { border-color: rgba(255,90,105,.45); background: rgba(255,90,105,.05); }
+.sg-tile-k { font: 600 10px/1.2 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
 
 @media (prefers-reduced-motion: reduce) {
   .sg-root *, .sg-root *::before, .sg-root *::after { animation: none !important; transition: none !important; }
