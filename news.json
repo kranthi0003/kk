@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-02T09:10:42.747Z",
+  "generated": "2026-11-02T10:00:17.612Z",
   "reddit": [
     {
-      "title": "Weekly Self Promotion Thread",
-      "url": "https://www.reddit.com/r/devops/comments/1xlqwcb/weekly_self_promotion_thread/",
-      "by": "AutoModerator",
-      "time": 1793604614000,
-      "sub": "r/devops"
+      "title": "Designsystemet, Now in Elm · cekrem.github.io",
+      "url": "https://www.reddit.com/r/programming/comments/1xlsnmi/designsystemet_now_in_elm_cekremgithubio/",
+      "by": "cekrem",
+      "time": 1793611506000,
+      "sub": "r/programming"
     },
     {
       "title": "The fastest double-to-string algorithm you’ve never heard of",
@@ -16,11 +16,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "What’s your experience using incident.io for on-call and incident response?",
-      "url": "https://www.reddit.com/r/devops/comments/1xlom45/whats_your_experience_using_incidentio_for_oncall/",
-      "by": "Particular-Sell2617",
-      "time": 1793596373000,
-      "sub": "r/devops"
+      "title": "Kuberenetes home lab suggestion",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xlozgi/kuberenetes_home_lab_suggestion/",
+      "by": "lispLaiBhari",
+      "time": 1793597625000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
@@ -28,20 +28,6 @@
       "by": "Key_Oven4854",
       "time": 1793586756000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How many apps have non-engineers at your company built with Claude/Cursor/Lovable, and who owns them when they break?",
-      "url": "https://www.reddit.com/r/devops/comments/1xlhrh8/how_many_apps_have_nonengineers_at_your_company/",
-      "by": "lightninja987",
-      "time": 1793575770000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "AI taking over Devops.",
-      "url": "https://www.reddit.com/r/devops/comments/1xldkq0/ai_taking_over_devops/",
-      "by": "Glittering_Ad4197",
-      "time": 1793565042000,
-      "sub": "r/devops"
     },
     {
       "title": "The Developer Communication Handbook",
@@ -58,129 +44,143 @@
       "sub": "r/programming"
     },
     {
-      "title": "What do you get when you put every character that exists on a single page?",
-      "url": "https://www.reddit.com/r/programming/comments/1xl7yhp/what_do_you_get_when_you_put_every_character_that/",
-      "by": "alexeyr",
-      "time": 1793551856000,
-      "sub": "r/programming"
+      "title": "How to monitor eks cluster health",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
+      "by": "Calm_Pick_4250",
+      "time": 1793552223000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Building a fast perimeter security auditor in Next.js: Handling Anti-SSRF, RFC 1918 ranges, and socket timeouts",
-      "url": "https://www.reddit.com/r/devops/comments/1xkomdn/building_a_fast_perimeter_security_auditor_in/",
-      "by": "Some-Onion4062",
-      "time": 1793489862000,
-      "sub": "r/devops"
+      "title": "Monthly: Who is hiring?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
+      "by": "AutoModerator",
+      "time": 1793530811000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
+      "by": "danielfree19",
+      "time": 1793454046000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "RKE2 Kubernetes Interview Question – What happens if all 3 etcd server IPs change? How would you recover the cluster?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xk2jc4/rke2_kubernetes_interview_question_what_happens/",
+      "by": "FlatwormStunning9931",
+      "time": 1793426601000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Legacy Modernization: Two Strategies, Real-World Risks, and Where AI Fits",
-      "url": "https://medium.com/@hello.trellissoftai/legacy-modernization-two-strategies-real-world-risks-and-where-ai-fits-de2e28fd5859",
-      "by": "Trellissoft AI",
-      "time": 1793610326000,
+      "title": "Your AI Cuts Off Your Hardest Answers First",
+      "url": "https://medium.com/@jaberadam2001/your-ai-cuts-off-your-hardest-answers-first-1daf5f9ca781",
+      "by": "Adam Jaber",
+      "time": 1793612633000,
       "tags": [
+        "openai",
         "artificial-intelligence",
-        "enterprise-software",
-        "digital-transformation"
+        "software-engineering"
       ]
     },
     {
-      "title": "The Decorator Pattern in Spring: Wrap a Bean With Caching or Metrics Without Touching It",
-      "url": "https://medium.com/@cemdrman/the-decorator-pattern-in-spring-wrap-a-bean-with-caching-or-metrics-without-touching-it-afcfbd1a7536",
-      "by": "Cem Dırman",
-      "time": 1793610062000,
+      "title": "I Built and Launched a Multiplayer 3D Game on a Week of Leave — The AI Was Not the Hard Part.",
+      "url": "https://medium.com/@abonuoha/i-built-and-launched-a-multiplayer-3d-game-on-a-week-of-leave-the-ai-was-not-the-hard-part-edb142bac7ce",
+      "by": "Onuoha Abel",
+      "time": 1793612426000,
+      "tags": [
+        "programming",
+        "software-engineering",
+        "generative-ai"
+      ]
+    },
+    {
+      "title": "AI Agents vs Chatbots: Why Developers Disagree About the AI Hype",
+      "url": "https://levelup.gitconnected.com/ai-agents-vs-chatbots-why-developers-disagree-about-the-ai-hype-a3291c91fc39",
+      "by": "",
+      "time": 1793612175000,
       "tags": [
         "software-engineering",
-        "software-development",
-        "java"
+        "technology",
+        "software-development"
       ]
     },
     {
-      "title": "11-Building for the People Who Will Maintain It: The Part of Software Development We Often Overlook",
-      "url": "https://medium.com/@fomawill/11-building-for-the-people-who-will-maintain-it-the-part-of-software-development-we-often-overlook-5874d4d7d8b3",
-      "by": "William Foma",
-      "time": 1793610062000,
+      "title": "Best AWS and DevOps Course in India 2026: The Ultimate Cloud Career Roadmap",
+      "url": "https://medium.com/@vdksaikiran08/best-aws-and-devops-course-in-india-2026-the-ultimate-cloud-career-roadmap-5de76f8cd40d",
+      "by": "Vdksaikiran",
+      "time": 1793611986000,
       "tags": [
-        "aws",
-        "software-development",
-        "devops"
+        "devops",
+        "ai",
+        "roadmaps"
       ]
     },
     {
-      "title": "Building Kwa Ground",
-      "url": "https://medium.com/@andyaketch/building-kwa-ground-a5086ec0b5a8",
-      "by": "andyaketch",
-      "time": 1793609932000,
+      "title": "Üretimden Notlar #8 — Deployment’ı Geri Aldık. Veritabanı Eski Haline Dönmedi.",
+      "url": "https://medium.com/@tanjubozok/%C3%BCretimden-notlar-8-deployment%C4%B1-geri-ald%C4%B1k-veritaban%C4%B1-eski-haline-d%C3%B6nmedi-e15463dcf59e",
+      "by": "Tanju BOZOK",
+      "time": 1793611861000,
       "tags": [
-        "api",
-        "geoapify",
-        "maps"
+        "software-architecture",
+        "dotnet",
+        "software-development"
       ]
     },
     {
-      "title": "Judge AI by the Task It Finishes, Not the Answer It Gives",
-      "url": "https://medium.com/@advantageworks/judge-ai-by-the-task-it-finishes-not-the-answer-it-gives-e4e2d2893f0a",
-      "by": "AdvantageWorks",
-      "time": 1793609771000,
+      "title": "Core Web Vitals Remediation: Fix LCP & INP · SazM",
+      "url": "https://medium.com/@sazmco/core-web-vitals-remediation-fix-lcp-inp-sazm-75655d79c461",
+      "by": "Saravana Bhava",
+      "time": 1793611707000,
       "tags": [
-        "software-engineering",
-        "model-context-protocol",
+        "programming",
+        "seo",
+        "wordpress"
+      ]
+    },
+    {
+      "title": "Where Your Tokens Actually Go: An Architectural Guide to Slashing Agentic LLM Bills by 40%",
+      "url": "https://medium.com/@JustSnehal/where-your-tokens-actually-go-an-architectural-guide-to-slashing-agentic-llm-bills-by-40-af7b0a7f6d17",
+      "by": "Snehal Singh",
+      "time": 1793611561000,
+      "tags": [
+        "technology",
+        "programming",
         "ai-agent"
       ]
     },
     {
-      "title": "Cloud Migrations Go Wrong Before the First Server Moves",
-      "url": "https://medium.com/@mohsinarshadazad.qa/cloud-migration-steps-before-cutover-383031c6b969",
-      "by": "Mohsin Arshad",
-      "time": 1793609650000,
+      "title": "Your Forked PHP Worker Shares OpCache With Its Parent. So Why Is It Still Slow?",
+      "url": "https://medium.com/@laurentmn/your-forked-php-worker-shares-opcache-with-its-parent-so-why-is-it-still-slow-5939c81d352d",
+      "by": "laurentmn",
+      "time": 1793611540000,
       "tags": [
-        "software-development",
-        "cloud-computing",
-        "technology"
+        "php",
+        "symfony",
+        "software-development"
       ]
     },
     {
-      "title": "I Deleted 2,000 Lines of Code and Shipped Zero New Features. It Was the Best Thing I Did All Year.",
-      "url": "https://medium.com/@patheditor1/i-deleted-2-000-lines-of-code-and-shipped-zero-new-features-it-was-the-best-thing-i-did-all-year-273bd4e4e4fc",
-      "by": "Ryan Mercer",
-      "time": 1793609588000,
+      "title": "Why Is My Monitoring Not Detecting Downtime? 7 Causes and Fixes",
+      "url": "https://medium.com/@emilyharbord2/why-is-my-monitoring-not-detecting-downtime-7-causes-and-fixes-64ce7d2fd145",
+      "by": "Emilyharbord",
+      "time": 1793611503000,
       "tags": [
-        "software-development",
-        "coding",
-        "web-development"
+        "prometheus",
+        "observability",
+        "site-reliability-engineer"
       ]
     },
     {
-      "title": "Conway’s Law Still Shapes How Your Frontend and Backend Teams Split Their Code",
-      "url": "https://medium.com/@mark.w.1987/conways-law-still-shapes-how-your-frontend-and-backend-teams-split-their-code-c97f225d2228",
-      "by": "Mark W.",
-      "time": 1793609523000,
+      "title": "100 Billion Ads Per Second: How Meta Andromeda Is Redesigning AI Infrastructure",
+      "url": "https://decodemeta.medium.com/100-billion-ads-per-second-how-meta-andromeda-is-redesigning-ai-infrastructure-85181d697bb4",
+      "by": "DecodeMeta",
+      "time": 1793611460000,
       "tags": [
-        "software-engineering",
-        "design-systems",
-        "software-architecture"
-      ]
-    },
-    {
-      "title": "DeepSeek’s New Coding Agent Doesn’t Wait for Your Prompt. It Waits for Your Team to Need It.",
-      "url": "https://abdulwahabdev.medium.com/deepseeks-new-coding-agent-doesn-t-wait-for-your-prompt-it-waits-for-your-team-to-need-it-784e48dca98b",
-      "by": "Abdul Wahab",
-      "time": 1793609407000,
-      "tags": [
-        "ai-agent",
-        "deepseek",
-        "github"
-      ]
-    },
-    {
-      "title": "“Here’s How I Programmed a Real Quantum Computer From My Laptop at Home. “You can do it too!”",
-      "url": "https://medium.com/@rabjot03/heres-how-i-programmed-a-real-quantum-computer-from-my-laptop-at-home-you-can-do-it-too-53b65ab4b97f",
-      "by": "Rabjot",
-      "time": 1793609307000,
-      "tags": [
-        "math",
-        "quantum-computing",
-        "programming"
+        "gpu-computing",
+        "nvidia",
+        "artificial-intelligence"
       ]
     }
   ]
