@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-02T12:00:16.557Z",
+  "generated": "2026-11-03T04:21:41.920Z",
   "reddit": [
     {
-      "title": "CheerpJ 5.0: Java 21/25 in the browser, full OpenJDK, and a new WasmGC engine",
-      "url": "https://www.reddit.com/r/programming/comments/1xlutld/cheerpj_50_java_2125_in_the_browser_full_openjdk/",
-      "by": "alexp_lt",
-      "time": 1793619286000,
+      "title": "I built PagerWho, an open-source, self-hosted incident management and on-call tool (MIT)",
+      "url": "https://www.reddit.com/r/devops/comments/1xmj3ey/i_built_pagerwho_an_opensource_selfhosted/",
+      "by": "pagerwho1",
+      "time": 1793678953000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "A Decade of Kill Bugs – Alan Grow",
+      "url": "https://www.reddit.com/r/programming/comments/1xmgayd/a_decade_of_kill_bugs_alan_grow/",
+      "by": "grahamperrin",
+      "time": 1793670897000,
       "sub": "r/programming"
     },
     {
-      "title": "Reducing “synthetic” content with programming language design",
-      "url": "https://www.reddit.com/r/programming/comments/1xlu1sz/reducing_synthetic_content_with_programming/",
-      "by": "wheatBread",
-      "time": 1793616653000,
+      "title": "For Macro Lovers: Could Tauto Have the World's Most Powerful Macro System?",
+      "url": "https://www.reddit.com/r/programming/comments/1xmffyy/for_macro_lovers_could_tauto_have_the_worlds_most/",
+      "by": "ryo33h",
+      "time": 1793668446000,
       "sub": "r/programming"
     },
     {
-      "title": "For Buying voucher ?? shall i trust!",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xlu1dl/for_buying_voucher_shall_i_trust/",
-      "by": "Nims_Dai",
-      "time": 1793616611000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Designsystemet, Now in Elm · cekrem.github.io",
-      "url": "https://www.reddit.com/r/programming/comments/1xlsnmi/designsystemet_now_in_elm_cekremgithubio/",
-      "by": "cekrem",
-      "time": 1793611506000,
+      "title": "Memory Management, Explained Simply (Part 3)",
+      "url": "https://www.reddit.com/r/programming/comments/1xmex43/memory_management_explained_simply_part_3/",
+      "by": "nicbarkeragain",
+      "time": 1793667013000,
       "sub": "r/programming"
     },
     {
-      "title": "The fastest double-to-string algorithm you’ve never heard of",
-      "url": "https://www.reddit.com/r/programming/comments/1xlqfb6/the_fastest_doubletostring_algorithm_youve_never/",
-      "by": "fagnerbrack",
-      "time": 1793602829000,
+      "title": "Java Game Devlog - Enemy Object Management for my Java game.",
+      "url": "https://www.reddit.com/r/programming/comments/1xmdvnb/java_game_devlog_enemy_object_management_for_my/",
+      "by": "OkBlackberry8606",
+      "time": 1793664164000,
       "sub": "r/programming"
     },
     {
-      "title": "Kuberenetes home lab suggestion",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xlozgi/kuberenetes_home_lab_suggestion/",
-      "by": "lispLaiBhari",
-      "time": 1793597625000,
-      "sub": "r/kubernetes"
+      "title": "OpenObserve vs Stack Grafana",
+      "url": "https://www.reddit.com/r/devops/comments/1xm3ts3/openobserve_vs_stack_grafana/",
+      "by": "Spiritual_Bee_637",
+      "time": 1793641172000,
+      "sub": "r/devops"
     },
     {
-      "title": "Bad Apple!! Running on the NAND2TETRIS CPU simulator",
-      "url": "https://www.reddit.com/r/programming/comments/1xlll2u/bad_apple_running_on_the_nand2tetris_cpu_simulator/",
-      "by": "Key_Oven4854",
-      "time": 1793586756000,
+      "title": "What does one mean by \"projects\" if not homelabs? Are homelabs considered as projects?",
+      "url": "https://www.reddit.com/r/devops/comments/1xly6f1/what_does_one_mean_by_projects_if_not_homelabs/",
+      "by": "SkySpiritual9415",
+      "time": 1793628578000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Scheme+ language : 100% Scheme compatible, infix support and now with type annotation and inference for performance.",
+      "url": "https://www.reddit.com/r/programming/comments/1xlxgqs/scheme_language_100_scheme_compatible_infix/",
+      "by": "DamienMattei",
+      "time": 1793626846000,
       "sub": "r/programming"
     },
     {
-      "title": "How to monitor eks cluster health",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl8451/how_to_monitor_eks_cluster_health/",
-      "by": "Calm_Pick_4250",
-      "time": 1793552223000,
-      "sub": "r/kubernetes"
+      "title": "Like to improve my networking knowledge",
+      "url": "https://www.reddit.com/r/devops/comments/1xlw1rn/like_to_improve_my_networking_knowledge/",
+      "by": "theesmaarkhan",
+      "time": 1793623065000,
+      "sub": "r/devops"
     },
     {
-      "title": "Monthly: Who is hiring?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xl09p9/monthly_who_is_hiring/",
-      "by": "AutoModerator",
-      "time": 1793530811000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "External Secrets Operator on OKE leaks memory above 50 Workload Identity SecretStores: root cause is in oci-go-sdk (fix inside)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xkaivn/external_secrets_operator_on_oke_leaks_memory/",
-      "by": "danielfree19",
-      "time": 1793454046000,
-      "sub": "r/kubernetes"
+      "title": "Unexpected cloud cost spike. How to handle postmortem?",
+      "url": "https://www.reddit.com/r/devops/comments/1xlvd19/unexpected_cloud_cost_spike_how_to_handle/",
+      "by": "WayIll9842",
+      "time": 1793621017000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "My Senior Engineer Added One @Transactional Annotation. We Charged 312 Customers Twice.",
-      "url": "https://medium.com/@gkhanalkan_71996/my-senior-engineer-added-one-transactional-annotation-we-charged-312-customers-twice-fefa320b31e7",
-      "by": "SYSTEM DESIGN & Java Spring Boot",
-      "time": 1793620509000,
+      "title": "Stop Testing Email with Production SMTP: 5 Free Alternatives for Developers",
+      "url": "https://medium.com/@developerawam/stop-testing-email-with-production-smtp-5-free-alternatives-for-developers-4e47f889a9c9",
+      "by": "Developer Awam",
+      "time": 1793679517000,
       "tags": [
         "programming",
-        "software-development",
-        "java"
-      ]
-    },
-    {
-      "title": "How RIGOR Implements Two Native Assets in One UTXO Ledger",
-      "url": "https://medium.com/@rigorchain/how-rigor-implements-two-native-assets-in-one-utxo-ledger-443a7ff6413f",
-      "by": "Rigorchain Project",
-      "time": 1793620459000,
-      "tags": [
-        "software-engineering",
-        "cryptography",
-        "blockchain"
-      ]
-    },
-    {
-      "title": "The Staff Engineer Interview Was Going Perfectly. Then He Said “Exactly Once.”",
-      "url": "https://medium.com/codetodeploy/the-staff-engineer-interview-was-going-perfectly-then-he-said-exactly-once-8bdb0f489033",
-      "by": "SYSTEM DESIGN & Java Spring Boot",
-      "time": 1793620223000,
-      "tags": [
-        "programming",
-        "leadership",
-        "java"
-      ]
-    },
-    {
-      "title": "Our Kafka Consumer Lag Hit 4 Million. Adding 20 Pods Made the Outage Worse",
-      "url": "https://javascript.plainenglish.io/our-kafka-consumer-lag-hit-4-million-adding-20-pods-made-the-outage-worse-223e162d859e",
-      "by": "SYSTEM DESIGN & Java Spring Boot",
-      "time": 1793620135000,
-      "tags": [
-        "coding",
-        "java",
-        "programming"
-      ]
-    },
-    {
-      "title": "Our PostgreSQL Query Took 12ms. Then the Sixth Execution Changed Everything.",
-      "url": "https://medium.com/engineering-playbook/our-postgresql-query-took-12ms-then-the-sixth-execution-changed-everything-b8fd0f2ff995",
-      "by": "SYSTEM DESIGN & Java Spring Boot",
-      "time": 1793619997000,
-      "tags": [
-        "programming",
-        "spring-boot",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Where to Add Guardrails in Your AI Application",
-      "url": "https://medium.com/ai-tools-digest/where-to-add-guardrails-in-your-ai-application-6d19a560067e",
-      "by": "bytebantz",
-      "time": 1793619971000,
-      "tags": [
-        "langgraph",
-        "ai-agent",
-        "langchain"
-      ]
-    },
-    {
-      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
-      "url": "https://medium.com/@shyannvrhowemws385/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-eb6ad23f6508",
-      "by": "Casino en ligne",
-      "time": 1793619802000,
-      "tags": [
-        "programming",
-        "technology",
+        "php",
         "devops"
       ]
     },
     {
-      "title": "Standardizing Dev Environments with Devcontainers and VS Code",
-      "url": "https://medium.com/@agbassahr/standardizing-dev-environments-with-devcontainers-and-vs-code-3ff7eaa2e74c",
-      "by": "Agbassah Roodolphe",
-      "time": 1793619665000,
+      "title": "Django Query Optimization: Fix the N+1 Problem with Debug Toolbar and EXPLAIN ANALYZE (9/30)",
+      "url": "https://medium.com/@sizanmahmud08/django-query-optimization-fix-the-n-1-problem-with-debug-toolbar-and-explain-analyze-9-30-44c48224e19b",
+      "by": "Sizan Mahmud",
+      "time": 1793679292000,
       "tags": [
-        "software-engineering",
-        "cloud-native",
-        "beginner-coding"
-      ]
-    },
-    {
-      "title": "Custom Software Development Cost in 2026: What Businesses Need to Know",
-      "url": "https://medium.com/@ebadurrehman366/custom-software-development-cost-in-2026-what-businesses-need-to-know-ebffb9651c4b",
-      "by": "Ebadurrehman",
-      "time": 1793619628000,
-      "tags": [
-        "software-development",
-        "software-testing",
+        "query-optimization",
+        "python-programming",
         "software-engineering"
       ]
     },
     {
-      "title": "Agents Started 40% of GitHub Pull Requests in September, and GitHub’s Report Never Says If the Code…",
-      "url": "https://meetcyber.net/agents-started-40-of-github-pull-requests-in-september-and-githubs-report-never-says-if-the-code-8c4d0e695b05",
-      "by": "Aya Mahmoud",
-      "time": 1793619577000,
+      "title": "A 500 MB Upload Cost 1 GB of RAM. Streaming It Cost 120 MB",
+      "url": "https://martin128.medium.com/a-500-mb-upload-cost-1-gb-of-ram-streaming-it-cost-120-mb-bf5089e1d118",
+      "by": "Martin",
+      "time": 1793679061000,
       "tags": [
-        "technology",
-        "machine-learning",
-        "business"
+        "nodejs",
+        "web-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Your Website Has 5 Seconds to Make an Impression. Don’t Waste Them.",
+      "url": "https://medium.com/@n-labs/your-website-has-5-seconds-to-make-an-impression-dont-waste-them-364c1fe0bfe7",
+      "by": "N//LABS",
+      "time": 1793678887000,
+      "tags": [
+        "software-development",
+        "devops",
+        "web-development"
+      ]
+    },
+    {
+      "title": "Why You Should Swap UUIDs for ULIDs",
+      "url": "https://medium.com/@gaurangmody25/why-you-should-swap-uuids-for-ulids-4a46a5932f97",
+      "by": "Gaurang Mody",
+      "time": 1793678715000,
+      "tags": [
+        "design-systems",
+        "database-design",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "The Upload Succeeded. The File Was Never Cleared for Use.",
+      "url": "https://manishsaini74.medium.com/the-upload-succeeded-the-file-was-never-cleared-for-use-b2383225de94",
+      "by": "Manish Saini",
+      "time": 1793678462000,
+      "tags": [
+        "test-automation",
+        "software-testing",
+        "quality-assurance"
+      ]
+    },
+    {
+      "title": "Move Claude Code Sessions Between Accounts on Windows",
+      "url": "https://austinhoang8386.medium.com/move-claude-code-sessions-between-accounts-on-windows-27b8e09b3158",
+      "by": "Austin Hoang",
+      "time": 1793678251000,
+      "tags": [
+        "tools",
+        "claude",
+        "claude-code"
+      ]
+    },
+    {
+      "title": "The Hidden Value in Your Engineering Firm’s Old Project Files",
+      "url": "https://medium.com/@hello_82923/the-hidden-value-in-your-engineering-firms-old-project-files-27026837fa9b",
+      "by": "Archive Trove",
+      "time": 1793677896000,
+      "tags": [
+        "ai-data-analysis",
+        "engineering",
+        "data-engineering"
+      ]
+    },
+    {
+      "title": "“Hey, There Was an Issue!”: Writing Python Error Handling That Actually Helps",
+      "url": "https://ramana-analyst.medium.com/hey-there-was-an-issue-writing-python-error-handling-that-actually-helps-deea87319e6b",
+      "by": "Yerram venkata ramana reddy",
+      "time": 1793677887000,
+      "tags": [
+        "software-engineering",
+        "python",
+        "data-science"
+      ]
+    },
+    {
+      "title": "The Bank Connection That Never Closed: try, except, else and finally in Python",
+      "url": "https://ramana-analyst.medium.com/the-bank-connection-that-never-closed-try-except-else-and-finally-in-python-3dfca6f0beb4",
+      "by": "Yerram venkata ramana reddy",
+      "time": 1793677876000,
+      "tags": [
+        "data-science",
+        "data-analysis",
+        "software-development"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T12:00:20.309Z",
+  "generated": "2026-11-03T04:21:44.505Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -79,7 +79,7 @@
     },
     {
       "pos": 7,
-      "points": 150,
+      "points": 144,
       "wins": 0,
       "code": "PIA",
       "number": 81,
@@ -91,7 +91,7 @@
     },
     {
       "pos": 8,
-      "points": 105,
+      "points": 107,
       "wins": 0,
       "code": "HAD",
       "number": 6,
@@ -103,7 +103,7 @@
     },
     {
       "pos": 9,
-      "points": 79,
+      "points": 83,
       "wins": 0,
       "code": "LAW",
       "number": 30,
@@ -115,7 +115,7 @@
     },
     {
       "pos": 10,
-      "points": 43,
+      "points": 42,
       "wins": 0,
       "code": "GAS",
       "number": 10,
@@ -139,7 +139,7 @@
     },
     {
       "pos": 12,
-      "points": 31,
+      "points": 27,
       "wins": 0,
       "code": "COL",
       "number": 43,
@@ -163,6 +163,18 @@
     },
     {
       "pos": 14,
+      "points": 14,
+      "wins": 0,
+      "code": "BOR",
+      "number": 5,
+      "first": "Gabriel",
+      "last": "Bortoleto",
+      "nationality": "Brazilian",
+      "team": "Audi",
+      "teamId": "audi"
+    },
+    {
+      "pos": 15,
       "points": 13,
       "wins": 0,
       "code": "HUL",
@@ -170,18 +182,6 @@
       "first": "Nico",
       "last": "Hülkenberg",
       "nationality": "German",
-      "team": "Audi",
-      "teamId": "audi"
-    },
-    {
-      "pos": 15,
-      "points": 10,
-      "wins": 0,
-      "code": "BOR",
-      "number": 5,
-      "first": "Gabriel",
-      "last": "Bortoleto",
-      "nationality": "Brazilian",
       "team": "Audi",
       "teamId": "audi"
     },
@@ -247,6 +247,18 @@
     },
     {
       "pos": 21,
+      "points": 1,
+      "wins": 0,
+      "code": "HIR",
+      "number": 50,
+      "first": "Ryo",
+      "last": "Hirakawa",
+      "nationality": "Japanese",
+      "team": "Haas F1 Team",
+      "teamId": "haas"
+    },
+    {
+      "pos": 22,
       "points": 0,
       "wins": 0,
       "code": "STR",
@@ -258,7 +270,7 @@
       "teamId": "aston_martin"
     },
     {
-      "pos": 22,
+      "pos": 23,
       "points": 0,
       "wins": 0,
       "code": "BOT",
@@ -268,18 +280,6 @@
       "nationality": "Finnish",
       "team": "Cadillac F1 Team",
       "teamId": "cadillac"
-    },
-    {
-      "pos": 23,
-      "points": 0,
-      "wins": 0,
-      "code": "HIR",
-      "number": 50,
-      "first": "Ryo",
-      "last": "Hirakawa",
-      "nationality": "Japanese",
-      "team": "Haas F1 Team",
-      "teamId": "haas"
     },
     {
       "pos": 24,
@@ -313,7 +313,7 @@
     },
     {
       "pos": 3,
-      "points": 380,
+      "points": 382,
       "wins": 3,
       "name": "Red Bull",
       "teamId": "red_bull",
@@ -321,7 +321,7 @@
     },
     {
       "pos": 4,
-      "points": 371,
+      "points": 365,
       "wins": 2,
       "name": "McLaren",
       "teamId": "mclaren",
@@ -329,7 +329,7 @@
     },
     {
       "pos": 5,
-      "points": 104,
+      "points": 108,
       "wins": 0,
       "name": "RB F1 Team",
       "teamId": "rb",
@@ -337,7 +337,7 @@
     },
     {
       "pos": 6,
-      "points": 74,
+      "points": 69,
       "wins": 0,
       "name": "Alpine F1 Team",
       "teamId": "alpine",
@@ -345,7 +345,7 @@
     },
     {
       "pos": 7,
-      "points": 30,
+      "points": 31,
       "wins": 0,
       "name": "Haas F1 Team",
       "teamId": "haas",
@@ -353,7 +353,7 @@
     },
     {
       "pos": 8,
-      "points": 23,
+      "points": 27,
       "wins": 0,
       "name": "Audi",
       "teamId": "audi",
