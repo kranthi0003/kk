@@ -14,6 +14,7 @@ import AIChatbot from './components/AIChatbot'
 import TransformationHQ from './components/TransformationHQ'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
+import AgentIntro, { wantsAgentIntro } from './components/AgentIntro'
 
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
@@ -135,6 +136,16 @@ export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(true)
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
+  // The swarm intro plays only when the home page is the first thing this
+  // tab loads. Navigating here later never starts it.
+  const [intro, setIntro] = useState(() => wantsAgentIntro(window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : '')))
+  // The extras are heavy to mount (a 3D scene, physics, sockets), and
+  // mounting them while the intro animated made it stutter. Download them
+  // now so they are ready, and mount them once it is over.
+  const extras = !IS_LITE && !intro
+  useEffect(() => {
+    if (intro && !IS_LITE) import('./components/SiteExtras').catch(() => {})
+  }, [])
 
   // One-time cleanup: remove any leftover alternate-theme classes from
   // prior versions of the site that supported Fight Club / F1 / etc.
@@ -157,7 +168,10 @@ export default function App() {
 
   // Hash-based routing
   useEffect(() => {
-    const onHash = () => setRoute(window.location.hash)
+    const onHash = () => {
+      setRoute(window.location.hash)
+      setIntro(false)
+    }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
@@ -642,32 +656,33 @@ export default function App() {
       <div className="pr-backdrop-base" aria-hidden="true" />
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
-      {!IS_LITE && <Suspense fallback={null}><ExtraBackdrop /></Suspense>}
+      {extras && <Suspense fallback={null}><ExtraBackdrop /></Suspense>}
       <div className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />
       <main>
         <Hero onResumeClick={() => setResumeOpen(true)} />
-        {!IS_LITE && <Suspense fallback={null}><ExtraAfterHero /></Suspense>}
+        {extras && <Suspense fallback={null}><ExtraAfterHero /></Suspense>}
         <div className="section-animate"><Experience /></div>
         <div className="section-animate"><TechStack /></div>
-        {!IS_LITE && <Suspense fallback={null}><ExtraAfterTech /></Suspense>}
+        {extras && <Suspense fallback={null}><ExtraAfterTech /></Suspense>}
         <div className="section-animate"><Projects /></div>
         <div className="section-animate"><About /></div>
-        {!IS_LITE && <Suspense fallback={null}><ExtraAfterAbout /></Suspense>}
+        {extras && <Suspense fallback={null}><ExtraAfterAbout /></Suspense>}
         <div className="section-animate"><Connect /></div>
-        {!IS_LITE && <Suspense fallback={null}><ExtraGuestbook /></Suspense>}
+        {extras && <Suspense fallback={null}><ExtraGuestbook /></Suspense>}
       </main>
       <Footer />
       <ResumeViewer open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <AIChatbot />
-      {!IS_LITE && (
+      {extras && (
         <Suspense fallback={null}>
           <SiteExtras matrixActive={matrixActive} onMatrixComplete={handleMatrixComplete} />
         </Suspense>
       )}
     </div>
+    {intro && <AgentIntro onDone={() => setIntro(false)} />}
     </>
   )
 }

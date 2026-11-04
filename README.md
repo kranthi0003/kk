@@ -28,6 +28,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 
 | Category | What |
 |---|---|
+| 🐝 **Agent swarm intro** | The first time a tab opens the home page, a swarm of agent cursors builds the name square by square, then bursts open onto the site. Any click, key or scroll skips it, and it is off under reduced motion |
 | 🌌 **3D Solar System** | Real planet textures, fly-to camera, orbiting moons, Saturn rings, NASA Eyes-style HUD (`#/space`) |
 | 🎮 **3D Gamer Workspace** | Walkable desk scene, soldier NPC (`WASD`), LED strips, live GitHub feed on monitors (`#/workspace`) |
 | 🎨 **AstroDither** | Dithered astro/generative visual experience (`#/astro`) |

@@ -1373,3 +1373,83 @@ html.disco .disco-lights {
 @media (prefers-reduced-motion: reduce) { .pod-live { animation: none; } }
 
 
+
+/* ------------------------------------------------------------------ *
+ * Agent intro (AgentIntro.jsx): the swarm of cursors that builds the
+ * name the first time the home page loads in a tab.
+ * ------------------------------------------------------------------ */
+.agent-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9990; /* over everything except the cursor trail */
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.agent-intro.is-open { pointer-events: none; }
+.agent-intro-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 55% at 50% 45%, color-mix(in oklab, var(--color-brand) 10%, transparent), transparent 70%),
+    var(--color-background);
+}
+/* The curtain opens as a widening hole centred on the word. */
+.agent-intro.is-open .agent-intro-bg {
+  -webkit-mask-image: radial-gradient(circle at var(--ai-x, 50%) var(--ai-y, 50%), transparent var(--ai-r, 0px), #000 calc(var(--ai-r, 0px) + 140px));
+          mask-image: radial-gradient(circle at var(--ai-x, 50%) var(--ai-y, 50%), transparent var(--ai-r, 0px), #000 calc(var(--ai-r, 0px) + 140px));
+}
+.agent-intro-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.agent-intro-cap {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 62%;
+  margin: 0;
+  text-align: center;
+  font: 500 clamp(11px, 3vw, 12.5px)/1.4 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in oklab, var(--color-muted-foreground) 55%, var(--color-foreground));
+  transition: opacity 0.25s ease;
+}
+.agent-intro-skip {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  font: 500 11px/1 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--color-muted-foreground) 55%, var(--color-foreground));
+  cursor: pointer;
+  transition: opacity 0.25s ease, color 0.2s ease;
+}
+.agent-intro-skip:hover,
+.agent-intro-skip:focus-visible { color: var(--color-foreground); }
+.agent-intro.is-open .agent-intro-cap,
+.agent-intro.is-open .agent-intro-skip { opacity: 0; }
+
+/* When the curtain opens, the hero plays its entrance again, so it arrives
+   with the reveal instead of having finished behind the swarm. A new
+   animation name restarts the animation, and `both` keeps each item
+   hidden through its delay. The class stays for the rest of the visit:
+   taking it off would restart the animation a third time. */
+html.agent-intro-handoff #home .animate-fade-in-up {
+  animation-name: fadeInUpAgain;
+  animation-fill-mode: both;
+}
+@keyframes fadeInUpAgain {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
