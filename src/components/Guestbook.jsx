@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import supabase from '../lib/supabase'
+import Words from './Words'
 
 function timeAgo(date) {
   const s = Math.floor((Date.now() - new Date(date)) / 1000)
@@ -82,14 +83,14 @@ export default function Guestbook() {
   return (
     <section id="guestbook" className="py-20 px-6">
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="reveal text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/guestbook</p>
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl">Leave a Note</h2>
-          <p className="text-muted-foreground text-sm mt-2">Say hi, drop feedback, or just leave your mark.</p>
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl"><Words>Leave a Note</Words></h2>
+          <p className="text-muted-foreground text-sm mt-2"><Words>Say hi, drop feedback, or just leave your mark.</Words></p>
         </div>
 
         {/* Form */}
-        <form ref={formRef} onSubmit={handleSubmit} className="bg-card p-4 mb-6 pr-tint-violet">
+        <form ref={formRef} onSubmit={handleSubmit} className="reveal bg-card p-4 mb-6 pr-tint-violet">
           <div className="flex gap-3 mb-3">
             <input
               type="text"
@@ -123,7 +124,7 @@ export default function Guestbook() {
         </form>
 
         {/* Entries */}
-        <div className="space-y-3">
+        <div className="reveal space-y-3">
           {entries.length === 0 && (
             <p className="text-center text-muted-foreground text-sm py-8">No messages yet. Be the first!</p>
           )}

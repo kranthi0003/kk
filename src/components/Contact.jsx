@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Words from './Words'
 
 const MailIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -53,13 +54,13 @@ export default function Connect() {
   return (
     <section id="connect" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="reveal text-center mb-12">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Connect</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            Let's build something
+            <Words>Let's build something</Words>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Always open to chat about cloud infra, distributed systems, or developer tooling.
+            <Words>Always open to chat about cloud infra, distributed systems, or developer tooling.</Words>
           </p>
         </div>
 
@@ -70,7 +71,7 @@ export default function Connect() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative flex items-center gap-4 p-5 bg-card hover:border-accent/40 transition-colors overflow-hidden ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral'][i % 3]}`}
+              className={`reveal group relative flex items-center gap-4 p-5 bg-card hover:border-accent/40 transition-colors overflow-hidden ${['pr-tint-violet','pr-tint-magenta','pr-tint-coral'][i % 3]}`}
             >
               <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-accent/0 to-transparent group-hover:via-accent/70 transition-colors" />
               <span className="text-muted-foreground group-hover:text-accent transition-colors">{social.icon}</span>
@@ -83,7 +84,7 @@ export default function Connect() {
           ))}
         </div>
 
-        <div className="bg-card p-8 text-center pr-tint-violet">
+        <div className="reveal bg-card p-8 text-center pr-tint-violet">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 mb-4">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -92,7 +93,7 @@ export default function Connect() {
             <span className="text-emerald-500 text-[11px] font-medium uppercase tracking-wider">Open to opportunities</span>
           </div>
           <h3 className="font-heading text-xl md:text-2xl tracking-tight mb-2" style={{ fontWeight: 600 }}>
-            Interested in cloud infrastructure &amp; distributed systems
+            <Words>Interested in cloud infrastructure &amp; distributed systems</Words>
           </h3>
           <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
             Always happy to chat about new challenges, side projects, or weird infra problems.

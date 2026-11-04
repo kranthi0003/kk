@@ -90,7 +90,7 @@ export default function QuoteFlip() {
         onClick={flip}
         onKeyDown={onKey}
         aria-label="Tap to flip between a quote and a joke"
-        className="group max-w-2xl mx-auto text-center cursor-pointer select-none outline-none"
+        className="reveal group max-w-2xl mx-auto text-center cursor-pointer select-none outline-none"
       >
         <span
           aria-hidden="true"

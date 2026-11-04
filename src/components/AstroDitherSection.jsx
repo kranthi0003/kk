@@ -1,16 +1,17 @@
 import React from 'react'
+import Words from './Words'
 
 export default function AstroDitherSection() {
   return (
     <section id="astro-experiment" className="relative py-16 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
+        <div className="reveal text-center mb-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3"
              style={{ color: 'color-mix(in oklab, var(--chart-2) 75%, var(--color-muted-foreground))' }}>
             Experiment · interactive
           </p>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl tracking-tight" style={{ fontWeight: 600 }}>
-            Fun <span className="text-gradient-violet">things</span> I built
+            <Words>Fun <span className="text-gradient-violet">things</span> I built</Words>
           </h2>
         </div>
 
@@ -18,7 +19,7 @@ export default function AstroDitherSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* AstroDither card */}
           <a href="#/astro"
-             className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(120,80,255,0.15)]">
+             className="reveal group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(120,80,255,0.15)]">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
@@ -42,7 +43,7 @@ export default function AstroDitherSection() {
 
           {/* Space Explorer card */}
           <a href="#/space"
-             className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(255,150,50,0.15)]">
+             className="reveal group relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/50 backdrop-blur-sm p-6 hover:border-white/[0.12] transition-all duration-300 hover:shadow-[0_8px_32px_-8px_rgba(255,150,50,0.15)]">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4">

@@ -1,4 +1,5 @@
 import React, { Suspense, lazy, useState, useCallback } from 'react'
+import Words from './Words'
 
 const Workspace = lazy(() => import('./Workspace'))
 
@@ -61,20 +62,21 @@ export default function WorkspaceSection() {
     <section id="workspace" className="relative py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
-        <div className="text-center mb-8">
+        <div className="reveal text-center mb-8">
           <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3"
              style={{ color: 'color-mix(in oklab, var(--chart-1) 75%, var(--color-muted-foreground))' }}>
             Interactive · live
           </p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            A peek into my <span className="text-gradient-violet">space</span>
+            <Words>A peek into my <span className="text-gradient-violet">space</span></Words>
           </h2>
           
         </div>
 
         {/* Embedded canvas — fixed aspect, rounded, glow border */}
         <div
-          className="relative rounded-2xl overflow-hidden"
+          data-flow-soft=""
+          className="reveal relative rounded-2xl overflow-hidden"
           style={{
             height: 'min(70vh, 640px)',
             boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--chart-1) 30%, var(--color-border)), 0 24px 60px -16px color-mix(in oklab, var(--chart-1) 35%, transparent)',

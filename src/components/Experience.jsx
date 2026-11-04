@@ -2,6 +2,7 @@ import React from 'react'
 import awsLogo from '../../assets/aws.png'
 import couchbaseLogo from '../../assets/couchbase.png'
 import githubLogo from '../../assets/github.png'
+import Words from './Words'
 
 const experiences = [
   {
@@ -44,10 +45,10 @@ export default function Experience() {
         <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Where I've shipped</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            Experience
+            <Words>Experience</Words>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Five years of building infra at companies you've heard of.
+            <Words>Five years of building infra at companies you've heard of.</Words>
           </p>
         </div>
 
@@ -100,7 +101,7 @@ export default function Experience() {
 
               {/* Arrow connector */}
               {i < experiences.length - 1 && (
-                <div className="flex flex-col items-center justify-center px-2 flex-shrink-0 self-center">
+                <div className="reveal flex flex-col items-center justify-center px-2 flex-shrink-0 self-center">
                   <div className="flex items-center text-accent/40">
                     <div className="w-5 h-[2px] bg-accent/20 rounded-full" />
                     <div className="w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-l-[7px] border-l-accent/30" />
@@ -145,7 +146,7 @@ export default function Experience() {
 
               {/* Vertical arrow */}
               {i < experiences.length - 1 && (
-                <div className="flex flex-col items-center py-1">
+                <div className="reveal flex flex-col items-center py-1">
                   <div className="h-4 w-[2px] bg-accent/20 rounded-full" />
                   <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-accent/30" />
                 </div>

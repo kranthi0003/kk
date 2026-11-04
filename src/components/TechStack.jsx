@@ -1,4 +1,5 @@
 import React from 'react'
+import Words from './Words'
 
 const skillGroups = [
   { title: 'Languages', items: ['Python', 'Java', 'Ruby', 'Bash', 'Go', 'JavaScript'] },
@@ -39,10 +40,10 @@ export default function TechStack() {
         <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs uppercase tracking-[0.2em] mb-3" style={{ color: 'oklch(75% 0.22 285)' }}>Stack</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            Tools I build with
+            <Words>Tools I build with</Words>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            The languages, platforms, and services I reach for daily.
+            <Words>The languages, platforms, and services I reach for daily.</Words>
           </p>
         </div>
 

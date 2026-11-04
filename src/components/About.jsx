@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Words from './Words'
 
 // GitHub-style contribution heatmap (live data)
 function GitHubHeatmap() {
@@ -93,7 +94,7 @@ function BentoClockCard() {
   const isDay = ist.getHours() >= 6 && ist.getHours() < 19
 
   return (
-    <div className={`col-span-2 sm:col-span-1 rounded-2xl p-5 flex flex-col justify-between ${CARD}`} style={tintStyle(7)}>
+    <div className={`reveal col-span-2 sm:col-span-1 rounded-2xl p-5 flex flex-col justify-between ${CARD}`} style={tintStyle(7)}>
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Vizag, India</p>
         <span className="text-base">{isDay ? '☀️' : '🌙'}</span>
@@ -135,7 +136,7 @@ function BentoReflectionCard() {
   }, [])
   const r = REFLECTIONS[i]
   return (
-    <div className={`col-span-2 rounded-2xl overflow-hidden flex flex-col justify-center px-6 py-5 relative ${CARD}`} style={tintStyle(10)}>
+    <div className={`reveal col-span-2 rounded-2xl overflow-hidden flex flex-col justify-center px-6 py-5 relative ${CARD}`} style={tintStyle(10)}>
       <span aria-hidden="true" className="absolute top-2 left-4 font-serif text-5xl leading-none select-none" style={{ color: 'color-mix(in oklab, var(--color-brand) 22%, transparent)' }}>“</span>
       <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Reflection</p>
       <div style={{ opacity: show ? 1 : 0, transform: show ? 'none' : 'translateY(6px)', transition: 'opacity .5s ease, transform .5s ease' }}>
@@ -157,18 +158,18 @@ export default function About() {
   return (
     <section id="about" className="py-24">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="reveal text-center mb-12">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">About</p>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl" style={{ fontWeight: 500 }}>A bit about me</h2>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl" style={{ fontWeight: 500 }}><Words>A bit about me</Words></h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            Where I am, what I'm into, and what I keep coming back to.
+            <Words>Where I am, what I'm into, and what I keep coming back to.</Words>
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 auto-rows-[minmax(150px,auto)]">
 
           {/* ── Currently ── */}
-          <div className={`col-span-2 sm:col-span-1 rounded-2xl p-5 flex flex-col ${CARD}`} style={tintStyle(6)}>
+          <div className={`reveal col-span-2 sm:col-span-1 rounded-2xl p-5 flex flex-col ${CARD}`} style={tintStyle(6)}>
             <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest mb-3">Currently</p>
             <div className="space-y-2.5 flex-1 flex flex-col justify-center">
               {CURRENTLY.map((c, i) => (
@@ -187,7 +188,7 @@ export default function About() {
           <BentoReflectionCard />
 
           {/* ── GitHub contributions — full width ── */}
-          <div className={`col-span-2 sm:col-span-4 rounded-2xl p-4 flex flex-col justify-center overflow-hidden ${CARD}`} style={tintStyle(5)}>
+          <div className={`reveal col-span-2 sm:col-span-4 rounded-2xl p-4 flex flex-col justify-center overflow-hidden ${CARD}`} style={tintStyle(5)}>
             <div className="flex items-center justify-between mb-2">
               <p className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">GitHub Contributions</p>
               <a href="https://github.com/kranthi0003" target="_blank" rel="noopener noreferrer" className="text-[10px] hover:underline" style={{ color: 'var(--color-brand)' }}>@kranthi0003</a>

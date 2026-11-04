@@ -5,7 +5,7 @@ import RollingGreeting from './RollingGreeting'
 
 export default function Hero({ onResumeClick }) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+    <section id="home" data-flow="hero" className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-6 md:py-10 lg:py-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-center">
 

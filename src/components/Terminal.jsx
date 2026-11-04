@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { groqChat } from '../lib/groq'
+import Words from './Words'
 
 // Use CSS var tokens instead of hardcoded hex
 const T = {
@@ -678,13 +679,13 @@ export default function Terminal() {
   return (
     <section id="terminal" className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="reveal text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/terminal</p>
-          <h2 className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 500 }}>AI Shell Translator</h2>
-          <p className="text-muted-foreground text-sm mt-2">Describe what you want in plain English · Also has games & architecture diagrams</p>
+          <h2 className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 500 }}><Words>AI Shell Translator</Words></h2>
+          <p className="text-muted-foreground text-sm mt-2"><Words>Describe what you want in plain English · Also has games & architecture diagrams</Words></p>
         </div>
 
-        <div className="rounded-2xl border shadow-2xl overflow-hidden bg-card" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 50%, transparent)' }}>
+        <div className="reveal rounded-2xl border shadow-2xl overflow-hidden bg-card" style={{ borderColor: 'color-mix(in oklab, var(--color-border) 50%, transparent)' }}>
           {/* Title bar */}
           <div className="flex items-center px-4 py-2.5 border-b border-border/20 bg-muted/30">
             <div className="flex gap-1.5">
@@ -753,7 +754,7 @@ export default function Terminal() {
         </div>
 
         {/* Categorized quick actions */}
-        <div className="mt-5 space-y-3">
+        <div className="reveal mt-5 space-y-3">
           <div className="flex flex-wrap justify-center gap-2">
             <span className="text-[9px] font-mono text-muted-foreground/40 uppercase tracking-wider self-center mr-1">Try:</span>
             {prompts.map(cmd => (

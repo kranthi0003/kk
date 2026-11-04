@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useRef } from 'react'
 import indiaGeo from '../lib/india-states.json'
 import { INDIA_PLACES, ABROAD_PLACES, CATEGORY_STYLE } from '../lib/travelPlaces'
+import Words from './Words'
 
 // ── Mercator projection fitted to India's bounding box ───────────────────────
 const VIEW_W = 460, VIEW_H = 520, PAD = 18
@@ -68,15 +69,17 @@ export default function TravelMap() {
   return (
     <section id="travel" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading font-bold text-3xl sm:text-4xl text-center mb-3">
-          Places I've Been{' '}
-          <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">✈️</span>
+        <h2 className="reveal font-heading font-bold text-3xl sm:text-4xl text-center mb-3">
+          <Words>
+            Places I've Been{' '}
+            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">✈️</span>
+          </Words>
         </h2>
-        <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto text-sm">
-          A map of where I've wandered — cities, temples, and a few trips that needed a passport.
+        <p className="reveal text-center text-muted-foreground mb-10 max-w-lg mx-auto text-sm">
+          <Words>A map of where I've wandered — cities, temples, and a few trips that needed a passport.</Words>
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        <div className="reveal flex flex-col lg:flex-row gap-6 items-start">
           {/* ── India map ── */}
           <div className="w-full lg:flex-1 relative">
             <div
@@ -221,7 +224,7 @@ export default function TravelMap() {
         </div>
 
         {/* ── Abroad ── */}
-        <div className="mt-8">
+        <div className="reveal mt-8">
           <p className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-brand)' }}>
             <span>✈️</span> Abroad
           </p>

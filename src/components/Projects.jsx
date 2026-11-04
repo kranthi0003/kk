@@ -1,4 +1,5 @@
 import React from 'react'
+import Words from './Words'
 
 /* Things that exist, run, and can be clicked. */
 const shipped = [
@@ -180,10 +181,10 @@ export default function Projects() {
         <div className="text-center mb-12 reveal">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Engineering</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ fontWeight: 600 }}>
-            What I've built
+            <Words>What I've built</Words>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-xl mx-auto">
-            A couple of things I ship and run — and below them, the systems questions I want to answer next.
+            <Words>A couple of things I ship and run — and below them, the systems questions I want to answer next.</Words>
           </p>
         </div>
 
@@ -195,11 +196,13 @@ export default function Projects() {
         <div className="mt-20 mb-10 text-center reveal">
           <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Research directions</p>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl tracking-tight" style={{ fontWeight: 600 }}>
-            Questions I want to answer
+            <Words>Questions I want to answer</Words>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-2xl mx-auto">
-            Systems problems I actually hit at work — distributed storage, consensus under partial failure,
-            and the parts of CI nobody can reproduce. These are proposals, not shipped code.
+            <Words>
+              Systems problems I actually hit at work — distributed storage, consensus under partial failure,
+              and the parts of CI nobody can reproduce. These are proposals, not shipped code.
+            </Words>
           </p>
         </div>
 
@@ -208,7 +211,7 @@ export default function Projects() {
         </div>
 
         {/* View all */}
-        <div className="text-center mt-10">
+        <div className="reveal text-center mt-10">
           <a
             href="https://github.com/kranthi0003"
             target="_blank"

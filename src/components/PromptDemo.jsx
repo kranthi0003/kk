@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Words from './Words'
 
 /* ---------------------------------------------------------------------------
  * A self-playing shell, in the spirit of the starship.rs demo. The point it is
@@ -202,17 +203,17 @@ export default function PromptDemo() {
   return (
     <section id="prompt" className="py-20 px-6" ref={hostRef}>
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="reveal text-center mb-10">
           <p className="font-mono text-sm text-accent mb-2">~/prompt</p>
           <h2 className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 500 }}>
-            A prompt that knows where it is
+            <Words>A prompt that knows where it is</Words>
           </h2>
           <p className="text-muted-foreground text-sm mt-2">
-            Watch the line rebuild itself — branch, dirty state, runtime, timing, exit status
+            <Words>Watch the line rebuild itself — branch, dirty state, runtime, timing, exit status</Words>
           </p>
         </div>
 
-        <div className="pd-window rounded-2xl border shadow-2xl overflow-hidden bg-card">
+        <div className="reveal pd-window rounded-2xl border shadow-2xl overflow-hidden bg-card">
           <div className="flex items-center px-4 py-2.5 border-b border-border/20 bg-muted/30">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, lazy, Suspense } from 'react'
+import React, { useEffect, useState, useCallback, useRef, lazy, Suspense } from 'react'
 import { IS_LITE, IS_NARROW, FULL_KEY } from './lib/lite'
 import Navbar from './components/Navbar'
 import ScrollProgress from './components/ScrollProgress'
@@ -15,6 +15,7 @@ import TransformationHQ from './components/TransformationHQ'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
 import AgentIntro, { wantsAgentIntro } from './components/AgentIntro'
+import { startFlow } from './lib/flow'
 
 
 const BattlePage = lazy(() => import('./components/battle/BattlePage'))
@@ -60,14 +61,6 @@ const Splat = lazy(() => import('./components/Splat'))
 
 // One lazy chunk for the whole of the full-site experience. A narrow
 // screen never requests it, so none of it is downloaded.
-// Set before anything renders, so the fade-in CSS applies from the first
-// paint and there is no flash of already-visible content. Its absence is
-// what makes the page degrade to "everything visible" rather than blank
-// if this script never runs at all.
-if (typeof document !== 'undefined') {
-  document.documentElement.classList.add('js-reveal')
-}
-
 const SiteExtras = lazy(() => import('./components/SiteExtras'))
 const ExtraAfterHero = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterHero })))
 const ExtraAfterTech = lazy(() => import('./components/SiteExtras').then(m => ({ default: m.ExtraAfterTech })))
@@ -135,6 +128,7 @@ export default function App() {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(true)
+  const homeRef = useRef(null)
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
   // The swarm intro plays only when the home page is the first thing this
   // tab loads. Navigating here later never starts it.
@@ -195,62 +189,14 @@ export default function App() {
     return () => window.removeEventListener('trigger-matrix', handler)
   }, [matrixActive])
 
-  // Reveal-on-scroll for homepage sections. Re-runs on route change so the
-  // sections are re-observed when returning to the homepage (no-op elsewhere).
-  //
-  // A .section-animate starts at opacity 0 and only becomes visible once
-  // this observer adds .in-view. That makes the observer load-bearing:
-  // anything it fails to pick up is not merely un-animated, it is
-  // permanently invisible.
-  //
-  // Which is exactly what happened when the extra sections moved behind a
-  // lazy import for the lite build. querySelectorAll ran on mount, before
-  // that chunk had arrived, so nine of the fourteen sections were never
-  // observed and 6,750px of the page stayed blank. A MutationObserver now
-  // watches for sections that mount later and observes those too.
+  // Scroll flow for the home page (lib/flow.js): it moves with the scroll,
+  // Apple-style. Re-runs on route change, so it starts again whenever the
+  // home page comes back, and does nothing on any other page. It also picks
+  // up sections that mount later, like the desktop extras.
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-            // Stagger the visible reveal items so they settle in one-by-one.
-            const items = Array.from(entry.target.querySelectorAll('.reveal'))
-              .filter((el) => el.offsetParent !== null)
-            items.forEach((el, i) => {
-              el.style.transitionDelay = `${Math.min(i * 70, 630)}ms`
-            })
-            io.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const seen = new WeakSet()
-    const observe = (el) => {
-      if (seen.has(el)) return
-      seen.add(el)
-      io.observe(el)
-    }
-    const sweep = () => document.querySelectorAll('.section-animate').forEach(observe)
-
-    sweep()
-
-    // Lazy chunks land after this effect has already run, so watch for
-    // them rather than assuming the page is complete on mount.
-    const mo = new MutationObserver((records) => {
-      for (const r of records) {
-        for (const node of r.addedNodes) {
-          if (node.nodeType !== 1) continue
-          if (node.classList?.contains('section-animate')) observe(node)
-          node.querySelectorAll?.('.section-animate').forEach(observe)
-        }
-      }
-    })
-    mo.observe(document.body, { childList: true, subtree: true })
-
-    return () => { io.disconnect(); mo.disconnect() }
+    const root = homeRef.current
+    if (!root) return undefined
+    return startFlow(root)
   }, [route])
 
   // Battle page route
@@ -657,7 +603,7 @@ export default function App() {
       <div className="pr-backdrop-glow" aria-hidden="true" />
       <div className="pr-backdrop-noise" aria-hidden="true" />
       {extras && <Suspense fallback={null}><ExtraBackdrop /></Suspense>}
-      <div className="min-h-screen text-foreground [--header-height:68px]">
+      <div ref={homeRef} className="min-h-screen text-foreground [--header-height:68px]">
       <MobileBanner />
       <ScrollProgress />
       <Navbar onSecretTrigger={handleSecretTrigger} onResumeClick={() => setResumeOpen(true)} />

@@ -26,10 +26,10 @@ const LABEL_FONT = "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monos
 const ARROW = 'M1 1l14.5 8.6-6.4 1.3-2.7 6.1L1 1z'
 
 // Beats, in seconds. The build in between is paced by the swarm itself.
-const CLICK = 0.035 //   a cursor holds its click this long before the square lands
-const BUILD_CAP = 1.85 // anything still unbuilt by now lands at once
-const HOLD = 0.42 //     the finished word, before it opens
-const OPEN = 0.62 //     the curtain
+const CLICK = 0.08 //    a cursor holds its click this long before the square lands
+const BUILD_CAP = 3.4 //  anything still unbuilt by now lands at once
+const HOLD = 1.4 //      the finished word, before it opens
+const OPEN = 1.15 //     the curtain
 const OPEN_FAST = 0.42 // the curtain, when skipped
 
 export function wantsAgentIntro(route) {
@@ -219,8 +219,8 @@ function spawnSwarm(lay, vw, vh) {
     const make = (x, y, lead) => ({
       x,
       y,
-      vx: -dx * 700,
-      vy: -dy * 700,
+      vx: -dx * 420,
+      vy: -dy * 420,
       squad: i,
       lead,
       state: lead ? 'lead' : 'enter',
@@ -234,7 +234,7 @@ function spawnSwarm(lay, vw, vh) {
     const workers = []
     const size = Math.max(3, Math.round((crew * lay.letters[i].total) / total))
     for (let k = 0; k < size; k++) {
-      const back = 10 + Math.random() * 150
+      const back = 30 + Math.random() * 220
       const side = (Math.random() + Math.random() + Math.random() - 1.5) * 70
       workers.push(make(ex + dx * back - dy * side, ey + dy * back + dx * side, false))
     }
@@ -430,8 +430,8 @@ export default function AgentIntro({ onDone }) {
         const uy = dy / d
         a.dx = ux * Math.cos(j) - uy * Math.sin(j)
         a.dy = ux * Math.sin(j) + uy * Math.cos(j)
-        a.acc = 2600 + Math.random() * 2200
-        const kick = 160 + Math.random() * 260
+        a.acc = 1500 + Math.random() * 1300
+        const kick = 90 + Math.random() * 170
         a.vx = a.vx * 0.25 + a.dx * kick
         a.vy = a.vy * 0.25 + a.dy * kick
         a.state = 'leave'
@@ -440,9 +440,9 @@ export default function AgentIntro({ onDone }) {
         const dx = c.cx - lay.cx
         const dy = c.cy - lay.cy
         const d = Math.hypot(dx, dy) || 1
-        const sp = 140 + Math.random() * 380
-        c.vx = (dx / d) * sp + (Math.random() - 0.5) * 160
-        c.vy = (dy / d) * sp + (Math.random() - 0.5) * 160 - 40
+        const sp = 80 + Math.random() * 260
+        c.vx = (dx / d) * sp + (Math.random() - 0.5) * 110
+        c.vy = (dy / d) * sp + (Math.random() - 0.5) * 110 - 30
       }
     }
 
@@ -450,7 +450,7 @@ export default function AgentIntro({ onDone }) {
       if (phase === 'done') return
       T += dt
       // However the build is going, it opens by now.
-      if (T > 5 && (phase === 'build' || phase === 'ship')) open(true)
+      if (T > 8 && (phase === 'build' || phase === 'ship')) open(true)
 
       if (phase === 'build' && ready) {
         if (painted >= lay.cells.length) {
@@ -554,9 +554,9 @@ export default function AgentIntro({ onDone }) {
           tx = L.cx - (small ? 16 : 22) + Math.sin(T * 1.5 + a.seed) * L.w * (small ? 0.14 : 0.26)
           tx = Math.max(8, Math.min(vw - 22 - tagW[a.squad], tx))
           ty = (above ? L.top - (small ? 42 : 46) : L.bottom + 10) + Math.sin(T * 2.6 + a.seed) * 3
-          vmax = 1300
-          acc = 6000
-          arrive = 100
+          vmax = 900
+          acc = 4200
+          arrive = 110
         } else {
           if (a.state === 'enter' && ready && Math.hypot(a.x - L.cx, a.y - L.cy) < Math.max(L.w, L.h) * 0.75 + 110) {
             a.cell = claim(a)
@@ -566,19 +566,19 @@ export default function AgentIntro({ onDone }) {
           if (a.state === 'enter') {
             tx = L.cx + a.ox * L.w * 0.5
             ty = L.cy + a.oy * L.h * 0.5
-            vmax = 1250
-            acc = 5600
-            arrive = 90
+            vmax = 760
+            acc = 3200
+            arrive = 130
           } else if (a.state === 'go') {
             tx = a.cell.cx
             ty = a.cell.cy
-            vmax = 1500
-            acc = 15000
-            arrive = 22
+            vmax = 750
+            acc = 7000
+            arrive = 26
             a.t += dt
           } else {
             // Done: circle the finished word.
-            const th = a.seed + T * (a.seed % 2 < 1 ? 0.9 : -0.9)
+            const th = a.seed + T * (a.seed % 2 < 1 ? 0.6 : -0.6)
             tx = lay.cx + Math.cos(th) * ((lay.right - lay.left) / 2 + 26 + (a.seed % 36))
             ty = lay.cy + Math.sin(th) * ((lay.bottom - lay.top) / 2 + 34 + (a.seed % 28))
             vmax = 650
@@ -649,7 +649,7 @@ export default function AgentIntro({ onDone }) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, vw, vh)
       const opening = phase === 'open'
-      const fade = opening ? Math.max(0, 1 - (T - openAt) / 0.45) : 1
+      const fade = opening ? Math.max(0, 1 - (T - openAt) / 0.85) : 1
       const sq = lay.sq
 
       if (fade > 0) {
@@ -668,7 +668,7 @@ export default function AgentIntro({ onDone }) {
 
       // A light passes over the finished word.
       if (phase === 'ship') {
-        const k = (T - shipAt) / 0.4
+        const k = (T - shipAt) / 0.75
         if (k > 0 && k < 1) {
           const band = lay.left - 60 + (lay.right - lay.left + 120) * k
           for (const c of lay.cells) {
@@ -759,7 +759,7 @@ export default function AgentIntro({ onDone }) {
     const watchdog = setInterval(() => {
       if (document.hidden) return
       looked++
-      if (looked >= 8) finish()
+      if (looked >= 12) finish()
     }, 1000)
     raf = requestAnimationFrame(frame)
 

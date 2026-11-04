@@ -88,7 +88,7 @@ export function ExtraAfterAbout() {
   return (
     <>
       <div className="section-animate"><Terminal /></div>
-      <div className="section-animate"><WorkspaceSection /></div>
+      <div className="section-animate" data-flow-soft=""><WorkspaceSection /></div>
       <div className="section-animate"><AstroDitherSection /></div>
       <div className="section-animate"><TravelMap /></div>
       <div className="section-animate"><DopamineTeaser /></div>

@@ -58,7 +58,7 @@ export default function SaladsTeaser() {
   return (
     <section className="py-20 sm:py-28 px-6">
       <div className="max-w-2xl mx-auto">
-        <div className="flex items-baseline justify-between gap-4 mb-6">
+        <div className="reveal flex items-baseline justify-between gap-4 mb-6">
           <p className="text-[11px] font-mono uppercase tracking-[0.28em]" style={{ color: 'var(--color-brand)' }}>
             In the kitchen
           </p>
@@ -79,7 +79,7 @@ export default function SaladsTeaser() {
           <>
             <button
               onClick={go}
-              className="hover-lift group block w-full text-left rounded-2xl overflow-hidden mb-4"
+              className="reveal hover-lift group block w-full text-left rounded-2xl overflow-hidden mb-4"
               style={{
                 background: 'color-mix(in oklab, var(--color-card) 55%, transparent)',
                 border: '1px solid var(--color-border)',
@@ -118,7 +118,7 @@ export default function SaladsTeaser() {
               </div>
             </button>
 
-            <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 40%, transparent)' }}>
+            <div className="reveal rounded-2xl overflow-hidden" style={{ border: '1px solid var(--color-border)', background: 'color-mix(in oklab, var(--color-card) 40%, transparent)' }}>
               {more.map((s, i) => (
                 <button
                   key={s.id}

@@ -441,52 +441,77 @@ html.rail-falling .rail-btn:not(.rail-loose) { opacity: 0; }
   z-index: 10;
 }
 
-/* Section fade-in on scroll */
-/* Sections fade in as they scroll into view.
+/* Scroll flow -------------------------------------------------------
+ * The home page moves with the scroll (src/lib/flow.js). Cards and blocks
+ * rise into place as they come up from the bottom, headings light up
+ * word by word on their way to the middle, each section recedes a little
+ * as it leaves past the top, and the hero sinks back as you scroll away
+ * from it. It is scrubbed rather than triggered: scroll back and it all
+ * plays in reverse.
  *
- * The hiding is gated on html.js-reveal, which the app sets at module
- * scope before anything renders. Hiding unconditionally means the page is
- * blank whenever the script that reveals it doesn't run — a bundle that
- * fails to parse, an old browser, a blocked CDN — and a portfolio that
- * renders as an empty column is a worse failure than one that doesn't
- * animate. With the gate, the fallback is simply everything visible. */
-html.js-reveal .section-animate {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+ * The script only sets numbers; what they look like lives here. Every
+ * value defaults to "at rest", and the motion styles hang off classes the
+ * script adds only while something is mid-move. So if the script never
+ * runs (a bundle that fails to parse, an old browser, reduced motion) the
+ * page is simply all there and still, never blank. */
+@property --flow-in { syntax: '<number>'; inherits: false; initial-value: 1; }
+@property --flow-out { syntax: '<number>'; inherits: false; initial-value: 0; }
+
+:root { --flow-rise: 80px; }
+@media (max-width: 767px) { :root { --flow-rise: 48px; } }
+
+/* Rising in from below. */
+.flowing .flow-pending {
+  translate: 0 calc((1 - var(--flow-in)) * var(--flow-rise));
+  scale: calc(0.94 + var(--flow-in) * 0.06);
+  opacity: calc(var(--flow-in) * 1.1 - 0.1);
+}
+/* Only things near the screen get their own layer while they move. */
+.flowing .flow-near.flow-pending { will-change: translate, scale, opacity; }
+/* Whatever a card's own transition is, its position and fade follow the
+   scroll directly; transitioning them as well would make them lag. */
+.flowing .reveal {
+  transition-property: color, background-color, border-color, box-shadow, transform;
 }
 
-html.js-reveal .section-animate.in-view {
-  opacity: 1;
-  transform: translateY(0);
+/* Receding past the top, anchored at the bottom edge: the part still on
+   screen. */
+.flowing .section-animate.flow-leaving {
+  transform-origin: 50% 100%;
+  scale: calc(1 - var(--flow-out) * 0.06);
+  opacity: calc(1 - var(--flow-out) * 0.6);
+}
+.flowing .section-animate.flow-near.flow-leaving { will-change: scale, opacity; }
+/* A section still rising while it already leaves (a short one on a tall
+   screen) multiplies the two fades. */
+.flowing .section-animate.flow-pending.flow-leaving {
+  opacity: calc((var(--flow-in) * 1.1 - 0.1) * (1 - var(--flow-out) * 0.6));
 }
 
-/* Staggered reveal — content settles into place as its section scrolls in
-   (Ferrari-style). Opt-in per item via the `reveal` class; per-item delays
-   are set in App.jsx. Sections that contain reveal items fade only, so the
-   items own the motion instead of the whole block sliding. */
-.section-animate:has(.reveal) {
-  transform: none;
+/* Words light up in order, about two fading at a time. */
+.flowing [data-flow='words'] .fw {
+  opacity: calc(0.14 + 0.86 * clamp(0, var(--flow-words, 1) * (var(--n) + 2) - var(--i) - 1, 1));
 }
-html.js-reveal .reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s ease, border-color 0.4s ease;
-  will-change: opacity, transform;
+
+/* The hero sinks back and drifts down, slower than the page, as you
+   scroll away from it, and its own bottom edge clips it like a curtain. */
+.flowing [data-flow='hero'].flow-leaving > div {
+  translate: 0 calc(var(--flow-hero) * 24vh);
+  scale: calc(1 - var(--flow-hero) * 0.1);
+  opacity: calc(1.15 - var(--flow-hero) * 1.3);
 }
-.section-animate.in-view .reveal {
-  opacity: 1;
-  transform: none;
+.flowing [data-flow='hero'].flow-near.flow-leaving > div { will-change: translate, scale, opacity; }
+
+/* Fade only, for anything that measures itself on screen, like the 3D
+   scene: react-three-fiber sizes its canvas from getBoundingClientRect,
+   which a scale or offset would throw off. */
+.flowing [data-flow-soft].flow-pending,
+.flowing .section-animate[data-flow-soft].flow-leaving {
+  translate: none;
+  scale: none;
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .section-animate,
-  .section-animate .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
   .hover-lift { transition: none; }
   .hover-lift:hover { transform: none; }
 }
