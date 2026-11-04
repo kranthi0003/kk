@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-03T04:20:44.166Z",
+  "generated": "2026-11-04T04:17:38.663Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -146,15 +146,15 @@
       "imdb": "https://www.imdb.com/title/tt29295821/"
     },
     {
-      "title": "Jai Hind Jai Sindh: A Love Story",
+      "title": "Golmaal 5",
       "lang": "Hindi",
       "date": null,
       "precision": null,
-      "by": null,
-      "desc": "Indian film",
+      "by": "Rohit Shetty",
+      "desc": "Upcoming film by Rohit Shetty",
       "poster": null,
-      "url": "https://en.wikipedia.org/wiki/Jai_Hind_Jai_Sindh%3A_A_Love_Story",
-      "imdb": "https://www.imdb.com/title/tt40412562/"
+      "url": "https://en.wikipedia.org/wiki/Golmaal_5_(film)",
+      "imdb": null
     }
   ]
 }

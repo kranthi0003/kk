@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-03T04:21:41.920Z",
+  "generated": "2026-11-04T04:18:49.278Z",
   "reddit": [
     {
-      "title": "I built PagerWho, an open-source, self-hosted incident management and on-call tool (MIT)",
-      "url": "https://www.reddit.com/r/devops/comments/1xmj3ey/i_built_pagerwho_an_opensource_selfhosted/",
-      "by": "pagerwho1",
-      "time": 1793678953000,
+      "title": "Teams are shipping LLM features from random pods. How do you even inventory which services call which model APIs?",
+      "url": "https://www.reddit.com/r/devops/comments/1xndmow/teams_are_shipping_llm_features_from_random_pods/",
+      "by": "TotGaH",
+      "time": 1793762538000,
       "sub": "r/devops"
     },
     {
-      "title": "A Decade of Kill Bugs – Alan Grow",
-      "url": "https://www.reddit.com/r/programming/comments/1xmgayd/a_decade_of_kill_bugs_alan_grow/",
-      "by": "grahamperrin",
-      "time": 1793670897000,
+      "title": "Railway Coded Malicious Scripts?!",
+      "url": "https://www.reddit.com/r/programming/comments/1xnbig3/railway_coded_malicious_scripts/",
+      "by": "Apprehensive_Bit7392",
+      "time": 1793756285000,
       "sub": "r/programming"
     },
     {
-      "title": "For Macro Lovers: Could Tauto Have the World's Most Powerful Macro System?",
-      "url": "https://www.reddit.com/r/programming/comments/1xmffyy/for_macro_lovers_could_tauto_have_the_worlds_most/",
-      "by": "ryo33h",
-      "time": 1793668446000,
+      "title": "Postgres 19 REPACK: Built-In Online Table Bloat Cleanup",
+      "url": "https://www.reddit.com/r/programming/comments/1xn9jr2/postgres_19_repack_builtin_online_table_bloat/",
+      "by": "craigkerstiens",
+      "time": 1793750798000,
       "sub": "r/programming"
     },
     {
-      "title": "Memory Management, Explained Simply (Part 3)",
-      "url": "https://www.reddit.com/r/programming/comments/1xmex43/memory_management_explained_simply_part_3/",
-      "by": "nicbarkeragain",
-      "time": 1793667013000,
+      "title": "LLVM Vulkan 1.1: Drop-in compiler passes (GVN, CSE, CFG, DCE) on Vulkan compute with benchmarks & Clang integration",
+      "url": "https://www.reddit.com/r/programming/comments/1xn802v/llvm_vulkan_11_dropin_compiler_passes_gvn_cse_cfg/",
+      "by": "TotalCreations",
+      "time": 1793746761000,
       "sub": "r/programming"
     },
     {
-      "title": "Java Game Devlog - Enemy Object Management for my Java game.",
-      "url": "https://www.reddit.com/r/programming/comments/1xmdvnb/java_game_devlog_enemy_object_management_for_my/",
-      "by": "OkBlackberry8606",
-      "time": 1793664164000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "OpenObserve vs Stack Grafana",
-      "url": "https://www.reddit.com/r/devops/comments/1xm3ts3/openobserve_vs_stack_grafana/",
-      "by": "Spiritual_Bee_637",
-      "time": 1793641172000,
+      "title": "When the dashboard is green but users say it is broken, where do you look first?",
+      "url": "https://www.reddit.com/r/devops/comments/1xn6zl5/when_the_dashboard_is_green_but_users_say_it_is/",
+      "by": "Raul_Nogales",
+      "time": 1793744212000,
       "sub": "r/devops"
     },
     {
-      "title": "What does one mean by \"projects\" if not homelabs? Are homelabs considered as projects?",
-      "url": "https://www.reddit.com/r/devops/comments/1xly6f1/what_does_one_mean_by_projects_if_not_homelabs/",
-      "by": "SkySpiritual9415",
-      "time": 1793628578000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Scheme+ language : 100% Scheme compatible, infix support and now with type annotation and inference for performance.",
-      "url": "https://www.reddit.com/r/programming/comments/1xlxgqs/scheme_language_100_scheme_compatible_infix/",
-      "by": "DamienMattei",
-      "time": 1793626846000,
+      "title": "The Movement Physics of Super Mario Bros - Behind the Code",
+      "url": "https://www.reddit.com/r/programming/comments/1xmydo2/the_movement_physics_of_super_mario_bros_behind/",
+      "by": "r_retrohacking_mod2",
+      "time": 1793725100000,
       "sub": "r/programming"
     },
     {
-      "title": "Like to improve my networking knowledge",
-      "url": "https://www.reddit.com/r/devops/comments/1xlw1rn/like_to_improve_my_networking_knowledge/",
-      "by": "theesmaarkhan",
-      "time": 1793623065000,
+      "title": "Can GROUP BY still be optimized after all these years?",
+      "url": "https://www.reddit.com/r/programming/comments/1xmxnwu/can_group_by_still_be_optimized_after_all_these/",
+      "by": "Giladkl",
+      "time": 1793723487000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Is Google Cloud Kubernetes Engine built-in Observability enough?",
+      "url": "https://www.reddit.com/r/devops/comments/1xmwkvn/is_google_cloud_kubernetes_engine_builtin/",
+      "by": "JLTDE",
+      "time": 1793721110000,
       "sub": "r/devops"
     },
     {
-      "title": "Unexpected cloud cost spike. How to handle postmortem?",
-      "url": "https://www.reddit.com/r/devops/comments/1xlvd19/unexpected_cloud_cost_spike_how_to_handle/",
-      "by": "WayIll9842",
-      "time": 1793621017000,
+      "title": "Am I wrong to be turned off by coding examinations in interviews?",
+      "url": "https://www.reddit.com/r/devops/comments/1xmsxbb/am_i_wrong_to_be_turned_off_by_coding/",
+      "by": "ReverendRou",
+      "time": 1793712515000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How much linux for cloud and devops?",
+      "url": "https://www.reddit.com/r/devops/comments/1xmqc02/how_much_linux_for_cloud_and_devops/",
+      "by": "Guru_2993",
+      "time": 1793704683000,
       "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Stop Testing Email with Production SMTP: 5 Free Alternatives for Developers",
-      "url": "https://medium.com/@developerawam/stop-testing-email-with-production-smtp-5-free-alternatives-for-developers-4e47f889a9c9",
-      "by": "Developer Awam",
-      "time": 1793679517000,
+      "title": "25 ECS Services, 25 Load Balancers, $410 a Month. One Gateway Makes It $16",
+      "url": "https://martin128.medium.com/25-ecs-services-25-load-balancers-410-a-month-one-gateway-makes-it-16-1afbe949a83c",
+      "by": "Martin",
+      "time": 1793765461000,
       "tags": [
         "programming",
-        "php",
-        "devops"
-      ]
-    },
-    {
-      "title": "Django Query Optimization: Fix the N+1 Problem with Debug Toolbar and EXPLAIN ANALYZE (9/30)",
-      "url": "https://medium.com/@sizanmahmud08/django-query-optimization-fix-the-n-1-problem-with-debug-toolbar-and-explain-analyze-9-30-44c48224e19b",
-      "by": "Sizan Mahmud",
-      "time": 1793679292000,
-      "tags": [
-        "query-optimization",
-        "python-programming",
+        "devops",
         "software-engineering"
       ]
     },
     {
-      "title": "A 500 MB Upload Cost 1 GB of RAM. Streaming It Cost 120 MB",
-      "url": "https://martin128.medium.com/a-500-mb-upload-cost-1-gb-of-ram-streaming-it-cost-120-mb-bf5089e1d118",
-      "by": "Martin",
-      "time": 1793679061000,
+      "title": "Fitness Woman Art Bodybuilding Design Ai, PDF, EPS, SVG file format",
+      "url": "https://medium.com/@ivaylostoyanov_42562/fitness-woman-art-bodybuilding-design-ai-pdf-eps-svg-file-format-49fe9d0357f8",
+      "by": "Ivaylo Stoyanov",
+      "time": 1793765253000,
+      "tags": [
+        "artificial-intelligence",
+        "social-media",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Shipping My AI Second Brain: Evals, Guardrails, Cost",
+      "url": "https://medium.com/@vaibhavsingh0956/shipping-my-ai-second-brain-evals-guardrails-cost-7266ca8951e5",
+      "by": "Vaibhav Singh",
+      "time": 1793765062000,
+      "tags": [
+        "artificial-intelligence",
+        "programming",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "Node.js Just Changed Its Release Model: One Major a Year, Every Release LTS",
+      "url": "https://medium.com/system-design-architecture-deep-dives/node-js-just-changed-its-release-model-one-major-a-year-every-release-lts-9e57043d35ec",
+      "by": "Navya Devadiga",
+      "time": 1793765012000,
+      "tags": [
+        "programming",
+        "javascript",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "How I Made My API 10x Faster by Doing Less: BullMQ, Redis & PM2 in Production",
+      "url": "https://medium.com/@fareedahmad888/bullmq-redis-pm2-make-your-nodejs-api-10x-faster-c4dfef954737",
+      "by": "Fareed Ahmad",
+      "time": 1793764862000,
       "tags": [
         "nodejs",
-        "web-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Your Website Has 5 Seconds to Make an Impression. Don’t Waste Them.",
-      "url": "https://medium.com/@n-labs/your-website-has-5-seconds-to-make-an-impression-dont-waste-them-364c1fe0bfe7",
-      "by": "N//LABS",
-      "time": 1793678887000,
-      "tags": [
-        "software-development",
         "devops",
         "web-development"
       ]
     },
     {
-      "title": "Why You Should Swap UUIDs for ULIDs",
-      "url": "https://medium.com/@gaurangmody25/why-you-should-swap-uuids-for-ulids-4a46a5932f97",
-      "by": "Gaurang Mody",
-      "time": 1793678715000,
+      "title": "Database Indexing in Django and PostgreSQL: B-tree, GIN, Partial, and Composite Indexes Explained…",
+      "url": "https://medium.com/@sizanmahmud08/database-indexing-in-django-and-postgresql-b-tree-gin-partial-and-composite-indexes-explained-2316f28c584b",
+      "by": "Sizan Mahmud",
+      "time": 1793764839000,
       "tags": [
-        "design-systems",
-        "database-design",
+        "django",
+        "database-indexing",
         "software-engineering"
       ]
     },
     {
-      "title": "The Upload Succeeded. The File Was Never Cleared for Use.",
-      "url": "https://manishsaini74.medium.com/the-upload-succeeded-the-file-was-never-cleared-for-use-b2383225de94",
-      "by": "Manish Saini",
-      "time": 1793678462000,
+      "title": "A teaching robot takes hundreds of parts: how two supply lists were filled for the Film Academy of…",
+      "url": "https://medium.com/@roboxera52/a-teaching-robot-takes-hundreds-of-parts-how-two-supply-lists-were-filled-for-the-film-academy-of-c6221fcae58c",
+      "by": "RoBox Robotics",
+      "time": 1793764747000,
       "tags": [
-        "test-automation",
-        "software-testing",
-        "quality-assurance"
+        "university",
+        "robotics",
+        "software-engineering"
       ]
     },
     {
-      "title": "Move Claude Code Sessions Between Accounts on Windows",
-      "url": "https://austinhoang8386.medium.com/move-claude-code-sessions-between-accounts-on-windows-27b8e09b3158",
-      "by": "Austin Hoang",
-      "time": 1793678251000,
+      "title": "9 Open-Source Terminal Tools for Developers That Replace Old Commands",
+      "url": "https://medium.com/@vedant_chhajed/9-open-source-terminal-tools-for-developers-that-replace-old-commands-d8ee05d594bf",
+      "by": "Vedant Chhajed",
+      "time": 1793764722000,
       "tags": [
-        "tools",
-        "claude",
-        "claude-code"
+        "programming",
+        "software-development",
+        "developer-tools"
       ]
     },
     {
-      "title": "The Hidden Value in Your Engineering Firm’s Old Project Files",
-      "url": "https://medium.com/@hello_82923/the-hidden-value-in-your-engineering-firms-old-project-files-27026837fa9b",
-      "by": "Archive Trove",
-      "time": 1793677896000,
+      "title": "El error que puede convertir una falla de red en un desastre para tu cluster Proxmox",
+      "url": "https://medium.com/@seo_7450/el-error-que-puede-convertir-una-falla-de-red-en-un-desastre-para-tu-cluster-proxmox-94dfb7f431d8",
+      "by": "Sistro Networks",
+      "time": 1793764608000,
       "tags": [
-        "ai-data-analysis",
-        "engineering",
-        "data-engineering"
+        "linux",
+        "proxmox",
+        "virtualization"
       ]
     },
     {
-      "title": "“Hey, There Was an Issue!”: Writing Python Error Handling That Actually Helps",
-      "url": "https://ramana-analyst.medium.com/hey-there-was-an-issue-writing-python-error-handling-that-actually-helps-deea87319e6b",
-      "by": "Yerram venkata ramana reddy",
-      "time": 1793677887000,
+      "title": "Understanding MCP: How AI Agents Communicate With External Tools",
+      "url": "https://khatzie.medium.com/understanding-mcp-how-ai-agents-communicate-with-external-tools-d6beb6f3fa97",
+      "by": "Khatzie",
+      "time": 1793764554000,
       "tags": [
-        "software-engineering",
-        "python",
-        "data-science"
-      ]
-    },
-    {
-      "title": "The Bank Connection That Never Closed: try, except, else and finally in Python",
-      "url": "https://ramana-analyst.medium.com/the-bank-connection-that-never-closed-try-except-else-and-finally-in-python-3dfca6f0beb4",
-      "by": "Yerram venkata ramana reddy",
-      "time": 1793677876000,
-      "tags": [
-        "data-science",
-        "data-analysis",
-        "software-development"
+        "ai",
+        "programming",
+        "artificial-intelligence"
       ]
     }
   ]
