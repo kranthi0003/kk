@@ -1,6 +1,13 @@
 {
-  "generated": "2026-11-04T04:21:20.858Z",
+  "generated": "2026-11-04T05:12:15.281Z",
   "reddit": [
+    {
+      "title": "Instrumental dark metal written for deep-work sessions — 12-minute preview, looking for mix and pacing feedback",
+      "url": "https://www.reddit.com/r/programming/comments/1xnesoc/instrumental_dark_metal_written_for_deepwork/",
+      "by": "FrankMillerMC",
+      "time": 1793766141000,
+      "sub": "r/programming"
+    },
     {
       "title": "Cilium Troubleshooting - Command Reference - Kubernetes API timeout",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xner88/cilium_troubleshooting_command_reference/",
@@ -51,13 +58,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "Can GROUP BY still be optimized after all these years?",
-      "url": "https://www.reddit.com/r/programming/comments/1xmxnwu/can_group_by_still_be_optimized_after_all_these/",
-      "by": "Giladkl",
-      "time": 1793723487000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Image volumes are stable in 1.36. Anyone mounting model weights with them yet?",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xmvvae/image_volumes_are_stable_in_136_anyone_mounting/",
       "by": "iamjessew",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "25 ECS Services, 25 Load Balancers, $410 a Month. One Gateway Makes It $16",
-      "url": "https://martin128.medium.com/25-ecs-services-25-load-balancers-410-a-month-one-gateway-makes-it-16-1afbe949a83c",
-      "by": "Martin",
-      "time": 1793765461000,
+      "title": "GitHub Replica: How This New AI Tool Is Changing the Way Developers Build Interactive Prototypes",
+      "url": "https://medium.com/@techassistant.hub/github-replica-how-this-new-ai-tool-is-changing-the-way-developers-build-interactive-prototypes-6a1339bdda99",
+      "by": "Tech Assistant",
+      "time": 1793768760000,
+      "tags": [
+        "software-development",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "A JWT That Expired a Minute Ago Still Returned 200: What I Hit on .NET 10",
+      "url": "https://medium.com/@patelrajni31/a-jwt-that-expired-a-minute-ago-still-returned-200-what-i-hit-on-net-10-03a1caff77ba",
+      "by": "Rajni Kavathiya",
+      "time": 1793768732000,
+      "tags": [
+        "dotnet",
+        "aspnetcore",
+        "programming"
+      ]
+    },
+    {
+      "title": "We Built It Because We Were Scared. Now Customers Pay for It.",
+      "url": "https://medium.com/@seungmin-lee/we-built-it-because-we-were-scared-now-customers-pay-for-it-b7da57435b84",
+      "by": "Seungmin Lee",
+      "time": 1793768731000,
+      "tags": [
+        "aws",
+        "kubernetes",
+        "site-reliability-engineer"
+      ]
+    },
+    {
+      "title": "I Stopped Building Basic Python Projects. These 7 Are Worth Your Time",
+      "url": "https://medium.com/codetodeploy/i-stopped-building-basic-python-projects-these-7-are-worth-your-time-4e593f66419a",
+      "by": "Muhummad Zaki",
+      "time": 1793768664000,
       "tags": [
         "programming",
+        "data-science",
+        "technology"
+      ]
+    },
+    {
+      "title": "How to Use ChatGPT as a Personal Tutor Instead of Just Asking Questions",
+      "url": "https://medium.com/@saisagarsylada/how-to-use-chatgpt-as-a-personal-tutor-instead-of-just-asking-questions-4804dab7fc46",
+      "by": "SagarSailada",
+      "time": 1793768642000,
+      "tags": [
+        "self-improvement",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "My Vertical Slice App Kept One DbContext Forever in Production",
+      "url": "https://medium.com/@patelrajni31/my-vertical-slice-app-kept-one-dbcontext-forever-in-production-4f9612478395",
+      "by": "Rajni Kavathiya",
+      "time": 1793768478000,
+      "tags": [
+        "aspnetcore",
+        "software-architecture",
+        "dotnet"
+      ]
+    },
+    {
+      "title": "Part 2: We Still Hit 100% of Our Vercel Free Plan. Here Is What We Found Next.",
+      "url": "https://mrkivan820.medium.com/part-2-we-still-hit-100-of-our-vercel-free-plan-here-is-what-we-found-next-933ea8b8bc6f",
+      "by": "Riazul Karim Ivan",
+      "time": 1793768461000,
+      "tags": [
+        "nextjs",
         "devops",
-        "software-engineering"
+        "web-performance"
       ]
     },
     {
-      "title": "Fitness Woman Art Bodybuilding Design Ai, PDF, EPS, SVG file format",
-      "url": "https://medium.com/@ivaylostoyanov_42562/fitness-woman-art-bodybuilding-design-ai-pdf-eps-svg-file-format-49fe9d0357f8",
-      "by": "Ivaylo Stoyanov",
-      "time": 1793765253000,
+      "title": "My AI-Written Tests Missed a Duplicate Notification Bug",
+      "url": "https://medium.com/it-chronicles/my-ai-written-tests-missed-a-duplicate-notification-bug-f87369f8ad0d",
+      "by": "AIHoony",
+      "time": 1793768405000,
       "tags": [
-        "artificial-intelligence",
-        "social-media",
-        "software-development"
+        "software-engineering",
+        "software-testing",
+        "code-review"
       ]
     },
     {
-      "title": "Shipping My AI Second Brain: Evals, Guardrails, Cost",
-      "url": "https://medium.com/@vaibhavsingh0956/shipping-my-ai-second-brain-evals-guardrails-cost-7266ca8951e5",
-      "by": "Vaibhav Singh",
-      "time": 1793765062000,
+      "title": "How Are Unit Tests Generated for Code RL Rewards?",
+      "url": "https://medium.com/@sarathc225/how-are-unit-tests-generated-for-code-rl-rewards-d34d66a4401a",
+      "by": "Sarathc",
+      "time": 1793768348000,
       "tags": [
-        "artificial-intelligence",
         "programming",
+        "artificial-intelligence",
         "machine-learning"
       ]
     },
     {
-      "title": "Node.js Just Changed Its Release Model: One Major a Year, Every Release LTS",
-      "url": "https://medium.com/system-design-architecture-deep-dives/node-js-just-changed-its-release-model-one-major-a-year-every-release-lts-9e57043d35ec",
-      "by": "Navya Devadiga",
-      "time": 1793765012000,
+      "title": "QA is so back",
+      "url": "https://madrob17.medium.com/qa-is-so-back-2baf6265580d",
+      "by": "Madison Robertson",
+      "time": 1793768270000,
       "tags": [
-        "programming",
-        "javascript",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "How I Made My API 10x Faster by Doing Less: BullMQ, Redis & PM2 in Production",
-      "url": "https://medium.com/@fareedahmad888/bullmq-redis-pm2-make-your-nodejs-api-10x-faster-c4dfef954737",
-      "by": "Fareed Ahmad",
-      "time": 1793764862000,
-      "tags": [
-        "nodejs",
+        "qa",
         "devops",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Database Indexing in Django and PostgreSQL: B-tree, GIN, Partial, and Composite Indexes Explained…",
-      "url": "https://medium.com/@sizanmahmud08/database-indexing-in-django-and-postgresql-b-tree-gin-partial-and-composite-indexes-explained-2316f28c584b",
-      "by": "Sizan Mahmud",
-      "time": 1793764839000,
-      "tags": [
-        "django",
-        "database-indexing",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "A teaching robot takes hundreds of parts: how two supply lists were filled for the Film Academy of…",
-      "url": "https://medium.com/@roboxera52/a-teaching-robot-takes-hundreds-of-parts-how-two-supply-lists-were-filled-for-the-film-academy-of-c6221fcae58c",
-      "by": "RoBox Robotics",
-      "time": 1793764747000,
-      "tags": [
-        "university",
-        "robotics",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "9 Open-Source Terminal Tools for Developers That Replace Old Commands",
-      "url": "https://medium.com/@vedant_chhajed/9-open-source-terminal-tools-for-developers-that-replace-old-commands-d8ee05d594bf",
-      "by": "Vedant Chhajed",
-      "time": 1793764722000,
-      "tags": [
-        "programming",
-        "software-development",
-        "developer-tools"
-      ]
-    },
-    {
-      "title": "El error que puede convertir una falla de red en un desastre para tu cluster Proxmox",
-      "url": "https://medium.com/@seo_7450/el-error-que-puede-convertir-una-falla-de-red-en-un-desastre-para-tu-cluster-proxmox-94dfb7f431d8",
-      "by": "Sistro Networks",
-      "time": 1793764608000,
-      "tags": [
-        "linux",
-        "proxmox",
-        "virtualization"
-      ]
-    },
-    {
-      "title": "Understanding MCP: How AI Agents Communicate With External Tools",
-      "url": "https://khatzie.medium.com/understanding-mcp-how-ai-agents-communicate-with-external-tools-d6beb6f3fa97",
-      "by": "Khatzie",
-      "time": 1793764554000,
-      "tags": [
-        "ai",
-        "programming",
-        "artificial-intelligence"
+        "ai"
       ]
     }
   ]
