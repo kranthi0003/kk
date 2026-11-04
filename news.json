@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-04T04:18:49.278Z",
+  "generated": "2026-11-04T04:21:20.858Z",
   "reddit": [
     {
-      "title": "Teams are shipping LLM features from random pods. How do you even inventory which services call which model APIs?",
-      "url": "https://www.reddit.com/r/devops/comments/1xndmow/teams_are_shipping_llm_features_from_random_pods/",
-      "by": "TotGaH",
-      "time": 1793762538000,
-      "sub": "r/devops"
+      "title": "Cilium Troubleshooting - Command Reference - Kubernetes API timeout",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xner88/cilium_troubleshooting_command_reference/",
+      "by": "Few-Exam-6625",
+      "time": 1793766013000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Railway Coded Malicious Scripts?!",
@@ -23,6 +23,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "Key Autoscaling Metric #5: Two and a Half Replicas",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xn8b82/key_autoscaling_metric_5_two_and_a_half_replicas/",
+      "by": "drmorr0",
+      "time": 1793747543000,
+      "sub": "r/kubernetes"
+    },
+    {
       "title": "LLVM Vulkan 1.1: Drop-in compiler passes (GVN, CSE, CFG, DCE) on Vulkan compute with benchmarks & Clang integration",
       "url": "https://www.reddit.com/r/programming/comments/1xn802v/llvm_vulkan_11_dropin_compiler_passes_gvn_cse_cfg/",
       "by": "TotalCreations",
@@ -30,11 +37,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "When the dashboard is green but users say it is broken, where do you look first?",
-      "url": "https://www.reddit.com/r/devops/comments/1xn6zl5/when_the_dashboard_is_green_but_users_say_it_is/",
-      "by": "Raul_Nogales",
-      "time": 1793744212000,
-      "sub": "r/devops"
+      "title": "a little game i'm making: kubernites",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xn19x8/a_little_game_im_making_kubernites/",
+      "by": "waxb_",
+      "time": 1793731318000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "The Movement Physics of Super Mario Bros - Behind the Code",
@@ -51,25 +58,18 @@
       "sub": "r/programming"
     },
     {
-      "title": "Is Google Cloud Kubernetes Engine built-in Observability enough?",
-      "url": "https://www.reddit.com/r/devops/comments/1xmwkvn/is_google_cloud_kubernetes_engine_builtin/",
-      "by": "JLTDE",
-      "time": 1793721110000,
-      "sub": "r/devops"
+      "title": "Image volumes are stable in 1.36. Anyone mounting model weights with them yet?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xmvvae/image_volumes_are_stable_in_136_anyone_mounting/",
+      "by": "iamjessew",
+      "time": 1793719509000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Am I wrong to be turned off by coding examinations in interviews?",
-      "url": "https://www.reddit.com/r/devops/comments/1xmsxbb/am_i_wrong_to_be_turned_off_by_coding/",
-      "by": "ReverendRou",
-      "time": 1793712515000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How much linux for cloud and devops?",
-      "url": "https://www.reddit.com/r/devops/comments/1xmqc02/how_much_linux_for_cloud_and_devops/",
-      "by": "Guru_2993",
-      "time": 1793704683000,
-      "sub": "r/devops"
+      "title": "I Spent Two Months Trying to Break Kubernetes Platform for an AI SRE Agent",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xmqktp/i_spent_two_months_trying_to_break_kubernetes/",
+      "by": "wineandcode",
+      "time": 1793705525000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
