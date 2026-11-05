@@ -1,12 +1,33 @@
 {
-  "generated": "2026-11-05T04:22:10.889Z",
+  "generated": "2026-11-05T07:26:58.957Z",
   "reddit": [
+    {
+      "title": "EKS network policies implementation",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xob3ab/eks_network_policies_implementation/",
+      "by": "Calm_Pick_4250",
+      "time": 1793858193000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "EKS Network Observability",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xoatzw/eks_network_observability/",
+      "by": "Calm_Pick_4250",
+      "time": 1793857266000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "LZAV 7.1: Improved compression ratio and speed. Achieved complete C/C++ pointer arithmetic compliance. Fast Data Compression Algorithm (inline C/C++).",
       "url": "https://www.reddit.com/r/programming/comments/1xo82gs/lzav_71_improved_compression_ratio_and_speed/",
       "by": "avaneev",
       "time": 1793848323000,
       "sub": "r/programming"
+    },
+    {
+      "title": "DevOps Engineers, Ever Wondered How Tools Like Jenkins, Docker, Ansible and Kubernetes Got Their Names?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xo5hi8/devops_engineers_ever_wondered_how_tools_like/",
+      "by": "Candid_Athlete_8317",
+      "time": 1793840698000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "How we halved DNS build delay and cut memory use by 85%",
@@ -37,149 +58,129 @@
       "sub": "r/programming"
     },
     {
-      "title": "Shlemiel the Painter Is Back: How Zig’s libc Rewrite Made SQLite 12,000× Slower",
-      "url": "https://www.reddit.com/r/programming/comments/1xnq1xx/shlemiel_the_painter_is_back_how_zigs_libc/",
-      "by": "gallery_rose",
-      "time": 1793803618000,
-      "sub": "r/programming"
+      "title": "VictoriaLogs vs Loki, Elasticsearch, OpenSearch, SigNoz and ClickStack on structured log ingestion",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xnov31/victorialogs_vs_loki_elasticsearch_opensearch/",
+      "by": "lllkong",
+      "time": 1793800704000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "DuckDB.NET 1.5.6.1: Appending Dates Up to 27× Faster",
-      "url": "https://www.reddit.com/r/programming/comments/1xnmntq/duckdbnet_1561_appending_dates_up_to_27_faster/",
-      "by": "mcnamaragio",
-      "time": 1793794392000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Matplotlib Real time Plot Animation Tutorial using FuncAnimation() and Python for Beginners",
-      "url": "https://www.reddit.com/r/programming/comments/1xnlo9f/matplotlib_real_time_plot_animation_tutorial/",
-      "by": "xanthium_in",
-      "time": 1793791101000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "A Maintainer's Advice on Contributing to Open Source in 2026",
-      "url": "https://www.reddit.com/r/programming/comments/1xnjvkx/a_maintainers_advice_on_contributing_to_open/",
-      "by": "Martinsos",
-      "time": 1793784389000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "the lost malloc()",
-      "url": "https://www.reddit.com/r/programming/comments/1xni70o/the_lost_malloc/",
-      "by": "mttd",
-      "time": 1793777817000,
-      "sub": "r/programming"
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xnldip/weekly_show_off_your_new_tools_and_projects_thread/",
+      "by": "AutoModerator",
+      "time": 1793790060000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Stop Rewriting State Files In Place: Use Atomic Replacement in Python",
-      "url": "https://medium.com/@udit.rawat03/stop-rewriting-state-files-in-place-use-atomic-replacement-in-python-469fc7b5254d",
-      "by": "Udit Rawat",
-      "time": 1793851996000,
+      "title": "It’s 2026. You don’t need to learn Spark anymore",
+      "url": "https://medium.com/@vutrinh274/its-2026-you-don-t-need-to-learn-spark-anymore-325240ec8f69",
+      "by": "Vu Trinh",
+      "time": 1793862963000,
       "tags": [
+        "technology",
         "software-engineering",
-        "filesystem",
-        "python"
+        "data-engineering"
       ]
     },
     {
-      "title": "Software Testing Training in Electronic City, Bangalore: Build Your IT Career with Practical Skills",
-      "url": "https://medium.com/@lokeshwaranemexo/software-testing-training-in-electronic-city-bangalore-build-your-it-career-with-practical-skills-0fe67d00e54e",
-      "by": "eMexoTechnologies",
-      "time": 1793851934000,
+      "title": "What ten months of deleting idle nodes taught us about Karpenter",
+      "url": "https://medium.com/@sebastiandaberdaku/what-ten-months-of-deleting-idle-nodes-taught-us-about-karpenter-df79f445b02d",
+      "by": "Sebastian Daberdaku",
+      "time": 1793862067000,
       "tags": [
-        "bangalore",
-        "software-development",
+        "aws",
+        "platform-engineering",
+        "karpenter"
+      ]
+    },
+    {
+      "title": "I Stopped Learning New Frameworks and Started Building. My Skills Grew Faster",
+      "url": "https://medium.com/@basitchingisi/i-stopped-learning-new-frameworks-and-started-building-my-skills-grew-faster-7d2ceafde7f2",
+      "by": "Basit Chingisi",
+      "time": 1793862065000,
+      "tags": [
+        "web-development",
+        "productivity",
+        "programming"
+      ]
+    },
+    {
+      "title": "Connect Cursor to HeFu: API Setup, Model Selection, and Your First Coding Task",
+      "url": "https://medium.com/@xiewenyu713/connect-cursor-to-hefu-api-setup-model-selection-and-your-first-coding-task-c93fe76c3c58",
+      "by": "HeFuAI",
+      "time": 1793860499000,
+      "tags": [
+        "cursor",
+        "artificial-intelligence",
+        "developer-tools"
+      ]
+    },
+    {
+      "title": "Use MCP tools without an agent choosing the steps",
+      "url": "https://medium.com/@kacperwlodarczyk/use-mcp-tools-without-an-agent-choosing-the-steps-564134a4e883",
+      "by": "Kacper Włodarczyk",
+      "time": 1793860261000,
+      "tags": [
+        "automation",
+        "artificial-intelligence",
         "software-engineering"
       ]
     },
     {
-      "title": "Why It’s So Hard to Buy a TV That Doesn’t Watch You",
-      "url": "https://medium.com/@shurmaliya/why-its-so-hard-to-buy-a-tv-that-doesn-t-watch-you-ea1bcf14734d",
-      "by": "Shubham Urmaliya",
-      "time": 1793851840000,
+      "title": "The Butterfly Effect, Pune, and a Second Shot at GSoC",
+      "url": "https://medium.com/@kartiksalve1809/the-butterfly-effect-pune-and-a-second-shot-at-gsoc-95244c9694d0",
+      "by": "Kartik Salve",
+      "time": 1793860122000,
       "tags": [
-        "technology",
-        "software-engineering"
+        "life",
+        "software-engineering",
+        "relocation"
       ]
     },
     {
-      "title": "Python Program to Print Even Numbers from 1 to 100",
-      "url": "https://medium.com/@vikas234mv/python-program-to-print-even-numbers-from-1-to-100-66b9d615ff22",
-      "by": "Vikas",
-      "time": 1793851775000,
+      "title": "Test Isolation in Playwright: Why Independent Tests Matter",
+      "url": "https://medium.com/@playwrightmasters.in/test-isolation-in-playwright-why-independent-tests-matter-c6b1371e70a0",
+      "by": "Playwright Masters",
+      "time": 1793859927000,
       "tags": [
-        "technology",
-        "coding",
-        "python"
+        "playwright-automation",
+        "software-engineering",
+        "software-development"
       ]
     },
     {
-      "title": "PostgreSQL 19 Isn’t Just Another Upgrade. It’s Changing How DBAs Handle Production.",
-      "url": "https://medium.com/@techybob/postgresql-19-isnt-just-another-upgrade-it-s-changing-how-dbas-handle-production-7d8e33b78bb5",
-      "by": "techybob",
-      "time": 1793851562000,
-      "tags": [
-        "database",
-        "technology",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Not All Technical Debt Is Bad: A Rule for Borrowing on Purpose",
-      "url": "https://medium.com/@codingguy/not-all-technical-debt-is-bad-a-rule-for-borrowing-on-purpose-b8ac86a0d423",
-      "by": "Coding Guy",
-      "time": 1793851284000,
-      "tags": [
-        "startup",
-        "product-management",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Knowing ‘‘PYTHON ’’ in Re@l-Life",
-      "url": "https://medium.com/@uppulavinay15/knowing-python-in-re-l-life-a947674f9071",
-      "by": "Uppulavinay",
-      "time": 1793851262000,
+      "title": "A four-question checklist for reading a generated test before it merges.",
+      "url": "https://medium.com/@guptashreya86/a-four-question-checklist-for-reading-a-generated-test-before-it-merges-44e0c0a0ee7d",
+      "by": "Shreya Gupta",
+      "time": 1793859920000,
       "tags": [
         "ai",
-        "python",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "I Built a Single Dashboard That Watches Every Production App We Run (Here’s the Full Blueprint)",
-      "url": "https://medium.com/@fareedahmad888/saas-monitoring-go-prometheus-grafana-57584f6566dc",
-      "by": "Fareed Ahmad",
-      "time": 1793851262000,
-      "tags": [
-        "observability",
-        "golang",
-        "devops"
-      ]
-    },
-    {
-      "title": "Your Tracing Header May Be Carrying Data to the Wrong Service",
-      "url": "https://manishsaini74.medium.com/your-tracing-header-may-be-carrying-data-to-the-wrong-service-fe8897c1fb8c",
-      "by": "Manish Saini",
-      "time": 1793851262000,
-      "tags": [
-        "software-engineering",
         "software-testing",
-        "test-automation"
+        "software-development"
       ]
     },
     {
-      "title": "7 Git Recovery Tricks for the Moment You Think You’ve Lost Your Work",
-      "url": "https://medium.com/@ishaqsaqib/7-git-recovery-tricks-for-the-moment-you-think-youve-lost-your-work-4c182eb59f17",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1793851261000,
+      "title": "Java Interview Preparation 12 Essential Java Questions Every Developer Should Know",
+      "url": "https://medium.com/@pardeepgill82/java-interview-preparation-12-essential-java-questions-every-developer-should-know-66e7f15e11b8",
+      "by": "Interview Playbook",
+      "time": 1793859880000,
+      "tags": [
+        "programming",
+        "jobs",
+        "java"
+      ]
+    },
+    {
+      "title": "Why Every AI Company Plugged Into Anthropic’s MCP",
+      "url": "https://pub.towardsai.net/why-every-ai-company-plugged-into-anthropics-mcp-31a4ce0a3584",
+      "by": "Saurabh Singh",
+      "time": 1793859845000,
       "tags": [
         "software-engineering",
-        "web-development",
-        "git"
+        "ai",
+        "artificial-intelligence"
       ]
     }
   ]
