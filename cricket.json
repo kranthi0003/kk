@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-05T07:27:04.121Z",
+  "generated": "2026-11-05T08:30:26.467Z",
   "season": "2026",
   "sources": [
     {
@@ -818,1443 +818,1443 @@
   ],
   "recent": [
     {
-      "date": "2026-11-03",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Biratnagar Kings",
-        "Janakpur Bolts"
-      ],
-      "winner": "Biratnagar Kings",
-      "margin": "2 runs",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-11-03",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Pokhara Avengers",
-        "Lumbini Lions"
-      ],
-      "winner": "Lumbini Lions",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-11-03",
-      "type": "MDM",
-      "gender": "male",
-      "event": "Sheffield Shield",
-      "teams": [
-        "Victoria",
-        "Queensland"
-      ],
-      "winner": null,
-      "margin": "draw",
-      "method": null,
-      "venue": "Brisbane Cricket Ground",
-      "city": "Brisbane",
-      "international": false
-    },
-    {
-      "date": "2026-11-02",
-      "type": "ODI",
-      "gender": "male",
-      "event": "ICC Men's Cricket World Cup League 2",
-      "teams": [
-        "Oman",
-        "Netherlands"
-      ],
-      "winner": "Netherlands",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "ICC Academy, Dubai",
-      "city": "Dubai",
-      "international": true
-    },
-    {
-      "date": "2026-11-02",
+      "date": "2026-08-06",
       "type": "T20",
       "gender": "female",
-      "event": "Women's Big Bash League",
+      "event": "The Hundred Women's Competition",
       "teams": [
-        "Perth Scorchers",
-        "Melbourne Stars"
+        "MI London",
+        "London Spirit"
       ],
-      "winner": "Perth Scorchers",
-      "margin": "15 runs",
+      "winner": "MI London",
+      "margin": "3 runs",
       "method": null,
-      "venue": "Junction Oval, Melbourne",
-      "city": "Melbourne",
+      "venue": "Lord's, London",
+      "city": "London",
       "international": false
     },
     {
-      "date": "2026-11-02",
+      "date": "2026-08-06",
       "type": "T20",
       "gender": "male",
-      "event": "Nepal Premier League",
+      "event": "The Hundred Men's Competition",
       "teams": [
-        "Karnali Yaks",
-        "Kathmandu Gorkhas"
+        "London Spirit",
+        "MI London"
       ],
-      "winner": "Kathmandu Gorkhas",
+      "winner": "MI London",
       "margin": "4 wickets",
       "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
+      "venue": "Lord's, London",
+      "city": "London",
       "international": false
     },
     {
-      "date": "2026-11-02",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Chitwan Rhinos",
-        "Sudur Paschim Royals"
-      ],
-      "winner": "Sudur Paschim Royals",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-11-01",
-      "type": "T20",
-      "gender": "male",
-      "event": "India tour of New Zealand",
-      "teams": [
-        "India",
-        "New Zealand"
-      ],
-      "winner": "New Zealand",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Seddon Park, Hamilton",
-      "city": "Hamilton",
-      "international": true
-    },
-    {
-      "date": "2026-11-01",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Ireland tour of Namibia",
-      "teams": [
-        "Ireland",
-        "Namibia"
-      ],
-      "winner": "Namibia",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "High Performance Oval, Windhoek",
-      "city": "Windhoek",
-      "international": true
-    },
-    {
-      "date": "2026-11-01",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Big Bash League",
-      "teams": [
-        "Brisbane Heat",
-        "Sydney Thunder"
-      ],
-      "winner": "Sydney Thunder",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Drummoyne Oval, Sydney",
-      "city": "Sydney",
-      "international": false
-    },
-    {
-      "date": "2026-11-01",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Big Bash League",
-      "teams": [
-        "Sydney Sixers",
-        "Hobart Hurricanes"
-      ],
-      "winner": "Sydney Sixers",
-      "margin": "87 runs",
-      "method": null,
-      "venue": "Drummoyne Oval, Sydney",
-      "city": "Sydney",
-      "international": false
-    },
-    {
-      "date": "2026-11-01",
-      "type": "MDM",
-      "gender": "male",
-      "event": "Sheffield Shield",
-      "teams": [
-        "Tasmania",
-        "New South Wales"
-      ],
-      "winner": "Tasmania",
-      "margin": "an innings and 81 runs",
-      "method": null,
-      "venue": "Bellerive Oval, Hobart",
-      "city": "Hobart",
-      "international": false
-    },
-    {
-      "date": "2026-11-01",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Janakpur Bolts",
-        "Pokhara Avengers"
-      ],
-      "winner": "Janakpur Bolts",
-      "margin": "9 runs",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-31",
+      "date": "2026-08-05",
       "type": "Test",
       "gender": "male",
-      "event": "Australia tour of South Africa",
+      "event": "Pakistan tour of West Indies",
       "teams": [
-        "South Africa",
-        "Australia"
+        "West Indies",
+        "Pakistan"
       ],
-      "winner": "South Africa",
-      "margin": "176 runs",
+      "winner": "Pakistan",
+      "margin": "8 wickets",
       "method": null,
-      "venue": "Newlands, Cape Town",
-      "city": "Cape Town",
+      "venue": "Queen's Park Oval, Port of Spain, Trinidad",
+      "city": "Port of Spain",
       "international": true
     },
     {
-      "date": "2026-10-31",
-      "type": "ODI",
+      "date": "2026-08-05",
+      "type": "ODM",
       "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
+      "event": "One-Day Cup",
+      "teams": [
+        "Hampshire",
+        "Glamorgan"
+      ],
+      "winner": "Hampshire",
+      "margin": "90 runs",
+      "method": null,
+      "venue": "The Rose Bowl, Southampton",
+      "city": "Southampton",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup",
+      "teams": [
+        "Surrey",
+        "Kent"
+      ],
+      "winner": "Surrey",
+      "margin": "95 runs",
+      "method": null,
+      "venue": "Kennington Oval, London",
+      "city": "London",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
+      "teams": [
+        "Manchester Super Giants",
+        "Welsh Fire"
+      ],
+      "winner": "Welsh Fire",
+      "margin": "3 wickets",
+      "method": null,
+      "venue": "Old Trafford, Manchester",
+      "city": "Manchester",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
+      "teams": [
+        "Birmingham Phoenix",
+        "Trent Rockets"
+      ],
+      "winner": "Trent Rockets",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Trent Bridge, Nottingham",
+      "city": "Nottingham",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "Welsh Fire",
+        "Manchester Super Giants"
+      ],
+      "winner": "Manchester Super Giants",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Old Trafford, Manchester",
+      "city": "Manchester",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "Birmingham Phoenix",
+        "Trent Rockets"
+      ],
+      "winner": "Trent Rockets",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Trent Bridge, Nottingham",
+      "city": "Nottingham",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "male",
+      "event": "Lanka Premier League",
+      "teams": [
+        "Jaffna Kings",
+        "Galle Gallants"
+      ],
+      "winner": "Jaffna Kings",
+      "margin": "14 runs",
+      "method": null,
+      "venue": "R Premadasa Stadium, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-05",
+      "type": "T20",
+      "gender": "male",
+      "event": "Lanka Premier League",
+      "teams": [
+        "Colombo Kaps",
+        "Kandy Royals"
+      ],
+      "winner": "Colombo Kaps",
+      "margin": "68 runs",
+      "method": null,
+      "venue": "R Premadasa Stadium, Colombo",
+      "city": "Colombo",
+      "international": false
+    },
+    {
+      "date": "2026-08-04",
+      "type": "T20",
+      "gender": "female",
+      "event": "Pakistan Women tour of Sri Lanka",
       "teams": [
         "Sri Lanka",
         "Pakistan"
       ],
       "winner": "Pakistan",
-      "margin": "3 wickets",
+      "margin": "4 wickets",
       "method": null,
-      "venue": "Gaddafi Stadium, Lahore",
-      "city": "Lahore",
+      "venue": "Rangiri Dambulla International Stadium",
+      "city": "Dambulla",
       "international": true
     },
     {
-      "date": "2026-10-31",
-      "type": "Test",
-      "gender": "male",
-      "event": "West Indies tour of Bangladesh",
+      "date": "2026-08-04",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
       "teams": [
-        "Bangladesh",
-        "West Indies"
+        "London Spirit",
+        "Sunrisers Leeds"
       ],
-      "winner": "West Indies",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Shere Bangla National Stadium, Mirpur",
-      "city": "Dhaka",
-      "international": true
-    },
-    {
-      "date": "2026-10-31",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Kenya",
-        "Papua New Guinea"
-      ],
-      "winner": "Kenya",
-      "margin": "88 runs",
-      "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-31",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Jersey",
-        "Qatar"
-      ],
-      "winner": "Jersey",
-      "margin": "34 runs",
-      "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-31",
-      "type": "ODI",
-      "gender": "male",
-      "event": "ICC Men's Cricket World Cup League 2",
-      "teams": [
-        "Netherlands",
-        "United Arab Emirates"
-      ],
-      "winner": "United Arab Emirates",
+      "winner": "Sunrisers Leeds",
       "margin": "5 wickets",
       "method": null,
-      "venue": "ICC Academy, Dubai",
-      "city": "Dubai",
-      "international": true
+      "venue": "Headingley, Leeds",
+      "city": "Leeds",
+      "international": false
     },
     {
-      "date": "2026-10-31",
+      "date": "2026-08-04",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "Sunrisers Leeds",
+        "London Spirit"
+      ],
+      "winner": "Sunrisers Leeds",
+      "margin": "37 runs",
+      "method": null,
+      "venue": "Headingley, Leeds",
+      "city": "Leeds",
+      "international": false
+    },
+    {
+      "date": "2026-08-03",
       "type": "T20",
       "gender": "female",
-      "event": "Women's Big Bash League",
+      "event": "The Hundred Women's Competition",
       "teams": [
-        "Adelaide Strikers",
-        "Melbourne Stars"
+        "Southern Brave",
+        "Welsh Fire"
       ],
-      "winner": "Adelaide Strikers",
-      "margin": "21 runs",
-      "method": null,
-      "venue": "Karen Rolton Oval, Adelaide",
-      "city": "Adelaide",
-      "international": false
-    },
-    {
-      "date": "2026-10-31",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Big Bash League",
-      "teams": [
-        "Melbourne Renegades",
-        "Perth Scorchers"
-      ],
-      "winner": "Perth Scorchers",
-      "margin": "9 wickets",
-      "method": null,
-      "venue": "WACA, Perth",
-      "city": "Perth",
-      "international": false
-    },
-    {
-      "date": "2026-10-31",
-      "type": "MDM",
-      "gender": "male",
-      "event": "Sheffield Shield",
-      "teams": [
-        "Western Australia",
-        "South Australia"
-      ],
-      "winner": "Western Australia",
-      "margin": "105 runs",
-      "method": null,
-      "venue": "Adelaide Oval",
-      "city": "Adelaide",
-      "international": false
-    },
-    {
-      "date": "2026-10-31",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Biratnagar Kings",
-        "Sudur Paschim Royals"
-      ],
-      "winner": "Biratnagar Kings",
-      "margin": "35 runs",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-30",
-      "type": "T20",
-      "gender": "male",
-      "event": "India tour of New Zealand",
-      "teams": [
-        "New Zealand",
-        "India"
-      ],
-      "winner": "New Zealand",
-      "margin": "87 runs",
-      "method": null,
-      "venue": "Eden Park, Auckland",
-      "city": "Auckland",
-      "international": true
-    },
-    {
-      "date": "2026-10-30",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Ireland tour of Namibia",
-      "teams": [
-        "Ireland",
-        "Namibia"
-      ],
-      "winner": "Ireland",
-      "margin": "130 runs",
-      "method": null,
-      "venue": "High Performance Oval, Windhoek",
-      "city": "Windhoek",
-      "international": true
-    },
-    {
-      "date": "2026-10-30",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Papua New Guinea",
-        "Kuwait"
-      ],
-      "winner": "Kuwait",
-      "margin": "10 wickets",
-      "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-30",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Jersey",
-        "Denmark"
-      ],
-      "winner": "Jersey",
-      "margin": "72 runs",
-      "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-30",
-      "type": "T20",
-      "gender": "female",
-      "event": "Women's Big Bash League",
-      "teams": [
-        "Brisbane Heat",
-        "Sydney Sixers"
-      ],
-      "winner": "Sydney Sixers",
+      "winner": "Welsh Fire",
       "margin": "4 wickets",
       "method": null,
-      "venue": "Allan Border Field, Brisbane",
-      "city": "Brisbane",
+      "venue": "Sophia Gardens, Cardiff",
+      "city": "Cardiff",
       "international": false
     },
     {
-      "date": "2026-10-29",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
-      "teams": [
-        "England",
-        "Sri Lanka"
-      ],
-      "winner": "England",
-      "margin": "55 runs",
-      "method": null,
-      "venue": "Gaddafi Stadium, Lahore",
-      "city": "Lahore",
-      "international": true
-    },
-    {
-      "date": "2026-10-29",
-      "type": "ODI",
-      "gender": "male",
-      "event": "ICC Men's Cricket World Cup League 2",
-      "teams": [
-        "Oman",
-        "United Arab Emirates"
-      ],
-      "winner": "United Arab Emirates",
-      "margin": "4 wickets",
-      "method": null,
-      "venue": "ICC Academy, Dubai",
-      "city": "Dubai",
-      "international": true
-    },
-    {
-      "date": "2026-10-29",
+      "date": "2026-08-03",
       "type": "T20",
-      "gender": "female",
-      "event": "Women's Big Bash League",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
       "teams": [
-        "Melbourne Renegades",
-        "Sydney Thunder"
+        "Southern Brave",
+        "Welsh Fire"
       ],
-      "winner": "Sydney Thunder",
+      "winner": "Welsh Fire",
       "margin": "6 wickets",
       "method": null,
-      "venue": "Junction Oval, Melbourne",
-      "city": "Melbourne",
+      "venue": "Sophia Gardens, Cardiff",
+      "city": "Cardiff",
       "international": false
     },
     {
-      "date": "2026-10-29",
+      "date": "2026-08-02",
       "type": "T20",
       "gender": "female",
-      "event": "Women's Big Bash League",
-      "teams": [
-        "Melbourne Stars",
-        "Hobart Hurricanes"
-      ],
-      "winner": "Melbourne Stars",
-      "margin": "18 runs",
-      "method": null,
-      "venue": "Junction Oval, Melbourne",
-      "city": "Melbourne",
-      "international": false
-    },
-    {
-      "date": "2026-10-29",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Kathmandu Gorkhas",
-        "Janakpur Bolts"
-      ],
-      "winner": "Janakpur Bolts",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-29",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Biratnagar Kings",
-        "Karnali Yaks"
-      ],
-      "winner": "Karnali Yaks",
-      "margin": "4 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-28",
-      "type": "ODI",
-      "gender": "female",
-      "event": "Zimbabwe Women tour of India",
-      "teams": [
-        "Zimbabwe",
-        "India"
-      ],
-      "winner": "India",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Kotambi Stadium, Vadodara",
-      "city": "Vadodara",
-      "international": true
-    },
-    {
-      "date": "2026-10-28",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Denmark",
-        "Qatar"
-      ],
-      "winner": "Denmark",
-      "margin": "52 runs",
-      "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-28",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Kuwait",
-        "Kenya"
-      ],
-      "winner": "Kuwait",
-      "margin": "150 runs",
-      "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-28",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Pokhara Avengers",
-        "Sudur Paschim Royals"
-      ],
-      "winner": "Sudur Paschim Royals",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-27",
-      "type": "T20",
-      "gender": "male",
-      "event": "India tour of New Zealand",
-      "teams": [
-        "New Zealand",
-        "India"
-      ],
-      "winner": "India",
-      "margin": "6 wickets",
-      "method": null,
-      "venue": "Hnry Stadium, Wellington",
-      "city": "Wellington",
-      "international": true
-    },
-    {
-      "date": "2026-10-27",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
+      "event": "Pakistan Women tour of Sri Lanka",
       "teams": [
         "Pakistan",
         "Sri Lanka"
       ],
       "winner": "Sri Lanka",
-      "margin": "8 wickets",
+      "margin": "6 wickets",
       "method": null,
-      "venue": "Gaddafi Stadium, Lahore",
-      "city": "Lahore",
+      "venue": "Rangiri Dambulla International Stadium",
+      "city": "Dambulla",
       "international": true
     },
     {
-      "date": "2026-10-27",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Ireland tour of Namibia",
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
       "teams": [
-        "Namibia",
-        "Ireland"
+        "Argentina",
+        "Canada"
       ],
-      "winner": "Namibia",
-      "margin": "63 runs",
+      "winner": "Argentina",
+      "margin": "21 runs",
       "method": null,
-      "venue": "High Performance Oval, Windhoek",
-      "city": "Windhoek",
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
       "international": true
     },
     {
-      "date": "2026-10-27",
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Canada",
+        "Argentina"
+      ],
+      "winner": "Argentina",
+      "margin": "2 wickets",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
+      "international": true
+    },
+    {
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "CWC Challenge League",
+      "event": "One-Day Cup",
       "teams": [
-        "Papua New Guinea",
-        "Qatar"
+        "Derbyshire",
+        "Sussex"
       ],
-      "winner": "Qatar",
+      "winner": "Derbyshire",
+      "margin": "188 runs",
+      "method": null,
+      "venue": "County Ground, Derby",
+      "city": "Derby",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup",
+      "teams": [
+        "Essex",
+        "Worcestershire"
+      ],
+      "winner": "Essex",
+      "margin": "107 runs",
+      "method": null,
+      "venue": "County Ground, Chelmsford",
+      "city": "Chelmsford",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "ODM",
+      "gender": "male",
+      "event": "One-Day Cup",
+      "teams": [
+        "Hampshire",
+        "Durham"
+      ],
+      "winner": "Durham",
       "margin": "9 wickets",
       "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
+      "venue": "The Rose Bowl, Southampton",
+      "city": "Southampton",
+      "international": false
     },
     {
-      "date": "2026-10-27",
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "CWC Challenge League",
+      "event": "One-Day Cup",
       "teams": [
-        "Jersey",
-        "Kuwait"
+        "Nottinghamshire",
+        "Kent"
       ],
-      "winner": "Kuwait",
-      "margin": "7 wickets",
+      "winner": "Kent",
+      "margin": "5 wickets",
       "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-27",
-      "type": "ODI",
-      "gender": "male",
-      "event": "ICC Men's Cricket World Cup League 2",
-      "teams": [
-        "Netherlands",
-        "Oman"
-      ],
-      "winner": "Netherlands",
-      "margin": "106 runs",
-      "method": null,
-      "venue": "ICC Academy, Dubai",
-      "city": "Dubai",
-      "international": true
-    },
-    {
-      "date": "2026-10-27",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Chitwan Rhinos",
-        "Biratnagar Kings"
-      ],
-      "winner": "Chitwan Rhinos",
-      "margin": "8 runs",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
+      "venue": "Kent County Cricket Ground, Beckenham",
+      "city": "Beckenham",
       "international": false
     },
     {
-      "date": "2026-10-27",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Karnali Yaks",
-        "Janakpur Bolts"
-      ],
-      "winner": "Karnali Yaks",
-      "margin": "19 runs",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-26",
-      "type": "T20",
-      "gender": "male",
-      "event": "Nepal Premier League",
-      "teams": [
-        "Sudur Paschim Royals",
-        "Lumbini Lions"
-      ],
-      "winner": "Lumbini Lions",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
-      "city": "Kirtipur",
-      "international": false
-    },
-    {
-      "date": "2026-10-25",
-      "type": "ODI",
-      "gender": "female",
-      "event": "Zimbabwe Women tour of India",
-      "teams": [
-        "India",
-        "Zimbabwe"
-      ],
-      "winner": "India",
-      "margin": "121 runs",
-      "method": null,
-      "venue": "Kotambi Stadium, Vadodara",
-      "city": "Vadodara",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
-      "teams": [
-        "England",
-        "Pakistan"
-      ],
-      "winner": "Pakistan",
-      "margin": "1 wicket",
-      "method": null,
-      "venue": "Gaddafi Stadium, Lahore",
-      "city": "Lahore",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Zambia",
-        "Mozambique"
-      ],
-      "winner": "Mozambique",
-      "margin": "3 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Nigeria",
-        "Uganda"
-      ],
-      "winner": "Nigeria",
-      "margin": "1 run",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "CWC Challenge League",
+      "event": "One-Day Cup",
       "teams": [
-        "Jersey",
-        "Kenya"
+        "Leicestershire",
+        "Somerset"
       ],
-      "winner": "Jersey",
-      "margin": "123 runs",
+      "winner": "Leicestershire",
+      "margin": "164 runs",
       "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "ODI",
-      "gender": "male",
-      "event": "ICC Men's Cricket World Cup League 2",
-      "teams": [
-        "United Arab Emirates",
-        "Netherlands"
-      ],
-      "winner": "Netherlands",
-      "margin": "3 wickets",
-      "method": null,
-      "venue": "ICC Academy, Dubai",
-      "city": "Dubai",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "T20",
-      "gender": "female",
-      "event": "Argentina Women tour of Mexico",
-      "teams": [
-        "Argentina",
-        "Mexico"
-      ],
-      "winner": "Argentina",
-      "margin": "135 runs",
-      "method": null,
-      "venue": "Complejo Municipal de Beisbol de Texcoco",
-      "city": "Texcoco de Mora",
-      "international": true
-    },
-    {
-      "date": "2026-10-25",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Gambia",
-        "Lesotho"
-      ],
-      "winner": "Gambia",
-      "margin": "3 runs",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
+      "venue": "Grace Road, Leicester",
+      "city": "Leicester",
       "international": false
     },
     {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "India tour of New Zealand",
-      "teams": [
-        "New Zealand",
-        "India"
-      ],
-      "winner": "India",
-      "margin": "4 wickets",
-      "method": null,
-      "venue": "Hagley Oval, Christchurch",
-      "city": "Christchurch",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Mozambique",
-        "Uganda"
-      ],
-      "winner": "Uganda",
-      "margin": "10 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Lesotho",
-        "Nigeria"
-      ],
-      "winner": "Nigeria",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Ireland tour of Namibia",
-      "teams": [
-        "Namibia",
-        "Ireland"
-      ],
-      "winner": "Namibia",
-      "margin": "31 runs",
-      "method": null,
-      "venue": "High Performance Oval, Windhoek",
-      "city": "Windhoek",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "female",
-      "event": "Argentina Women tour of Mexico",
-      "teams": [
-        "Argentina",
-        "Mexico"
-      ],
-      "winner": "Argentina",
-      "margin": "223 runs",
-      "method": null,
-      "venue": "Complejo Municipal de Beisbol de Texcoco",
-      "city": "Texcoco de Mora",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "female",
-      "event": "Argentina Women tour of Mexico",
-      "teams": [
-        "Argentina",
-        "Mexico"
-      ],
-      "winner": "Argentina",
-      "margin": "165 runs",
-      "method": null,
-      "venue": "Complejo Municipal de Beisbol de Texcoco",
-      "city": "Texcoco de Mora",
-      "international": true
-    },
-    {
-      "date": "2026-10-24",
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "CWC Challenge League",
+      "event": "One-Day Cup",
       "teams": [
-        "Denmark",
-        "Kuwait"
+        "Middlesex",
+        "Yorkshire"
       ],
-      "winner": "Denmark",
-      "margin": "102 runs",
+      "winner": "Middlesex",
+      "margin": "35 runs",
       "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
+      "venue": "Lord's, London",
+      "city": "London",
+      "international": false
     },
     {
-      "date": "2026-10-24",
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "CWC Challenge League",
+      "event": "One-Day Cup",
       "teams": [
-        "Qatar",
-        "Kenya"
+        "Northamptonshire",
+        "Lancashire"
       ],
-      "winner": "Qatar",
-      "margin": "4 runs",
+      "winner": "Northamptonshire",
+      "margin": "67 runs",
       "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
+      "venue": "County Ground, Northampton",
+      "city": "Northampton",
+      "international": false
     },
     {
-      "date": "2026-10-24",
+      "date": "2026-08-02",
       "type": "ODM",
       "gender": "male",
-      "event": "One-Day Cup (Australia)",
+      "event": "One-Day Cup",
       "teams": [
-        "Victoria",
-        "Tasmania"
+        "Gloucestershire",
+        "Warwickshire"
       ],
-      "winner": "Victoria",
-      "margin": "138 runs",
-      "method": "D/L",
-      "venue": "Bellerive Oval, Hobart",
-      "city": "Hobart",
+      "winner": "Warwickshire",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Rugby School Ground",
+      "city": "Rugby",
       "international": false
     },
     {
-      "date": "2026-10-24",
-      "type": "ODM",
-      "gender": "male",
-      "event": "One-Day Cup (Australia)",
-      "teams": [
-        "New South Wales",
-        "Western Australia"
-      ],
-      "winner": "New South Wales",
-      "margin": "78 runs",
-      "method": null,
-      "venue": "WACA, Perth",
-      "city": "Perth",
-      "international": false
-    },
-    {
-      "date": "2026-10-24",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Gambia",
-        "Zambia"
-      ],
-      "winner": "Zambia",
-      "margin": "8 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
-      "international": false
-    },
-    {
-      "date": "2026-10-23",
-      "type": "ODI",
-      "gender": "female",
-      "event": "Zimbabwe Women tour of India",
-      "teams": [
-        "Zimbabwe",
-        "India"
-      ],
-      "winner": "India",
-      "margin": "9 wickets",
-      "method": null,
-      "venue": "Kotambi Stadium, Vadodara",
-      "city": "Vadodara",
-      "international": true
-    },
-    {
-      "date": "2026-10-23",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Mozambique",
-        "Nigeria"
-      ],
-      "winner": "Nigeria",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-23",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Lesotho",
-        "Zambia"
-      ],
-      "winner": "Zambia",
-      "margin": "7 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
-      "international": true
-    },
-    {
-      "date": "2026-10-23",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
-      "teams": [
-        "Gambia",
-        "Uganda"
-      ],
-      "winner": "Uganda",
-      "margin": "10 wickets",
-      "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
-      "international": false
-    },
-    {
-      "date": "2026-10-22",
-      "type": "Test",
-      "gender": "male",
-      "event": "Australia tour of South Africa",
-      "teams": [
-        "South Africa",
-        "Australia"
-      ],
-      "winner": "South Africa",
-      "margin": "an innings and 31 runs",
-      "method": null,
-      "venue": "St George's Park, Gqeberha",
-      "city": "Gqeberha",
-      "international": true
-    },
-    {
-      "date": "2026-10-22",
+      "date": "2026-08-02",
       "type": "T20",
       "gender": "female",
-      "event": "New Zealand Women tour of Australia",
+      "event": "The Hundred Women's Competition",
       "teams": [
-        "New Zealand",
-        "Australia"
+        "Trent Rockets",
+        "Sunrisers Leeds"
+      ],
+      "winner": "Trent Rockets",
+      "margin": "5 runs",
+      "method": null,
+      "venue": "Trent Bridge, Nottingham",
+      "city": "Nottingham",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
+      "teams": [
+        "MI London",
+        "Manchester Super Giants"
+      ],
+      "winner": "Manchester Super Giants",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Kennington Oval, London",
+      "city": "London",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "Trent Rockets",
+        "Sunrisers Leeds"
+      ],
+      "winner": "Trent Rockets",
+      "margin": "5 runs",
+      "method": null,
+      "venue": "Trent Bridge, Nottingham",
+      "city": "Nottingham",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "MI London",
+        "Manchester Super Giants"
+      ],
+      "winner": "MI London",
+      "margin": "45 runs",
+      "method": null,
+      "venue": "Kennington Oval, London",
+      "city": "London",
+      "international": false
+    },
+    {
+      "date": "2026-08-02",
+      "type": "T20",
+      "gender": "male",
+      "event": "Lanka Premier League",
+      "teams": [
+        "Dambulla Sixers",
+        "Jaffna Kings"
       ],
       "winner": null,
       "margin": "no result",
       "method": null,
-      "venue": "North Sydney Oval",
-      "city": "Sydney",
+      "venue": "Pallekele International Cricket Stadium",
+      "city": "Kandy",
+      "international": false
+    },
+    {
+      "date": "2026-08-01",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Argentina",
+        "Canada"
+      ],
+      "winner": "Argentina",
+      "margin": "18 runs",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
       "international": true
     },
     {
-      "date": "2026-10-22",
+      "date": "2026-08-01",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Argentina",
+        "Canada"
+      ],
+      "winner": "Canada",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
+      "international": true
+    },
+    {
+      "date": "2026-08-01",
       "type": "T20",
       "gender": "male",
-      "event": "India tour of New Zealand",
+      "event": "Bahrain tour of Kenya",
       "teams": [
-        "New Zealand",
-        "India"
+        "Bahrain",
+        "Kenya"
       ],
-      "winner": "India",
-      "margin": "4 wickets",
+      "winner": "Kenya",
+      "margin": "1 wicket",
       "method": null,
-      "venue": "Hagley Oval, Christchurch",
-      "city": "Christchurch",
+      "venue": "Gymkhana Club Ground, Nairobi",
+      "city": "Nairobi",
       "international": true
     },
     {
-      "date": "2026-10-22",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
+      "date": "2026-08-01",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
       "teams": [
-        "England",
+        "Welsh Fire",
+        "Birmingham Phoenix"
+      ],
+      "winner": "Birmingham Phoenix",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Edgbaston, Birmingham",
+      "city": "Birmingham",
+      "international": false
+    },
+    {
+      "date": "2026-08-01",
+      "type": "T20",
+      "gender": "female",
+      "event": "The Hundred Women's Competition",
+      "teams": [
+        "London Spirit",
+        "Southern Brave"
+      ],
+      "winner": "Southern Brave",
+      "margin": "5 wickets",
+      "method": null,
+      "venue": "Lord's, London",
+      "city": "London",
+      "international": false
+    },
+    {
+      "date": "2026-08-01",
+      "type": "T20",
+      "gender": "male",
+      "event": "The Hundred Men's Competition",
+      "teams": [
+        "Birmingham Phoenix",
+        "Welsh Fire"
+      ],
+      "winner": "Welsh Fire",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Edgbaston, Birmingham",
+      "city": "Birmingham",
+      "international": false
+    },
+    {
+      "date": "2026-07-31",
+      "type": "T20",
+      "gender": "female",
+      "event": "Pakistan Women tour of Sri Lanka",
+      "teams": [
+        "Pakistan",
         "Sri Lanka"
       ],
       "winner": "Sri Lanka",
-      "margin": "2 wickets",
+      "margin": "6 wickets",
       "method": null,
-      "venue": "Rawalpindi Cricket Stadium",
-      "city": "Rawalpindi",
+      "venue": "Rangiri Dambulla International Stadium",
+      "city": "Dambulla",
       "international": true
     },
     {
-      "date": "2026-10-22",
+      "date": "2026-07-31",
       "type": "ODI",
       "gender": "male",
-      "event": "Ireland tour of Namibia",
+      "event": "ICC Men's Cricket World Cup League 2",
       "teams": [
-        "Ireland",
+        "Netherlands",
         "Namibia"
       ],
-      "winner": "Ireland",
-      "margin": "55 runs",
+      "winner": "Namibia",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
+      "international": true
+    },
+    {
+      "date": "2026-07-31",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Argentina",
+        "Canada"
+      ],
+      "winner": null,
+      "margin": "no result",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
+      "international": true
+    },
+    {
+      "date": "2026-07-31",
+      "type": "T20",
+      "gender": "male",
+      "event": "Bahrain tour of Kenya",
+      "teams": [
+        "Bahrain",
+        "Kenya"
+      ],
+      "winner": "Bahrain",
+      "margin": "15 runs",
+      "method": null,
+      "venue": "Gymkhana Club Ground, Nairobi",
+      "city": "Nairobi",
+      "international": true
+    },
+    {
+      "date": "2026-07-30",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Hong Kong",
+        "Tanzania"
+      ],
+      "winner": "Tanzania",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-30",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Uganda",
+        "Namibia"
+      ],
+      "winner": "Uganda",
+      "margin": "17 runs",
+      "method": null,
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-30",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Austria",
+        "Romania"
+      ],
+      "winner": "Romania",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-30",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "France",
+        "Romania"
+      ],
+      "winner": "France",
+      "margin": "4 runs",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-30",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Canada",
+        "Argentina"
+      ],
+      "winner": "Argentina",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
+      "international": true
+    },
+    {
+      "date": "2026-07-29",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Netherlands",
+        "Nepal"
+      ],
+      "winner": "Netherlands",
+      "margin": "57 runs",
+      "method": null,
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
+      "international": true
+    },
+    {
+      "date": "2026-07-29",
+      "type": "T20",
+      "gender": "female",
+      "event": "Canada Women tour of Argentina",
+      "teams": [
+        "Canada",
+        "Argentina"
+      ],
+      "winner": "Argentina",
+      "margin": "1 wicket",
+      "method": null,
+      "venue": "St George's College Ground, Buenos Aires",
+      "city": "Buenos Aires",
+      "international": true
+    },
+    {
+      "date": "2026-07-29",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Israel",
+        "France"
+      ],
+      "winner": "France",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-29",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Turkey",
+        "France"
+      ],
+      "winner": "France",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "Test",
+      "gender": "male",
+      "event": "Pakistan tour of West Indies",
+      "teams": [
+        "West Indies",
+        "Pakistan"
+      ],
+      "winner": "West Indies",
+      "margin": "90 runs",
+      "method": null,
+      "venue": "Brian Lara Stadium, Tarouba, Trinidad",
+      "city": "Tarouba",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Pakistan Women tour of Sri Lanka",
+      "teams": [
+        "Pakistan",
+        "Sri Lanka"
+      ],
+      "winner": "Sri Lanka",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Mahinda Rajapaksa International Cricket Stadium, Sooriyawewa, Hambantota",
+      "city": "Hambantota",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Hong Kong",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Uganda",
+        "Tanzania"
+      ],
+      "winner": "Uganda",
+      "margin": "",
+      "method": "Awarded",
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Israel",
+        "Austria"
+      ],
+      "winner": "Austria",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Turkey",
+        "Israel"
+      ],
+      "winner": "Turkey",
+      "margin": "9 runs",
+      "method": "D/L",
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-28",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "France",
+        "Austria"
+      ],
+      "winner": "France",
+      "margin": "81 runs",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-27",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Namibia",
+        "Nepal"
+      ],
+      "winner": "Namibia",
+      "margin": "3 runs",
+      "method": null,
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
+      "international": true
+    },
+    {
+      "date": "2026-07-27",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Tanzania",
+        "Hong Kong"
+      ],
+      "winner": "Hong Kong",
+      "margin": "9 wickets",
+      "method": null,
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-27",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Uganda",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-27",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "France",
+        "Turkey"
+      ],
+      "winner": "France",
+      "margin": "145 runs",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-27",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Israel",
+        "Romania"
+      ],
+      "winner": "Romania",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-26",
+      "type": "T20",
+      "gender": "male",
+      "event": "India tour of Zimbabwe",
+      "teams": [
+        "India",
+        "Zimbabwe"
+      ],
+      "winner": "India",
+      "margin": "35 runs",
+      "method": null,
+      "venue": "Harare Sports Club",
+      "city": "Harare",
+      "international": true
+    },
+    {
+      "date": "2026-07-26",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Romania",
+        "Austria"
+      ],
+      "winner": "Austria",
+      "margin": "3 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-26",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Turkey",
+        "Romania"
+      ],
+      "winner": "Romania",
+      "margin": "10 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "T20",
+      "gender": "male",
+      "event": "India tour of Zimbabwe",
+      "teams": [
+        "India",
+        "Zimbabwe"
+      ],
+      "winner": "India",
+      "margin": "90 runs",
+      "method": null,
+      "venue": "Harare Sports Club",
+      "city": "Harare",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Pakistan Women tour of Sri Lanka",
+      "teams": [
+        "Pakistan",
+        "Sri Lanka"
+      ],
+      "winner": "Sri Lanka",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Mahinda Rajapaksa International Cricket Stadium, Sooriyawewa, Hambantota",
+      "city": "Hambantota",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Netherlands",
+        "Namibia"
+      ],
+      "winner": "Netherlands",
+      "margin": "58 runs",
+      "method": null,
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Tanzania",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "9 wickets",
       "method": null,
       "venue": "High Performance Oval, Windhoek",
       "city": "Windhoek",
       "international": true
     },
     {
-      "date": "2026-10-22",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Jersey",
-        "Papua New Guinea"
-      ],
-      "winner": "Jersey",
-      "margin": "172 runs",
-      "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-22",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Kuwait",
-        "Qatar"
-      ],
-      "winner": "Qatar",
-      "margin": "5 wickets",
-      "method": null,
-      "venue": "Ruaraka Sports Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-22",
-      "type": "MDM",
-      "gender": "male",
-      "event": "Sheffield Shield",
-      "teams": [
-        "Tasmania",
-        "Victoria"
-      ],
-      "winner": "Tasmania",
-      "margin": "4 runs",
-      "method": null,
-      "venue": "Bellerive Oval, Hobart",
-      "city": "Hobart",
-      "international": false
-    },
-    {
-      "date": "2026-10-22",
-      "type": "MDM",
-      "gender": "male",
-      "event": "Sheffield Shield",
-      "teams": [
-        "New South Wales",
-        "Western Australia"
-      ],
-      "winner": null,
-      "margin": "draw",
-      "method": null,
-      "venue": "WACA, Perth",
-      "city": "Perth",
-      "international": false
-    },
-    {
-      "date": "2026-10-21",
+      "date": "2026-07-25",
       "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
       "teams": [
-        "Lesotho",
+        "Hong Kong",
         "Uganda"
       ],
       "winner": "Uganda",
-      "margin": "5 wickets",
+      "margin": "2 wickets",
       "method": null,
-      "venue": "Nigeria Cricket Federation Oval 2, Abuja",
-      "city": "Abuja",
+      "venue": "Namibia Cricket Ground, Windhoek",
+      "city": "Windhoek",
       "international": true
     },
     {
-      "date": "2026-10-21",
+      "date": "2026-07-25",
       "type": "T20",
       "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
+      "event": "ECA Men's European Cup",
       "teams": [
-        "Zambia",
-        "Nigeria"
+        "France",
+        "Romania"
       ],
-      "winner": "Nigeria",
+      "winner": "Romania",
+      "margin": "7 wickets",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "T20",
+      "gender": "male",
+      "event": "ECA Men's European Cup",
+      "teams": [
+        "Austria",
+        "Turkey"
+      ],
+      "winner": "Austria",
+      "margin": "127 runs",
+      "method": null,
+      "venue": "Moara Vlasiei Cricket Ground, Ilfov County",
+      "city": "Ilfov County",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "T20",
+      "gender": "female",
+      "event": "Finland Women tour of Estonia",
+      "teams": [
+        "Estonia",
+        "Finland"
+      ],
+      "winner": "Finland",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Estonian National Cricket and Rugby Field",
+      "city": "Tallinn",
+      "international": true
+    },
+    {
+      "date": "2026-07-25",
+      "type": "T20",
+      "gender": "female",
+      "event": "Finland Women tour of Estonia",
+      "teams": [
+        "Estonia",
+        "Finland"
+      ],
+      "winner": "Finland",
       "margin": "9 wickets",
       "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
+      "venue": "Estonian National Cricket and Rugby Field",
+      "city": "Tallinn",
       "international": true
     },
     {
-      "date": "2026-10-21",
-      "type": "ODM",
-      "gender": "male",
-      "event": "CWC Challenge League",
-      "teams": [
-        "Kenya",
-        "Denmark"
-      ],
-      "winner": "Kenya",
-      "margin": "103 runs",
-      "method": null,
-      "venue": "Gymkhana Club Ground, Nairobi",
-      "city": "Nairobi",
-      "international": true
-    },
-    {
-      "date": "2026-10-20",
+      "date": "2026-07-24",
       "type": "T20",
       "gender": "female",
-      "event": "New Zealand Women tour of Australia",
-      "teams": [
-        "Australia",
-        "New Zealand"
-      ],
-      "winner": "Australia",
-      "margin": "40 runs",
-      "method": null,
-      "venue": "North Sydney Oval",
-      "city": "Sydney",
-      "international": true
-    },
-    {
-      "date": "2026-10-20",
-      "type": "T20",
-      "gender": "female",
-      "event": "Zimbabwe Women tour of India",
-      "teams": [
-        "India",
-        "Zimbabwe"
-      ],
-      "winner": "India",
-      "margin": "92 runs",
-      "method": null,
-      "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
-      "city": "Raipur",
-      "international": true
-    },
-    {
-      "date": "2026-10-20",
-      "type": "ODI",
-      "gender": "male",
-      "event": "Pakistan ODI Tri-Series",
-      "teams": [
-        "Pakistan",
-        "England"
-      ],
-      "winner": "Pakistan",
-      "margin": "87 runs",
-      "method": null,
-      "venue": "Rawalpindi Cricket Stadium",
-      "city": "Rawalpindi",
-      "international": true
-    },
-    {
-      "date": "2026-10-20",
-      "type": "T20",
-      "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
       "teams": [
         "Uganda",
-        "Zambia"
+        "Tanzania"
       ],
       "winner": "Uganda",
-      "margin": "87 runs",
+      "margin": "5 runs",
       "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
       "international": true
     },
     {
-      "date": "2026-10-20",
+      "date": "2026-07-24",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Hong Kong",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "5 wickets",
+      "method": null,
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-23",
       "type": "T20",
       "gender": "male",
-      "event": "ICC Men's T20 World Cup Africa Sub Regional Qualifier C",
+      "event": "India tour of Zimbabwe",
       "teams": [
-        "Lesotho",
-        "Mozambique"
+        "Zimbabwe",
+        "India"
       ],
-      "winner": "Lesotho",
-      "margin": "74 runs",
+      "winner": "India",
+      "margin": "7 wickets",
       "method": null,
-      "venue": "Nigeria Cricket Federation Oval 1, Abuja",
-      "city": "Abuja",
+      "venue": "Harare Sports Club",
+      "city": "Harare",
       "international": true
     },
     {
-      "date": "2026-10-19",
+      "date": "2026-07-23",
+      "type": "ODI",
+      "gender": "female",
+      "event": "Pakistan Women tour of Sri Lanka",
+      "teams": [
+        "Sri Lanka",
+        "Pakistan"
+      ],
+      "winner": "Pakistan",
+      "margin": "5 wickets",
+      "method": null,
+      "venue": "Mahinda Rajapaksa International Cricket Stadium, Sooriyawewa, Hambantota",
+      "city": "Hambantota",
+      "international": true
+    },
+    {
+      "date": "2026-07-23",
       "type": "ODI",
       "gender": "male",
       "event": "ICC Men's Cricket World Cup League 2",
       "teams": [
         "Nepal",
-        "Oman"
+        "Netherlands"
       ],
-      "winner": "Nepal",
-      "margin": "10 runs",
+      "winner": "Netherlands",
+      "margin": "6 wickets",
       "method": null,
-      "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
-      "city": "Al Amarat",
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
       "international": true
     },
     {
-      "date": "2026-10-18",
+      "date": "2026-07-22",
       "type": "T20",
       "gender": "female",
-      "event": "New Zealand Women tour of Australia",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Namibia",
+        "Uganda"
+      ],
+      "winner": null,
+      "margin": "tie",
+      "method": null,
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-22",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Hong Kong",
+        "Tanzania"
+      ],
+      "winner": "Hong Kong",
+      "margin": "16 runs",
+      "method": null,
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-21",
+      "type": "ODI",
+      "gender": "male",
+      "event": "New Zealand tour of West Indies",
       "teams": [
         "New Zealand",
-        "Australia"
+        "West Indies"
       ],
-      "winner": "Australia",
+      "winner": "West Indies",
       "margin": "2 wickets",
       "method": null,
-      "venue": "North Sydney Oval",
-      "city": "Sydney",
+      "venue": "Kensington Oval, Bridgetown, Barbados",
+      "city": "Bridgetown",
       "international": true
     },
     {
-      "date": "2026-10-18",
+      "date": "2026-07-21",
+      "type": "ODI",
+      "gender": "male",
+      "event": "ICC Men's Cricket World Cup League 2",
+      "teams": [
+        "Nepal",
+        "Namibia"
+      ],
+      "winner": "Namibia",
+      "margin": "8 wickets",
+      "method": null,
+      "venue": "Sportpark Maarschalkerweerd, Utrecht",
+      "city": "Utrecht",
+      "international": true
+    },
+    {
+      "date": "2026-07-21",
       "type": "T20",
       "gender": "female",
-      "event": "Zimbabwe Women tour of India",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
       "teams": [
-        "Zimbabwe",
-        "India"
+        "Hong Kong",
+        "Uganda"
       ],
-      "winner": "India",
+      "winner": "Uganda",
+      "margin": "6 wickets",
+      "method": null,
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-21",
+      "type": "T20",
+      "gender": "female",
+      "event": "Women's T20 Quadrangular Series (in Namibia)",
+      "teams": [
+        "Tanzania",
+        "Namibia"
+      ],
+      "winner": "Namibia",
       "margin": "9 wickets",
       "method": null,
-      "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
-      "city": "Raipur",
+      "venue": "High Performance Oval, Windhoek",
+      "city": "Windhoek",
+      "international": true
+    },
+    {
+      "date": "2026-07-19",
+      "type": "ODI",
+      "gender": "male",
+      "event": "India tour of England",
+      "teams": [
+        "England",
+        "India"
+      ],
+      "winner": "England",
+      "margin": "27 runs",
+      "method": null,
+      "venue": "Lord's, London",
+      "city": "London",
+      "international": true
+    },
+    {
+      "date": "2026-07-19",
+      "type": "T20",
+      "gender": "male",
+      "event": "Bangladesh tour of Zimbabwe",
+      "teams": [
+        "Zimbabwe",
+        "Bangladesh"
+      ],
+      "winner": "Bangladesh",
+      "margin": "4 wickets",
+      "method": null,
+      "venue": "Queens Sports Club, Bulawayo",
+      "city": "Bulawayo",
+      "international": true
+    },
+    {
+      "date": "2026-07-19",
+      "type": "ODI",
+      "gender": "male",
+      "event": "New Zealand tour of West Indies",
+      "teams": [
+        "West Indies",
+        "New Zealand"
+      ],
+      "winner": "New Zealand",
+      "margin": "1 wicket",
+      "method": null,
+      "venue": "Kensington Oval, Bridgetown, Barbados",
+      "city": "Bridgetown",
+      "international": true
+    },
+    {
+      "date": "2026-07-17",
+      "type": "T20",
+      "gender": "male",
+      "event": "Bangladesh tour of Zimbabwe",
+      "teams": [
+        "Bangladesh",
+        "Zimbabwe"
+      ],
+      "winner": "Bangladesh",
+      "margin": "34 runs",
+      "method": null,
+      "venue": "Queens Sports Club, Bulawayo",
+      "city": "Bulawayo",
       "international": true
     }
   ]
