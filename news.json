@@ -1,6 +1,13 @@
 {
-  "generated": "2026-11-05T08:30:23.038Z",
+  "generated": "2026-11-05T08:56:44.309Z",
   "reddit": [
+    {
+      "title": "If I can give time to learn only on of these then what should I learn python, go, shell/bash ?",
+      "url": "https://www.reddit.com/r/devops/comments/1xodkfz/if_i_can_give_time_to_learn_only_on_of_these_then/",
+      "by": "throwaway-well",
+      "time": 1793867644000,
+      "sub": "r/devops"
+    },
     {
       "title": "Learning C from scratch – What projects should I build to become employable?",
       "url": "https://www.reddit.com/r/programming/comments/1xode76/learning_c_from_scratch_what_projects_should_i/",
@@ -9,18 +16,25 @@
       "sub": "r/programming"
     },
     {
-      "title": "EKS network policies implementation",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xob3ab/eks_network_policies_implementation/",
-      "by": "Calm_Pick_4250",
-      "time": 1793858193000,
-      "sub": "r/kubernetes"
+      "title": "I write a lot of code, open source, and as part of large engineering teams. How poorly teams manage their development secrets, some that often overlap with production blows my mind. So I coded what I hope is a decent solution.",
+      "url": "https://www.reddit.com/r/devops/comments/1xocu6f/i_write_a_lot_of_code_open_source_and_as_part_of/",
+      "by": "kigster",
+      "time": 1793864757000,
+      "sub": "r/devops"
     },
     {
-      "title": "EKS Network Observability",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xoatzw/eks_network_observability/",
-      "by": "Calm_Pick_4250",
-      "time": 1793857266000,
-      "sub": "r/kubernetes"
+      "title": "need advice to navigate my career",
+      "url": "https://www.reddit.com/r/devops/comments/1xobcxu/need_advice_to_navigate_my_career/",
+      "by": "binaryl0ver",
+      "time": 1793859140000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What's Your Go-To Strategy for Handling Secrets Management?",
+      "url": "https://www.reddit.com/r/devops/comments/1xo9cfw/whats_your_goto_strategy_for_handling_secrets/",
+      "by": "LukaRozman27",
+      "time": 1793852219000,
+      "sub": "r/devops"
     },
     {
       "title": "LZAV 7.1: Improved compression ratio and speed. Achieved complete C/C++ pointer arithmetic compliance. Fast Data Compression Algorithm (inline C/C++).",
@@ -30,11 +44,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "DevOps Engineers, Ever Wondered How Tools Like Jenkins, Docker, Ansible and Kubernetes Got Their Names?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xo5hi8/devops_engineers_ever_wondered_how_tools_like/",
-      "by": "Candid_Athlete_8317",
-      "time": 1793840698000,
-      "sub": "r/kubernetes"
+      "title": "What is the best course/courses to learn pipeline as code as a new software engineer",
+      "url": "https://www.reddit.com/r/devops/comments/1xo3mtu/what_is_the_best_coursecourses_to_learn_pipeline/",
+      "by": "Responsible_Invite30",
+      "time": 1793835671000,
+      "sub": "r/devops"
     },
     {
       "title": "How we halved DNS build delay and cut memory use by 85%",
@@ -56,23 +70,42 @@
       "by": "teivah",
       "time": 1793809015000,
       "sub": "r/programming"
-    },
-    {
-      "title": "VictoriaLogs vs Loki, Elasticsearch, OpenSearch, SigNoz and ClickStack on structured log ingestion",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xnov31/victorialogs_vs_loki_elasticsearch_opensearch/",
-      "by": "lllkong",
-      "time": 1793800704000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xnldip/weekly_show_off_your_new_tools_and_projects_thread/",
-      "by": "AutoModerator",
-      "time": 1793790060000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
+    {
+      "title": "Bring me the quote you do not trust. Skip the company presentation.",
+      "url": "https://medium.com/tales-of-a-cto/bring-me-the-quote-you-do-not-trust-skip-the-company-presentation-913f1b68f8f4",
+      "by": "Whyvra FVR",
+      "time": 1793868663000,
+      "tags": [
+        "startup",
+        "technology",
+        "entrepreneurship"
+      ]
+    },
+    {
+      "title": "OpenAI Unveils Pando: What a Git Backend Built for Coding Agents Means for Developers",
+      "url": "https://dkwebsolutions.medium.com/openai-unveils-pando-what-a-git-backend-built-for-coding-agents-means-for-developers-2808f4ba873b",
+      "by": "dk.websolutions",
+      "time": 1793867932000,
+      "tags": [
+        "software-engineering",
+        "devops",
+        "openai"
+      ]
+    },
+    {
+      "title": "OpenAI Is Buying More Than a Coding Tool.",
+      "url": "https://abdulwahabdev.medium.com/openai-is-buying-more-than-a-coding-tool-79f6a3a7f59d",
+      "by": "Abdul Wahab",
+      "time": 1793867519000,
+      "tags": [
+        "technology",
+        "xcode",
+        "ai"
+      ]
+    },
     {
       "title": "Sportsbook Failover: What Happens to Bets Accepted Before the Switch?",
       "url": "https://dmytronasyrov.medium.com/sportsbook-failover-what-happens-to-bets-accepted-before-the-switch-ec98fbacb351",
@@ -148,39 +181,6 @@
         "technology",
         "software-engineering",
         "data-engineering"
-      ]
-    },
-    {
-      "title": "What ten months of deleting idle nodes taught us about Karpenter",
-      "url": "https://medium.com/@sebastiandaberdaku/what-ten-months-of-deleting-idle-nodes-taught-us-about-karpenter-df79f445b02d",
-      "by": "Sebastian Daberdaku",
-      "time": 1793862067000,
-      "tags": [
-        "aws",
-        "platform-engineering",
-        "karpenter"
-      ]
-    },
-    {
-      "title": "I Stopped Learning New Frameworks and Started Building. My Skills Grew Faster",
-      "url": "https://medium.com/@basitchingisi/i-stopped-learning-new-frameworks-and-started-building-my-skills-grew-faster-7d2ceafde7f2",
-      "by": "Basit Chingisi",
-      "time": 1793862065000,
-      "tags": [
-        "web-development",
-        "productivity",
-        "programming"
-      ]
-    },
-    {
-      "title": "Connect Cursor to HeFu: API Setup, Model Selection, and Your First Coding Task",
-      "url": "https://medium.com/@xiewenyu713/connect-cursor-to-hefu-api-setup-model-selection-and-your-first-coding-task-c93fe76c3c58",
-      "by": "HeFuAI",
-      "time": 1793860499000,
-      "tags": [
-        "cursor",
-        "artificial-intelligence",
-        "developer-tools"
       ]
     }
   ]
