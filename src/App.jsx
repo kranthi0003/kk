@@ -126,21 +126,46 @@ function MobileBanner() {
 }
 
 export default function App() {
+  const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
+  const [intro, setIntro] = useState(wantsAgentIntro)
+  const [revealing, setRevealing] = useState(false)
+  const revealPage = useCallback(() => setRevealing(true), [])
+  const finishIntro = useCallback(() => setIntro(false), [])
+
+  useEffect(() => {
+    const onHash = () => {
+      setRoute(window.location.hash)
+      setIntro(false)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  // Let deep-linked pages start their own animations as the curtain opens.
+  const holdPage = intro && !revealing && route.startsWith('#/') && route !== '#/'
+
+  return (
+    <>
+      <div style={{ display: 'contents' }} inert={intro ? '' : undefined}>
+        {!holdPage && <AppPages route={route} intro={intro} />}
+      </div>
+      {intro && <AgentIntro onReveal={revealPage} onDone={finishIntro} />}
+    </>
+  )
+}
+
+function AppPages({ route, intro }) {
   const [matrixActive, setMatrixActive] = useState(false)
   const [resumeOpen, setResumeOpen] = useState(false)
   const [booted, setBooted] = useState(true)
   const homeRef = useRef(null)
-  const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The swarm intro plays only when the home page is the first thing this
-  // tab loads. Navigating here later never starts it.
-  const [intro, setIntro] = useState(() => wantsAgentIntro(window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : '')))
   // The extras are heavy to mount (a 3D scene, physics, sockets), and
   // mounting them while the intro animated made it stutter. Download them
   // now so they are ready, and mount them once it is over.
   const extras = !IS_LITE && !intro
   useEffect(() => {
-    if (intro && !IS_LITE) import('./components/SiteExtras').catch(() => {})
-  }, [])
+    if (intro && !IS_LITE && homeRef.current) import('./components/SiteExtras').catch(() => {})
+  }, [intro, route])
 
   // One-time cleanup: remove any leftover alternate-theme classes from
   // prior versions of the site that supported Fight Club / F1 / etc.
@@ -160,16 +185,6 @@ export default function App() {
       }, 300)
     }
   }, [route])
-
-  // Hash-based routing
-  useEffect(() => {
-    const onHash = () => {
-      setRoute(window.location.hash)
-      setIntro(false)
-    }
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [])
 
   // IMPORTANT: every hook must run before the route early-returns below.
   // Navigation is reload-free (SPA), so a route change re-renders this same
@@ -509,10 +524,10 @@ export default function App() {
     )
   }
 
-  // A private study guide; its content key travels only in the URL fragment.
+  // Password-protected study guide. Legacy keyed links open the same gate.
   if (/^#\/databricks(\/|$)/i.test(route)) {
     return (
-      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#080d13' }}><div className="text-xs font-mono text-white/50 animate-pulse">loading…</div></div>}>
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#fff8f4' }}><div className="text-xs font-mono" style={{ color: '#7050a6' }}>loading…</div></div>}>
         <SparkPrep onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
@@ -638,7 +653,6 @@ export default function App() {
         </Suspense>
       )}
     </div>
-    {intro && <AgentIntro onDone={() => setIntro(false)} />}
     </>
   )
 }

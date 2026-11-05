@@ -3,16 +3,16 @@ import React, { useEffect, useRef } from 'react'
 /* ------------------------------------------------------------------ *
  * Agent intro.
  *
- * The first time the home page loads in a tab, a swarm of cursors flies
+ * The first time any page loads in a tab, a swarm of cursors flies
  * in and builds the name out of small squares: one squad per letter,
  * each led by a named agent. When the word is done it bursts apart and
  * the page opens up from the middle, with the hero playing its entrance
  * as the curtain lifts.
  *
- * It is a curtain, not a gate. The page renders underneath from the
- * first frame, and any click, tap, key or scroll fast-forwards to the
- * reveal. It never plays under reduced motion, on any other route, or a
- * second time in the same tab.
+ * Home renders underneath from the first frame; deep-linked pages start
+ * as the curtain opens so their own openings are not missed. Any click,
+ * tap, key or scroll fast-forwards to the reveal. It never plays under
+ * reduced motion or a second time in the same tab.
  * ------------------------------------------------------------------ */
 
 const SEEN_KEY = 'agent_intro_seen'
@@ -32,10 +32,8 @@ const HOLD = 1.4 //      the finished word, before it opens
 const OPEN = 1.15 //     the curtain
 const OPEN_FAST = 0.42 // the curtain, when skipped
 
-export function wantsAgentIntro(route) {
+export function wantsAgentIntro() {
   if (typeof window === 'undefined') return false
-  // Home only. Every other page lives under "#/".
-  if (route && route !== '#/' && route.startsWith('#/')) return false
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
   try {
     if (sessionStorage.getItem(SEEN_KEY)) return false
@@ -257,11 +255,13 @@ function pill(ctx, x, y, w, h) {
 // A small overshoot, so each square lands with a pop.
 const pop = (k) => 1 + 3.2 * (k - 1) ** 3 + 2.2 * (k - 1) ** 2
 
-export default function AgentIntro({ onDone }) {
+export default function AgentIntro({ onReveal, onDone }) {
   const rootRef = useRef(null)
   const canvasRef = useRef(null)
   const capRef = useRef(null)
   const skipRef = useRef(() => {})
+  const revealRef = useRef(onReveal)
+  revealRef.current = onReveal
   const doneRef = useRef(onDone)
   doneRef.current = onDone
 
@@ -409,6 +409,7 @@ export default function AgentIntro({ onDone }) {
       phase = 'open'
       openAt = T
       openFor = fast ? OPEN_FAST : OPEN
+      if (revealRef.current) revealRef.current()
       html.classList.add('agent-intro-handoff')
       root.style.setProperty('--ai-x', `${lay.cx}px`)
       root.style.setProperty('--ai-y', `${lay.cy}px`)

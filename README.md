@@ -28,7 +28,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 
 | Category | What |
 |---|---|
-| 🐝 **Agent swarm intro** | The first time a tab opens the home page, a swarm of agent cursors builds the name square by square, then bursts open onto the site. Any click, key or scroll skips it, and it is off under reduced motion |
+| 🐝 **Agent swarm intro** | On the first visit in a tab, any direct link opens with a swarm of agent cursors building the name square by square, then revealing the destination. It does not replay on navigation or reload. Any click, key or scroll skips it, and it is off under reduced motion |
 | 🌊 **Scroll flow** | The home page moves with the scroll, Apple-style: cards rise in as a wave, headings light up word by word, sections recede as they leave and the hero sinks back. Scroll up and it all plays in reverse (`src/lib/flow.js`; mark things with `.reveal`, `<Words>` or `data-flow-soft`) |
 | 🌌 **3D Solar System** | Real planet textures, fly-to camera, orbiting moons, Saturn rings, NASA Eyes-style HUD (`#/space`) |
 | 🎮 **3D Gamer Workspace** | Walkable desk scene, soldier NPC (`WASD`), LED strips, live GitHub feed on monitors (`#/workspace`) |

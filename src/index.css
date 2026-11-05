@@ -1401,7 +1401,7 @@ html.disco .disco-lights {
 
 /* ------------------------------------------------------------------ *
  * Agent intro (AgentIntro.jsx): the swarm of cursors that builds the
- * name the first time the home page loads in a tab.
+ * name the first time any page loads in a tab.
  * ------------------------------------------------------------------ */
 .agent-intro {
   position: fixed;
