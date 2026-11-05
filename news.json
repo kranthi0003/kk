@@ -1,186 +1,185 @@
 {
-  "generated": "2026-11-04T05:12:15.281Z",
+  "generated": "2026-11-05T04:22:10.889Z",
   "reddit": [
     {
-      "title": "Instrumental dark metal written for deep-work sessions — 12-minute preview, looking for mix and pacing feedback",
-      "url": "https://www.reddit.com/r/programming/comments/1xnesoc/instrumental_dark_metal_written_for_deepwork/",
-      "by": "FrankMillerMC",
-      "time": 1793766141000,
+      "title": "LZAV 7.1: Improved compression ratio and speed. Achieved complete C/C++ pointer arithmetic compliance. Fast Data Compression Algorithm (inline C/C++).",
+      "url": "https://www.reddit.com/r/programming/comments/1xo82gs/lzav_71_improved_compression_ratio_and_speed/",
+      "by": "avaneev",
+      "time": 1793848323000,
       "sub": "r/programming"
     },
     {
-      "title": "Cilium Troubleshooting - Command Reference - Kubernetes API timeout",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xner88/cilium_troubleshooting_command_reference/",
-      "by": "Few-Exam-6625",
-      "time": 1793766013000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Railway Coded Malicious Scripts?!",
-      "url": "https://www.reddit.com/r/programming/comments/1xnbig3/railway_coded_malicious_scripts/",
-      "by": "Apprehensive_Bit7392",
-      "time": 1793756285000,
+      "title": "How we halved DNS build delay and cut memory use by 85%",
+      "url": "https://www.reddit.com/r/programming/comments/1xnzyh6/how_we_halved_dns_build_delay_and_cut_memory_use/",
+      "by": "Ok_Stomach6651",
+      "time": 1793826459000,
       "sub": "r/programming"
     },
     {
-      "title": "Postgres 19 REPACK: Built-In Online Table Bloat Cleanup",
-      "url": "https://www.reddit.com/r/programming/comments/1xn9jr2/postgres_19_repack_builtin_online_table_bloat/",
-      "by": "craigkerstiens",
-      "time": 1793750798000,
+      "title": "C++26 disapproved by the ISO National Bodies",
+      "url": "https://www.reddit.com/r/programming/comments/1xnucc3/c26_disapproved_by_the_iso_national_bodies/",
+      "by": "alexeyr",
+      "time": 1793813530000,
       "sub": "r/programming"
     },
     {
-      "title": "Key Autoscaling Metric #5: Two and a Half Replicas",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xn8b82/key_autoscaling_metric_5_two_and_a_half_replicas/",
-      "by": "drmorr0",
-      "time": 1793747543000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "LLVM Vulkan 1.1: Drop-in compiler passes (GVN, CSE, CFG, DCE) on Vulkan compute with benchmarks & Clang integration",
-      "url": "https://www.reddit.com/r/programming/comments/1xn802v/llvm_vulkan_11_dropin_compiler_passes_gvn_cse_cfg/",
-      "by": "TotalCreations",
-      "time": 1793746761000,
+      "title": "Building Barista: Postgres, Embeddings, and Jev",
+      "url": "https://www.reddit.com/r/programming/comments/1xnsc70/building_barista_postgres_embeddings_and_jev/",
+      "by": "teivah",
+      "time": 1793809015000,
       "sub": "r/programming"
     },
     {
-      "title": "a little game i'm making: kubernites",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xn19x8/a_little_game_im_making_kubernites/",
-      "by": "waxb_",
-      "time": 1793731318000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "The Movement Physics of Super Mario Bros - Behind the Code",
-      "url": "https://www.reddit.com/r/programming/comments/1xmydo2/the_movement_physics_of_super_mario_bros_behind/",
-      "by": "r_retrohacking_mod2",
-      "time": 1793725100000,
+      "title": "Git, From the Inside (interactive explainer)",
+      "url": "https://www.reddit.com/r/programming/comments/1xnqotw/git_from_the_inside_interactive_explainer/",
+      "by": "Some_Championship605",
+      "time": 1793805148000,
       "sub": "r/programming"
     },
     {
-      "title": "Image volumes are stable in 1.36. Anyone mounting model weights with them yet?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xmvvae/image_volumes_are_stable_in_136_anyone_mounting/",
-      "by": "iamjessew",
-      "time": 1793719509000,
-      "sub": "r/kubernetes"
+      "title": "Shlemiel the Painter Is Back: How Zig’s libc Rewrite Made SQLite 12,000× Slower",
+      "url": "https://www.reddit.com/r/programming/comments/1xnq1xx/shlemiel_the_painter_is_back_how_zigs_libc/",
+      "by": "gallery_rose",
+      "time": 1793803618000,
+      "sub": "r/programming"
     },
     {
-      "title": "I Spent Two Months Trying to Break Kubernetes Platform for an AI SRE Agent",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xmqktp/i_spent_two_months_trying_to_break_kubernetes/",
-      "by": "wineandcode",
-      "time": 1793705525000,
-      "sub": "r/kubernetes"
+      "title": "DuckDB.NET 1.5.6.1: Appending Dates Up to 27× Faster",
+      "url": "https://www.reddit.com/r/programming/comments/1xnmntq/duckdbnet_1561_appending_dates_up_to_27_faster/",
+      "by": "mcnamaragio",
+      "time": 1793794392000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Matplotlib Real time Plot Animation Tutorial using FuncAnimation() and Python for Beginners",
+      "url": "https://www.reddit.com/r/programming/comments/1xnlo9f/matplotlib_real_time_plot_animation_tutorial/",
+      "by": "xanthium_in",
+      "time": 1793791101000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Maintainer's Advice on Contributing to Open Source in 2026",
+      "url": "https://www.reddit.com/r/programming/comments/1xnjvkx/a_maintainers_advice_on_contributing_to_open/",
+      "by": "Martinsos",
+      "time": 1793784389000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "the lost malloc()",
+      "url": "https://www.reddit.com/r/programming/comments/1xni70o/the_lost_malloc/",
+      "by": "mttd",
+      "time": 1793777817000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "GitHub Replica: How This New AI Tool Is Changing the Way Developers Build Interactive Prototypes",
-      "url": "https://medium.com/@techassistant.hub/github-replica-how-this-new-ai-tool-is-changing-the-way-developers-build-interactive-prototypes-6a1339bdda99",
-      "by": "Tech Assistant",
-      "time": 1793768760000,
-      "tags": [
-        "software-development",
-        "ai",
-        "programming"
-      ]
-    },
-    {
-      "title": "A JWT That Expired a Minute Ago Still Returned 200: What I Hit on .NET 10",
-      "url": "https://medium.com/@patelrajni31/a-jwt-that-expired-a-minute-ago-still-returned-200-what-i-hit-on-net-10-03a1caff77ba",
-      "by": "Rajni Kavathiya",
-      "time": 1793768732000,
-      "tags": [
-        "dotnet",
-        "aspnetcore",
-        "programming"
-      ]
-    },
-    {
-      "title": "We Built It Because We Were Scared. Now Customers Pay for It.",
-      "url": "https://medium.com/@seungmin-lee/we-built-it-because-we-were-scared-now-customers-pay-for-it-b7da57435b84",
-      "by": "Seungmin Lee",
-      "time": 1793768731000,
-      "tags": [
-        "aws",
-        "kubernetes",
-        "site-reliability-engineer"
-      ]
-    },
-    {
-      "title": "I Stopped Building Basic Python Projects. These 7 Are Worth Your Time",
-      "url": "https://medium.com/codetodeploy/i-stopped-building-basic-python-projects-these-7-are-worth-your-time-4e593f66419a",
-      "by": "Muhummad Zaki",
-      "time": 1793768664000,
-      "tags": [
-        "programming",
-        "data-science",
-        "technology"
-      ]
-    },
-    {
-      "title": "How to Use ChatGPT as a Personal Tutor Instead of Just Asking Questions",
-      "url": "https://medium.com/@saisagarsylada/how-to-use-chatgpt-as-a-personal-tutor-instead-of-just-asking-questions-4804dab7fc46",
-      "by": "SagarSailada",
-      "time": 1793768642000,
-      "tags": [
-        "self-improvement",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "My Vertical Slice App Kept One DbContext Forever in Production",
-      "url": "https://medium.com/@patelrajni31/my-vertical-slice-app-kept-one-dbcontext-forever-in-production-4f9612478395",
-      "by": "Rajni Kavathiya",
-      "time": 1793768478000,
-      "tags": [
-        "aspnetcore",
-        "software-architecture",
-        "dotnet"
-      ]
-    },
-    {
-      "title": "Part 2: We Still Hit 100% of Our Vercel Free Plan. Here Is What We Found Next.",
-      "url": "https://mrkivan820.medium.com/part-2-we-still-hit-100-of-our-vercel-free-plan-here-is-what-we-found-next-933ea8b8bc6f",
-      "by": "Riazul Karim Ivan",
-      "time": 1793768461000,
-      "tags": [
-        "nextjs",
-        "devops",
-        "web-performance"
-      ]
-    },
-    {
-      "title": "My AI-Written Tests Missed a Duplicate Notification Bug",
-      "url": "https://medium.com/it-chronicles/my-ai-written-tests-missed-a-duplicate-notification-bug-f87369f8ad0d",
-      "by": "AIHoony",
-      "time": 1793768405000,
+      "title": "Stop Rewriting State Files In Place: Use Atomic Replacement in Python",
+      "url": "https://medium.com/@udit.rawat03/stop-rewriting-state-files-in-place-use-atomic-replacement-in-python-469fc7b5254d",
+      "by": "Udit Rawat",
+      "time": 1793851996000,
       "tags": [
         "software-engineering",
-        "software-testing",
-        "code-review"
+        "filesystem",
+        "python"
       ]
     },
     {
-      "title": "How Are Unit Tests Generated for Code RL Rewards?",
-      "url": "https://medium.com/@sarathc225/how-are-unit-tests-generated-for-code-rl-rewards-d34d66a4401a",
-      "by": "Sarathc",
-      "time": 1793768348000,
+      "title": "Software Testing Training in Electronic City, Bangalore: Build Your IT Career with Practical Skills",
+      "url": "https://medium.com/@lokeshwaranemexo/software-testing-training-in-electronic-city-bangalore-build-your-it-career-with-practical-skills-0fe67d00e54e",
+      "by": "eMexoTechnologies",
+      "time": 1793851934000,
       "tags": [
-        "programming",
-        "artificial-intelligence",
+        "bangalore",
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Why It’s So Hard to Buy a TV That Doesn’t Watch You",
+      "url": "https://medium.com/@shurmaliya/why-its-so-hard-to-buy-a-tv-that-doesn-t-watch-you-ea1bcf14734d",
+      "by": "Shubham Urmaliya",
+      "time": 1793851840000,
+      "tags": [
+        "technology",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Python Program to Print Even Numbers from 1 to 100",
+      "url": "https://medium.com/@vikas234mv/python-program-to-print-even-numbers-from-1-to-100-66b9d615ff22",
+      "by": "Vikas",
+      "time": 1793851775000,
+      "tags": [
+        "technology",
+        "coding",
+        "python"
+      ]
+    },
+    {
+      "title": "PostgreSQL 19 Isn’t Just Another Upgrade. It’s Changing How DBAs Handle Production.",
+      "url": "https://medium.com/@techybob/postgresql-19-isnt-just-another-upgrade-it-s-changing-how-dbas-handle-production-7d8e33b78bb5",
+      "by": "techybob",
+      "time": 1793851562000,
+      "tags": [
+        "database",
+        "technology",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Not All Technical Debt Is Bad: A Rule for Borrowing on Purpose",
+      "url": "https://medium.com/@codingguy/not-all-technical-debt-is-bad-a-rule-for-borrowing-on-purpose-b8ac86a0d423",
+      "by": "Coding Guy",
+      "time": 1793851284000,
+      "tags": [
+        "startup",
+        "product-management",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Knowing ‘‘PYTHON ’’ in Re@l-Life",
+      "url": "https://medium.com/@uppulavinay15/knowing-python-in-re-l-life-a947674f9071",
+      "by": "Uppulavinay",
+      "time": 1793851262000,
+      "tags": [
+        "ai",
+        "python",
         "machine-learning"
       ]
     },
     {
-      "title": "QA is so back",
-      "url": "https://madrob17.medium.com/qa-is-so-back-2baf6265580d",
-      "by": "Madison Robertson",
-      "time": 1793768270000,
+      "title": "I Built a Single Dashboard That Watches Every Production App We Run (Here’s the Full Blueprint)",
+      "url": "https://medium.com/@fareedahmad888/saas-monitoring-go-prometheus-grafana-57584f6566dc",
+      "by": "Fareed Ahmad",
+      "time": 1793851262000,
       "tags": [
-        "qa",
-        "devops",
-        "ai"
+        "observability",
+        "golang",
+        "devops"
+      ]
+    },
+    {
+      "title": "Your Tracing Header May Be Carrying Data to the Wrong Service",
+      "url": "https://manishsaini74.medium.com/your-tracing-header-may-be-carrying-data-to-the-wrong-service-fe8897c1fb8c",
+      "by": "Manish Saini",
+      "time": 1793851262000,
+      "tags": [
+        "software-engineering",
+        "software-testing",
+        "test-automation"
+      ]
+    },
+    {
+      "title": "7 Git Recovery Tricks for the Moment You Think You’ve Lost Your Work",
+      "url": "https://medium.com/@ishaqsaqib/7-git-recovery-tricks-for-the-moment-you-think-youve-lost-your-work-4c182eb59f17",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1793851261000,
+      "tags": [
+        "software-engineering",
+        "web-development",
+        "git"
       ]
     }
   ]

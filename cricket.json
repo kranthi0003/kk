@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T05:12:20.134Z",
+  "generated": "2026-11-05T04:22:15.807Z",
   "season": "2026",
   "sources": [
     {
@@ -103,17 +103,17 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 36,
-        "points": 4112,
-        "rating": 115
+        "matches": 37,
+        "points": 4281,
+        "rating": 116
       },
       {
         "pos": 2,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 35,
-        "points": 3809,
-        "rating": 109
+        "matches": 36,
+        "points": 3874,
+        "rating": 108
       },
       {
         "pos": 3,
