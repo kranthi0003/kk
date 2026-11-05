@@ -47,9 +47,11 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music pages |
-| 🔒 **Private pages** | Password-protected Vegas & Europe trip plans and a Singapore goal page, encrypted with `scripts/private-payload.mjs` |
+| 🔒 **Private pages** | Password-protected trip plans, a goal page and a study guide with nested diagrams, guided traces and keyboard-accessible component inspection; content is encrypted with `scripts/private-payload.mjs` |
 | 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
+
+Private study diagrams use scene-local coordinates, parent-group IDs and stable edge IDs for walkthrough highlighting. Keep course copy, labels, explanations, examples and sources in the encrypted payload; the renderer contains only layout and interaction logic.
 
 ---
 

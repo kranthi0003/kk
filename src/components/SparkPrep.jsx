@@ -119,77 +119,135 @@ function Chapter({ chapter }) {
   )
 }
 
-function ArchitectureView({ model, labels }) {
+const diagramTones = {
+  blue: { fill: '#eaf2ff', stroke: '#6488b7' },
+  mint: { fill: '#e9f5ed', stroke: '#639477' },
+  violet: { fill: '#f0eafa', stroke: '#9273b0' },
+  amber: { fill: '#fff2d6', stroke: '#b29450' },
+  rose: { fill: '#fbeaec', stroke: '#b97986' },
+  neutral: { fill: '#f4f3f6', stroke: '#8b8494' },
+}
+const diagramEdges = { control: '#7050a6', allocation: '#466d9d', data: '#186957', storage: '#936018' }
+
+function DiagramItem({ item, group, active, selected, onSelect, inspect }) {
+  const { x, y, width, height } = item
+  const tone = diagramTones[item.tone || 'neutral']
+  const fontSize = item.fontSize || (group ? 20 : 18)
+  const padding = item.kind === 'task' ? 8 : 16
+  const lines = diagramLines(item.title, Math.max(5, Math.floor((width - padding * 2) / (fontSize * .58))))
+  const center = item.kind === 'task' || item.kind === 'storage'
+  const tx = center ? x + width / 2 : x + padding
+  const firstY = y + (item.kind === 'task' ? 23 : item.kind === 'storage' ? 56 : 28)
+  const stroke = selected ? '#50337f' : active ? '#9a6b22' : tone.stroke
+  const fill = !group && active ? '#fff0d2' : group ? tone.fill : '#fffefd'
+  return (
+    <g className={`dbp-map-node${group ? ' dbp-map-group' : ''}`} role="button" tabIndex={0}
+      data-item-id={item.id} data-parent={item.parent}
+      aria-label={`${item.title}. ${inspect}`} aria-pressed={selected}
+      onClick={onSelect} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelect() } }}>
+      {item.kind === 'storage' ? <>
+        <path className="dbp-node-border" d={`M${x},${y + 16} A${width / 2},16 0 0 1 ${x + width},${y + 16} V${y + height - 16} A${width / 2},16 0 0 1 ${x},${y + height - 16} Z`}
+          fill={fill} stroke={stroke} strokeWidth={selected ? 3 : 1.8} />
+        <ellipse cx={x + width / 2} cy={y + 16} rx={width / 2} ry="16" fill={tone.fill} stroke={stroke} strokeWidth="1.5" />
+      </> : <rect className="dbp-node-border" x={x} y={y} width={width} height={height} rx={group ? 12 : 8}
+        fill={fill} stroke={stroke} strokeWidth={selected ? 3 : group ? 2 : 1.6} strokeDasharray={item.dashed ? '7 5' : undefined} />}
+      <text textAnchor={center ? 'middle' : 'start'} fill="#30243d" fontSize={fontSize} fontWeight="700">
+        {lines.map((line, index) => <tspan key={index} x={tx} y={firstY + index * (fontSize + 4)}>{line}</tspan>)}
+      </text>
+      {item.subtitle && <text x={tx} y={group ? firstY + lines.length * (fontSize + 4) : y + height - (item.kind === 'storage' ? 26 : 13)}
+        textAnchor={center ? 'middle' : 'start'} fill="#53465e" fontSize={item.kind === 'task' ? 12 : 14}>{item.subtitle}</text>}
+    </g>
+  )
+}
+
+function ArchitectureScene({ scene, labels }) {
   const [step, setStep] = useState(0)
-  const [selected, setSelected] = useState(model.steps[0].nodes[0])
+  const [selected, setSelected] = useState(scene.steps[0].nodes[0])
   const [fit, setFit] = useState(true)
   const uid = useId().replace(/:/g, '')
-  const current = model.steps[step]
-  const node = model.nodes.find((item) => item.id === selected)
+  const items = useMemo(() => new Map([...scene.groups, ...scene.nodes].map((item) => [item.id, item])), [scene])
+  const current = scene.steps[step]
+  const node = items.get(selected)
+  const ancestry = []
+  for (let item = node; item; item = items.get(item.parent)) ancestry.unshift(item.title)
   const chooseStep = (index) => {
     setStep(index)
-    setSelected(model.steps[index].nodes[0])
+    setSelected(scene.steps[index].nodes[0])
   }
   const anchor = (item, side) => ({
-    top: [item.x + 120, item.y],
-    bottom: [item.x + 120, item.y + 96],
-    left: [item.x, item.y + 48],
-    right: [item.x + 240, item.y + 48],
+    top: [item.x + item.width / 2, item.y],
+    bottom: [item.x + item.width / 2, item.y + item.height],
+    left: [item.x, item.y + item.height / 2],
+    right: [item.x + item.width, item.y + item.height / 2],
   }[side])
   return (
-    <div className="dbp-map-view">
-      <h3>{model.title}</h3>
-      <p className="dbp-lead">{model.intro}</p>
-      <p className="dbp-map-scope">{model.scope}</p>
+    <div className="dbp-map-scene">
+      <p className="dbp-map-caption">{scene.caption}</p>
       <div className="dbp-map-legend">{labels.legend.map((text, index) => <span key={text} data-kind={index}>{text}</span>)}</div>
       <p className="dbp-map-hint">{labels.hint}</p>
       <button type="button" className="dbp-secondary dbp-map-zoom" aria-pressed={!fit} onClick={() => setFit((value) => !value)}>{fit ? labels.enlarge : labels.fit}</button>
-      <div className={`dbp-map-scroll${fit ? ' is-fit' : ''}`} tabIndex={0} role="region" aria-label={labels.diagram}>
-        <svg viewBox="0 0 950 570" role="group" aria-labelledby={`${uid}-title`}>
-          <title id={`${uid}-title`}>{model.title}</title>
-          <defs>{['data', 'control'].map((kind) => <marker key={kind} id={`${uid}-${kind}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill={kind === 'data' ? '#28695d' : '#7050a6'} /></marker>)}</defs>
-          {model.lanes.map((lane, index) => <g key={lane}><rect x="14" y={index ? 300 : 40} width="922" height="210" rx="18" fill={index ? '#eaf6ef' : '#f1eafb'} /><text x="34" y={index ? 326 : 66} fontSize="13" fontWeight="650" fill="#53465e">{lane}</text></g>)}
-          {model.groups?.map((group) => <g key={group.label}><rect x={group.x} y={group.y} width={group.width} height={group.height} rx="10" fill="none" stroke="#7050a6" strokeDasharray="5 4" /><text x={group.x + 10} y={group.y + 15} fontSize="11" fill="#7050a6">{group.label}</text></g>)}
-          {model.edges.map((edge, index) => {
-            const from = model.nodes.find((item) => item.id === edge.from)
-            const to = model.nodes.find((item) => item.id === edge.to)
+      <div className={`dbp-map-scroll${fit ? ' is-fit' : ''}`} style={{ '--dbp-diagram-width': `${scene.width}px` }} tabIndex={0} role="region" aria-label={labels.diagram}>
+        <svg viewBox={`0 0 ${scene.width} ${scene.height}`} role="group" aria-labelledby={`${uid}-title`} aria-describedby={`${uid}-description`}>
+          <title id={`${uid}-title`}>{scene.title}</title><desc id={`${uid}-description`}>{scene.caption}</desc>
+          <defs>{Object.entries(diagramEdges).map(([kind, color]) => <marker key={kind} id={`${uid}-${kind}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill={color} /></marker>)}</defs>
+          {scene.groups.map((item) => <DiagramItem key={item.id} item={item} group active={current.nodes.includes(item.id)} selected={selected === item.id} inspect={labels.inspect} onSelect={() => setSelected(item.id)} />)}
+          {scene.edges.map((edge) => {
+            const from = items.get(edge.from)
+            const to = items.get(edge.to)
             const across = from.y === to.y
             const forward = to.x > from.x
             const downward = to.y > from.y
             const start = anchor(from, edge.start || (across ? (forward ? 'right' : 'left') : (downward ? 'bottom' : 'top')))
             const end = anchor(to, edge.end || (across ? (forward ? 'left' : 'right') : (downward ? 'top' : 'bottom')))
             const midY = edge.viaY ?? (start[1] + end[1]) / 2
-            const path = across && edge.viaY == null ? `M${start} L${end}` : `M${start} V${midY} H${end[0]} V${end[1]}`
-            const active = current.edges.includes(index)
-            const color = edge.kind === 'control' ? '#7050a6' : '#28695d'
-            const labelLines = diagramLines(edge.label, across && edge.viaY == null ? 10 : 28)
+            const path = edge.path || (across && edge.viaY == null ? `M${start} L${end}` : `M${start} V${midY} H${end[0]} V${end[1]}`)
+            const active = current.edges.includes(edge.id)
+            const color = diagramEdges[edge.kind]
+            const labelLines = edge.label ? diagramLines(edge.label, edge.labelWidth || 26) : []
             const labelX = edge.labelX ?? (start[0] + end[0]) / 2
             const labelY = edge.labelY ?? midY - 8
-            return <g key={`${edge.from}-${edge.to}-${index}`}>
-              <path d={path} fill="none" opacity={active ? 1 : .45} stroke={color} strokeWidth={active ? 3.5 : 2} strokeDasharray={edge.kind === 'control' ? '7 5' : undefined} markerEnd={`url(#${uid}-${edge.kind})`} />
-              <text textAnchor="middle" fill={color} fontSize="12" fontWeight="650" paintOrder="stroke" stroke="#fffefd" strokeWidth="5" strokeLinejoin="round">{labelLines.map((line, lineIndex) => <tspan key={lineIndex} x={labelX} y={labelY - (labelLines.length - lineIndex - 1) * 14}>{line}</tspan>)}</text>
+            return <g key={edge.id} className="dbp-map-edge" data-edge-id={edge.id} data-from={edge.from} data-to={edge.to}>
+              <title>{edge.description}</title>
+              <path d={path} fill="none" opacity={active ? 1 : .6} stroke={color} strokeWidth={active ? 4 : 2.4} strokeDasharray={edge.kind === 'control' ? '8 5' : edge.kind === 'allocation' ? '3 5' : undefined}
+                markerStart={edge.both ? `url(#${uid}-${edge.kind})` : undefined} markerEnd={`url(#${uid}-${edge.kind})`} />
+              <text textAnchor="middle" fill={color} fontSize={edge.fontSize || 15} fontWeight="650" paintOrder="stroke" stroke="#fffefd" strokeWidth="6" strokeLinejoin="round">{labelLines.map((line, lineIndex) => <tspan key={lineIndex} x={labelX} y={labelY - (labelLines.length - lineIndex - 1) * 18}>{line}</tspan>)}</text>
             </g>
           })}
-          {model.nodes.map((item) => <g key={item.id} className="dbp-map-node" role="button" tabIndex={0} aria-label={`${item.title}. ${labels.inspect}`} aria-pressed={selected === item.id}
-            onClick={() => setSelected(item.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(item.id) } }}>
-            <rect x={item.x} y={item.y} width="240" height="96" rx="13" fill={current.nodes.includes(item.id) ? '#fff0d9' : '#fffefd'} stroke={selected === item.id ? '#7050a6' : '#b5a7bd'} strokeWidth={selected === item.id ? 3 : 1.5} />
-            {diagramLines(item.title, 25).map((line, index) => <text key={index} x={item.x + 15} y={item.y + 27 + index * 19} fontSize="16" fontWeight="700" fill="#30243d">{line}</text>)}
-            <text x={item.x + 15} y={item.y + 78} fontSize="12" fill="#65596e">{item.subtitle}</text>
-          </g>)}
+          {scene.nodes.map((item) => <DiagramItem key={item.id} item={item} active={current.nodes.includes(item.id)} selected={selected === item.id} inspect={labels.inspect} onSelect={() => setSelected(item.id)} />)}
         </svg>
       </div>
       <div className="dbp-map-detail-grid">
         <section className="dbp-map-walk" aria-label={labels.walkthrough}>
           <p className="dbp-eyebrow">{labels.walkthrough}</p>
-          <div className="dbp-map-steps">{model.steps.map((item, index) => <button key={item.title} type="button" aria-label={item.title} aria-pressed={index === step} onClick={() => chooseStep(index)}>{index + 1}</button>)}</div>
+          <div className="dbp-map-steps">{scene.steps.map((item, index) => <button key={item.title} type="button" aria-label={item.title} aria-pressed={index === step} onClick={() => chooseStep(index)}>{index + 1}</button>)}</div>
           <div aria-live="polite"><h4>{step + 1}. {current.title}</h4><p>{current.body}</p></div>
-          <div className="dbp-map-controls"><button type="button" disabled={step === 0} onClick={() => chooseStep(step - 1)}>{labels.previous}</button><button type="button" disabled={step === model.steps.length - 1} onClick={() => chooseStep(step + 1)}>{labels.next}</button></div>
+          <div className="dbp-map-controls"><button type="button" disabled={step === 0} onClick={() => chooseStep(step - 1)}>{labels.previous}</button><button type="button" disabled={step === scene.steps.length - 1} onClick={() => chooseStep(step + 1)}>{labels.next}</button></div>
         </section>
         <section className="dbp-map-inspect" aria-live="polite">
           <p className="dbp-eyebrow">{labels.component}</p><h4>{node.title}</h4>
-          <dl>{['role', 'why', 'failure'].map((key) => <React.Fragment key={key}><dt>{labels[key]}</dt><dd>{node[key]}</dd></React.Fragment>)}</dl>
+          <p className="dbp-map-path">{ancestry.join(' / ')}</p>
+          <dl>{['role', 'why', 'evidence', 'failure'].map((key) => <React.Fragment key={key}><dt>{labels[key]}</dt><dd>{node[key]}</dd></React.Fragment>)}</dl>
         </section>
       </div>
+    </div>
+  )
+}
+
+function ArchitectureView({ model, labels }) {
+  const [view, setView] = useState(0)
+  return (
+    <div className="dbp-map-view">
+      <h3>{model.title}</h3>
+      <p className="dbp-lead">{model.intro}</p>
+      <p className="dbp-map-scope">{model.scope}</p>
+      {model.scenes.length > 1 && <div className="dbp-map-scenes" role="group" aria-label={labels.views}>{model.scenes.map((scene, index) => <button type="button" key={scene.id} aria-pressed={view === index} onClick={() => setView(index)}>{scene.title}</button>)}</div>}
+      <ArchitectureScene key={model.scenes[view].id} scene={model.scenes[view]} labels={labels} />
+      <div className="dbp-map-deep">{model.deepDive.map((block) => <section key={block.title}>
+        <h4>{block.title}</h4><p>{block.body}</p>
+        {block.columns && <div className="dbp-map-table-scroll" tabIndex={0} role="region" aria-label={block.title}><table aria-label={block.title}><thead><tr>{block.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead><tbody>{block.rows.map((row, index) => <tr key={index}>{row.map((cell, cellIndex) => cellIndex === 0 ? <th scope="row" key={cellIndex}>{cell}</th> : <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody></table></div>}
+        {block.code && <pre><code>{block.code}</code></pre>}
+        {block.note && <p className="dbp-callout">{block.note}</p>}
+      </section>)}</div>
       <div className="dbp-map-example"><h4>{model.example.title}</h4><pre><code>{model.example.code}</code></pre><p>{model.example.explanation}</p></div>
       <div className="dbp-map-diagnosis"><h4>{labels.diagnosis}</h4><p>{model.diagnosis}</p></div>
       <details className="dbp-map-question"><summary>{model.question}</summary><p>{model.answer}</p></details>
@@ -523,23 +581,29 @@ const CSS = `
  .dbp-map-picker button { text-align:left; font-size:14px; display:flex; gap:10px; align-items:center; }
  .dbp-map-picker button span { font:600 11px ui-monospace,monospace; opacity:.8; }
  .dbp-map-picker button[aria-pressed=true],.dbp-map-steps button[aria-pressed=true] { background:#7050a6; color:white; border-color:#7050a6; }
- .dbp-map-view { border-top:1px solid #e4d8e6; padding-top:25px; }
+ .dbp-map-view { min-width:0; border-top:1px solid #e4d8e6; padding-top:25px; }
  .dbp-map-view h3 { font-size:clamp(24px,3vw,34px); line-height:1.2; margin:0; }
  .dbp-map-view h4 { font-size:19px; line-height:1.4; margin:12px 0; }
  .dbp-map-scope { font-size:13px; line-height:1.7; color:#65596e; padding-left:12px; border-left:3px solid #d6c6e7; }
  .dbp-map-legend { display:flex; flex-wrap:wrap; gap:10px 22px; font-size:12px; color:#53465e; margin-top:23px; }
- .dbp-map-legend span:before { content:''; display:inline-block; width:24px; border-top:3px solid #28695d; margin-right:7px; vertical-align:middle; }
+ .dbp-map-caption { font-size:14px; color:#53465e; }
+ .dbp-map-scenes { display:flex; flex-wrap:wrap; gap:9px; margin:23px 0 16px; }
+ .dbp-map-scenes button { min-height:44px; padding:10px 15px; border:1px solid #bba8cf; border-radius:10px; background:#fffefd; color:#644691; cursor:pointer; font-size:14px; }
+ .dbp-map-scenes button[aria-pressed=true] { border-color:#7050a6; background:#f0e7fb; font-weight:650; }
+ .dbp-map-legend span:before { content:''; display:inline-block; width:24px; border-top:3px solid #186957; margin-right:7px; vertical-align:middle; }
  .dbp-map-legend span[data-kind="1"]:before { border-color:#7050a6; border-top-style:dashed; }
- .dbp-map-legend span[data-kind="2"]:before { height:12px; border:1px solid #a87b37; background:#fff0d9; }
+ .dbp-map-legend span[data-kind="2"]:before { border-color:#466d9d; border-top-style:dotted; }
+ .dbp-map-legend span[data-kind="3"]:before { border-color:#936018; }
+ .dbp-map-legend span[data-kind="4"]:before { height:12px; border:1px solid #9a6b22; background:#fff0d2; }
  .dbp-map-hint { font-size:12px; color:#65596e; margin:14px 0 8px; }
  .dbp-map-scroll { overflow-x:auto; border:1px solid #e4d8e6; border-radius:16px; background:#fffefd; }
- .dbp-map-scroll svg { display:block; width:100%; min-width:850px; }
+ .dbp-map-scroll svg { display:block; width:100%; min-width:var(--dbp-diagram-width); height:auto; }
  .dbp-map-scroll.is-fit svg { min-width:0; }
  .dbp-map-zoom { margin:0 0 12px; font-size:12px !important; }
  .dbp-map-node { cursor:pointer; }
  .dbp-map-node:focus { outline:none; }
- .dbp-map-node:focus-visible rect { stroke:#30243d; stroke-width:4; }
- .dbp-map-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+ .dbp-map-node:focus-visible .dbp-node-border { stroke:#30243d; stroke-width:4; }
+ .dbp-map-detail-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; margin:20px 0; }
  .dbp-map-walk,.dbp-map-inspect { border-radius:16px; padding:23px; background:#f3ecfb; }
  .dbp-map-inspect { background:#edf6f1; }
  .dbp-map-view p,.dbp-map-view dd { line-height:1.8; }
@@ -550,8 +614,21 @@ const CSS = `
  .dbp-map-controls button:disabled { opacity:.45; cursor:default; }
  .dbp-map-inspect dt { margin-top:14px; font-weight:650; font-size:12px; color:#28695d; }
  .dbp-map-inspect dd { margin:4px 0 0; }
+ .dbp-map-path { font:12px/1.7 ui-monospace,monospace; color:#28695d; overflow-wrap:anywhere; }
+ .dbp-map-inspect h4,.dbp-map-inspect dd { overflow-wrap:anywhere; }
+ .dbp-map-deep { margin:30px 0; display:grid; gap:24px; }
+ .dbp-map-deep > section { min-width:0; padding:0 0 24px; border-bottom:1px solid #e4d8e6; }
+ .dbp-map-deep > section > h4 { font-size:22px; color:#50337f; }
+ .dbp-map-deep p { font-size:15px; color:#53465e; }
+ .dbp-map-table-scroll { max-width:100%; overflow-x:auto; margin:18px 0; border:1px solid #ddd0e5; border-radius:12px; }
+ .dbp-map-table-scroll table { width:100%; min-width:650px; border-collapse:collapse; text-align:left; font-size:14px; line-height:1.75; }
+ .dbp-map-table-scroll th,.dbp-map-table-scroll td { vertical-align:top; padding:14px 16px; border-bottom:1px solid #e4d8e6; overflow-wrap:anywhere; }
+ .dbp-map-table-scroll thead { background:#eee5f8; color:#50337f; }
+ .dbp-map-table-scroll tbody th { width:24%; font-weight:650; color:#50337f; }
+ .dbp-map-table-scroll tbody tr:nth-child(even) { background:#faf6fd; }
+ .dbp-map-table-scroll tbody tr:last-child > * { border-bottom:0; }
  .dbp-map-example,.dbp-map-diagnosis,.dbp-map-question { margin-top:20px; padding:20px; border:1px solid #e4d8e6; border-radius:14px; }
- .dbp-map-example pre { overflow:auto; background:#292136; color:#f8f2ff; padding:20px; border-radius:10px; font:13px/1.8 ui-monospace,monospace; }
+ .dbp-map-example pre,.dbp-map-deep pre { overflow:auto; max-width:100%; background:#292136; color:#f8f2ff; padding:20px; border-radius:10px; font:13px/1.8 ui-monospace,monospace; }
  .dbp-map-example p,.dbp-map-diagnosis p,.dbp-map-question p { font-size:14px; color:#53465e; margin-bottom:0; }
  .dbp-map-diagnosis { background:#fff0e7; }
  .dbp-map-question summary { cursor:pointer; font-weight:600; line-height:1.7; }
