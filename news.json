@@ -1,19 +1,19 @@
 {
-  "generated": "2026-11-05T08:56:44.309Z",
+  "generated": "2026-11-05T10:22:48.883Z",
   "reddit": [
+    {
+      "title": "Has anyone created a centralised design system to visually regression test against?",
+      "url": "https://www.reddit.com/r/devops/comments/1xoeov3/has_anyone_created_a_centralised_design_system_to/",
+      "by": "AmILukeQuestionMark",
+      "time": 1793872200000,
+      "sub": "r/devops"
+    },
     {
       "title": "If I can give time to learn only on of these then what should I learn python, go, shell/bash ?",
       "url": "https://www.reddit.com/r/devops/comments/1xodkfz/if_i_can_give_time_to_learn_only_on_of_these_then/",
       "by": "throwaway-well",
       "time": 1793867644000,
       "sub": "r/devops"
-    },
-    {
-      "title": "Learning C from scratch – What projects should I build to become employable?",
-      "url": "https://www.reddit.com/r/programming/comments/1xode76/learning_c_from_scratch_what_projects_should_i/",
-      "by": "No-Introduction-441",
-      "time": 1793866944000,
-      "sub": "r/programming"
     },
     {
       "title": "I write a lot of code, open source, and as part of large engineering teams. How poorly teams manage their development secrets, some that often overlap with production blows my mind. So I coded what I hope is a decent solution.",
@@ -44,13 +44,6 @@
       "sub": "r/programming"
     },
     {
-      "title": "What is the best course/courses to learn pipeline as code as a new software engineer",
-      "url": "https://www.reddit.com/r/devops/comments/1xo3mtu/what_is_the_best_coursecourses_to_learn_pipeline/",
-      "by": "Responsible_Invite30",
-      "time": 1793835671000,
-      "sub": "r/devops"
-    },
-    {
       "title": "How we halved DNS build delay and cut memory use by 85%",
       "url": "https://www.reddit.com/r/programming/comments/1xnzyh6/how_we_halved_dns_build_delay_and_cut_memory_use/",
       "by": "Ok_Stomach6651",
@@ -70,117 +63,124 @@
       "by": "teivah",
       "time": 1793809015000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Git, From the Inside (interactive explainer)",
+      "url": "https://www.reddit.com/r/programming/comments/1xnqotw/git_from_the_inside_interactive_explainer/",
+      "by": "Some_Championship605",
+      "time": 1793805148000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Bring me the quote you do not trust. Skip the company presentation.",
-      "url": "https://medium.com/tales-of-a-cto/bring-me-the-quote-you-do-not-trust-skip-the-company-presentation-913f1b68f8f4",
-      "by": "Whyvra FVR",
-      "time": 1793868663000,
-      "tags": [
-        "startup",
-        "technology",
-        "entrepreneurship"
-      ]
-    },
-    {
-      "title": "OpenAI Unveils Pando: What a Git Backend Built for Coding Agents Means for Developers",
-      "url": "https://dkwebsolutions.medium.com/openai-unveils-pando-what-a-git-backend-built-for-coding-agents-means-for-developers-2808f4ba873b",
-      "by": "dk.websolutions",
-      "time": 1793867932000,
+      "title": "References and Classes: When Objects Become Shared, Responsibility Becomes an Engineering Problem",
+      "url": "https://medium.com/@pranova2508/references-and-classes-when-objects-become-shared-responsibility-becomes-an-engineering-problem-51cca1e36621",
+      "by": "Prac's Journal",
+      "time": 1793873761000,
       "tags": [
         "software-engineering",
-        "devops",
-        "openai"
+        "software-development",
+        "computer-science"
       ]
     },
     {
-      "title": "OpenAI Is Buying More Than a Coding Tool.",
-      "url": "https://abdulwahabdev.medium.com/openai-is-buying-more-than-a-coding-tool-79f6a3a7f59d",
-      "by": "Abdul Wahab",
-      "time": 1793867519000,
+      "title": "An AI Agent Can Spend 30 Times More Tokens Fixing the Same Bug. Here’s Why.",
+      "url": "https://medium.com/@mayhemcode/an-ai-agent-can-spend-30-times-more-tokens-fixing-the-same-bug-heres-why-6e324f117935",
+      "by": "MayhemCode",
+      "time": 1793873430000,
       "tags": [
-        "technology",
-        "xcode",
-        "ai"
+        "programming",
+        "ai-agent",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Sportsbook Failover: What Happens to Bets Accepted Before the Switch?",
-      "url": "https://dmytronasyrov.medium.com/sportsbook-failover-what-happens-to-bets-accepted-before-the-switch-ec98fbacb351",
-      "by": "Dmytro Nasyrov",
-      "time": 1793867071000,
+      "title": "Microsoft Is Changing How We Build .NET",
+      "url": "https://medium.com/@mohsho10/microsoft-is-changing-how-we-build-net-939f9d4982bd",
+      "by": "Mohammad Shoeb",
+      "time": 1793872868000,
       "tags": [
-        "igaming",
-        "software-architecture",
-        "sports-betting"
+        "dotnet",
+        "cloud-computing",
+        "programming"
       ]
     },
     {
-      "title": "Shipping an MCP Server, Part IV: Automate Releases with No Secrets",
-      "url": "https://medium.com/@sudiptokanti/shipping-an-mcp-server-part-iv-automate-releases-with-no-secrets-ae17f1cffa41",
-      "by": "Sudipto K Haldar",
-      "time": 1793866559000,
+      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
+      "url": "https://medium.com/@ewesibeke513/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-52d8f0135e24",
+      "by": "Afkspin",
+      "time": 1793872722000,
       "tags": [
-        "github-actions",
-        "python",
-        "mcp-server"
-      ]
-    },
-    {
-      "title": "DDD in Laravel Without the Ceremony: Actions, Value Objects and Nothing Else",
-      "url": "https://hcanovas.medium.com/ddd-in-laravel-without-the-ceremony-actions-value-objects-and-nothing-else-13f9de55bcc9",
-      "by": "Hector Canovas",
-      "time": 1793865665000,
-      "tags": [
-        "php",
-        "domain-driven-design",
+        "programming",
+        "cybersecurity",
         "software-engineering"
       ]
     },
     {
-      "title": "We Measure the Easy Half of AI in Engineering",
-      "url": "https://nto1.medium.com/we-measure-the-easy-half-of-ai-in-engineering-470e901def56",
-      "by": "Antoine Craske",
-      "time": 1793865664000,
+      "title": "SOLID Principles in Java: Explained With Real-World Examples",
+      "url": "https://medium.com/@mittalayushi104/solid-principles-in-java-explained-with-real-world-examples-05721ac1102e",
+      "by": "Mittalayushi",
+      "time": 1793872700000,
       "tags": [
-        "software-architecture",
+        "java",
+        "programming",
+        "software-design-patterns"
+      ]
+    },
+    {
+      "title": "AI Just Read and Rewrote the Weights Inside Another AI",
+      "url": "https://pub.towardsai.net/ai-just-read-and-rewrote-the-weights-inside-another-ai-f0066af1abec",
+      "by": "Yaroslav",
+      "time": 1793872246000,
+      "tags": [
         "software-engineering",
-        "cto"
+        "machine-learning",
+        "large-language-models"
       ]
     },
     {
-      "title": "GitHub Is Down. Can You Still Deploy or Roll Back Production?",
-      "url": "https://ali-hazrat.medium.com/github-is-down-can-you-still-deploy-or-roll-back-production-b7a77b72a07d",
-      "by": "S.M. Hazrat Ali",
-      "time": 1793864192000,
+      "title": "How AI Consulting Services Help Enterprises Accelerate Digital Transformation in 2026",
+      "url": "https://medium.com/@venkatprasadvadla/how-ai-consulting-services-help-enterprises-accelerate-digital-transformation-in-2026-55267cb1e63f",
+      "by": "venkatprasad vadla",
+      "time": 1793872139000,
       "tags": [
-        "cloud-engineering",
-        "site-reliability-engineer",
-        "aws"
+        "digital-transformation",
+        "devops",
+        "ai-consulting-services"
       ]
     },
     {
-      "title": "Claude Code Hands Flagged Sessions to an Older Model. I Found the Table That Picks Which One.",
-      "url": "https://medium.com/@granerog.ai/claude-code-hands-flagged-sessions-to-an-older-model-i-found-the-table-that-picks-which-one-18d01da4cec8",
-      "by": "Granerog Ai",
-      "time": 1793863691000,
+      "title": "Why Your Spark Join Is Slow: Shuffles, Join Strategies and Skew Explained",
+      "url": "https://medium.com/@isha372002/why-your-spark-join-is-slow-shuffles-join-strategies-and-skew-explained-d68c7feb1202",
+      "by": "Isha Shaw",
+      "time": 1793872106000,
+      "tags": [
+        "apache-spark",
+        "data-science",
+        "pyspark"
+      ]
+    },
+    {
+      "title": "Stop Grading AI on Vibes",
+      "url": "https://medium.com/@adnanmasood/stop-grading-ai-on-vibes-0fcee0508413",
+      "by": "Adnan Masood, PhD.",
+      "time": 1793872027000,
       "tags": [
         "artificial-intelligence",
-        "programming",
-        "software-development"
+        "large-language-models",
+        "rags"
       ]
     },
     {
-      "title": "It’s 2026. You don’t need to learn Spark anymore",
-      "url": "https://medium.com/@vutrinh274/its-2026-you-don-t-need-to-learn-spark-anymore-325240ec8f69",
-      "by": "Vu Trinh",
-      "time": 1793862963000,
+      "title": "Swift on Android (2027)",
+      "url": "https://ravi6997.medium.com/swift-on-android-2027-f7f7d6591c37",
+      "by": "Ravi",
+      "time": 1793871661000,
       "tags": [
-        "technology",
-        "software-engineering",
-        "data-engineering"
+        "android",
+        "programming",
+        "ios"
       ]
     }
   ]
