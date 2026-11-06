@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-05T10:22:48.883Z",
+  "generated": "2026-11-06T04:22:24.423Z",
   "reddit": [
     {
-      "title": "Has anyone created a centralised design system to visually regression test against?",
-      "url": "https://www.reddit.com/r/devops/comments/1xoeov3/has_anyone_created_a_centralised_design_system_to/",
-      "by": "AmILukeQuestionMark",
-      "time": 1793872200000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "If I can give time to learn only on of these then what should I learn python, go, shell/bash ?",
-      "url": "https://www.reddit.com/r/devops/comments/1xodkfz/if_i_can_give_time_to_learn_only_on_of_these_then/",
-      "by": "throwaway-well",
-      "time": 1793867644000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "I write a lot of code, open source, and as part of large engineering teams. How poorly teams manage their development secrets, some that often overlap with production blows my mind. So I coded what I hope is a decent solution.",
-      "url": "https://www.reddit.com/r/devops/comments/1xocu6f/i_write_a_lot_of_code_open_source_and_as_part_of/",
-      "by": "kigster",
-      "time": 1793864757000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "need advice to navigate my career",
-      "url": "https://www.reddit.com/r/devops/comments/1xobcxu/need_advice_to_navigate_my_career/",
-      "by": "binaryl0ver",
-      "time": 1793859140000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What's Your Go-To Strategy for Handling Secrets Management?",
-      "url": "https://www.reddit.com/r/devops/comments/1xo9cfw/whats_your_goto_strategy_for_handling_secrets/",
-      "by": "LukaRozman27",
-      "time": 1793852219000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "LZAV 7.1: Improved compression ratio and speed. Achieved complete C/C++ pointer arithmetic compliance. Fast Data Compression Algorithm (inline C/C++).",
-      "url": "https://www.reddit.com/r/programming/comments/1xo82gs/lzav_71_improved_compression_ratio_and_speed/",
-      "by": "avaneev",
-      "time": 1793848323000,
+      "title": "more people should build browsers",
+      "url": "https://www.reddit.com/r/programming/comments/1xozu64/more_people_should_build_browsers/",
+      "by": "seg6_",
+      "time": 1793927324000,
       "sub": "r/programming"
     },
     {
-      "title": "How we halved DNS build delay and cut memory use by 85%",
-      "url": "https://www.reddit.com/r/programming/comments/1xnzyh6/how_we_halved_dns_build_delay_and_cut_memory_use/",
+      "title": "Git at any scale",
+      "url": "https://www.reddit.com/r/programming/comments/1xozofg/git_at_any_scale/",
+      "by": "fagnerbrack",
+      "time": 1793926858000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Boolean PII Flag Is Not Enough",
+      "url": "https://www.reddit.com/r/programming/comments/1xovn5d/a_boolean_pii_flag_is_not_enough/",
+      "by": "fagnerbrack",
+      "time": 1793916018000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Building iOS apps on Windows: running Apple’s Mach-O macro plugins on an ARM64 CPU emulator",
+      "url": "https://www.reddit.com/r/programming/comments/1xovbpf/building_ios_apps_on_windows_running_apples_macho/",
+      "by": "simonesilvestri23",
+      "time": 1793915239000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Modern Java at Stripe: Language upgrades as a service",
+      "url": "https://www.reddit.com/r/programming/comments/1xov21m/modern_java_at_stripe_language_upgrades_as_a/",
       "by": "Ok_Stomach6651",
-      "time": 1793826459000,
+      "time": 1793914589000,
       "sub": "r/programming"
     },
     {
-      "title": "C++26 disapproved by the ISO National Bodies",
-      "url": "https://www.reddit.com/r/programming/comments/1xnucc3/c26_disapproved_by_the_iso_national_bodies/",
-      "by": "alexeyr",
-      "time": 1793813530000,
-      "sub": "r/programming"
+      "title": "Capability Driven Security for K8s with Wasm, stops RCE (and more)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xoqlku/capability_driven_security_for_k8s_with_wasm/",
+      "by": "HectaMan",
+      "time": 1793904059000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Building Barista: Postgres, Embeddings, and Jev",
-      "url": "https://www.reddit.com/r/programming/comments/1xnsc70/building_barista_postgres_embeddings_and_jev/",
-      "by": "teivah",
-      "time": 1793809015000,
-      "sub": "r/programming"
+      "title": "Xid 79 at 3am: how does your team decide reset vs. drain vs. RMA?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xopceb/xid_79_at_3am_how_does_your_team_decide_reset_vs/",
+      "by": "PeachyMafioso",
+      "time": 1793901224000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Git, From the Inside (interactive explainer)",
-      "url": "https://www.reddit.com/r/programming/comments/1xnqotw/git_from_the_inside_interactive_explainer/",
-      "by": "Some_Championship605",
-      "time": 1793805148000,
-      "sub": "r/programming"
+      "title": "Kubernetes Secret mount propagation vs nginx reload: is there an upper bound?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xonzsf/kubernetes_secret_mount_propagation_vs_nginx/",
+      "by": "lolzinventor",
+      "time": 1793898180000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: This Week I Learned (TWIL?) thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xoft7k/weekly_this_week_i_learned_twil_thread/",
+      "by": "AutoModerator",
+      "time": 1793876419000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Request for help",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xoefpy/request_for_help/",
+      "by": "Altruistic-Range-995",
+      "time": 1793871157000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "References and Classes: When Objects Become Shared, Responsibility Becomes an Engineering Problem",
-      "url": "https://medium.com/@pranova2508/references-and-classes-when-objects-become-shared-responsibility-becomes-an-engineering-problem-51cca1e36621",
-      "by": "Prac's Journal",
-      "time": 1793873761000,
+      "title": "Measuring Developer Performance: Tools and Metrics SEOPs Use to Keep Delivery Predictable",
+      "url": "https://mrkarthikkn.medium.com/measuring-developer-performance-tools-and-metrics-seops-use-to-keep-delivery-predictable-4f348242de52",
+      "by": "MrKarthikKN",
+      "time": 1793938424000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "computer-science"
+        "seop",
+        "developer-productivity",
+        "engineering-leadership"
       ]
     },
     {
-      "title": "An AI Agent Can Spend 30 Times More Tokens Fixing the Same Bug. Here’s Why.",
-      "url": "https://medium.com/@mayhemcode/an-ai-agent-can-spend-30-times-more-tokens-fixing-the-same-bug-heres-why-6e324f117935",
-      "by": "MayhemCode",
-      "time": 1793873430000,
+      "title": "20 Tricky Java Interview Questions for Banking and FinTech Developers",
+      "url": "https://medium.com/@pardeepgill82/20-tricky-java-interview-questions-for-banking-and-fintech-developers-28c7e96bf3a9",
+      "by": "Interview Playbook",
+      "time": 1793938226000,
       "tags": [
-        "programming",
-        "ai-agent",
+        "jobs",
+        "interview",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "How Our CEO Re-Engineered Japan’s IT Industry (Part 5): The “Foxconn” Vision, M&A Strategy, and the…",
+      "url": "https://medium.com/@shift_global/how-our-ceo-re-engineered-japans-it-industry-part-5-the-foxconn-vision-m-a-strategy-and-the-d167bea06b58",
+      "by": "SHIFT_Global",
+      "time": 1793938205000,
+      "tags": [
+        "software-testing",
+        "software-engineering",
+        "company-culture"
+      ]
+    },
+    {
+      "title": "8 Chrome Extensions So Useful They Feel Illegal",
+      "url": "https://medium.com/@vedant_chhajed/8-chrome-extensions-so-useful-they-feel-illegal-c00bd39f9c5d",
+      "by": "Vedant Chhajed",
+      "time": 1793938200000,
+      "tags": [
+        "artificial-intelligence",
+        "productivity",
+        "technology"
+      ]
+    },
+    {
+      "title": "CI/CD for Smart Contracts: A Practical Pipeline with Foundry and GitHub Actions",
+      "url": "https://medium.com/@irussoft/ci-cd-for-smart-contracts-a-practical-pipeline-with-foundry-and-github-actions-7199e0bba54e",
+      "by": "IrusSoft",
+      "time": 1793938198000,
+      "tags": [
+        "smart-contracts",
+        "ethereum",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The LazyInitializationException You’ll Only See in Production",
+      "url": "https://medium.com/@jahid.csedu/the-lazyinitializationexception-youll-only-see-in-production-19e0887585a3",
+      "by": "Md Jahid Hasan",
+      "time": 1793937661000,
+      "tags": [
+        "backend-development",
+        "software-engineering",
+        "spring-framework"
+      ]
+    },
+    {
+      "title": "Beyond the Headline: Building a Better Record of Financial Markets",
+      "url": "https://medium.com/@BondStats/beyond-the-headline-building-a-better-record-of-financial-markets-371004d9e991",
+      "by": "BondStats",
+      "time": 1793937395000,
+      "tags": [
+        "software-development",
+        "money",
+        "startup"
+      ]
+    },
+    {
+      "title": "How to govern the AI that writes your code",
+      "url": "https://medium.com/@buddhiran/how-to-govern-the-ai-that-writes-your-code-e2272e380b70",
+      "by": "Buddhika",
+      "time": 1793937354000,
+      "tags": [
+        "devsecops",
+        "claude-code",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Microsoft Is Changing How We Build .NET",
-      "url": "https://medium.com/@mohsho10/microsoft-is-changing-how-we-build-net-939f9d4982bd",
-      "by": "Mohammad Shoeb",
-      "time": 1793872868000,
+      "title": "Database Indexing : Banking application — Customer ID index",
+      "url": "https://medium.com/@piyalidas.it/database-indexing-banking-application-customer-id-index-ac55efb2969c",
+      "by": "Piyali Das",
+      "time": 1793936854000,
       "tags": [
-        "dotnet",
-        "cloud-computing",
-        "programming"
+        "programming",
+        "software-development",
+        "tech"
       ]
     },
     {
-      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
-      "url": "https://medium.com/@ewesibeke513/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-52d8f0135e24",
-      "by": "Afkspin",
-      "time": 1793872722000,
+      "title": "गिरधारी पाण्डेय (Girdhari Pandey ) सॉफ्टवेयर इंजीनियर | AI इंजीनियर | डिजिटल मार्केटर | बिजनेस…",
+      "url": "https://medium.com/@redikutechnologies/%E0%A4%97%E0%A4%BF%E0%A4%B0%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A4%AA%E0%A4%BE%E0%A4%A3%E0%A5%8D%E0%A4%A1%E0%A5%87%E0%A4%AF-girdhari-pandey-%E0%A4%B8%E0%A5%89%E0%A4%AB%E0%A5%8D%E0%A4%9F%E0%A4%B5%E0%A5%87%E0%A4%AF%E0%A4%B0-%E0%A4%87%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%B0-ai-%E0%A4%87%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%B0-%E0%A4%A1%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%B2-%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%87%E0%A4%9F%E0%A4%B0-%E0%A4%AC%E0%A4%BF%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%B8-3cd75dd4cffe",
+      "by": "Rediku Technologies",
+      "time": 1793936799000,
       "tags": [
-        "programming",
-        "cybersecurity",
+        "leadership",
+        "self-improvement",
         "software-engineering"
-      ]
-    },
-    {
-      "title": "SOLID Principles in Java: Explained With Real-World Examples",
-      "url": "https://medium.com/@mittalayushi104/solid-principles-in-java-explained-with-real-world-examples-05721ac1102e",
-      "by": "Mittalayushi",
-      "time": 1793872700000,
-      "tags": [
-        "java",
-        "programming",
-        "software-design-patterns"
-      ]
-    },
-    {
-      "title": "AI Just Read and Rewrote the Weights Inside Another AI",
-      "url": "https://pub.towardsai.net/ai-just-read-and-rewrote-the-weights-inside-another-ai-f0066af1abec",
-      "by": "Yaroslav",
-      "time": 1793872246000,
-      "tags": [
-        "software-engineering",
-        "machine-learning",
-        "large-language-models"
-      ]
-    },
-    {
-      "title": "How AI Consulting Services Help Enterprises Accelerate Digital Transformation in 2026",
-      "url": "https://medium.com/@venkatprasadvadla/how-ai-consulting-services-help-enterprises-accelerate-digital-transformation-in-2026-55267cb1e63f",
-      "by": "venkatprasad vadla",
-      "time": 1793872139000,
-      "tags": [
-        "digital-transformation",
-        "devops",
-        "ai-consulting-services"
-      ]
-    },
-    {
-      "title": "Why Your Spark Join Is Slow: Shuffles, Join Strategies and Skew Explained",
-      "url": "https://medium.com/@isha372002/why-your-spark-join-is-slow-shuffles-join-strategies-and-skew-explained-d68c7feb1202",
-      "by": "Isha Shaw",
-      "time": 1793872106000,
-      "tags": [
-        "apache-spark",
-        "data-science",
-        "pyspark"
-      ]
-    },
-    {
-      "title": "Stop Grading AI on Vibes",
-      "url": "https://medium.com/@adnanmasood/stop-grading-ai-on-vibes-0fcee0508413",
-      "by": "Adnan Masood, PhD.",
-      "time": 1793872027000,
-      "tags": [
-        "artificial-intelligence",
-        "large-language-models",
-        "rags"
-      ]
-    },
-    {
-      "title": "Swift on Android (2027)",
-      "url": "https://ravi6997.medium.com/swift-on-android-2027-f7f7d6591c37",
-      "by": "Ravi",
-      "time": 1793871661000,
-      "tags": [
-        "android",
-        "programming",
-        "ios"
       ]
     }
   ]

@@ -1,18 +1,7 @@
 {
-  "generated": "2026-11-05T10:21:50.911Z",
+  "generated": "2026-11-06T04:21:14.476Z",
   "source": "Wikipedia + Wikidata",
   "films": [
-    {
-      "title": "Scene",
-      "lang": "Tamil",
-      "date": "2026-11-06",
-      "precision": "day",
-      "by": "Jithu Madhavan",
-      "desc": "Upcoming Indian film by Jithu Madhavan",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3b/Scene_%282026_film%29.jpg/120px-Scene_%282026_film%29.jpg",
-      "url": "https://en.wikipedia.org/wiki/Scene_(2026_film)",
-      "imdb": "https://www.imdb.com/title/tt38192494/"
-    },
     {
       "title": "Yeh Prem Mol Liya",
       "lang": "Hindi",
@@ -154,6 +143,17 @@
       "desc": "Upcoming film by Rohit Shetty",
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Golmaal_5_(film)",
+      "imdb": null
+    },
+    {
+      "title": "Gunmaaster G9",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian Hindi-language action thriller film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
       "imdb": null
     }
   ]
