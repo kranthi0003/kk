@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kranthi Kiran</title>
+  <title>Kranthi Kiran Akkumahanthi | Cloud Engineer</title>
+  <meta name="description" content="Kranthi Kiran Akkumahanthi's personal portfolio: cloud engineering, distributed systems, reliability, technical projects and writing. Also known as Kranthi Kiran." />
+  <link rel="canonical" href="https://kranthikiran.com/" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -11,17 +13,60 @@
   <link rel="apple-touch-icon" href="assets/favicon.png">
 
   <!-- Open Graph Meta -->
-  <meta property="og:title" content="Kranthi Kiran – Cloud Engineer" />
-  <meta property="og:description" content="Cloud engineering. Distributed systems. Reliability at scale." />
-  <meta property="og:image" content="https://kranthi0003.github.io/kranthi-kiran-site/assets/profile.png" />
+  <meta property="og:title" content="Kranthi Kiran Akkumahanthi | Cloud Engineer" />
+  <meta property="og:description" content="Kranthi Kiran's personal portfolio: cloud engineering, distributed systems, reliability, technical projects and writing." />
+  <meta property="og:image" content="https://kranthikiran.com/profile.png" />
+  <meta property="og:image:alt" content="Kranthi Kiran Akkumahanthi" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kranthi0003.github.io/kranthi-kiran-site/" />
+  <meta property="og:url" content="https://kranthikiran.com/" />
+  <meta property="og:site_name" content="Kranthi Kiran" />
 
   <!-- Twitter Card Meta -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kranthi Kiran – Cloud Engineer" />
-  <meta name="twitter:description" content="Cloud engineering. Distributed systems. Reliability at scale." />
-  <meta name="twitter:image" content="https://kranthi0003.github.io/kranthi-kiran-site/assets/profile.png" />
+  <meta name="twitter:title" content="Kranthi Kiran Akkumahanthi | Cloud Engineer" />
+  <meta name="twitter:description" content="Kranthi Kiran's personal portfolio: cloud engineering, distributed systems, reliability, technical projects and writing." />
+  <meta name="twitter:image" content="https://kranthikiran.com/profile.png" />
+  <meta name="twitter:image:alt" content="Kranthi Kiran Akkumahanthi" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://kranthikiran.com/#person",
+          "name": "Kranthi Kiran Akkumahanthi",
+          "givenName": "Kranthi Kiran",
+          "familyName": "Akkumahanthi",
+          "alternateName": ["Kranthi Kiran", "Kranthi", "Kiran", "Kiran Akkumahanthi", "Kranthi Akkumahanthi"],
+          "url": "https://kranthikiran.com/",
+          "image": "https://kranthikiran.com/profile.png",
+          "description": "Cloud engineer focused on distributed systems and reliability.",
+          "sameAs": [
+            "https://github.com/kranthi0003",
+            "https://www.linkedin.com/in/akkiran003/",
+            "https://x.com/kranthikiran03"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kranthikiran.com/#website",
+          "url": "https://kranthikiran.com/",
+          "name": "Kranthi Kiran",
+          "alternateName": "Kranthi Kiran Akkumahanthi",
+          "publisher": { "@id": "https://kranthikiran.com/#person" }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://kranthikiran.com/#profile",
+          "url": "https://kranthikiran.com/",
+          "name": "Kranthi Kiran Akkumahanthi | Cloud Engineer",
+          "isPartOf": { "@id": "https://kranthikiran.com/#website" },
+          "mainEntity": { "@id": "https://kranthikiran.com/#person" }
+        }
+      ]
+    }
+  </script>
 
   <!-- Mobile & Theme Meta -->
   <meta name="theme-color" content="#0d0f13" />
@@ -58,7 +103,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="root"></div>
+  <!-- React replaces this public profile when the interactive site mounts. -->
+  <div id="root">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-foreground">
+      <h1 class="font-heading text-4xl mb-4">Kranthi Kiran Akkumahanthi</h1>
+      <p class="text-lg mb-4">I'm Kranthi, also known as Kranthi Kiran. I make computers talk to each other reliably.</p>
+      <p class="mb-4">This is my personal portfolio: cloud engineering, distributed systems, reliability, technical projects and writing.</p>
+      <nav aria-label="Public profiles" class="flex gap-5">
+        <a href="https://github.com/kranthi0003">GitHub</a>
+        <a href="https://www.linkedin.com/in/akkiran003/">LinkedIn</a>
+        <a href="https://x.com/kranthikiran03">X</a>
+      </nav>
+      <noscript><p class="mt-4">Enable JavaScript to explore the interactive portfolio, projects and articles.</p></noscript>
+    </main>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

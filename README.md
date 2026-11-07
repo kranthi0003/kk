@@ -91,6 +91,23 @@ npm run preview      # preview the production build
 
 ---
 
+## Search visibility
+
+The homepage's `index.html` includes a public HTML profile before React mounts,
+canonical and social metadata, and Person/ProfilePage structured data. Keep these
+in sync with the visible hero and public profile links. `public/profile.png` is
+the stable social-preview image; update it when `assets/profile.png` changes.
+
+`public/robots.txt` points to `public/sitemap.xml`. The sitemap lists only the
+canonical homepage: hash routes are not separate crawlable pages, and private
+pages must not be added.
+
+After deployment, verify `https://kranthikiran.com/` in Google Search Console,
+submit `https://kranthikiran.com/sitemap.xml`, and use URL Inspection to check
+indexing and request a crawl of the homepage. Indexing and ranking are controlled
+by the search engine, not guaranteed by metadata. Link the site from the matching
+public profiles to help establish the identity.
+
 ## 🛣️ Routes
 
 Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.

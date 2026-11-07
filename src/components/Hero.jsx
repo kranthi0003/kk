@@ -20,7 +20,7 @@ export default function Hero({ onResumeClick }) {
                 }}>
                 <img
                   src={profile}
-                  alt="Kranthi Kiran"
+                  alt="Kranthi Kiran Akkumahanthi"
                   className="w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] lg:w-[340px] lg:h-[420px] object-cover rounded-[13px] block"
                 />
                 {/* faint inner highlight so the frame reads as glass, not a hard line */}
@@ -36,7 +36,7 @@ export default function Hero({ onResumeClick }) {
 
             {/* Social icons */}
             <div className="flex items-center gap-5 mt-5 text-muted-foreground">
-              <a href="https://linkedin.com/in/kranthi0003" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/akkiran003/" target="_blank" rel="noopener noreferrer"
                  aria-label="LinkedIn"
                  className="hover:text-foreground transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -75,6 +75,10 @@ export default function Hero({ onResumeClick }) {
               I'm Kranthi
             </h1>
 
+            <p className="font-mono text-xs sm:text-sm text-muted-foreground mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              Kranthi Kiran Akkumahanthi
+            </p>
+
             <h2
               className="font-heading text-xl sm:text-2xl lg:text-3xl mb-6 animate-fade-in-up"
               style={{ animationDelay: '0.3s', fontWeight: 400, fontStyle: 'italic', color: 'var(--color-accent)' }}
@@ -89,6 +93,7 @@ export default function Hero({ onResumeClick }) {
 
             <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-5 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
               I make computers talk to each other reliably. It's less romantic than it sounds.
+              {' '}Cloud engineering, distributed systems and reliability are my thing.
             </p>
 
             {/* Status pill — moved down next to the CTAs */}
