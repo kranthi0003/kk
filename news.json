@@ -1,185 +1,185 @@
 {
-  "generated": "2026-11-06T04:22:24.423Z",
+  "generated": "2026-11-07T04:21:22.202Z",
   "reddit": [
     {
-      "title": "more people should build browsers",
-      "url": "https://www.reddit.com/r/programming/comments/1xozu64/more_people_should_build_browsers/",
-      "by": "seg6_",
-      "time": 1793927324000,
+      "title": "Libghostty 1.0",
+      "url": "https://www.reddit.com/r/programming/comments/1xptemt/libghostty_10/",
+      "by": "rmadriz",
+      "time": 1794013230000,
       "sub": "r/programming"
     },
     {
-      "title": "Git at any scale",
-      "url": "https://www.reddit.com/r/programming/comments/1xozofg/git_at_any_scale/",
-      "by": "fagnerbrack",
-      "time": 1793926858000,
+      "title": "Fun with Kubernetes: a cloud native escape room",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xpr0fa/fun_with_kubernetes_a_cloud_native_escape_room/",
+      "by": "cathpaga",
+      "time": 1794006454000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Kubernetes Is Not the Problem. Managing It Is. Why Are You Still Ignoring RKE2?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xpiwb1/kubernetes_is_not_the_problem_managing_it_is_why/",
+      "by": "devOpsGuy-1",
+      "time": 1793986566000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Why I stopped using Gunicorn + Nginx sidecars for Django in Kubernetes: Building Hurricane 2.0",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xpgvl8/why_i_stopped_using_gunicorn_nginx_sidecars_for/",
+      "by": "pyschille",
+      "time": 1793981922000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How work feels right now",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xpg0v2/how_work_feels_right_now/",
+      "by": "RoundResearcher8303",
+      "time": 1793979911000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Grafana: Our latest adventure with canary tokens",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xpdbxq/grafana_our_latest_adventure_with_canary_tokens/",
+      "by": "tracebit",
+      "time": 1793973174000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "100% GPU Utilization, 39% of Rated FP16",
+      "url": "https://www.reddit.com/r/programming/comments/1xpc2ro/100_gpu_utilization_39_of_rated_fp16/",
+      "by": "Happycodeine",
+      "time": 1793969627000,
       "sub": "r/programming"
     },
     {
-      "title": "A Boolean PII Flag Is Not Enough",
-      "url": "https://www.reddit.com/r/programming/comments/1xovn5d/a_boolean_pii_flag_is_not_enough/",
-      "by": "fagnerbrack",
-      "time": 1793916018000,
+      "title": "Unity3D for .NET Developers: How to get started",
+      "url": "https://www.reddit.com/r/programming/comments/1xpbd2s/unity3d_for_net_developers_how_to_get_started/",
+      "by": "Kabra___kiiiiiiiid",
+      "time": 1793967406000,
       "sub": "r/programming"
     },
     {
-      "title": "Building iOS apps on Windows: running Apple’s Mach-O macro plugins on an ARM64 CPU emulator",
-      "url": "https://www.reddit.com/r/programming/comments/1xovbpf/building_ios_apps_on_windows_running_apples_macho/",
-      "by": "simonesilvestri23",
-      "time": 1793915239000,
+      "title": "Go 1.27: encoding/json/v2, Stricter Defaults, and Finally [] for Nil Slices · cekrem.github.io",
+      "url": "https://www.reddit.com/r/programming/comments/1xp8b96/go_127_encodingjsonv2_stricter_defaults_and/",
+      "by": "cekrem",
+      "time": 1793956105000,
       "sub": "r/programming"
     },
     {
-      "title": "Modern Java at Stripe: Language upgrades as a service",
-      "url": "https://www.reddit.com/r/programming/comments/1xov21m/modern_java_at_stripe_language_upgrades_as_a/",
-      "by": "Ok_Stomach6651",
-      "time": 1793914589000,
+      "title": "How software got here: 60 milestones from 1945 to 2025, each with its original source (interactive timeline)",
+      "url": "https://www.reddit.com/r/programming/comments/1xp7rf0/how_software_got_here_60_milestones_from_1945_to/",
+      "by": "Some_Championship605",
+      "time": 1793953899000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Capability Driven Security for K8s with Wasm, stops RCE (and more)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xoqlku/capability_driven_security_for_k8s_with_wasm/",
-      "by": "HectaMan",
-      "time": 1793904059000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Xid 79 at 3am: how does your team decide reset vs. drain vs. RMA?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xopceb/xid_79_at_3am_how_does_your_team_decide_reset_vs/",
-      "by": "PeachyMafioso",
-      "time": 1793901224000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes Secret mount propagation vs nginx reload: is there an upper bound?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xonzsf/kubernetes_secret_mount_propagation_vs_nginx/",
-      "by": "lolzinventor",
-      "time": 1793898180000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: This Week I Learned (TWIL?) thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xoft7k/weekly_this_week_i_learned_twil_thread/",
-      "by": "AutoModerator",
-      "time": 1793876419000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Request for help",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xoefpy/request_for_help/",
-      "by": "Altruistic-Range-995",
-      "time": 1793871157000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Measuring Developer Performance: Tools and Metrics SEOPs Use to Keep Delivery Predictable",
-      "url": "https://mrkarthikkn.medium.com/measuring-developer-performance-tools-and-metrics-seops-use-to-keep-delivery-predictable-4f348242de52",
-      "by": "MrKarthikKN",
-      "time": 1793938424000,
+      "title": "One Failed Request Threw Away 999 Good Ones: Promise.all vs allSettled",
+      "url": "https://martin128.medium.com/one-failed-request-threw-away-999-good-ones-promise-all-vs-allsettled-a55556edebeb",
+      "by": "Martin",
+      "time": 1794024661000,
       "tags": [
-        "seop",
-        "developer-productivity",
-        "engineering-leadership"
+        "javascript",
+        "web-development",
+        "nodejs"
       ]
     },
     {
-      "title": "20 Tricky Java Interview Questions for Banking and FinTech Developers",
-      "url": "https://medium.com/@pardeepgill82/20-tricky-java-interview-questions-for-banking-and-fintech-developers-28c7e96bf3a9",
-      "by": "Interview Playbook",
-      "time": 1793938226000,
+      "title": "Your Compiler Is Smarter Than You Think. It May Be Removing Your Code.",
+      "url": "https://medium.com/@rajkanjariya2020/your-compiler-is-smarter-than-you-think-it-may-be-removing-your-code-12eb5a50e218",
+      "by": "Raj Kanjariya",
+      "time": 1794024543000,
       "tags": [
-        "jobs",
-        "interview",
-        "interview-questions"
+        "computer-science",
+        "performance",
+        "compilers"
       ]
     },
     {
-      "title": "How Our CEO Re-Engineered Japan’s IT Industry (Part 5): The “Foxconn” Vision, M&A Strategy, and the…",
-      "url": "https://medium.com/@shift_global/how-our-ceo-re-engineered-japans-it-industry-part-5-the-foxconn-vision-m-a-strategy-and-the-d167bea06b58",
-      "by": "SHIFT_Global",
-      "time": 1793938205000,
+      "title": "Why Most AI Agents Fail in Production (And How to Fix Yours)",
+      "url": "https://medium.com/beyond-ai-syntax/why-most-ai-agents-fail-in-production-and-how-to-fix-yours-826353e42989",
+      "by": "Jupiter Dev",
+      "time": 1794024492000,
       "tags": [
-        "software-testing",
+        "llm",
         "software-engineering",
-        "company-culture"
+        "ai-agent"
       ]
     },
     {
-      "title": "8 Chrome Extensions So Useful They Feel Illegal",
-      "url": "https://medium.com/@vedant_chhajed/8-chrome-extensions-so-useful-they-feel-illegal-c00bd39f9c5d",
-      "by": "Vedant Chhajed",
-      "time": 1793938200000,
+      "title": "Debugging a Log Filter With a Regex Tester",
+      "url": "https://medium.com/@toolaska/debugging-a-log-filter-with-a-regex-tester-eb54723282a7",
+      "by": "Toolaska",
+      "time": 1794024361000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "web-development"
+      ]
+    },
+    {
+      "title": "The Last Seat: A Five-Minute Hold and a Race Against Time",
+      "url": "https://medium.com/@debapriya.mty/the-last-seat-a-five-minute-hold-and-a-race-against-time-5dade49093ee",
+      "by": "Debapriya Mty",
+      "time": 1794024074000,
+      "tags": [
+        "software-engineering",
+        "software-architecture",
+        "race-condition"
+      ]
+    },
+    {
+      "title": "Apple Is Back In The AI Race In A Subtle And Smart Way",
+      "url": "https://blog.gopenai.com/apple-is-back-in-the-ai-race-in-a-subtle-and-smart-way-1a108910118a",
+      "by": "Lo Zarantonello",
+      "time": 1794024062000,
+      "tags": [
+        "apple",
+        "artificial-intelligence",
+        "ios"
+      ]
+    },
+    {
+      "title": "GitHub Actions pricing 2026: Linux $0.006, macOS $0.062 per minute",
+      "url": "https://medium.com/@macrundev/github-actions-pricing-2026-linux-0-006-macos-0-062-per-minute-332d5f0125c1",
+      "by": "MacRun",
+      "time": 1794023268000,
+      "tags": [
+        "ios-app-development",
+        "github-actions",
+        "ios"
+      ]
+    },
+    {
+      "title": "Stop Fighting Layouts: A Practical Guide to W3.CSS 6 Grid Helpers",
+      "url": "https://javascript.plainenglish.io/stop-fighting-layouts-a-practical-guide-to-w3-css-6-grid-helpers-6253c2c32591",
+      "by": "Er Raj Aryan",
+      "time": 1794023101000,
+      "tags": [
+        "front-end-development",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "DevOps Concepts 02/25 — Terraform State: Understanding How Infrastructure Is Tracked",
+      "url": "https://medium.com/@anubhavbhatt/devops-concepts-02-25-terraform-state-understanding-how-infrastructure-is-tracked-6cb9f41126bd",
+      "by": "Anubhav Bhatt",
+      "time": 1794022861000,
+      "tags": [
+        "terraform",
+        "devops",
+        "infrastructure-as-code"
+      ]
+    },
+    {
+      "title": "AI “Expertise” is a Literacy Problem, not a Labor Problem",
+      "url": "https://ryangtanaka.medium.com/ai-expertise-is-a-literacy-problem-not-a-labor-problem-502813cc42fa",
+      "by": "Ryan Tanaka",
+      "time": 1794022687000,
       "tags": [
         "artificial-intelligence",
-        "productivity",
-        "technology"
-      ]
-    },
-    {
-      "title": "CI/CD for Smart Contracts: A Practical Pipeline with Foundry and GitHub Actions",
-      "url": "https://medium.com/@irussoft/ci-cd-for-smart-contracts-a-practical-pipeline-with-foundry-and-github-actions-7199e0bba54e",
-      "by": "IrusSoft",
-      "time": 1793938198000,
-      "tags": [
-        "smart-contracts",
-        "ethereum",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The LazyInitializationException You’ll Only See in Production",
-      "url": "https://medium.com/@jahid.csedu/the-lazyinitializationexception-youll-only-see-in-production-19e0887585a3",
-      "by": "Md Jahid Hasan",
-      "time": 1793937661000,
-      "tags": [
-        "backend-development",
-        "software-engineering",
-        "spring-framework"
-      ]
-    },
-    {
-      "title": "Beyond the Headline: Building a Better Record of Financial Markets",
-      "url": "https://medium.com/@BondStats/beyond-the-headline-building-a-better-record-of-financial-markets-371004d9e991",
-      "by": "BondStats",
-      "time": 1793937395000,
-      "tags": [
-        "software-development",
-        "money",
-        "startup"
-      ]
-    },
-    {
-      "title": "How to govern the AI that writes your code",
-      "url": "https://medium.com/@buddhiran/how-to-govern-the-ai-that-writes-your-code-e2272e380b70",
-      "by": "Buddhika",
-      "time": 1793937354000,
-      "tags": [
-        "devsecops",
-        "claude-code",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Database Indexing : Banking application — Customer ID index",
-      "url": "https://medium.com/@piyalidas.it/database-indexing-banking-application-customer-id-index-ac55efb2969c",
-      "by": "Piyali Das",
-      "time": 1793936854000,
-      "tags": [
-        "programming",
-        "software-development",
-        "tech"
-      ]
-    },
-    {
-      "title": "गिरधारी पाण्डेय (Girdhari Pandey ) सॉफ्टवेयर इंजीनियर | AI इंजीनियर | डिजिटल मार्केटर | बिजनेस…",
-      "url": "https://medium.com/@redikutechnologies/%E0%A4%97%E0%A4%BF%E0%A4%B0%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A4%AA%E0%A4%BE%E0%A4%A3%E0%A5%8D%E0%A4%A1%E0%A5%87%E0%A4%AF-girdhari-pandey-%E0%A4%B8%E0%A5%89%E0%A4%AB%E0%A5%8D%E0%A4%9F%E0%A4%B5%E0%A5%87%E0%A4%AF%E0%A4%B0-%E0%A4%87%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%B0-ai-%E0%A4%87%E0%A4%82%E0%A4%9C%E0%A5%80%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%B0-%E0%A4%A1%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%B2-%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%87%E0%A4%9F%E0%A4%B0-%E0%A4%AC%E0%A4%BF%E0%A4%9C%E0%A4%A8%E0%A5%87%E0%A4%B8-3cd75dd4cffe",
-      "by": "Rediku Technologies",
-      "time": 1793936799000,
-      "tags": [
-        "leadership",
-        "self-improvement",
+        "llm",
         "software-engineering"
       ]
     }
