@@ -23,7 +23,8 @@ export default function JobsTeaser() {
       })
       .then((data) => {
         if (active && Array.isArray(data?.jobs)) {
-          const local = data.jobs.filter((job) => job.p === 'Singapore' || job.p === 'India')
+          if (!Array.isArray(data.trackedJobs)) throw new Error('Opportunity shortlist unavailable')
+          const local = data.trackedJobs
           const focus = local.filter((job) => ['support', 'tam', 'solutions'].includes(job.f))
           setJobs((focus.length ? focus : local).slice(0, 3))
           setStatus('ready')
@@ -45,7 +46,7 @@ export default function JobsTeaser() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
           <div>
-            <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Updated daily · Singapore & India</p>
+            <p className="font-mono text-xs text-accent uppercase tracking-[0.2em] mb-3">Updated daily · Singapore + GitHub Europe</p>
             <h2 id="jobs-teaser-title" className="font-heading text-3xl sm:text-4xl tracking-tight" style={{ fontWeight: 600 }}>
               Roles worth a look
             </h2>
@@ -53,8 +54,8 @@ export default function JobsTeaser() {
               Support, technical account, solutions architecture and adjacent engineering roles.
             </p>
           </div>
-          <a href="#/jobs" className="btn-secondary self-start sm:self-auto">
-            Browse all jobs <span aria-hidden="true">→</span>
+          <a href="#/opportunities" className="btn-secondary self-start sm:self-auto">
+            My opportunity radar <span aria-hidden="true">→</span>
           </a>
         </div>
 
@@ -90,7 +91,7 @@ export default function JobsTeaser() {
         ) : status === 'loading' ? (
           <p className="text-sm text-muted-foreground">Loading the daily jobs feed…</p>
         ) : (
-          <p className="text-sm text-muted-foreground">No Singapore or India matches in this snapshot yet.</p>
+          <p className="text-sm text-muted-foreground">No Singapore or GitHub Europe matches in this snapshot yet.</p>
         )}
 
         <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground/75">

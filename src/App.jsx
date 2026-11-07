@@ -403,10 +403,10 @@ function AppPages({ route, intro }) {
   }
 
   // Jobs — engineering openings read from public ATS boards at build time
-  if (route === '#/jobs') {
+  if (route === '#/jobs' || route === '#/opportunities') {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
-        <JobsPage onBack={() => { window.location.hash = '' }} />
+        <JobsPage key={route} tracking={route === '#/opportunities'} onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

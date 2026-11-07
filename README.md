@@ -91,6 +91,20 @@ npm run preview      # preview the production build
 
 ---
 
+## Opportunity radar
+
+`#/opportunities` is the daily personal shortlist: Singapore roles across
+integrated company feeds and GitHub roles in explicitly European locations.
+The homepage jobs teaser links here; `#/jobs` remains the broader jobs board.
+`scripts/gen-jobs.mjs` imports GitHub's official public careers API with
+pagination and writes `trackedJobs` before title grouping or company caps, so
+matching requisition links and locations stay together. Generic remote and EMEA
+labels alone do not qualify for Europe. Scores remain title/team heuristics,
+not work-authorization or hiring predictions.
+
+The page shows its fetch timestamp and failed boards. Google, Meta and Microsoft
+are still manual career-site links, not automatically imported postings.
+
 ## Search visibility
 
 The homepage's `index.html` includes a public HTML profile before React mounts,

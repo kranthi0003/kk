@@ -52,7 +52,6 @@ const OTHER_BOARDS = [
   ['Google', 'https://www.google.com/about/careers/applications/jobs/results'],
   ['Meta', 'https://www.metacareers.com/jobsearch/'],
   ['Microsoft', 'https://careers.microsoft.com/'],
-  ['GitHub', 'https://www.github.careers/careers-home/jobs'],
 ]
 
 const DAY = 864e5
@@ -140,7 +139,7 @@ function Row({ j }) {
 
 const PAGE = 40
 
-export default function JobsPage({ onBack }) {
+export default function JobsPage({ onBack, tracking = false }) {
   const [data, setData] = useState(undefined) // undefined loading, null failed
   const [q, setQ] = useState('')
   const [fam, setFam] = useState('all')
@@ -154,12 +153,16 @@ export default function JobsPage({ onBack }) {
     let alive = true
     fetch(`${import.meta.env.BASE_URL}jobs.json`, { cache: 'no-store' })
       .then((r) => { if (!r.ok) throw new Error('bad status'); return r.json() })
-      .then((d) => { if (alive) setData(d && Array.isArray(d.jobs) ? d : null) })
-      .catch(() => { if (alive) setData(null) })
+      .then((d) => {
+        if (!d || !Array.isArray(d.jobs) || (tracking && !Array.isArray(d.trackedJobs))) throw new Error('Invalid jobs snapshot')
+        if (alive) setData(d)
+      })
+      .catch(error => { console.error('Jobs feed failed:', error); if (alive) setData(null) })
     return () => { alive = false }
-  }, [])
+  }, [tracking])
 
-  const jobs = data?.jobs
+  const jobs = tracking ? data?.trackedJobs : data?.jobs
+  const companies = useMemo(() => [...new Set((jobs || []).map(j => j.c))].sort(), [jobs])
   const filtered = useMemo(() => {
     if (!jobs) return []
     const needle = q.trim().toLowerCase()
@@ -201,16 +204,29 @@ export default function JobsPage({ onBack }) {
 
         <header className="mt-8 sm:mt-12">
           <p className="text-[11px] font-mono uppercase tracking-[0.18em]" style={{ color: '#5FBF8F' }}>Hiring</p>
-          <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">Jobs</h1>
+          <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">{tracking ? 'My opportunity radar' : 'Jobs'}</h1>
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground max-w-prose">
-            Technical roles at product companies, read straight from their own job boards.
-            {data && <> {data.total} open across {data.companies.length} companies, {data.fresh} posted in the last month.</>}
+            {tracking ? 'Singapore openings across the integrated company boards, plus GitHub openings specifically in Europe. Support, technical account and solutions roles are ranked alongside adjacent engineering opportunities.' : 'Technical roles at product companies, read straight from their own job boards.'}
+            {data && <> {jobs.length} open across {companies.length} companies.</>}
           </p>
+          <a className="inline-block mt-3 text-sm text-accent underline" href={tracking ? '#/jobs' : '#/opportunities'}>
+            {tracking ? 'Browse the broader jobs board' : 'Singapore + GitHub Europe shortlist'}
+          </a>
           <p className="mt-3 max-w-prose text-[11.5px] leading-relaxed text-muted-foreground/80">
             Match scores are a shortlist heuristic: role family (30–45 points), technical signals in the title/team (5–20),
-            location (Singapore 25, India 23, remote 10), and seniority (5–10). Job descriptions are not analyzed,
+            location (Singapore or GitHub Europe 25, India 23, other remote 10), and seniority (5–10). Job descriptions are not analyzed,
             so this is not a hiring probability or a substitute for checking the role.
           </p>
+          {tracking && <p className="mt-3 text-xs text-muted-foreground">
+            Europe means an explicit European country or location, not an unrestricted remote or EMEA label. Check the posting for residency and work authorization.
+            This is a daily snapshot, not an application tracker. The feed does not cover every company.
+          </p>}
+          {data?.failed?.length > 0 && <p className="mt-3 text-xs text-muted-foreground" role="status">
+            Boards unavailable in this snapshot: {data.failed.join(', ')}. Missing listings are unknown, not zero openings.
+          </p>}
+          {tracking && data?.generated && <p className="mt-3 text-xs font-mono text-muted-foreground">
+            Last fetched: {new Date(data.generated).toLocaleString()} · daily refresh
+          </p>}
           <p className="mt-2 max-w-prose text-[11.5px] leading-relaxed text-muted-foreground/80">
             These career boards are not in the automatic feed yet:{' '}
             {OTHER_BOARDS.map(([name, url], index) => (
@@ -256,7 +272,7 @@ export default function JobsPage({ onBack }) {
 
               <div className="flex flex-wrap gap-1.5 items-center">
                 <Chip on={region === 'Singapore'} onClick={() => setRegion(region === 'Singapore' ? 'all' : 'Singapore')}>Singapore</Chip>
-                <Chip on={region === 'India'} onClick={() => setRegion(region === 'India' ? 'all' : 'India')}>India</Chip>
+                <Chip on={region === (tracking ? 'Europe' : 'India')} onClick={() => setRegion(region === (tracking ? 'Europe' : 'India') ? 'all' : tracking ? 'Europe' : 'India')}>{tracking ? 'GitHub Europe' : 'India'}</Chip>
                 <Chip on={remote} onClick={() => setRemote((v) => !v)}>Remote</Chip>
                 <Chip on={recent} onClick={() => setRecent((v) => !v)}>Last 14 days</Chip>
                 <select
@@ -266,8 +282,8 @@ export default function JobsPage({ onBack }) {
                   style={{ boxShadow: 'inset 0 0 0 1px var(--color-border)' }}
                 >
                   <option value="all">All companies</option>
-                  {data.companies.map((c) => (
-                    <option key={c.name} value={c.name}>{c.name}</option>
+                  {companies.map((name) => (
+                    <option key={name} value={name}>{name}</option>
                   ))}
                 </select>
               </div>
@@ -298,9 +314,9 @@ export default function JobsPage({ onBack }) {
             )}
 
             <p className="mt-8 text-[12px] leading-relaxed text-muted-foreground">
-              Read from Greenhouse, Ashby and Lever job boards
+              Read from Greenhouse, Ashby, Lever and GitHub's official careers board
               {data.generated && <> · snapshot taken {ago(data.generated.slice(0, 10))}, refreshed daily</>}.
-              Roles are grouped by title, so one entry can cover several offices. Applying goes to the
+              {tracking ? 'Each entry links to the matching-location requisition; this shortlist is not capped per company.' : 'Roles are grouped by title, so one entry can cover several offices.'} Applying goes to the
               company’s own board — nothing is collected here.
             </p>
           </>

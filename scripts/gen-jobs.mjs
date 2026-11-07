@@ -23,6 +23,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { trackingRegion } from '../src/lib/jobTargets.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
@@ -37,6 +38,7 @@ const UA = 'kranthikiran.com jobs board (+https://kranthikiran.com)'
 // names — atlassian, confluent, sentry, plaid — either 404 or return an
 // empty board and are left out rather than shipped as silent gaps.
 const COMPANIES = [
+  { name: 'GitHub', ats: 'icims', slug: 'github', tag: 'devtools' },
   // Infrastructure and developer tools
   { name: 'Stripe', ats: 'greenhouse', slug: 'stripe', tag: 'fintech' },
   { name: 'Cloudflare', ats: 'greenhouse', slug: 'cloudflare', tag: 'infra' },
@@ -167,13 +169,13 @@ function matchScore(job) {
       ? 12
       : 5
   const region = preferredRegion(loc)
-  const location = region === 'Singapore' ? 25 : region === 'India' ? 23 : remote ? 10 : 0
+  const location = trackingRegion(job.co, loc) ? 25 : region === 'India' ? 23 : remote ? 10 : 0
   const seniority = INTERN.test(title) ? 0 : SENIOR_LEVEL.test(title) ? 10 : 5
   return { score: role + domain + location + seniority, region }
 }
 
 async function getJSON(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } })
+  const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' }, signal: AbortSignal.timeout(30000) })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   return res.json()
 }
@@ -207,6 +209,7 @@ const isRemote = (loc, flag) => !!flag || /\bremote\b|\banywhere\b|distributed/i
 function fromGreenhouse(d, co) {
   return (d.jobs || []).map((j) => ({
     title: clean(j.title),
+    rawLoc: clean(j.location?.name),
     loc: tidyLocation(j.location?.name),
     // first_published is when the role went up; updated_at moves every
     // time anyone touches the requisition, so it is not a posting date.
@@ -221,6 +224,7 @@ function fromGreenhouse(d, co) {
 function fromAshby(d, co) {
   return (d.jobs || []).filter((j) => j.isListed !== false).map((j) => ({
     title: clean(j.title),
+    rawLoc: clean([j.location, ...(j.secondaryLocations || []).map(location => location.location)].filter(Boolean).join('; ')),
     loc: tidyLocation(j.location),
     at: j.publishedAt || null,
     url: j.jobUrl || j.applyUrl,
@@ -233,6 +237,7 @@ function fromAshby(d, co) {
 function fromLever(d, co) {
   return (Array.isArray(d) ? d : []).map((j) => ({
     title: clean(j.text),
+    rawLoc: clean(j.categories?.location),
     loc: tidyLocation(j.categories?.location),
     at: j.createdAt ? new Date(j.createdAt).toISOString() : null,
     url: j.hostedUrl || j.applyUrl,
@@ -250,6 +255,26 @@ const ENDPOINT = {
 const PARSE = { greenhouse: fromGreenhouse, ashby: fromAshby, lever: fromLever }
 
 async function board(c) {
+  if (c.ats === 'icims') {
+    const jobs = []
+    for (let page = 1; page <= 50; page++) {
+      const raw = await getJSON(`https://www.github.careers/api/jobs?page=${page}&limit=100`)
+      if (!Array.isArray(raw.jobs) || !Number.isFinite(raw.totalCount)) throw new Error('Invalid GitHub board response')
+      jobs.push(...raw.jobs.map(({ data: j }) => ({
+        title: clean(j.title),
+        rawLoc: clean(j.full_location || j.country),
+        loc: tidyLocation(j.full_location || j.country),
+        at: j.posted_date ? new Date(j.posted_date).toISOString() : null,
+        url: `https://www.github.careers/careers-home/jobs/${encodeURIComponent(j.slug)}`,
+        team: clean(j.department),
+        remote: j.tags6?.includes('Remote') || false,
+        co: c.name,
+      })))
+      if (jobs.length >= raw.totalCount) return jobs.filter(j => j.title && j.url)
+      if (!raw.jobs.length) throw new Error('GitHub pagination ended before all postings were fetched')
+    }
+    throw new Error('GitHub pagination exceeded the safety limit')
+  }
   const raw = await getJSON(ENDPOINT[c.ats](c.slug))
   return PARSE[c.ats](raw, c.name).filter((j) => j.title && j.url)
 }
@@ -312,10 +337,25 @@ async function main() {
   // and worth saying out loud rather than silently shipping 39 companies
   // under a heading that promises 40.
   const present = new Set(all.map((j) => j.co))
-  COMPANIES.forEach((c) => { if (!present.has(c.name)) failed.push(`${c.name} (empty)`) })
+  COMPANIES.forEach((c, i) => {
+    if (results[i].status === 'fulfilled' && !present.has(c.name)) failed.push(`${c.name} (empty)`)
+  })
 
   const tagOf = Object.fromEntries(COMPANIES.map((c) => [c.name, c.tag]))
   const now = Date.now()
+
+  // Build the personal shortlist before title grouping and caps. Each link
+  // retains the actual requisition whose location matches the target.
+  const trackedJobs = all
+    .map(j => ({ ...j, fam: familyOf(j.title), target: trackingRegion(j.co, j.rawLoc || j.loc) }))
+    .filter(j => j.target && (TECH.has(j.fam) || CUSTOMER_TECH.has(j.fam)) && isTechRole(j.title, j.fam) && !INTERN.test(j.title))
+    .map(j => ({
+      t: j.title, c: j.co, g: tagOf[j.co] || '', l: j.rawLoc || j.loc,
+      f: j.fam, u: j.url, d: j.at ? j.at.slice(0, 10) : '',
+      x: matchScore({ ...j, loc: j.rawLoc || j.loc }).score, p: j.target,
+      ...(j.team ? { m: j.team } : {}), ...(j.remote ? { r: 1 } : {}),
+    }))
+    .sort((a, b) => b.x - a.x || (b.d || '').localeCompare(a.d || ''))
 
   let jobs = collapse(all)
     .map((j) => ({ ...j, fam: familyOf(j.title) }))
@@ -358,6 +398,8 @@ async function main() {
     total: jobs.length,
     fresh,
     jobs,
+    trackedJobs,
+    failed: [...new Set(failed)],
   }
 
   const json = JSON.stringify(payload)
