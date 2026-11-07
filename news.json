@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T04:21:22.202Z",
+  "generated": "2026-11-07T06:24:17.947Z",
   "reddit": [
     {
       "title": "Libghostty 1.0",
@@ -74,112 +74,112 @@
   ],
   "medium": [
     {
-      "title": "One Failed Request Threw Away 999 Good Ones: Promise.all vs allSettled",
-      "url": "https://martin128.medium.com/one-failed-request-threw-away-999-good-ones-promise-all-vs-allsettled-a55556edebeb",
+      "title": "Understanding Real-World Demographic Data Through Python and Pandas EDA",
+      "url": "https://medium.com/@prajithamary.j/understanding-real-world-demographic-data-through-python-and-pandas-eda-365f40e211f2",
+      "by": "Prajithamary J",
+      "time": 1794031972000,
+      "tags": [
+        "python",
+        "data-analysis",
+        "data-science"
+      ]
+    },
+    {
+      "title": "What really happens when you run JavaScript? from a single line to a giant app",
+      "url": "https://javascript.plainenglish.io/what-really-happens-when-you-run-javascript-from-a-single-line-to-a-giant-app-16c819b63123",
+      "by": "Sujan Miah",
+      "time": 1794031897000,
+      "tags": [
+        "ai",
+        "programming",
+        "javascript"
+      ]
+    },
+    {
+      "title": "A Global Request ID Logged Every Request as the Last One. Use AsyncLocalStorage",
+      "url": "https://martin128.medium.com/a-global-request-id-logged-every-request-as-the-last-one-use-asynclocalstorage-4ec014b08508",
       "by": "Martin",
-      "time": 1794024661000,
+      "time": 1794031861000,
       "tags": [
         "javascript",
-        "web-development",
+        "programming",
         "nodejs"
       ]
     },
     {
-      "title": "Your Compiler Is Smarter Than You Think. It May Be Removing Your Code.",
-      "url": "https://medium.com/@rajkanjariya2020/your-compiler-is-smarter-than-you-think-it-may-be-removing-your-code-12eb5a50e218",
-      "by": "Raj Kanjariya",
-      "time": 1794024543000,
-      "tags": [
-        "computer-science",
-        "performance",
-        "compilers"
-      ]
-    },
-    {
-      "title": "Why Most AI Agents Fail in Production (And How to Fix Yours)",
-      "url": "https://medium.com/beyond-ai-syntax/why-most-ai-agents-fail-in-production-and-how-to-fix-yours-826353e42989",
-      "by": "Jupiter Dev",
-      "time": 1794024492000,
+      "title": "NerveCenter: Giving SRE Agents the Context to Troubleshoot Production Incidents",
+      "url": "https://medium.com/@namitasherakhane1/nervecenter-giving-sre-agents-the-context-to-troubleshoot-production-incidents-50d000e7a922",
+      "by": "Namita Sherakhane",
+      "time": 1794031572000,
       "tags": [
         "llm",
-        "software-engineering",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Debugging a Log Filter With a Regex Tester",
-      "url": "https://medium.com/@toolaska/debugging-a-log-filter-with-a-regex-tester-eb54723282a7",
-      "by": "Toolaska",
-      "time": 1794024361000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "web-development"
-      ]
-    },
-    {
-      "title": "The Last Seat: A Five-Minute Hold and a Race Against Time",
-      "url": "https://medium.com/@debapriya.mty/the-last-seat-a-five-minute-hold-and-a-race-against-time-5dade49093ee",
-      "by": "Debapriya Mty",
-      "time": 1794024074000,
-      "tags": [
-        "software-engineering",
-        "software-architecture",
-        "race-condition"
-      ]
-    },
-    {
-      "title": "Apple Is Back In The AI Race In A Subtle And Smart Way",
-      "url": "https://blog.gopenai.com/apple-is-back-in-the-ai-race-in-a-subtle-and-smart-way-1a108910118a",
-      "by": "Lo Zarantonello",
-      "time": 1794024062000,
-      "tags": [
-        "apple",
-        "artificial-intelligence",
-        "ios"
-      ]
-    },
-    {
-      "title": "GitHub Actions pricing 2026: Linux $0.006, macOS $0.062 per minute",
-      "url": "https://medium.com/@macrundev/github-actions-pricing-2026-linux-0-006-macos-0-062-per-minute-332d5f0125c1",
-      "by": "MacRun",
-      "time": 1794023268000,
-      "tags": [
-        "ios-app-development",
-        "github-actions",
-        "ios"
-      ]
-    },
-    {
-      "title": "Stop Fighting Layouts: A Practical Guide to W3.CSS 6 Grid Helpers",
-      "url": "https://javascript.plainenglish.io/stop-fighting-layouts-a-practical-guide-to-w3-css-6-grid-helpers-6253c2c32591",
-      "by": "Er Raj Aryan",
-      "time": 1794023101000,
-      "tags": [
-        "front-end-development",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "DevOps Concepts 02/25 — Terraform State: Understanding How Infrastructure Is Tracked",
-      "url": "https://medium.com/@anubhavbhatt/devops-concepts-02-25-terraform-state-understanding-how-infrastructure-is-tracked-6cb9f41126bd",
-      "by": "Anubhav Bhatt",
-      "time": 1794022861000,
-      "tags": [
-        "terraform",
         "devops",
-        "infrastructure-as-code"
+        "ai"
       ]
     },
     {
-      "title": "AI “Expertise” is a Literacy Problem, not a Labor Problem",
-      "url": "https://ryangtanaka.medium.com/ai-expertise-is-a-literacy-problem-not-a-labor-problem-502813cc42fa",
-      "by": "Ryan Tanaka",
-      "time": 1794022687000,
+      "title": "Type 257 Characters of Anything. You’re In.",
+      "url": "https://medium.com/backend-engineers-club/type-257-characters-of-anything-youre-in-f4aafbdb9da3",
+      "by": "Anas Issath",
+      "time": 1794031428000,
       "tags": [
-        "artificial-intelligence",
-        "llm",
+        "devops",
+        "cybersecurity",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "I wrote every line of code in 2010. In 2026, I review most of It. Here’s what 16 years taught me.",
+      "url": "https://medium.com/@sujanahpd/i-wrote-every-line-of-code-in-2010-in-2026-i-review-most-of-it-heres-what-16-years-taught-me-f4b4bc141c2b",
+      "by": "Sujan Miah",
+      "time": 1794031284000,
+      "tags": [
+        "software-engineering",
+        "web-development",
+        "ai"
+      ]
+    },
+    {
+      "title": "How a TLS Fingerprint Can Reject a Bot Before bcrypt Ever Runs.",
+      "url": "https://pixicstudio.medium.com/tls-fingerprint-credential-stuffing-513484f446f6",
+      "by": "Usman Writes",
+      "time": 1794031212000,
+      "tags": [
+        "cybersecurity",
+        "programming",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Google Lost Nearly $500 Billion in a Day. Wall Street Is Finally Asking About AI Returns",
+      "url": "https://medium.com/skillstuff/google-lost-nearly-500-billion-in-a-day-wall-street-is-finally-asking-about-ai-returns-c85993490d9f",
+      "by": "CodeTune",
+      "time": 1794030644000,
+      "tags": [
+        "technology",
+        "business",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Building a Three-Tier Application on Microsoft Azure with Terraform and Claude Code: Exploring the…",
+      "url": "https://medium.com/@aremufemmy02/building-a-three-tier-application-on-microsoft-azure-with-terraform-and-claude-code-exploring-the-f3f8547c9880",
+      "by": "femi Aremu",
+      "time": 1794030613000,
+      "tags": [
+        "microsoft-azure",
+        "nginx-reverse-proxy",
+        "terraform"
+      ]
+    },
+    {
+      "title": "Understanding JavaScript’s Execution Model: Agents, Threads, and Realms",
+      "url": "https://medium.com/@dhyuthiwrites/understanding-javascripts-execution-model-agents-threads-and-realms-aacfacae1c7c",
+      "by": "Dhyuthiwrites",
+      "time": 1794030231000,
+      "tags": [
+        "web-development",
+        "ecmascript",
         "software-engineering"
       ]
     }
