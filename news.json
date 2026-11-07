@@ -1,6 +1,13 @@
 {
-  "generated": "2026-11-07T06:24:17.947Z",
+  "generated": "2026-11-07T10:51:17.150Z",
   "reddit": [
+    {
+      "title": "Internals of asyncio",
+      "url": "https://www.reddit.com/r/programming/comments/1xq391t/internals_of_asyncio/",
+      "by": "humbulani-ndou",
+      "time": 1794047199000,
+      "sub": "r/programming"
+    },
     {
       "title": "Libghostty 1.0",
       "url": "https://www.reddit.com/r/programming/comments/1xptemt/libghostty_10/",
@@ -63,124 +70,117 @@
       "by": "cekrem",
       "time": 1793956105000,
       "sub": "r/programming"
-    },
-    {
-      "title": "How software got here: 60 milestones from 1945 to 2025, each with its original source (interactive timeline)",
-      "url": "https://www.reddit.com/r/programming/comments/1xp7rf0/how_software_got_here_60_milestones_from_1945_to/",
-      "by": "Some_Championship605",
-      "time": 1793953899000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Understanding Real-World Demographic Data Through Python and Pandas EDA",
-      "url": "https://medium.com/@prajithamary.j/understanding-real-world-demographic-data-through-python-and-pandas-eda-365f40e211f2",
-      "by": "Prajithamary J",
-      "time": 1794031972000,
+      "title": "One Implementation, Many Types: The Engineering Behind Templates and Generics",
+      "url": "https://medium.com/@pranova2508/one-implementation-many-types-the-engineering-behind-templates-and-generics-043484ce2e21",
+      "by": "Prac's Journal",
+      "time": 1794048061000,
       "tags": [
-        "python",
-        "data-analysis",
-        "data-science"
+        "computer-science",
+        "java",
+        "software-development"
       ]
     },
     {
-      "title": "What really happens when you run JavaScript? from a single line to a giant app",
-      "url": "https://javascript.plainenglish.io/what-really-happens-when-you-run-javascript-from-a-single-line-to-a-giant-app-16c819b63123",
-      "by": "Sujan Miah",
-      "time": 1794031897000,
-      "tags": [
-        "ai",
-        "programming",
-        "javascript"
-      ]
-    },
-    {
-      "title": "A Global Request ID Logged Every Request as the Last One. Use AsyncLocalStorage",
-      "url": "https://martin128.medium.com/a-global-request-id-logged-every-request-as-the-last-one-use-asynclocalstorage-4ec014b08508",
-      "by": "Martin",
-      "time": 1794031861000,
-      "tags": [
-        "javascript",
-        "programming",
-        "nodejs"
-      ]
-    },
-    {
-      "title": "NerveCenter: Giving SRE Agents the Context to Troubleshoot Production Incidents",
-      "url": "https://medium.com/@namitasherakhane1/nervecenter-giving-sre-agents-the-context-to-troubleshoot-production-incidents-50d000e7a922",
-      "by": "Namita Sherakhane",
-      "time": 1794031572000,
-      "tags": [
-        "llm",
-        "devops",
-        "ai"
-      ]
-    },
-    {
-      "title": "Type 257 Characters of Anything. You’re In.",
-      "url": "https://medium.com/backend-engineers-club/type-257-characters-of-anything-youre-in-f4aafbdb9da3",
-      "by": "Anas Issath",
-      "time": 1794031428000,
-      "tags": [
-        "devops",
-        "cybersecurity",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "I wrote every line of code in 2010. In 2026, I review most of It. Here’s what 16 years taught me.",
-      "url": "https://medium.com/@sujanahpd/i-wrote-every-line-of-code-in-2010-in-2026-i-review-most-of-it-heres-what-16-years-taught-me-f4b4bc141c2b",
-      "by": "Sujan Miah",
-      "time": 1794031284000,
+      "title": "DRY KISS YAGNI",
+      "url": "https://medium.com/@anuranasinghe151/dry-kiss-yagni-693de481087f",
+      "by": "Anuradha Ranasinghe",
+      "time": 1794047850000,
       "tags": [
         "software-engineering",
-        "web-development",
-        "ai"
+        "software-development",
+        "clean-code"
       ]
     },
     {
-      "title": "How a TLS Fingerprint Can Reject a Bot Before bcrypt Ever Runs.",
-      "url": "https://pixicstudio.medium.com/tls-fingerprint-credential-stuffing-513484f446f6",
-      "by": "Usman Writes",
-      "time": 1794031212000,
+      "title": "Laravel at 2 AM: Meet OpConsole",
+      "url": "https://medium.com/@ashta90/laravel-at-2-am-meet-opconsole-382fe5988437",
+      "by": "Ashraf Talha",
+      "time": 1794047835000,
       "tags": [
-        "cybersecurity",
+        "open-source",
+        "devops",
+        "laravel"
+      ]
+    },
+    {
+      "title": "Zero-Downtime Graceful Shutdown in Kubernetes: SIGTERM, In-Flight Draining",
+      "url": "https://medium.com/@support.devscampus/zero-downtime-graceful-shutdown-in-kubernetes-sigterm-in-flight-draining-c5b6dbfb23f5",
+      "by": "Support Devscampus",
+      "time": 1794047662000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "debugging"
+      ]
+    },
+    {
+      "title": "Everyone touches the cloud bill and nobody owns it",
+      "url": "https://medium.com/@1vladislavzhigulin/everyone-touches-the-cloud-bill-and-nobody-owns-it-d553207dca96",
+      "by": "Vlad",
+      "time": 1794047591000,
+      "tags": [
+        "aws",
+        "cloud-computing",
+        "devops"
+      ]
+    },
+    {
+      "title": "The 800 ms JVM GC Pause That Broke Our SLA and the 5 Changes We Tested",
+      "url": "https://medium.com/@shubhamnalawade037/the-800-ms-jvm-gc-pause-that-broke-our-sla-and-the-5-changes-we-tested-d75f0898ba8b",
+      "by": "The Dialectic",
+      "time": 1794047461000,
+      "tags": [
+        "java",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "AI Is More Than LLMs: The 70-Year Story From Turing to Agent",
+      "url": "https://medium.com/@xrhstinanb/ai-is-more-than-llms-the-70-year-story-from-turing-to-agent-32544e4aa7a1",
+      "by": "Christina Nektaria Vlasi",
+      "time": 1794047297000,
+      "tags": [
+        "ai-agent",
+        "ai",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "Think Your Hidden Mac Files Are Safe? Not Really — Here’s What to Do Instead.",
+      "url": "https://medium.com/@simpleandkind788/think-your-hidden-mac-files-are-safe-not-really-heres-what-to-do-instead-01cef9010b19",
+      "by": "Zeeshan Saghir",
+      "time": 1794047203000,
+      "tags": [
         "programming",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "Google Lost Nearly $500 Billion in a Day. Wall Street Is Finally Asking About AI Returns",
-      "url": "https://medium.com/skillstuff/google-lost-nearly-500-billion-in-a-day-wall-street-is-finally-asking-about-ai-returns-c85993490d9f",
-      "by": "CodeTune",
-      "time": 1794030644000,
-      "tags": [
         "technology",
-        "business",
-        "artificial-intelligence"
+        "mac"
       ]
     },
     {
-      "title": "Building a Three-Tier Application on Microsoft Azure with Terraform and Claude Code: Exploring the…",
-      "url": "https://medium.com/@aremufemmy02/building-a-three-tier-application-on-microsoft-azure-with-terraform-and-claude-code-exploring-the-f3f8547c9880",
-      "by": "femi Aremu",
-      "time": 1794030613000,
+      "title": "Fewer Alerts. Better Signal: Why Intelligent Alerting Is the Future ?",
+      "url": "https://medium.com/@Sunil_Naga/fewer-alerts-better-signal-why-intelligent-alerting-is-the-future-a09dd41d534f",
+      "by": "Sunil Kumar Nagbhairava",
+      "time": 1794047098000,
       "tags": [
-        "microsoft-azure",
-        "nginx-reverse-proxy",
-        "terraform"
+        "incident-management",
+        "observability",
+        "sre"
       ]
     },
     {
-      "title": "Understanding JavaScript’s Execution Model: Agents, Threads, and Realms",
-      "url": "https://medium.com/@dhyuthiwrites/understanding-javascripts-execution-model-agents-threads-and-realms-aacfacae1c7c",
-      "by": "Dhyuthiwrites",
-      "time": 1794030231000,
+      "title": "Nykaa SDE-2 Interview Experience | Java Backend Developer | 3.8 Years of Experience",
+      "url": "https://medium.com/@preetjit82/nykaa-sde-2-interview-experience-java-backend-developer-3-8-years-of-experience-eb7e6adef50e",
+      "by": "Interview Simplified",
+      "time": 1794046629000,
       "tags": [
-        "web-development",
-        "ecmascript",
-        "software-engineering"
+        "java",
+        "interview",
+        "jobs"
       ]
     }
   ]
