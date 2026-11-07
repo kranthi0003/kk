@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T10:51:17.150Z",
+  "generated": "2026-11-07T12:49:18.593Z",
   "reddit": [
     {
       "title": "Internals of asyncio",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "One Implementation, Many Types: The Engineering Behind Templates and Generics",
-      "url": "https://medium.com/@pranova2508/one-implementation-many-types-the-engineering-behind-templates-and-generics-043484ce2e21",
-      "by": "Prac's Journal",
-      "time": 1794048061000,
+      "title": "I Automated These 9 Boring Tasks With Python",
+      "url": "https://python.plainenglish.io/i-automated-these-9-boring-tasks-with-python-1e45be36da35",
+      "by": "Maria Ali",
+      "time": 1794055527000,
       "tags": [
-        "computer-science",
-        "java",
-        "software-development"
+        "technology",
+        "python",
+        "programming"
       ]
     },
     {
-      "title": "DRY KISS YAGNI",
-      "url": "https://medium.com/@anuranasinghe151/dry-kiss-yagni-693de481087f",
-      "by": "Anuradha Ranasinghe",
-      "time": 1794047850000,
+      "title": "Did the 2026 Midterms Kill the AI Infrastructure Rally?",
+      "url": "https://medium.com/@fahey_james/did-the-2026-midterms-kill-the-ai-infrastructure-rally-679c1378cc2b",
+      "by": "James Fahey",
+      "time": 1794055366000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "clean-code"
+        "money",
+        "programming",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Laravel at 2 AM: Meet OpConsole",
-      "url": "https://medium.com/@ashta90/laravel-at-2-am-meet-opconsole-382fe5988437",
-      "by": "Ashraf Talha",
-      "time": 1794047835000,
+      "title": "A server with no IPv4",
+      "url": "https://medium.com/@kalin.dimitrov93/a-server-with-no-ipv4-f71c46cc51c5",
+      "by": "Kalin Dimitrov",
+      "time": 1794055286000,
       "tags": [
-        "open-source",
+        "networking",
         "devops",
-        "laravel"
+        "ipv6"
       ]
     },
     {
-      "title": "Zero-Downtime Graceful Shutdown in Kubernetes: SIGTERM, In-Flight Draining",
-      "url": "https://medium.com/@support.devscampus/zero-downtime-graceful-shutdown-in-kubernetes-sigterm-in-flight-draining-c5b6dbfb23f5",
-      "by": "Support Devscampus",
-      "time": 1794047662000,
+      "title": "We Hired a $320,000 Staff Engineer. His First Decision Shut Down Our Biggest Customer",
+      "url": "https://medium.com/engineering-playbook/we-hired-a-320-000-staff-engineer-his-first-decision-shut-down-our-biggest-customer-12a471a37901",
+      "by": "Architecture Unfiltered",
+      "time": 1794055212000,
       "tags": [
-        "cloud-computing",
-        "devops",
-        "debugging"
+        "artificial-intelligence",
+        "data-science",
+        "technology"
       ]
     },
     {
-      "title": "Everyone touches the cloud bill and nobody owns it",
-      "url": "https://medium.com/@1vladislavzhigulin/everyone-touches-the-cloud-bill-and-nobody-owns-it-d553207dca96",
-      "by": "Vlad",
-      "time": 1794047591000,
+      "title": "1,200 Developer Job Applications. Zero Offers. Maybe Applying More Is the Problem.",
+      "url": "https://medium.com/@chhinsoportrakhou/1-200-developer-job-applications-zero-offers-maybe-applying-more-is-the-problem-1fdc852f8903",
+      "by": "Chhinsoportrakhou",
+      "time": 1794055151000,
       "tags": [
-        "aws",
-        "cloud-computing",
-        "devops"
-      ]
-    },
-    {
-      "title": "The 800 ms JVM GC Pause That Broke Our SLA and the 5 Changes We Tested",
-      "url": "https://medium.com/@shubhamnalawade037/the-800-ms-jvm-gc-pause-that-broke-our-sla-and-the-5-changes-we-tested-d75f0898ba8b",
-      "by": "The Dialectic",
-      "time": 1794047461000,
-      "tags": [
-        "java",
+        "data-science",
         "software-development",
         "programming"
       ]
     },
     {
-      "title": "AI Is More Than LLMs: The 70-Year Story From Turing to Agent",
-      "url": "https://medium.com/@xrhstinanb/ai-is-more-than-llms-the-70-year-story-from-turing-to-agent-32544e4aa7a1",
-      "by": "Christina Nektaria Vlasi",
-      "time": 1794047297000,
+      "title": "How to Cut Your AI Coding Costs: A 7-Step Beginner Playbook",
+      "url": "https://davishaal.medium.com/how-to-cut-your-ai-coding-costs-a-7-step-beginner-playbook-60bcf5f273fd",
+      "by": "Vishal chauhan",
+      "time": 1794054973000,
       "tags": [
-        "ai-agent",
-        "ai",
-        "machine-learning"
+        "productivity",
+        "artificial-intelligence",
+        "programming"
       ]
     },
     {
-      "title": "Think Your Hidden Mac Files Are Safe? Not Really — Here’s What to Do Instead.",
-      "url": "https://medium.com/@simpleandkind788/think-your-hidden-mac-files-are-safe-not-really-heres-what-to-do-instead-01cef9010b19",
-      "by": "Zeeshan Saghir",
-      "time": 1794047203000,
+      "title": "Before You Trust an AI Answer, Change One Fact",
+      "url": "https://medium.com/towards-explainable-ai/before-you-trust-an-ai-answer-change-one-fact-3c0b4eb5d5c3",
+      "by": "Ferid Brković",
+      "time": 1794054945000,
+      "tags": [
+        "ai",
+        "programming",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "My Best Staff Engineer Rejected a Junior Candidate. Three Months Later, She Saved His Job",
+      "url": "https://medium.com/engineering-playbook/my-best-staff-engineer-rejected-a-junior-candidate-three-months-later-she-saved-his-job-546dbac039bf",
+      "by": "Production Systems",
+      "time": 1794054855000,
+      "tags": [
+        "technology",
+        "programming",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Journey to Understand a New Codebase",
+      "url": "https://bluecodes.medium.com/journey-to-understand-a-new-codebase-9e40a4b3c1f8",
+      "by": "Blue Dev Diary",
+      "time": 1794054661000,
       "tags": [
         "programming",
+        "clean-code",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Rust Is Moving Beyond Web Servers: The New Generation of Networking Tools",
+      "url": "https://medium.com/@thyzmile24/rust-is-moving-beyond-web-servers-the-new-generation-of-networking-tools-5a14a91eb053",
+      "by": "Yorn Rothy",
+      "time": 1794054651000,
+      "tags": [
         "technology",
-        "mac"
-      ]
-    },
-    {
-      "title": "Fewer Alerts. Better Signal: Why Intelligent Alerting Is the Future ?",
-      "url": "https://medium.com/@Sunil_Naga/fewer-alerts-better-signal-why-intelligent-alerting-is-the-future-a09dd41d534f",
-      "by": "Sunil Kumar Nagbhairava",
-      "time": 1794047098000,
-      "tags": [
-        "incident-management",
-        "observability",
-        "sre"
-      ]
-    },
-    {
-      "title": "Nykaa SDE-2 Interview Experience | Java Backend Developer | 3.8 Years of Experience",
-      "url": "https://medium.com/@preetjit82/nykaa-sde-2-interview-experience-java-backend-developer-3-8-years-of-experience-eb7e6adef50e",
-      "by": "Interview Simplified",
-      "time": 1794046629000,
-      "tags": [
-        "java",
-        "interview",
-        "jobs"
+        "rust",
+        "web-development"
       ]
     }
   ]
