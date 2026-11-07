@@ -43,6 +43,7 @@ const BrandsPage = lazy(() => import('./components/BrandsPage'))
 const OmscsPage = lazy(() => import('./components/OmscsPage'))
 const StocksPage = lazy(() => import('./components/StocksPage'))
 const JobsPage = lazy(() => import('./components/JobsPage'))
+const JobsTeaser = lazy(() => import('./components/JobsTeaser'))
 const AskPage = lazy(() => import('./components/AskPage'))
 const EbcPage = lazy(() => import('./components/EbcPage'))
 const CongratsPage = lazy(() => import('./components/CongratsPage'))
@@ -636,6 +637,7 @@ function AppPages({ route, intro }) {
         <Hero onResumeClick={() => setResumeOpen(true)} />
         {extras && <Suspense fallback={null}><ExtraAfterHero /></Suspense>}
         <div className="section-animate"><Experience /></div>
+        <Suspense fallback={null}><JobsTeaser /></Suspense>
         <div className="section-animate"><TechStack /></div>
         {extras && <Suspense fallback={null}><ExtraAfterTech /></Suspense>}
         <div className="section-animate"><Projects /></div>

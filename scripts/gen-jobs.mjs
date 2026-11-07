@@ -103,6 +103,9 @@ const COMPANIES = [
 // Order matters — the first match wins, so the more specific patterns are
 // listed above the general ones.
 const FAMILIES = [
+  ['support', /technical support|product support|cloud support|developer support|customer support (?:engineer|specialist|analyst)|support engineer/i],
+  ['tam', /technical account (?:manager|engineer)|technical customer success|customer success engineer|customer reliability engineer/i],
+  ['solutions', /solutions? architect|solutions? engineer|cloud architect|technical consultant/i],
   ['sre', /site reliability|\bsre\b|devops|observability|production engineer|platform reliability/i],
   ['infra', /infrastructure|platform engineer|\bcloud\b|kubernetes|distributed systems|systems engineer|compute|networking|storage engineer/i],
   ['security', /security engineer|appsec|application security|cryptograph|infosec|product security/i],
@@ -125,6 +128,7 @@ const familyOf = (title) => {
 // on an infrastructure engineer's site, and a list dominated by "Account
 // Executive, Emerging Enterprise (Berlin)" would be noise.
 const TECH = new Set(['sre', 'infra', 'security', 'ml', 'data', 'mobile', 'frontend', 'backend', 'eng'])
+const CUSTOMER_TECH = new Set(['support', 'tam', 'solutions'])
 
 // Family alone was not enough. Matching on "AI" pulled in "Account
 // Executive, AI Startups (Hunter)", "AI Solutions Lead, Marketing" and a
@@ -133,18 +137,40 @@ const TECH = new Set(['sre', 'infra', 'security', 'ml', 'data', 'mobile', 'front
 // job, and then must not be one of the customer-facing titles that
 // legitimately contain one.
 //
-// Solutions architects and customer/field engineers go too, 101 between
-// them: real technical work, but pre-sales rather than building. Forward
-// deployed engineers stay — at Palantir and its imitators that is an
-// engineering role that happens to sit near the customer. Engineering
-// managers stay as well; they are a normal next step from senior.
+// The explicitly classified support, technical-account and solutions
+// roles are retained separately. The remaining customer/field, sales and
+// partner roles stay excluded; forward-deployed engineers remain because
+// they are engineering roles that happen to sit near the customer.
 const BUILDS = /engineer|developer|programmer|architect|scientist|\bsre\b|technical lead|tech lead/i
 const NOT_ENG = /account executive|sales|marketing|recruit|customer success|partner (manager|director|lead)|solutions? (lead|consultant|architect|engineer|architecture)|business development|\bbdr\b|\bsdr\b|support engineer|technical account|community|evangelist|advocate|program manager|product manager|content|curriculum|instructor|(customer|field|partner) engineer|pre-?sales/i
 
-const isTechRole = (t) => BUILDS.test(t) && !NOT_ENG.test(t)
+const isTechRole = (t, family) =>
+  CUSTOMER_TECH.has(family) || (BUILDS.test(t) && !NOT_ENG.test(t))
 
 const SENIOR = /principal|staff|distinguished|architect|\bl[5-8]\b|senior|sr\.?\s/i
+const SENIOR_LEVEL = /principal|staff|distinguished|\bl[5-8]\b|senior|sr\.?\s|\blead\b|director/i
 const INTERN = /intern\b|internship|apprentice|new grad|university|graduate program|co-?op\b/i
+const INDIA_LOCATIONS = /\bindia\b|hyderabad|bengaluru|bangalore|chennai|mumbai|pune|gurugram|gurgaon|noida|new delhi/i
+
+function preferredRegion(loc) {
+  if (/\bsingapore\b/i.test(loc || '')) return 'Singapore'
+  if (INDIA_LOCATIONS.test(loc || '')) return 'India'
+  return ''
+}
+
+function matchScore(job) {
+  const { title, fam: family, team, loc, remote } = job
+  const role = CUSTOMER_TECH.has(family) ? 45 : TECH.has(family) ? 30 : 20
+  const domain = /aws|amazon web services|cloud|kubernetes|database|nosql|data platform|distributed|developer tools|infrastructure|reliability|security|observability/i.test(`${title} ${team}`)
+    ? 20
+    : /platform|data|systems|network|technical/i.test(`${title} ${team}`)
+      ? 12
+      : 5
+  const region = preferredRegion(loc)
+  const location = region === 'Singapore' ? 25 : region === 'India' ? 23 : remote ? 10 : 0
+  const seniority = INTERN.test(title) ? 0 : SENIOR_LEVEL.test(title) ? 10 : 5
+  return { score: role + domain + location + seniority, region }
+}
 
 async function getJSON(url) {
   const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } })
@@ -261,7 +287,9 @@ function collapse(jobs) {
   }
   return [...byKey.values()].map((j) => {
     const { locs, loc, ...rest } = j
-    return { ...rest, loc: locs.length > 1 ? `${locs[0]} +${locs.length - 1}` : locs[0] || loc || '' }
+    const priority = locs.find((place) => preferredRegion(place))
+    const shown = priority || locs[0] || loc || ''
+    return { ...rest, loc: locs.length > 1 ? `${shown} +${locs.length - 1}` : shown }
   })
 }
 
@@ -291,22 +319,27 @@ async function main() {
 
   let jobs = collapse(all)
     .map((j) => ({ ...j, fam: familyOf(j.title) }))
-    .filter((j) => TECH.has(j.fam) && isTechRole(j.title))
+    .filter((j) => (TECH.has(j.fam) || CUSTOMER_TECH.has(j.fam)) && isTechRole(j.title, j.fam))
     .filter((j) => !INTERN.test(j.title))
-    .map((j) => ({
-      t: j.title,
-      c: j.co,
-      g: tagOf[j.co] || '',
-      l: j.loc,
-      f: j.fam,
-      u: j.url,
-      d: j.at ? j.at.slice(0, 10) : '',
-      ...(j.team ? { m: j.team } : {}),
-      ...(j.remote ? { r: 1 } : {}),
-      ...(SENIOR.test(j.title) ? { s: 1 } : {}),
-      ...(j.n > 1 ? { n: j.n } : {}),
-    }))
-    .sort((a, b) => (b.d || '').localeCompare(a.d || ''))
+    .map((j) => {
+      const { score, region } = matchScore(j)
+      return {
+        t: j.title,
+        c: j.co,
+        g: tagOf[j.co] || '',
+        l: j.loc,
+        f: j.fam,
+        u: j.url,
+        d: j.at ? j.at.slice(0, 10) : '',
+        x: score,
+        ...(region ? { p: region } : {}),
+        ...(j.team ? { m: j.team } : {}),
+        ...(j.remote ? { r: 1 } : {}),
+        ...(SENIOR.test(j.title) ? { s: 1 } : {}),
+        ...(j.n > 1 ? { n: j.n } : {}),
+      }
+    })
+    .sort((a, b) => b.x - a.x || (b.d || '').localeCompare(a.d || ''))
 
   // Cap per company before the global cap, or the two or three boards
   // with hundreds of openings would crowd everyone else out entirely.

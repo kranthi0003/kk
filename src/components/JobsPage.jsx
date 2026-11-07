@@ -4,22 +4,24 @@ import React, { useEffect, useMemo, useState } from 'react'
  * #/jobs — openings at product companies worth working for.
  *
  * The list is built at deploy time by scripts/gen-jobs.mjs, which reads
- * forty public job boards across Greenhouse, Ashby and Lever. That is
- * about 15 MB of JSON between them, so doing it here would be absurd;
- * what ships is one file of roughly 40 KB over the wire, and the daily
- * deploy keeps it current.
+ * public job boards across Greenhouse, Ashby and Lever. The daily deploy
+ * refreshes the normalized snapshot.
  *
  * Because it is a snapshot rather than a live query, the page says when
  * it was taken. A jobs board that quietly shows week-old postings as if
  * they were current is worse than one that admits its age.
  *
- * The keys are single letters because at 1,300 roles the field names
- * were a quarter of the file:
+ * The keys are compact because the snapshot contains over a thousand
+ * roles:
  *   t title · c company · g sector · l location · f role family
  *   u url · d posted date · m team · r remote · s senior · n openings
+ *   x match score · p preferred region
  * ------------------------------------------------------------------ */
 
 const FAMILY = {
+  support: 'Support',
+  tam: 'Technical account',
+  solutions: 'Solutions',
   sre: 'SRE',
   infra: 'Infrastructure',
   security: 'Security',
@@ -32,6 +34,9 @@ const FAMILY = {
 }
 
 const FAMILY_TINT = {
+  support: '#75C8B2',
+  tam: '#E8A3C8',
+  solutions: '#E8B96A',
   sre: '#5FBF8F',
   infra: '#7FB3E8',
   security: '#E88F8F',
@@ -42,6 +47,13 @@ const FAMILY_TINT = {
   backend: '#93C2E6',
   eng: '#A9B4C4',
 }
+
+const OTHER_BOARDS = [
+  ['Google', 'https://www.google.com/about/careers/applications/jobs/results'],
+  ['Meta', 'https://www.metacareers.com/jobsearch/'],
+  ['Microsoft', 'https://careers.microsoft.com/'],
+  ['GitHub', 'https://www.github.careers/careers-home/jobs'],
+]
 
 const DAY = 864e5
 
@@ -107,6 +119,11 @@ function Row({ j }) {
         </span>
       </span>
       <span className="shrink-0 text-right">
+        {j.x != null && (
+          <span className="block text-[11px] font-mono font-medium tabular-nums" style={{ color: tint }}>
+            {j.x}% match
+          </span>
+        )}
         <span className="block text-[11px] font-mono text-muted-foreground tabular-nums whitespace-nowrap">
           {ago(j.d)}
         </span>
@@ -128,6 +145,7 @@ export default function JobsPage({ onBack }) {
   const [q, setQ] = useState('')
   const [fam, setFam] = useState('all')
   const [co, setCo] = useState('all')
+  const [region, setRegion] = useState('all')
   const [remote, setRemote] = useState(false)
   const [recent, setRecent] = useState(false)
   const [show, setShow] = useState(PAGE)
@@ -149,6 +167,7 @@ export default function JobsPage({ onBack }) {
     return jobs.filter((j) => {
       if (fam !== 'all' && j.f !== fam) return false
       if (co !== 'all' && j.c !== co) return false
+      if (region !== 'all' && j.p !== region) return false
       if (remote && !j.r) return false
       if (recent && (!j.d || Date.parse(j.d) < cutoff)) return false
       if (needle) {
@@ -157,7 +176,7 @@ export default function JobsPage({ onBack }) {
       }
       return true
     })
-  }, [jobs, q, fam, co, remote, recent])
+  }, [jobs, q, fam, co, region, remote, recent])
 
   // Families and companies that actually appear, so no filter can be
   // chosen that returns nothing at all.
@@ -168,7 +187,7 @@ export default function JobsPage({ onBack }) {
     return Object.entries(n).sort((a, b) => b[1] - a[1])
   }, [jobs])
 
-  useEffect(() => { setShow(PAGE) }, [q, fam, co, remote, recent])
+  useEffect(() => { setShow(PAGE) }, [q, fam, co, region, remote, recent])
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -184,8 +203,23 @@ export default function JobsPage({ onBack }) {
           <p className="text-[11px] font-mono uppercase tracking-[0.18em]" style={{ color: '#5FBF8F' }}>Hiring</p>
           <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">Jobs</h1>
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground max-w-prose">
-            Engineering roles at product companies, read straight from their own job boards.
+            Technical roles at product companies, read straight from their own job boards.
             {data && <> {data.total} open across {data.companies.length} companies, {data.fresh} posted in the last month.</>}
+          </p>
+          <p className="mt-3 max-w-prose text-[11.5px] leading-relaxed text-muted-foreground/80">
+            Match scores are a shortlist heuristic: role family (30–45 points), technical signals in the title/team (5–20),
+            location (Singapore 25, India 23, remote 10), and seniority (5–10). Job descriptions are not analyzed,
+            so this is not a hiring probability or a substitute for checking the role.
+          </p>
+          <p className="mt-2 max-w-prose text-[11.5px] leading-relaxed text-muted-foreground/80">
+            These career boards are not in the automatic feed yet:{' '}
+            {OTHER_BOARDS.map(([name, url], index) => (
+              <React.Fragment key={name}>
+                {index > 0 && ', '}
+                <a className="underline underline-offset-2 hover:text-foreground" href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+              </React.Fragment>
+            ))}
+            . Their postings are not included in the daily matches.
           </p>
         </header>
 
@@ -221,6 +255,8 @@ export default function JobsPage({ onBack }) {
               </div>
 
               <div className="flex flex-wrap gap-1.5 items-center">
+                <Chip on={region === 'Singapore'} onClick={() => setRegion(region === 'Singapore' ? 'all' : 'Singapore')}>Singapore</Chip>
+                <Chip on={region === 'India'} onClick={() => setRegion(region === 'India' ? 'all' : 'India')}>India</Chip>
                 <Chip on={remote} onClick={() => setRemote((v) => !v)}>Remote</Chip>
                 <Chip on={recent} onClick={() => setRecent((v) => !v)}>Last 14 days</Chip>
                 <select
