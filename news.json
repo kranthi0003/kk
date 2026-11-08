@@ -1,6 +1,13 @@
 {
-  "generated": "2026-11-08T03:51:44.854Z",
+  "generated": "2026-11-08T04:20:45.850Z",
   "reddit": [
+    {
+      "title": "A quick look at zero-knowledge proofs",
+      "url": "https://www.reddit.com/r/programming/comments/1xqp9wx/a_quick_look_at_zeroknowledge_proofs/",
+      "by": "fagnerbrack",
+      "time": 1794110475000,
+      "sub": "r/programming"
+    },
     {
       "title": "Measured my single-machine deploy tool against Dokploy: method and raw logs inside",
       "url": "https://www.reddit.com/r/devops/comments/1xqoinr/measured_my_singlemachine_deploy_tool_against/",
@@ -63,19 +70,98 @@
       "by": "rmadriz",
       "time": 1794013230000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Unity3D for .NET Developers: How to get started",
-      "url": "https://www.reddit.com/r/programming/comments/1xpbd2s/unity3d_for_net_developers_how_to_get_started/",
-      "by": "Kabra___kiiiiiiiid",
-      "time": 1793967406000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
+      "title": "Measuring Developer Value in the Age of AI: Beyond Code and Commits",
+      "url": "https://medium.com/@scosmexs/measuring-developer-value-in-the-age-of-ai-beyond-code-and-commits-37d88eb7f9f0",
+      "by": "Sebastiao Cosme Agostinho",
+      "time": 1794111453000,
+      "tags": [
+        "software-engineering",
+        "ai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "MongoDB Disaster Recovery: Lessons from Real-World Architecture and POC Testing (Part 1/2)",
+      "url": "https://medium.com/@sitereliability/mongodb-disaster-recovery-lessons-from-real-world-architecture-and-poc-testing-part-1-2-499f27a6158d",
+      "by": "Midhun K",
+      "time": 1794111295000,
+      "tags": [
+        "devops",
+        "design-systems",
+        "mongodb"
+      ]
+    },
+    {
+      "title": "Caught in the Crosshairs: What the Tech Giants Will Do Next",
+      "url": "https://medium.com/@anandzade09/caught-in-the-crosshairs-what-the-tech-giants-will-do-next-3d46fc3b6612",
+      "by": "Anand Zade",
+      "time": 1794111189000,
+      "tags": [
+        "programming",
+        "data-science",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Your Cache Hit. It Answered a Different Question.",
+      "url": "https://medium.com/@jaberadam2001/your-cache-hit-it-answered-a-different-question-b4293ad81239",
+      "by": "Adam Jaber",
+      "time": 1794111073000,
+      "tags": [
+        "llm",
+        "caching",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Give Every Agent Instruction a Reason and a Check",
+      "url": "https://medium.com/@isaiahdupree33/give-every-agent-instruction-a-reason-and-a-check-85aa85e13a57",
+      "by": "Isaiah Dupree",
+      "time": 1794110913000,
+      "tags": [
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Stop Showing Users the Red Screen. Catch Every Flutter Crash Instead.",
+      "url": "https://medium.com/codetodeploy/stop-showing-users-the-red-screen-catch-every-flutter-crash-instead-24096c439e97",
+      "by": "Shikha",
+      "time": 1794110758000,
+      "tags": [
+        "software-engineering",
+        "dart",
+        "flutter"
+      ]
+    },
+    {
+      "title": "My browser OCR couldn’t read a sunscreen bottle. Here’s what fixed it.",
+      "url": "https://medium.com/@c.madhushankarox/my-browser-ocr-couldnt-read-a-sunscreen-bottle-here-s-what-fixed-it-939ad0cd4a2f",
+      "by": "Madhushanka",
+      "time": 1794110652000,
+      "tags": [
+        "programming",
+        "image-processing",
+        "web-development"
+      ]
+    },
+    {
+      "title": "I Gave Claude Code 5 Real C# Tasks on .NET 10. Two Failed the First Time.",
+      "url": "https://medium.com/@patelrajni31/i-gave-claude-code-5-real-c-tasks-on-net-10-two-failed-the-first-time-c760bf5dbab8",
+      "by": "Rajni Kavathiya",
+      "time": 1794110239000,
+      "tags": [
+        "software-development",
+        "artificial-intelligence",
+        "dotnet"
+      ]
+    },
+    {
       "title": "Designing Architecture Reviews for AI-First Teams: What Changes When AI Works Alongside the Team",
-      "url": "https://medium.com/@martintien/designing-architecture-reviews-for-ai-first-teams-what-changes-when-ai-works-alongside-the-team-49e22875f21a",
+      "url": "https://javascript.plainenglish.io/designing-architecture-reviews-for-ai-first-teams-what-changes-when-ai-works-alongside-the-team-49e22875f21a",
       "by": "Martin Tien",
       "time": 1794109451000,
       "tags": [
@@ -85,102 +171,14 @@
       ]
     },
     {
-      "title": "On-Device AI in the Browser: What Opera’s WebAI Means for Web Developers",
-      "url": "https://medium.com/@thedeepammishra/on-device-ai-in-the-browser-what-operas-webai-means-for-web-developers-e17a98a2f9ff",
-      "by": "Deepam Mishra",
-      "time": 1794108661000,
+      "title": "I Gave an Agent a Flaky Refund Tool — It Overpaid $2,230, and My UUID Idempotency Key Changed…",
+      "url": "https://medium.com/@anibha88/i-gave-an-agent-a-flaky-refund-tool-it-overpaid-2-230-and-my-uuid-idempotency-key-changed-ccfd9a11d1b2",
+      "by": "Nithin Bharadhwaj",
+      "time": 1794109175000,
       "tags": [
-        "web-development",
-        "javascript",
-        "programming"
-      ]
-    },
-    {
-      "title": "PAM, Secret Management, & Zero Trust: How to Secure Access in Modern Cloud Environments",
-      "url": "https://iampankajaswal.medium.com/pam-secret-management-zero-trust-how-to-secure-access-in-modern-cloud-environments-14e079dbb62f",
-      "by": "Pankaj Aswal",
-      "time": 1794108661000,
-      "tags": [
-        "aws",
-        "software-development",
-        "devops"
-      ]
-    },
-    {
-      "title": "10 System Design Interview Mistakes That Cost Senior Engineers the Offer",
-      "url": "https://naveen-metta.medium.com/10-system-design-interview-mistakes-that-cost-senior-engineers-the-offer-c80dd65a0c80",
-      "by": "Naveen Metta",
-      "time": 1794108661000,
-      "tags": [
-        "design-systems",
-        "distributed-systems",
-        "interview"
-      ]
-    },
-    {
-      "title": "Spring Boot 4.0 and Spring Framework 7.0: What Changes for Java Developers",
-      "url": "https://medium.com/@nawaz4265/spring-boot-4-0-and-spring-framework-7-0-what-changes-for-java-developers-3b9a99384b16",
-      "by": "NAWAZ SHARIF",
-      "time": 1794108661000,
-      "tags": [
-        "java",
-        "software-engineering",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "The Man at the Intersection of Code and Core Politics: Why I Write",
-      "url": "https://medium.com/@anandzade09/the-man-at-the-intersection-of-code-and-core-politics-why-i-write-59a0a47c20bb",
-      "by": "Anand Zade",
-      "time": 1794107760000,
-      "tags": [
-        "programming",
-        "writing",
-        "life-lessons"
-      ]
-    },
-    {
-      "title": "By 2027, Kubernetes Won’t Need DevOps Engineers the Way It Does Today — Here’s What Changes Instead",
-      "url": "https://medium.com/@k.keaphirunphirchhoeun/by-2027-kubernetes-wont-need-devops-engineers-the-way-it-does-today-here-s-what-changes-instead-243d861aec7a",
-      "by": "Chhoeun K.Keaphirunphirakbot",
-      "time": 1794107599000,
-      "tags": [
-        "devops",
-        "deep-learning",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Q4 IT Budget Bonfire: Use It or Lose It",
-      "url": "https://medium.com/@admin_61025/the-q4-it-budget-bonfire-use-it-or-lose-it-1a7fb187e1f8",
-      "by": "Corpburnrate",
-      "time": 1794107399000,
-      "tags": [
-        "information-technology",
-        "product-management",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Here is the AI engineer stack for 2027, Save your jobs during AI lay offs",
-      "url": "https://medium.com/@mehulpratapsingh/here-is-the-ai-engineer-stack-for-2027-save-your-jobs-during-ai-lay-offs-1994a6680f97",
-      "by": "Mehulpratapsingh",
-      "time": 1794106863000,
-      "tags": [
+        "python",
         "artificial-intelligence",
-        "machine-learning",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "My Engineer Brain Wants a Win My Business Can Use",
-      "url": "https://ntrongtin11702.medium.com/my-engineer-brain-wants-a-win-my-business-can-use-5f3387207ddd",
-      "by": "Tinguyen",
-      "time": 1794106862000,
-      "tags": [
-        "software-engineering",
-        "entrepreneurship",
-        "product-management"
+        "programming"
       ]
     }
   ]
