@@ -1,6 +1,55 @@
 {
-  "generated": "2026-11-07T12:49:18.593Z",
+  "generated": "2026-11-08T03:51:44.854Z",
   "reddit": [
+    {
+      "title": "Measured my single-machine deploy tool against Dokploy: method and raw logs inside",
+      "url": "https://www.reddit.com/r/devops/comments/1xqoinr/measured_my_singlemachine_deploy_tool_against/",
+      "by": "mynameiscorange",
+      "time": 1794107971000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Should You Learn Java in 2026?",
+      "url": "https://www.reddit.com/r/programming/comments/1xqlw7z/should_you_learn_java_in_2026/",
+      "by": "fagnerbrack",
+      "time": 1794099658000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Unified Grid: How We Re-Architected Slack for Our Largest Customers",
+      "url": "https://www.reddit.com/r/programming/comments/1xqklmx/unified_grid_how_we_rearchitected_slack_for_our/",
+      "by": "Ok_Stomach6651",
+      "time": 1794095885000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How to enable SSH clone on self hosted GitLab running in a private subnet behind an AWS ALB?",
+      "url": "https://www.reddit.com/r/devops/comments/1xq5aof/how_to_enable_ssh_clone_on_self_hosted_gitlab/",
+      "by": "Manoj-praba",
+      "time": 1794054752000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Is committing config-only .env files (no secrets) to a private repo really a security sin?",
+      "url": "https://www.reddit.com/r/devops/comments/1xq4acv/is_committing_configonly_env_files_no_secrets_to/",
+      "by": "tomoglava",
+      "time": 1794051218000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "how much money are you wasting on gpus doing nothing?",
+      "url": "https://www.reddit.com/r/devops/comments/1xq3vkb/how_much_money_are_you_wasting_on_gpus_doing/",
+      "by": "Old_Librarian_9916",
+      "time": 1794049646000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Across the whole DevOps stack (Pipelines, Terraform, K8s, Docker, Ansible), how much do you actually write by hand vs prompting or using templates?",
+      "url": "https://www.reddit.com/r/devops/comments/1xq3jjl/across_the_whole_devops_stack_pipelines_terraform/",
+      "by": "PuzzleheadedSoft6875",
+      "time": 1794048370000,
+      "sub": "r/devops"
+    },
     {
       "title": "Internals of asyncio",
       "url": "https://www.reddit.com/r/programming/comments/1xq391t/internals_of_asyncio/",
@@ -16,171 +65,122 @@
       "sub": "r/programming"
     },
     {
-      "title": "Fun with Kubernetes: a cloud native escape room",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xpr0fa/fun_with_kubernetes_a_cloud_native_escape_room/",
-      "by": "cathpaga",
-      "time": 1794006454000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubernetes Is Not the Problem. Managing It Is. Why Are You Still Ignoring RKE2?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xpiwb1/kubernetes_is_not_the_problem_managing_it_is_why/",
-      "by": "devOpsGuy-1",
-      "time": 1793986566000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Why I stopped using Gunicorn + Nginx sidecars for Django in Kubernetes: Building Hurricane 2.0",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xpgvl8/why_i_stopped_using_gunicorn_nginx_sidecars_for/",
-      "by": "pyschille",
-      "time": 1793981922000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How work feels right now",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xpg0v2/how_work_feels_right_now/",
-      "by": "RoundResearcher8303",
-      "time": 1793979911000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Grafana: Our latest adventure with canary tokens",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xpdbxq/grafana_our_latest_adventure_with_canary_tokens/",
-      "by": "tracebit",
-      "time": 1793973174000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "100% GPU Utilization, 39% of Rated FP16",
-      "url": "https://www.reddit.com/r/programming/comments/1xpc2ro/100_gpu_utilization_39_of_rated_fp16/",
-      "by": "Happycodeine",
-      "time": 1793969627000,
-      "sub": "r/programming"
-    },
-    {
       "title": "Unity3D for .NET Developers: How to get started",
       "url": "https://www.reddit.com/r/programming/comments/1xpbd2s/unity3d_for_net_developers_how_to_get_started/",
       "by": "Kabra___kiiiiiiiid",
       "time": 1793967406000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Go 1.27: encoding/json/v2, Stricter Defaults, and Finally [] for Nil Slices · cekrem.github.io",
-      "url": "https://www.reddit.com/r/programming/comments/1xp8b96/go_127_encodingjsonv2_stricter_defaults_and/",
-      "by": "cekrem",
-      "time": 1793956105000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "I Automated These 9 Boring Tasks With Python",
-      "url": "https://python.plainenglish.io/i-automated-these-9-boring-tasks-with-python-1e45be36da35",
-      "by": "Maria Ali",
-      "time": 1794055527000,
+      "title": "Designing Architecture Reviews for AI-First Teams: What Changes When AI Works Alongside the Team",
+      "url": "https://medium.com/@martintien/designing-architecture-reviews-for-ai-first-teams-what-changes-when-ai-works-alongside-the-team-49e22875f21a",
+      "by": "Martin Tien",
+      "time": 1794109451000,
       "tags": [
+        "software-engineering",
         "technology",
-        "python",
+        "software-development"
+      ]
+    },
+    {
+      "title": "On-Device AI in the Browser: What Opera’s WebAI Means for Web Developers",
+      "url": "https://medium.com/@thedeepammishra/on-device-ai-in-the-browser-what-operas-webai-means-for-web-developers-e17a98a2f9ff",
+      "by": "Deepam Mishra",
+      "time": 1794108661000,
+      "tags": [
+        "web-development",
+        "javascript",
         "programming"
       ]
     },
     {
-      "title": "Did the 2026 Midterms Kill the AI Infrastructure Rally?",
-      "url": "https://medium.com/@fahey_james/did-the-2026-midterms-kill-the-ai-infrastructure-rally-679c1378cc2b",
-      "by": "James Fahey",
-      "time": 1794055366000,
+      "title": "PAM, Secret Management, & Zero Trust: How to Secure Access in Modern Cloud Environments",
+      "url": "https://iampankajaswal.medium.com/pam-secret-management-zero-trust-how-to-secure-access-in-modern-cloud-environments-14e079dbb62f",
+      "by": "Pankaj Aswal",
+      "time": 1794108661000,
       "tags": [
-        "money",
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "A server with no IPv4",
-      "url": "https://medium.com/@kalin.dimitrov93/a-server-with-no-ipv4-f71c46cc51c5",
-      "by": "Kalin Dimitrov",
-      "time": 1794055286000,
-      "tags": [
-        "networking",
-        "devops",
-        "ipv6"
-      ]
-    },
-    {
-      "title": "We Hired a $320,000 Staff Engineer. His First Decision Shut Down Our Biggest Customer",
-      "url": "https://medium.com/engineering-playbook/we-hired-a-320-000-staff-engineer-his-first-decision-shut-down-our-biggest-customer-12a471a37901",
-      "by": "Architecture Unfiltered",
-      "time": 1794055212000,
-      "tags": [
-        "artificial-intelligence",
-        "data-science",
-        "technology"
-      ]
-    },
-    {
-      "title": "1,200 Developer Job Applications. Zero Offers. Maybe Applying More Is the Problem.",
-      "url": "https://medium.com/@chhinsoportrakhou/1-200-developer-job-applications-zero-offers-maybe-applying-more-is-the-problem-1fdc852f8903",
-      "by": "Chhinsoportrakhou",
-      "time": 1794055151000,
-      "tags": [
-        "data-science",
+        "aws",
         "software-development",
-        "programming"
+        "devops"
       ]
     },
     {
-      "title": "How to Cut Your AI Coding Costs: A 7-Step Beginner Playbook",
-      "url": "https://davishaal.medium.com/how-to-cut-your-ai-coding-costs-a-7-step-beginner-playbook-60bcf5f273fd",
-      "by": "Vishal chauhan",
-      "time": 1794054973000,
+      "title": "10 System Design Interview Mistakes That Cost Senior Engineers the Offer",
+      "url": "https://naveen-metta.medium.com/10-system-design-interview-mistakes-that-cost-senior-engineers-the-offer-c80dd65a0c80",
+      "by": "Naveen Metta",
+      "time": 1794108661000,
       "tags": [
-        "productivity",
-        "artificial-intelligence",
-        "programming"
+        "design-systems",
+        "distributed-systems",
+        "interview"
       ]
     },
     {
-      "title": "Before You Trust an AI Answer, Change One Fact",
-      "url": "https://medium.com/towards-explainable-ai/before-you-trust-an-ai-answer-change-one-fact-3c0b4eb5d5c3",
-      "by": "Ferid Brković",
-      "time": 1794054945000,
+      "title": "Spring Boot 4.0 and Spring Framework 7.0: What Changes for Java Developers",
+      "url": "https://medium.com/@nawaz4265/spring-boot-4-0-and-spring-framework-7-0-what-changes-for-java-developers-3b9a99384b16",
+      "by": "NAWAZ SHARIF",
+      "time": 1794108661000,
       "tags": [
-        "ai",
-        "programming",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "My Best Staff Engineer Rejected a Junior Candidate. Three Months Later, She Saved His Job",
-      "url": "https://medium.com/engineering-playbook/my-best-staff-engineer-rejected-a-junior-candidate-three-months-later-she-saved-his-job-546dbac039bf",
-      "by": "Production Systems",
-      "time": 1794054855000,
-      "tags": [
-        "technology",
-        "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Journey to Understand a New Codebase",
-      "url": "https://bluecodes.medium.com/journey-to-understand-a-new-codebase-9e40a4b3c1f8",
-      "by": "Blue Dev Diary",
-      "time": 1794054661000,
-      "tags": [
-        "programming",
-        "clean-code",
+        "java",
+        "software-engineering",
         "backend-development"
       ]
     },
     {
-      "title": "Rust Is Moving Beyond Web Servers: The New Generation of Networking Tools",
-      "url": "https://medium.com/@thyzmile24/rust-is-moving-beyond-web-servers-the-new-generation-of-networking-tools-5a14a91eb053",
-      "by": "Yorn Rothy",
-      "time": 1794054651000,
+      "title": "The Man at the Intersection of Code and Core Politics: Why I Write",
+      "url": "https://medium.com/@anandzade09/the-man-at-the-intersection-of-code-and-core-politics-why-i-write-59a0a47c20bb",
+      "by": "Anand Zade",
+      "time": 1794107760000,
       "tags": [
-        "technology",
-        "rust",
-        "web-development"
+        "programming",
+        "writing",
+        "life-lessons"
+      ]
+    },
+    {
+      "title": "By 2027, Kubernetes Won’t Need DevOps Engineers the Way It Does Today — Here’s What Changes Instead",
+      "url": "https://medium.com/@k.keaphirunphirchhoeun/by-2027-kubernetes-wont-need-devops-engineers-the-way-it-does-today-here-s-what-changes-instead-243d861aec7a",
+      "by": "Chhoeun K.Keaphirunphirakbot",
+      "time": 1794107599000,
+      "tags": [
+        "devops",
+        "deep-learning",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The Q4 IT Budget Bonfire: Use It or Lose It",
+      "url": "https://medium.com/@admin_61025/the-q4-it-budget-bonfire-use-it-or-lose-it-1a7fb187e1f8",
+      "by": "Corpburnrate",
+      "time": 1794107399000,
+      "tags": [
+        "information-technology",
+        "product-management",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Here is the AI engineer stack for 2027, Save your jobs during AI lay offs",
+      "url": "https://medium.com/@mehulpratapsingh/here-is-the-ai-engineer-stack-for-2027-save-your-jobs-during-ai-lay-offs-1994a6680f97",
+      "by": "Mehulpratapsingh",
+      "time": 1794106863000,
+      "tags": [
+        "artificial-intelligence",
+        "machine-learning",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "My Engineer Brain Wants a Win My Business Can Use",
+      "url": "https://ntrongtin11702.medium.com/my-engineer-brain-wants-a-win-my-business-can-use-5f3387207ddd",
+      "by": "Tinguyen",
+      "time": 1794106862000,
+      "tags": [
+        "software-engineering",
+        "entrepreneurship",
+        "product-management"
       ]
     }
   ]
