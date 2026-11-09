@@ -93,7 +93,6 @@ export default function Hero({ onResumeClick }) {
 
             <p className="font-body text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-5 animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
               I make computers talk to each other reliably. It's less romantic than it sounds.
-              {' '}Cloud engineering, distributed systems and reliability are my thing.
             </p>
 
             {/* Status pill — moved down next to the CTAs */}
