@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-09T04:23:21.556Z",
+  "generated": "2026-11-09T05:26:20.494Z",
   "reddit": [
     {
       "title": "Gateway API Benchmark Part 3",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Node.js Coverage Said 100%. One File Had No Tests at All",
-      "url": "https://martin128.medium.com/node-js-coverage-said-100-one-file-had-no-tests-at-all-5f232a2f2ebc",
-      "by": "Martin",
-      "time": 1794197461000,
+      "title": "ONE SONG OF LOVE",
+      "url": "https://medium.com/@ezehe121/one-song-of-love-29fe3a5a8d91",
+      "by": "Emeka Ezeh",
+      "time": 1794201852000,
       "tags": [
-        "testing",
-        "software-engineering",
-        "nodejs"
+        "relationships",
+        "leadership",
+        "deep-learning"
       ]
     },
     {
-      "title": "Payment System Design: Architecture, Idempotency, Kafka, PostgreSQL & Webhooks",
-      "url": "https://medium.com/engineering-playbook/payment-system-design-architecture-idempotency-kafka-postgresql-webhooks-6d6a76dcbc03",
-      "by": "Engineering Unfiltered",
-      "time": 1794197255000,
+      "title": "Ten Years Hidden in musl: Lessons From the OpenSSH SSHole Flaw (CVE-2026-123158)",
+      "url": "https://medium.com/@kazemmortazavi/ten-years-hidden-in-musl-lessons-from-the-openssh-sshole-flaw-cve-2026-123158-2b43d63d1a51",
+      "by": "Kazem Mortazavi",
+      "time": 1794201647000,
       "tags": [
-        "microservices",
-        "backend-development",
+        "devops",
+        "open-source",
+        "information-security"
+      ]
+    },
+    {
+      "title": "Terraform Infrastructure Drift: A Real-World AWS Troubleshooting Scenario",
+      "url": "https://medium.com/cloud-devops-ai-in-simple-terms/terraform-infrastructure-drift-a-real-world-aws-troubleshooting-scenario-edf778beae72",
+      "by": "Venkatramanan C S",
+      "time": 1794201532000,
+      "tags": [
+        "artificial-intelligence",
+        "devops",
+        "terraform"
+      ]
+    },
+    {
+      "title": "Ripple-65B Preview : The 65B Dense Model beats 500B+ MoE LLMs",
+      "url": "https://medium.com/data-science-in-your-pocket/ripple-65b-preview-the-65b-dense-model-beats-500b-moe-llms-613ec9f3c15e",
+      "by": "Mehul Gupta",
+      "time": 1794200987000,
+      "tags": [
+        "machine-learning",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "The Geometry Nobody Teaches in Medical AI",
+      "url": "https://medium.com/@sashminadhikari/the-geometry-nobody-teaches-in-medical-ai-d8182fb0e01b",
+      "by": "Sashmin Adhikari",
+      "time": 1794200761000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Instagram News Feed System Design: Fanout, Kafka, Redis & Ranking",
+      "url": "https://medium.com/engineering-playbook/instagram-news-feed-system-design-fanout-kafka-redis-ranking-7d743b780dce",
+      "by": "Devrim Ozcay",
+      "time": 1794200733000,
+      "tags": [
+        "design-systems",
+        "programming",
         "system-design-interview"
       ]
     },
     {
-      "title": "Chat Application System Design: WhatsApp, WebSockets, Kafka, Redis & Database",
-      "url": "https://medium.com/engineering-playbook/chat-application-system-design-whatsapp-websockets-kafka-redis-database-6d2788a3ccff",
-      "by": "Engineering Unfiltered",
-      "time": 1794197071000,
+      "title": "Big Data: Pemrosesan Data Streaming dengan Spark Structured Streaming",
+      "url": "https://medium.com/@sivanuraini0407/big-data-pemrosesan-data-streaming-dengan-spark-structured-streaming-39645e7fa82c",
+      "by": "Siva Nur Aini",
+      "time": 1794200700000,
       "tags": [
-        "software-development",
-        "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "How Google Maps MCP Is Changing the Way AI Agents Interact With the World",
-      "url": "https://medium.com/@gaddamnaveen192/how-google-maps-mcp-is-changing-the-way-ai-agents-interact-with-the-world-7a26347e78c8",
-      "by": "Gaddam.Naveen",
-      "time": 1794197056000,
-      "tags": [
-        "java",
-        "google",
-        "ai"
-      ]
-    },
-    {
-      "title": "7 HTML and CSS Tricks That Can Replace Your JavaScript Workarounds",
-      "url": "https://medium.com/@ishaqsaqib/7-html-and-css-tricks-that-can-replace-your-javascript-workarounds-da00c62166ce",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1794196861000,
-      "tags": [
-        "web-development",
-        "software-development",
-        "programming"
-      ]
-    },
-    {
-      "title": "1,300+ Frontend Interview Questions for 2026: JavaScript, React, Machine Coding and System Design…",
-      "url": "https://medium.com/@sumitsinghfrontend/1-300-frontend-interview-questions-for-2026-javascript-react-machine-coding-and-system-design-ec5a5b6b8ff4",
-      "by": "Sumitsinghfrontend",
-      "time": 1794196718000,
-      "tags": [
-        "software-engineering",
-        "react",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "Rate Limiter System Design: Redis, Token Bucket, Sliding Window, and Java",
-      "url": "https://medium.com/engineering-playbook/rate-limiter-system-design-redis-token-bucket-sliding-window-and-java-da7a081e8a1b",
-      "by": "Engineering Unfiltered",
-      "time": 1794196715000,
-      "tags": [
-        "microservices",
+        "linux",
         "programming",
         "java"
       ]
     },
     {
-      "title": "What Actually Happens When Python Imports a Module",
-      "url": "https://medium.com/skillstuff/what-actually-happens-when-python-imports-a-module-c48c787dab63",
-      "by": "CodeByUmar",
-      "time": 1794196633000,
+      "title": "Ticket Booking System Design: Prevent Double Booking With PostgreSQL & Redis",
+      "url": "https://medium.com/engineering-playbook/ticket-booking-system-design-prevent-double-booking-with-postgresql-redis-322b42cfe707",
+      "by": "Staff Engineer Mindset",
+      "time": 1794200466000,
       "tags": [
-        "software-development",
-        "python-programming",
-        "coding"
+        "system-design-interview",
+        "distributed-systems",
+        "programming"
       ]
     },
     {
-      "title": "Design a URL Shortener: Complete System Design Interview Guide With Architecture and Examples",
-      "url": "https://medium.com/engineering-playbook/design-a-url-shortener-complete-system-design-interview-guide-with-architecture-and-examples-0594edecf8df",
-      "by": "Engineering Unfiltered",
-      "time": 1794196596000,
+      "title": "The Complete Java & Spring Boot Interview Roadmap: Everything You Need to Master for 3–5 Years of…",
+      "url": "https://medium.com/@theturtlecode/the-complete-java-spring-boot-interview-roadmap-everything-you-need-to-master-for-3-5-years-of-5f6c691e7035",
+      "by": "The Turtle Code",
+      "time": 1794200461000,
       "tags": [
-        "python-programming",
-        "programming",
-        "software-development"
+        "technology",
+        "spring-boot",
+        "programming"
       ]
     },
     {
-      "title": "Connect Aider to HeFu: API Setup and Your First Coding Task",
-      "url": "https://medium.com/@xiewenyu713/connect-aider-to-hefu-api-setup-and-your-first-coding-task-02e8586cadec",
-      "by": "HeFuAI",
-      "time": 1794196550000,
+      "title": "Why Is Building a New Web Browser Almost Impossible?",
+      "url": "https://abkarikari23.medium.com/why-is-building-a-new-web-browser-almost-impossible-90e4728a6365",
+      "by": "Abraham Karikari",
+      "time": 1794200461000,
       "tags": [
-        "developer-tools",
-        "api",
-        "aider"
+        "technology",
+        "artificial-intelligence",
+        "web-browser"
       ]
     }
   ]
