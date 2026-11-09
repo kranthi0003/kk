@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T04:19:54.180Z",
+  "generated": "2026-11-09T04:22:10.553Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -34,17 +34,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
       "imdb": "https://www.imdb.com/title/tt21438726/"
-    },
-    {
-      "title": "Kathanar – The Wild Sorcerer",
-      "lang": "Indian",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "Upcoming Indian period fantasy film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/87/Kathanar_-_The_Wild_Sorcerer_poster.jpg/120px-Kathanar_-_The_Wild_Sorcerer_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Kathanar_%E2%80%93_The_Wild_Sorcerer",
-      "imdb": "https://www.imdb.com/title/tt11026686/"
     },
     {
       "title": "Aakasamlo Oka Tara",
@@ -143,7 +132,7 @@
       "desc": "Upcoming film by Rohit Shetty",
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Golmaal_5",
-      "imdb": null
+      "imdb": "https://www.imdb.com/title/tt9598520/"
     },
     {
       "title": "Gunmaaster G9",
@@ -155,6 +144,17 @@
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
       "imdb": "https://www.imdb.com/title/tt37539573/"
+    },
+    {
+      "title": "Jai Hind Jai Sindh: A Love Story",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Indian film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Jai_Hind_Jai_Sindh%3A_A_Love_Story",
+      "imdb": "https://www.imdb.com/title/tt40412562/"
     }
   ]
 }

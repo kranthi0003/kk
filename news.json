@@ -1,184 +1,186 @@
 {
-  "generated": "2026-11-08T04:20:45.850Z",
+  "generated": "2026-11-09T04:23:21.556Z",
   "reddit": [
     {
-      "title": "A quick look at zero-knowledge proofs",
-      "url": "https://www.reddit.com/r/programming/comments/1xqp9wx/a_quick_look_at_zeroknowledge_proofs/",
-      "by": "fagnerbrack",
-      "time": 1794110475000,
+      "title": "Gateway API Benchmark Part 3",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xrhhsi/gateway_api_benchmark_part_3/",
+      "by": "_howardjohn",
+      "time": 1794195831000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "KubeCon North America",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xre1hr/kubecon_north_america/",
+      "by": "fletch3555",
+      "time": 1794185342000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "C64 Demo Effect Explained: The Bumpmapped Rain in Lunatico",
+      "url": "https://www.reddit.com/r/programming/comments/1xrbciy/c64_demo_effect_explained_the_bumpmapped_rain_in/",
+      "by": "jailbird",
+      "time": 1794177785000,
       "sub": "r/programming"
     },
     {
-      "title": "Measured my single-machine deploy tool against Dokploy: method and raw logs inside",
-      "url": "https://www.reddit.com/r/devops/comments/1xqoinr/measured_my_singlemachine_deploy_tool_against/",
-      "by": "mynameiscorange",
-      "time": 1794107971000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Should You Learn Java in 2026?",
-      "url": "https://www.reddit.com/r/programming/comments/1xqlw7z/should_you_learn_java_in_2026/",
-      "by": "fagnerbrack",
-      "time": 1794099658000,
+      "title": "Spectre - A design-by-contract language with an explicit allocator-centric API that outperforms Zig by up to 6x on General Purpose Benchmarks",
+      "url": "https://www.reddit.com/r/programming/comments/1xraxrk/spectre_a_designbycontract_language_with_an/",
+      "by": "Top_Marionberry_4413",
+      "time": 1794176672000,
       "sub": "r/programming"
     },
     {
-      "title": "Unified Grid: How We Re-Architected Slack for Our Largest Customers",
-      "url": "https://www.reddit.com/r/programming/comments/1xqklmx/unified_grid_how_we_rearchitected_slack_for_our/",
-      "by": "Ok_Stomach6651",
-      "time": 1794095885000,
+      "title": "Senior Software Engineer AI Infrastructure",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xrax5z/senior_software_engineer_ai_infrastructure/",
+      "by": "E-H89",
+      "time": 1794176626000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Use of openTelemetry",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xr5yai/use_of_opentelemetry/",
+      "by": "Zyberon",
+      "time": 1794164074000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Sem86 - A full-system emulator without hardcoded semantics",
+      "url": "https://www.reddit.com/r/programming/comments/1xr4v4f/sem86_a_fullsystem_emulator_without_hardcoded/",
+      "by": "mttd",
+      "time": 1794161393000,
       "sub": "r/programming"
     },
     {
-      "title": "How to enable SSH clone on self hosted GitLab running in a private subnet behind an AWS ALB?",
-      "url": "https://www.reddit.com/r/devops/comments/1xq5aof/how_to_enable_ssh_clone_on_self_hosted_gitlab/",
-      "by": "Manoj-praba",
-      "time": 1794054752000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Is committing config-only .env files (no secrets) to a private repo really a security sin?",
-      "url": "https://www.reddit.com/r/devops/comments/1xq4acv/is_committing_configonly_env_files_no_secrets_to/",
-      "by": "tomoglava",
-      "time": 1794051218000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "how much money are you wasting on gpus doing nothing?",
-      "url": "https://www.reddit.com/r/devops/comments/1xq3vkb/how_much_money_are_you_wasting_on_gpus_doing/",
-      "by": "Old_Librarian_9916",
-      "time": 1794049646000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Across the whole DevOps stack (Pipelines, Terraform, K8s, Docker, Ansible), how much do you actually write by hand vs prompting or using templates?",
-      "url": "https://www.reddit.com/r/devops/comments/1xq3jjl/across_the_whole_devops_stack_pipelines_terraform/",
-      "by": "PuzzleheadedSoft6875",
-      "time": 1794048370000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Internals of asyncio",
-      "url": "https://www.reddit.com/r/programming/comments/1xq391t/internals_of_asyncio/",
-      "by": "humbulani-ndou",
-      "time": 1794047199000,
+      "title": "The Day After Code Is Already Here. This Is What You Need to Know to Survive.",
+      "url": "https://www.reddit.com/r/programming/comments/1xqz3rf/the_day_after_code_is_already_here_this_is_what/",
+      "by": "galratner",
+      "time": 1794146496000,
       "sub": "r/programming"
     },
     {
-      "title": "Libghostty 1.0",
-      "url": "https://www.reddit.com/r/programming/comments/1xptemt/libghostty_10/",
-      "by": "rmadriz",
-      "time": 1794013230000,
+      "title": "Micron - a Pascal/Oberon-derived systems language with the power of C",
+      "url": "https://www.reddit.com/r/programming/comments/1xqyx52/micron_a_pascaloberonderived_systems_language/",
+      "by": "suhcoR",
+      "time": 1794145978000,
       "sub": "r/programming"
+    },
+    {
+      "title": "I built a desktop app to bring SSH, Docker, Kubernetes & monitoring into one place – looking for feedback",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xqrbj3/i_built_a_desktop_app_to_bring_ssh_docker/",
+      "by": "RightWrongdoer6611",
+      "time": 1794117624000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Measuring Developer Value in the Age of AI: Beyond Code and Commits",
-      "url": "https://medium.com/@scosmexs/measuring-developer-value-in-the-age-of-ai-beyond-code-and-commits-37d88eb7f9f0",
-      "by": "Sebastiao Cosme Agostinho",
-      "time": 1794111453000,
+      "title": "Node.js Coverage Said 100%. One File Had No Tests at All",
+      "url": "https://martin128.medium.com/node-js-coverage-said-100-one-file-had-no-tests-at-all-5f232a2f2ebc",
+      "by": "Martin",
+      "time": 1794197461000,
       "tags": [
+        "testing",
         "software-engineering",
-        "ai",
-        "artificial-intelligence"
+        "nodejs"
       ]
     },
     {
-      "title": "MongoDB Disaster Recovery: Lessons from Real-World Architecture and POC Testing (Part 1/2)",
-      "url": "https://medium.com/@sitereliability/mongodb-disaster-recovery-lessons-from-real-world-architecture-and-poc-testing-part-1-2-499f27a6158d",
-      "by": "Midhun K",
-      "time": 1794111295000,
+      "title": "Payment System Design: Architecture, Idempotency, Kafka, PostgreSQL & Webhooks",
+      "url": "https://medium.com/engineering-playbook/payment-system-design-architecture-idempotency-kafka-postgresql-webhooks-6d6a76dcbc03",
+      "by": "Engineering Unfiltered",
+      "time": 1794197255000,
       "tags": [
-        "devops",
-        "design-systems",
-        "mongodb"
+        "microservices",
+        "backend-development",
+        "system-design-interview"
       ]
     },
     {
-      "title": "Caught in the Crosshairs: What the Tech Giants Will Do Next",
-      "url": "https://medium.com/@anandzade09/caught-in-the-crosshairs-what-the-tech-giants-will-do-next-3d46fc3b6612",
-      "by": "Anand Zade",
-      "time": 1794111189000,
-      "tags": [
-        "programming",
-        "data-science",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Your Cache Hit. It Answered a Different Question.",
-      "url": "https://medium.com/@jaberadam2001/your-cache-hit-it-answered-a-different-question-b4293ad81239",
-      "by": "Adam Jaber",
-      "time": 1794111073000,
-      "tags": [
-        "llm",
-        "caching",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Give Every Agent Instruction a Reason and a Check",
-      "url": "https://medium.com/@isaiahdupree33/give-every-agent-instruction-a-reason-and-a-check-85aa85e13a57",
-      "by": "Isaiah Dupree",
-      "time": 1794110913000,
-      "tags": [
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Stop Showing Users the Red Screen. Catch Every Flutter Crash Instead.",
-      "url": "https://medium.com/codetodeploy/stop-showing-users-the-red-screen-catch-every-flutter-crash-instead-24096c439e97",
-      "by": "Shikha",
-      "time": 1794110758000,
-      "tags": [
-        "software-engineering",
-        "dart",
-        "flutter"
-      ]
-    },
-    {
-      "title": "My browser OCR couldn’t read a sunscreen bottle. Here’s what fixed it.",
-      "url": "https://medium.com/@c.madhushankarox/my-browser-ocr-couldnt-read-a-sunscreen-bottle-here-s-what-fixed-it-939ad0cd4a2f",
-      "by": "Madhushanka",
-      "time": 1794110652000,
-      "tags": [
-        "programming",
-        "image-processing",
-        "web-development"
-      ]
-    },
-    {
-      "title": "I Gave Claude Code 5 Real C# Tasks on .NET 10. Two Failed the First Time.",
-      "url": "https://medium.com/@patelrajni31/i-gave-claude-code-5-real-c-tasks-on-net-10-two-failed-the-first-time-c760bf5dbab8",
-      "by": "Rajni Kavathiya",
-      "time": 1794110239000,
+      "title": "Chat Application System Design: WhatsApp, WebSockets, Kafka, Redis & Database",
+      "url": "https://medium.com/engineering-playbook/chat-application-system-design-whatsapp-websockets-kafka-redis-database-6d2788a3ccff",
+      "by": "Engineering Unfiltered",
+      "time": 1794197071000,
       "tags": [
         "software-development",
-        "artificial-intelligence",
-        "dotnet"
+        "technology",
+        "programming"
       ]
     },
     {
-      "title": "Designing Architecture Reviews for AI-First Teams: What Changes When AI Works Alongside the Team",
-      "url": "https://javascript.plainenglish.io/designing-architecture-reviews-for-ai-first-teams-what-changes-when-ai-works-alongside-the-team-49e22875f21a",
-      "by": "Martin Tien",
-      "time": 1794109451000,
+      "title": "How Google Maps MCP Is Changing the Way AI Agents Interact With the World",
+      "url": "https://medium.com/@gaddamnaveen192/how-google-maps-mcp-is-changing-the-way-ai-agents-interact-with-the-world-7a26347e78c8",
+      "by": "Gaddam.Naveen",
+      "time": 1794197056000,
+      "tags": [
+        "java",
+        "google",
+        "ai"
+      ]
+    },
+    {
+      "title": "7 HTML and CSS Tricks That Can Replace Your JavaScript Workarounds",
+      "url": "https://medium.com/@ishaqsaqib/7-html-and-css-tricks-that-can-replace-your-javascript-workarounds-da00c62166ce",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1794196861000,
+      "tags": [
+        "web-development",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "1,300+ Frontend Interview Questions for 2026: JavaScript, React, Machine Coding and System Design…",
+      "url": "https://medium.com/@sumitsinghfrontend/1-300-frontend-interview-questions-for-2026-javascript-react-machine-coding-and-system-design-ec5a5b6b8ff4",
+      "by": "Sumitsinghfrontend",
+      "time": 1794196718000,
       "tags": [
         "software-engineering",
-        "technology",
+        "react",
+        "system-design-interview"
+      ]
+    },
+    {
+      "title": "Rate Limiter System Design: Redis, Token Bucket, Sliding Window, and Java",
+      "url": "https://medium.com/engineering-playbook/rate-limiter-system-design-redis-token-bucket-sliding-window-and-java-da7a081e8a1b",
+      "by": "Engineering Unfiltered",
+      "time": 1794196715000,
+      "tags": [
+        "microservices",
+        "programming",
+        "java"
+      ]
+    },
+    {
+      "title": "What Actually Happens When Python Imports a Module",
+      "url": "https://medium.com/skillstuff/what-actually-happens-when-python-imports-a-module-c48c787dab63",
+      "by": "CodeByUmar",
+      "time": 1794196633000,
+      "tags": [
+        "software-development",
+        "python-programming",
+        "coding"
+      ]
+    },
+    {
+      "title": "Design a URL Shortener: Complete System Design Interview Guide With Architecture and Examples",
+      "url": "https://medium.com/engineering-playbook/design-a-url-shortener-complete-system-design-interview-guide-with-architecture-and-examples-0594edecf8df",
+      "by": "Engineering Unfiltered",
+      "time": 1794196596000,
+      "tags": [
+        "python-programming",
+        "programming",
         "software-development"
       ]
     },
     {
-      "title": "I Gave an Agent a Flaky Refund Tool — It Overpaid $2,230, and My UUID Idempotency Key Changed…",
-      "url": "https://medium.com/@anibha88/i-gave-an-agent-a-flaky-refund-tool-it-overpaid-2-230-and-my-uuid-idempotency-key-changed-ccfd9a11d1b2",
-      "by": "Nithin Bharadhwaj",
-      "time": 1794109175000,
+      "title": "Connect Aider to HeFu: API Setup and Your First Coding Task",
+      "url": "https://medium.com/@xiewenyu713/connect-aider-to-hefu-api-setup-and-your-first-coding-task-02e8586cadec",
+      "by": "HeFuAI",
+      "time": 1794196550000,
       "tags": [
-        "python",
-        "artificial-intelligence",
-        "programming"
+        "developer-tools",
+        "api",
+        "aider"
       ]
     }
   ]
