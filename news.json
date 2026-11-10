@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-09T05:26:20.494Z",
+  "generated": "2026-11-10T04:20:44.044Z",
   "reddit": [
     {
-      "title": "Gateway API Benchmark Part 3",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xrhhsi/gateway_api_benchmark_part_3/",
-      "by": "_howardjohn",
-      "time": 1794195831000,
-      "sub": "r/kubernetes"
+      "title": "I built AgentStory to make Codex and Claude Code sessions easier to find, revisit, and share",
+      "url": "https://www.reddit.com/r/devops/comments/1xsc4pp/i_built_agentstory_to_make_codex_and_claude_code/",
+      "by": "jewdore",
+      "time": 1794280268000,
+      "sub": "r/devops"
     },
     {
-      "title": "KubeCon North America",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xre1hr/kubecon_north_america/",
-      "by": "fletch3555",
-      "time": 1794185342000,
-      "sub": "r/kubernetes"
+      "title": "I made a free CLI that tells you which Dependabot alerts actually need fixing",
+      "url": "https://www.reddit.com/r/devops/comments/1xsbl3j/i_made_a_free_cli_that_tells_you_which_dependabot/",
+      "by": "munit42069",
+      "time": 1794278716000,
+      "sub": "r/devops"
     },
     {
-      "title": "C64 Demo Effect Explained: The Bumpmapped Rain in Lunatico",
-      "url": "https://www.reddit.com/r/programming/comments/1xrbciy/c64_demo_effect_explained_the_bumpmapped_rain_in/",
-      "by": "jailbird",
-      "time": 1794177785000,
+      "title": "Do I need release branches in this workflow, or another long lived branch?",
+      "url": "https://www.reddit.com/r/devops/comments/1xsacej/do_i_need_release_branches_in_this_workflow_or/",
+      "by": "Data-Panda",
+      "time": 1794275097000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How we reduced core unit boot time from hours to minutes",
+      "url": "https://www.reddit.com/r/programming/comments/1xs9ou9/how_we_reduced_core_unit_boot_time_from_hours_to/",
+      "by": "Ok_Stomach6651",
+      "time": 1794273195000,
       "sub": "r/programming"
     },
     {
-      "title": "Spectre - A design-by-contract language with an explicit allocator-centric API that outperforms Zig by up to 6x on General Purpose Benchmarks",
-      "url": "https://www.reddit.com/r/programming/comments/1xraxrk/spectre_a_designbycontract_language_with_an/",
-      "by": "Top_Marionberry_4413",
-      "time": 1794176672000,
+      "title": "I want to put secrets and env vars in git, fight me",
+      "url": "https://www.reddit.com/r/devops/comments/1xs6mlv/i_want_to_put_secrets_and_env_vars_in_git_fight_me/",
+      "by": "Navoke",
+      "time": 1794265174000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How we saved 100 terabytes of memory by optimizing 1.1.1.1’s DNS cache",
+      "url": "https://www.reddit.com/r/programming/comments/1xs558h/how_we_saved_100_terabytes_of_memory_by/",
+      "by": "fagnerbrack",
+      "time": 1794261614000,
       "sub": "r/programming"
     },
     {
-      "title": "Senior Software Engineer AI Infrastructure",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xrax5z/senior_software_engineer_ai_infrastructure/",
-      "by": "E-H89",
-      "time": 1794176626000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Use of openTelemetry",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xr5yai/use_of_opentelemetry/",
-      "by": "Zyberon",
-      "time": 1794164074000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Sem86 - A full-system emulator without hardcoded semantics",
-      "url": "https://www.reddit.com/r/programming/comments/1xr4v4f/sem86_a_fullsystem_emulator_without_hardcoded/",
+      "title": "The ENIAC in Context: 80 Years of Computing History",
+      "url": "https://www.reddit.com/r/programming/comments/1xrzu9t/the_eniac_in_context_80_years_of_computing_history/",
       "by": "mttd",
-      "time": 1794161393000,
+      "time": 1794249612000,
       "sub": "r/programming"
     },
     {
-      "title": "The Day After Code Is Already Here. This Is What You Need to Know to Survive.",
-      "url": "https://www.reddit.com/r/programming/comments/1xqz3rf/the_day_after_code_is_already_here_this_is_what/",
-      "by": "galratner",
-      "time": 1794146496000,
+      "title": "A Matrix Multiplication Algorithm Rooted In Graph Theory",
+      "url": "https://www.reddit.com/r/programming/comments/1xrwyq8/a_matrix_multiplication_algorithm_rooted_in_graph/",
+      "by": "DataBaeBee",
+      "time": 1794243333000,
       "sub": "r/programming"
     },
     {
-      "title": "Micron - a Pascal/Oberon-derived systems language with the power of C",
-      "url": "https://www.reddit.com/r/programming/comments/1xqyx52/micron_a_pascaloberonderived_systems_language/",
-      "by": "suhcoR",
-      "time": 1794145978000,
-      "sub": "r/programming"
+      "title": "How do you keep track of tools nobody uses anymore?",
+      "url": "https://www.reddit.com/r/devops/comments/1xrvzy6/how_do_you_keep_track_of_tools_nobody_uses_anymore/",
+      "by": "Dizzy-Caramel-",
+      "time": 1794241206000,
+      "sub": "r/devops"
     },
     {
-      "title": "I built a desktop app to bring SSH, Docker, Kubernetes & monitoring into one place – looking for feedback",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xqrbj3/i_built_a_desktop_app_to_bring_ssh_docker/",
-      "by": "RightWrongdoer6611",
-      "time": 1794117624000,
-      "sub": "r/kubernetes"
+      "title": "C# 15: Union Types, Closed Hierarchies, and the One Value™ That Isn't Any of Them · cekrem.github.io",
+      "url": "https://www.reddit.com/r/programming/comments/1xrrmk7/c_15_union_types_closed_hierarchies_and_the_one/",
+      "by": "cekrem",
+      "time": 1794230836000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "ONE SONG OF LOVE",
-      "url": "https://medium.com/@ezehe121/one-song-of-love-29fe3a5a8d91",
-      "by": "Emeka Ezeh",
-      "time": 1794201852000,
+      "title": "A Burst of 20 Hit My Node.js API. A Token Bucket Let 10 Through",
+      "url": "https://martin128.medium.com/a-burst-of-20-hit-my-node-js-api-a-token-bucket-let-10-through-d2b821d02a4c",
+      "by": "Martin",
+      "time": 1794283861000,
       "tags": [
-        "relationships",
-        "leadership",
-        "deep-learning"
-      ]
-    },
-    {
-      "title": "Ten Years Hidden in musl: Lessons From the OpenSSH SSHole Flaw (CVE-2026-123158)",
-      "url": "https://medium.com/@kazemmortazavi/ten-years-hidden-in-musl-lessons-from-the-openssh-sshole-flaw-cve-2026-123158-2b43d63d1a51",
-      "by": "Kazem Mortazavi",
-      "time": 1794201647000,
-      "tags": [
-        "devops",
-        "open-source",
-        "information-security"
-      ]
-    },
-    {
-      "title": "Terraform Infrastructure Drift: A Real-World AWS Troubleshooting Scenario",
-      "url": "https://medium.com/cloud-devops-ai-in-simple-terms/terraform-infrastructure-drift-a-real-world-aws-troubleshooting-scenario-edf778beae72",
-      "by": "Venkatramanan C S",
-      "time": 1794201532000,
-      "tags": [
-        "artificial-intelligence",
-        "devops",
-        "terraform"
-      ]
-    },
-    {
-      "title": "Ripple-65B Preview : The 65B Dense Model beats 500B+ MoE LLMs",
-      "url": "https://medium.com/data-science-in-your-pocket/ripple-65b-preview-the-65b-dense-model-beats-500b-moe-llms-613ec9f3c15e",
-      "by": "Mehul Gupta",
-      "time": 1794200987000,
-      "tags": [
-        "machine-learning",
+        "javascript",
         "programming",
-        "artificial-intelligence"
+        "nodejs"
       ]
     },
     {
-      "title": "The Geometry Nobody Teaches in Medical AI",
-      "url": "https://medium.com/@sashminadhikari/the-geometry-nobody-teaches-in-medical-ai-d8182fb0e01b",
-      "by": "Sashmin Adhikari",
-      "time": 1794200761000,
+      "title": "Buat bot telegram untuk otomasi edit google docs dengan mudah.",
+      "url": "https://medium.com/@akbarrizkianto/buat-bot-telegram-untuk-otomasi-edit-google-docs-dengan-mudah-1b1e5a54b81d",
+      "by": "akbar rizki",
+      "time": 1794283457000,
       "tags": [
-        "machine-learning",
+        "automation",
+        "programming",
+        "google-docs"
+      ]
+    },
+    {
+      "title": "How I built a native Mac app with Claude Code: spec, spikes, budget",
+      "url": "https://medium.com/@Zernonia/how-i-built-a-native-mac-app-with-claude-code-spec-spikes-budget-4c4b456a6ccf",
+      "by": "Zernonia",
+      "time": 1794283411000,
+      "tags": [
+        "software-development",
+        "ai",
+        "programming"
+      ]
+    },
+    {
+      "title": "What is Claude Fable 5.2? The New #1 AI Model Is Worth It — Just Not for Your Everyday Fixes",
+      "url": "https://medium.com/@lvntblsn/what-is-claude-fable-5-2-the-new-1-ai-model-is-worth-it-just-not-for-your-everyday-fixes-7ebbaad45217",
+      "by": "Levent Bulusan",
+      "time": 1794283304000,
+      "tags": [
+        "ai",
+        "programming",
+        "llm"
+      ]
+    },
+    {
+      "title": "The Generation That Taught the Machine",
+      "url": "https://medium.com/@chrisbuijs/the-generation-that-taught-the-machine-171fc16f3795",
+      "by": "Chris Buijs",
+      "time": 1794283261000,
+      "tags": [
         "artificial-intelligence",
+        "software-engineering",
+        "future"
+      ]
+    },
+    {
+      "title": "AI Cost Is an Engineering Decision",
+      "url": "https://medium.com/israeli-tech-radar/ai-cost-is-an-engineering-decision-23c1305a32da",
+      "by": "Amit Karni",
+      "time": 1794282843000,
+      "tags": [
+        "devops",
+        "ai-and-ml",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "CSS Forms Without Libraries: What’s Happening Behind Each Trick",
+      "url": "https://medium.com/@genildocs/css-forms-without-libraries-whats-happening-behind-each-trick-5734293dddf6",
+      "by": "Genildo cerqueira",
+      "time": 1794282814000,
+      "tags": [
+        "css",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Four channel voltage monitor — flash and clock driver",
+      "url": "https://medium.com/@patrickajoseph.linkedin/four-channel-voltage-monitor-flash-and-clock-driver-d0e5797fb4b6",
+      "by": "Patrick A Joseph",
+      "time": 1794282779000,
+      "tags": [
+        "software-development",
+        "software-engineering",
+        "c-programming"
+      ]
+    },
+    {
+      "title": "AI Agents Move from Code Generation to System-Level Engineering",
+      "url": "https://medium.com/@shubham.kumbhalkar/ai-agents-move-from-code-generation-to-system-level-engineering-4484f50ab66c",
+      "by": "Shubham Kumbhalkar",
+      "time": 1794282644000,
+      "tags": [
+        "software-development",
+        "ai",
         "software-engineering"
       ]
     },
     {
-      "title": "Instagram News Feed System Design: Fanout, Kafka, Redis & Ranking",
-      "url": "https://medium.com/engineering-playbook/instagram-news-feed-system-design-fanout-kafka-redis-ranking-7d743b780dce",
-      "by": "Devrim Ozcay",
-      "time": 1794200733000,
+      "title": "AI Feature Adoption: Why Usage Isn’t Adoption, and the 5 Metrics I Track Instead",
+      "url": "https://medium.com/@k.pranav_22/ai-feature-adoption-why-usage-isnt-adoption-and-the-5-metrics-i-track-instead-318fdae42367",
+      "by": "Pranav Kumar",
+      "time": 1794282463000,
       "tags": [
-        "design-systems",
-        "programming",
-        "system-design-interview"
-      ]
-    },
-    {
-      "title": "Big Data: Pemrosesan Data Streaming dengan Spark Structured Streaming",
-      "url": "https://medium.com/@sivanuraini0407/big-data-pemrosesan-data-streaming-dengan-spark-structured-streaming-39645e7fa82c",
-      "by": "Siva Nur Aini",
-      "time": 1794200700000,
-      "tags": [
-        "linux",
-        "programming",
-        "java"
-      ]
-    },
-    {
-      "title": "Ticket Booking System Design: Prevent Double Booking With PostgreSQL & Redis",
-      "url": "https://medium.com/engineering-playbook/ticket-booking-system-design-prevent-double-booking-with-postgresql-redis-322b42cfe707",
-      "by": "Staff Engineer Mindset",
-      "time": 1794200466000,
-      "tags": [
-        "system-design-interview",
-        "distributed-systems",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Complete Java & Spring Boot Interview Roadmap: Everything You Need to Master for 3–5 Years of…",
-      "url": "https://medium.com/@theturtlecode/the-complete-java-spring-boot-interview-roadmap-everything-you-need-to-master-for-3-5-years-of-5f6c691e7035",
-      "by": "The Turtle Code",
-      "time": 1794200461000,
-      "tags": [
-        "technology",
-        "spring-boot",
-        "programming"
-      ]
-    },
-    {
-      "title": "Why Is Building a New Web Browser Almost Impossible?",
-      "url": "https://abkarikari23.medium.com/why-is-building-a-new-web-browser-almost-impossible-90e4728a6365",
-      "by": "Abraham Karikari",
-      "time": 1794200461000,
-      "tags": [
-        "technology",
+        "machine-learning",
         "artificial-intelligence",
-        "web-browser"
+        "software-engineering"
       ]
     }
   ]
