@@ -1,12 +1,61 @@
 {
-  "generated": "2026-11-10T10:23:45.701Z",
+  "generated": "2026-11-10T14:25:22.951Z",
   "reddit": [
+    {
+      "title": "Kubecost and CAST AI are telling us opposite things about the same EKS cluster",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsneqz/kubecost_and_cast_ai_are_telling_us_opposite/",
+      "by": "OnoniewuGehovany99",
+      "time": 1794318670000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Let Over Lambda book is now free to read online",
+      "url": "https://www.reddit.com/r/programming/comments/1xskt8m/let_over_lambda_book_is_now_free_to_read_online/",
+      "by": "alexeyr",
+      "time": 1794311122000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Microservices can work for low-latency workloads",
+      "url": "https://www.reddit.com/r/programming/comments/1xskt6g/microservices_can_work_for_lowlatency_workloads/",
+      "by": "Happycodeine",
+      "time": 1794311116000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How do you give each customer an isolated cluster and let their teams share idle GPUs? Tested on bare-metal H100s",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xskkqc/how_do_you_give_each_customer_an_isolated_cluster/",
+      "by": "dariotranchitella",
+      "time": 1794310307000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Weekly: Questions and advice",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsk1ap/weekly_questions_and_advice/",
+      "by": "AutoModerator",
+      "time": 1794308405000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "A faster way to calculate the date of Easter",
       "url": "https://www.reddit.com/r/programming/comments/1xsiojn/a_faster_way_to_calculate_the_date_of_easter/",
       "by": "benjoffe",
       "time": 1794303402000,
       "sub": "r/programming"
+    },
+    {
+      "title": "Forced to cut costs on an overprovisioned cluster and automation is my only option and I hate it",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsik08/forced_to_cut_costs_on_an_overprovisioned_cluster/",
+      "by": "Jumpy_Duty_3557",
+      "time": 1794302917000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "How does distributed systems handle node discovery?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsh7da/how_does_distributed_systems_handle_node_discovery/",
+      "by": "SiegeEngine1111",
+      "time": 1794297586000,
+      "sub": "r/kubernetes"
     },
     {
       "title": "Haiku 5.5 sped up Duktape 2.0 more than the maintainers' 2.2.0 release did",
@@ -21,166 +70,117 @@
       "by": "ChromeBadger",
       "time": 1794286779000,
       "sub": "r/programming"
-    },
-    {
-      "title": "I made a free CLI that tells you which Dependabot alerts actually need fixing",
-      "url": "https://www.reddit.com/r/devops/comments/1xsbl3j/i_made_a_free_cli_that_tells_you_which_dependabot/",
-      "by": "munit42069",
-      "time": 1794278716000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Do I need release branches in this workflow, or another long lived branch?",
-      "url": "https://www.reddit.com/r/devops/comments/1xsacej/do_i_need_release_branches_in_this_workflow_or/",
-      "by": "Data-Panda",
-      "time": 1794275097000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How we reduced core unit boot time from hours to minutes",
-      "url": "https://www.reddit.com/r/programming/comments/1xs9ou9/how_we_reduced_core_unit_boot_time_from_hours_to/",
-      "by": "Ok_Stomach6651",
-      "time": 1794273195000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I want to put secrets and env vars in git, fight me",
-      "url": "https://www.reddit.com/r/devops/comments/1xs6mlv/i_want_to_put_secrets_and_env_vars_in_git_fight_me/",
-      "by": "Navoke",
-      "time": 1794265174000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "The ENIAC in Context: 80 Years of Computing History",
-      "url": "https://www.reddit.com/r/programming/comments/1xrzu9t/the_eniac_in_context_80_years_of_computing_history/",
-      "by": "mttd",
-      "time": 1794249612000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How do you keep track of tools nobody uses anymore?",
-      "url": "https://www.reddit.com/r/devops/comments/1xrvzy6/how_do_you_keep_track_of_tools_nobody_uses_anymore/",
-      "by": "Dizzy-Caramel-",
-      "time": 1794241206000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "New to AWS: Project-based roadmap for production-ready infra? (Course & tutorial recs?)",
-      "url": "https://www.reddit.com/r/devops/comments/1xrt02l/new_to_aws_projectbased_roadmap_for/",
-      "by": "Big-Educator-7119",
-      "time": 1794234351000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Local AI Models: When, Why and How to Run Them",
-      "url": "https://medium.com/codetodeploy/local-ai-models-when-why-and-how-to-run-them-07b1c6e51152",
-      "by": "Gaurav Gupta",
-      "time": 1794305685000,
+      "title": "Distributed Transactions Explained: What Happens When Multiple Microservices Must Work Together?",
+      "url": "https://ramakrishna-01.medium.com/distributed-transactions-explained-what-happens-when-multiple-microservices-must-work-together-34c3529bc24b",
+      "by": "Ram",
+      "time": 1794320400000,
       "tags": [
         "software-engineering",
-        "generative-ai-tools",
-        "ollama"
-      ]
-    },
-    {
-      "title": "Stop Memorizing DP Solutions. Learn How to Think in Dynamic Programming.",
-      "url": "https://medium.com/codetodeploy/stop-memorizing-dp-solutions-learn-how-to-think-in-dynamic-programming-d65c9a8c0356",
-      "by": "Kumar Gaurav",
-      "time": 1794305614000,
-      "tags": [
-        "software-development",
-        "data-structures",
-        "algorithms"
-      ]
-    },
-    {
-      "title": "Did Anthropic Nerf Opus to Sell Fable? Claude Fable 5.2",
-      "url": "https://joets.medium.com/did-anthropic-nerf-opus-to-sell-fable-claude-fable-5-2-edfcc21af2f4",
-      "by": "Joe T. Santhanavanich",
-      "time": 1794305523000,
-      "tags": [
-        "software-engineering",
-        "ai",
-        "claude-code"
-      ]
-    },
-    {
-      "title": "Your AI Coding Agent Is Snitching on You",
-      "url": "https://medium.com/@pravneet07singh/your-ai-coding-agent-is-snitching-on-you-a087009d3919",
-      "by": "Parry",
-      "time": 1794305255000,
-      "tags": [
-        "software-engineering",
-        "cybersecurity",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "Things Nobody Told Me as a Newly Promoted Manager",
-      "url": "https://medium.com/@matjablonowski/things-nobody-told-me-as-a-newly-promoted-manager-5130929d2a40",
-      "by": "Mateusz Jablonowski",
-      "time": 1794305190000,
-      "tags": [
-        "software-engineering",
-        "personal-development",
+        "message-queue",
         "software-development"
       ]
     },
     {
-      "title": "Tiered Context: A Knowledge Hierarchy for AI Agents",
-      "url": "https://medium.com/practical-llm-systems/tiered-context-a-knowledge-hierarchy-for-ai-agents-965211fd158f",
-      "by": "Rost Glukhov",
-      "time": 1794305163000,
+      "title": "Beyond Vibe Coding: Mengenal Coding Harness Engineering untuk Membangun Software dengan AI Secara…",
+      "url": "https://medium.com/@anditaurban/beyond-vibe-coding-mengenal-coding-harness-engineering-untuk-membangun-software-dengan-ai-secara-096d40814565",
+      "by": "Andita Urban",
+      "time": 1794320375000,
       "tags": [
         "artificial-intelligence",
-        "knowledge-management",
-        "software-engineering"
+        "programming",
+        "developer-tools"
       ]
     },
     {
-      "title": "agent-browser Gives AI Agents a Browser They Drive From the Shell",
-      "url": "https://medium.com/@abhinav.dobhal/agent-browser-gives-ai-agents-a-browser-they-drive-from-the-shell-bc333b975e3b",
-      "by": "Abhinav Dobhal",
-      "time": 1794305161000,
+      "title": "Claude Fable 5.2 Returns “Bound to a Different Conversation”? Your Agent Rewrote Its Own History.",
+      "url": "https://medium.com/@chinmayshringi4/claude-fable-5-2-returns-bound-to-a-different-conversation-your-agent-rewrote-its-own-history-dabea957b611",
+      "by": "Chinmay Shringi",
+      "time": 1794320291000,
+      "tags": [
+        "claude",
+        "ai-agent",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "OpenAI Silently Switched 1 in 5 Requests to a New Model. Developers Found Out From Their Own Data.",
+      "url": "https://sumanthpoola.medium.com/openai-silently-switched-1-in-5-requests-to-a-new-model-developers-found-out-from-their-own-data-fa3ecba2de30",
+      "by": "Sumanth",
+      "time": 1794320284000,
       "tags": [
         "programming",
-        "artificial-intelligence",
+        "chatgpt",
+        "software-development"
+      ]
+    },
+    {
+      "title": "React Native interviews happen at the boundary",
+      "url": "https://salari-dev.medium.com/react-native-interviews-happen-at-the-boundary-85fb38a59f21",
+      "by": "Mike Salari",
+      "time": 1794320161000,
+      "tags": [
+        "mobile-app-development",
+        "javascript",
+        "react-native"
+      ]
+    },
+    {
+      "title": "Typed LLM Routing in Rust: Cut Cost Without Cutting Quality",
+      "url": "https://medium.com/@andrelgcclaudino/typed-llm-routing-in-rust-cut-cost-without-cutting-quality-2045ee92dab4",
+      "by": "André Claudino",
+      "time": 1794320107000,
+      "tags": [
+        "performance",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Wasmtime 48 Denies Sockets by Default: What Breaks and How to Fix It",
+      "url": "https://medium.com/@rothyyorn9/wasmtime-48-denies-sockets-by-default-what-breaks-and-how-to-fix-it-d0a0309516c0",
+      "by": "Rothy Yorn",
+      "time": 1794320060000,
+      "tags": [
+        "technology",
+        "programming",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "Oracle Session History Without the Diagnostics Pack",
+      "url": "https://medium.com/@scopsdev/oracle-session-history-without-the-diagnostics-pack-ec8a14c77de4",
+      "by": "Scops",
+      "time": 1794319975000,
+      "tags": [
+        "devops",
+        "oracle",
+        "database"
+      ]
+    },
+    {
+      "title": "AI və Proqramlaşdırma: Kod yazmaq asanlaşdı, bəs real məhsul hazırlamaq?",
+      "url": "https://medium.com/@ufateh2006/ai-v%C9%99-proqramla%C5%9Fd%C4%B1rma-kod-yazmaq-asanla%C5%9Fd%C4%B1-b%C9%99s-real-m%C9%99hsul-haz%C4%B1rlamaq-1ef092b5dc55",
+      "by": "Umarov Fateh",
+      "time": 1794319962000,
+      "tags": [
+        "ai",
+        "programming",
         "ai-agent"
       ]
     },
     {
-      "title": "10 Apache Airflow Best Practices Every Data Engineer Should Know",
-      "url": "https://medium.com/codetodeploy/10-apache-airflow-best-practices-every-data-engineer-should-know-955f013769a7",
-      "by": "Aditi Saxena",
-      "time": 1794305086000,
+      "title": "Disable the Skills You Will Never Use in Hermes ⚕",
+      "url": "https://j3ffyang.medium.com/disable-the-skills-you-will-never-use-in-hermes-d4ac344dd9c4",
+      "by": "j3ffyang",
+      "time": 1794319861000,
       "tags": [
-        "python",
-        "data-pipeline",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Case Study: Neutralization of Fraudulent Investment & Phishing Infrastructure",
-      "url": "https://medium.com/@coldreckoning/case-study-neutralization-of-fraudulent-investment-phishing-infrastructure-0b3e2b14753c",
-      "by": "Cold Reckoning",
-      "time": 1794305008000,
-      "tags": [
-        "investing",
-        "cybersecurity",
-        "programming"
-      ]
-    },
-    {
-      "title": "Trending Open Source AI Projects",
-      "url": "https://medium.com/@rosgluk/trending-open-source-ai-projects-7624b2d4dbeb",
-      "by": "Rost Glukhov",
-      "time": 1794304882000,
-      "tags": [
+        "ai-agent",
         "software-engineering",
-        "software-development",
-        "technology"
+        "hermes-agent"
       ]
     }
   ]
