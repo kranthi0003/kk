@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10T04:19:52.089Z",
+  "generated": "2026-11-10T10:22:53.285Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -141,7 +141,7 @@
       "precision": null,
       "by": null,
       "desc": "2026 Indian Hindi-language action thriller film",
-      "poster": null,
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Gunmaaster_G9_film_poster.jpg/120px-Gunmaaster_G9_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
       "imdb": "https://www.imdb.com/title/tt37539573/"
     },

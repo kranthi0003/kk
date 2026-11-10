@@ -1,12 +1,26 @@
 {
-  "generated": "2026-11-10T04:20:44.044Z",
+  "generated": "2026-11-10T10:23:45.701Z",
   "reddit": [
     {
-      "title": "I built AgentStory to make Codex and Claude Code sessions easier to find, revisit, and share",
-      "url": "https://www.reddit.com/r/devops/comments/1xsc4pp/i_built_agentstory_to_make_codex_and_claude_code/",
-      "by": "jewdore",
-      "time": 1794280268000,
-      "sub": "r/devops"
+      "title": "A faster way to calculate the date of Easter",
+      "url": "https://www.reddit.com/r/programming/comments/1xsiojn/a_faster_way_to_calculate_the_date_of_easter/",
+      "by": "benjoffe",
+      "time": 1794303402000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Haiku 5.5 sped up Duktape 2.0 more than the maintainers' 2.2.0 release did",
+      "url": "https://www.reddit.com/r/programming/comments/1xsg8z5/haiku_55_sped_up_duktape_20_more_than_the/",
+      "by": "Baltsat",
+      "time": 1794293931000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Decoding REXPaint Files in Odin",
+      "url": "https://www.reddit.com/r/programming/comments/1xse6zb/decoding_rexpaint_files_in_odin/",
+      "by": "ChromeBadger",
+      "time": 1794286779000,
+      "sub": "r/programming"
     },
     {
       "title": "I made a free CLI that tells you which Dependabot alerts actually need fixing",
@@ -37,24 +51,10 @@
       "sub": "r/devops"
     },
     {
-      "title": "How we saved 100 terabytes of memory by optimizing 1.1.1.1’s DNS cache",
-      "url": "https://www.reddit.com/r/programming/comments/1xs558h/how_we_saved_100_terabytes_of_memory_by/",
-      "by": "fagnerbrack",
-      "time": 1794261614000,
-      "sub": "r/programming"
-    },
-    {
       "title": "The ENIAC in Context: 80 Years of Computing History",
       "url": "https://www.reddit.com/r/programming/comments/1xrzu9t/the_eniac_in_context_80_years_of_computing_history/",
       "by": "mttd",
       "time": 1794249612000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "A Matrix Multiplication Algorithm Rooted In Graph Theory",
-      "url": "https://www.reddit.com/r/programming/comments/1xrwyq8/a_matrix_multiplication_algorithm_rooted_in_graph/",
-      "by": "DataBaeBee",
-      "time": 1794243333000,
       "sub": "r/programming"
     },
     {
@@ -65,122 +65,122 @@
       "sub": "r/devops"
     },
     {
-      "title": "C# 15: Union Types, Closed Hierarchies, and the One Value™ That Isn't Any of Them · cekrem.github.io",
-      "url": "https://www.reddit.com/r/programming/comments/1xrrmk7/c_15_union_types_closed_hierarchies_and_the_one/",
-      "by": "cekrem",
-      "time": 1794230836000,
-      "sub": "r/programming"
+      "title": "New to AWS: Project-based roadmap for production-ready infra? (Course & tutorial recs?)",
+      "url": "https://www.reddit.com/r/devops/comments/1xrt02l/new_to_aws_projectbased_roadmap_for/",
+      "by": "Big-Educator-7119",
+      "time": 1794234351000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "A Burst of 20 Hit My Node.js API. A Token Bucket Let 10 Through",
-      "url": "https://martin128.medium.com/a-burst-of-20-hit-my-node-js-api-a-token-bucket-let-10-through-d2b821d02a4c",
-      "by": "Martin",
-      "time": 1794283861000,
+      "title": "Local AI Models: When, Why and How to Run Them",
+      "url": "https://medium.com/codetodeploy/local-ai-models-when-why-and-how-to-run-them-07b1c6e51152",
+      "by": "Gaurav Gupta",
+      "time": 1794305685000,
       "tags": [
-        "javascript",
-        "programming",
-        "nodejs"
+        "software-engineering",
+        "generative-ai-tools",
+        "ollama"
       ]
     },
     {
-      "title": "Buat bot telegram untuk otomasi edit google docs dengan mudah.",
-      "url": "https://medium.com/@akbarrizkianto/buat-bot-telegram-untuk-otomasi-edit-google-docs-dengan-mudah-1b1e5a54b81d",
-      "by": "akbar rizki",
-      "time": 1794283457000,
-      "tags": [
-        "automation",
-        "programming",
-        "google-docs"
-      ]
-    },
-    {
-      "title": "How I built a native Mac app with Claude Code: spec, spikes, budget",
-      "url": "https://medium.com/@Zernonia/how-i-built-a-native-mac-app-with-claude-code-spec-spikes-budget-4c4b456a6ccf",
-      "by": "Zernonia",
-      "time": 1794283411000,
+      "title": "Stop Memorizing DP Solutions. Learn How to Think in Dynamic Programming.",
+      "url": "https://medium.com/codetodeploy/stop-memorizing-dp-solutions-learn-how-to-think-in-dynamic-programming-d65c9a8c0356",
+      "by": "Kumar Gaurav",
+      "time": 1794305614000,
       "tags": [
         "software-development",
-        "ai",
-        "programming"
+        "data-structures",
+        "algorithms"
       ]
     },
     {
-      "title": "What is Claude Fable 5.2? The New #1 AI Model Is Worth It — Just Not for Your Everyday Fixes",
-      "url": "https://medium.com/@lvntblsn/what-is-claude-fable-5-2-the-new-1-ai-model-is-worth-it-just-not-for-your-everyday-fixes-7ebbaad45217",
-      "by": "Levent Bulusan",
-      "time": 1794283304000,
+      "title": "Did Anthropic Nerf Opus to Sell Fable? Claude Fable 5.2",
+      "url": "https://joets.medium.com/did-anthropic-nerf-opus-to-sell-fable-claude-fable-5-2-edfcc21af2f4",
+      "by": "Joe T. Santhanavanich",
+      "time": 1794305523000,
       "tags": [
-        "ai",
-        "programming",
-        "llm"
-      ]
-    },
-    {
-      "title": "The Generation That Taught the Machine",
-      "url": "https://medium.com/@chrisbuijs/the-generation-that-taught-the-machine-171fc16f3795",
-      "by": "Chris Buijs",
-      "time": 1794283261000,
-      "tags": [
-        "artificial-intelligence",
         "software-engineering",
-        "future"
+        "ai",
+        "claude-code"
       ]
     },
     {
-      "title": "AI Cost Is an Engineering Decision",
-      "url": "https://medium.com/israeli-tech-radar/ai-cost-is-an-engineering-decision-23c1305a32da",
-      "by": "Amit Karni",
-      "time": 1794282843000,
+      "title": "Your AI Coding Agent Is Snitching on You",
+      "url": "https://medium.com/@pravneet07singh/your-ai-coding-agent-is-snitching-on-you-a087009d3919",
+      "by": "Parry",
+      "time": 1794305255000,
       "tags": [
-        "devops",
-        "ai-and-ml",
+        "software-engineering",
+        "cybersecurity",
         "ai-agent"
       ]
     },
     {
-      "title": "CSS Forms Without Libraries: What’s Happening Behind Each Trick",
-      "url": "https://medium.com/@genildocs/css-forms-without-libraries-whats-happening-behind-each-trick-5734293dddf6",
-      "by": "Genildo cerqueira",
-      "time": 1794282814000,
+      "title": "Things Nobody Told Me as a Newly Promoted Manager",
+      "url": "https://medium.com/@matjablonowski/things-nobody-told-me-as-a-newly-promoted-manager-5130929d2a40",
+      "by": "Mateusz Jablonowski",
+      "time": 1794305190000,
       "tags": [
-        "css",
-        "programming",
-        "technology"
-      ]
-    },
-    {
-      "title": "Four channel voltage monitor — flash and clock driver",
-      "url": "https://medium.com/@patrickajoseph.linkedin/four-channel-voltage-monitor-flash-and-clock-driver-d0e5797fb4b6",
-      "by": "Patrick A Joseph",
-      "time": 1794282779000,
-      "tags": [
-        "software-development",
         "software-engineering",
-        "c-programming"
+        "personal-development",
+        "software-development"
       ]
     },
     {
-      "title": "AI Agents Move from Code Generation to System-Level Engineering",
-      "url": "https://medium.com/@shubham.kumbhalkar/ai-agents-move-from-code-generation-to-system-level-engineering-4484f50ab66c",
-      "by": "Shubham Kumbhalkar",
-      "time": 1794282644000,
+      "title": "Tiered Context: A Knowledge Hierarchy for AI Agents",
+      "url": "https://medium.com/practical-llm-systems/tiered-context-a-knowledge-hierarchy-for-ai-agents-965211fd158f",
+      "by": "Rost Glukhov",
+      "time": 1794305163000,
       "tags": [
-        "software-development",
-        "ai",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AI Feature Adoption: Why Usage Isn’t Adoption, and the 5 Metrics I Track Instead",
-      "url": "https://medium.com/@k.pranav_22/ai-feature-adoption-why-usage-isnt-adoption-and-the-5-metrics-i-track-instead-318fdae42367",
-      "by": "Pranav Kumar",
-      "time": 1794282463000,
-      "tags": [
-        "machine-learning",
         "artificial-intelligence",
+        "knowledge-management",
         "software-engineering"
+      ]
+    },
+    {
+      "title": "agent-browser Gives AI Agents a Browser They Drive From the Shell",
+      "url": "https://medium.com/@abhinav.dobhal/agent-browser-gives-ai-agents-a-browser-they-drive-from-the-shell-bc333b975e3b",
+      "by": "Abhinav Dobhal",
+      "time": 1794305161000,
+      "tags": [
+        "programming",
+        "artificial-intelligence",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "10 Apache Airflow Best Practices Every Data Engineer Should Know",
+      "url": "https://medium.com/codetodeploy/10-apache-airflow-best-practices-every-data-engineer-should-know-955f013769a7",
+      "by": "Aditi Saxena",
+      "time": 1794305086000,
+      "tags": [
+        "python",
+        "data-pipeline",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Case Study: Neutralization of Fraudulent Investment & Phishing Infrastructure",
+      "url": "https://medium.com/@coldreckoning/case-study-neutralization-of-fraudulent-investment-phishing-infrastructure-0b3e2b14753c",
+      "by": "Cold Reckoning",
+      "time": 1794305008000,
+      "tags": [
+        "investing",
+        "cybersecurity",
+        "programming"
+      ]
+    },
+    {
+      "title": "Trending Open Source AI Projects",
+      "url": "https://medium.com/@rosgluk/trending-open-source-ai-projects-7624b2d4dbeb",
+      "by": "Rost Glukhov",
+      "time": 1794304882000,
+      "tags": [
+        "software-engineering",
+        "software-development",
+        "technology"
       ]
     }
   ]
