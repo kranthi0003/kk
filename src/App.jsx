@@ -55,6 +55,7 @@ const Her = lazy(() => import('./components/Her'))
 const ItsAlwaysHer = lazy(() => import('./components/ItsAlwaysHer'))
 const SevenAM = lazy(() => import('./components/SevenAM'))
 const SparkPrep = lazy(() => import('./components/SparkPrep'))
+const TamPrep = lazy(() => import('./components/TamPrep'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
@@ -129,7 +130,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  const [intro, setIntro] = useState(wantsAgentIntro)
+  // The private study guide opens straight to its own gate and intro clip.
+  const [intro, setIntro] = useState(() => !/^#\/tam\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -540,6 +542,15 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#fff8f4' }}><div className="text-xs font-mono" style={{ color: '#7050a6' }}>loading…</div></div>}>
         <SparkPrep onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Password-protected study guide; every word is in its encrypted payload.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/tam') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#001e2b' }}><div className="text-xs font-mono" style={{ color: '#00ed64' }}>loading…</div></div>}>
+        <TamPrep onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
