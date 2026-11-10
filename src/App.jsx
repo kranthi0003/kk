@@ -56,6 +56,7 @@ const ItsAlwaysHer = lazy(() => import('./components/ItsAlwaysHer'))
 const SevenAM = lazy(() => import('./components/SevenAM'))
 const SparkPrep = lazy(() => import('./components/SparkPrep'))
 const WallE = lazy(() => import('./components/WallE'))
+const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
@@ -500,6 +501,15 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#211a30' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(242,207,156,0.6)' }}>charging…</div></div>}>
         <WallE onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // 11:11 — a playful wish note, private and shared directly by link.
+  if (route === '#/1111') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#171329' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(255,215,138,0.7)' }}>making a wish…</div></div>}>
+        <ElevenEleven onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
