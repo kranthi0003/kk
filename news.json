@@ -1,13 +1,6 @@
 {
-  "generated": "2026-11-11T13:08:16.469Z",
+  "generated": "2026-11-11T13:24:43.794Z",
   "reddit": [
-    {
-      "title": "Event driven architectures with kubernetes-sigs/headlamp and Knative",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtgtih/event_driven_architectures_with/",
-      "by": "illumen",
-      "time": 1794401092000,
-      "sub": "r/kubernetes"
-    },
     {
       "title": "Why We Shouldn't Trust Clocks in Distributed Systems",
       "url": "https://www.reddit.com/r/programming/comments/1xtfqog/why_we_shouldnt_trust_clocks_in_distributed/",
@@ -16,18 +9,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtexco/weekly_show_off_your_new_tools_and_projects_thread/",
-      "by": "AutoModerator",
-      "time": 1794394843000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Your HPA adds replicas after the spike, not during it",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtdvps/your_hpa_adds_replicas_after_the_spike_not_during/",
-      "by": "FallElectronic3774",
-      "time": 1794391014000,
-      "sub": "r/kubernetes"
+      "title": "How to learn while also completing tasks?",
+      "url": "https://www.reddit.com/r/devops/comments/1xt9f2g/how_to_learn_while_also_completing_tasks/",
+      "by": "postnasal7459",
+      "time": 1794374533000,
+      "sub": "r/devops"
     },
     {
       "title": "Regressive JPEGs",
@@ -44,11 +30,11 @@
       "sub": "r/programming"
     },
     {
-      "title": "I built a tool that tells you which deploy made a Postgres query slower",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xt00dd/i_built_a_tool_that_tells_you_which_deploy_made_a/",
-      "by": "joao_detomini",
-      "time": 1794347932000,
-      "sub": "r/kubernetes"
+      "title": "Need Guidance..",
+      "url": "https://www.reddit.com/r/devops/comments/1xszn5r/need_guidance/",
+      "by": "DocumentOk6562",
+      "time": 1794347025000,
+      "sub": "r/devops"
     },
     {
       "title": "A Chromium Bug Caused by a 25-Hour Day",
@@ -58,6 +44,13 @@
       "sub": "r/programming"
     },
     {
+      "title": "What’s the one tool in your stack you wish you could throw in the bin?",
+      "url": "https://www.reddit.com/r/devops/comments/1xsvrsd/whats_the_one_tool_in_your_stack_you_wish_you/",
+      "by": "Much-Television-9449",
+      "time": 1794337938000,
+      "sub": "r/devops"
+    },
+    {
       "title": "Benchmarking iOS builds on Apple silicon: newer chips beat extra cores",
       "url": "https://www.reddit.com/r/programming/comments/1xsuvp3/benchmarking_ios_builds_on_apple_silicon_newer/",
       "by": "Patient-Pollution46",
@@ -65,14 +58,87 @@
       "sub": "r/programming"
     },
     {
-      "title": "Why a Java pod gets OOMKilled with a half-empty heap: the memory budget, and three JVM container defaults that are easy to get wrong",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsu32c/why_a_java_pod_gets_oomkilled_with_a_halfempty/",
-      "by": "Andrii_Dre",
-      "time": 1794334173000,
-      "sub": "r/kubernetes"
+      "title": "Running additional checks after automated code review",
+      "url": "https://www.reddit.com/r/devops/comments/1xsr3pd/running_additional_checks_after_automated_code/",
+      "by": "Pure-Hat-8663",
+      "time": 1794327497000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Future of Devops engineers with IA",
+      "url": "https://www.reddit.com/r/devops/comments/1xsmsbc/future_of_devops_engineers_with_ia/",
+      "by": "ApprehensiveExcuse86",
+      "time": 1794316999000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
+    {
+      "title": "Claude Fable 5.2",
+      "url": "https://medium.com/@iamsupcat/claude-fable-5-2-938b4944e970",
+      "by": "HomoFuturus",
+      "time": 1794402322000,
+      "tags": [
+        "ai-agent",
+        "claude",
+        "claude-code"
+      ]
+    },
+    {
+      "title": "PactFlow in the Pipeline: Can-I-Deploy, Environments, Webhooks, and Bi-Directional Contract Testing",
+      "url": "https://medium.com/@sayedebad.777/pactflow-in-the-pipeline-can-i-deploy-environments-webhooks-and-bi-directional-contract-testing-08e1d04fb350",
+      "by": "Ebad Sayed",
+      "time": 1794402311000,
+      "tags": [
+        "contract-testing",
+        "jenkins",
+        "devops"
+      ]
+    },
+    {
+      "title": "PactFlow Explained: Contract Testing, Consumers, Providers, and Catching Breaking Changes Before…",
+      "url": "https://medium.com/@sayedebad.777/pactflow-explained-contract-testing-consumers-providers-and-catching-breaking-changes-before-7007930fbf0a",
+      "by": "Ebad Sayed",
+      "time": 1794402246000,
+      "tags": [
+        "devops",
+        "pactflow",
+        "contract-testing"
+      ]
+    },
+    {
+      "title": "Test Model Policy Precedence Before You Automate Copilot Access",
+      "url": "https://medium.com/@thereviewsurface/test-model-policy-precedence-before-you-automate-copilot-access-5a4c3f2ff1d9",
+      "by": "The Review Surface",
+      "time": 1794402063000,
+      "tags": [
+        "ai-governance",
+        "software-development",
+        "devops"
+      ]
+    },
+    {
+      "title": "Kubernetes Networking, Actually Explained: From a Single Pod to a Full Mesh",
+      "url": "https://poojabolla.medium.com/kubernetes-networking-actually-explained-from-a-single-pod-to-a-full-mesh-59a54f3a6d8c",
+      "by": "Pooja Bolla",
+      "time": 1794402063000,
+      "tags": [
+        "networking",
+        "service-mesh",
+        "devops"
+      ]
+    },
+    {
+      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
+      "url": "https://medium.com/@micahowfeeneyfmf63/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-51e18e2196ae",
+      "by": "Spinmama Casino",
+      "time": 1794402056000,
+      "tags": [
+        "web-development",
+        "technology",
+        "programming"
+      ]
+    },
     {
       "title": "Building Is Easy. Distribution Is Hard.",
       "url": "https://devdeejay.medium.com/building-is-easy-distribution-is-hard-a351afd57c70",
@@ -96,17 +162,6 @@
       ]
     },
     {
-      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
-      "url": "https://medium.com/@judsonkcbogisicoxn67/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-5e8895fd9cb7",
-      "by": "Spingranny Casino",
-      "time": 1794401584000,
-      "tags": [
-        "web-development",
-        "cybersecurity",
-        "programming"
-      ]
-    },
-    {
       "title": "Cloud Storage Risks That Fly Under The Radar",
       "url": "https://medium.com/@Talha_mushtaq/cloud-storage-risks-that-fly-under-the-radar-971052622613",
       "by": "Talha Mushtaq",
@@ -125,61 +180,6 @@
       "tags": [
         "freelancing",
         "golang",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Can AI Ever Be Conscious?",
-      "url": "https://aiadvances.org/can-ai-ever-be-conscious-29fc31cb0006",
-      "by": "Artilogic",
-      "time": 1794401004000,
-      "tags": [
-        "programming",
-        "data-science",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "Our Staff Engineer Was Told to Train His AI Replacement. He Asked for the Severance Package First",
-      "url": "https://medium.com/engineering-playbook/our-staff-engineer-was-told-to-train-his-ai-replacement-he-asked-for-the-severance-package-first-9fc493c1b6a2",
-      "by": "The Staff Engineer's Desk",
-      "time": 1794400547000,
-      "tags": [
-        "programming",
-        "technology",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Our Startup Paid an AI Engineer $350K. The Data Engineer Training Him Made $140K",
-      "url": "https://medium.com/engineering-playbook/our-startup-paid-an-ai-engineer-350k-the-data-engineer-training-him-made-140k-2dcdf14b037c",
-      "by": "The Staff Engineer's Desk",
-      "time": 1794400290000,
-      "tags": [
-        "artificial-intelligence",
-        "technology",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Git Workflows That Don’t Suck",
-      "url": "https://medium.com/@bharat.chandera/git-workflows-that-dont-suck-73023723520f",
-      "by": "Bharat Chandera",
-      "time": 1794400261000,
-      "tags": [
-        "programming",
-        "devops",
-        "git"
-      ]
-    },
-    {
-      "title": "Engineers Don’t Need a Prefix. The Work Is the Title.",
-      "url": "https://therigorousbuilder.mdfarhankhan.com/engineers-dont-need-a-prefix-the-work-is-the-title-62883cf557ff",
-      "by": "Md. Farhan Khan",
-      "time": 1794400227000,
-      "tags": [
-        "artificial-intelligence",
-        "careers",
         "software-engineering"
       ]
     }
