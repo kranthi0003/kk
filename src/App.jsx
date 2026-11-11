@@ -332,7 +332,7 @@ function AppPages({ route, intro }) {
   // Private, password-protected planner and tracker; all content is encrypted.
   if (route.toLowerCase().replace(/\/+$/, '') === '#/meta') {
     return (
-      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#f1f4f7' }}><div className="text-xs font-mono" style={{ color: '#0064e0' }}>loading…</div></div>}>
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b1015' }}><div className="text-xs font-mono" style={{ color: '#5aa7ff' }}>loading…</div></div>}>
         <PlanTracker onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
