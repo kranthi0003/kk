@@ -1,6 +1,62 @@
 {
-  "generated": "2026-11-10T15:00:18.746Z",
+  "generated": "2026-11-11T04:21:21.854Z",
   "reddit": [
+    {
+      "title": "Regressive JPEGs",
+      "url": "https://www.reddit.com/r/programming/comments/1xt7wkx/regressive_jpegs/",
+      "by": "fagnerbrack",
+      "time": 1794369660000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Where Does The Experience Come From?",
+      "url": "https://www.reddit.com/r/programming/comments/1xt6lvq/where_does_the_experience_come_from/",
+      "by": "tlitd",
+      "time": 1794365754000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "I built a tool that tells you which deploy made a Postgres query slower",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xt00dd/i_built_a_tool_that_tells_you_which_deploy_made_a/",
+      "by": "joao_detomini",
+      "time": 1794347932000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "A Chromium Bug Caused by a 25-Hour Day",
+      "url": "https://www.reddit.com/r/programming/comments/1xsvulu/a_chromium_bug_caused_by_a_25hour_day/",
+      "by": "SamrayLeung",
+      "time": 1794338119000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Benchmarking iOS builds on Apple silicon: newer chips beat extra cores",
+      "url": "https://www.reddit.com/r/programming/comments/1xsuvp3/benchmarking_ios_builds_on_apple_silicon_newer/",
+      "by": "Patient-Pollution46",
+      "time": 1794335912000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Why a Java pod gets OOMKilled with a half-empty heap: the memory budget, and three JVM container defaults that are easy to get wrong",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsu32c/why_a_java_pod_gets_oomkilled_with_a_halfempty/",
+      "by": "Andrii_Dre",
+      "time": 1794334173000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Announcing .NET 11",
+      "url": "https://www.reddit.com/r/programming/comments/1xstxzv/announcing_net_11/",
+      "by": "359Panda3U",
+      "time": 1794333869000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Kubernetes Non-Core Security Audit",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xsprfn/kubernetes_noncore_security_audit/",
+      "by": "smaury",
+      "time": 1794324444000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "Kubecost and CAST AI are telling us opposite things about the same EKS cluster",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xsneqz/kubecost_and_cast_ai_are_telling_us_opposite/",
@@ -9,178 +65,122 @@
       "sub": "r/kubernetes"
     },
     {
-      "title": "Let Over Lambda book is now free to read online",
-      "url": "https://www.reddit.com/r/programming/comments/1xskt8m/let_over_lambda_book_is_now_free_to_read_online/",
-      "by": "alexeyr",
-      "time": 1794311122000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Microservices can work for low-latency workloads",
-      "url": "https://www.reddit.com/r/programming/comments/1xskt6g/microservices_can_work_for_lowlatency_workloads/",
-      "by": "Happycodeine",
-      "time": 1794311116000,
-      "sub": "r/programming"
-    },
-    {
       "title": "How do you give each customer an isolated cluster and let their teams share idle GPUs? Tested on bare-metal H100s",
       "url": "https://www.reddit.com/r/kubernetes/comments/1xskkqc/how_do_you_give_each_customer_an_isolated_cluster/",
       "by": "dariotranchitella",
       "time": 1794310307000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "Weekly: Questions and advice",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsk1ap/weekly_questions_and_advice/",
-      "by": "AutoModerator",
-      "time": 1794308405000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A faster way to calculate the date of Easter",
-      "url": "https://www.reddit.com/r/programming/comments/1xsiojn/a_faster_way_to_calculate_the_date_of_easter/",
-      "by": "benjoffe",
-      "time": 1794303402000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Forced to cut costs on an overprovisioned cluster and automation is my only option and I hate it",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsik08/forced_to_cut_costs_on_an_overprovisioned_cluster/",
-      "by": "Jumpy_Duty_3557",
-      "time": 1794302917000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How does distributed systems handle node discovery?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsh7da/how_does_distributed_systems_handle_node_discovery/",
-      "by": "SiegeEngine1111",
-      "time": 1794297586000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Haiku 5.5 sped up Duktape 2.0 more than the maintainers' 2.2.0 release did",
-      "url": "https://www.reddit.com/r/programming/comments/1xsg8z5/haiku_55_sped_up_duktape_20_more_than_the/",
-      "by": "Baltsat",
-      "time": 1794293931000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Decoding REXPaint Files in Odin",
-      "url": "https://www.reddit.com/r/programming/comments/1xse6zb/decoding_rexpaint_files_in_odin/",
-      "by": "ChromeBadger",
-      "time": 1794286779000,
-      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Design a Real-Time Analytics System: 1 Million Events Per Second",
-      "url": "https://medium.com/engineering-playbook/design-a-real-time-analytics-system-1-million-events-per-second-35c9d4b00900",
-      "by": "Staff Engineer Mindset",
-      "time": 1794321978000,
+      "title": "One CPU-Bound Python Thread Can Make Your Socket Calls 1,000 Times Slower",
+      "url": "https://python.plainenglish.io/one-cpu-bound-python-thread-can-make-your-socket-calls-1-000-times-slower-5b4bbcc2299b",
+      "by": "Tihomir Manushev",
+      "time": 1794370316000,
       "tags": [
         "programming",
-        "system-design-concepts",
-        "distributed-systems"
-      ]
-    },
-    {
-      "title": "How to Reduce Flutter App Size by 80MB: A Rive Optimization Guide",
-      "url": "https://medium.com/@savaliya.ravi.rs/how-to-reduce-flutter-app-size-by-80mb-a-rive-optimization-guide-d237b14f33f3",
-      "by": "Ravi Savaliya",
-      "time": 1794321961000,
-      "tags": [
-        "software-development",
-        "programming",
-        "flutter"
-      ]
-    },
-    {
-      "title": "GitHub’s August 2026 Capacity Failure: Four Load Balancers Ran Out of Flow Room | Buildopsy",
-      "url": "https://medium.com/@BuildOpsy/githubs-august-2026-capacity-failure-four-load-balancers-ran-out-of-flow-room-buildopsy-b1d5694f8c24",
-      "by": "BuildOpsy",
-      "time": 1794321950000,
-      "tags": [
-        "site-reliability-engineer",
-        "architecture",
-        "sre"
-      ]
-    },
-    {
-      "title": "Who reviews the code your AI coding agents write?",
-      "url": "https://medium.com/@teamstation/who-reviews-the-code-your-ai-coding-agents-write-0f13e7403e2a",
-      "by": "Lonnie McRorey",
-      "time": 1794321947000,
-      "tags": [
-        "cto",
-        "ai-sdlc",
+        "python",
         "software-engineering"
       ]
     },
     {
-      "title": "Database Sharding vs. Partitioning: The Decision That Can Ruin Your System Design",
-      "url": "https://medium.com/engineering-playbook/database-sharding-vs-partitioning-the-decision-that-can-ruin-your-system-design-78627ff452cc",
-      "by": "Staff Engineer Mindset",
-      "time": 1794321728000,
+      "title": "Your Tests Would Still Pass If the Code Were Wrong",
+      "url": "https://medium.com/@jaberadam2001/your-tests-would-still-pass-if-the-code-were-wrong-ee1bf2b3de04",
+      "by": "Adam Jaber",
+      "time": 1794369953000,
+      "tags": [
+        "software-testing",
+        "career-advice",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "I Saw a Speaking App on Instagram. A Few Weeks Later, I’d Built My Own with AI.",
+      "url": "https://medium.com/@gayathrimahamkali/i-saw-a-speaking-app-on-instagram-a-few-weeks-later-id-built-my-own-with-ai-b1b1cebf396d",
+      "by": "Gayathrimahamkali",
+      "time": 1794369819000,
+      "tags": [
+        "startup",
+        "software-engineering",
+        "side-project"
+      ]
+    },
+    {
+      "title": "Your Client Timed Out. The Server Kept Working.",
+      "url": "https://manishsaini74.medium.com/your-client-timed-out-the-server-kept-working-2b825d9aee7f",
+      "by": "Manish Saini",
+      "time": 1794369662000,
+      "tags": [
+        "test-automation",
+        "software-testing",
+        "quality-assurance"
+      ]
+    },
+    {
+      "title": "#1 — There Was One Seat Left. Two People Booked It. ️",
+      "url": "https://medium.com/@vishal_13_/1-there-was-one-seat-left-two-people-booked-it-%EF%B8%8F-73136eea87c2",
+      "by": "Vishal Junghare",
+      "time": 1794369662000,
       "tags": [
         "software-engineering",
-        "programming",
+        "backend-development",
         "database"
       ]
     },
     {
-      "title": "Stop Cleaning Bad Data Manually: Build a Data Quality Checker in Python",
-      "url": "https://medium.com/@tanzilali.rizvi/stop-cleaning-bad-data-manually-build-a-data-quality-checker-in-python-a094d29d39fa",
-      "by": "Tanzil Ali Rizvi",
-      "time": 1794321667000,
+      "title": "My Marketing Code Outgrew My App. Nobody Was Reviewing It.",
+      "url": "https://bobde-yagyesh.medium.com/my-marketing-code-outgrew-my-app-nobody-was-reviewing-it-69fefd3173ae",
+      "by": "Yagyesh Bobde",
+      "time": 1794369470000,
       "tags": [
-        "data-science",
-        "programming",
-        "python"
+        "startup",
+        "productivity",
+        "automation"
       ]
     },
     {
-      "title": "Data Visualization Using Python: A Beginner’s Guide to Turning Data into Insights",
-      "url": "https://medium.com/@rishabgamingyt2/data-visualization-using-python-a-beginners-guide-to-turning-data-into-insights-f802a5853108",
-      "by": "RISHUB SINGH V",
-      "time": 1794321592000,
+      "title": "Understanding Cron Jobs in Linux: My First Step Towards Automation in DevOps",
+      "url": "https://medium.com/@osama2771997/understanding-cron-jobs-in-linux-my-first-step-towards-automation-in-devops-9613a9b15539",
+      "by": "Osama",
+      "time": 1794369383000,
       "tags": [
-        "machine-learning",
-        "python",
-        "data-science"
+        "cronjob",
+        "azure-devops",
+        "linux"
       ]
     },
     {
-      "title": "AI System Design Interview: Build an AI Agent That Survives Production",
-      "url": "https://medium.com/@developer_programmer/ai-system-design-interview-build-an-ai-agent-that-survives-production-59d6d2bb1189",
-      "by": "Staff Engineer Mindset",
-      "time": 1794321566000,
+      "title": "Spring Boot Testing and Context Caching: Why Your Tests Are Slow, Flaky, and Sometimes Surprisingly…",
+      "url": "https://medium.com/@theturtlecode/spring-boot-testing-and-context-caching-why-your-tests-are-slow-flaky-and-sometimes-surprisingly-44fffd63fdb6",
+      "by": "The Turtle Code",
+      "time": 1794369361000,
       "tags": [
-        "data-science",
+        "technology",
+        "spring-boot",
+        "software-development"
+      ]
+    },
+    {
+      "title": "AI Video Generation Got a Draft Tier: What Gemini Omni 1.2 Flash Changes in Your Pipeline",
+      "url": "https://medium.com/@k.pranav_22/ai-video-generation-got-a-draft-tier-what-gemini-omni-1-2-flash-changes-in-your-pipeline-a8ec58d4edc0",
+      "by": "Pranav Kumar",
+      "time": 1794369232000,
+      "tags": [
+        "product-management",
         "software-engineering",
-        "artificial-intelligence"
+        "generative-ai"
       ]
     },
     {
-      "title": "NumPy and Pandas for Beginners: Essential Python Libraries for Data Analysis",
-      "url": "https://medium.com/@rishabgamingyt2/numpy-and-pandas-for-beginners-essential-python-libraries-for-data-analysis-08af2f8a73eb",
-      "by": "RISHUB SINGH V",
-      "time": 1794321491000,
+      "title": "Which of Uber’s 6,000 Services Can Take You Down?",
+      "url": "https://medium.com/@shubhamvermatech/which-of-ubers-6-000-services-can-take-you-down-82de2bb0de89",
+      "by": "Shubham Verma",
+      "time": 1794369191000,
       "tags": [
-        "pandas",
-        "numpy",
-        "programming"
-      ]
-    },
-    {
-      "title": "Como utilizar Subagents no Gemini CLI durante uma migração Angular 11 para Angular 20",
-      "url": "https://medium.com/@edward.ramos.guimaraes/como-utilizar-subagents-no-gemini-cli-durante-uma-migra%C3%A7%C3%A3o-angular-11-para-angular-20-2d82332cfb25",
-      "by": "Edward Ramos",
-      "time": 1794321441000,
-      "tags": [
-        "software-engineering",
-        "ai-agent",
-        "angular"
+        "uber",
+        "reliability",
+        "distributed-systems"
       ]
     }
   ]
