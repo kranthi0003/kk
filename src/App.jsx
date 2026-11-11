@@ -56,6 +56,7 @@ const ItsAlwaysHer = lazy(() => import('./components/ItsAlwaysHer'))
 const SevenAM = lazy(() => import('./components/SevenAM'))
 const SparkPrep = lazy(() => import('./components/SparkPrep'))
 const TamPrep = lazy(() => import('./components/TamPrep'))
+const PlanTracker = lazy(() => import('./components/PlanTracker'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
@@ -130,8 +131,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The private study guide opens straight to its own gate and intro clip.
-  const [intro, setIntro] = useState(() => !/^#\/tam\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The private study guide and planner open straight to their own gates.
+  const [intro, setIntro] = useState(() => !/^#\/(tam|meta)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -324,6 +325,15 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
         <GoalSingapore onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Private, password-protected planner and tracker; all content is encrypted.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/meta') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#f1f4f7' }}><div className="text-xs font-mono" style={{ color: '#0064e0' }}>loading…</div></div>}>
+        <PlanTracker onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
