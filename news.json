@@ -1,6 +1,34 @@
 {
-  "generated": "2026-11-11T04:21:21.854Z",
+  "generated": "2026-11-11T13:08:16.469Z",
   "reddit": [
+    {
+      "title": "Event driven architectures with kubernetes-sigs/headlamp and Knative",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xtgtih/event_driven_architectures_with/",
+      "by": "illumen",
+      "time": 1794401092000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Why We Shouldn't Trust Clocks in Distributed Systems",
+      "url": "https://www.reddit.com/r/programming/comments/1xtfqog/why_we_shouldnt_trust_clocks_in_distributed/",
+      "by": "H_chibaX",
+      "time": 1794397705000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Weekly: Show off your new tools and projects thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xtexco/weekly_show_off_your_new_tools_and_projects_thread/",
+      "by": "AutoModerator",
+      "time": 1794394843000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Your HPA adds replicas after the spike, not during it",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xtdvps/your_hpa_adds_replicas_after_the_spike_not_during/",
+      "by": "FallElectronic3774",
+      "time": 1794391014000,
+      "sub": "r/kubernetes"
+    },
     {
       "title": "Regressive JPEGs",
       "url": "https://www.reddit.com/r/programming/comments/1xt7wkx/regressive_jpegs/",
@@ -42,145 +70,117 @@
       "by": "Andrii_Dre",
       "time": 1794334173000,
       "sub": "r/kubernetes"
-    },
-    {
-      "title": "Announcing .NET 11",
-      "url": "https://www.reddit.com/r/programming/comments/1xstxzv/announcing_net_11/",
-      "by": "359Panda3U",
-      "time": 1794333869000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes Non-Core Security Audit",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsprfn/kubernetes_noncore_security_audit/",
-      "by": "smaury",
-      "time": 1794324444000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Kubecost and CAST AI are telling us opposite things about the same EKS cluster",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsneqz/kubecost_and_cast_ai_are_telling_us_opposite/",
-      "by": "OnoniewuGehovany99",
-      "time": 1794318670000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "How do you give each customer an isolated cluster and let their teams share idle GPUs? Tested on bare-metal H100s",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xskkqc/how_do_you_give_each_customer_an_isolated_cluster/",
-      "by": "dariotranchitella",
-      "time": 1794310307000,
-      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "One CPU-Bound Python Thread Can Make Your Socket Calls 1,000 Times Slower",
-      "url": "https://python.plainenglish.io/one-cpu-bound-python-thread-can-make-your-socket-calls-1-000-times-slower-5b4bbcc2299b",
-      "by": "Tihomir Manushev",
-      "time": 1794370316000,
+      "title": "Building Is Easy. Distribution Is Hard.",
+      "url": "https://devdeejay.medium.com/building-is-easy-distribution-is-hard-a351afd57c70",
+      "by": "Dhananjay Trivedi",
+      "time": 1794401838000,
       "tags": [
         "programming",
-        "python",
+        "software-development",
+        "startup"
+      ]
+    },
+    {
+      "title": "You don’t need LaTeX to use Jake’s Resume",
+      "url": "https://medium.com/@abhayrana286/you-dont-need-latex-to-use-jake-s-resume-21fee51723d1",
+      "by": "Abhayrana",
+      "time": 1794401710000,
+      "tags": [
+        "software-engineering",
+        "latex",
+        "job-search"
+      ]
+    },
+    {
+      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
+      "url": "https://medium.com/@judsonkcbogisicoxn67/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-5e8895fd9cb7",
+      "by": "Spingranny Casino",
+      "time": 1794401584000,
+      "tags": [
+        "web-development",
+        "cybersecurity",
+        "programming"
+      ]
+    },
+    {
+      "title": "Cloud Storage Risks That Fly Under The Radar",
+      "url": "https://medium.com/@Talha_mushtaq/cloud-storage-risks-that-fly-under-the-radar-971052622613",
+      "by": "Talha Mushtaq",
+      "time": 1794401100000,
+      "tags": [
+        "programming",
+        "cybersecurity",
+        "cloud"
+      ]
+    },
+    {
+      "title": "Meet GekGo — 2.5 million simulated parcels, one real codebase",
+      "url": "https://medium.com/@ryanleehancock/meet-gekgo-2-5-million-simulated-parcels-one-real-codebase-2886fb502596",
+      "by": "Ryan Hancock",
+      "time": 1794401006000,
+      "tags": [
+        "freelancing",
+        "golang",
         "software-engineering"
       ]
     },
     {
-      "title": "Your Tests Would Still Pass If the Code Were Wrong",
-      "url": "https://medium.com/@jaberadam2001/your-tests-would-still-pass-if-the-code-were-wrong-ee1bf2b3de04",
-      "by": "Adam Jaber",
-      "time": 1794369953000,
+      "title": "Can AI Ever Be Conscious?",
+      "url": "https://aiadvances.org/can-ai-ever-be-conscious-29fc31cb0006",
+      "by": "Artilogic",
+      "time": 1794401004000,
       "tags": [
-        "software-testing",
-        "career-advice",
-        "software-engineering"
+        "programming",
+        "data-science",
+        "machine-learning"
       ]
     },
     {
-      "title": "I Saw a Speaking App on Instagram. A Few Weeks Later, I’d Built My Own with AI.",
-      "url": "https://medium.com/@gayathrimahamkali/i-saw-a-speaking-app-on-instagram-a-few-weeks-later-id-built-my-own-with-ai-b1b1cebf396d",
-      "by": "Gayathrimahamkali",
-      "time": 1794369819000,
+      "title": "Our Staff Engineer Was Told to Train His AI Replacement. He Asked for the Severance Package First",
+      "url": "https://medium.com/engineering-playbook/our-staff-engineer-was-told-to-train-his-ai-replacement-he-asked-for-the-severance-package-first-9fc493c1b6a2",
+      "by": "The Staff Engineer's Desk",
+      "time": 1794400547000,
       "tags": [
-        "startup",
-        "software-engineering",
-        "side-project"
-      ]
-    },
-    {
-      "title": "Your Client Timed Out. The Server Kept Working.",
-      "url": "https://manishsaini74.medium.com/your-client-timed-out-the-server-kept-working-2b825d9aee7f",
-      "by": "Manish Saini",
-      "time": 1794369662000,
-      "tags": [
-        "test-automation",
-        "software-testing",
-        "quality-assurance"
-      ]
-    },
-    {
-      "title": "#1 — There Was One Seat Left. Two People Booked It. ️",
-      "url": "https://medium.com/@vishal_13_/1-there-was-one-seat-left-two-people-booked-it-%EF%B8%8F-73136eea87c2",
-      "by": "Vishal Junghare",
-      "time": 1794369662000,
-      "tags": [
-        "software-engineering",
-        "backend-development",
-        "database"
-      ]
-    },
-    {
-      "title": "My Marketing Code Outgrew My App. Nobody Was Reviewing It.",
-      "url": "https://bobde-yagyesh.medium.com/my-marketing-code-outgrew-my-app-nobody-was-reviewing-it-69fefd3173ae",
-      "by": "Yagyesh Bobde",
-      "time": 1794369470000,
-      "tags": [
-        "startup",
-        "productivity",
-        "automation"
-      ]
-    },
-    {
-      "title": "Understanding Cron Jobs in Linux: My First Step Towards Automation in DevOps",
-      "url": "https://medium.com/@osama2771997/understanding-cron-jobs-in-linux-my-first-step-towards-automation-in-devops-9613a9b15539",
-      "by": "Osama",
-      "time": 1794369383000,
-      "tags": [
-        "cronjob",
-        "azure-devops",
-        "linux"
-      ]
-    },
-    {
-      "title": "Spring Boot Testing and Context Caching: Why Your Tests Are Slow, Flaky, and Sometimes Surprisingly…",
-      "url": "https://medium.com/@theturtlecode/spring-boot-testing-and-context-caching-why-your-tests-are-slow-flaky-and-sometimes-surprisingly-44fffd63fdb6",
-      "by": "The Turtle Code",
-      "time": 1794369361000,
-      "tags": [
+        "programming",
         "technology",
-        "spring-boot",
-        "software-development"
+        "software-engineering"
       ]
     },
     {
-      "title": "AI Video Generation Got a Draft Tier: What Gemini Omni 1.2 Flash Changes in Your Pipeline",
-      "url": "https://medium.com/@k.pranav_22/ai-video-generation-got-a-draft-tier-what-gemini-omni-1-2-flash-changes-in-your-pipeline-a8ec58d4edc0",
-      "by": "Pranav Kumar",
-      "time": 1794369232000,
+      "title": "Our Startup Paid an AI Engineer $350K. The Data Engineer Training Him Made $140K",
+      "url": "https://medium.com/engineering-playbook/our-startup-paid-an-ai-engineer-350k-the-data-engineer-training-him-made-140k-2dcdf14b037c",
+      "by": "The Staff Engineer's Desk",
+      "time": 1794400290000,
       "tags": [
-        "product-management",
-        "software-engineering",
-        "generative-ai"
+        "artificial-intelligence",
+        "technology",
+        "data-science"
       ]
     },
     {
-      "title": "Which of Uber’s 6,000 Services Can Take You Down?",
-      "url": "https://medium.com/@shubhamvermatech/which-of-ubers-6-000-services-can-take-you-down-82de2bb0de89",
-      "by": "Shubham Verma",
-      "time": 1794369191000,
+      "title": "Git Workflows That Don’t Suck",
+      "url": "https://medium.com/@bharat.chandera/git-workflows-that-dont-suck-73023723520f",
+      "by": "Bharat Chandera",
+      "time": 1794400261000,
       "tags": [
-        "uber",
-        "reliability",
-        "distributed-systems"
+        "programming",
+        "devops",
+        "git"
+      ]
+    },
+    {
+      "title": "Engineers Don’t Need a Prefix. The Work Is the Title.",
+      "url": "https://therigorousbuilder.mdfarhankhan.com/engineers-dont-need-a-prefix-the-work-is-the-title-62883cf557ff",
+      "by": "Md. Farhan Khan",
+      "time": 1794400227000,
+      "tags": [
+        "artificial-intelligence",
+        "careers",
+        "software-engineering"
       ]
     }
   ]

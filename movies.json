@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11T04:20:29.285Z",
+  "generated": "2026-11-11T13:07:23.754Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -12,6 +12,17 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cf/Yeh_Prem_Mol_Liya_film_poster.jpg/120px-Yeh_Prem_Mol_Liya_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Yeh_Prem_Mol_Liya",
       "imdb": "https://www.imdb.com/title/tt38907401/"
+    },
+    {
+      "title": "Maatrubhumi: May War Rest in Peace",
+      "lang": "Hindi",
+      "date": "2026-12-04",
+      "precision": "day",
+      "by": "Apoorva Lakhia",
+      "desc": "Upcoming Indian film by Apoorva Lakhia",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
+      "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
       "title": "King",
@@ -34,17 +45,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/20/Varanasi_%282027_film%29_poster.jpg/120px-Varanasi_%282027_film%29_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Varanasi_(film)",
       "imdb": "https://www.imdb.com/title/tt21438726/"
-    },
-    {
-      "title": "Maatrubhumi: May War Rest in Peace",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": "Apoorva Lakhia",
-      "desc": "Upcoming Indian film by Apoorva Lakhia",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f0/Maatrubhumi_film_poster.jpg/120px-Maatrubhumi_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Maatrubhumi%3A_May_War_Rest_in_Peace",
-      "imdb": "https://www.imdb.com/title/tt27610832/"
     },
     {
       "title": "Aakasamlo Oka Tara",
