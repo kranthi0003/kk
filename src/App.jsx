@@ -48,6 +48,7 @@ const AskPage = lazy(() => import('./components/AskPage'))
 const EbcPage = lazy(() => import('./components/EbcPage'))
 const CongratsPage = lazy(() => import('./components/CongratsPage'))
 const SaladsPage = lazy(() => import('./components/SaladsPage'))
+const MealPlan = lazy(() => import('./components/MealPlan'))
 const AllTheBest = lazy(() => import('./components/AllTheBest'))
 const ExamPage = lazy(() => import('./components/ExamPage'))
 const OneMonth = lazy(() => import('./components/OneMonth'))
@@ -131,8 +132,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The private study guide and planner open straight to their own gates.
-  const [intro, setIntro] = useState(() => !/^#\/(tam|meta)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The study guide, planner and meal plan open straight away, without the intro.
+  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -352,6 +353,15 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">tossing…</div></div>}>
         <SaladsPage onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Meal plan — a seven-day Indian plan that opens on today, via #/meals
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/meals') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">plating…</div></div>}>
+        <MealPlan onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

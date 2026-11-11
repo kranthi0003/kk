@@ -870,6 +870,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
                 { icon: '🗓️', label: 'Timeline', action: () => { window.location.hash = '#/timeline' } },
                 { icon: '📍', label: 'Now', action: () => { window.location.hash = '#/now' } },
                 { icon: '🧰', label: 'Uses', action: () => { window.location.hash = '#/uses' } },
+                { icon: '🍱', label: 'Meals', action: () => { window.location.hash = '#/meals' } },
                 { icon: '🏠', label: 'Home Base', action: () => { window.location.hash = '#/royalsquare' } },
                 { icon: '🏎️', label: 'F1', action: () => { window.location.hash = '#/f1' } },
                 { icon: '🎵', label: 'Ambient', action: () => window.dispatchEvent(new CustomEvent('toggle-ambient')), full: true },
@@ -976,6 +977,7 @@ function ToolsDropdown() {
     { icon: <ReadIcon />,   label: 'Now',                onClick: () => { window.location.hash = '#/now' } },
     { icon: <ReadIcon />,   label: 'Knowledge Base',     onClick: () => { window.location.hash = '#/notes' } },
     { icon: <ReadIcon />,   label: 'Uses',               onClick: () => { window.location.hash = '#/uses' } },
+    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M9 21h6"/><path d="M9 7c0-1.2 1-1.5 1-3M14 7c0-1.2 1-1.5 1-3"/></svg>, label: 'Meal Plan', onClick: () => { window.location.hash = '#/meals' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>, label: 'Royal Square', onClick: () => { window.location.hash = '#/royalsquare' } },
     { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>, label: 'Ambient Sound', onClick: () => window.dispatchEvent(new CustomEvent('toggle-ambient')), full: true },
     { icon: <MailIcon />,   label: 'Hire Me',           onClick: () => {

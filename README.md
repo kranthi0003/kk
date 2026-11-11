@@ -46,7 +46,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 🧮 **Calculators** | Dev calc, carbon calc, salary calc |
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
 | 📝 **Guestbook** | Realtime via Supabase |
-| 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music pages |
+| 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music and Meal Plan pages |
 | 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills, flashcards and an encrypted intro clip) and a planner with encrypted on-device progress tracking; content is encrypted with `scripts/private-payload.mjs` |
 | 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
@@ -144,6 +144,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/blog`, `#/blog/:slug` | Blog index & posts (`#/dopamine` → `cheap-dopamine`) |
 | `#/now` | What I'm doing now |
 | `#/uses` | Tools & gear |
+| `#/meals` | 🍱 Seven-day Indian meal plan that opens on today, with a weekly shopping list |
 | `#/timeline` | Certifications & learning journey |
 | `#/notes` | Knowledge base / TILs |
 | `#/music` | Music library & playlists |
