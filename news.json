@@ -1,186 +1,185 @@
 {
-  "generated": "2026-11-11T16:36:16.904Z",
+  "generated": "2026-11-12T04:21:42.510Z",
   "reddit": [
     {
-      "title": "Go Turns 17 - The Go Programming Language",
-      "url": "https://www.reddit.com/r/programming/comments/1xtm606/go_turns_17_the_go_programming_language/",
-      "by": "BrewedDoritos",
-      "time": 1794414355000,
+      "title": "Go 1.27.4 security release: cgo flags and a net/http fix",
+      "url": "https://www.reddit.com/r/programming/comments/1xu0jb5/go_1274_security_release_cgo_flags_and_a_nethttp/",
+      "by": "Efficient_File",
+      "time": 1794449186000,
       "sub": "r/programming"
     },
     {
-      "title": "Can someone help me with java Junit",
-      "url": "https://www.reddit.com/r/programming/comments/1xtk21c/can_someone_help_me_with_java_junit/",
-      "by": "WildAction3904",
-      "time": 1794409523000,
+      "title": "Rust's Type System is All You Need",
+      "url": "https://www.reddit.com/r/programming/comments/1xtvkph/rusts_type_system_is_all_you_need/",
+      "by": "PastEar9661",
+      "time": 1794435764000,
       "sub": "r/programming"
     },
     {
-      "title": "Event driven architectures with kubernetes-sigs/headlamp and Knative",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtgtih/event_driven_architectures_with/",
-      "by": "illumen",
-      "time": 1794401092000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Why We Shouldn't Trust Clocks in Distributed Systems",
-      "url": "https://www.reddit.com/r/programming/comments/1xtfqog/why_we_shouldnt_trust_clocks_in_distributed/",
-      "by": "H_chibaX",
-      "time": 1794397705000,
+      "title": "eMudhra's official incident report on how they ended up with private key 4",
+      "url": "https://www.reddit.com/r/programming/comments/1xtrm8s/emudhras_official_incident_report_on_how_they/",
+      "by": "alexeyr",
+      "time": 1794426376000,
       "sub": "r/programming"
     },
     {
-      "title": "Weekly: Show off your new tools and projects thread",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtexco/weekly_show_off_your_new_tools_and_projects_thread/",
-      "by": "AutoModerator",
-      "time": 1794394843000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Your HPA adds replicas after the spike, not during it",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xtdvps/your_hpa_adds_replicas_after_the_spike_not_during/",
-      "by": "FallElectronic3774",
-      "time": 1794391014000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Regressive JPEGs",
-      "url": "https://www.reddit.com/r/programming/comments/1xt7wkx/regressive_jpegs/",
-      "by": "fagnerbrack",
-      "time": 1794369660000,
+      "title": "Google Search's foundational PageRank patent has expired. What will be the impact of this",
+      "url": "https://www.reddit.com/r/programming/comments/1xtmzs5/google_searchs_foundational_pagerank_patent_has/",
+      "by": "Ok_Stomach6651",
+      "time": 1794416183000,
       "sub": "r/programming"
     },
     {
-      "title": "I built a tool that tells you which deploy made a Postgres query slower",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xt00dd/i_built_a_tool_that_tells_you_which_deploy_made_a/",
-      "by": "joao_detomini",
-      "time": 1794347932000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "A Chromium Bug Caused by a 25-Hour Day",
-      "url": "https://www.reddit.com/r/programming/comments/1xsvulu/a_chromium_bug_caused_by_a_25hour_day/",
-      "by": "SamrayLeung",
-      "time": 1794338119000,
+      "title": "I made sandboxed development feel like local development",
+      "url": "https://www.reddit.com/r/programming/comments/1xtmw9l/i_made_sandboxed_development_feel_like_local/",
+      "by": "artemave",
+      "time": 1794415965000,
       "sub": "r/programming"
     },
     {
-      "title": "Why a Java pod gets OOMKilled with a half-empty heap: the memory budget, and three JVM container defaults that are easy to get wrong",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xsu32c/why_a_java_pod_gets_oomkilled_with_a_halfempty/",
-      "by": "Andrii_Dre",
-      "time": 1794334173000,
-      "sub": "r/kubernetes"
+      "title": "How to learn while also completing tasks?",
+      "url": "https://www.reddit.com/r/devops/comments/1xt9f2g/how_to_learn_while_also_completing_tasks/",
+      "by": "postnasal7459",
+      "time": 1794374533000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Need Guidance..",
+      "url": "https://www.reddit.com/r/devops/comments/1xszn5r/need_guidance/",
+      "by": "DocumentOk6562",
+      "time": 1794347025000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What’s the one tool in your stack you wish you could throw in the bin?",
+      "url": "https://www.reddit.com/r/devops/comments/1xsvrsd/whats_the_one_tool_in_your_stack_you_wish_you/",
+      "by": "Much-Television-9449",
+      "time": 1794337938000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Running additional checks after automated code review",
+      "url": "https://www.reddit.com/r/devops/comments/1xsr3pd/running_additional_checks_after_automated_code/",
+      "by": "Pure-Hat-8663",
+      "time": 1794327497000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Future of Devops engineers with IA",
+      "url": "https://www.reddit.com/r/devops/comments/1xsmsbc/future_of_devops_engineers_with_ia/",
+      "by": "ApprehensiveExcuse86",
+      "time": 1794316999000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Postgres 18 Async I/O Is a Year Old. Here Are Three Workloads Where It Paid Off",
-      "url": "https://medium.com/codeelevation/postgres-18-async-i-o-is-a-year-old-here-are-three-workloads-where-it-paid-off-d17bd53b40a7",
-      "by": "Sohail Saifi",
-      "time": 1794414701000,
-      "tags": [
-        "postgresql",
-        "devops",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "You Give the Prompt, AI Does the Coding. But How?",
-      "url": "https://kavineshvelmurugan.medium.com/you-give-the-prompt-ai-does-the-coding-but-how-73c5f3f17ec9",
-      "by": "kavinesh_velmurugan",
-      "time": 1794414695000,
+      "title": "CRM, Billing, Support, Analytics, Monitoring: 5 Open Source Tools for Solo Startups",
+      "url": "https://towardsdev.com/crm-billing-support-analytics-monitoring-5-open-source-tools-for-solo-startups-fb515bd65b18",
+      "by": "Developer Awam",
+      "time": 1794457048000,
       "tags": [
         "programming",
-        "artificial-intelligence",
-        "developer-tools"
+        "tech",
+        "saas"
       ]
     },
     {
-      "title": "UBTECH Deutschland: So rechnen sich Humanoide in einem Jahr",
-      "url": "https://everlastai.medium.com/ubtech-deutschland-so-rechnen-sich-humanoide-in-einem-jahr-c0201aca4aa1",
-      "by": "Everlast AI",
-      "time": 1794414635000,
+      "title": "I thought rate limiting would be a 10-minute decision. It wasn’t.",
+      "url": "https://medium.com/@warisamir1918/i-thought-rate-limiting-would-be-a-10-minute-decision-it-wasnt-58f9aa0125bf",
+      "by": "Waris Amir",
+      "time": 1794456961000,
       "tags": [
-        "ai",
-        "programming",
-        "ubtech-deutschland"
-      ]
-    },
-    {
-      "title": "I Applied for 64 Software Engineer Jobs in 60 Days. One Interview Made Me Question My Experience",
-      "url": "https://medium.com/engineering-playbook/i-applied-for-64-software-engineer-jobs-in-60-days-one-interview-made-me-question-my-experience-26c2e49fd80f",
-      "by": "Software Engineering Review By…",
-      "time": 1794414380000,
-      "tags": [
-        "software-architecture",
-        "software-engineering",
+        "microservices",
+        "rate-limiting",
         "java"
       ]
     },
     {
-      "title": "Claude Code Compacts at 967K Now. 7 Context Settings, Ranked",
-      "url": "https://medium.com/@automation.labs/claude-code-compacts-at-967k-now-7-context-settings-ranked-d1f3367e8aca",
-      "by": "Automation Labs",
-      "time": 1794414349000,
+      "title": "Menelusuri Dapur Pembuatan Aplikasi: Mengapa Rekayasa Perangkat Lunak Jauh Lebih Luas dari Sekadar…",
+      "url": "https://medium.com/@dirgayuda0205/menelusuri-dapur-pembuatan-aplikasi-mengapa-rekayasa-perangkat-lunak-jauh-lebih-luas-dari-sekadar-f3d4c65481cc",
+      "by": "Dirgayuda Pilangga",
+      "time": 1794456817000,
       "tags": [
-        "software-development",
-        "claude-code",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "OpenCode Browse: Give Your AI Agent Access to Your Real Browser",
-      "url": "https://medium.com/@mr.f00l210/opencode-browse-give-your-ai-agent-access-to-your-real-browser-e26c5e77653c",
-      "by": "Mr.Milan",
-      "time": 1794414334000,
-      "tags": [
-        "productivity",
-        "ai-agent",
-        "web-automation"
-      ]
-    },
-    {
-      "title": "I Failed 8 Software Engineer Interviews in 6 Weeks. One Recruiter Finally Told Me Why",
-      "url": "https://medium.com/engineering-playbook/i-failed-8-software-engineer-interviews-in-6-weeks-one-recruiter-finally-told-me-why-faf5965f6179",
-      "by": "Software Engineering Review By…",
-      "time": 1794414220000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "I Did 12 Software Engineer Interviews in 7 Weeks. The Best One Lasted 19 Minutes",
-      "url": "https://medium.com/engineering-playbook/i-did-12-software-engineer-interviews-in-7-weeks-the-best-one-lasted-19-minutes-790cadb78b44",
-      "by": "Software Engineering Review By…",
-      "time": 1794414111000,
-      "tags": [
-        "software-architecture",
-        "software-engineering",
+        "technology",
         "programming"
       ]
     },
     {
-      "title": "Networking Explained: How the Internet Actually Works",
-      "url": "https://medium.com/@visalpoun7/networking-explained-how-the-internet-actually-works-47f1ba3e2b9e",
-      "by": "Visal Poun",
-      "time": 1794414084000,
+      "title": "SQL para Primatas: Aprenda os Fundamentos de SQL de Forma Simples",
+      "url": "https://medium.com/@danielsilva.dev1/sql-para-primatas-53744f6b5ea5",
+      "by": "Daniel da Silva",
+      "time": 1794456458000,
       "tags": [
-        "technology",
-        "programming",
-        "software-development"
+        "begginer",
+        "sql",
+        "programming"
       ]
     },
     {
-      "title": "Rippling Frontend Interview: Every Round, Every Question",
-      "url": "https://medium.com/@sumitsinghfrontend/rippling-frontend-interview-every-round-every-question-8e35619c60f2",
-      "by": "Sumitsinghfrontend",
-      "time": 1794414043000,
+      "title": "JavaScript Closures Explained — Build Private Variables, Function Factories, and Stateful Functions",
+      "url": "https://javascript.plainenglish.io/javascript-closures-explained-build-private-variables-function-factories-and-stateful-functions-5a6a81e7cc11",
+      "by": "Zayd Islam",
+      "time": 1794456376000,
+      "tags": [
+        "javascript-tips",
+        "javascript-development",
+        "javascript"
+      ]
+    },
+    {
+      "title": "Why DevOps Needs to Understand System Design (Not Just Deploy It)",
+      "url": "https://medium.com/@k.keaphirunphirchhoeun/why-devops-needs-to-understand-system-design-not-just-deploy-it-18bf0726b60b",
+      "by": "Chhoeun K.Keaphirunphirakbot",
+      "time": 1794456344000,
+      "tags": [
+        "artificial-intelligence",
+        "software-development",
+        "mindset"
+      ]
+    },
+    {
+      "title": "What Happens When a Pending Shopify Order Already Counts in Meta",
+      "url": "https://ocontis.medium.com/what-happens-when-a-pending-shopify-order-already-counts-in-meta-fddbf691913c",
+      "by": "Octavian Contis",
+      "time": 1794455743000,
+      "tags": [
+        "ecommerce",
+        "technology",
+        "shopify"
+      ]
+    },
+    {
+      "title": "A Non-Programmer Built an App With AI and Made $30k. Then He Paid My Friend $12k to Fix It",
+      "url": "https://javascript.plainenglish.io/a-non-programmer-built-an-app-with-ai-and-made-30k-then-he-paid-my-friend-12k-to-fix-it-f22528e8e3ad",
+      "by": "The woman",
+      "time": 1794455595000,
+      "tags": [
+        "startup",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "The Spec Is the New Source Code",
+      "url": "https://medium.com/@viyoma.sachdeva/the-spec-is-the-new-source-code-bef526aa6a73",
+      "by": "viyoma sachdeva",
+      "time": 1794455236000,
       "tags": [
         "software-engineering",
-        "interview",
-        "frontend-development"
+        "ai-agent",
+        "devops"
+      ]
+    },
+    {
+      "title": "Infinite Depth: Rendering Mandelbrot and Julia Fractals with NumPy & Vectorized Complex Numbers",
+      "url": "https://medium.com/@zaydislam25/infinite-depth-rendering-mandelbrot-and-julia-fractals-with-numpy-vectorized-complex-numbers-a842255ae96b",
+      "by": "Zayd Islam",
+      "time": 1794455143000,
+      "tags": [
+        "programming",
+        "science",
+        "data-visualization"
       ]
     }
   ]
