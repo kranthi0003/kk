@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T04:21:46.347Z",
+  "generated": "2026-11-13T04:22:24.085Z",
   "season": "2026",
   "sources": [
     {
@@ -59,11 +59,11 @@
       },
       {
         "pos": 6,
-        "code": "BAN",
-        "team": "Bangladesh",
-        "matches": 25,
-        "points": 1916,
-        "rating": 77
+        "code": "WIN",
+        "team": "West Indies",
+        "matches": 30,
+        "points": 2339,
+        "rating": 78
       },
       {
         "pos": 7,
@@ -75,11 +75,11 @@
       },
       {
         "pos": 8,
-        "code": "WIN",
-        "team": "West Indies",
-        "matches": 27,
-        "points": 2008,
-        "rating": 74
+        "code": "BAN",
+        "team": "Bangladesh",
+        "matches": 28,
+        "points": 2038,
+        "rating": 73
       },
       {
         "pos": 9,
@@ -103,17 +103,17 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 37,
-        "points": 4281,
-        "rating": 116
+        "matches": 38,
+        "points": 4439,
+        "rating": 117
       },
       {
         "pos": 2,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 36,
-        "points": 3874,
-        "rating": 108
+        "matches": 37,
+        "points": 3940,
+        "rating": 106
       },
       {
         "pos": 3,

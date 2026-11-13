@@ -1,185 +1,186 @@
 {
-  "generated": "2026-11-12T04:21:42.510Z",
+  "generated": "2026-11-13T04:22:19.187Z",
   "reddit": [
     {
-      "title": "Go 1.27.4 security release: cgo flags and a net/http fix",
-      "url": "https://www.reddit.com/r/programming/comments/1xu0jb5/go_1274_security_release_cgo_flags_and_a_nethttp/",
-      "by": "Efficient_File",
-      "time": 1794449186000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Rust's Type System is All You Need",
-      "url": "https://www.reddit.com/r/programming/comments/1xtvkph/rusts_type_system_is_all_you_need/",
-      "by": "PastEar9661",
-      "time": 1794435764000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "eMudhra's official incident report on how they ended up with private key 4",
-      "url": "https://www.reddit.com/r/programming/comments/1xtrm8s/emudhras_official_incident_report_on_how_they/",
-      "by": "alexeyr",
-      "time": 1794426376000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Google Search's foundational PageRank patent has expired. What will be the impact of this",
-      "url": "https://www.reddit.com/r/programming/comments/1xtmzs5/google_searchs_foundational_pagerank_patent_has/",
+      "title": "How Cloudflare uses QuePaxa—a leaderless, fault-detection-free consensus algorithm—for its global control plane",
+      "url": "https://www.reddit.com/r/programming/comments/1xuv4ux/how_cloudflare_uses_quepaxaa_leaderless/",
       "by": "Ok_Stomach6651",
-      "time": 1794416183000,
+      "time": 1794534317000,
       "sub": "r/programming"
     },
     {
-      "title": "I made sandboxed development feel like local development",
-      "url": "https://www.reddit.com/r/programming/comments/1xtmw9l/i_made_sandboxed_development_feel_like_local/",
-      "by": "artemave",
-      "time": 1794415965000,
+      "title": "ArgoCD, Kargo and Image Updates in Complex Deployment",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xus3pa/argocd_kargo_and_image_updates_in_complex/",
+      "by": "csgeek-coder",
+      "time": 1794525968000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "New AKS desktop: performance & AI improvements, plus new bare metal support & upgrade insights & windows arm64 support",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xurh90/new_aks_desktop_performance_ai_improvements_plus/",
+      "by": "illumen",
+      "time": 1794524322000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Proactive Measures Against Password Breaches and Cookie Hijacking",
+      "url": "https://www.reddit.com/r/programming/comments/1xupnmw/proactive_measures_against_password_breaches_and/",
+      "by": "Ok_Stomach6651",
+      "time": 1794519802000,
       "sub": "r/programming"
     },
     {
-      "title": "How to learn while also completing tasks?",
-      "url": "https://www.reddit.com/r/devops/comments/1xt9f2g/how_to_learn_while_also_completing_tasks/",
-      "by": "postnasal7459",
-      "time": 1794374533000,
-      "sub": "r/devops"
+      "title": "I built a VS Code panel for Docker, K8s, Postgres, Kafka and Redis because I was tired of juggling 5 tools",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xun09e/i_built_a_vs_code_panel_for_docker_k8s_postgres/",
+      "by": "markelaaa",
+      "time": 1794513547000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Need Guidance..",
-      "url": "https://www.reddit.com/r/devops/comments/1xszn5r/need_guidance/",
-      "by": "DocumentOk6562",
-      "time": 1794347025000,
-      "sub": "r/devops"
+      "title": "exploit a 22 years old PostgreSQL composite-type vulnerability",
+      "url": "https://www.reddit.com/r/programming/comments/1xuk4d5/exploit_a_22_years_old_postgresql_compositetype/",
+      "by": "wtfse",
+      "time": 1794507169000,
+      "sub": "r/programming"
     },
     {
-      "title": "What’s the one tool in your stack you wish you could throw in the bin?",
-      "url": "https://www.reddit.com/r/devops/comments/1xsvrsd/whats_the_one_tool_in_your_stack_you_wish_you/",
-      "by": "Much-Television-9449",
-      "time": 1794337938000,
-      "sub": "r/devops"
+      "title": "[Hiring] Senior Kubernetes Cloud Integration Engineer | GPU Infrastructure | Remote India",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xug6s3/hiring_senior_kubernetes_cloud_integration/",
+      "by": "Gursahibsingh203",
+      "time": 1794498447000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Running additional checks after automated code review",
-      "url": "https://www.reddit.com/r/devops/comments/1xsr3pd/running_additional_checks_after_automated_code/",
-      "by": "Pure-Hat-8663",
-      "time": 1794327497000,
-      "sub": "r/devops"
+      "title": "Building Barista: Formal Verification and TLA+",
+      "url": "https://www.reddit.com/r/programming/comments/1xufafk/building_barista_formal_verification_and_tla/",
+      "by": "teivah",
+      "time": 1794496345000,
+      "sub": "r/programming"
     },
     {
-      "title": "Future of Devops engineers with IA",
-      "url": "https://www.reddit.com/r/devops/comments/1xsmsbc/future_of_devops_engineers_with_ia/",
-      "by": "ApprehensiveExcuse86",
-      "time": 1794316999000,
-      "sub": "r/devops"
+      "title": "CNCF also plans to introduce two additional certifications in 2027: Kubernetes AI Associate (KAIA) and Certified Kubernetes Inference Engineer (CKIE).",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xuf8bf/cncf_also_plans_to_introduce_two_additional/",
+      "by": "Regular_List6034",
+      "time": 1794496210000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "C3 0.8.6 released: Library fetching, 30% smaller safe-mode binaries, and stricter type rules",
+      "url": "https://www.reddit.com/r/programming/comments/1xuci0t/c3_086_released_library_fetching_30_smaller/",
+      "by": "Nuoji",
+      "time": 1794489369000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "CRM, Billing, Support, Analytics, Monitoring: 5 Open Source Tools for Solo Startups",
-      "url": "https://towardsdev.com/crm-billing-support-analytics-monitoring-5-open-source-tools-for-solo-startups-fb515bd65b18",
-      "by": "Developer Awam",
-      "time": 1794457048000,
+      "title": "Our cluster had two nodes. Fifteen apps were allowed on only one of them.",
+      "url": "https://medium.com/@kkhdevs/our-cluster-had-two-nodes-fifteen-apps-were-allowed-on-only-one-of-them-6fa970a6e23b",
+      "by": "Kkhdevs",
+      "time": 1794543365000,
       "tags": [
-        "programming",
-        "tech",
-        "saas"
+        "incident-management",
+        "kubernetes",
+        "sre"
       ]
     },
     {
-      "title": "I thought rate limiting would be a 10-minute decision. It wasn’t.",
-      "url": "https://medium.com/@warisamir1918/i-thought-rate-limiting-would-be-a-10-minute-decision-it-wasnt-58f9aa0125bf",
-      "by": "Waris Amir",
-      "time": 1794456961000,
+      "title": "Databricks QA Tester",
+      "url": "https://medium.com/@rajamails19/databricks-qa-tester-0c86e5fd15e3",
+      "by": "Discover-with-Raja",
+      "time": 1794542941000,
       "tags": [
-        "microservices",
-        "rate-limiting",
-        "java"
+        "devops",
+        "databricks",
+        "coding"
       ]
     },
     {
-      "title": "Menelusuri Dapur Pembuatan Aplikasi: Mengapa Rekayasa Perangkat Lunak Jauh Lebih Luas dari Sekadar…",
-      "url": "https://medium.com/@dirgayuda0205/menelusuri-dapur-pembuatan-aplikasi-mengapa-rekayasa-perangkat-lunak-jauh-lebih-luas-dari-sekadar-f3d4c65481cc",
-      "by": "Dirgayuda Pilangga",
-      "time": 1794456817000,
+      "title": "20 Java Production Scenarios Interviewers Ask Now, Each Answered and Reproduced on Java 25",
+      "url": "https://medium.com/javarevisited/20-java-production-scenarios-interviewers-ask-now-each-answered-and-reproduced-on-java-25-719c99a755d2",
+      "by": "Navya Devadiga",
+      "time": 1794542855000,
       "tags": [
+        "software-engineering",
+        "java",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "How I Made $600 Auditing Broken Business Websites (Zero-Investment Side Hustle)",
+      "url": "https://medium.com/@darazha6/how-i-made-600-auditing-broken-business-websites-zero-investment-side-hustle-d92bf965d6ef",
+      "by": "Muhammad Aftab",
+      "time": 1794542693000,
+      "tags": [
+        "business",
         "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "SQL para Primatas: Aprenda os Fundamentos de SQL de Forma Simples",
-      "url": "https://medium.com/@danielsilva.dev1/sql-para-primatas-53744f6b5ea5",
-      "by": "Daniel da Silva",
-      "time": 1794456458000,
-      "tags": [
-        "begginer",
-        "sql",
-        "programming"
-      ]
-    },
-    {
-      "title": "JavaScript Closures Explained — Build Private Variables, Function Factories, and Stateful Functions",
-      "url": "https://javascript.plainenglish.io/javascript-closures-explained-build-private-variables-function-factories-and-stateful-functions-5a6a81e7cc11",
-      "by": "Zayd Islam",
-      "time": 1794456376000,
-      "tags": [
-        "javascript-tips",
-        "javascript-development",
         "javascript"
       ]
     },
     {
-      "title": "Why DevOps Needs to Understand System Design (Not Just Deploy It)",
-      "url": "https://medium.com/@k.keaphirunphirchhoeun/why-devops-needs-to-understand-system-design-not-just-deploy-it-18bf0726b60b",
-      "by": "Chhoeun K.Keaphirunphirakbot",
-      "time": 1794456344000,
+      "title": "From Data Chaos to Deterministic Truth: Architecting Production AI Workflows in the Era of Data…",
+      "url": "https://nuttanan22.medium.com/from-data-chaos-to-deterministic-truth-architecting-production-ai-workflows-in-the-era-of-data-f3a56c909c22",
+      "by": "Nuttanan Foopun",
+      "time": 1794542662000,
       "tags": [
-        "artificial-intelligence",
-        "software-development",
-        "mindset"
+        "data-science",
+        "writing",
+        "machine-learning"
       ]
     },
     {
-      "title": "What Happens When a Pending Shopify Order Already Counts in Meta",
-      "url": "https://ocontis.medium.com/what-happens-when-a-pending-shopify-order-already-counts-in-meta-fddbf691913c",
-      "by": "Octavian Contis",
-      "time": 1794455743000,
+      "title": "Playwright + MCP: The Autonomous Testing Stack That’s Making Legacy QA Obsolete",
+      "url": "https://medium.com/@JustSnehal/playwright-mcp-the-autonomous-testing-stack-thats-making-legacy-qa-obsolete-25acc6c5d302",
+      "by": "Snehal Singh",
+      "time": 1794542463000,
       "tags": [
-        "ecommerce",
         "technology",
-        "shopify"
+        "mcp-server",
+        "software-development"
       ]
     },
     {
-      "title": "A Non-Programmer Built an App With AI and Made $30k. Then He Paid My Friend $12k to Fix It",
-      "url": "https://javascript.plainenglish.io/a-non-programmer-built-an-app-with-ai-and-made-30k-then-he-paid-my-friend-12k-to-fix-it-f22528e8e3ad",
-      "by": "The woman",
-      "time": 1794455595000,
+      "title": "7 React Fixes to Try Before Adding Another Library",
+      "url": "https://medium.com/@ishaqsaqib/7-react-fixes-to-try-before-adding-another-library-f50763f0f21c",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1794542462000,
       "tags": [
-        "startup",
         "programming",
-        "artificial-intelligence"
+        "javascript",
+        "react"
       ]
     },
     {
-      "title": "The Spec Is the New Source Code",
-      "url": "https://medium.com/@viyoma.sachdeva/the-spec-is-the-new-source-code-bef526aa6a73",
-      "by": "viyoma sachdeva",
-      "time": 1794455236000,
+      "title": "Clean messy spreadsheets for $1",
+      "url": "https://medium.com/@mausearn48hkra/clean-messy-spreadsheets-for-1-96dfce559a83",
+      "by": "Quill Datafix",
+      "time": 1794542426000,
+      "tags": [
+        "productivity",
+        "generative-ai-tools",
+        "programming"
+      ]
+    },
+    {
+      "title": "ARE YOU MAKING A DIFFERENCE IN YOUR FIELD, OR JUST DOING YOUR JOB?",
+      "url": "https://medium.com/@scholartouch247/are-you-making-a-difference-in-your-field-or-just-doing-your-job-341b082d4e80",
+      "by": "informationdesk",
+      "time": 1794542143000,
       "tags": [
         "software-engineering",
-        "ai-agent",
-        "devops"
+        "agentic-ai",
+        "ai"
       ]
     },
     {
-      "title": "Infinite Depth: Rendering Mandelbrot and Julia Fractals with NumPy & Vectorized Complex Numbers",
-      "url": "https://medium.com/@zaydislam25/infinite-depth-rendering-mandelbrot-and-julia-fractals-with-numpy-vectorized-complex-numbers-a842255ae96b",
-      "by": "Zayd Islam",
-      "time": 1794455143000,
+      "title": "My Journey So Far as a Freshman SWE Student at YIBS/ISEST",
+      "url": "https://medium.com/@tcnlinwe/my-journey-so-far-as-a-freshman-swe-student-at-yibs-isest-5c0f36397b09",
+      "by": "Tata Cherish Nlinwe",
+      "time": 1794541978000,
       "tags": [
         "programming",
-        "science",
-        "data-visualization"
+        "student-life",
+        "learning-to-code"
       ]
     }
   ]
