@@ -1,186 +1,185 @@
 {
-  "generated": "2026-11-13T04:22:19.187Z",
+  "generated": "2026-11-14T04:20:49.865Z",
   "reddit": [
     {
-      "title": "How Cloudflare uses QuePaxa—a leaderless, fault-detection-free consensus algorithm—for its global control plane",
-      "url": "https://www.reddit.com/r/programming/comments/1xuv4ux/how_cloudflare_uses_quepaxaa_leaderless/",
+      "title": "How I accidentally became a millionaire",
+      "url": "https://www.reddit.com/r/programming/comments/1xvr455/how_i_accidentally_became_a_millionaire/",
+      "by": "NXGZ",
+      "time": 1794623901000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Uber’s Rate Limiting System",
+      "url": "https://www.reddit.com/r/programming/comments/1xvmjn4/ubers_rate_limiting_system/",
       "by": "Ok_Stomach6651",
-      "time": 1794534317000,
+      "time": 1794610885000,
       "sub": "r/programming"
     },
     {
-      "title": "ArgoCD, Kargo and Image Updates in Complex Deployment",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xus3pa/argocd_kargo_and_image_updates_in_complex/",
-      "by": "csgeek-coder",
-      "time": 1794525968000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "New AKS desktop: performance & AI improvements, plus new bare metal support & upgrade insights & windows arm64 support",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xurh90/new_aks_desktop_performance_ai_improvements_plus/",
-      "by": "illumen",
-      "time": 1794524322000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Proactive Measures Against Password Breaches and Cookie Hijacking",
-      "url": "https://www.reddit.com/r/programming/comments/1xupnmw/proactive_measures_against_password_breaches_and/",
-      "by": "Ok_Stomach6651",
-      "time": 1794519802000,
+      "title": "The age of hyper-personal software is here",
+      "url": "https://www.reddit.com/r/programming/comments/1xvkeuh/the_age_of_hyperpersonal_software_is_here/",
+      "by": "wauter",
+      "time": 1794605569000,
       "sub": "r/programming"
     },
     {
-      "title": "I built a VS Code panel for Docker, K8s, Postgres, Kafka and Redis because I was tired of juggling 5 tools",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xun09e/i_built_a_vs_code_panel_for_docker_k8s_postgres/",
-      "by": "markelaaa",
-      "time": 1794513547000,
-      "sub": "r/kubernetes"
+      "title": "Starting hands-on Linux Admin study group & Discord (No boring slides, just terminal & real-world troubleshooting)",
+      "url": "https://www.reddit.com/r/devops/comments/1xvjftu/starting_handson_linux_admin_study_group_discord/",
+      "by": "mutedsomething",
+      "time": 1794603270000,
+      "sub": "r/devops"
     },
     {
-      "title": "exploit a 22 years old PostgreSQL composite-type vulnerability",
-      "url": "https://www.reddit.com/r/programming/comments/1xuk4d5/exploit_a_22_years_old_postgresql_compositetype/",
-      "by": "wtfse",
-      "time": 1794507169000,
+      "title": "Announcing Rust 1.100.0",
+      "url": "https://www.reddit.com/r/programming/comments/1xvixj7/announcing_rust_11000/",
+      "by": "Either_Collection349",
+      "time": 1794602093000,
       "sub": "r/programming"
     },
     {
-      "title": "[Hiring] Senior Kubernetes Cloud Integration Engineer | GPU Infrastructure | Remote India",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xug6s3/hiring_senior_kubernetes_cloud_integration/",
-      "by": "Gursahibsingh203",
-      "time": 1794498447000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Building Barista: Formal Verification and TLA+",
-      "url": "https://www.reddit.com/r/programming/comments/1xufafk/building_barista_formal_verification_and_tla/",
-      "by": "teivah",
-      "time": 1794496345000,
+      "title": "Concurrent Shell Command Queues",
+      "url": "https://www.reddit.com/r/programming/comments/1xviun2/concurrent_shell_command_queues/",
+      "by": "Either_Collection349",
+      "time": 1794601895000,
       "sub": "r/programming"
     },
     {
-      "title": "CNCF also plans to introduce two additional certifications in 2027: Kubernetes AI Associate (KAIA) and Certified Kubernetes Inference Engineer (CKIE).",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xuf8bf/cncf_also_plans_to_introduce_two_additional/",
-      "by": "Regular_List6034",
-      "time": 1794496210000,
-      "sub": "r/kubernetes"
+      "title": "Thoughts on plesk",
+      "url": "https://www.reddit.com/r/devops/comments/1xuyh5l/thoughts_on_plesk/",
+      "by": "funcyChaos",
+      "time": 1794544345000,
+      "sub": "r/devops"
     },
     {
-      "title": "C3 0.8.6 released: Library fetching, 30% smaller safe-mode binaries, and stricter type rules",
-      "url": "https://www.reddit.com/r/programming/comments/1xuci0t/c3_086_released_library_fetching_30_smaller/",
-      "by": "Nuoji",
-      "time": 1794489369000,
-      "sub": "r/programming"
+      "title": "What Will Separate Great DevOps Engineers from Average Ones in 2027?",
+      "url": "https://www.reddit.com/r/devops/comments/1xuwffc/what_will_separate_great_devops_engineers_from/",
+      "by": "Same_Significance869",
+      "time": 1794538079000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Trying to understand how security tooling fits into CI/CD, for a uni case study. Would love your take!",
+      "url": "https://www.reddit.com/r/devops/comments/1xumia4/trying_to_understand_how_security_tooling_fits/",
+      "by": "CommissionNeat811",
+      "time": 1794512426000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How do you stay informed of DevOps and AI current events?",
+      "url": "https://www.reddit.com/r/devops/comments/1xuk8hz/how_do_you_stay_informed_of_devops_and_ai_current/",
+      "by": "ConstantOk4042",
+      "time": 1794507411000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Our cluster had two nodes. Fifteen apps were allowed on only one of them.",
-      "url": "https://medium.com/@kkhdevs/our-cluster-had-two-nodes-fifteen-apps-were-allowed-on-only-one-of-them-6fa970a6e23b",
-      "by": "Kkhdevs",
-      "time": 1794543365000,
+      "title": "Go From Zero, Part 9: Generics Without the Headache",
+      "url": "https://sahilkhaire.medium.com/go-from-zero-part-9-generics-without-the-headache-5130d479bc82",
+      "by": "Sahil Khaire",
+      "time": 1794629469000,
       "tags": [
-        "incident-management",
-        "kubernetes",
-        "sre"
-      ]
-    },
-    {
-      "title": "Databricks QA Tester",
-      "url": "https://medium.com/@rajamails19/databricks-qa-tester-0c86e5fd15e3",
-      "by": "Discover-with-Raja",
-      "time": 1794542941000,
-      "tags": [
-        "devops",
-        "databricks",
-        "coding"
-      ]
-    },
-    {
-      "title": "20 Java Production Scenarios Interviewers Ask Now, Each Answered and Reproduced on Java 25",
-      "url": "https://medium.com/javarevisited/20-java-production-scenarios-interviewers-ask-now-each-answered-and-reproduced-on-java-25-719c99a755d2",
-      "by": "Navya Devadiga",
-      "time": 1794542855000,
-      "tags": [
-        "software-engineering",
-        "java",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "How I Made $600 Auditing Broken Business Websites (Zero-Investment Side Hustle)",
-      "url": "https://medium.com/@darazha6/how-i-made-600-auditing-broken-business-websites-zero-investment-side-hustle-d92bf965d6ef",
-      "by": "Muhammad Aftab",
-      "time": 1794542693000,
-      "tags": [
-        "business",
-        "technology",
-        "javascript"
-      ]
-    },
-    {
-      "title": "From Data Chaos to Deterministic Truth: Architecting Production AI Workflows in the Era of Data…",
-      "url": "https://nuttanan22.medium.com/from-data-chaos-to-deterministic-truth-architecting-production-ai-workflows-in-the-era-of-data-f3a56c909c22",
-      "by": "Nuttanan Foopun",
-      "time": 1794542662000,
-      "tags": [
-        "data-science",
-        "writing",
-        "machine-learning"
-      ]
-    },
-    {
-      "title": "Playwright + MCP: The Autonomous Testing Stack That’s Making Legacy QA Obsolete",
-      "url": "https://medium.com/@JustSnehal/playwright-mcp-the-autonomous-testing-stack-thats-making-legacy-qa-obsolete-25acc6c5d302",
-      "by": "Snehal Singh",
-      "time": 1794542463000,
-      "tags": [
-        "technology",
-        "mcp-server",
-        "software-development"
-      ]
-    },
-    {
-      "title": "7 React Fixes to Try Before Adding Another Library",
-      "url": "https://medium.com/@ishaqsaqib/7-react-fixes-to-try-before-adding-another-library-f50763f0f21c",
-      "by": "Muhammad Ishaq Saqib",
-      "time": 1794542462000,
-      "tags": [
-        "programming",
-        "javascript",
-        "react"
-      ]
-    },
-    {
-      "title": "Clean messy spreadsheets for $1",
-      "url": "https://medium.com/@mausearn48hkra/clean-messy-spreadsheets-for-1-96dfce559a83",
-      "by": "Quill Datafix",
-      "time": 1794542426000,
-      "tags": [
-        "productivity",
-        "generative-ai-tools",
+        "golang",
+        "golang-tutorial",
         "programming"
       ]
     },
     {
-      "title": "ARE YOU MAKING A DIFFERENCE IN YOUR FIELD, OR JUST DOING YOUR JOB?",
-      "url": "https://medium.com/@scholartouch247/are-you-making-a-difference-in-your-field-or-just-doing-your-job-341b082d4e80",
-      "by": "informationdesk",
-      "time": 1794542143000,
+      "title": "Your 64-Bit ID Loses Digits the Moment JSON.parse Touches It",
+      "url": "https://martin128.medium.com/your-64-bit-id-loses-digits-the-moment-json-parse-touches-it-8343a254131b",
+      "by": "Martin",
+      "time": 1794629461000,
       "tags": [
-        "software-engineering",
-        "agentic-ai",
-        "ai"
+        "nodejs",
+        "backend",
+        "web-development"
       ]
     },
     {
-      "title": "My Journey So Far as a Freshman SWE Student at YIBS/ISEST",
-      "url": "https://medium.com/@tcnlinwe/my-journey-so-far-as-a-freshman-swe-student-at-yibs-isest-5c0f36397b09",
-      "by": "Tata Cherish Nlinwe",
-      "time": 1794541978000,
+      "title": "Hey everyone!",
+      "url": "https://medium.com/@ari_23074/hey-everyone-9f17e9c3de79",
+      "by": "Ari",
+      "time": 1794628931000,
       "tags": [
         "programming",
-        "student-life",
-        "learning-to-code"
+        "technology"
+      ]
+    },
+    {
+      "title": "BLoC vs. Cubit: Managing State Without Overengineering",
+      "url": "https://medium.com/@akij.mia/bloc-vs-cubit-managing-state-without-overengineering-85944ed2582e",
+      "by": "AK IJ",
+      "time": 1794628461000,
+      "tags": [
+        "mobile-app-development",
+        "flutter",
+        "bloc"
+      ]
+    },
+    {
+      "title": "9 Claude Code Tricks That Stop You Hitting Your Weekly Limit",
+      "url": "https://medium.com/@vedant_chhajed/9-claude-code-tricks-that-stop-you-hitting-your-weekly-limit-9e8b1cb97e4b",
+      "by": "Vedant Chhajed",
+      "time": 1794628145000,
+      "tags": [
+        "ai",
+        "programming",
+        "productivity"
+      ]
+    },
+    {
+      "title": "AI PRD: How I Write a Product Spec for an LLM Feature (and the 6 Sections a Normal PRD Is Missing)",
+      "url": "https://medium.com/@k.pranav_22/ai-prd-how-i-write-a-product-spec-for-an-llm-feature-and-the-6-sections-a-normal-prd-is-missing-24c10dc0d8f4",
+      "by": "Pranav Kumar",
+      "time": 1794628104000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "It Works on QA but Fails on Prod: 6 Config Bugs I Keep Seeing",
+      "url": "https://ganeshlawand2002.medium.com/it-works-on-qa-but-fails-on-prod-6-config-bugs-i-keep-seeing-e424ea7052dc",
+      "by": "CodePulse",
+      "time": 1794627961000,
+      "tags": [
+        "software-development",
+        "javascript",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Java Developer Interview: 7 Real-World Challenges Every Senior Developer Should Be Ready For (18…",
+      "url": "https://medium.com/@pardeepgill82/java-developer-interview-7-real-world-challenges-every-senior-developer-should-be-ready-for-18-f2c6e5b77eeb",
+      "by": "Interview Playbook",
+      "time": 1794627920000,
+      "tags": [
+        "jobs",
+        "java",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "AI Agent Cost Reduction Hacks: Directory Architecture That Eliminates Unnecessary File Loading and…",
+      "url": "https://medium.com/@kmal777/ai-agent-cost-reduction-hacks-directory-architecture-that-eliminates-unnecessary-file-loading-and-8e9c7556c6f4",
+      "by": "Tessa kss",
+      "time": 1794627799000,
+      "tags": [
+        "llm",
+        "ai",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "6 Ways to Cut Your LLM API Bill Without Making Answers Worse",
+      "url": "https://karthikupadrasta.medium.com/6-ways-to-cut-your-llm-api-bill-without-making-answers-worse-fb8b450010d1",
+      "by": "Karthik Upadrasta",
+      "time": 1794627061000,
+      "tags": [
+        "openai",
+        "artificial-intelligence",
+        "llm"
       ]
     }
   ]
