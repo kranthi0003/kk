@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T03:39:11.680Z",
+  "generated": "2026-11-15T04:21:10.682Z",
   "reddit": [
     {
       "title": "What we learned operating auth for 1,000+ APIs",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "I Got Tired of Using Five Different Linux Utilities to Manage My Files, So I Built My Own File…",
-      "url": "https://medium.com/@rosstramontano/i-got-tired-of-using-five-different-linux-utilities-to-manage-my-files-so-i-built-my-own-file-bfe98c7d65ee",
-      "by": "Ross Tramontano",
-      "time": 1794713108000,
-      "tags": [
-        "software-development",
-        "ubuntu",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "SCP vs rsync: Moving Files to a Linux Server",
-      "url": "https://medium.com/@chetan71/scp-vs-rsync-moving-files-to-a-linux-server-0cb6d462f57a",
-      "by": "Chetan Chauhan",
-      "time": 1794712509000,
-      "tags": [
-        "programming",
-        "devops",
-        "aws"
-      ]
-    },
-    {
-      "title": "Laravel Code Review Checklist: What to Check Before You Merge a PR",
-      "url": "https://medium.com/@raghavji2050/laravel-code-review-checklist-what-to-check-before-you-merge-a-pr-17f528c4f57a",
-      "by": "Raghav Ji",
-      "time": 1794712293000,
-      "tags": [
-        "laravel",
-        "software-development",
-        "php"
-      ]
-    },
-    {
-      "title": "The Pivotal Choice: Why Corporate AI is a Dead End and How We Can Build a Bridge to the Top",
-      "url": "https://medium.com/@jlj420smoker11/the-pivotal-choice-why-corporate-ai-is-a-dead-end-and-how-we-can-build-a-bridge-to-the-top-13b8af4ea99d",
-      "by": "Jason Jones",
-      "time": 1794711965000,
-      "tags": [
-        "future",
-        "devops",
-        "justice"
-      ]
-    },
-    {
-      "title": "The Pause Button Every Production AI Agent Needs",
-      "url": "https://medium.com/@komalbaparmar007/the-pause-button-every-production-ai-agent-needs-9f7b5254892a",
-      "by": "Yamishift",
-      "time": 1794711961000,
-      "tags": [
-        "programming",
-        "ai-agent",
-        "python"
-      ]
-    },
-    {
-      "title": "How to Build a REST API with Flask: A Practical Python Guide",
-      "url": "https://medium.com/@harristarstech/how-to-build-a-rest-api-with-flask-a-practical-python-guide-9e4d632ffca0",
-      "by": "Harristar Tech",
-      "time": 1794711743000,
-      "tags": [
-        "software-development",
-        "programming",
-        "web-development"
-      ]
-    },
-    {
-      "title": "Workstation: From a Workbench to a Working Team",
-      "url": "https://medium.com/@rantnrave31/workstation-from-a-workbench-to-a-working-team-703ab9979864",
-      "by": "Don Gunter",
-      "time": 1794710827000,
-      "tags": [
-        "teamwork",
-        "computer-science",
-        "business"
-      ]
-    },
-    {
-      "title": "JWT Pitfalls: What Goes Wrong and How to Avoid It",
-      "url": "https://medium.com/@techsayan01/jwt-pitfalls-what-goes-wrong-and-how-to-avoid-it-a387b02660b0",
-      "by": "Sayan Biswas",
-      "time": 1794710748000,
-      "tags": [
-        "authentication",
-        "cybersecurity",
-        "web-development"
-      ]
-    },
-    {
-      "title": "7 Open-Source Tools Developers Are Sleeping On in 2026",
-      "url": "https://medium.com/@pranavpatil6251/7-open-source-tools-developers-are-sleeping-on-in-2026-d4bc4a224d98",
-      "by": "Pranav Patil",
-      "time": 1794710672000,
-      "tags": [
-        "open-source",
-        "developer-tools",
-        "programming"
-      ]
-    },
-    {
-      "title": "THE WOMEN WE CHASE AND THE THINGS WE REFUSE TO SEE",
-      "url": "https://medium.com/@ezehe121/the-women-we-chase-and-the-things-we-refuse-to-see-8744757f0eab",
+      "title": "DISCOLOURED IMAGINATION",
+      "url": "https://medium.com/@ezehe121/discoloured-imagination-58737aada630",
       "by": "Emeka Ezeh",
-      "time": 1794710612000,
+      "time": 1794716071000,
       "tags": [
-        "relationships",
         "mental-health",
+        "data-science",
         "programming"
+      ]
+    },
+    {
+      "title": "BLOOD MONEY",
+      "url": "https://medium.com/@ezehe121/blood-money-1670edae1d17",
+      "by": "Emeka Ezeh",
+      "time": 1794715917000,
+      "tags": [
+        "artificial-intelligence",
+        "mental-health",
+        "science"
+      ]
+    },
+    {
+      "title": "Your Rethrown Error Threw Away the Root Cause. Use the cause Option",
+      "url": "https://martin128.medium.com/your-rethrown-error-threw-away-the-root-cause-use-the-cause-option-892047fddeb5",
+      "by": "Martin",
+      "time": 1794715861000,
+      "tags": [
+        "backend",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "The Next Anime Move: Boruto on Pluto TV or Naruto and Boruto Returning to Toonami?",
+      "url": "https://medium.com/@rapperpeeshorez/the-next-anime-move-boruto-on-pluto-tv-or-naruto-and-boruto-returning-to-toonami-4a89ef29ea96",
+      "by": "Rapperpeeshorez",
+      "time": 1794715821000,
+      "tags": [
+        "marketing",
+        "sports",
+        "culture"
+      ]
+    },
+    {
+      "title": "Java Backend Developer Interview Experience: Spring Boot, Microservices, System Design, JWT & AI…",
+      "url": "https://medium.com/@preetjit82/java-backend-developer-interview-experience-spring-boot-microservices-system-design-jwt-ai-564d4d2b978c",
+      "by": "Interview Simplified",
+      "time": 1794715213000,
+      "tags": [
+        "programming",
+        "jobs",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "Putting Specification-Driven AI Development into Practice",
+      "url": "https://medium.com/@kapildas_37013/putting-specification-driven-ai-development-into-practice-cb15c164b9b8",
+      "by": "kapildas",
+      "time": 1794714961000,
+      "tags": [
+        "software-engineering",
+        "aidlc",
+        "software-development"
+      ]
+    },
+    {
+      "title": "How to Run a System Design Mock Interview That Actually Prepares You",
+      "url": "https://medium.com/@itsaurelius/how-to-run-a-system-design-mock-interview-that-actually-prepares-you-1022680ecf60",
+      "by": "Aditya Shukla",
+      "time": 1794714839000,
+      "tags": [
+        "software-engineering",
+        "system-design-interview",
+        "coding-interviews"
+      ]
+    },
+    {
+      "title": "99% of \"AI Millionaires\" Are Just Selling You Shovels.",
+      "url": "https://medium.com/@dark_ai_engineer/99-of-ai-millionaires-are-just-selling-you-shovels-42f9b863b922",
+      "by": "The Dark AI Engineer",
+      "time": 1794714754000,
+      "tags": [
+        "software-engineering",
+        "ai-agent",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "AI Doesn’t Read Your Words. It Reads Numbers",
+      "url": "https://medium.com/@hshamlooh/ai-doesnt-read-your-words-it-reads-numbers-ac5a21ab924d",
+      "by": "Hussain Shamlooh",
+      "time": 1794714617000,
+      "tags": [
+        "artificial-intelligence",
+        "arabic",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "I Moved Away From GitHub Actions. Now I’m Hosting My Own CI Server.",
+      "url": "https://hiruthicsha.medium.com/i-moved-away-from-github-actions-now-im-hosting-my-own-ci-server-b0fe73efce86",
+      "by": "hiruthicSha",
+      "time": 1794714361000,
+      "tags": [
+        "ci-cd-pipeline",
+        "devops",
+        "software-engineering"
       ]
     }
   ]
