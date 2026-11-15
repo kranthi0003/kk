@@ -1,185 +1,186 @@
 {
-  "generated": "2026-11-14T04:20:49.865Z",
+  "generated": "2026-11-15T03:39:11.680Z",
   "reddit": [
+    {
+      "title": "What we learned operating auth for 1,000+ APIs",
+      "url": "https://www.reddit.com/r/programming/comments/1xwac98/what_we_learned_operating_auth_for_1000_apis/",
+      "by": "fagnerbrack",
+      "time": 1794682837000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Designing payouts that never payout twice: timeouts, an \"Unknown\" state, and idempotency in cross-border payments",
+      "url": "https://www.reddit.com/r/programming/comments/1xw8tdv/designing_payouts_that_never_payout_twice/",
+      "by": "Nice_Thought_2000",
+      "time": 1794679182000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "A Unicode Escape Can Turn a Java Comment Into Executable Code",
+      "url": "https://www.reddit.com/r/programming/comments/1xw63wj/a_unicode_escape_can_turn_a_java_comment_into/",
+      "by": "Cool-Click1253",
+      "time": 1794672610000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Under the Hood: Serving Kimi K3 | DigitalOcean",
+      "url": "https://www.reddit.com/r/programming/comments/1xw3jy7/under_the_hood_serving_kimi_k3_digitalocean/",
+      "by": "Ok_Stomach6651",
+      "time": 1794666079000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Beating the frontier on NetHack",
+      "url": "https://www.reddit.com/r/programming/comments/1xw2equ/beating_the_frontier_on_nethack/",
+      "by": "alexeyr",
+      "time": 1794662894000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Problem with concurrent linter fixes",
+      "url": "https://www.reddit.com/r/programming/comments/1xw1um8/problem_with_concurrent_linter_fixes/",
+      "by": "fagnerbrack",
+      "time": 1794661228000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "It's all about the allocator",
+      "url": "https://www.reddit.com/r/programming/comments/1xw1sem/its_all_about_the_allocator/",
+      "by": "despacit0_",
+      "time": 1794661055000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Some Projects Need to Fail",
+      "url": "https://www.reddit.com/r/programming/comments/1xvx0nl/some_projects_need_to_fail/",
+      "by": "Either_Collection349",
+      "time": 1794643728000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "Formal Verification is Not Verifiable: Bouba and Kiki Software",
+      "url": "https://www.reddit.com/r/programming/comments/1xvug39/formal_verification_is_not_verifiable_bouba_and/",
+      "by": "mttd",
+      "time": 1794634623000,
+      "sub": "r/programming"
+    },
     {
       "title": "How I accidentally became a millionaire",
       "url": "https://www.reddit.com/r/programming/comments/1xvr455/how_i_accidentally_became_a_millionaire/",
       "by": "NXGZ",
       "time": 1794623901000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Uber’s Rate Limiting System",
-      "url": "https://www.reddit.com/r/programming/comments/1xvmjn4/ubers_rate_limiting_system/",
-      "by": "Ok_Stomach6651",
-      "time": 1794610885000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "The age of hyper-personal software is here",
-      "url": "https://www.reddit.com/r/programming/comments/1xvkeuh/the_age_of_hyperpersonal_software_is_here/",
-      "by": "wauter",
-      "time": 1794605569000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Starting hands-on Linux Admin study group & Discord (No boring slides, just terminal & real-world troubleshooting)",
-      "url": "https://www.reddit.com/r/devops/comments/1xvjftu/starting_handson_linux_admin_study_group_discord/",
-      "by": "mutedsomething",
-      "time": 1794603270000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Announcing Rust 1.100.0",
-      "url": "https://www.reddit.com/r/programming/comments/1xvixj7/announcing_rust_11000/",
-      "by": "Either_Collection349",
-      "time": 1794602093000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Concurrent Shell Command Queues",
-      "url": "https://www.reddit.com/r/programming/comments/1xviun2/concurrent_shell_command_queues/",
-      "by": "Either_Collection349",
-      "time": 1794601895000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Thoughts on plesk",
-      "url": "https://www.reddit.com/r/devops/comments/1xuyh5l/thoughts_on_plesk/",
-      "by": "funcyChaos",
-      "time": 1794544345000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "What Will Separate Great DevOps Engineers from Average Ones in 2027?",
-      "url": "https://www.reddit.com/r/devops/comments/1xuwffc/what_will_separate_great_devops_engineers_from/",
-      "by": "Same_Significance869",
-      "time": 1794538079000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Trying to understand how security tooling fits into CI/CD, for a uni case study. Would love your take!",
-      "url": "https://www.reddit.com/r/devops/comments/1xumia4/trying_to_understand_how_security_tooling_fits/",
-      "by": "CommissionNeat811",
-      "time": 1794512426000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "How do you stay informed of DevOps and AI current events?",
-      "url": "https://www.reddit.com/r/devops/comments/1xuk8hz/how_do_you_stay_informed_of_devops_and_ai_current/",
-      "by": "ConstantOk4042",
-      "time": 1794507411000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Go From Zero, Part 9: Generics Without the Headache",
-      "url": "https://sahilkhaire.medium.com/go-from-zero-part-9-generics-without-the-headache-5130d479bc82",
-      "by": "Sahil Khaire",
-      "time": 1794629469000,
+      "title": "I Got Tired of Using Five Different Linux Utilities to Manage My Files, So I Built My Own File…",
+      "url": "https://medium.com/@rosstramontano/i-got-tired-of-using-five-different-linux-utilities-to-manage-my-files-so-i-built-my-own-file-bfe98c7d65ee",
+      "by": "Ross Tramontano",
+      "time": 1794713108000,
       "tags": [
-        "golang",
-        "golang-tutorial",
-        "programming"
+        "software-development",
+        "ubuntu",
+        "software-engineering"
       ]
     },
     {
-      "title": "Your 64-Bit ID Loses Digits the Moment JSON.parse Touches It",
-      "url": "https://martin128.medium.com/your-64-bit-id-loses-digits-the-moment-json-parse-touches-it-8343a254131b",
-      "by": "Martin",
-      "time": 1794629461000,
+      "title": "SCP vs rsync: Moving Files to a Linux Server",
+      "url": "https://medium.com/@chetan71/scp-vs-rsync-moving-files-to-a-linux-server-0cb6d462f57a",
+      "by": "Chetan Chauhan",
+      "time": 1794712509000,
       "tags": [
-        "nodejs",
-        "backend",
+        "programming",
+        "devops",
+        "aws"
+      ]
+    },
+    {
+      "title": "Laravel Code Review Checklist: What to Check Before You Merge a PR",
+      "url": "https://medium.com/@raghavji2050/laravel-code-review-checklist-what-to-check-before-you-merge-a-pr-17f528c4f57a",
+      "by": "Raghav Ji",
+      "time": 1794712293000,
+      "tags": [
+        "laravel",
+        "software-development",
+        "php"
+      ]
+    },
+    {
+      "title": "The Pivotal Choice: Why Corporate AI is a Dead End and How We Can Build a Bridge to the Top",
+      "url": "https://medium.com/@jlj420smoker11/the-pivotal-choice-why-corporate-ai-is-a-dead-end-and-how-we-can-build-a-bridge-to-the-top-13b8af4ea99d",
+      "by": "Jason Jones",
+      "time": 1794711965000,
+      "tags": [
+        "future",
+        "devops",
+        "justice"
+      ]
+    },
+    {
+      "title": "The Pause Button Every Production AI Agent Needs",
+      "url": "https://medium.com/@komalbaparmar007/the-pause-button-every-production-ai-agent-needs-9f7b5254892a",
+      "by": "Yamishift",
+      "time": 1794711961000,
+      "tags": [
+        "programming",
+        "ai-agent",
+        "python"
+      ]
+    },
+    {
+      "title": "How to Build a REST API with Flask: A Practical Python Guide",
+      "url": "https://medium.com/@harristarstech/how-to-build-a-rest-api-with-flask-a-practical-python-guide-9e4d632ffca0",
+      "by": "Harristar Tech",
+      "time": 1794711743000,
+      "tags": [
+        "software-development",
+        "programming",
         "web-development"
       ]
     },
     {
-      "title": "Hey everyone!",
-      "url": "https://medium.com/@ari_23074/hey-everyone-9f17e9c3de79",
-      "by": "Ari",
-      "time": 1794628931000,
+      "title": "Workstation: From a Workbench to a Working Team",
+      "url": "https://medium.com/@rantnrave31/workstation-from-a-workbench-to-a-working-team-703ab9979864",
+      "by": "Don Gunter",
+      "time": 1794710827000,
       "tags": [
-        "programming",
-        "technology"
+        "teamwork",
+        "computer-science",
+        "business"
       ]
     },
     {
-      "title": "BLoC vs. Cubit: Managing State Without Overengineering",
-      "url": "https://medium.com/@akij.mia/bloc-vs-cubit-managing-state-without-overengineering-85944ed2582e",
-      "by": "AK IJ",
-      "time": 1794628461000,
+      "title": "JWT Pitfalls: What Goes Wrong and How to Avoid It",
+      "url": "https://medium.com/@techsayan01/jwt-pitfalls-what-goes-wrong-and-how-to-avoid-it-a387b02660b0",
+      "by": "Sayan Biswas",
+      "time": 1794710748000,
       "tags": [
-        "mobile-app-development",
-        "flutter",
-        "bloc"
+        "authentication",
+        "cybersecurity",
+        "web-development"
       ]
     },
     {
-      "title": "9 Claude Code Tricks That Stop You Hitting Your Weekly Limit",
-      "url": "https://medium.com/@vedant_chhajed/9-claude-code-tricks-that-stop-you-hitting-your-weekly-limit-9e8b1cb97e4b",
-      "by": "Vedant Chhajed",
-      "time": 1794628145000,
+      "title": "7 Open-Source Tools Developers Are Sleeping On in 2026",
+      "url": "https://medium.com/@pranavpatil6251/7-open-source-tools-developers-are-sleeping-on-in-2026-d4bc4a224d98",
+      "by": "Pranav Patil",
+      "time": 1794710672000,
       "tags": [
-        "ai",
-        "programming",
-        "productivity"
+        "open-source",
+        "developer-tools",
+        "programming"
       ]
     },
     {
-      "title": "AI PRD: How I Write a Product Spec for an LLM Feature (and the 6 Sections a Normal PRD Is Missing)",
-      "url": "https://medium.com/@k.pranav_22/ai-prd-how-i-write-a-product-spec-for-an-llm-feature-and-the-6-sections-a-normal-prd-is-missing-24c10dc0d8f4",
-      "by": "Pranav Kumar",
-      "time": 1794628104000,
+      "title": "THE WOMEN WE CHASE AND THE THINGS WE REFUSE TO SEE",
+      "url": "https://medium.com/@ezehe121/the-women-we-chase-and-the-things-we-refuse-to-see-8744757f0eab",
+      "by": "Emeka Ezeh",
+      "time": 1794710612000,
       "tags": [
-        "machine-learning",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "It Works on QA but Fails on Prod: 6 Config Bugs I Keep Seeing",
-      "url": "https://ganeshlawand2002.medium.com/it-works-on-qa-but-fails-on-prod-6-config-bugs-i-keep-seeing-e424ea7052dc",
-      "by": "CodePulse",
-      "time": 1794627961000,
-      "tags": [
-        "software-development",
-        "javascript",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Java Developer Interview: 7 Real-World Challenges Every Senior Developer Should Be Ready For (18…",
-      "url": "https://medium.com/@pardeepgill82/java-developer-interview-7-real-world-challenges-every-senior-developer-should-be-ready-for-18-f2c6e5b77eeb",
-      "by": "Interview Playbook",
-      "time": 1794627920000,
-      "tags": [
-        "jobs",
-        "java",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "AI Agent Cost Reduction Hacks: Directory Architecture That Eliminates Unnecessary File Loading and…",
-      "url": "https://medium.com/@kmal777/ai-agent-cost-reduction-hacks-directory-architecture-that-eliminates-unnecessary-file-loading-and-8e9c7556c6f4",
-      "by": "Tessa kss",
-      "time": 1794627799000,
-      "tags": [
-        "llm",
-        "ai",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "6 Ways to Cut Your LLM API Bill Without Making Answers Worse",
-      "url": "https://karthikupadrasta.medium.com/6-ways-to-cut-your-llm-api-bill-without-making-answers-worse-fb8b450010d1",
-      "by": "Karthik Upadrasta",
-      "time": 1794627061000,
-      "tags": [
-        "openai",
-        "artificial-intelligence",
-        "llm"
+        "relationships",
+        "mental-health",
+        "programming"
       ]
     }
   ]
