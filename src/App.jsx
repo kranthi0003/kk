@@ -60,6 +60,7 @@ const TamPrep = lazy(() => import('./components/TamPrep'))
 const PlanTracker = lazy(() => import('./components/PlanTracker'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
+const OrangeBadge = lazy(() => import('./components/OrangeBadge'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
@@ -132,8 +133,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The study guide, planner and meal plan open straight away, without the intro.
-  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The study guide, planner, meal plan and badge page open straight away, without the intro.
+  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals|orangebadge)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -532,6 +533,16 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#171329' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(255,215,138,0.7)' }}>making a wish…</div></div>}>
         <ElevenEleven onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Orange badge — her five-year Amaversary at Amazon. Private and unlisted,
+  // shared directly by link. Not in nav. Matched loosely, like #/itsalwaysher.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/orangebadge') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0d1319' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(255,199,115,0.75)' }}>badging in…</div></div>}>
+        <OrangeBadge onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
