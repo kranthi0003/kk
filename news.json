@@ -1,19 +1,33 @@
 {
-  "generated": "2026-11-16T08:23:50.646Z",
+  "generated": "2026-11-16T12:13:14.469Z",
   "reddit": [
     {
-      "title": "Weekly Self Promotion Thread",
-      "url": "https://www.reddit.com/r/devops/comments/1xxj9dr/weekly_self_promotion_thread/",
-      "by": "AutoModerator",
-      "time": 1794814219000,
-      "sub": "r/devops"
+      "title": "Ring programming language version 1.28 is released!",
+      "url": "https://www.reddit.com/r/programming/comments/1xxmn7s/ring_programming_language_version_128_is_released/",
+      "by": "mrpro1a1",
+      "time": 1794827111000,
+      "sub": "r/programming"
     },
     {
-      "title": "What tasks is AI bad at?",
-      "url": "https://www.reddit.com/r/devops/comments/1xxhvjc/what_tasks_is_ai_bad_at/",
-      "by": "davidbasil",
-      "time": 1794809166000,
-      "sub": "r/devops"
+      "title": "Kubernetes Gym - a Fun Way to Improve kubectl Fluency",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xxmdu2/kubernetes_gym_a_fun_way_to_improve_kubectl/",
+      "by": "iximiuz",
+      "time": 1794826180000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "When Good Practices Become Empty Rituals",
+      "url": "https://www.reddit.com/r/programming/comments/1xxm6d1/when_good_practices_become_empty_rituals/",
+      "by": "wordbit12",
+      "time": 1794825408000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How JavaScript and Python actually run your code",
+      "url": "https://www.reddit.com/r/programming/comments/1xxk3zb/how_javascript_and_python_actually_run_your_code/",
+      "by": "faqir-ila-rhmatillah",
+      "time": 1794817455000,
+      "sub": "r/programming"
     },
     {
       "title": "After Clash Royale's top ladder has now started being dominated by bots, are there any videogames where people want to see a bot capable of beating humans built?",
@@ -30,157 +44,142 @@
       "sub": "r/programming"
     },
     {
-      "title": "Platform engineering, DevEx, SRE, how freely can you move between them?",
-      "url": "https://www.reddit.com/r/devops/comments/1xx7dlu/platform_engineering_devex_sre_how_freely_can_you/",
-      "by": "SquareBathroom6718",
-      "time": 1794778322000,
-      "sub": "r/devops"
+      "title": "How do you keep Kubernetes rightsizing and autoscaling configs from becoming a permanent manual job?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xx9npp/how_do_you_keep_kubernetes_rightsizing_and/",
+      "by": "njofce",
+      "time": 1794784263000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "I built an open-source tool to solve polyrepo config drift without clobbering local overrides",
-      "url": "https://www.reddit.com/r/devops/comments/1xx53i1/i_built_an_opensource_tool_to_solve_polyrepo/",
-      "by": "Many_Location3380",
-      "time": 1794772698000,
-      "sub": "r/devops"
+      "title": "Scaling a hierarchical federated infrastructure to 1,500 container nodes with sub-400ms latencies (and machine-checking the Byzantine fault tolerance in Lean 4)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xx908i/scaling_a_hierarchical_federated_infrastructure/",
+      "by": "Famous_Aardvark_8595",
+      "time": 1794782529000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "When a vibe coded internal tool ends up with other teams depending on it, do you review it like prod code or let it stay disposable?",
-      "url": "https://www.reddit.com/r/devops/comments/1xx1rr7/when_a_vibe_coded_internal_tool_ends_up_with/",
-      "by": "jyotirawattech",
-      "time": 1794764791000,
-      "sub": "r/devops"
+      "title": "How do you handle prod promotion with Argo CD + Image Updater when CI is triggered by a git tag?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xwrwl9/how_do_you_handle_prod_promotion_with_argo_cd/",
+      "by": "andypaak1",
+      "time": 1794737195000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": "Many Tiles, One Space, Two Worlds -- At Last, a Use for Bubble Sort",
-      "url": "https://www.reddit.com/r/programming/comments/1xx0jyi/many_tiles_one_space_two_worlds_at_last_a_use_for/",
-      "by": "zeroone",
-      "time": 1794761997000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Understanding Go: inside PGO",
-      "url": "https://www.reddit.com/r/programming/comments/1xwz44b/understanding_go_inside_pgo/",
-      "by": "Charming_Skin_8549",
-      "time": 1794758596000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "544 unmaintained PyPI packages with imports that fail on Python 3.12+ still get 100M+ downloads a month",
-      "url": "https://www.reddit.com/r/programming/comments/1xwyhpm/544_unmaintained_pypi_packages_with_imports_that/",
-      "by": "Business-Feedback635",
-      "time": 1794757060000,
-      "sub": "r/programming"
+      "title": "Hows everyone handling secret zero outside kubernetes?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xwrh6v/hows_everyone_handling_secret_zero_outside/",
+      "by": "aidenclarke_12",
+      "time": 1794735567000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Until I Land a Remote Job: My Journey Begins",
-      "url": "https://medium.com/@programmingmaster33/until-i-land-a-remote-job-my-journey-begins-e225093ef000",
-      "by": "ShadowDev",
-      "time": 1794817075000,
+      "title": "Our CEO Replaced 12 Engineers With AI. On Day 43, He Asked Us to Keep It Quiet",
+      "url": "https://medium.com/@the_unwritten_algorithm/our-ceo-replaced-12-engineers-with-ai-on-day-43-he-asked-us-to-keep-it-quiet-69384a847df6",
+      "by": "Staff Engineer Career",
+      "time": 1794831150000,
       "tags": [
         "software-engineering",
-        "careers",
-        "backend-development"
-      ]
-    },
-    {
-      "title": "Rust: Why AI Teams Are Quietly Moving Agent Infrastructure From Python to Rust (Rig, DataFusion…",
-      "url": "https://medium.com/@yornsopheaktra/rust-why-ai-teams-are-quietly-moving-agent-infrastructure-from-python-to-rust-rig-datafusion-275e798f834e",
-      "by": "Sopheaktra Yorn",
-      "time": 1794816908000,
-      "tags": [
-        "programming",
-        "artificial-intelligence",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Bug was Already Fixed. So Why Was It Back?",
-      "url": "https://medium.com/skillstuff/the-bug-was-already-fixed-so-why-was-it-back-d2e3975c0280",
-      "by": "Natasha",
-      "time": 1794816751000,
-      "tags": [
-        "redux-state-management",
-        "problem-solving",
-        "debugging"
-      ]
-    },
-    {
-      "title": "20 Java Interview Questions That Separate Experienced Developers from Average Candidates",
-      "url": "https://medium.com/@preetjit82/20-java-interview-questions-that-separate-experienced-developers-from-average-candidates-5c89ca8add71",
-      "by": "Interview Simplified",
-      "time": 1794816740000,
-      "tags": [
-        "jobs",
-        "programming",
-        "java"
-      ]
-    },
-    {
-      "title": "Why an AI Coding Task Should Change Models Halfway Through",
-      "url": "https://milind-divre.medium.com/why-an-ai-coding-task-should-change-models-halfway-through-cde2935d1f9e",
-      "by": "Milind Divre",
-      "time": 1794816716000,
-      "tags": [
-        "coding",
-        "productivity",
-        "technology"
-      ]
-    },
-    {
-      "title": "My AI agent could read every API key I had. So I built a vault it can’t read.",
-      "url": "https://medium.com/@dkhodriansyah/my-ai-agent-could-read-every-api-key-i-had-so-i-built-a-vault-it-cant-read-1e716a1a67c8",
-      "by": "Didi Khodriansyah",
-      "time": 1794816678000,
-      "tags": [
-        "open-source",
-        "cybersecurity",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Migrating a Mission-Critical App to Compose Multiplatform",
-      "url": "https://medium.com/getir/migrating-a-mission-critical-app-to-compose-multiplatform-5de30d3c5a58",
-      "by": "Bünyamin Başoğlu",
-      "time": 1794816502000,
-      "tags": [
-        "software-engineering",
-        "kotlin-multiplatform",
-        "ios-development"
-      ]
-    },
-    {
-      "title": "9 SQL mistakes that cost CBSE Class 12 students marks (and how to avoid them)",
-      "url": "https://medium.com/@ghosh.srimanta20/9-sql-mistakes-that-cost-cbse-class-12-students-marks-and-how-to-avoid-them-5f377a115ef3",
-      "by": "Ghosh Srimanta",
-      "time": 1794816404000,
-      "tags": [
-        "programming",
-        "sql",
-        "education"
-      ]
-    },
-    {
-      "title": "C Programs (Basic) with Solutions",
-      "url": "https://medium.com/@keycomputereducation/c-programs-basic-with-solutions-2e2bc944abc7",
-      "by": "Key computer Education",
-      "time": 1794816353000,
-      "tags": [
-        "programming",
-        "coding",
-        "leetcode"
-      ]
-    },
-    {
-      "title": "Gemini Decisions API: A Confident Answer Still Needs a Decision Rule",
-      "url": "https://milind-divre.medium.com/gemini-decisions-api-a-confident-answer-still-needs-a-decision-rule-ed50c920fd66",
-      "by": "Milind Divre",
-      "time": 1794816257000,
-      "tags": [
-        "machine-learning",
         "artificial-intelligence",
         "data-science"
+      ]
+    },
+    {
+      "title": "I Rejected a Senior Engineer in 40 Minutes. Six Weeks Later, I Asked Him to Save Our System",
+      "url": "https://medium.com/javarevisited/i-rejected-a-senior-engineer-in-40-minutes-six-weeks-later-i-asked-him-to-save-our-system-27dd575dec62",
+      "by": "Production Systems",
+      "time": 1794831064000,
+      "tags": [
+        "software-development",
+        "programming",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "A Free Alternative to GitHub Actions: Jenkins on Our Laptops and a Secure AI Code Reviewer",
+      "url": "https://medium.com/@ali.mohamed.hgr/a-free-alternative-to-github-actions-jenkins-on-our-laptops-and-a-secure-ai-code-reviewer-d2f35a70256a",
+      "by": "Ali Mohamed Mohamed",
+      "time": 1794830867000,
+      "tags": [
+        "devops",
+        "code-review",
+        "ai"
+      ]
+    },
+    {
+      "title": "Our Principal Engineer Refused to Approve the Release. Three Days Later, the CTO Called Him",
+      "url": "https://medium.com/javarevisited/our-principal-engineer-refused-to-approve-the-release-three-days-later-the-cto-called-him-0fc58fa2c225",
+      "by": "Architecture Unfiltered",
+      "time": 1794830799000,
+      "tags": [
+        "data-science",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "n8n’i Kendi Sunucunda 5 Dakikada Kur",
+      "url": "https://medium.com/@keserata/n8ni-kendi-sunucunda-5-dakikada-kur-1f12d913b9e8",
+      "by": "Keserata",
+      "time": 1794830746000,
+      "tags": [
+        "devops",
+        "otomasyon",
+        "n8n"
+      ]
+    },
+    {
+      "title": "The Review Doc I Wrote Before Every Promotion and Hike",
+      "url": "https://medium.com/@saurabhraj042/the-review-doc-i-wrote-before-every-promotion-and-hike-193e49cee61b",
+      "by": "Saurabh",
+      "time": 1794830689000,
+      "tags": [
+        "promotion",
+        "software-engineering",
+        "career-advice"
+      ]
+    },
+    {
+      "title": "Best MLM Software Company in Suburb — Smart, Scalable & Feature-Rich MLM Business Solutions",
+      "url": "https://medium.com/@sp3_67490/best-mlm-software-company-in-suburb-smart-scalable-feature-rich-mlm-business-solutions-178fd8d34160",
+      "by": "sheetal",
+      "time": 1794830590000,
+      "tags": [
+        "software-development",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Linear Regression | The Foundation of Machine Learning for Cybersecurity",
+      "url": "https://medium.com/@antor.csecu/linear-regression-the-foundation-of-machine-learning-for-cybersecurity-28164af45beb",
+      "by": "A. AntorCSE404",
+      "time": 1794830496000,
+      "tags": [
+        "programming",
+        "cybersecurity",
+        "offensive-security"
+      ]
+    },
+    {
+      "title": "Anthropic’s revenue question: Is coding demand losing momentum?",
+      "url": "https://medium.com/@the-casual-wellness-journal/anthropics-revenue-question-is-coding-demand-losing-momentum-8896a9c8fe52",
+      "by": "The Casual Wellness Journal",
+      "time": 1794830483000,
+      "tags": [
+        "technology",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "Discord Rewrote Its App in Rust and Used 70% Less RAM. Electron Still Isn’t the Villain.",
+      "url": "https://medium.com/futura-creative/discord-rewrote-its-app-in-rust-and-used-70-less-ram-electron-still-isnt-the-villain-64ac8c3eb803",
+      "by": "Kevin Gabeci",
+      "time": 1794830462000,
+      "tags": [
+        "technology",
+        "programming",
+        "software-development"
       ]
     }
   ]
