@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { TAM_PAYLOAD as PAYLOAD } from '../lib/tamPayload'
 
 /* ------------------------------------------------------------------ *
@@ -11,10 +11,9 @@ import { TAM_PAYLOAD as PAYLOAD } from '../lib/tamPayload'
  * map, scenario drills, timed question practice, flashcards and checklists.
  * Edit the content with scripts/private-payload.mjs (decrypt → edit →
  * encrypt). The payload is { meta, modules: [{ id, label, title, blocks }] }.
- * Optional extras, also from the payload: meta.mark (a small SVG mark),
- * module.group (navigation group labels) and meta.intro (an encrypted clip
- * that plays after unlock and has to be watched to the end). A link such as
- * #/tam/<module-id> opens straight onto that module after unlocking.
+ * Optional extras, also from the payload: meta.mark (a small SVG mark) and
+ * module.group (navigation group labels). A link such as #/tam/<module-id>
+ * opens straight onto that module after unlocking.
  *
  * Progress stays in localStorage on this device: ids and booleans only,
  * never the guide's text and never the password.
@@ -55,43 +54,6 @@ function loadProgress() {
   return { mod: '', done: {} }
 }
 
-// Optional intro clip (meta.intro). The file in public/ is AES-GCM encrypted
-// with a random key that exists only inside the payload: 12-byte IV, then
-// ciphertext and tag.
-async function openClip(clip) {
-  const res = await fetch(`${import.meta.env.BASE_URL}${String(clip.src).replace(/^\/+/, '')}`)
-  if (!res.ok) throw new Error(`Clip request failed: ${res.status}`)
-  const bytes = new Uint8Array(await res.arrayBuffer())
-  const key = await crypto.subtle.importKey('raw', b64(clip.key), 'AES-GCM', false, ['decrypt'])
-  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.subarray(0, 12) }, key, bytes.subarray(12))
-  return URL.createObjectURL(new Blob([plain], { type: clip.type || 'video/mp4' }))
-}
-
-// One shared <video>. Calling play() on it inside the unlock tap is the user
-// gesture Safari and iOS need before the clip may later play with sound.
-let player = null
-function getPlayer() {
-  if (!player && typeof document !== 'undefined') {
-    player = document.createElement('video')
-    player.playsInline = true
-    player.setAttribute('playsinline', '')
-    player.preload = 'auto'
-  }
-  return player
-}
-function primePlayer() {
-  const v = getPlayer()
-  if (!v || v.getAttribute('src')) return
-  try { Promise.resolve(v.play()).catch(() => {}) } catch {}
-}
-function releasePlayer(url) {
-  const v = player
-  if (!v || v.getAttribute('src') !== url) return
-  v.pause()
-  v.removeAttribute('src')
-  v.load()
-}
-
 const smooth = () => (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth')
 const pad = (n) => String(n).padStart(2, '0')
 const list = (value) => (Array.isArray(value) ? value : value ? [value] : [])
@@ -112,9 +74,6 @@ const UI = {
   flip: 'Show answer', unflip: 'Show question', known: 'I know this', isKnown: 'Known ✓', shuffle: 'Shuffle',
   onlyUnknown: 'Only cards I am still learning', allKnown: 'Every card is marked known. Turn the filter off to review.',
   cardOf: 'Card', of: 'of', total: 'Total',
-  reelLabel: 'Intro video', reelSkip: 'Skip', reelGo: 'Continue', reelAgain: 'Watch again', reelReplay: 'Replay intro',
-  reelSound: 'Tap for sound', reelPlay: 'Tap to play', reelLoading: 'Loading…', reelMute: 'Mute', reelUnmute: 'Unmute',
-  reelHold: 'Watch to the end to continue',
 }
 const Words = createContext(UI)
 const useW = () => useContext(Words)
@@ -771,19 +730,6 @@ function tally(modules, done) {
   return t
 }
 
-const BURST = Array.from({ length: 28 }, (_, i) => {
-  const angle = (i / 28) * Math.PI * 2
-  const reach = 110 + ((i * 53) % 90)
-  return {
-    '--x': `${Math.round(Math.cos(angle) * reach * 1.5)}px`,
-    '--y': `${Math.round(Math.sin(angle) * reach * 0.9 - 30)}px`,
-    '--r': `${((i * 67) % 540) - 270}deg`,
-    '--d': `${(i % 7) * 35}ms`,
-    '--c': ['#00ed64', '#71f6ba', '#016bf8', '#b45af2', '#ffc010'][i % 5],
-  }
-})
-const clock = (n) => `${Math.floor(n / 60)}:${pad(n % 60)}`
-
 // A small brand mark drawn from the payload (meta.mark: { viewBox, paths }).
 function Mark({ mark, className }) {
   const paths = list(mark?.paths)
@@ -797,236 +743,6 @@ function Mark({ mark, className }) {
   )
 }
 
-// Full-screen intro: the clip, a caption beneath it, then on into the guide.
-// When `required`, there is no way past it until the clip has played to the
-// end: no skip, no Escape, and seeking ahead snaps back to the furthest point
-// watched. If the clip can't load at all, the guide opens rather than locking
-// her out. It tries to play with sound; if the browser refuses, it plays muted
-// with a "tap for sound" button and restarts from the top the first time sound
-// comes on, so nothing is missed.
-function Reel({ clip, media, mark, required, onClose }) {
-  const w = useW()
-  const box = useRef(null)
-  const slot = useRef(null)
-  const actions = useRef(null)
-  const heard = useRef(false)
-  const closing = useRef(false)
-  const run = useRef(0)
-  const furthest = useRef(0)
-  const [passed, setPassed] = useState(!required)
-  const [s, setS] = useState({ playing: false, muted: false, blocked: false, ended: false, failed: false, progress: 0, left: 0 })
-  const [leaving, setLeaving] = useState(false)
-  const ready = media.status === 'ready'
-  const failed = media.status === 'error' || s.failed
-  const free = passed || failed
-  const passedRef = useRef(passed)
-  passedRef.current = passed
-  const freeRef = useRef(free)
-  freeRef.current = free
-
-  const close = useCallback(() => {
-    if (closing.current || !freeRef.current) return
-    closing.current = true
-    getPlayer()?.pause()
-    setLeaving(true)
-    window.setTimeout(onClose, smooth() === 'smooth' ? 360 : 0)
-  }, [onClose])
-
-  const start = (v) => {
-    const token = ++run.current
-    setS((p) => ({ ...p, ended: false, blocked: false }))
-    v.muted = false
-    Promise.resolve(v.play())
-      .then(() => { if (token === run.current && !v.muted) heard.current = true })
-      .catch((err) => {
-        if (token !== run.current || err?.name !== 'NotAllowedError') return
-        v.muted = true
-        Promise.resolve(v.play()).catch((again) => {
-          if (token === run.current && again?.name === 'NotAllowedError') setS((p) => ({ ...p, blocked: true }))
-        })
-      })
-  }
-
-  useEffect(() => {
-    const root = document.documentElement
-    const before = root.style.overflow
-    root.style.overflow = 'hidden'
-    box.current?.focus({ preventScroll: true })
-    const onKey = (event) => { if (event.key === 'Escape') close() }
-    window.addEventListener('keydown', onKey)
-    return () => {
-      root.style.overflow = before
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [close])
-
-  useLayoutEffect(() => {
-    const v = getPlayer()
-    const host = slot.current
-    if (!ready || !v || !host) return undefined
-    v.className = 'tp-reel-video'
-    v.setAttribute('aria-label', clip.label || w.reelLabel)
-    v.disablePictureInPicture = true
-    v.playbackRate = 1
-    host.appendChild(v)
-    const sync = () => {
-      const gap = v.currentTime - furthest.current
-      if (!v.seeking && gap > 0 && gap < 3) furthest.current = v.currentTime
-      setS((p) => ({
-        ...p,
-        playing: !v.paused && !v.ended,
-        muted: v.muted,
-        progress: v.duration ? Math.min(1, v.currentTime / v.duration) : 0,
-        left: v.duration ? Math.max(0, Math.ceil(v.duration - v.currentTime)) : 0,
-      }))
-    }
-    const hold = () => {
-      if (!passedRef.current && v.currentTime > furthest.current + 1) {
-        try { v.currentTime = furthest.current } catch {}
-      }
-    }
-    const steady = () => { if (!passedRef.current && v.playbackRate !== 1) v.playbackRate = 1 }
-    const end = () => {
-      if (!passedRef.current && v.duration && furthest.current < v.duration - 2) {
-        hold()
-        Promise.resolve(v.play()).catch(() => {})
-        return
-      }
-      passedRef.current = true
-      setPassed(true)
-      setS((p) => ({ ...p, playing: false, ended: true, progress: 1, left: 0 }))
-    }
-    const fail = () => setS((p) => ({ ...p, failed: true }))
-    const events = ['play', 'playing', 'pause', 'timeupdate', 'volumechange', 'durationchange']
-    events.forEach((name) => v.addEventListener(name, sync))
-    v.addEventListener('seeking', hold)
-    v.addEventListener('ratechange', steady)
-    v.addEventListener('ended', end)
-    v.addEventListener('error', fail)
-    if (v.getAttribute('src') !== media.url) v.src = media.url
-    try { v.currentTime = 0 } catch {}
-    furthest.current = 0
-    start(v)
-    return () => {
-      run.current += 1
-      events.forEach((name) => v.removeEventListener(name, sync))
-      v.removeEventListener('seeking', hold)
-      v.removeEventListener('ratechange', steady)
-      v.removeEventListener('ended', end)
-      v.removeEventListener('error', fail)
-      v.pause()
-      v.remove()
-    }
-  }, [ready, media.url]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const done = s.ended || failed
-  useEffect(() => {
-    if (done) actions.current?.scrollIntoView({ block: 'nearest', behavior: smooth() })
-  }, [done])
-
-  const unmute = () => {
-    const v = getPlayer()
-    if (!v) return
-    v.muted = false
-    if (!heard.current) {
-      try { v.currentTime = 0 } catch {}
-      heard.current = true
-    }
-    setS((p) => ({ ...p, blocked: false, ended: false }))
-    Promise.resolve(v.play()).catch(() => {})
-  }
-  const toggleMute = () => {
-    const v = getPlayer()
-    if (!v) return
-    if (v.muted) unmute()
-    else v.muted = true
-  }
-  const replay = () => {
-    const v = getPlayer()
-    if (!v) return
-    try { v.currentTime = 0 } catch {}
-    heard.current = true
-    start(v)
-  }
-  const tap = () => {
-    const v = getPlayer()
-    if (!v || !ready) return
-    if (s.ended) return replay()
-    if (v.muted || s.blocked) return unmute()
-    if (v.paused) Promise.resolve(v.play()).catch(() => {})
-    else v.pause()
-  }
-
-  // Caption words; **word** marks the ones that get the highlight.
-  let hi = false
-  const caption = String(clip.caption || '').split(/\s+/).filter(Boolean).map((token) => {
-    const opens = token.startsWith('**')
-    const closes = token.indexOf('**', opens ? 2 : 0) !== -1
-    const on = hi || opens
-    hi = on && !closes
-    return { word: token.replace(/\*\*/g, ''), on }
-  })
-  return (
-    <div ref={box} className={`tp-reel${leaving ? ' is-leaving' : ''}${s.ended ? ' is-ended' : ''}`}
-      role="dialog" aria-modal="true" aria-label={clip.label || w.reelLabel} tabIndex={-1}>
-      <div className="tp-reel-sky" aria-hidden="true" />
-      {mark && <Mark mark={mark} className="tp-reel-watermark" />}
-      <div className="tp-reel-top">
-        <span className="tp-reel-brand">{mark && <Mark mark={mark} />}{clip.kicker}</span>
-        {!free
-          ? (
-            <span className="tp-reel-hold">
-              <span aria-hidden="true">🔒</span>{clip.hold || w.reelHold}{ready && s.left > 0 && <b>{clock(s.left)}</b>}
-            </span>
-          )
-          : !s.ended && <button type="button" className="tp-reel-ghost" onClick={close}>{clip.skip || w.reelSkip} <span aria-hidden="true">→</span></button>}
-      </div>
-      <div className="tp-reel-stage">
-        {!failed && (
-          <div className="tp-reel-frame" data-state={media.status}>
-            <div className="tp-reel-slot" ref={slot} onClick={tap} />
-            {!ready && <span className="tp-reel-wait" role="status">{w.reelLoading}</span>}
-            {ready && !s.ended && (s.blocked || s.muted) && (
-              <button type="button" className="tp-reel-chip" onClick={unmute}>
-                <span aria-hidden="true">{s.blocked ? '▶' : '🔊'}</span> {s.blocked ? (clip.play || w.reelPlay) : (clip.sound || w.reelSound)}
-              </button>
-            )}
-            {ready && !s.ended && !s.blocked && !s.muted && !s.playing && s.progress > 0 && (
-              <button type="button" className="tp-reel-chip" onClick={tap} aria-label={w.resume}><span aria-hidden="true">▶</span></button>
-            )}
-            {ready && !s.blocked && (
-              <button type="button" className="tp-reel-mute" onClick={toggleMute}
-                aria-label={s.muted ? w.reelUnmute : w.reelMute} aria-pressed={!s.muted}>
-                <span aria-hidden="true">{s.muted ? '🔇' : '🔊'}</span>
-              </button>
-            )}
-            <span className="tp-reel-progress" aria-hidden="true"><i style={{ transform: `scaleX(${s.progress})` }} /></span>
-          </div>
-        )}
-        <div className="tp-reel-copy">
-          {s.ended && <span className="tp-reel-burst" aria-hidden="true">{BURST.map((style, i) => <i key={i} style={style} />)}</span>}
-          <p className="tp-reel-caption">
-            {caption.map((c, i) => (
-              <React.Fragment key={i}>{i > 0 && ' '}<span className={c.on ? 'is-hi' : undefined} style={{ '--i': i }}>{c.word}</span></React.Fragment>
-            ))}
-          </p>
-          {clip.from && <p className="tp-reel-from">{clip.from}</p>}
-          {clip.code && (
-            <div className="tp-reel-shell">
-              <p><span className="tp-reel-prompt" aria-hidden="true">&gt;</span>{clip.code}{!s.ended && <span className="tp-reel-cursor" aria-hidden="true" />}</p>
-              {s.ended && clip.result && <p className="tp-reel-out">{clip.result}</p>}
-            </div>
-          )}
-          <div ref={actions} className={done ? 'tp-reel-actions is-on' : 'tp-reel-actions'}>
-            {s.ended && <button type="button" className="tp-reel-ghost" onClick={replay}><span aria-hidden="true">↺</span> {clip.again || w.reelAgain}</button>}
-            <button type="button" className="tp-reel-go" onClick={close}>{clip.go || w.reelGo} <span aria-hidden="true">→</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function Gate({ onBack, onUnlock }) {
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
@@ -1037,7 +753,6 @@ function Gate({ onBack, onUnlock }) {
   const submit = async (event) => {
     event.preventDefault()
     if (busy) return
-    primePlayer()
     setBusy(true)
     setError('')
     let data
@@ -1093,15 +808,9 @@ function Gate({ onBack, onUnlock }) {
 export default function TamPrep({ onBack }) {
   const [content, setContent] = useState(null)
   const [prog, setProg] = useState(loadProgress)
-  const [reel, setReel] = useState('')
-  const [media, setMedia] = useState({ status: 'idle', url: '' })
-  const reelOpen = useRef(false)
-  reelOpen.current = !!reel
   const headingRef = useRef(null)
   const moduleRef = useRef(null)
   const moduleHeadingRef = useRef(null)
-  const intro = content?.meta?.intro
-  const clip = intro?.src && intro?.key ? intro : null
 
   useEffect(() => {
     try { localStorage.setItem(STORE, JSON.stringify(prog)) } catch {}
@@ -1110,49 +819,18 @@ export default function TamPrep({ onBack }) {
   useEffect(() => {
     if (!content) return
     window.scrollTo({ top: 0, behavior: 'instant' })
-    if (!reelOpen.current) headingRef.current?.focus({ preventScroll: true })
+    headingRef.current?.focus({ preventScroll: true })
   }, [content])
-
-  useEffect(() => {
-    if (!clip) {
-      setMedia({ status: 'idle', url: '' })
-      return undefined
-    }
-    let alive = true
-    let url = ''
-    setMedia({ status: 'loading', url: '' })
-    openClip(clip)
-      .then((made) => {
-        url = made
-        if (alive) setMedia({ status: 'ready', url: made })
-        else URL.revokeObjectURL(made)
-      })
-      .catch(() => { if (alive) setMedia({ status: 'error', url: '' }) })
-    return () => {
-      alive = false
-      if (url) {
-        releasePlayer(url)
-        URL.revokeObjectURL(url)
-      }
-    }
-  }, [clip])
-
-  const closeReel = useCallback(() => {
-    setReel('')
-    requestAnimationFrame(() => headingRef.current?.focus({ preventScroll: true }))
-  }, [])
 
   const modules = content?.modules || []
   const words = useMemo(() => ({ ...UI, ...(content?.meta?.words || {}) }), [content])
   const stats = useMemo(() => tally(modules, prog.done), [modules, prog.done])
 
-  // Every unlock starts with the intro, and it has to be watched through.
   // A link such as #/tam/<module-id> lands on that module once unlocked.
   const opened = (data) => {
     const want = ((/^#\/tam\/([\w-]+)\/?$/i.exec(window.location.hash || '') || [])[1] || '').toLowerCase()
     if (want && data.modules.some((m) => m.id === want)) setProg((p) => ({ ...p, mod: want }))
     setContent(data)
-    setReel(data.meta?.intro?.src && data.meta?.intro?.key ? 'required' : '')
   }
 
   if (!content) return <Gate onBack={onBack} onUnlock={opened} />
@@ -1182,12 +860,7 @@ export default function TamPrep({ onBack }) {
             <button type="button" className="tp-back" onClick={onBack}><span aria-hidden="true">←</span> {words.back}</button>
             <div className="tp-top-actions">
               {meta.bar && <span className="tp-top-note"><Mark mark={meta.mark} />{meta.bar}</span>}
-              {clip && (
-                <button type="button" className="tp-lock-action" onClick={() => setReel('replay')}>
-                  <span aria-hidden="true">▶</span> {clip.replay || words.reelReplay}
-                </button>
-              )}
-              <button type="button" className="tp-lock-action" onClick={() => { setReel(''); setContent(null) }}>{words.lock}</button>
+              <button type="button" className="tp-lock-action" onClick={() => setContent(null)}>{words.lock}</button>
             </div>
           </header>
           <div className="tp-wrap">
@@ -1255,7 +928,6 @@ export default function TamPrep({ onBack }) {
           )}
         </div>
         {meta.footer && <footer className="tp-footer"><Mark mark={meta.mark} /><p><Inline text={meta.footer} /></p></footer>}
-        {reel && clip && <Reel clip={clip} media={media} mark={meta.mark} required={reel === 'required'} onClose={closeReel} />}
       </main>
     </Words.Provider>
   )
@@ -1309,7 +981,6 @@ body:has(.tp-locked) { background:#001e2b !important; }
 .tp-top-note .tp-mark { height:22px; }
 .tp-lock-action { display:inline-flex; align-items:center; gap:7px; min-height:44px; padding:7px 14px; border:1px solid rgba(0,237,100,.45); border-radius:999px; background:rgba(0,237,100,.06); color:#e3fcf7; cursor:pointer; font-size:12.5px; font-weight:600; }
 .tp-lock-action:hover { background:rgba(0,237,100,.16); }
-.tp-lock-action span { color:var(--tp-bright); font-size:10px; }
 .tp-wrap { width:min(100% - 40px, 1120px); margin:0 auto; }
 .tp-eyebrow { margin:0 0 14px !important; color:var(--t-fg); font:600 11px var(--tp-mono); letter-spacing:.12em; text-transform:uppercase; }
 .tp-hero { padding:clamp(40px,6vw,80px) 0 clamp(44px,6vw,76px); display:grid; grid-template-columns:minmax(0,1.75fr) minmax(250px,1fr); gap:clamp(24px,5vw,64px); align-items:center; }
@@ -1609,94 +1280,5 @@ body:has(.tp-locked) { background:#001e2b !important; }
 }
 @media (prefers-reduced-motion:reduce) {
   .tp-root *, .tp-root *::before, .tp-root *::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
-}
-
-/* Intro clip overlay */
-.tp-reel { position:fixed; inset:0; z-index:1200; display:flex; flex-direction:column; overflow:auto; overscroll-behavior:contain; color:#fff; outline:none;
-  background:radial-gradient(90% 60% at 50% -10%, rgba(0,237,100,.22), transparent 62%), radial-gradient(60% 50% at 100% 100%, rgba(1,107,248,.18), transparent 62%), radial-gradient(60% 50% at 0% 100%, rgba(180,90,242,.13), transparent 62%), #001e2b;
-  animation:tp-reel-in .5s ease both; }
-.tp-reel.is-leaving { animation:tp-reel-out .36s ease forwards; }
-.tp-reel-sky { position:absolute; inset:0; pointer-events:none; animation:tp-reel-breathe 6s ease-in-out infinite alternate;
-  background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size:44px 44px;
-  -webkit-mask-image:radial-gradient(60% 55% at 50% 40%, #000 10%, transparent 75%); mask-image:radial-gradient(60% 55% at 50% 40%, #000 10%, transparent 75%); }
-.tp-reel-watermark { position:absolute; right:-4vmin; bottom:-6vmin; height:72vmin; opacity:.07; pointer-events:none; }
-.tp-reel-top { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:64px; padding:12px clamp(14px,4vw,32px) 0; }
-.tp-reel-brand { display:inline-flex; align-items:center; gap:10px; min-width:0; color:#e3fcf7; font:600 11px var(--tp-mono); letter-spacing:.14em; text-transform:uppercase; }
-.tp-reel-brand .tp-mark { height:26px; }
-.tp-reel-hold { display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:7px 14px; border:1px solid rgba(0,237,100,.38); border-radius:999px; background:rgba(0,237,100,.08); color:#e3fcf7; font-size:12.5px; font-weight:600; white-space:nowrap; }
-.tp-reel-hold b { min-width:34px; color:var(--tp-bright); font:600 13px var(--tp-mono); font-variant-numeric:tabular-nums; text-align:right; }
-.tp-reel-stage { position:relative; flex:1 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(14px,2.4vh,24px); padding:4px 18px 30px; }
-.tp-reel-frame { position:relative; flex:none; height:min(54vh, 620px, 150vw); aspect-ratio:9 / 16; overflow:hidden; border:1px solid rgba(0,237,100,.35); border-radius:22px; background:#000f15;
-  box-shadow:0 0 0 6px rgba(0,237,100,.06), 0 30px 80px -20px rgba(0,0,0,.85), 0 0 90px -12px rgba(0,237,100,.35);
-  animation:tp-reel-rise .7s cubic-bezier(.2,.8,.2,1) both; }
-@supports (height:1dvh) { .tp-reel-frame { height:min(54dvh, 620px, 150vw); } }
-.tp-reel-slot { position:absolute; inset:0; cursor:pointer; }
-.tp-reel-video { display:block; width:100%; height:100%; object-fit:cover; background:#000f15; }
-.tp-reel-wait { position:absolute; inset:0; display:grid; place-items:center; color:rgba(227,252,247,.75); font:600 11px var(--tp-mono); letter-spacing:.16em; text-transform:uppercase;
-  background:linear-gradient(110deg, rgba(0,237,100,.03) 30%, rgba(0,237,100,.1) 50%, rgba(0,237,100,.03) 70%) 0 0 / 220% 100%; animation:tp-reel-shimmer 1.4s linear infinite; }
-.tp-reel-chip { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:inline-flex; align-items:center; gap:8px; min-height:46px; padding:10px 18px; white-space:nowrap;
-  border:1px solid rgba(0,237,100,.55); border-radius:999px; background:rgba(0,30,43,.72); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-  color:#fff; cursor:pointer; font-size:14px; font-weight:700; animation:tp-reel-pulse 1.8s ease-in-out infinite; }
-.tp-reel-mute { position:absolute; right:10px; bottom:14px; display:grid; place-items:center; width:42px; height:42px; border:1px solid rgba(255,255,255,.28); border-radius:999px;
-  background:rgba(0,30,43,.55); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:#fff; cursor:pointer; font-size:16px; }
-.tp-reel-progress { position:absolute; left:0; right:0; bottom:0; height:4px; background:rgba(255,255,255,.14); pointer-events:none; }
-.tp-reel-progress i { display:block; height:100%; transform-origin:left center; background:linear-gradient(90deg, #00a35c, #00ed64); transition:transform .25s linear; }
-.tp-reel-copy { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; max-width:min(92vw, 660px); text-align:center; }
-.tp-reel-caption { margin:0; font-family:var(--tp-serif); font-size:clamp(34px, 5.8vw, 62px); font-weight:500; line-height:1.04; letter-spacing:-.02em; text-wrap:balance; }
-.tp-reel-caption span { display:inline-block; padding-bottom:.06em; color:#fff; text-shadow:0 2px 30px rgba(0,237,100,.18);
-  animation:tp-reel-word .7s cubic-bezier(.2,.8,.2,1) both; animation-delay:calc(450ms + var(--i) * 140ms); }
-.tp-reel-caption span.is-hi { padding-right:.06em; color:transparent; font-style:italic; text-shadow:none; -webkit-background-clip:text; background-clip:text;
-  background-image:linear-gradient(100deg, #00ed64 0%, #71f6ba 45%, #c0fae6 70%, #00ed64 100%); background-size:220% auto; background-position:0% 50%; }
-.tp-reel.is-ended .tp-reel-caption { animation:tp-reel-pop .6s cubic-bezier(.2,.9,.3,1.4) both; }
-.tp-reel.is-ended .tp-reel-caption span.is-hi { animation:tp-reel-shine 2.8s ease-in-out infinite; }
-.tp-reel-from { margin:0; color:#c1c7c6; font:italic 400 17px var(--tp-serif); animation:tp-reel-in .8s ease 1.3s both; }
-.tp-reel-shell { width:min(100%, 560px); margin-top:6px; padding:10px 14px; display:grid; gap:4px; border:1px solid rgba(255,255,255,.1); border-radius:8px; background:rgba(0,0,0,.28); color:#e8edeb; font:12.5px/1.6 var(--tp-mono); text-align:left; overflow-wrap:anywhere; animation:tp-reel-in .8s ease 1.6s both; }
-.tp-reel-prompt { margin-right:8px; color:var(--tp-bright); }
-.tp-reel-cursor { display:inline-block; width:.6em; height:1.1em; margin-left:4px; vertical-align:-.2em; background:var(--tp-bright); animation:tp-reel-blink 1s steps(1) infinite; }
-.tp-reel-out { color:var(--tp-mint); animation:tp-reel-in .5s ease both; }
-.tp-reel-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; min-height:50px; margin-top:12px; scroll-margin-bottom:24px; opacity:0; visibility:hidden; transform:translateY(8px);
-  transition:opacity .4s ease, transform .4s ease, visibility 0s linear .4s; }
-.tp-reel-actions.is-on { opacity:1; visibility:visible; transform:none; transition:opacity .4s ease, transform .4s ease; }
-.tp-reel-go { display:inline-flex; align-items:center; gap:10px; min-height:50px; padding:12px 26px; border:0; border-radius:8px; background:var(--tp-bright); color:var(--tp-slate);
-  cursor:pointer; font-size:16px; font-weight:700; box-shadow:0 10px 30px -8px rgba(0,237,100,.65); transition:transform .15s, background .15s; }
-.tp-reel-go:hover { background:#00d65a; transform:translateY(-1px); }
-.tp-reel-ghost { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:9px 16px; border:1px solid rgba(255,255,255,.3); border-radius:8px;
-  background:rgba(255,255,255,.06); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:#fff; cursor:pointer; font-size:13px; font-weight:600; }
-.tp-reel-ghost:hover { background:rgba(255,255,255,.14); }
-.tp-reel button:focus-visible { outline:3px solid var(--tp-bright); outline-offset:3px; }
-.tp-reel-burst { position:absolute; left:50%; top:22%; width:0; height:0; pointer-events:none; }
-.tp-reel-burst i { position:absolute; left:0; top:0; width:8px; height:14px; border-radius:2px; background:var(--c); opacity:0;
-  animation:tp-reel-burst 1.6s cubic-bezier(.15,.7,.3,1) both; animation-delay:var(--d); }
-@keyframes tp-reel-in { from { opacity:0; } to { opacity:1; } }
-@keyframes tp-reel-out { to { opacity:0; transform:scale(1.02); } }
-@keyframes tp-reel-rise { from { opacity:0; transform:translateY(18px) scale(.97); } to { opacity:1; transform:none; } }
-@keyframes tp-reel-word { from { opacity:0; transform:translateY(.45em) scale(.96); filter:blur(6px); } to { opacity:1; transform:none; filter:none; } }
-@keyframes tp-reel-shine { 0%, 100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
-@keyframes tp-reel-pop { 0% { transform:scale(1); } 40% { transform:scale(1.07); } 100% { transform:scale(1); } }
-@keyframes tp-reel-pulse { 0%, 100% { box-shadow:0 0 0 0 rgba(0,237,100,.4); } 50% { box-shadow:0 0 0 12px rgba(0,237,100,0); } }
-@keyframes tp-reel-shimmer { to { background-position:-220% 0; } }
-@keyframes tp-reel-breathe { from { opacity:.55; } to { opacity:1; } }
-@keyframes tp-reel-blink { 50% { opacity:0; } }
-@keyframes tp-reel-burst {
-  0% { opacity:1; transform:translate(-50%,-50%) scale(.4) rotate(0deg); }
-  70% { opacity:1; }
-  100% { opacity:0; transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y) + 90px)) scale(1) rotate(var(--r)); }
-}
-@media (max-height:700px) {
-  .tp-reel-frame { height:min(50vh, 640px, 150vw); }
-  @supports (height:1dvh) { .tp-reel-frame { height:min(50dvh, 640px, 150vw); } }
-  .tp-reel-caption { font-size:clamp(30px, 5vw, 48px); }
-}
-@media (orientation:landscape) and (max-height:520px) {
-  .tp-reel-top { position:absolute; top:0; left:0; right:0; }
-  .tp-reel-stage { flex-direction:row; gap:clamp(18px,4vw,40px); padding:58px 24px 14px; }
-  .tp-reel-frame { height:min(78vh, 640px); }
-  .tp-reel-copy { align-items:flex-start; max-width:50vw; text-align:left; }
-  .tp-reel-actions { justify-content:flex-start; }
-  .tp-reel-caption { font-size:clamp(26px, 4.4vw, 40px); }
-  @supports (height:1dvh) { .tp-reel-frame { height:min(78dvh, 640px); } }
-}
-@media (prefers-reduced-motion:reduce) {
-  .tp-reel-burst { display:none; }
 }
 `
