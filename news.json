@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T12:13:14.469Z",
+  "generated": "2026-11-16T12:23:19.261Z",
   "reddit": [
     {
       "title": "Ring programming language version 1.28 is released!",
@@ -74,8 +74,63 @@
   ],
   "medium": [
     {
+      "title": "Postgres vs MySQL: The Same Transaction Can Tell You Two Different Stories.",
+      "url": "https://aws.plainenglish.io/postgres-vs-mysql-the-same-transaction-can-tell-you-two-different-stories-e6b44931b088",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1794831636000,
+      "tags": [
+        "coding",
+        "web-development",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Our CTO Promoted the Wrong Engineer. The Real Reason Came Out 47 Days Later",
+      "url": "https://medium.com/javarevisited/our-cto-promoted-the-wrong-engineer-the-real-reason-came-out-47-days-later-6b4bfdede5f1",
+      "by": "Production War Stories",
+      "time": 1794831523000,
+      "tags": [
+        "software-development",
+        "data-science",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Next.js vs Vite: The Dashboard Is Private. Why Are You Optimizing It for Google?",
+      "url": "https://javascript.plainenglish.io/next-js-vs-vite-the-dashboard-is-private-why-are-you-optimizing-it-for-google-591aacab935d",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1794831358000,
+      "tags": [
+        "web-development",
+        "coding",
+        "programming"
+      ]
+    },
+    {
+      "title": "My Best Engineer Used AI for 6 Months. Then He Failed His Own Architecture Review",
+      "url": "https://medium.com/javarevisited/my-best-engineer-used-ai-for-6-months-then-he-failed-his-own-architecture-review-c49ca44e21bd",
+      "by": "The Staff Engineer's",
+      "time": 1794831273000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "data-science"
+      ]
+    },
+    {
+      "title": "Who Owns the Script When the Analyst Leaves? Avoiding Key-Person Risk in Lab Automation",
+      "url": "https://medium.com/@risingcurrentblog/who-owns-the-script-when-the-analyst-leaves-avoiding-key-person-risk-in-lab-automation-019cb1744886",
+      "by": "Tony Davis",
+      "time": 1794831253000,
+      "tags": [
+        "data-science",
+        "programming",
+        "automation"
+      ]
+    },
+    {
       "title": "Our CEO Replaced 12 Engineers With AI. On Day 43, He Asked Us to Keep It Quiet",
-      "url": "https://medium.com/@the_unwritten_algorithm/our-ceo-replaced-12-engineers-with-ai-on-day-43-he-asked-us-to-keep-it-quiet-69384a847df6",
+      "url": "https://medium.com/javarevisited/our-ceo-replaced-12-engineers-with-ai-on-day-43-he-asked-us-to-keep-it-quiet-69384a847df6",
       "by": "Staff Engineer Career",
       "time": 1794831150000,
       "tags": [
@@ -96,6 +151,17 @@
       ]
     },
     {
+      "title": "How to Add Watermarks to PDF Files with Python",
+      "url": "https://medium.com/asposepdf/how-to-add-watermarks-to-pdf-files-with-python-042bf5f7472f",
+      "by": "Aspose-PDF-Python",
+      "time": 1794830984000,
+      "tags": [
+        "programming",
+        "python",
+        "software-development"
+      ]
+    },
+    {
       "title": "A Free Alternative to GitHub Actions: Jenkins on Our Laptops and a Secure AI Code Reviewer",
       "url": "https://medium.com/@ali.mohamed.hgr/a-free-alternative-to-github-actions-jenkins-on-our-laptops-and-a-secure-ai-code-reviewer-d2f35a70256a",
       "by": "Ali Mohamed Mohamed",
@@ -113,71 +179,6 @@
       "time": 1794830799000,
       "tags": [
         "data-science",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "n8n’i Kendi Sunucunda 5 Dakikada Kur",
-      "url": "https://medium.com/@keserata/n8ni-kendi-sunucunda-5-dakikada-kur-1f12d913b9e8",
-      "by": "Keserata",
-      "time": 1794830746000,
-      "tags": [
-        "devops",
-        "otomasyon",
-        "n8n"
-      ]
-    },
-    {
-      "title": "The Review Doc I Wrote Before Every Promotion and Hike",
-      "url": "https://medium.com/@saurabhraj042/the-review-doc-i-wrote-before-every-promotion-and-hike-193e49cee61b",
-      "by": "Saurabh",
-      "time": 1794830689000,
-      "tags": [
-        "promotion",
-        "software-engineering",
-        "career-advice"
-      ]
-    },
-    {
-      "title": "Best MLM Software Company in Suburb — Smart, Scalable & Feature-Rich MLM Business Solutions",
-      "url": "https://medium.com/@sp3_67490/best-mlm-software-company-in-suburb-smart-scalable-feature-rich-mlm-business-solutions-178fd8d34160",
-      "by": "sheetal",
-      "time": 1794830590000,
-      "tags": [
-        "software-development",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Linear Regression | The Foundation of Machine Learning for Cybersecurity",
-      "url": "https://medium.com/@antor.csecu/linear-regression-the-foundation-of-machine-learning-for-cybersecurity-28164af45beb",
-      "by": "A. AntorCSE404",
-      "time": 1794830496000,
-      "tags": [
-        "programming",
-        "cybersecurity",
-        "offensive-security"
-      ]
-    },
-    {
-      "title": "Anthropic’s revenue question: Is coding demand losing momentum?",
-      "url": "https://medium.com/@the-casual-wellness-journal/anthropics-revenue-question-is-coding-demand-losing-momentum-8896a9c8fe52",
-      "by": "The Casual Wellness Journal",
-      "time": 1794830483000,
-      "tags": [
-        "technology",
-        "coding",
-        "programming"
-      ]
-    },
-    {
-      "title": "Discord Rewrote Its App in Rust and Used 70% Less RAM. Electron Still Isn’t the Villain.",
-      "url": "https://medium.com/futura-creative/discord-rewrote-its-app-in-rust-and-used-70-less-ram-electron-still-isnt-the-villain-64ac8c3eb803",
-      "by": "Kevin Gabeci",
-      "time": 1794830462000,
-      "tags": [
-        "technology",
         "programming",
         "software-development"
       ]
