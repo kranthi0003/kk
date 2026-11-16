@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T04:20:00.818Z",
+  "generated": "2026-11-16T04:24:31.900Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -102,6 +102,17 @@
       "imdb": "https://www.imdb.com/title/tt20225002/"
     },
     {
+      "title": "Arasan",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": "Vetrimaaran",
+      "desc": "Upcoming Indian film by Vetrimaaran",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Arasan_(film)",
+      "imdb": "https://www.imdb.com/title/tt37458144/"
+    },
+    {
       "title": "Chitukurinji",
       "lang": "Tamil",
       "date": null,
@@ -144,17 +155,6 @@
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Golmaal_5",
       "imdb": "https://www.imdb.com/title/tt9598520/"
-    },
-    {
-      "title": "Gunmaaster G9",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian Hindi-language action thriller film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Gunmaaster_G9_film_poster.jpg/120px-Gunmaaster_G9_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
-      "imdb": "https://www.imdb.com/title/tt37539573/"
     }
   ]
 }

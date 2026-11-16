@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-15T04:21:10.682Z",
+  "generated": "2026-11-16T04:25:42.648Z",
   "reddit": [
     {
-      "title": "What we learned operating auth for 1,000+ APIs",
-      "url": "https://www.reddit.com/r/programming/comments/1xwac98/what_we_learned_operating_auth_for_1000_apis/",
-      "by": "fagnerbrack",
-      "time": 1794682837000,
+      "title": "After Clash Royale's top ladder has now started being dominated by bots, are there any videogames where people want to see a bot capable of beating humans built?",
+      "url": "https://www.reddit.com/r/programming/comments/1xxek1d/after_clash_royales_top_ladder_has_now_started/",
+      "by": "PandaXPanther",
+      "time": 1794798294000,
       "sub": "r/programming"
     },
     {
-      "title": "Designing payouts that never payout twice: timeouts, an \"Unknown\" state, and idempotency in cross-border payments",
-      "url": "https://www.reddit.com/r/programming/comments/1xw8tdv/designing_payouts_that_never_payout_twice/",
-      "by": "Nice_Thought_2000",
-      "time": 1794679182000,
+      "title": "Route To Hosting Videos For Websites, Apps And Subscription Services",
+      "url": "https://www.reddit.com/r/programming/comments/1xxd0ul/route_to_hosting_videos_for_websites_apps_and/",
+      "by": "Old-Illustrator-8692",
+      "time": 1794793724000,
       "sub": "r/programming"
     },
     {
-      "title": "A Unicode Escape Can Turn a Java Comment Into Executable Code",
-      "url": "https://www.reddit.com/r/programming/comments/1xw63wj/a_unicode_escape_can_turn_a_java_comment_into/",
-      "by": "Cool-Click1253",
-      "time": 1794672610000,
+      "title": "Platform engineering, DevEx, SRE, how freely can you move between them?",
+      "url": "https://www.reddit.com/r/devops/comments/1xx7dlu/platform_engineering_devex_sre_how_freely_can_you/",
+      "by": "SquareBathroom6718",
+      "time": 1794778322000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "I built an open-source tool to solve polyrepo config drift without clobbering local overrides",
+      "url": "https://www.reddit.com/r/devops/comments/1xx53i1/i_built_an_opensource_tool_to_solve_polyrepo/",
+      "by": "Many_Location3380",
+      "time": 1794772698000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "When a vibe coded internal tool ends up with other teams depending on it, do you review it like prod code or let it stay disposable?",
+      "url": "https://www.reddit.com/r/devops/comments/1xx1rr7/when_a_vibe_coded_internal_tool_ends_up_with/",
+      "by": "jyotirawattech",
+      "time": 1794764791000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "My zero-trust Ubuntu dev environment on Windows",
+      "url": "https://www.reddit.com/r/devops/comments/1xx0mu0/my_zerotrust_ubuntu_dev_environment_on_windows/",
+      "by": "SeaworthinessHour233",
+      "time": 1794762163000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "Many Tiles, One Space, Two Worlds -- At Last, a Use for Bubble Sort",
+      "url": "https://www.reddit.com/r/programming/comments/1xx0jyi/many_tiles_one_space_two_worlds_at_last_a_use_for/",
+      "by": "zeroone",
+      "time": 1794761997000,
       "sub": "r/programming"
     },
     {
-      "title": "Under the Hood: Serving Kimi K3 | DigitalOcean",
-      "url": "https://www.reddit.com/r/programming/comments/1xw3jy7/under_the_hood_serving_kimi_k3_digitalocean/",
-      "by": "Ok_Stomach6651",
-      "time": 1794666079000,
+      "title": "Understanding Go: inside PGO",
+      "url": "https://www.reddit.com/r/programming/comments/1xwz44b/understanding_go_inside_pgo/",
+      "by": "Charming_Skin_8549",
+      "time": 1794758596000,
       "sub": "r/programming"
     },
     {
-      "title": "Beating the frontier on NetHack",
-      "url": "https://www.reddit.com/r/programming/comments/1xw2equ/beating_the_frontier_on_nethack/",
-      "by": "alexeyr",
-      "time": 1794662894000,
+      "title": "544 unmaintained PyPI packages with imports that fail on Python 3.12+ still get 100M+ downloads a month",
+      "url": "https://www.reddit.com/r/programming/comments/1xwyhpm/544_unmaintained_pypi_packages_with_imports_that/",
+      "by": "Business-Feedback635",
+      "time": 1794757060000,
       "sub": "r/programming"
     },
     {
-      "title": "Problem with concurrent linter fixes",
-      "url": "https://www.reddit.com/r/programming/comments/1xw1um8/problem_with_concurrent_linter_fixes/",
-      "by": "fagnerbrack",
-      "time": 1794661228000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "It's all about the allocator",
-      "url": "https://www.reddit.com/r/programming/comments/1xw1sem/its_all_about_the_allocator/",
-      "by": "despacit0_",
-      "time": 1794661055000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Some Projects Need to Fail",
-      "url": "https://www.reddit.com/r/programming/comments/1xvx0nl/some_projects_need_to_fail/",
-      "by": "Either_Collection349",
-      "time": 1794643728000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Formal Verification is Not Verifiable: Bouba and Kiki Software",
-      "url": "https://www.reddit.com/r/programming/comments/1xvug39/formal_verification_is_not_verifiable_bouba_and/",
-      "by": "mttd",
-      "time": 1794634623000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How I accidentally became a millionaire",
-      "url": "https://www.reddit.com/r/programming/comments/1xvr455/how_i_accidentally_became_a_millionaire/",
-      "by": "NXGZ",
-      "time": 1794623901000,
-      "sub": "r/programming"
+      "title": "Metrics, logs and alerts for my 3-node Talos homelab",
+      "url": "https://www.reddit.com/r/devops/comments/1xwtif2/metrics_logs_and_alerts_for_my_3node_talos_homelab/",
+      "by": "root0ps",
+      "time": 1794743139000,
+      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "DISCOLOURED IMAGINATION",
-      "url": "https://medium.com/@ezehe121/discoloured-imagination-58737aada630",
-      "by": "Emeka Ezeh",
-      "time": 1794716071000,
+      "title": "Nothing in the Logs Doesn’t Mean Nothing Happened",
+      "url": "https://medium.com/@jaberadam2001/nothing-in-the-logs-doesnt-mean-nothing-happened-7e0299e58022",
+      "by": "Adam Jaber",
+      "time": 1794802976000,
       "tags": [
-        "mental-health",
-        "data-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "BLOOD MONEY",
-      "url": "https://medium.com/@ezehe121/blood-money-1670edae1d17",
-      "by": "Emeka Ezeh",
-      "time": 1794715917000,
-      "tags": [
-        "artificial-intelligence",
-        "mental-health",
-        "science"
-      ]
-    },
-    {
-      "title": "Your Rethrown Error Threw Away the Root Cause. Use the cause Option",
-      "url": "https://martin128.medium.com/your-rethrown-error-threw-away-the-root-cause-use-the-cause-option-892047fddeb5",
-      "by": "Martin",
-      "time": 1794715861000,
-      "tags": [
-        "backend",
+        "debugging",
         "programming",
-        "software-development"
+        "software-engineering"
       ]
     },
     {
-      "title": "The Next Anime Move: Boruto on Pluto TV or Naruto and Boruto Returning to Toonami?",
-      "url": "https://medium.com/@rapperpeeshorez/the-next-anime-move-boruto-on-pluto-tv-or-naruto-and-boruto-returning-to-toonami-4a89ef29ea96",
-      "by": "Rapperpeeshorez",
-      "time": 1794715821000,
+      "title": "How AI Is Changing Software Engineering Interviews and What to Practice Next",
+      "url": "https://medium.com/mastering-java-core-concepts-and-advanced/how-ai-is-changing-software-engineering-interviews-and-what-to-practice-next-5f31deb025b7",
+      "by": "Ankita Kolhe",
+      "time": 1794802830000,
       "tags": [
-        "marketing",
-        "sports",
-        "culture"
-      ]
-    },
-    {
-      "title": "Java Backend Developer Interview Experience: Spring Boot, Microservices, System Design, JWT & AI…",
-      "url": "https://medium.com/@preetjit82/java-backend-developer-interview-experience-spring-boot-microservices-system-design-jwt-ai-564d4d2b978c",
-      "by": "Interview Simplified",
-      "time": 1794715213000,
-      "tags": [
-        "programming",
-        "jobs",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "Putting Specification-Driven AI Development into Practice",
-      "url": "https://medium.com/@kapildas_37013/putting-specification-driven-ai-development-into-practice-cb15c164b9b8",
-      "by": "kapildas",
-      "time": 1794714961000,
-      "tags": [
+        "backend-development",
         "software-engineering",
-        "aidlc",
-        "software-development"
-      ]
-    },
-    {
-      "title": "How to Run a System Design Mock Interview That Actually Prepares You",
-      "url": "https://medium.com/@itsaurelius/how-to-run-a-system-design-mock-interview-that-actually-prepares-you-1022680ecf60",
-      "by": "Aditya Shukla",
-      "time": 1794714839000,
-      "tags": [
-        "software-engineering",
-        "system-design-interview",
-        "coding-interviews"
-      ]
-    },
-    {
-      "title": "99% of \"AI Millionaires\" Are Just Selling You Shovels.",
-      "url": "https://medium.com/@dark_ai_engineer/99-of-ai-millionaires-are-just-selling-you-shovels-42f9b863b922",
-      "by": "The Dark AI Engineer",
-      "time": 1794714754000,
-      "tags": [
-        "software-engineering",
-        "ai-agent",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "AI Doesn’t Read Your Words. It Reads Numbers",
-      "url": "https://medium.com/@hshamlooh/ai-doesnt-read-your-words-it-reads-numbers-ac5a21ab924d",
-      "by": "Hussain Shamlooh",
-      "time": 1794714617000,
+      "title": "AI Made Coding Faster. Now the Bottlenecks Have Moved.",
+      "url": "https://medium.com/@johnvanko/ai-made-coding-faster-now-the-bottlenecks-have-moved-53b1a5e7a263",
+      "by": "John Vanko",
+      "time": 1794802621000,
+      "tags": [
+        "ai-engineering",
+        "software-engineering",
+        "sdlc"
+      ]
+    },
+    {
+      "title": "Your AI Subscription Is Not a Competitive Strategy",
+      "url": "https://medium.com/@mfbaig35r/your-ai-subscription-is-not-a-competitive-strategy-35a9e9fd9d56",
+      "by": "Fahad Baig",
+      "time": 1794802616000,
+      "tags": [
+        "business-strategy",
+        "future-of-work",
+        "legal-technology"
+      ]
+    },
+    {
+      "title": "AI Is Just Getting Started: The Next Wave Could Change Everything",
+      "url": "https://medium.com/@pratikchaudhariworks/ai-is-just-getting-started-the-next-wave-could-change-everything-6cfe7fdc3231",
+      "by": "WhyPratiik",
+      "time": 1794802594000,
+      "tags": [
+        "technology",
+        "artificial-intelligence",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "From Zero to Shakespeare GPT: I Built a Language Model in JavaScript",
+      "url": "https://medium.com/@roshan.n.shikhare/from-zero-to-shakespeare-gpt-i-built-a-language-model-in-javascript-ef6a8df1c785",
+      "by": "Roshan N Shikhare",
+      "time": 1794802590000,
       "tags": [
         "artificial-intelligence",
-        "arabic",
+        "programming",
         "machine-learning"
       ]
     },
     {
-      "title": "I Moved Away From GitHub Actions. Now I’m Hosting My Own CI Server.",
-      "url": "https://hiruthicsha.medium.com/i-moved-away-from-github-actions-now-im-hosting-my-own-ci-server-b0fe73efce86",
-      "by": "hiruthicSha",
-      "time": 1794714361000,
+      "title": "CVE-2026–6460 (CVSS 8.8): The PostgreSQL RCE Flaw That Hid for 22 Years and How to Patch It",
+      "url": "https://medium.com/codex/cve-2026-6460-cvss-8-8-the-postgresql-rce-flaw-that-hid-for-22-years-and-how-to-patch-it-63d7b419a22c",
+      "by": "Developer Awam",
+      "time": 1794802478000,
       "tags": [
-        "ci-cd-pipeline",
-        "devops",
-        "software-engineering"
+        "web-development",
+        "postgresql",
+        "programming"
+      ]
+    },
+    {
+      "title": "7 Prompt-Caching Myths We Broke Testing Claude Code & the Messages API on the Wire",
+      "url": "https://medium.com/@frankmiller_48575/7-prompt-caching-myths-we-broke-testing-claude-code-the-messages-api-on-the-wire-86caa963b6a9",
+      "by": "Frank Miller",
+      "time": 1794802331000,
+      "tags": [
+        "prompt-caching",
+        "software-engineering",
+        "anthropics"
+      ]
+    },
+    {
+      "title": "Retrying at Once Made 1,000 Clients Give Up. Jitter Got All of Them Through",
+      "url": "https://martin128.medium.com/retrying-at-once-made-1-000-clients-give-up-jitter-got-all-of-them-through-0e6cbfe03ef2",
+      "by": "Martin",
+      "time": 1794802261000,
+      "tags": [
+        "software-engineering",
+        "distributed-systems",
+        "javascript"
+      ]
+    },
+    {
+      "title": "How a Rate Limiter Works Across Many Servers, and Why Counting Is the Hard Part",
+      "url": "https://medium.com/@aguleria1/how-a-rate-limiter-works-across-many-servers-and-why-counting-is-the-hard-part-b591c7a983bf",
+      "by": "Prashant Guleria",
+      "time": 1794802233000,
+      "tags": [
+        "distributed-systems",
+        "software-architecture",
+        "programming"
       ]
     }
   ]
