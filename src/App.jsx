@@ -61,6 +61,7 @@ const PlanTracker = lazy(() => import('./components/PlanTracker'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const OrangeBadge = lazy(() => import('./components/OrangeBadge'))
+const Confession = lazy(() => import('./components/Confession'))
 const RoyalSquare = lazy(() => import('./components/RoyalSquare'))
 const F1 = lazy(() => import('./components/F1'))
 const Cricket = lazy(() => import('./components/Cricket'))
@@ -133,8 +134,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The study guide, planner, meal plan and badge page open straight away, without the intro.
-  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals|orangebadge)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The study guide, planner, meal plan, badge page and confession open straight away, without the intro.
+  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals|orangebadge|confession)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -554,6 +555,16 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#15100d' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(233,184,102,0.6)' }}>loading…</div></div>}>
         <ItsAlwaysHer onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Confession — his message to her, word for word. Private and unlisted,
+  // shared directly by link. Not in nav. Matched loosely, like #/itsalwaysher.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/confession') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#070a12' }}><div className="text-xs font-mono animate-pulse" style={{ color: 'rgba(201,193,204,0.6)' }}>loading…</div></div>}>
+        <Confession onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }
