@@ -1,6 +1,20 @@
 {
-  "generated": "2026-11-16T04:25:42.648Z",
+  "generated": "2026-11-16T08:23:50.646Z",
   "reddit": [
+    {
+      "title": "Weekly Self Promotion Thread",
+      "url": "https://www.reddit.com/r/devops/comments/1xxj9dr/weekly_self_promotion_thread/",
+      "by": "AutoModerator",
+      "time": 1794814219000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "What tasks is AI bad at?",
+      "url": "https://www.reddit.com/r/devops/comments/1xxhvjc/what_tasks_is_ai_bad_at/",
+      "by": "davidbasil",
+      "time": 1794809166000,
+      "sub": "r/devops"
+    },
     {
       "title": "After Clash Royale's top ladder has now started being dominated by bots, are there any videogames where people want to see a bot capable of beating humans built?",
       "url": "https://www.reddit.com/r/programming/comments/1xxek1d/after_clash_royales_top_ladder_has_now_started/",
@@ -37,13 +51,6 @@
       "sub": "r/devops"
     },
     {
-      "title": "My zero-trust Ubuntu dev environment on Windows",
-      "url": "https://www.reddit.com/r/devops/comments/1xx0mu0/my_zerotrust_ubuntu_dev_environment_on_windows/",
-      "by": "SeaworthinessHour233",
-      "time": 1794762163000,
-      "sub": "r/devops"
-    },
-    {
       "title": "Many Tiles, One Space, Two Worlds -- At Last, a Use for Bubble Sort",
       "url": "https://www.reddit.com/r/programming/comments/1xx0jyi/many_tiles_one_space_two_worlds_at_last_a_use_for/",
       "by": "zeroone",
@@ -63,124 +70,117 @@
       "by": "Business-Feedback635",
       "time": 1794757060000,
       "sub": "r/programming"
-    },
-    {
-      "title": "Metrics, logs and alerts for my 3-node Talos homelab",
-      "url": "https://www.reddit.com/r/devops/comments/1xwtif2/metrics_logs_and_alerts_for_my_3node_talos_homelab/",
-      "by": "root0ps",
-      "time": 1794743139000,
-      "sub": "r/devops"
     }
   ],
   "medium": [
     {
-      "title": "Nothing in the Logs Doesn’t Mean Nothing Happened",
-      "url": "https://medium.com/@jaberadam2001/nothing-in-the-logs-doesnt-mean-nothing-happened-7e0299e58022",
-      "by": "Adam Jaber",
-      "time": 1794802976000,
+      "title": "Until I Land a Remote Job: My Journey Begins",
+      "url": "https://medium.com/@programmingmaster33/until-i-land-a-remote-job-my-journey-begins-e225093ef000",
+      "by": "ShadowDev",
+      "time": 1794817075000,
       "tags": [
-        "debugging",
+        "software-engineering",
+        "careers",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Rust: Why AI Teams Are Quietly Moving Agent Infrastructure From Python to Rust (Rig, DataFusion…",
+      "url": "https://medium.com/@yornsopheaktra/rust-why-ai-teams-are-quietly-moving-agent-infrastructure-from-python-to-rust-rig-datafusion-275e798f834e",
+      "by": "Sopheaktra Yorn",
+      "time": 1794816908000,
+      "tags": [
         "programming",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "How AI Is Changing Software Engineering Interviews and What to Practice Next",
-      "url": "https://medium.com/mastering-java-core-concepts-and-advanced/how-ai-is-changing-software-engineering-interviews-and-what-to-practice-next-5f31deb025b7",
-      "by": "Ankita Kolhe",
-      "time": 1794802830000,
-      "tags": [
-        "backend-development",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "AI Made Coding Faster. Now the Bottlenecks Have Moved.",
-      "url": "https://medium.com/@johnvanko/ai-made-coding-faster-now-the-bottlenecks-have-moved-53b1a5e7a263",
-      "by": "John Vanko",
-      "time": 1794802621000,
-      "tags": [
-        "ai-engineering",
-        "software-engineering",
-        "sdlc"
-      ]
-    },
-    {
-      "title": "Your AI Subscription Is Not a Competitive Strategy",
-      "url": "https://medium.com/@mfbaig35r/your-ai-subscription-is-not-a-competitive-strategy-35a9e9fd9d56",
-      "by": "Fahad Baig",
-      "time": 1794802616000,
-      "tags": [
-        "business-strategy",
-        "future-of-work",
-        "legal-technology"
-      ]
-    },
-    {
-      "title": "AI Is Just Getting Started: The Next Wave Could Change Everything",
-      "url": "https://medium.com/@pratikchaudhariworks/ai-is-just-getting-started-the-next-wave-could-change-everything-6cfe7fdc3231",
-      "by": "WhyPratiik",
-      "time": 1794802594000,
-      "tags": [
-        "technology",
         "artificial-intelligence",
-        "software-engineering"
+        "software-development"
       ]
     },
     {
-      "title": "From Zero to Shakespeare GPT: I Built a Language Model in JavaScript",
-      "url": "https://medium.com/@roshan.n.shikhare/from-zero-to-shakespeare-gpt-i-built-a-language-model-in-javascript-ef6a8df1c785",
-      "by": "Roshan N Shikhare",
-      "time": 1794802590000,
+      "title": "The Bug was Already Fixed. So Why Was It Back?",
+      "url": "https://medium.com/skillstuff/the-bug-was-already-fixed-so-why-was-it-back-d2e3975c0280",
+      "by": "Natasha",
+      "time": 1794816751000,
       "tags": [
-        "artificial-intelligence",
+        "redux-state-management",
+        "problem-solving",
+        "debugging"
+      ]
+    },
+    {
+      "title": "20 Java Interview Questions That Separate Experienced Developers from Average Candidates",
+      "url": "https://medium.com/@preetjit82/20-java-interview-questions-that-separate-experienced-developers-from-average-candidates-5c89ca8add71",
+      "by": "Interview Simplified",
+      "time": 1794816740000,
+      "tags": [
+        "jobs",
         "programming",
-        "machine-learning"
+        "java"
       ]
     },
     {
-      "title": "CVE-2026–6460 (CVSS 8.8): The PostgreSQL RCE Flaw That Hid for 22 Years and How to Patch It",
-      "url": "https://medium.com/codex/cve-2026-6460-cvss-8-8-the-postgresql-rce-flaw-that-hid-for-22-years-and-how-to-patch-it-63d7b419a22c",
-      "by": "Developer Awam",
-      "time": 1794802478000,
+      "title": "Why an AI Coding Task Should Change Models Halfway Through",
+      "url": "https://milind-divre.medium.com/why-an-ai-coding-task-should-change-models-halfway-through-cde2935d1f9e",
+      "by": "Milind Divre",
+      "time": 1794816716000,
       "tags": [
-        "web-development",
-        "postgresql",
-        "programming"
+        "coding",
+        "productivity",
+        "technology"
       ]
     },
     {
-      "title": "7 Prompt-Caching Myths We Broke Testing Claude Code & the Messages API on the Wire",
-      "url": "https://medium.com/@frankmiller_48575/7-prompt-caching-myths-we-broke-testing-claude-code-the-messages-api-on-the-wire-86caa963b6a9",
-      "by": "Frank Miller",
-      "time": 1794802331000,
+      "title": "My AI agent could read every API key I had. So I built a vault it can’t read.",
+      "url": "https://medium.com/@dkhodriansyah/my-ai-agent-could-read-every-api-key-i-had-so-i-built-a-vault-it-cant-read-1e716a1a67c8",
+      "by": "Didi Khodriansyah",
+      "time": 1794816678000,
       "tags": [
-        "prompt-caching",
+        "open-source",
+        "cybersecurity",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Migrating a Mission-Critical App to Compose Multiplatform",
+      "url": "https://medium.com/getir/migrating-a-mission-critical-app-to-compose-multiplatform-5de30d3c5a58",
+      "by": "Bünyamin Başoğlu",
+      "time": 1794816502000,
+      "tags": [
         "software-engineering",
-        "anthropics"
+        "kotlin-multiplatform",
+        "ios-development"
       ]
     },
     {
-      "title": "Retrying at Once Made 1,000 Clients Give Up. Jitter Got All of Them Through",
-      "url": "https://martin128.medium.com/retrying-at-once-made-1-000-clients-give-up-jitter-got-all-of-them-through-0e6cbfe03ef2",
-      "by": "Martin",
-      "time": 1794802261000,
+      "title": "9 SQL mistakes that cost CBSE Class 12 students marks (and how to avoid them)",
+      "url": "https://medium.com/@ghosh.srimanta20/9-sql-mistakes-that-cost-cbse-class-12-students-marks-and-how-to-avoid-them-5f377a115ef3",
+      "by": "Ghosh Srimanta",
+      "time": 1794816404000,
       "tags": [
-        "software-engineering",
-        "distributed-systems",
-        "javascript"
+        "programming",
+        "sql",
+        "education"
       ]
     },
     {
-      "title": "How a Rate Limiter Works Across Many Servers, and Why Counting Is the Hard Part",
-      "url": "https://medium.com/@aguleria1/how-a-rate-limiter-works-across-many-servers-and-why-counting-is-the-hard-part-b591c7a983bf",
-      "by": "Prashant Guleria",
-      "time": 1794802233000,
+      "title": "C Programs (Basic) with Solutions",
+      "url": "https://medium.com/@keycomputereducation/c-programs-basic-with-solutions-2e2bc944abc7",
+      "by": "Key computer Education",
+      "time": 1794816353000,
       "tags": [
-        "distributed-systems",
-        "software-architecture",
-        "programming"
+        "programming",
+        "coding",
+        "leetcode"
+      ]
+    },
+    {
+      "title": "Gemini Decisions API: A Confident Answer Still Needs a Decision Rule",
+      "url": "https://milind-divre.medium.com/gemini-decisions-api-a-confident-answer-still-needs-a-decision-rule-ed50c920fd66",
+      "by": "Milind Divre",
+      "time": 1794816257000,
+      "tags": [
+        "machine-learning",
+        "artificial-intelligence",
+        "data-science"
       ]
     }
   ]
