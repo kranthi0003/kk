@@ -135,7 +135,7 @@ function MobileBanner() {
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
   // The study guide, planner, meal plan, badge page and confession open straight away, without the intro.
-  const [intro, setIntro] = useState(() => !/^#\/(tam|meta|meals|orangebadge|confession)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  const [intro, setIntro] = useState(() => !/^#\/(tam(\/[\w-]+)?|meta|meals|orangebadge|confession)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -589,7 +589,8 @@ function AppPages({ route, intro }) {
   }
 
   // Password-protected study guide; every word is in its encrypted payload.
-  if (route.toLowerCase().replace(/\/+$/, '') === '#/tam') {
+  // #/tam/<module-id> opens one module directly once unlocked.
+  if (/^#\/tam(\/[\w-]+)?\/*$/i.test(route)) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#001e2b' }}><div className="text-xs font-mono" style={{ color: '#00ed64' }}>loading…</div></div>}>
         <TamPrep onBack={() => { window.location.hash = '' }} />

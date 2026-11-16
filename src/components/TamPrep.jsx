@@ -13,7 +13,8 @@ import { TAM_PAYLOAD as PAYLOAD } from '../lib/tamPayload'
  * encrypt). The payload is { meta, modules: [{ id, label, title, blocks }] }.
  * Optional extras, also from the payload: meta.mark (a small SVG mark),
  * module.group (navigation group labels) and meta.intro (an encrypted clip
- * that plays after unlock and has to be watched to the end).
+ * that plays after unlock and has to be watched to the end). A link such as
+ * #/tam/<module-id> opens straight onto that module after unlocking.
  *
  * Progress stays in localStorage on this device: ids and booleans only,
  * never the guide's text and never the password.
@@ -1146,7 +1147,10 @@ export default function TamPrep({ onBack }) {
   const stats = useMemo(() => tally(modules, prog.done), [modules, prog.done])
 
   // Every unlock starts with the intro, and it has to be watched through.
+  // A link such as #/tam/<module-id> lands on that module once unlocked.
   const opened = (data) => {
+    const want = ((/^#\/tam\/([\w-]+)\/?$/i.exec(window.location.hash || '') || [])[1] || '').toLowerCase()
+    if (want && data.modules.some((m) => m.id === want)) setProg((p) => ({ ...p, mod: want }))
     setContent(data)
     setReel(data.meta?.intro?.src && data.meta?.intro?.key ? 'required' : '')
   }
