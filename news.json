@@ -1,185 +1,185 @@
 {
-  "generated": "2026-11-16T12:23:19.261Z",
+  "generated": "2026-11-17T04:22:13.731Z",
   "reddit": [
     {
-      "title": "Ring programming language version 1.28 is released!",
-      "url": "https://www.reddit.com/r/programming/comments/1xxmn7s/ring_programming_language_version_128_is_released/",
-      "by": "mrpro1a1",
-      "time": 1794827111000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Kubernetes Gym - a Fun Way to Improve kubectl Fluency",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xxmdu2/kubernetes_gym_a_fun_way_to_improve_kubectl/",
-      "by": "iximiuz",
-      "time": 1794826180000,
+      "title": "I'm willing to share my earnings if you can help me find my first freelance client.",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xya1k1/im_willing_to_share_my_earnings_if_you_can_help/",
+      "by": "Zestyclose-Fee-4124",
+      "time": 1794886503000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "When Good Practices Become Empty Rituals",
-      "url": "https://www.reddit.com/r/programming/comments/1xxm6d1/when_good_practices_become_empty_rituals/",
-      "by": "wordbit12",
-      "time": 1794825408000,
+      "title": "Carnegie Mellon is putting computer science courses on YouTube for free",
+      "url": "https://www.reddit.com/r/programming/comments/1xy71dn/carnegie_mellon_is_putting_computer_science/",
+      "by": "gvufhidjo",
+      "time": 1794877810000,
       "sub": "r/programming"
     },
     {
-      "title": "How JavaScript and Python actually run your code",
-      "url": "https://www.reddit.com/r/programming/comments/1xxk3zb/how_javascript_and_python_actually_run_your_code/",
-      "by": "faqir-ila-rhmatillah",
-      "time": 1794817455000,
+      "title": "Do we have enough hands-on practice for real-world DevOps incidents?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xxzn2f/do_we_have_enough_handson_practice_for_realworld/",
+      "by": "sagacious123",
+      "time": 1794859465000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "So who else came home from Kubecon with the flu",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xxzgvi/so_who_else_came_home_from_kubecon_with_the_flu/",
+      "by": "Liquid_G",
+      "time": 1794859109000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "What Happens to Work After a Timeout?",
+      "url": "https://www.reddit.com/r/programming/comments/1xxza0t/what_happens_to_work_after_a_timeout/",
+      "by": "Cool-Click1253",
+      "time": 1794858683000,
       "sub": "r/programming"
     },
     {
-      "title": "After Clash Royale's top ladder has now started being dominated by bots, are there any videogames where people want to see a bot capable of beating humans built?",
-      "url": "https://www.reddit.com/r/programming/comments/1xxek1d/after_clash_royales_top_ladder_has_now_started/",
-      "by": "PandaXPanther",
-      "time": 1794798294000,
+      "title": "“…and the proof is checked in Lean”",
+      "url": "https://www.reddit.com/r/programming/comments/1xxytd6/and_the_proof_is_checked_in_lean/",
+      "by": "mttd",
+      "time": 1794857662000,
       "sub": "r/programming"
     },
     {
-      "title": "Route To Hosting Videos For Websites, Apps And Subscription Services",
-      "url": "https://www.reddit.com/r/programming/comments/1xxd0ul/route_to_hosting_videos_for_websites_apps_and/",
-      "by": "Old-Illustrator-8692",
-      "time": 1794793724000,
+      "title": "Introducing the World's Strongest Sokoban Solver",
+      "url": "https://www.reddit.com/r/programming/comments/1xxw6xh/introducing_the_worlds_strongest_sokoban_solver/",
+      "by": "candurz",
+      "time": 1794851790000,
       "sub": "r/programming"
     },
     {
-      "title": "How do you keep Kubernetes rightsizing and autoscaling configs from becoming a permanent manual job?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xx9npp/how_do_you_keep_kubernetes_rightsizing_and/",
-      "by": "njofce",
-      "time": 1794784263000,
+      "title": "IBM core-dump-handler removed?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xxulfy/ibm_coredumphandler_removed/",
+      "by": "nomis6432",
+      "time": 1794848241000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Scaling a hierarchical federated infrastructure to 1,500 container nodes with sub-400ms latencies (and machine-checking the Byzantine fault tolerance in Lean 4)",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xx908i/scaling_a_hierarchical_federated_infrastructure/",
-      "by": "Famous_Aardvark_8595",
-      "time": 1794782529000,
+      "title": "How are you handling multi-cluster Kubernetes networking and traffic routing in a hybrid cloud environment?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1xxu89a/how_are_you_handling_multicluster_kubernetes/",
+      "by": "rifqoi",
+      "time": 1794847432000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How do you handle prod promotion with Argo CD + Image Updater when CI is triggered by a git tag?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xwrwl9/how_do_you_handle_prod_promotion_with_argo_cd/",
-      "by": "andypaak1",
-      "time": 1794737195000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Hows everyone handling secret zero outside kubernetes?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xwrh6v/hows_everyone_handling_secret_zero_outside/",
-      "by": "aidenclarke_12",
-      "time": 1794735567000,
-      "sub": "r/kubernetes"
+      "title": "Learning to Code in 2026: The Data",
+      "url": "https://www.reddit.com/r/programming/comments/1xxu86p/learning_to_code_in_2026_the_data/",
+      "by": "wagslane",
+      "time": 1794847427000,
+      "sub": "r/programming"
     }
   ],
   "medium": [
     {
-      "title": "Postgres vs MySQL: The Same Transaction Can Tell You Two Different Stories.",
-      "url": "https://aws.plainenglish.io/postgres-vs-mysql-the-same-transaction-can-tell-you-two-different-stories-e6b44931b088",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1794831636000,
+      "title": "Change Your API Without Breaking Old Clients",
+      "url": "https://martin128.medium.com/change-your-api-without-breaking-old-clients-ea020800becf",
+      "by": "Martin",
+      "time": 1794888661000,
       "tags": [
-        "coding",
-        "web-development",
-        "software-development"
+        "api",
+        "nodejs",
+        "software-engineering"
       ]
     },
     {
-      "title": "Our CTO Promoted the Wrong Engineer. The Real Reason Came Out 47 Days Later",
-      "url": "https://medium.com/javarevisited/our-cto-promoted-the-wrong-engineer-the-real-reason-came-out-47-days-later-6b4bfdede5f1",
-      "by": "Production War Stories",
-      "time": 1794831523000,
+      "title": "I Kept Fixing Python Errors Without Understanding Them — Until I Changed One Habit",
+      "url": "https://python.plainenglish.io/i-kept-fixing-python-errors-without-understanding-them-until-i-changed-one-habit-051e6f99dd4f",
+      "by": "Fozia Saleem",
+      "time": 1794888500000,
       "tags": [
         "software-development",
-        "data-science",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Next.js vs Vite: The Dashboard Is Private. Why Are You Optimizing It for Google?",
-      "url": "https://javascript.plainenglish.io/next-js-vs-vite-the-dashboard-is-private-why-are-you-optimizing-it-for-google-591aacab935d",
-      "by": "Yusuf Seyitoğlu",
-      "time": 1794831358000,
-      "tags": [
-        "web-development",
-        "coding",
-        "programming"
-      ]
-    },
-    {
-      "title": "My Best Engineer Used AI for 6 Months. Then He Failed His Own Architecture Review",
-      "url": "https://medium.com/javarevisited/my-best-engineer-used-ai-for-6-months-then-he-failed-his-own-architecture-review-c49ca44e21bd",
-      "by": "The Staff Engineer's",
-      "time": 1794831273000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Who Owns the Script When the Analyst Leaves? Avoiding Key-Person Risk in Lab Automation",
-      "url": "https://medium.com/@risingcurrentblog/who-owns-the-script-when-the-analyst-leaves-avoiding-key-person-risk-in-lab-automation-019cb1744886",
-      "by": "Tony Davis",
-      "time": 1794831253000,
-      "tags": [
-        "data-science",
-        "programming",
-        "automation"
-      ]
-    },
-    {
-      "title": "Our CEO Replaced 12 Engineers With AI. On Day 43, He Asked Us to Keep It Quiet",
-      "url": "https://medium.com/javarevisited/our-ceo-replaced-12-engineers-with-ai-on-day-43-he-asked-us-to-keep-it-quiet-69384a847df6",
-      "by": "Staff Engineer Career",
-      "time": 1794831150000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "data-science"
-      ]
-    },
-    {
-      "title": "I Rejected a Senior Engineer in 40 Minutes. Six Weeks Later, I Asked Him to Save Our System",
-      "url": "https://medium.com/javarevisited/i-rejected-a-senior-engineer-in-40-minutes-six-weeks-later-i-asked-him-to-save-our-system-27dd575dec62",
-      "by": "Production Systems",
-      "time": 1794831064000,
-      "tags": [
-        "software-development",
-        "programming",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "How to Add Watermarks to PDF Files with Python",
-      "url": "https://medium.com/asposepdf/how-to-add-watermarks-to-pdf-files-with-python-042bf5f7472f",
-      "by": "Aspose-PDF-Python",
-      "time": 1794830984000,
-      "tags": [
-        "programming",
         "python",
+        "debugging"
+      ]
+    },
+    {
+      "title": "The Most Overprivileged Account in Our Company Is Mine.",
+      "url": "https://medium.com/@dhruonweb/the-most-overprivileged-account-in-our-company-is-mine-25f0c48a837d",
+      "by": "Dhruv Malaviya",
+      "time": 1794888354000,
+      "tags": [
+        "careers",
+        "programming",
+        "cloud-security"
+      ]
+    },
+    {
+      "title": "How to Make Your CI Pipeline Run in Under 2 Minutes",
+      "url": "https://medium.com/coding-nexus/how-to-make-your-ci-pipeline-run-in-under-2-minutes-85371a586bcb",
+      "by": "Civil Learning",
+      "time": 1794888270000,
+      "tags": [
+        "ci-pipeline",
+        "software-engineering",
         "software-development"
       ]
     },
     {
-      "title": "A Free Alternative to GitHub Actions: Jenkins on Our Laptops and a Secure AI Code Reviewer",
-      "url": "https://medium.com/@ali.mohamed.hgr/a-free-alternative-to-github-actions-jenkins-on-our-laptops-and-a-secure-ai-code-reviewer-d2f35a70256a",
-      "by": "Ali Mohamed Mohamed",
-      "time": 1794830867000,
+      "title": "I’m More Productive Than Ever with AI. So Why Am I Afraid of Losing My Job?",
+      "url": "https://medium.com/@saifkhantoru/im-more-productive-than-ever-with-ai-so-why-am-i-afraid-of-losing-my-job-4a9c89447bfa",
+      "by": "Saif Khan",
+      "time": 1794888061000,
+      "tags": [
+        "career-advice",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Build Once, Promote Everywhere,",
+      "url": "https://medium.com/@janakchamantha12/build-once-promote-everywhere-8c89f98d2f10",
+      "by": "Janaka Kariyawasam",
+      "time": 1794888058000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "AI Agent Loops: How I Stop a Runaway Agent Before It Burns the Budget",
+      "url": "https://medium.com/@k.pranav_22/ai-agent-loops-how-i-stop-a-runaway-agent-before-it-burns-the-budget-14952ad020f0",
+      "by": "Pranav Kumar",
+      "time": 1794887341000,
+      "tags": [
+        "llm",
+        "software-engineering",
+        "ai-agent"
+      ]
+    },
+    {
+      "title": "15+ Powerhouse Foods That Rebuild Collagen for Glowing Skin & Healthy Joints",
+      "url": "https://medium.com/@ahmedkabir6611/15-powerhouse-foods-that-rebuild-collagen-for-glowing-skin-healthy-joints-70ca2ade46dc",
+      "by": "Ahmedkabir",
+      "time": 1794887245000,
+      "tags": [
+        "programming",
+        "machine-learning",
+        "money"
+      ]
+    },
+    {
+      "title": "Every Big Outage This Week Started With a Change",
+      "url": "https://medium.com/@noah_34952/every-big-outage-this-week-started-with-a-change-c64095dea076",
+      "by": "Noah Grinstein",
+      "time": 1794887108000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "sre"
+      ]
+    },
+    {
+      "title": "Linux for Beginners: A Complete Step-by-Step Guide to Learning Linux from Scratch",
+      "url": "https://medium.com/@amit.it0007/linux-for-beginners-a-complete-step-by-step-guide-to-learning-linux-from-scratch-e1f45c707151",
+      "by": "Tengeeks",
+      "time": 1794887089000,
       "tags": [
         "devops",
-        "code-review",
-        "ai"
-      ]
-    },
-    {
-      "title": "Our Principal Engineer Refused to Approve the Release. Three Days Later, the CTO Called Him",
-      "url": "https://medium.com/javarevisited/our-principal-engineer-refused-to-approve-the-release-three-days-later-the-cto-called-him-0fc58fa2c225",
-      "by": "Architecture Unfiltered",
-      "time": 1794830799000,
-      "tags": [
-        "data-science",
-        "programming",
+        "linux",
         "software-development"
       ]
     }
