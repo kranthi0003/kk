@@ -1,186 +1,186 @@
 {
-  "generated": "2026-11-17T04:22:13.731Z",
+  "generated": "2026-11-18T04:22:21.308Z",
   "reddit": [
     {
-      "title": "I'm willing to share my earnings if you can help me find my first freelance client.",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xya1k1/im_willing_to_share_my_earnings_if_you_can_help/",
-      "by": "Zestyclose-Fee-4124",
-      "time": 1794886503000,
-      "sub": "r/kubernetes"
+      "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
+      "url": "https://www.reddit.com/r/devops/comments/1vi3tob/would_you_interview_me_for_a_devopscloud_engineer/",
+      "by": "adonis4000",
+      "time": 1786116648000,
+      "sub": "r/devops"
     },
     {
-      "title": "Carnegie Mellon is putting computer science courses on YouTube for free",
-      "url": "https://www.reddit.com/r/programming/comments/1xy71dn/carnegie_mellon_is_putting_computer_science/",
-      "by": "gvufhidjo",
-      "time": 1794877810000,
+      "title": "How much do you agree with this opinion",
+      "url": "https://www.reddit.com/r/programming/comments/1vi205l/how_much_do_you_agree_with_this_opinion/",
+      "by": "sidneysweeneysrack",
+      "time": 1786112509000,
       "sub": "r/programming"
     },
     {
-      "title": "Do we have enough hands-on practice for real-world DevOps incidents?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xxzn2f/do_we_have_enough_handson_practice_for_realworld/",
-      "by": "sagacious123",
-      "time": 1794859465000,
-      "sub": "r/kubernetes"
+      "title": "I am making a free single binary to optimize s3 read, writes and updates",
+      "url": "https://www.reddit.com/r/devops/comments/1vhzw6e/i_am_making_a_free_single_binary_to_optimize_s3/",
+      "by": "ankush2324235",
+      "time": 1786107372000,
+      "sub": "r/devops"
     },
     {
-      "title": "So who else came home from Kubecon with the flu",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xxzgvi/so_who_else_came_home_from_kubecon_with_the_flu/",
-      "by": "Liquid_G",
-      "time": 1794859109000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "What Happens to Work After a Timeout?",
-      "url": "https://www.reddit.com/r/programming/comments/1xxza0t/what_happens_to_work_after_a_timeout/",
-      "by": "Cool-Click1253",
-      "time": 1794858683000,
+      "title": "From constraint models to playable puzzle games",
+      "url": "https://www.reddit.com/r/programming/comments/1vhxjpv/from_constraint_models_to_playable_puzzle_games/",
+      "by": "mzl",
+      "time": 1786100710000,
       "sub": "r/programming"
     },
     {
-      "title": "“…and the proof is checked in Lean”",
-      "url": "https://www.reddit.com/r/programming/comments/1xxytd6/and_the_proof_is_checked_in_lean/",
-      "by": "mttd",
-      "time": 1794857662000,
-      "sub": "r/programming"
+      "title": "How are you guys using Claude code or any other ai tool for devops. My team have started using Claude code but we are struggling to make it work at team level.",
+      "url": "https://www.reddit.com/r/devops/comments/1vhxf93/how_are_you_guys_using_claude_code_or_any_other/",
+      "by": "jagdip",
+      "time": 1786100332000,
+      "sub": "r/devops"
     },
     {
-      "title": "Introducing the World's Strongest Sokoban Solver",
-      "url": "https://www.reddit.com/r/programming/comments/1xxw6xh/introducing_the_worlds_strongest_sokoban_solver/",
-      "by": "candurz",
-      "time": 1794851790000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "IBM core-dump-handler removed?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xxulfy/ibm_coredumphandler_removed/",
-      "by": "nomis6432",
-      "time": 1794848241000,
+      "title": "Weekly: Share your victories thread",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhwcv1/weekly_share_your_victories_thread/",
+      "by": "AutoModerator",
+      "time": 1786096817000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "How are you handling multi-cluster Kubernetes networking and traffic routing in a hybrid cloud environment?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1xxu89a/how_are_you_handling_multicluster_kubernetes/",
-      "by": "rifqoi",
-      "time": 1794847432000,
+      "title": "How do you guys manage backups of servers?",
+      "url": "https://www.reddit.com/r/devops/comments/1vhvnf3/how_do_you_guys_manage_backups_of_servers/",
+      "by": "hronak",
+      "time": 1786094328000,
+      "sub": "r/devops"
+    },
+    {
+      "title": "How do you turn CNCF projects into a complete developer platform?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vhtpb9/how_do_you_turn_cncf_projects_into_a_complete/",
+      "by": "Waste_Bat_4525",
+      "time": 1786087237000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Learning to Code in 2026: The Data",
-      "url": "https://www.reddit.com/r/programming/comments/1xxu86p/learning_to_code_in_2026_the_data/",
-      "by": "wagslane",
-      "time": 1794847427000,
+      "title": "Java in 2026, totally worth it",
+      "url": "https://www.reddit.com/r/programming/comments/1vhpezn/java_in_2026_totally_worth_it/",
+      "by": "OSBY_Glabay",
+      "time": 1786073317000,
       "sub": "r/programming"
+    },
+    {
+      "title": "I made a beginner explainer video on the reconcile loop (via a \"call-center floor manager\" analogy) - feedback on where the analogy oversimplifies?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1vh71fn/i_made_a_beginner_explainer_video_on_the/",
+      "by": "devensawant1",
+      "time": 1786029193000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Change Your API Without Breaking Old Clients",
-      "url": "https://martin128.medium.com/change-your-api-without-breaking-old-clients-ea020800becf",
-      "by": "Martin",
-      "time": 1794888661000,
+      "title": "Flutter From Zero, Part 7: Navigation and Routing with go_router",
+      "url": "https://sahilkhaire.medium.com/flutter-from-zero-part-7-navigation-and-routing-with-go-router-6d1cc39b122d",
+      "by": "Sahil Khaire",
+      "time": 1794974912000,
       "tags": [
-        "api",
-        "nodejs",
+        "programming",
+        "dart",
+        "flutter-app-development"
+      ]
+    },
+    {
+      "title": "Django 6.2 LTS: What to Expect and Should You Wait?",
+      "url": "https://medium.com/@yogeshkrishnanseeniraj/django-6-2-lts-what-to-expect-and-should-you-wait-1ec836249c16",
+      "by": "Yogeshkrishnanseeniraj",
+      "time": 1794974841000,
+      "tags": [
+        "backend-development",
+        "web-development",
+        "django"
+      ]
+    },
+    {
+      "title": "I Automated Almost My Entire AWS EKS Pipeline, Except terraform apply",
+      "url": "https://medium.com/@levithunderstorm/i-automated-almost-my-entire-aws-eks-pipeline-except-terraform-apply-bb72d10d1df0",
+      "by": "Levi Thunderstorm",
+      "time": 1794974556000,
+      "tags": [
+        "devops",
+        "aws",
+        "terraform"
+      ]
+    },
+    {
+      "title": "7 Bugs Your Passing Tests Might Be Missing",
+      "url": "https://medium.com/@ishaqsaqib/7-bugs-your-passing-tests-might-be-missing-990890cf86cf",
+      "by": "Muhammad Ishaq Saqib",
+      "time": 1794974461000,
+      "tags": [
+        "javascript",
+        "software-testing",
         "software-engineering"
       ]
     },
     {
-      "title": "I Kept Fixing Python Errors Without Understanding Them — Until I Changed One Habit",
-      "url": "https://python.plainenglish.io/i-kept-fixing-python-errors-without-understanding-them-until-i-changed-one-habit-051e6f99dd4f",
-      "by": "Fozia Saleem",
-      "time": 1794888500000,
+      "title": "Tracxn Java Backend Developer Interview Experience: Coding and Technical Questions",
+      "url": "https://medium.com/@pardeepgill82/tracxn-java-backend-developer-interview-experience-coding-and-technical-questions-55c3a9211216",
+      "by": "Interview Playbook",
+      "time": 1794974219000,
+      "tags": [
+        "programming",
+        "interview",
+        "interview-questions"
+      ]
+    },
+    {
+      "title": "Your Code isn’t Self-documenting — You’re just Assuming it is",
+      "url": "https://blog.cubed.run/your-code-isnt-self-documenting-you-re-just-assuming-it-is-305ee6dd3da7",
+      "by": "Yaninyz witty",
+      "time": 1794974136000,
+      "tags": [
+        "golang",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "A Cache Miss Is Never Alone",
+      "url": "https://medium.com/@jaberadam2001/a-cache-miss-is-never-alone-074cabcb8ba5",
+      "by": "Adam Jaber",
+      "time": 1794974032000,
+      "tags": [
+        "caching",
+        "redis",
+        "system-design-concepts"
+      ]
+    },
+    {
+      "title": "Why I Stopped Chasing Breakouts and Built a Ten-Minute Crypto Routine",
+      "url": "https://medium.com/@indrasetya092/why-i-stopped-chasing-breakouts-and-built-a-ten-minute-crypto-routine-7609fecb393c",
+      "by": "Indra Setya",
+      "time": 1794973645000,
+      "tags": [
+        "technology",
+        "cryptocurrency",
+        "programming"
+      ]
+    },
+    {
+      "title": "JavaScript forEach() Method Explained",
+      "url": "https://medium.com/@devnetayon/javascript-foreach-method-explained-54b174f389a2",
+      "by": "Rafi Ayon",
+      "time": 1794973339000,
       "tags": [
         "software-development",
-        "python",
-        "debugging"
+        "web-development",
+        "javascript"
       ]
     },
     {
-      "title": "The Most Overprivileged Account in Our Company Is Mine.",
-      "url": "https://medium.com/@dhruonweb/the-most-overprivileged-account-in-our-company-is-mine-25f0c48a837d",
-      "by": "Dhruv Malaviya",
-      "time": 1794888354000,
+      "title": "How Fact-to-Fact Joins Inflate Dashboard Revenue Without Raising SQL Errors",
+      "url": "https://medium.com/@Rohan_Dutt/how-fact-to-fact-joins-inflate-dashboard-revenue-without-raising-sql-errors-8106b7a77b04",
+      "by": "Rohan Dutt",
+      "time": 1794973324000,
       "tags": [
-        "careers",
-        "programming",
-        "cloud-security"
-      ]
-    },
-    {
-      "title": "How to Make Your CI Pipeline Run in Under 2 Minutes",
-      "url": "https://medium.com/coding-nexus/how-to-make-your-ci-pipeline-run-in-under-2-minutes-85371a586bcb",
-      "by": "Civil Learning",
-      "time": 1794888270000,
-      "tags": [
-        "ci-pipeline",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "I’m More Productive Than Ever with AI. So Why Am I Afraid of Losing My Job?",
-      "url": "https://medium.com/@saifkhantoru/im-more-productive-than-ever-with-ai-so-why-am-i-afraid-of-losing-my-job-4a9c89447bfa",
-      "by": "Saif Khan",
-      "time": 1794888061000,
-      "tags": [
-        "career-advice",
-        "technology",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Build Once, Promote Everywhere,",
-      "url": "https://medium.com/@janakchamantha12/build-once-promote-everywhere-8c89f98d2f10",
-      "by": "Janaka Kariyawasam",
-      "time": 1794888058000,
-      "tags": [
-        "cloud-computing",
-        "devops",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AI Agent Loops: How I Stop a Runaway Agent Before It Burns the Budget",
-      "url": "https://medium.com/@k.pranav_22/ai-agent-loops-how-i-stop-a-runaway-agent-before-it-burns-the-budget-14952ad020f0",
-      "by": "Pranav Kumar",
-      "time": 1794887341000,
-      "tags": [
-        "llm",
-        "software-engineering",
-        "ai-agent"
-      ]
-    },
-    {
-      "title": "15+ Powerhouse Foods That Rebuild Collagen for Glowing Skin & Healthy Joints",
-      "url": "https://medium.com/@ahmedkabir6611/15-powerhouse-foods-that-rebuild-collagen-for-glowing-skin-healthy-joints-70ca2ade46dc",
-      "by": "Ahmedkabir",
-      "time": 1794887245000,
-      "tags": [
-        "programming",
-        "machine-learning",
-        "money"
-      ]
-    },
-    {
-      "title": "Every Big Outage This Week Started With a Change",
-      "url": "https://medium.com/@noah_34952/every-big-outage-this-week-started-with-a-change-c64095dea076",
-      "by": "Noah Grinstein",
-      "time": 1794887108000,
-      "tags": [
-        "cloud-computing",
-        "devops",
-        "sre"
-      ]
-    },
-    {
-      "title": "Linux for Beginners: A Complete Step-by-Step Guide to Learning Linux from Scratch",
-      "url": "https://medium.com/@amit.it0007/linux-for-beginners-a-complete-step-by-step-guide-to-learning-linux-from-scratch-e1f45c707151",
-      "by": "Tengeeks",
-      "time": 1794887089000,
-      "tags": [
-        "devops",
-        "linux",
-        "software-development"
+        "data-engineering",
+        "data-science",
+        "programming"
       ]
     }
   ]

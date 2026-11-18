@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T04:22:15.823Z",
+  "generated": "2026-11-18T04:22:23.910Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -413,12 +413,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:18.518"
-      }
+      "pole": null
     },
     {
       "round": 2,
@@ -436,12 +431,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:32.064"
-      }
+      "pole": null
     },
     {
       "round": 3,
@@ -459,12 +449,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:28.778"
-      }
+      "pole": null
     },
     {
       "round": 4,
@@ -482,12 +467,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:27.798"
-      }
+      "pole": null
     },
     {
       "round": 5,
@@ -505,12 +485,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:12.578"
-      }
+      "pole": null
     },
     {
       "round": 6,
@@ -528,12 +503,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:12.051"
-      }
+      "pole": null
     },
     {
       "round": 7,
@@ -551,12 +521,7 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:14.679"
-      }
+      "pole": null
     },
     {
       "round": 8,
@@ -574,12 +539,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:06.113"
-      }
+      "pole": null
     },
     {
       "round": 9,
@@ -597,12 +557,7 @@
         "team": "Ferrari",
         "teamId": "ferrari"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:28.111"
-      }
+      "pole": null
     },
     {
       "round": 10,
@@ -620,12 +575,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Antonelli",
-        "code": "ANT",
-        "teamId": "mercedes",
-        "time": "1:44.361"
-      }
+      "pole": null
     },
     {
       "round": 11,
@@ -643,12 +593,7 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:17.207"
-      }
+      "pole": null
     },
     {
       "round": 12,
@@ -666,12 +611,7 @@
         "team": "McLaren",
         "teamId": "mclaren"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:11.163"
-      }
+      "pole": null
     },
     {
       "round": 13,
@@ -689,12 +629,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Gasly",
-        "code": "GAS",
-        "teamId": "alpine",
-        "time": "1:21.786"
-      }
+      "pole": null
     },
     {
       "round": 14,
@@ -712,12 +647,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Norris",
-        "code": "NOR",
-        "teamId": "mclaren",
-        "time": "1:31.824"
-      }
+      "pole": null
     },
     {
       "round": 15,
@@ -735,12 +665,7 @@
         "team": "Mercedes",
         "teamId": "mercedes"
       },
-      "pole": {
-        "last": "Russell",
-        "code": "RUS",
-        "teamId": "mercedes",
-        "time": "1:42.526"
-      }
+      "pole": null
     },
     {
       "round": 16,
