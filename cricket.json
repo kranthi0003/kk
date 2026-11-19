@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T04:22:25.989Z",
+  "generated": "2026-11-19T04:22:50.166Z",
   "season": "2026",
   "sources": [
     {
@@ -93,9 +93,9 @@
         "pos": 10,
         "code": "ZIM",
         "team": "Zimbabwe",
-        "matches": 13,
-        "points": 217,
-        "rating": 17
+        "matches": 16,
+        "points": 338,
+        "rating": 21
       }
     ],
     "odi": [
@@ -103,17 +103,17 @@
         "pos": 1,
         "code": "IND",
         "team": "India",
-        "matches": 38,
-        "points": 4439,
-        "rating": 117
+        "matches": 40,
+        "points": 4653,
+        "rating": 116
       },
       {
         "pos": 2,
         "code": "NZ",
         "team": "New Zealand",
-        "matches": 37,
-        "points": 3940,
-        "rating": 106
+        "matches": 39,
+        "points": 4172,
+        "rating": 107
       },
       {
         "pos": 3,
@@ -135,12 +135,20 @@
         "pos": 5,
         "code": "AUS",
         "team": "Australia",
-        "matches": 35,
-        "points": 3568,
-        "rating": 102
+        "matches": 38,
+        "points": 3796,
+        "rating": 100
       },
       {
         "pos": 6,
+        "code": "ENG",
+        "team": "England",
+        "matches": 41,
+        "points": 3886,
+        "rating": 95
+      },
+      {
+        "pos": 7,
         "code": "AFG",
         "team": "Afghanistan",
         "matches": 31,
@@ -148,20 +156,12 @@
         "rating": 94
       },
       {
-        "pos": 7,
+        "pos": 8,
         "code": "SL",
         "team": "Sri Lanka",
         "matches": 44,
         "points": 4144,
         "rating": 94
-      },
-      {
-        "pos": 8,
-        "code": "ENG",
-        "team": "England",
-        "matches": 38,
-        "points": 3530,
-        "rating": 93
       },
       {
         "pos": 9,
