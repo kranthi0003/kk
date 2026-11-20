@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T04:22:45.364Z",
+  "generated": "2026-11-20T04:22:47.276Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,112 @@
   ],
   "medium": [
     {
-      "title": "AI writes code faster than ever, so why aren’t teams shipping faster?",
-      "url": "https://medium.com/@susitharansarangan/ai-writes-code-faster-than-ever-so-why-arent-teams-shipping-faster-1356ae2c0ba0",
-      "by": "Susitharansarangan",
-      "time": 1795061495000,
+      "title": "Python Engineers: Stop Writing Clever One-Liners. Use These 8 Standard Library Tricks Instead",
+      "url": "https://medium.com/@saif.rehman00002/python-engineers-stop-writing-clever-one-liners-use-these-8-standard-library-tricks-instead-dcb2e20ceb2b",
+      "by": "Saif Ur Rehman",
+      "time": 1795147647000,
       "tags": [
-        "artificial-intelligence",
-        "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Patch Java Now: Java4Shell (CVE-2026–114938) Is a Critical OpenJDK Flaw That Can Lead to RCE",
-      "url": "https://javascript.plainenglish.io/patch-java-now-java4shell-cve-2026-114938-is-a-critical-openjdk-flaw-that-can-lead-to-rce-13b51821fa86",
-      "by": "Developer Awam",
-      "time": 1795061348000,
-      "tags": [
-        "java",
         "programming",
-        "cloud-security"
+        "software-development",
+        "python"
       ]
     },
     {
-      "title": "Before You Change That Field, Find Out Who Else Uses It",
-      "url": "https://medium.com/@vishwasacharya/before-you-change-that-field-find-out-who-else-uses-it-1b0dad4a8e39",
-      "by": "Vishwas Acharya",
-      "time": 1795060863000,
+      "title": "Delete Your console.log()",
+      "url": "https://medium.com/@sanjeev.mandal93/delete-your-console-log-39cd8f8be3f0",
+      "by": "Dr Sanjeev Kumar Mandal",
+      "time": 1795147512000,
       "tags": [
-        "best-practices",
-        "sql-server",
-        "software-development"
+        "career-advice",
+        "programming",
+        "software-engineering"
       ]
     },
     {
-      "title": "Tailcat: Tailscale’s Data Plane Without the Account",
-      "url": "https://medium.com/@bishakhghosh0/tailcat-tailscales-data-plane-without-the-account-6beb870c1c84",
-      "by": "Lightning Developer",
-      "time": 1795060862000,
+      "title": "I Can Finally Change the Gmail Address I Picked at 15. Here’s What Still Points to the Old One.",
+      "url": "https://medium.com/@AIbatros/i-can-finally-change-the-gmail-address-i-picked-at-15-heres-what-still-points-to-the-old-one-4b16cf293c7d",
+      "by": "Albatros",
+      "time": 1795147263000,
       "tags": [
-        "data",
-        "devops",
-        "wireguard"
-      ]
-    },
-    {
-      "title": "Two Browser Tabs Refreshed the Same Token. Why Did the User Get Logged Out?",
-      "url": "https://manishsaini74.medium.com/two-browser-tabs-refreshed-the-same-token-why-did-the-user-get-logged-out-06160896648a",
-      "by": "Manish Saini",
-      "time": 1795060862000,
-      "tags": [
-        "quality-assurance",
-        "software-engineering",
-        "test-automation"
-      ]
-    },
-    {
-      "title": "Production Checklist for Laravel, MariaDB & Direct FPX Payment Apps",
-      "url": "https://medium.com/@yahyalhaq/production-checklist-for-laravel-mariadb-direct-fpx-payment-apps-bea82e03f4f3",
-      "by": "Yahyalhaq",
-      "time": 1795060578000,
-      "tags": [
-        "php",
-        "laravel",
-        "database"
-      ]
-    },
-    {
-      "title": "A Semaphore Does Not Bound the Number of Asyncio Tasks",
-      "url": "https://medium.com/@udit.rawat03/a-semaphore-does-not-bound-the-number-of-asyncio-tasks-089267471c99",
-      "by": "Udit Rawat",
-      "time": 1795060426000,
-      "tags": [
-        "concurrency",
-        "python",
-        "asyncio"
-      ]
-    },
-    {
-      "title": "DAILY SPRING DEVOTIONAL.",
-      "url": "https://medium.com/@DailySpringDevotional/daily-spring-devotional-44f86846fd1e",
-      "by": "DEBORAH CHINEDU",
-      "time": 1795060151000,
-      "tags": [
-        "data-science",
-        "technology",
-        "money"
-      ]
-    },
-    {
-      "title": "nginx just patched 10 vulnerabilities. Here’s what you actually need to do.",
-      "url": "https://medium.com/@ellisarmahayikwei/nginx-just-patched-10-vulnerabilities-heres-what-you-actually-need-to-do-0501f3a89d23",
-      "by": "Ellis Armah Ayikwei",
-      "time": 1795059577000,
-      "tags": [
-        "devops",
-        "nginx",
+        "programming",
+        "privacy",
         "cybersecurity"
       ]
     },
     {
-      "title": "Replacing 300-Line Nested CTE Chains With Modular SQL Transformation Layers",
-      "url": "https://medium.com/@Rohan_Dutt/replacing-300-line-nested-cte-chains-with-modular-sql-transformation-layers-910a84b47664",
-      "by": "Rohan Dutt",
-      "time": 1795059100000,
+      "title": "Your AI Returned Valid JSON. Did It Actually Complete the Task?",
+      "url": "https://manishsaini74.medium.com/your-ai-returned-valid-json-did-it-actually-complete-the-task-86e887c4a848",
+      "by": "Manish Saini",
+      "time": 1795147263000,
       "tags": [
-        "data-science",
+        "quality-assurance",
+        "software-development",
+        "test-automation"
+      ]
+    },
+    {
+      "title": "Stop Refactoring by Hand: How OpenRewrite Automates Code Migrations at Scale",
+      "url": "https://medium.com/@jm.autexier/stop-refactoring-by-hand-how-openrewrite-automates-code-migrations-at-scale-48fcba6ca103",
+      "by": "Jean-Marc Autexier",
+      "time": 1795146763000,
+      "tags": [
+        "software-engineering",
+        "openrewrite"
+      ]
+    },
+    {
+      "title": "How to Manage Remote IoT Devices Behind NAT Without Opening Ports",
+      "url": "https://medium.com/@bishakhghosh0/how-to-manage-remote-iot-devices-behind-nat-without-opening-ports-af33859b40cd",
+      "by": "Lightning Developer",
+      "time": 1795146661000,
+      "tags": [
+        "web-development",
+        "devops",
+        "ssh-tunnel"
+      ]
+    },
+    {
+      "title": "My Blog Bot Ran 57 Times. It Published Nothing. Every Refusal Was Correct.",
+      "url": "https://bobde-yagyesh.medium.com/my-blog-bot-ran-57-times-it-published-nothing-every-refusal-was-correct-f018cf6d3cd9",
+      "by": "Yagyesh Bobde",
+      "time": 1795146337000,
+      "tags": [
         "programming",
-        "data-engineering"
+        "automation",
+        "productivity"
+      ]
+    },
+    {
+      "title": "Blacksmith’s $1 Billion Bet: AI Agents Are Turning CI Into a Compute Gold Rush",
+      "url": "https://chierhu.medium.com/blacksmiths-1-billion-bet-ai-agents-are-turning-ci-into-a-compute-gold-rush-3df53bf5bbd5",
+      "by": "Chier Hu",
+      "time": 1795146331000,
+      "tags": [
+        "devops",
+        "ai-infrastructure",
+        "continuous-integration"
+      ]
+    },
+    {
+      "title": "Inside Modal’s $15.75 Billion Valuation: The Rise of AI Sandboxes and Serverless GPU Infrastructure",
+      "url": "https://chierhu.medium.com/inside-modals-15-75-billion-valuation-the-rise-of-ai-sandboxes-and-serverless-gpu-infrastructure-bf3f4f8c207c",
+      "by": "Chier Hu",
+      "time": 1795146330000,
+      "tags": [
+        "developer-tools",
+        "continuous-integration",
+        "ai-infrastructure"
+      ]
+    },
+    {
+      "title": "Daytona’s $1 Billion Rise: The Infrastructure Powering the AI Agent Economy",
+      "url": "https://chierhu.medium.com/daytonas-1-billion-rise-the-infrastructure-powering-the-ai-agent-economy-acd0f4820010",
+      "by": "Chier Hu",
+      "time": 1795146329000,
+      "tags": [
+        "devops",
+        "ai-infrastructure",
+        "developer-tools"
       ]
     }
   ]
