@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T04:22:47.276Z",
+  "generated": "2026-11-21T04:21:21.507Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,112 +74,111 @@
   ],
   "medium": [
     {
-      "title": "Python Engineers: Stop Writing Clever One-Liners. Use These 8 Standard Library Tricks Instead",
-      "url": "https://medium.com/@saif.rehman00002/python-engineers-stop-writing-clever-one-liners-use-these-8-standard-library-tricks-instead-dcb2e20ceb2b",
-      "by": "Saif Ur Rehman",
-      "time": 1795147647000,
+      "title": "Go (lang) Internals 101 — Part 2",
+      "url": "https://medium.com/@gunawardena.buddika/go-lang-internals-101-part-2-06f5a85ac76f",
+      "by": "Buddika Gunawardena",
+      "time": 1795234557000,
       "tags": [
-        "programming",
-        "software-development",
-        "python"
-      ]
-    },
-    {
-      "title": "Delete Your console.log()",
-      "url": "https://medium.com/@sanjeev.mandal93/delete-your-console-log-39cd8f8be3f0",
-      "by": "Dr Sanjeev Kumar Mandal",
-      "time": 1795147512000,
-      "tags": [
-        "career-advice",
-        "programming",
+        "software-architecture",
+        "go-internals",
         "software-engineering"
       ]
     },
     {
-      "title": "I Can Finally Change the Gmail Address I Picked at 15. Here’s What Still Points to the Old One.",
-      "url": "https://medium.com/@AIbatros/i-can-finally-change-the-gmail-address-i-picked-at-15-heres-what-still-points-to-the-old-one-4b16cf293c7d",
-      "by": "Albatros",
-      "time": 1795147263000,
+      "title": "From Guesswork to Green Builds: How Spec-Driven Development and Test Automation Are Transforming…",
+      "url": "https://arpitkulsh.medium.com/from-guesswork-to-green-builds-how-spec-driven-development-and-test-automation-are-transforming-23c6af26b15a",
+      "by": "Arpit Kulsreshtha",
+      "time": 1795234141000,
       "tags": [
-        "programming",
-        "privacy",
-        "cybersecurity"
-      ]
-    },
-    {
-      "title": "Your AI Returned Valid JSON. Did It Actually Complete the Task?",
-      "url": "https://manishsaini74.medium.com/your-ai-returned-valid-json-did-it-actually-complete-the-task-86e887c4a848",
-      "by": "Manish Saini",
-      "time": 1795147263000,
-      "tags": [
-        "quality-assurance",
+        "test-automation",
         "software-development",
-        "test-automation"
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Stop Refactoring by Hand: How OpenRewrite Automates Code Migrations at Scale",
-      "url": "https://medium.com/@jm.autexier/stop-refactoring-by-hand-how-openrewrite-automates-code-migrations-at-scale-48fcba6ca103",
-      "by": "Jean-Marc Autexier",
-      "time": 1795146763000,
+      "title": "Why Most AI Side Projects Fail (And What to Do Differently)",
+      "url": "https://swaeth.medium.com/why-most-ai-side-projects-fail-and-what-to-do-differently-3dbc36a9a0ab",
+      "by": "0xswaeth",
+      "time": 1795233959000,
       "tags": [
-        "software-engineering",
-        "openrewrite"
+        "software-development",
+        "artificial-intelligence",
+        "money"
       ]
     },
     {
-      "title": "How to Manage Remote IoT Devices Behind NAT Without Opening Ports",
-      "url": "https://medium.com/@bishakhghosh0/how-to-manage-remote-iot-devices-behind-nat-without-opening-ports-af33859b40cd",
-      "by": "Lightning Developer",
-      "time": 1795146661000,
+      "title": "A IA está criando um novo nível de abstração na programação?",
+      "url": "https://medium.com/@lucasbmartinelli/a-ia-est%C3%A1-criando-um-novo-n%C3%ADvel-de-abstra%C3%A7%C3%A3o-na-programa%C3%A7%C3%A3o-bdc7af232d22",
+      "by": "Lucas Buisa Martinelli",
+      "time": 1795233561000,
       "tags": [
-        "web-development",
+        "software-architecture",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "Time-Zone Conversion Bugs in SQL That SHIFT Daily Sales Into the Wrong Date",
+      "url": "https://medium.com/@Rohan_Dutt/time-zone-conversion-bugs-in-sql-that-shift-daily-sales-into-the-wrong-date-9c2e7fbf4efc",
+      "by": "Rohan Dutt",
+      "time": 1795233515000,
+      "tags": [
+        "sql",
+        "data-science",
+        "programming"
+      ]
+    },
+    {
+      "title": "A running local console is not a successful cloud-agent installation",
+      "url": "https://medium.com/@markovwong_32933/a-running-local-console-is-not-a-successful-cloud-agent-installation-1a6777cb9545",
+      "by": "Mikhail4ai",
+      "time": 1795233503000,
+      "tags": [
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Black Friday, 10,000 Servers, One Critical CVE: Patch, Contain, or Wait?",
+      "url": "https://medium.com/@baskar.sks/black-friday-10-000-servers-one-critical-cve-patch-contain-or-wait-74bc419f3dae",
+      "by": "Baskar Sikkayan",
+      "time": 1795233361000,
+      "tags": [
+        "cybersecurity",
+        "sre",
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "The message that gets processed twice",
+      "url": "https://adityagupta262000.medium.com/the-message-that-gets-processed-twice-bb1414f2732d",
+      "by": "Adityagupta",
+      "time": 1795233264000,
+      "tags": [
+        "site-reliability-engineer",
         "devops",
-        "ssh-tunnel"
+        "aws"
       ]
     },
     {
-      "title": "My Blog Bot Ran 57 Times. It Published Nothing. Every Refusal Was Correct.",
-      "url": "https://bobde-yagyesh.medium.com/my-blog-bot-ran-57-times-it-published-nothing-every-refusal-was-correct-f018cf6d3cd9",
-      "by": "Yagyesh Bobde",
-      "time": 1795146337000,
-      "tags": [
-        "programming",
-        "automation",
-        "productivity"
-      ]
-    },
-    {
-      "title": "Blacksmith’s $1 Billion Bet: AI Agents Are Turning CI Into a Compute Gold Rush",
-      "url": "https://chierhu.medium.com/blacksmiths-1-billion-bet-ai-agents-are-turning-ci-into-a-compute-gold-rush-3df53bf5bbd5",
-      "by": "Chier Hu",
-      "time": 1795146331000,
+      "title": "Who gets evicted first",
+      "url": "https://adityagupta262000.medium.com/who-gets-evicted-first-ed46f9a21693",
+      "by": "Adityagupta",
+      "time": 1795233243000,
       "tags": [
         "devops",
-        "ai-infrastructure",
-        "continuous-integration"
+        "site-reliability-engineer",
+        "kubernetes"
       ]
     },
     {
-      "title": "Inside Modal’s $15.75 Billion Valuation: The Rise of AI Sandboxes and Serverless GPU Infrastructure",
-      "url": "https://chierhu.medium.com/inside-modals-15-75-billion-valuation-the-rise-of-ai-sandboxes-and-serverless-gpu-infrastructure-bf3f4f8c207c",
-      "by": "Chier Hu",
-      "time": 1795146330000,
-      "tags": [
-        "developer-tools",
-        "continuous-integration",
-        "ai-infrastructure"
-      ]
-    },
-    {
-      "title": "Daytona’s $1 Billion Rise: The Infrastructure Powering the AI Agent Economy",
-      "url": "https://chierhu.medium.com/daytonas-1-billion-rise-the-infrastructure-powering-the-ai-agent-economy-acd0f4820010",
-      "by": "Chier Hu",
-      "time": 1795146329000,
+      "title": "The drain that hangs",
+      "url": "https://adityagupta262000.medium.com/the-drain-that-hangs-bbe51d06e75e",
+      "by": "Adityagupta",
+      "time": 1795233212000,
       "tags": [
         "devops",
-        "ai-infrastructure",
-        "developer-tools"
+        "kubernetes",
+        "site-reliability-engineer"
       ]
     }
   ]

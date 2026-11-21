@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T04:21:38.174Z",
+  "generated": "2026-11-21T04:20:30.043Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -47,17 +47,6 @@
       "imdb": "https://www.imdb.com/title/tt21438726/"
     },
     {
-      "title": "Aakasamlo Oka Tara",
-      "lang": "Telugu",
-      "date": null,
-      "precision": null,
-      "by": "Pavan Sadineni",
-      "desc": "Upcoming Indian film by Pavan Sadineni",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d2/Aakasamlo_Oka_Tara.jpg/120px-Aakasamlo_Oka_Tara.jpg",
-      "url": "https://en.wikipedia.org/wiki/Aakasamlo_Oka_Tara",
-      "imdb": "https://www.imdb.com/title/tt33044571/"
-    },
-    {
       "title": "Dharman",
       "lang": "Tamil",
       "date": null,
@@ -67,17 +56,6 @@
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a8/Dharman_poster.jpg/120px-Dharman_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Dharman",
       "imdb": "https://www.imdb.com/title/tt38874778/"
-    },
-    {
-      "title": "Don't Trouble the Trouble",
-      "lang": "Telugu",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian Telugu language fantasy film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/ae/Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg/120px-Don%27t_Trouble_the_Trouble_Movie_Poster.jpeg",
-      "url": "https://en.wikipedia.org/wiki/Don't_Trouble_the_Trouble",
-      "imdb": "https://www.imdb.com/title/tt31841170/"
     },
     {
       "title": "Inji Vellam",
@@ -108,7 +86,7 @@
       "precision": null,
       "by": "Vetrimaaran",
       "desc": "Upcoming Indian film by Vetrimaaran",
-      "poster": null,
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/6b/Arasan_film_poster.jpg/120px-Arasan_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Arasan_(film)",
       "imdb": "https://www.imdb.com/title/tt37458144/"
     },
@@ -155,6 +133,28 @@
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Golmaal_5",
       "imdb": "https://www.imdb.com/title/tt9598520/"
+    },
+    {
+      "title": "Gunmaaster G9",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "2026 Indian Hindi-language action thriller film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Gunmaaster_G9_film_poster.jpg/120px-Gunmaaster_G9_film_poster.jpg",
+      "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
+      "imdb": "https://www.imdb.com/title/tt37539573/"
+    },
+    {
+      "title": "Jai Hind Jai Sindh: A Love Story",
+      "lang": "Hindi",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Indian film",
+      "poster": null,
+      "url": "https://en.wikipedia.org/wiki/Jai_Hind_Jai_Sindh%3A_A_Love_Story",
+      "imdb": "https://www.imdb.com/title/tt40412562/"
     }
   ]
 }
