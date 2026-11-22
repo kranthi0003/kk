@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T04:21:21.507Z",
+  "generated": "2026-11-22T04:22:10.457Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,111 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Go (lang) Internals 101 — Part 2",
-      "url": "https://medium.com/@gunawardena.buddika/go-lang-internals-101-part-2-06f5a85ac76f",
-      "by": "Buddika Gunawardena",
-      "time": 1795234557000,
+      "title": "I Asked for Everything and Got Nothing Back",
+      "url": "https://medium.com/@ashokramsi/i-asked-for-everything-and-got-nothing-back-ba3639e56440",
+      "by": "Ashok Ram",
+      "time": 1795320953000,
       "tags": [
-        "software-architecture",
-        "go-internals",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "From Guesswork to Green Builds: How Spec-Driven Development and Test Automation Are Transforming…",
-      "url": "https://arpitkulsh.medium.com/from-guesswork-to-green-builds-how-spec-driven-development-and-test-automation-are-transforming-23c6af26b15a",
-      "by": "Arpit Kulsreshtha",
-      "time": 1795234141000,
-      "tags": [
-        "test-automation",
-        "software-development",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Why Most AI Side Projects Fail (And What to Do Differently)",
-      "url": "https://swaeth.medium.com/why-most-ai-side-projects-fail-and-what-to-do-differently-3dbc36a9a0ab",
-      "by": "0xswaeth",
-      "time": 1795233959000,
-      "tags": [
-        "software-development",
-        "artificial-intelligence",
-        "money"
-      ]
-    },
-    {
-      "title": "A IA está criando um novo nível de abstração na programação?",
-      "url": "https://medium.com/@lucasbmartinelli/a-ia-est%C3%A1-criando-um-novo-n%C3%ADvel-de-abstra%C3%A7%C3%A3o-na-programa%C3%A7%C3%A3o-bdc7af232d22",
-      "by": "Lucas Buisa Martinelli",
-      "time": 1795233561000,
-      "tags": [
-        "software-architecture",
-        "artificial-intelligence",
+        "open-source",
+        "debugging",
         "programming"
       ]
     },
     {
-      "title": "Time-Zone Conversion Bugs in SQL That SHIFT Daily Sales Into the Wrong Date",
-      "url": "https://medium.com/@Rohan_Dutt/time-zone-conversion-bugs-in-sql-that-shift-daily-sales-into-the-wrong-date-9c2e7fbf4efc",
-      "by": "Rohan Dutt",
-      "time": 1795233515000,
-      "tags": [
-        "sql",
-        "data-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "A running local console is not a successful cloud-agent installation",
-      "url": "https://medium.com/@markovwong_32933/a-running-local-console-is-not-a-successful-cloud-agent-installation-1a6777cb9545",
-      "by": "Mikhail4ai",
-      "time": 1795233503000,
-      "tags": [
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Black Friday, 10,000 Servers, One Critical CVE: Patch, Contain, or Wait?",
-      "url": "https://medium.com/@baskar.sks/black-friday-10-000-servers-one-critical-cve-patch-contain-or-wait-74bc419f3dae",
-      "by": "Baskar Sikkayan",
-      "time": 1795233361000,
+      "title": "Why robots.txt",
+      "url": "https://medium.com/@silexindustriesofficial/why-robots-txt-12c386e0b881",
+      "by": "Silex Industries",
+      "time": 1795320909000,
       "tags": [
         "cybersecurity",
-        "sre",
-        "distributed-systems"
+        "artificial-intelligence",
+        "monetization"
       ]
     },
     {
-      "title": "The message that gets processed twice",
-      "url": "https://adityagupta262000.medium.com/the-message-that-gets-processed-twice-bb1414f2732d",
-      "by": "Adityagupta",
-      "time": 1795233264000,
+      "title": "Prepare for an Anthropic interview from official rules first",
+      "url": "https://medium.com/@rudyalway-ntakzs/prepare-for-an-anthropic-interview-from-official-rules-first-fe14ad378df4",
+      "by": "Andy Wu",
+      "time": 1795320730000,
       "tags": [
-        "site-reliability-engineer",
-        "devops",
-        "aws"
+        "coding-interviews",
+        "software-engineering",
+        "interview"
       ]
     },
     {
-      "title": "Who gets evicted first",
-      "url": "https://adityagupta262000.medium.com/who-gets-evicted-first-ed46f9a21693",
-      "by": "Adityagupta",
-      "time": 1795233243000,
+      "title": "Java Developer Interview Experience: 20 Important Technical Questions for 3–5 Years of Experience",
+      "url": "https://medium.com/@pardeepgill82/java-developer-interview-experience-20-important-technical-questions-for-3-5-years-of-experience-b7a049df6574",
+      "by": "Interview Playbook",
+      "time": 1795320361000,
       "tags": [
-        "devops",
-        "site-reliability-engineer",
-        "kubernetes"
+        "programming",
+        "java",
+        "interview"
       ]
     },
     {
-      "title": "The drain that hangs",
-      "url": "https://adityagupta262000.medium.com/the-drain-that-hangs-bbe51d06e75e",
-      "by": "Adityagupta",
-      "time": 1795233212000,
+      "title": "How Artificial Intelligence Transforms Meetings Into Action Plans",
+      "url": "https://medium.com/@dewansaboor099/how-artificial-intelligence-transforms-meetings-into-action-plans-bc5343b93292",
+      "by": "Abdul Saboor Bukhari",
+      "time": 1795320335000,
       "tags": [
-        "devops",
-        "kubernetes",
-        "site-reliability-engineer"
+        "ai",
+        "automation",
+        "information-technology"
+      ]
+    },
+    {
+      "title": "AI Helped Me Code Faster. It Also Made Me Debug More.",
+      "url": "https://medium.com/@nedunooria/ai-helped-me-code-faster-it-also-made-me-debug-more-6625c15a35d4",
+      "by": "Aneesh Nedunoori",
+      "time": 1795320181000,
+      "tags": [
+        "web-development",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "Not Storing Credit Card Numbers Wasn’t Enough.",
+      "url": "https://medium.com/@naoto01182002/not-storing-credit-card-numbers-wasnt-enough-f9d9887ae832",
+      "by": "naoto",
+      "time": 1795320118000,
+      "tags": [
+        "web-security",
+        "information-security",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "A Year After Companies Forced Employees to Use AI, Nobody Understands the Code",
+      "url": "https://medium.com/@saifkhantoru/a-year-after-companies-forced-employees-to-use-ai-nobody-understands-the-code-de322ee2f495",
+      "by": "Saif Khan",
+      "time": 1795320061000,
+      "tags": [
+        "technology",
+        "money",
+        "cybersecurity"
+      ]
+    },
+    {
+      "title": "Why Being a Good Programmer Is No Longer Enough in 2026",
+      "url": "https://medium.com/@techsuneel99/why-being-a-good-programmer-is-no-longer-enough-in-2026-08f7818be4f1",
+      "by": "Suneel Kumar",
+      "time": 1795319463000,
+      "tags": [
+        "programming",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "Python 3.15’s Lazy Imports Change When Your Code Runs",
+      "url": "https://medium.com/@ekansh.jain2011/python-3-15s-lazy-imports-change-when-your-code-runs-09238e562ba7",
+      "by": "Ekansh Jain",
+      "time": 1795318959000,
+      "tags": [
+        "programming",
+        "python",
+        "python-programming"
       ]
     }
   ]
