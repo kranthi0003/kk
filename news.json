@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T04:22:10.457Z",
+  "generated": "2026-11-23T04:24:49.567Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "I Asked for Everything and Got Nothing Back",
-      "url": "https://medium.com/@ashokramsi/i-asked-for-everything-and-got-nothing-back-ba3639e56440",
-      "by": "Ashok Ram",
-      "time": 1795320953000,
+      "title": "Concurrency vs Parallelism",
+      "url": "https://medium.com/@abiral-acharya/concurrency-vs-parallelism-086470dc3cdb",
+      "by": "Abiral Acharya",
+      "time": 1795407440000,
       "tags": [
-        "open-source",
-        "debugging",
+        "software-engineering",
+        "distributed-systems",
+        "system-design-concepts"
+      ]
+    },
+    {
+      "title": "Workstation Discrete Math Plugin — Chapter 3, Part 6 — Decode the Contract, Not the Wish",
+      "url": "https://medium.com/@rantnrave31/workstation-discrete-math-plugin-chapter-3-part-6-decode-the-contract-not-the-wish-da9b33508dea",
+      "by": "Don Gunter",
+      "time": 1795407307000,
+      "tags": [
+        "discrete-mathematics",
+        "computer-science",
         "programming"
       ]
     },
     {
-      "title": "Why robots.txt",
-      "url": "https://medium.com/@silexindustriesofficial/why-robots-txt-12c386e0b881",
-      "by": "Silex Industries",
-      "time": 1795320909000,
-      "tags": [
-        "cybersecurity",
-        "artificial-intelligence",
-        "monetization"
-      ]
-    },
-    {
-      "title": "Prepare for an Anthropic interview from official rules first",
-      "url": "https://medium.com/@rudyalway-ntakzs/prepare-for-an-anthropic-interview-from-official-rules-first-fe14ad378df4",
-      "by": "Andy Wu",
-      "time": 1795320730000,
-      "tags": [
-        "coding-interviews",
-        "software-engineering",
-        "interview"
-      ]
-    },
-    {
-      "title": "Java Developer Interview Experience: 20 Important Technical Questions for 3–5 Years of Experience",
-      "url": "https://medium.com/@pardeepgill82/java-developer-interview-experience-20-important-technical-questions-for-3-5-years-of-experience-b7a049df6574",
-      "by": "Interview Playbook",
-      "time": 1795320361000,
-      "tags": [
-        "programming",
-        "java",
-        "interview"
-      ]
-    },
-    {
-      "title": "How Artificial Intelligence Transforms Meetings Into Action Plans",
-      "url": "https://medium.com/@dewansaboor099/how-artificial-intelligence-transforms-meetings-into-action-plans-bc5343b93292",
-      "by": "Abdul Saboor Bukhari",
-      "time": 1795320335000,
+      "title": "The Wrongness in AI",
+      "url": "https://medium.com/@ankursaran_59645/the-wrongness-in-ai-a838d10baf02",
+      "by": "Ankur Saran",
+      "time": 1795407298000,
       "tags": [
         "ai",
-        "automation",
-        "information-technology"
+        "artificial-intelligence",
+        "software-engineering"
       ]
     },
     {
-      "title": "AI Helped Me Code Faster. It Also Made Me Debug More.",
-      "url": "https://medium.com/@nedunooria/ai-helped-me-code-faster-it-also-made-me-debug-more-6625c15a35d4",
-      "by": "Aneesh Nedunoori",
-      "time": 1795320181000,
+      "title": "AI Made Writing Code 10x Faster — And Code Reviews 10x Harder",
+      "url": "https://medium.com/@saif.rehman00002/ai-made-writing-code-10x-faster-and-code-reviews-10x-harder-fe953bddf5d0",
+      "by": "Saif Ur Rehman",
+      "time": 1795407106000,
       "tags": [
-        "web-development",
-        "artificial-intelligence",
+        "ai",
+        "code-review",
         "programming"
       ]
     },
     {
-      "title": "Not Storing Credit Card Numbers Wasn’t Enough.",
-      "url": "https://medium.com/@naoto01182002/not-storing-credit-card-numbers-wasnt-enough-f9d9887ae832",
-      "by": "naoto",
-      "time": 1795320118000,
+      "title": "The Agentic Software Factory Runs on Trust",
+      "url": "https://medium.com/israeli-tech-radar/the-agentic-software-factory-runs-on-trust-1c4a06257abe",
+      "by": "Amit Karni",
+      "time": 1795406903000,
       "tags": [
-        "web-security",
-        "information-security",
-        "cybersecurity"
+        "ai-agent",
+        "ai-and-ml",
+        "agentic-software-factory"
       ]
     },
     {
-      "title": "A Year After Companies Forced Employees to Use AI, Nobody Understands the Code",
-      "url": "https://medium.com/@saifkhantoru/a-year-after-companies-forced-employees-to-use-ai-nobody-understands-the-code-de322ee2f495",
-      "by": "Saif Khan",
-      "time": 1795320061000,
+      "title": "GLB Viewer: Compare a Product GLB in a Viewer and on a Web Page",
+      "url": "https://felixanderson-able.medium.com/glb-viewer-compare-a-product-glb-in-a-viewer-and-on-a-web-page-ecdb5408b244",
+      "by": "Felix Anderson",
+      "time": 1795406622000,
       "tags": [
         "technology",
-        "money",
-        "cybersecurity"
+        "3d-modeling",
+        "programming"
       ]
     },
     {
-      "title": "Why Being a Good Programmer Is No Longer Enough in 2026",
-      "url": "https://medium.com/@techsuneel99/why-being-a-good-programmer-is-no-longer-enough-in-2026-08f7818be4f1",
-      "by": "Suneel Kumar",
-      "time": 1795319463000,
+      "title": "Understanding Variables, Types, and Null Safety in Dart.",
+      "url": "https://medium.com/@shedalesoham/understanding-variables-types-and-null-safety-in-dart-f35502a806bd",
+      "by": "Soham S.",
+      "time": 1795406461000,
       "tags": [
+        "coding",
         "programming",
-        "software-engineering",
-        "technology"
+        "flutter"
       ]
     },
     {
-      "title": "Python 3.15’s Lazy Imports Change When Your Code Runs",
-      "url": "https://medium.com/@ekansh.jain2011/python-3-15s-lazy-imports-change-when-your-code-runs-09238e562ba7",
-      "by": "Ekansh Jain",
-      "time": 1795318959000,
+      "title": "The Dark Side of Microservices: Why Distributed Architecture Isn’t Always Better",
+      "url": "https://medium.com/@harindayasiru/the-dark-side-of-microservices-why-distributed-architecture-isnt-always-better-44ca9ca690e2",
+      "by": "Yasiru Harinda Edirimanna",
+      "time": 1795406329000,
       "tags": [
+        "microservices",
+        "software-architecture",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Your Go Toolchain is Slowing You Down — Here’s Why",
+      "url": "https://blog.devgenius.io/your-go-toolchain-is-slowing-you-down-heres-why-2f85b24154ee",
+      "by": "Yaninyz witty",
+      "time": 1795406236000,
+      "tags": [
+        "golang",
         "programming",
-        "python",
-        "python-programming"
+        "writing"
+      ]
+    },
+    {
+      "title": "Spring AI vs LangChain4j: Choosing IncidentPilot’s Framework",
+      "url": "https://medium.com/@abhinav.neo/spring-ai-vs-langchain4j-choosing-incidentpilots-framework-c477c928609d",
+      "by": "Abhinav Taduka",
+      "time": 1795405947000,
+      "tags": [
+        "artificial-intelligence",
+        "java",
+        "software-engineering"
       ]
     }
   ]
