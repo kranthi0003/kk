@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T04:22:52.519Z",
+  "generated": "2026-11-24T07:49:18.617Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Laravel 13 serializable_classes: Fix the Cache Error After Upgrading From 12",
-      "url": "https://medium.com/@raghavji2050/laravel-13-serializable-classes-fix-the-cache-error-after-upgrading-from-12-666aee1ff338",
-      "by": "Raghav Ji",
-      "time": 1795493638000,
+      "title": "Beyond Writing Code: Learning to Think Like a Systems Engineer",
+      "url": "https://medium.com/@rajatmalik.dev/beyond-writing-code-learning-to-think-like-a-systems-engineer-7b395d6d4c98",
+      "by": "Rajat Malik",
+      "time": 1795506396000,
       "tags": [
-        "web-development",
-        "php",
-        "backend-development"
+        "backend-development",
+        "observability",
+        "system-design-concepts"
       ]
     },
     {
-      "title": "Python ETL Performance Optimization: 8 Ways to Make Slow Pipelines Fast Without Rewriting Them in…",
-      "url": "https://python.plainenglish.io/python-etl-performance-optimization-8-ways-to-make-slow-pipelines-fast-without-rewriting-them-in-24a2ff6fc36c",
-      "by": "Saif Ur Rehman",
-      "time": 1795493008000,
+      "title": "The Engineering Knowledge That Makes You Worth More Than Your Job Title",
+      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-that-makes-you-worth-more-than-your-job-title-efaec0f7990d",
+      "by": "Beyond Senior",
+      "time": 1795506351000,
       "tags": [
+        "software-development",
+        "artificial-intelligence",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Engineering Knowledge Most Developers Wish They Had Learned Five Years Earlier",
+      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-most-developers-wish-they-had-learned-five-years-earlier-aba1d48f734b",
+      "by": "The Engineer's War",
+      "time": 1795506185000,
+      "tags": [
+        "programming",
         "software-engineering",
-        "python",
         "software-development"
       ]
     },
     {
-      "title": "The Art of Making Complexity Feel Simple",
-      "url": "https://medium.com/@psoputt/the-art-of-making-complexity-feel-simple-f79c3051c73e",
-      "by": "Putra",
-      "time": 1795492972000,
+      "title": "The Engineering Knowledge That Makes Your Next Senior or Staff Interview Feel Unfair",
+      "url": "https://medium.com/javarevisited/the-engineering-knowledge-that-makes-your-next-senior-or-staff-interview-feel-unfair-527961213ba5",
+      "by": "The Engineer's War",
+      "time": 1795506057000,
       "tags": [
         "technology",
-        "product-development",
-        "user-experience"
-      ]
-    },
-    {
-      "title": "QCon SF 2026: Harnesses, Humans & Hallway Chats",
-      "url": "https://medium.com/@salonijshah/qcon-sf-2026-harnesses-humans-hallway-chats-42cadd6db3b8",
-      "by": "Saloni Shah",
-      "time": 1795492855000,
-      "tags": [
-        "software-architecture",
-        "software-conferences",
-        "technology"
-      ]
-    },
-    {
-      "title": "Your AI Agent Can Fix a Pull Request. Should It Be Allowed to Approve It?",
-      "url": "https://medium.com/@techsuneel99/your-ai-agent-can-fix-a-pull-request-should-it-be-allowed-to-approve-it-eae506748bbe",
-      "by": "Suneel Kumar",
-      "time": 1795492662000,
-      "tags": [
-        "ai-agent",
-        "software-engineering",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "Can a PDF Answer Back? Building a Document Intelligence Platform with RAG",
-      "url": "https://medium.com/@kandagatlasaiteja25/can-a-pdf-answer-back-building-a-document-intelligence-platform-with-rag-92d2a7cfab1a",
-      "by": "Kandagatlasaiteja",
-      "time": 1795492443000,
-      "tags": [
-        "software-engineering",
-        "artificalintelligence",
-        "rags"
-      ]
-    },
-    {
-      "title": "AI Can Write the Code. But Is It Making Developers Less Skilled?",
-      "url": "https://beyondthecode1.medium.com/ai-can-write-the-code-but-is-it-making-developers-less-skilled-c3572a983a18",
-      "by": "Beyond The Code",
-      "time": 1795492425000,
-      "tags": [
-        "developer-productivity",
         "programming",
         "software-development"
       ]
     },
     {
-      "title": "Brevo Interview Experience | Software Engineer — ReactJS Full Stack",
-      "url": "https://medium.com/@preetjit82/brevo-interview-experience-software-engineer-reactjs-full-stack-05391d9d1fd9",
-      "by": "Interview Simplified",
-      "time": 1795491940000,
+      "title": "Zero-Copy Data Architecture: What If Moving Data Became Unnecessary?",
+      "url": "https://medium.com/@ahmedabdulwahid.data/zero-copy-data-architecture-what-if-moving-data-became-unnecessary-52ae03a56bbd",
+      "by": "Ahmed Abdulwahid",
+      "time": 1795505943000,
       "tags": [
-        "programming",
-        "react",
-        "jobs"
+        "big-data",
+        "data-lakehouse",
+        "software-engineering"
       ]
     },
     {
-      "title": "I Gave Gemini 4 Neon a Film Crew. Now It Does Things Claude Code and Codex Can’t.",
-      "url": "https://levelup.gitconnected.com/i-gave-gemini-4-neon-a-film-crew-now-it-does-things-claude-code-and-codex-cant-30f88da3e0ac",
-      "by": "David Lee",
-      "time": 1795491813000,
+      "title": "The Engineering Knowledge That Turns a Good Developer Into an Expensive Engineer",
+      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-that-turns-a-good-developer-into-an-expensive-engineer-ad4a531cbbad",
+      "by": "The Engineer's War",
+      "time": 1795505872000,
       "tags": [
-        "technology",
         "software-engineering",
-        "software-development"
+        "software-development",
+        "software-architecture"
       ]
     },
     {
-      "title": "How Netflix Made Its Codebase Ready for AI Coding Agents, and What Your Team Can Copy This Month",
-      "url": "https://medium.com/@ascendrixtech/how-netflix-made-its-codebase-ready-for-ai-coding-agents-and-what-your-team-can-copy-this-month-6e4af0be0ffe",
-      "by": "Ascendrix Technologies",
-      "time": 1795491701000,
+      "title": "One Month Later: Three Servers, Three Upgrades and a Backup Problem. Enter",
+      "url": "https://medium.com/@zahedifard.elham/one-month-later-three-servers-three-upgrades-and-a-backup-problem-enter-09ea5d75f77b",
+      "by": "Zahedifard Elham",
+      "time": 1795505627000,
+      "tags": [
+        "kubernetes",
+        "devops",
+        "homelab"
+      ]
+    },
+    {
+      "title": "Running Production Solo — k3s Day 2: Series Overview",
+      "url": "https://jason-chen-0604.medium.com/running-production-solo-k3s-day-2-series-overview-c5c07031baf2",
+      "by": "陳昶仲",
+      "time": 1795505580000,
+      "tags": [
+        "site-reliability",
+        "k3",
+        "devops"
+      ]
+    },
+    {
+      "title": "How to Fix Codex Ignoring Your AGENTS.md Instructions",
+      "url": "https://medium.com/@to.soniaakhter/how-to-fix-codex-ignoring-your-agents-md-instructions-a6edb522a886",
+      "by": "Sonia Akhter",
+      "time": 1795505461000,
+      "tags": [
+        "visual-studio-code",
+        "software-development",
+        "programming"
+      ]
+    },
+    {
+      "title": "The Death of Prompt-Based Coding: What Comes Next?",
+      "url": "https://heymramit.medium.com/the-death-of-prompt-based-coding-what-comes-next-b05f71f6def9",
+      "by": "Amit Tripathi",
+      "time": 1795505314000,
       "tags": [
         "artificial-intelligence",
-        "ai-agent",
-        "software-development"
+        "ai-coding",
+        "programming"
       ]
     }
   ]
