@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T11:42:23.967Z",
+  "generated": "2026-11-24T13:24:45.905Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Your Pandas Code Is Slow Because You’re Processing Rows One at a Time",
-      "url": "https://medium.com/@tanzilali.rizvi/your-pandas-code-is-slow-because-youre-processing-rows-one-at-a-time-6aea42c7a05c",
-      "by": "Tanzil Ali Rizvi",
-      "time": 1795519910000,
+      "title": "10 Git Commands You’ll Use Every Day (Copy-Paste Cheat Sheet)",
+      "url": "https://medium.com/@nijeesh10th/10-git-commands-youll-use-every-day-copy-paste-cheat-sheet-75e50074b579",
+      "by": "Nijeesh .N.J",
+      "time": 1795526161000,
       "tags": [
-        "data-science",
-        "programming",
-        "python"
+        "productivity",
+        "git",
+        "beginner"
       ]
     },
     {
-      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
-      "url": "https://medium.com/@price2ln0jqz/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-e88aad4f39f1",
-      "by": "Need for slots",
-      "time": 1795519782000,
+      "title": "One App for All Your Coding Agents Means One Set of Defaults for All of Them",
+      "url": "https://medium.com/@theshaheermalik/one-app-for-all-your-coding-agents-means-one-set-of-defaults-for-all-of-them-c2858f032464",
+      "by": "Shaheer Malik",
+      "time": 1795526110000,
       "tags": [
-        "programming",
+        "coding",
+        "productivity",
+        "ai"
+      ]
+    },
+    {
+      "title": "Tired of Writing Complicated Regex? I Built a Free AI Regex Generator",
+      "url": "https://medium.com/@gp686771/tired-of-writing-complicated-regex-i-built-a-free-ai-regex-generator-ee5f188abdec",
+      "by": "Gp",
+      "time": 1795525969000,
+      "tags": [
+        "artificial-intelligence",
+        "startup",
+        "web-development"
+      ]
+    },
+    {
+      "title": "How to Build REST APIs With Laravel: A Complete Guide",
+      "url": "https://medium.com/@neyo4africatechnologies/how-to-build-rest-apis-with-laravel-a-complete-guide-ebe7a6c76389",
+      "by": "neyo4africa technologies",
+      "time": 1795525862000,
+      "tags": [
+        "rest-api",
         "web-development",
         "software-engineering"
       ]
     },
     {
-      "title": "We entered a cooking challenge. Naturally, we treated it like a software release.",
-      "url": "https://medium.com/@sasha_mimi/we-entered-a-cooking-challenge-naturally-we-treated-it-like-a-software-release-2f4466afbf64",
-      "by": "Sasha Michell",
-      "time": 1795519730000,
+      "title": "My Company Went From 400+ People to 100+. It Made Me Rethink What’s Next for Software Developers",
+      "url": "https://oliver-foster.medium.com/my-company-went-from-400-people-to-100-it-made-me-rethink-whats-next-for-software-developers-bf2faa891b2a",
+      "by": "Oliver Foster",
+      "time": 1795525861000,
       "tags": [
-        "cooking",
-        "challenge",
-        "software-development"
+        "career-development",
+        "software-engineering",
+        "layoffs"
       ]
     },
     {
-      "title": "The Real Cost of a Five-Vendor Cloud Stack Isn’t on Any Invoice",
-      "url": "https://medium.com/@seoxthetechio/the-real-cost-of-a-five-vendor-cloud-stack-isnt-on-any-invoice-0ded9e430ead",
-      "by": "Sherdil Cloud",
-      "time": 1795519680000,
+      "title": "The Rise of the AI Software Factory: Why “Vibe Coding” Is Giving Way to Industrialized Engineering",
+      "url": "https://medium.com/@KilgortTrout/the-rise-of-the-ai-software-factory-why-vibe-coding-is-giving-way-to-industrialized-engineering-2d46bfe4ad78",
+      "by": "Oleg",
+      "time": 1795525861000,
       "tags": [
-        "devops",
-        "cloud-computing",
-        "business-strategy"
-      ]
-    },
-    {
-      "title": "The Claude agent stack went GA and the hard part didn’t move",
-      "url": "https://medium.com/@TheExpertDeveloper/the-claude-agent-stack-went-ga-and-the-hard-part-didnt-move-ed2ae7ed141b",
-      "by": "The Expert Developer",
-      "time": 1795519561000,
-      "tags": [
-        "programming",
-        "ai",
-        "claude"
-      ]
-    },
-    {
-      "title": "Beyond Page Objects: Designing Scalable Playwright Architectures with Domain-Driven Testing",
-      "url": "https://bismabhundi.medium.com/beyond-page-objects-designing-scalable-playwright-architectures-with-domain-driven-testing-0acda8d03c4b",
-      "by": "Bisma Latif",
-      "time": 1795519549000,
-      "tags": [
-        "software-testing",
-        "test-automation",
-        "playwright-automation"
-      ]
-    },
-    {
-      "title": "A delegated task can come back exactly as requested and still disappoint the person who requested…",
-      "url": "https://medium.com/@takamura.hiroshi90/a-delegated-task-can-come-back-exactly-as-requested-and-still-disappoint-the-person-who-requested-c98a9b23b971",
-      "by": "Hiroshi Tk",
-      "time": 1795519494000,
-      "tags": [
-        "programming",
-        "project-management",
-        "product-management"
-      ]
-    },
-    {
-      "title": "The best alert is the one you never had to send",
-      "url": "https://medium.com/@sasha_mimi/the-best-alert-is-the-one-you-never-had-to-send-1558719d515a",
-      "by": "Sasha Michell",
-      "time": 1795519318000,
-      "tags": [
+        "llm",
         "software-development",
-        "software-engineering",
-        "debugging"
+        "agentic-ai"
       ]
     },
     {
-      "title": "Amin Parker: Legacy of the Parker Boy reached 40 million units sold through a multi-generation…",
-      "url": "https://aminparker.medium.com/amin-parker-legacy-of-the-parker-boy-reached-40-million-units-sold-through-a-multi-generation-d7f0e5073436",
-      "by": "Amin Parker パーカー • アミン",
-      "time": 1795519091000,
+      "title": "Kubernetes: a “Detective Work” with the OOM Killer, Linux cgroups, and cAdvisor container_memory",
+      "url": "https://itnext.io/kubernetes-a-detective-work-with-the-oom-killer-linux-cgroups-and-cadvisor-container-memory-d2479f6c280e",
+      "by": "Arseny Zinchenko (setevoy)",
+      "time": 1795525769000,
       "tags": [
-        "gaming",
-        "business",
-        "programming"
+        "linux",
+        "kubernetes",
+        "devops"
       ]
     },
     {
-      "title": "Our tests passed. Our people still couldn’t do their jobs.",
-      "url": "https://medium.com/@sasha_mimi/our-tests-passed-our-people-still-couldnt-do-their-jobs-84a491831f4e",
-      "by": "Sasha Michell",
-      "time": 1795518952000,
+      "title": "Your Production Incidents Are Probably More Expensive Than Your Cloud Bill",
+      "url": "https://medium.com/javarevisited/your-production-incidents-are-probably-more-expensive-than-your-cloud-bill-d0fd56cd71d1",
+      "by": "The Systems & Architecture",
+      "time": 1795525766000,
       "tags": [
-        "auditing",
         "software-engineering",
-        "construction-industry"
+        "java",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "Your Apps Know More Than You Think. A Researcher Found Out How Much.",
+      "url": "https://medium.com/skillstuff/your-apps-know-more-than-you-think-a-researcher-found-out-how-much-d243d39cff92",
+      "by": "CodeTune",
+      "time": 1795525585000,
+      "tags": [
+        "privacy",
+        "software-engineering",
+        "technology"
+      ]
+    },
+    {
+      "title": "@Data on a JPA Entity Gave Us a False `equals()` and 18,000 Duplicate Rows",
+      "url": "https://medium.com/@kamenivanov1991/data-on-a-jpa-entity-gave-us-a-false-equals-and-18-000-duplicate-rows-68a8045eb684",
+      "by": "Kamen Ivanov",
+      "time": 1795525396000,
+      "tags": [
+        "programming",
+        "database",
+        "software-development"
       ]
     }
   ]
