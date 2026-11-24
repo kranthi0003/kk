@@ -2,6 +2,12 @@
 // the navbar). Every word and number on the page comes from here; the page
 // itself (src/components/BitcoinPlan.jsx) only renders it. Facts were checked
 // on 24 Nov 2026; sources are listed under sections.notes.
+//
+// plan.openLots is the starting stack: every transaction into the cold-storage
+// wallet before the plan began. The blockchain doesn't record what was paid,
+// so each is costed at Bitcoin's price in the hour it arrived (mempool.space
+// hourly USD price; that day's USD/INR rate from CoinGecko). plan.openBase is
+// the stack's value when the plan began, where the projections start.
 export const BITCOIN_PLAN = {
   "meta": {
     "bar": "Bitcoin plan",
@@ -11,7 +17,7 @@ export const BITCOIN_PLAN = {
     "chips": [
       {
         "k": "Starting stack",
-        "v": "0.0435 BTC in cold storage (≈ $2,630)"
+        "v": "0.0435 BTC in cold storage, cost ≈ $3,048"
       },
       {
         "k": "Monthly",
@@ -83,6 +89,7 @@ export const BITCOIN_PLAN = {
     "csv": "btc-ledger",
     "wallet": {
       "address": "bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e",
+      "txUrl": "https://mempool.space/tx/{t}",
       "explorers": [
         {
           "label": "mempool.space",
@@ -110,7 +117,8 @@ export const BITCOIN_PLAN = {
     "stressIntro": "A big fall just before the finish hurts most: the stack is at its largest and there’s no time left to recover. The glide path gives up a little upside to cushion that.",
     "stressNote": "After-tax values at the end of the plan. Glide path: 90%, 80%, 70% and 60% kept in Bitcoin in years 10–13, new money redirected first, any sales taxed at your rate, and the safer bucket growing at 4% a year in dollars.",
     "yourStack": "The stack",
-    "includesStart": "Includes the starting stack: {u} {c} in cold storage."
+    "includesStart": "Includes the starting stack: {u} {c} in cold storage.",
+    "ledgerCostNote": "The blockchain records when coins arrived, not what was paid, so each cost here is Bitcoin’s price in that hour. Indian exchanges usually charge more, so if you know what you actually paid, enter it in Settings."
   },
   "views": [
     {
@@ -142,7 +150,22 @@ export const BITCOIN_PLAN = {
     "start": "2026-12",
     "years": 13,
     "openBase": 2630,
-    "openUnits": 0.04347204,
+    "openLots": [
+      {"d":"2026-04-06","u":0.0000143,"p":69956,"b":1,"l":93,"tx":"ba81cb420fe611531cf9de24cbd9895ec0166998eaaf037f3ef165810e3987b0"},
+      {"d":"2026-04-06","u":0.02044838,"p":69569,"b":1422.57,"l":132253,"tx":"de21c0f589d4ed5d00597b5885d9d2e34869544a1e7906357b7a0fccf79d9383"},
+      {"d":"2026-04-08","u":0.00209597,"p":71481,"b":149.82,"l":13871,"tx":"43d0889e11ef1d39e8901cc62e9a17f24a72148e98acee9d7e7752492615c8e7"},
+      {"d":"2026-04-08","u":0.00104459,"p":71281,"b":74.46,"l":6885,"tx":"8b7e743a6e306b0129058d236bdf361f38fb20628209d1cc07ba9a89dc857721"},
+      {"d":"2026-04-10","u":0.00102,"p":72092,"b":73.53,"l":6811,"tx":"4116091d24c4d43cea1032a36a5546975a7c7013fac9a8225a8b399bacb98081"},
+      {"d":"2026-04-10","u":0.00068638,"p":71802,"b":49.28,"l":4567,"tx":"0bcdd8865aff5573bebbf84ae58d2c54db410831692aaab48b00643ed8873e20"},
+      {"d":"2026-04-13","u":0.00100045,"p":70917,"b":70.95,"l":6712,"tx":"a9447f65a60a6a513611747923329ad321a3440877540da82966364c2fae8c23"},
+      {"d":"2026-05-01","u":0.0006642,"p":77896,"b":51.74,"l":4907,"tx":"7815accb108886841306fe1e93a4e15759fb8f0b11ae25817d942825bebd47ea"},
+      {"d":"2026-05-25","u":0.00197844,"p":77297,"b":152.93,"l":14621,"tx":"0d622771155c5f42bb78bf47656829899aff899470b03efafcef0674fbe26776"},
+      {"d":"2026-05-29","u":0.00337856,"p":73685,"b":248.95,"l":23792,"tx":"e22849b8dfc305334988ba227b264bad874e8d0af71c8a2057a255dc30618acd"},
+      {"d":"2026-07-06","u":0.00398448,"p":63490,"b":252.97,"l":24157,"tx":"7c9600d5ad382c9fe3f4ddd6296a568bc0f72002347f12a06a24bb1e0bd0eebb"},
+      {"d":"2026-07-29","u":0.00383824,"p":64352,"b":247,"l":23623,"tx":"028fcd0f19c4e8158dac05d0545d74d1117e0bb02a69ffe9678f3e8f433833c8"},
+      {"d":"2026-09-02","u":0.00313431,"p":77150,"b":241.81,"l":22880,"tx":"a26af656bf18eecdf40fe5c6202dc44acaea9618e15e2f58add7ee493e97c9d4"},
+      {"d":"2026-11-23","u":0.00018374,"p":61249,"b":11.25,"l":1044,"tx":"b73efde7ba4009738df38c79224fe1406e40c27df62640a8f0c244109e6a04b1"}
+    ],
     "monthly": 500,
     "step": 0.1,
     "every": 6,

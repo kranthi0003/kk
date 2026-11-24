@@ -140,6 +140,35 @@ const qty = (n, dp = 8) => (Number.isFinite(n) ? nf('en-US', { minimumFractionDi
 const pct = (x, dp = 1) => (Number.isFinite(x) ? `${(x * 100).toFixed(dp).replace(/\.0+$/, '')}%` : '—')
 
 // ── Plan maths ───────────────────────────────────────────────────────────
+// The starting stack. The plan file can list it as on-chain lots, each costed
+// at the price when it arrived; entering the actual total paid in Settings
+// scales every lot's cost to match. Otherwise it is one lot from the starting
+// units and amount.
+function openingOf(data, d, o, v, openBase) {
+  const sum = (xs, k) => xs.reduce((t, x) => t + x[k], 0)
+  const chain = list(d.openLots).filter((x) => x && isIso(x.d) && num(x.u) > 0)
+    .map((x) => ({ d: x.d, u: num(x.u), p: num(x.p), b: Math.max(0, num(x.b)), l: Math.max(0, num(x.l)), tx: typeof x.tx === 'string' ? x.tx : '' }))
+    .sort((a, b) => (a.d < b.d ? -1 : a.d > b.d ? 1 : 0))
+  if (chain.length) {
+    const est = sum(chain, 'l')
+    const costSet = o.openLocal !== undefined && o.openLocal !== null && o.openLocal !== '' && Number.isFinite(Number(o.openLocal))
+    const paid = costSet ? Math.max(0, Number(o.openLocal)) : est
+    const k = est > 0 ? paid / est : 1
+    const off = o.openOff === true || o.openUnits === 0
+    return {
+      onChain: true, costSet, openOff: off, openCount: chain.length, openUnits: sum(chain, 'u'), openLocal: paid, openLocalEst: est, openWhere: 'wallet',
+      openLots: off ? [] : chain.map((x) => ({ ...x, b: x.b * k, l: x.l * k, src: costSet ? 'entered' : 'estimate' })),
+    }
+  }
+  const u = Math.max(0, v('openUnits'))
+  const l = Math.max(0, v('openLocal', openBase * num(data.meta?.seed?.fx, 1)))
+  return {
+    onChain: false, costSet: false, openOff: false, openCount: 0, openUnits: u, openLocal: l, openLocalEst: l,
+    openWhere: (o.openWhere || d.openWhere) === 'wallet' ? 'wallet' : 'exchange',
+    openLots: u > EPS ? [{ d: '', u, p: 0, b: openBase, l, tx: '', src: 'settings' }] : [],
+  }
+}
+
 // Plan settings come from the plan file; anything saved in st.plan overrides.
 function planOf(data, st) {
   const d = data.plan || {}
@@ -149,11 +178,11 @@ function planOf(data, st) {
     return x !== undefined && x !== null && x !== '' && Number.isFinite(Number(x)) ? Number(x) : num(d[k], dflt)
   }
   const openBase = Math.max(0, v('openBase'))
+  const open = openingOf(data, d, o, v, openBase)
   return {
     start: isYm(o.start) ? o.start : isYm(d.start) ? d.start : ymOf(localIso()),
     years: Math.max(1, Math.round(num(d.years, 10))),
-    openBase, openUnits: Math.max(0, v('openUnits')), openLocal: Math.max(0, v('openLocal', openBase * num(data.meta?.seed?.fx, 1))),
-    openWhere: (o.openWhere || d.openWhere) === 'wallet' ? 'wallet' : 'exchange',
+    openBase, ...open, openCost: open.openLots.reduce((t, x) => t + x.b, 0),
     monthly: Math.max(0, v('monthly')), step: v('step'), every: clamp(Math.round(v('every', 12)), 1, 120), cap: Math.max(0, v('cap')),
     target: Math.max(0, v('target')), threshold: Math.max(0, v('threshold')), capMonths: Math.max(0, v('capMonths', 6)),
     surcharge: Math.max(0, v('surcharge')),
@@ -310,7 +339,10 @@ function book(entries, { tax, start, fyStart, opening }) {
   const sells = {}
   const problems = []
   const startIdx = ymIndex(start)
-  const open = opening && opening.u > EPS ? { u: opening.u, b: Math.max(0, opening.b), l: Math.max(0, opening.l), where: opening.where } : null
+  const first = opening ? list(opening.lots).filter((x) => x && x.u > EPS) : []
+  const open = first.length ? {
+    u: first.reduce((t, x) => t + x.u, 0), b: first.reduce((t, x) => t + x.b, 0), l: first.reduce((t, x) => t + x.l, 0), where: opening.where, lots: first,
+  } : null
   let units = open ? open.u : 0
   let cold = open && open.where === 'wallet' ? open.u : 0
   let reserve = 0
@@ -318,7 +350,7 @@ function book(entries, { tax, start, fyStart, opening }) {
   let investL = open ? open.l : 0
   let contrib = 0
   let since = 0
-  if (open) lots.push({ u: open.u, b: open.b, l: open.l })
+  for (const x of first) lots.push({ u: x.u, b: x.b, l: x.l })
   const take = (q) => {
     let need = q
     let b = 0
@@ -468,6 +500,13 @@ const UI = {
   logged: 'logged', firstMonth: 'first month', selfHeld: 'own wallet', totalPutIn: 'Total put in', startStack: 'Starting stack',
   loggedSince: 'Logged in the ledger', monthsOnTarget: '{a} of {b} months on target', fromSettings: 'from Settings', editInSettings: 'Edit in Settings',
   startHint: 'Counted everywhere. If you log the original purchases in the ledger, set the starting stack to 0 in Settings.',
+  received: 'Received', openChain: '{n} transactions · cost {a}', view: 'View', viewTx: 'View the transaction of {d}',
+  costEstimated: 'Its cost is estimated from the price when each of its {n} transactions arrived.', costEntered: 'Its cost is the total you entered in Settings.',
+  ledgerCostNote: 'The blockchain records when coins arrived, not what was paid, so each cost here is the price in that hour. If you know what you actually paid, enter it in Settings.',
+  ledgerCostEntered: 'Costs are scaled to the total you entered in Settings.',
+  openAmtHint: 'The stack’s value when the plan began; projections grow from here.',
+  openLocalChainHint: 'Estimated from the price when each transaction arrived. Enter what you actually paid to use that instead.',
+  countStart: 'Count the starting stack: {u} {c} from {n} transactions', countStartHint: 'Switch this off if you log those purchases in the ledger yourself.',
   openLocal: 'Starting stack cost', openLocalHint: 'What you paid for it in total, for tax records.', openWhere: 'Starting stack is held',
   holdings: 'Holdings', valueNow: 'Value now', invested: 'Invested', basis: 'Cost basis', avgCost: 'Average cost', unrealised: 'Unrealised', onExchange: 'On the exchange',
   cold: 'In your own wallet', moveNow: '{a} is on the exchange, over your {t} limit. Move it to your own wallet.', holdingsEmpty: 'No entries yet. Start by logging what you already hold.',
@@ -1321,7 +1360,10 @@ const NAV_ICONS = {
 
 // ── This month ───────────────────────────────────────────────────────────
 const monthIndex = (p, today) => ymIndex(ymOf(today)) - ymIndex(p.start)
-const plannedTo = (p, k) => p.openBase + (k > 0 ? plannedThrough(p, Math.min(k, p.years * 12) - 1) : 0) + (k >= 0 && k < p.years * 12 ? monthlyAt(p, k) : 0)
+// What should have gone in by month k: whatever went in before the plan began
+// (the starting stack and any earlier buys), plus the plan's contributions.
+const before = (bk) => bk.putIn - bk.since
+const plannedTo = (p, k, bk) => before(bk) + (k > 0 ? plannedThrough(p, Math.min(k, p.years * 12) - 1) : 0) + (k >= 0 && k < p.years * 12 ? monthlyAt(p, k) : 0)
 
 function StackStrip() {
   const { data, p, bk, qt, today, wallet, B, L, base } = useT()
@@ -1346,7 +1388,7 @@ function StackStrip() {
         {unit.per ? <p className="sk-stack-sats">{qty(Math.round(bk.units * unit.per), 0)} {unit.small || w.small}</p> : null}
         <dl className="sk-stack-metrics">
           <div><dt>{w.valueNow}</dt><dd>{B(shown)}<small>{L(bk.units * qt.local)}</small></dd></div>
-          <div><dt>{w.putIn}</dt><dd>{B(bk.putIn)}<small>{fill(w.plannedSoFar, { a: B(plannedTo(p, k)) })}</small></dd></div>
+          <div><dt>{w.putIn}</dt><dd>{B(bk.putIn)}<small>{fill(w.plannedSoFar, { a: B(plannedTo(p, k, bk)) })}</small></dd></div>
           <div><dt>{w.gainLoss}</dt><dd className={gain >= 0 ? 'is-up' : 'is-down'}>{signed(gain, base)}<small>{bk.basisB > 0 ? pct(gain / bk.basisB) : '—'}</small></dd></div>
           <div><dt>{w.toTarget}</dt><dd>{pct(p.target > 0 ? value / p.target : 0, 2)}<small>{fill(w.ofTarget, { a: B(p.target, { compact: true }) })}</small></dd></div>
         </dl>
@@ -1545,7 +1587,12 @@ function HoldingsCard() {
         <div><dt>{w.unrealised}</dt><dd className={pl >= 0 ? 'is-up' : 'is-down'}>{signed(pl, base)} <small>{bk.basisB > 0 ? pct(pl / bk.basisB) : ''}</small></dd></div>
         <div><dt>{w.avgCost}</dt><dd>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}</dd></div>
       </dl>
-      {bk.open && <p className="sk-note">{fill(w.includesStart, { u: qty(bk.open.u, unit.dp ?? 8), c: unit.code || '' })}</p>}
+      {bk.open && (
+        <p className="sk-note">
+          {fill(w.includesStart, { u: qty(bk.open.u, unit.dp ?? 8), c: unit.code || '' })}
+          {p.onChain ? ` ${p.costSet ? w.costEntered : fill(w.costEstimated, { n: bk.open.lots.length })}` : ''}
+        </p>
+      )}
       {p.threshold > 0 && exchV >= p.threshold && <p className="sk-callout-line">{fill(w.moveNow, { a: B(exchV), t: B(p.threshold) })}</p>}
       {w.valueNote && <p className="sk-note"><Inline text={w.valueNote} /></p>}
     </section>
@@ -1559,8 +1606,8 @@ function PaceCard() {
   const k = monthIndex(p, today)
   const K = p.years * 12
   const past = clamp(k, 0, K)
-  const before = p.openBase + (past > 0 ? plannedThrough(p, past - 1) : 0)
-  const goal = plannedTo(p, k)
+  const floor = before(bk) + (past > 0 ? plannedThrough(p, past - 1) : 0)
+  const goal = plannedTo(p, k, bk)
   let hit = 0
   for (let i = 0; i < past; i++) {
     const m = bk.months[ymAdd(p.start, i)] || {}
@@ -1570,7 +1617,7 @@ function PaceCard() {
   let tone = 'good'
   let status = w.onPlan
   if (put > goal + 0.5) status = fill(w.ahead, { a: B(put - goal) })
-  else if (put < before - 0.5) { tone = 'warn'; status = fill(w.behind, { a: B(before - put) }) } else if (put < goal - 0.5) { tone = 'accent'; status = w.pending }
+  else if (put < floor - 0.5) { tone = 'warn'; status = fill(w.behind, { a: B(floor - put) }) } else if (put < goal - 0.5) { tone = 'accent'; status = w.pending }
   return (
     <section className="sk-card">
       <Head b={{ title: w.pace }} />
@@ -2160,10 +2207,16 @@ function toCsv(entries, bk, data) {
     ].map((v, i) => (i === 14 || i === 15 ? v : csvCell(v))).join(',')
   })
   const o = bk.open
-  const first = o ? [[
-    '', 'opening', o.u, cur.base.code, o.b.toFixed(2), '', o.b > 0 ? (o.l / o.b).toFixed(4) : '', o.b.toFixed(2), o.l.toFixed(2),
-    (o.b / o.u).toFixed(2), (o.l / o.u).toFixed(2), '', '', '', o.where, csvCell('starting stack from plan settings; log the original purchases for tax records', true), '', '', '', '',
-  ].map((v, i) => (i === 15 ? v : csvCell(v))).join(',')] : []
+  const why = {
+    estimate: 'cost estimated at the price in the hour it arrived',
+    entered: 'cost scaled to the total entered in Settings',
+    settings: 'starting stack from plan settings; log the original purchases for tax records',
+  }
+  const first = o ? o.lots.map((x) => [
+    x.d, 'opening', x.u, cur.base.code, x.b.toFixed(2), '', x.b > 0 ? (x.l / x.b).toFixed(4) : '', x.b.toFixed(2), x.l.toFixed(2),
+    (x.b / x.u).toFixed(2), (x.l / x.u).toFixed(2), '', '', '', o.where,
+    csvCell(x.tx ? `on-chain transaction ${x.tx}; ${why[x.src]}` : why.settings, true), '', '', '', '',
+  ].map((v, i) => (i === 15 ? v : csvCell(v))).join(',')) : []
   return [head.join(','), ...first, ...rows].join('\r\n')
 }
 function download(name, text, type) {
@@ -2254,7 +2307,33 @@ function LedgerView({ focus, nonce }) {
           )
         })}
         {groups.length > 6 && <button type="button" className="sk-mini" onClick={() => setAll((v) => !v)}>{all ? w.showLess : fill(w.showAll, { n: groups.length })}</button>}
-        {bk.open && (
+        {bk.open && p.onChain && (
+          <div className="sk-month-group">
+            <h3>{w.startStack}<small>{fill(w.openChain, { n: bk.open.lots.length, a: B(bk.open.b) })}</small></h3>
+            <ul className="sk-entries">
+              {[...bk.open.lots].reverse().map((x) => (
+                <li key={x.tx || x.d} className="sk-entry" data-kind="open">
+                  <span className="sk-entry-kind">{w.received}</span>
+                  <span className="sk-entry-main">
+                    <b>+{qty(x.u, unit.dp ?? 8)} {unit.code}</b>
+                    <small>{fmtDate(x.d)} · {B(x.b)} · {L(x.l)} · @ {B(p.costSet || !x.p ? x.b / x.u : x.p)}</small>
+                  </span>
+                  <span className="sk-entry-actions">
+                    {x.tx && data.meta.wallet?.txUrl && (
+                      <a className="sk-mini" href={fill(data.meta.wallet.txUrl, { t: x.tx })} target="_blank" rel="noopener noreferrer"
+                        aria-label={fill(w.viewTx, { d: fmtDate(x.d) })}>{w.view} ↗</a>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="sk-open-foot">
+              <p className="sk-note">{p.costSet ? w.ledgerCostEntered : <Inline text={w.ledgerCostNote} />}</p>
+              <button type="button" className="sk-mini" onClick={() => go('notes', { section: 'plan' })}>{w.editInSettings}</button>
+            </div>
+          </div>
+        )}
+        {bk.open && !p.onChain && (
           <div className="sk-month-group">
             <h3>{w.startStack}<small>{w.fromSettings}</small></h3>
             <ul className="sk-entries">
@@ -2321,14 +2400,21 @@ function Settings() {
             <label className="sk-field-label" htmlFor={startId}>{w.startMonth}</label>
             <input id={startId} type="month" value={p.start} onChange={(e) => setPlan('start')(isYm(e.target.value) && e.target.value !== data.plan.start ? e.target.value : null)} />
           </div>
-          <NumField label={w.openAmt} value={p.openBase} onCommit={setPlan('openBase')} prefix={base.sym} min={0} />
-          <NumField label={w.openUnits} value={p.openUnits} onCommit={setPlan('openUnits')} min={0} />
-          <NumField label={w.openLocal} value={Math.round(p.openLocal)} onCommit={setPlan('openLocal')} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalHint} />
-          <div className="sk-field">
-            <span className="sk-field-label">{w.openWhere}</span>
-            <Seg label={w.openWhere} value={p.openWhere} onChange={(v) => setPlan('openWhere')(v === (data.plan.openWhere || 'exchange') ? null : v)}
-              options={[{ id: 'exchange', label: w.onExchange }, { id: 'wallet', label: w.cold }]} />
-          </div>
+          <NumField label={w.openAmt} value={p.openBase} onCommit={setPlan('openBase')} prefix={base.sym} min={0} hint={p.onChain ? w.openAmtHint : undefined} />
+          {p.onChain ? (
+            <NumField label={w.openLocal} value={Math.round(p.openLocal)} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalChainHint}
+              onCommit={(v) => setPlan('openLocal')(v === null || Math.abs(v - p.openLocalEst) < 0.5 ? null : v)} />
+          ) : (
+            <>
+              <NumField label={w.openUnits} value={p.openUnits} onCommit={setPlan('openUnits')} min={0} />
+              <NumField label={w.openLocal} value={Math.round(p.openLocal)} onCommit={setPlan('openLocal')} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalHint} />
+              <div className="sk-field">
+                <span className="sk-field-label">{w.openWhere}</span>
+                <Seg label={w.openWhere} value={p.openWhere} onChange={(v) => setPlan('openWhere')(v === (data.plan.openWhere || 'exchange') ? null : v)}
+                  options={[{ id: 'exchange', label: w.onExchange }, { id: 'wallet', label: w.cold }]} />
+              </div>
+            </>
+          )}
           <NumField label={w.monthly} value={p.monthly} onCommit={setPlan('monthly')} prefix={base.sym} min={0} />
           <NumField label={w.step} value={p.step} onCommit={setPlan('step')} suffix="%" scale={100} min={-50} max={200} />
           <NumField label={w.every} value={p.every} onCommit={setPlan('every')} min={1} max={120} />
@@ -2337,6 +2423,18 @@ function Settings() {
           <NumField label={w.threshold} value={p.threshold} onCommit={setPlan('threshold')} prefix={base.sym} min={0} />
           <NumField label={w.reserveMonths} value={p.capMonths} onCommit={setPlan('capMonths')} min={0} max={60} />
         </div>
+        {p.onChain && (
+          <div className="sk-field">
+            <Check on={!p.openOff} onChange={(on) => update((s) => {
+              const plan = { ...(s.plan || {}) }
+              delete plan.openUnits
+              if (on) delete plan.openOff
+              else plan.openOff = true
+              return { ...s, plan }
+            })}>{fill(w.countStart, { u: qty(p.openUnits, 8), c: data.meta.unit?.code || '', n: p.openCount })}</Check>
+            <small className="sk-hint">{w.countStartHint}</small>
+          </div>
+        )}
         {list(data.plan.tax?.bands).length > 0 && (
           <div className="sk-field">
             <span className="sk-field-label">{w.surcharge} · {fill(w.taxNow, { t: pct(p.tax) })}</span>
@@ -2549,7 +2647,7 @@ function Tracker({ data, onBack }) {
   const entries = st?.entries
   const bk = useMemo(() => (entries && p ? book(entries, {
     tax: p.tax, start: p.start, fyStart: num(data.plan.tax?.fyStart, 4),
-    opening: { u: p.openUnits, b: p.openBase, l: p.openLocal, where: p.openWhere },
+    opening: { lots: p.openLots, where: p.openWhere },
   }) : null), [entries, p, data])
   const qt = useMemo(() => (st ? quoteOf(live, st, data.meta.seed) : null), [live, st?.manual, st?.quote, st?.cycle, data]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -2919,6 +3017,8 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-intro { color: var(--sk-ink2); }
 .sk-sub { color: var(--sk-ink3); font-size: 14px; }
 .sk-note { color: var(--sk-ink3); font-size: 13px; line-height: 1.55; }
+.sk-open-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 12px; }
+.sk-open-foot .sk-note { flex: 1 1 260px; margin: 0; }
 .sk-lead { color: var(--sk-ink2); font-size: 16px; }
 .sk-prose { display: grid; gap: 9px; color: var(--sk-ink2); }
 .sk-prose strong { color: var(--sk-ink); }
