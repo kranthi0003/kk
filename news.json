@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T07:49:18.617Z",
+  "generated": "2026-11-24T11:42:23.967Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Beyond Writing Code: Learning to Think Like a Systems Engineer",
-      "url": "https://medium.com/@rajatmalik.dev/beyond-writing-code-learning-to-think-like-a-systems-engineer-7b395d6d4c98",
-      "by": "Rajat Malik",
-      "time": 1795506396000,
+      "title": "Your Pandas Code Is Slow Because You’re Processing Rows One at a Time",
+      "url": "https://medium.com/@tanzilali.rizvi/your-pandas-code-is-slow-because-youre-processing-rows-one-at-a-time-6aea42c7a05c",
+      "by": "Tanzil Ali Rizvi",
+      "time": 1795519910000,
       "tags": [
-        "backend-development",
-        "observability",
-        "system-design-concepts"
+        "data-science",
+        "programming",
+        "python"
       ]
     },
     {
-      "title": "The Engineering Knowledge That Makes You Worth More Than Your Job Title",
-      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-that-makes-you-worth-more-than-your-job-title-efaec0f7990d",
-      "by": "Beyond Senior",
-      "time": 1795506351000,
-      "tags": [
-        "software-development",
-        "artificial-intelligence",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Engineering Knowledge Most Developers Wish They Had Learned Five Years Earlier",
-      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-most-developers-wish-they-had-learned-five-years-earlier-aba1d48f734b",
-      "by": "The Engineer's War",
-      "time": 1795506185000,
+      "title": "Authentication and Compliance Hydration: An Architectural Review of High-Throughput Casino Nodes",
+      "url": "https://medium.com/@price2ln0jqz/authentication-and-compliance-hydration-an-architectural-review-of-high-throughput-casino-nodes-e88aad4f39f1",
+      "by": "Need for slots",
+      "time": 1795519782000,
       "tags": [
         "programming",
-        "software-engineering",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Engineering Knowledge That Makes Your Next Senior or Staff Interview Feel Unfair",
-      "url": "https://medium.com/javarevisited/the-engineering-knowledge-that-makes-your-next-senior-or-staff-interview-feel-unfair-527961213ba5",
-      "by": "The Engineer's War",
-      "time": 1795506057000,
-      "tags": [
-        "technology",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Zero-Copy Data Architecture: What If Moving Data Became Unnecessary?",
-      "url": "https://medium.com/@ahmedabdulwahid.data/zero-copy-data-architecture-what-if-moving-data-became-unnecessary-52ae03a56bbd",
-      "by": "Ahmed Abdulwahid",
-      "time": 1795505943000,
-      "tags": [
-        "big-data",
-        "data-lakehouse",
+        "web-development",
         "software-engineering"
       ]
     },
     {
-      "title": "The Engineering Knowledge That Turns a Good Developer Into an Expensive Engineer",
-      "url": "https://medium.com/engineering-playbook/the-engineering-knowledge-that-turns-a-good-developer-into-an-expensive-engineer-ad4a531cbbad",
-      "by": "The Engineer's War",
-      "time": 1795505872000,
+      "title": "We entered a cooking challenge. Naturally, we treated it like a software release.",
+      "url": "https://medium.com/@sasha_mimi/we-entered-a-cooking-challenge-naturally-we-treated-it-like-a-software-release-2f4466afbf64",
+      "by": "Sasha Michell",
+      "time": 1795519730000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "software-architecture"
+        "cooking",
+        "challenge",
+        "software-development"
       ]
     },
     {
-      "title": "One Month Later: Three Servers, Three Upgrades and a Backup Problem. Enter",
-      "url": "https://medium.com/@zahedifard.elham/one-month-later-three-servers-three-upgrades-and-a-backup-problem-enter-09ea5d75f77b",
-      "by": "Zahedifard Elham",
-      "time": 1795505627000,
+      "title": "The Real Cost of a Five-Vendor Cloud Stack Isn’t on Any Invoice",
+      "url": "https://medium.com/@seoxthetechio/the-real-cost-of-a-five-vendor-cloud-stack-isnt-on-any-invoice-0ded9e430ead",
+      "by": "Sherdil Cloud",
+      "time": 1795519680000,
       "tags": [
-        "kubernetes",
         "devops",
-        "homelab"
+        "cloud-computing",
+        "business-strategy"
       ]
     },
     {
-      "title": "Running Production Solo — k3s Day 2: Series Overview",
-      "url": "https://jason-chen-0604.medium.com/running-production-solo-k3s-day-2-series-overview-c5c07031baf2",
-      "by": "陳昶仲",
-      "time": 1795505580000,
+      "title": "The Claude agent stack went GA and the hard part didn’t move",
+      "url": "https://medium.com/@TheExpertDeveloper/the-claude-agent-stack-went-ga-and-the-hard-part-didnt-move-ed2ae7ed141b",
+      "by": "The Expert Developer",
+      "time": 1795519561000,
       "tags": [
-        "site-reliability",
-        "k3",
-        "devops"
+        "programming",
+        "ai",
+        "claude"
       ]
     },
     {
-      "title": "How to Fix Codex Ignoring Your AGENTS.md Instructions",
-      "url": "https://medium.com/@to.soniaakhter/how-to-fix-codex-ignoring-your-agents-md-instructions-a6edb522a886",
-      "by": "Sonia Akhter",
-      "time": 1795505461000,
+      "title": "Beyond Page Objects: Designing Scalable Playwright Architectures with Domain-Driven Testing",
+      "url": "https://bismabhundi.medium.com/beyond-page-objects-designing-scalable-playwright-architectures-with-domain-driven-testing-0acda8d03c4b",
+      "by": "Bisma Latif",
+      "time": 1795519549000,
       "tags": [
-        "visual-studio-code",
+        "software-testing",
+        "test-automation",
+        "playwright-automation"
+      ]
+    },
+    {
+      "title": "A delegated task can come back exactly as requested and still disappoint the person who requested…",
+      "url": "https://medium.com/@takamura.hiroshi90/a-delegated-task-can-come-back-exactly-as-requested-and-still-disappoint-the-person-who-requested-c98a9b23b971",
+      "by": "Hiroshi Tk",
+      "time": 1795519494000,
+      "tags": [
+        "programming",
+        "project-management",
+        "product-management"
+      ]
+    },
+    {
+      "title": "The best alert is the one you never had to send",
+      "url": "https://medium.com/@sasha_mimi/the-best-alert-is-the-one-you-never-had-to-send-1558719d515a",
+      "by": "Sasha Michell",
+      "time": 1795519318000,
+      "tags": [
         "software-development",
+        "software-engineering",
+        "debugging"
+      ]
+    },
+    {
+      "title": "Amin Parker: Legacy of the Parker Boy reached 40 million units sold through a multi-generation…",
+      "url": "https://aminparker.medium.com/amin-parker-legacy-of-the-parker-boy-reached-40-million-units-sold-through-a-multi-generation-d7f0e5073436",
+      "by": "Amin Parker パーカー • アミン",
+      "time": 1795519091000,
+      "tags": [
+        "gaming",
+        "business",
         "programming"
       ]
     },
     {
-      "title": "The Death of Prompt-Based Coding: What Comes Next?",
-      "url": "https://heymramit.medium.com/the-death-of-prompt-based-coding-what-comes-next-b05f71f6def9",
-      "by": "Amit Tripathi",
-      "time": 1795505314000,
+      "title": "Our tests passed. Our people still couldn’t do their jobs.",
+      "url": "https://medium.com/@sasha_mimi/our-tests-passed-our-people-still-couldnt-do-their-jobs-84a491831f4e",
+      "by": "Sasha Michell",
+      "time": 1795518952000,
       "tags": [
-        "artificial-intelligence",
-        "ai-coding",
-        "programming"
+        "auditing",
+        "software-engineering",
+        "construction-industry"
       ]
     }
   ]
