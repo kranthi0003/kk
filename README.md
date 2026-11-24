@@ -45,9 +45,10 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📇 **QR vCard** | Scannable contact card via `qrcode.react` |
 | 🧮 **Calculators** | Dev calc, carbon calc, salary calc |
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
+| ₿ **Bitcoin plan** | 13-year Bitcoin plan behind the navbar's Bitcoin icon (`#/bitcoin`): live price and buying rules, projections with a stress test, the cold-storage wallet read from the chain, and a ledger kept in the browser |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music and Meal Plan pages |
-| 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner and a long-term plan with a ledger, both keeping encrypted records on the device; content is encrypted with `scripts/private-payload.mjs` |
+| 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner with encrypted on-device progress tracking; content is encrypted with `scripts/private-payload.mjs` |
 | 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
 
@@ -55,7 +56,7 @@ Private study diagrams use scene-local coordinates, parent-group IDs and stable 
 
 The private planner (`src/components/PlanTracker.jsx`, payload `src/lib/planPayload.js`) saves progress only in the browser's `localStorage` (`pt_state_v1`), AES-GCM-encrypted with the payload's random `stateKey`; nothing is sent to a server. Backup files use the same key. When editing the payload, decrypt and re-encrypt it without changing `stateKey`, or saved progress and backups become unreadable. Changing the passphrase alone is safe.
 
-The private plan and ledger (`src/components/StackPlan.jsx`, payload `src/lib/stackPayload.js`) works the same way: records live only in `localStorage` (`sk_state_v1`), encrypted with the payload's `stateKey`, and backups and the `stateKey` rule are the same. After unlocking, it fetches the public price feed named in the payload; it can be switched off on the page.
+The Bitcoin plan (`src/components/BitcoinPlan.jsx`) is public; its words and numbers live in `src/lib/bitcoinPlan.js`. Ledger entries stay in the visitor's browser (`localStorage` `btc_ledger_v1`) and in backup files they download; nothing is sent to a server. The page reads the public price feed and the cold-storage wallet's balance (mempool.space, then blockstream.info). It was the password-protected `#/stack` until 24 Nov 2026; `src/lib/stackPayload.js` stays only so records saved then can be brought over once with the old password.
 
 ---
 
@@ -150,12 +151,12 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/music` | Music library & playlists |
 | `#/reliability` | Reliability Lab (observability dashboard) |
 | `#/ask` | 🎙️ Voice agent over the F1, cricket and jobs data |
+| `#/bitcoin` | ₿ 13-year Bitcoin plan, cold-storage wallet and ledger (also `#/stack`); the navbar's Bitcoin icon opens it |
 | `#/vegas` | 🔒 Private, password-protected trip plan |
 | `#/europe` | 🔒 Private, password-protected winter-trip plan |
 | `#/singapore` | 🔒 Private, password-protected goal page (also `#/goal-singapore`) |
 | `#/tam` | 🔒 Private, password-protected study guide |
 | `#/meta` | 🔒 Private, password-protected planner and progress tracker |
-| `#/stack` | 🔒 Private, password-protected long-term plan and ledger |
 | `#/allthebest`, `#/skota` | Private unlisted notes (shared by link) |
 
 ---

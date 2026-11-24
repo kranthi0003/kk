@@ -6,7 +6,6 @@ const REDUCED = typeof window !== 'undefined' && window.matchMedia
   ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
   : false
 import { IS_LITE } from '../lib/lite'
-import { QRCodeSVG } from 'qrcode.react'
 import Heartbeat from './Heartbeat'
 import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
@@ -15,300 +14,20 @@ import StockTicker from './StockTicker'
 import TransformationPulse from './TransformationPulse'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
-import { fetchBtcWallet } from '../lib/btcWallet'
 
-
-function NavWallet() {
-  const [open, setOpen] = useState(false)
-  const ref = useRef()
-
-  useEffect(() => {
-    if (!open) return
-    const handleClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [open])
-
+// The Bitcoin icon opens the Bitcoin plan, which also shows the wallet.
+function NavBitcoin() {
   return (
-    <div className="relative" ref={ref}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        className={`p-2 rounded-full transition-colors duration-200 ${
-          open ? 'bg-accent/15 text-accent' : 'bg-muted hover:bg-border text-muted-foreground hover:text-accent'
-        }`}
-        aria-label="View Bitcoin wallet"
-        data-wallet-btn
-      >
-        <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.755.005a.25.25 0 0 0-.248.25v.977c0 .137.11.25.248.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.3V4.487zm0 4.051h1.985c1.03 0 1.62.354 1.62 1.318 0 .922-.605 1.36-1.612 1.36H6.927V8.538z"/>
-        </svg>
-      </button>
-      {open && (
-        <div className="fixed right-4 left-4 sm:left-auto sm:absolute sm:right-0 top-16 sm:top-12 animate-fade-in-up z-50">
-          <WalletDropdown />
-        </div>
-      )}
-    </div>
-  )
-}
-
-function WalletDropdown() {
-  const [data, setData] = useState(null)
-  const [btcPrice, setBtcPrice] = useState(null)
-  const [copied, setCopied] = useState(false)
-  const ADDR = 'bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e'
-  const BTC = '#f7931a'
-  const [dir, setDir] = useState('flat')
-  const [pop, setPop] = useState(0)
-  const [open24h, setOpen24h] = useState(null)
-  const prevPrice = useRef(null)
-
-  useEffect(() => {
-    const cached = sessionStorage.getItem('btc_wallet2')
-    if (cached) {
-      const parsed = JSON.parse(cached)
-      if (Date.now() - parsed.ts < 300000) { setData(parsed.data); setBtcPrice(parsed.price); return }
-    }
-    Promise.all([
-      fetchBtcWallet(ADDR),
-      fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json()).catch(() => null),
-    ]).then(([w, p]) => {
-      setData(w)
-      const usd = p?.bitcoin?.usd
-      if (usd) setBtcPrice(usd)
-      sessionStorage.setItem('btc_wallet2', JSON.stringify({ data: w, price: usd, ts: Date.now() }))
-    }).catch(() => { /* both address sources down — keep the loading skeleton, no stale numbers */ })
-  }, [])
-
-  // Live price — polls every ~2s while the popup is open (it unmounts when
-  // closed, so this only runs while open) and pauses while the tab is hidden.
-  useEffect(() => {
-    let alive = true
-    const getPrice = async () => {
-      try { const r = await fetch('https://api.exchange.coinbase.com/products/BTC-USD/ticker'); if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p } } catch {}
-      try { const r = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT'); if (r.ok) { const j = await r.json(); const p = parseFloat(j.price); if (Number.isFinite(p)) return p } } catch {}
-      return null
-    }
-    const tick = async () => {
-      if (typeof document !== 'undefined' && document.hidden) return
-      const p = await getPrice()
-      if (!alive || p == null) return
-      const pr = prevPrice.current
-      if (pr != null && p !== pr) { setDir(p > pr ? 'up' : 'down'); setPop(k => k + 1) }
-      prevPrice.current = p
-      setBtcPrice(p)
-    }
-    tick()
-    const id = setInterval(tick, 2000)
-    const onVis = () => { if (!document.hidden) tick() }
-    document.addEventListener('visibilitychange', onVis)
-    return () => { alive = false; clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
-  }, [])
-
-  // What the price was 24h ago. Fetching the *open* rather than a ready-made
-  // percentage lets the figure recompute against the live price on every tick,
-  // so it stays honest instead of freezing at whatever it was when the popup
-  // opened. Coinbase first, to match the primary source of the live price.
-  useEffect(() => {
-    let alive = true
-    const CACHE = 'btc_open24h'
-
-    const read = () => {
-      try {
-        const c = JSON.parse(sessionStorage.getItem(CACHE) || 'null')
-        if (c && Date.now() - c.ts < 300000 && Number.isFinite(c.open)) return c.open
-      } catch {}
-      return null
-    }
-
-    const getOpen = async () => {
-      try {
-        const r = await fetch('https://api.exchange.coinbase.com/products/BTC-USD/stats')
-        if (r.ok) { const o = parseFloat((await r.json()).open); if (Number.isFinite(o) && o > 0) return o }
-      } catch {}
-      try {
-        const r = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT')
-        if (r.ok) { const o = parseFloat((await r.json()).openPrice); if (Number.isFinite(o) && o > 0) return o }
-      } catch {}
-      // Last resort: CoinGecko gives the percentage, not the open, so work
-      // backwards from the price it quotes alongside it.
-      try {
-        const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')
-        if (r.ok) {
-          const b = (await r.json())?.bitcoin
-          const p = b?.usd, ch = b?.usd_24h_change
-          if (Number.isFinite(p) && Number.isFinite(ch) && ch > -100) {
-            const o = p / (1 + ch / 100)
-            if (Number.isFinite(o) && o > 0) return o
-          }
-        }
-      } catch {}
-      return null
-    }
-
-    const load = async () => {
-      if (typeof document !== 'undefined' && document.hidden) return
-      const o = await getOpen()
-      if (!alive || o == null) return
-      setOpen24h(o)
-      try { sessionStorage.setItem(CACHE, JSON.stringify({ open: o, ts: Date.now() })) } catch {}
-    }
-
-    const cached = read()
-    if (cached != null) setOpen24h(cached)
-    else load()
-
-    // The window rolls forward, so refresh it occasionally.
-    const id = setInterval(load, 300000)
-    return () => { alive = false; clearInterval(id) }
-  }, [])
-
-  const loading = !data
-  const btc = data ? (data.final_balance / 1e8).toFixed(8) : null
-  const usd = data && btcPrice ? (data.final_balance / 1e8) * btcPrice : null
-  // The wallet holds only BTC, so the price's 24h move is also the balance's.
-  const chg24 = open24h && btcPrice ? ((btcPrice - open24h) / open24h) * 100 : null
-  const up24 = chg24 != null && chg24 >= 0
-  const fmtUsd = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-  const copy = () => { navigator.clipboard.writeText(ADDR); setCopied(true); setTimeout(() => setCopied(false), 1800) }
-
-  return (
-    <div className="w-full sm:w-[300px] rounded-2xl border overflow-hidden"
-      style={{
-        background: 'color-mix(in oklab, var(--color-card) 92%, transparent)',
-        borderColor: 'var(--color-border)',
-        backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
-        boxShadow: '0 24px 60px -14px rgba(0,0,0,.6), inset 0 1px 0 0 color-mix(in oklab, white 6%, transparent)',
-      }}>
-
-      {/* Header */}
-      <div className="px-4 pt-4 pb-3 flex items-center gap-2.5"
-        style={{ background: `linear-gradient(180deg, color-mix(in oklab, ${BTC} 12%, transparent), transparent)` }}>
-        <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
-          style={{ background: `linear-gradient(145deg, ${BTC}, #ffc061)`, boxShadow: `0 4px 12px -3px color-mix(in oklab, ${BTC} 65%, transparent)` }}>
-          <svg viewBox="0 0 16 16" width="12" height="12" fill="#fff" aria-hidden="true">
-            <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.755.005a.25.25 0 0 0-.248.25v.977c0 .137.11.25.248.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.3V4.487zm0 4.051h1.985c1.03 0 1.62.354 1.62 1.318 0 .922-.605 1.36-1.612 1.36H6.927V8.538z"/>
-          </svg>
-        </div>
-        <div className="min-w-0">
-          <div className="text-[12.5px] font-semibold text-foreground leading-tight">Bitcoin Wallet</div>
-          <div className="text-[9.5px] text-muted-foreground leading-tight font-mono">mainnet · self-custody</div>
-        </div>
-        <span className="ml-auto inline-flex items-center gap-1 text-[9.5px] font-mono text-muted-foreground">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 animate-ping" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-          </span>
-          live
-        </span>
-      </div>
-
-      {/* Balance hero */}
-      <div className="px-4 pb-3 text-center">
-        <style>{`
-          @keyframes walletTick { 0%{transform:translateY(4px);opacity:.5;background:color-mix(in oklab, var(--wt, transparent) 22%, transparent)} 100%{transform:translateY(0);opacity:1;background:transparent} }
-          .wallet-tick { display:inline-block; border-radius:8px; padding:0 5px; animation: walletTick .38s ease-out; }
-          @media (prefers-reduced-motion: reduce){ .wallet-tick{ animation:none } }
-        `}</style>
-        {loading ? (
-          <div className="flex flex-col items-center gap-2 py-1.5">
-            <div className="h-7 w-32 rounded-md animate-pulse bg-muted/60" />
-            <div className="h-3 w-24 rounded animate-pulse bg-muted/40" />
-          </div>
-        ) : (
-          <>
-            <div className="text-[26px] font-bold font-mono tracking-tight text-foreground leading-none">
-              <span className="text-muted-foreground text-lg align-top mr-0.5">$</span>
-              <span key={pop} className="wallet-tick" style={{ '--wt': dir === 'up' ? '#22c55e' : dir === 'down' ? '#ef4444' : 'transparent' }}>{fmtUsd(usd)}</span>
-            </div>
-            <div className="mt-1.5 flex items-center justify-center gap-1.5 text-[11.5px] font-mono font-medium">
-              <span style={{ color: BTC }}>{btc} BTC</span>
-              {dir !== 'flat' && <span style={{ color: dir === 'up' ? '#22c55e' : '#ef4444' }}>{dir === 'up' ? '▲' : '▼'}</span>}
-            </div>
-
-            {/* Where it sits against 24 hours ago. Labelled, because the little
-                arrow above it is a per-tick flicker and means something else. */}
-            {chg24 != null && (
-              <div className="mt-2 flex justify-center">
-                <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10.5px] font-mono font-medium tabular-nums"
-                  style={{
-                    color: up24 ? '#22c55e' : '#ef4444',
-                    background: up24 ? 'rgba(34,197,94,0.10)' : 'rgba(239,68,68,0.10)',
-                    boxShadow: `inset 0 0 0 1px ${up24 ? 'rgba(34,197,94,0.28)' : 'rgba(239,68,68,0.28)'}`,
-                  }}>
-                  <span>{up24 ? '▲' : '▼'}</span>
-                  <span>{up24 ? '+' : '−'}{Math.abs(chg24).toFixed(2)}%</span>
-                  {usd != null && (
-                    <span style={{ opacity: 0.75 }}>
-                      {up24 ? '+' : '−'}${fmtUsd(Math.abs(usd - usd / (1 + chg24 / 100)))}
-                    </span>
-                  )}
-                  <span className="text-muted-foreground" style={{ opacity: 0.9 }}>24h</span>
-                </span>
-              </div>
-            )}
-          </>
-        )}
-      </div>
-
-      {/* Stats strip */}
-      <div className="mx-4 mb-3 grid grid-cols-2 rounded-xl overflow-hidden text-center"
-        style={{ boxShadow: 'inset 0 0 0 1px var(--color-border)' }}>
-        <div className="py-2 px-1" style={{ boxShadow: 'inset -1px 0 0 0 var(--color-border)' }}>
-          <div className="text-[8.5px] uppercase tracking-wide text-muted-foreground">BTC Price</div>
-          <div className="text-[12px] font-mono font-medium text-foreground tabular-nums">{btcPrice ? '$' + btcPrice.toLocaleString() : '···'}</div>
-        </div>
-        <div className="py-2 px-1">
-          <div className="text-[8.5px] uppercase tracking-wide text-muted-foreground">Transactions</div>
-          <div className="text-[12px] font-mono font-medium text-foreground tabular-nums">{data?.n_tx ?? '···'}</div>
-        </div>
-      </div>
-
-      {/* QR + address */}
-      <div className="px-4 pb-3 flex flex-col items-center">
-        <div className="p-2 rounded-xl bg-white" style={{ boxShadow: '0 2px 10px -2px rgba(0,0,0,.25)' }}>
-          <QRCodeSVG value={`bitcoin:${ADDR}`} size={100} level="M" bgColor="#ffffff" fgColor="#0b0b0b" />
-        </div>
-        <p className="mt-2 text-[9px] text-muted-foreground">Scan to send · tap the address to copy</p>
-        <button onClick={copy}
-          className="mt-1.5 w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg border transition-colors hover:border-accent/40"
-          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
-          <span className="text-[10.5px] font-mono text-muted-foreground truncate">{ADDR.slice(0, 10)}…{ADDR.slice(-6)}</span>
-          <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold flex-shrink-0" style={{ color: copied ? '#34d399' : 'var(--color-accent)' }}>
-            {copied ? (
-              <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>Copied</>
-            ) : (
-              <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>Copy</>
-            )}
-          </span>
-        </button>
-      </div>
-
-      {/* Explorer links */}
-      <div className="px-4 pb-3 grid grid-cols-2 gap-2">
-        <a href={`https://mempool.space/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
-          className="text-center py-2 rounded-lg border text-[10.5px] font-medium text-muted-foreground hover:text-foreground transition-colors"
-          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
-          Activity ↗
-        </a>
-        <a href={`https://platform.arkhamintelligence.com/explorer/address/${ADDR}`} target="_blank" rel="noopener noreferrer"
-          className="text-center py-2 rounded-lg border text-[10.5px] font-medium text-muted-foreground hover:text-foreground transition-colors"
-          style={{ background: 'color-mix(in oklab, var(--color-muted) 45%, transparent)', borderColor: 'var(--color-border)' }}>
-          Arkham ↗
-        </a>
-      </div>
-
-      {/* CTA */}
-      <button
-        onClick={() => window.dispatchEvent(new CustomEvent('toggle-crypto-dash'))}
-        className="w-full px-4 py-2.5 text-[11.5px] font-semibold hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
-        style={{ background: 'linear-gradient(to right, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)', borderTop: '1px solid color-mix(in oklab, white 8%, transparent)' }}
-      >
-        📊 Open Crypto Dashboard
-      </button>
-    </div>
+    <a
+      href="#/bitcoin"
+      className="inline-flex items-center justify-center p-2 rounded-full transition-colors duration-200 bg-muted hover:bg-border text-muted-foreground hover:text-accent"
+      aria-label="Bitcoin plan and wallet"
+      title="Bitcoin plan and wallet"
+    >
+      <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.755.005a.25.25 0 0 0-.248.25v.977c0 .137.11.25.248.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.3V4.487zm0 4.051h1.985c1.03 0 1.62.354 1.62 1.318 0 .922-.605 1.36-1.612 1.36H6.927V8.538z"/>
+      </svg>
+    </a>
   )
 }
 
@@ -678,7 +397,6 @@ function SidecarMenu() {
     { label: 'Europe', emoji: '❄️', hash: '#/europe' },
     { label: 'Goal · Singapore', emoji: '🇸🇬', hash: '#/singapore' },
     { label: 'Meta', emoji: '♾️', hash: '#/meta' },
-    { label: 'Stack', emoji: '🧱', hash: '#/stack' },
   ]
   const go = (hash) => { setOpen(false); window.location.hash = hash }
 
@@ -785,7 +503,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
             <TransformationPulse labeled />
             <ToolsDropdown />
             <TechNews side="right" />
-            <NavWallet />
+            <NavBitcoin />
             <NavStatus />
             <MatrixToggle />
             <ThemeToggle />
@@ -795,7 +513,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="flex md:hidden items-center gap-2">
             {!IS_LITE && <>
               <SystemStatusDot />
-              <NavWallet />
+              <NavBitcoin />
               <NavStatus />
               <MatrixToggle />
             </>}
