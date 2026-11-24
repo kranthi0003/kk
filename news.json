@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T13:24:45.905Z",
+  "generated": "2026-11-24T14:21:45.511Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "10 Git Commands You’ll Use Every Day (Copy-Paste Cheat Sheet)",
-      "url": "https://medium.com/@nijeesh10th/10-git-commands-youll-use-every-day-copy-paste-cheat-sheet-75e50074b579",
-      "by": "Nijeesh .N.J",
-      "time": 1795526161000,
+      "title": "Flash Sale System Design: How Would You Handle 1 Million Users Clicking “Buy” at the Same Second?",
+      "url": "https://uiround.medium.com/flash-sale-system-design-how-would-you-handle-1-million-users-clicking-buy-at-the-same-second-ccc1a23a8119",
+      "by": "UIRound",
+      "time": 1795530071000,
       "tags": [
-        "productivity",
-        "git",
-        "beginner"
+        "javascript",
+        "software-engineering",
+        "frontend-development"
       ]
     },
     {
-      "title": "One App for All Your Coding Agents Means One Set of Defaults for All of Them",
-      "url": "https://medium.com/@theshaheermalik/one-app-for-all-your-coding-agents-means-one-set-of-defaults-for-all-of-them-c2858f032464",
-      "by": "Shaheer Malik",
-      "time": 1795526110000,
+      "title": "The Software Engineer in 2027: How AI Redefined the Market (and the Paths for Leaders and…",
+      "url": "https://medium.com/@demostenesbr/the-software-engineer-in-2027-how-ai-redefined-the-market-and-the-paths-for-leaders-and-dd5c88d68168",
+      "by": "Demostenes Brito",
+      "time": 1795529976000,
       "tags": [
-        "coding",
-        "productivity",
-        "ai"
-      ]
-    },
-    {
-      "title": "Tired of Writing Complicated Regex? I Built a Free AI Regex Generator",
-      "url": "https://medium.com/@gp686771/tired-of-writing-complicated-regex-i-built-a-free-ai-regex-generator-ee5f188abdec",
-      "by": "Gp",
-      "time": 1795525969000,
-      "tags": [
-        "artificial-intelligence",
-        "startup",
-        "web-development"
-      ]
-    },
-    {
-      "title": "How to Build REST APIs With Laravel: A Complete Guide",
-      "url": "https://medium.com/@neyo4africatechnologies/how-to-build-rest-apis-with-laravel-a-complete-guide-ebe7a6c76389",
-      "by": "neyo4africa technologies",
-      "time": 1795525862000,
-      "tags": [
-        "rest-api",
-        "web-development",
+        "entrepreneurship",
+        "leadership",
         "software-engineering"
       ]
     },
     {
-      "title": "My Company Went From 400+ People to 100+. It Made Me Rethink What’s Next for Software Developers",
-      "url": "https://oliver-foster.medium.com/my-company-went-from-400-people-to-100-it-made-me-rethink-whats-next-for-software-developers-bf2faa891b2a",
-      "by": "Oliver Foster",
-      "time": 1795525861000,
+      "title": "Types of Machine Learning: When to Use Which?",
+      "url": "https://medium.com/@iclalaca.ai/types-of-machine-learning-when-to-use-which-8ce9a79b8f94",
+      "by": "İclal Aca",
+      "time": 1795529963000,
       "tags": [
-        "career-development",
-        "software-engineering",
-        "layoffs"
+        "machine-learning",
+        "artificial-intelligence",
+        "data-science"
       ]
     },
     {
-      "title": "The Rise of the AI Software Factory: Why “Vibe Coding” Is Giving Way to Industrialized Engineering",
-      "url": "https://medium.com/@KilgortTrout/the-rise-of-the-ai-software-factory-why-vibe-coding-is-giving-way-to-industrialized-engineering-2d46bfe4ad78",
-      "by": "Oleg",
-      "time": 1795525861000,
+      "title": "Browser Error Tracking: The Tracker You Can Finally See",
+      "url": "https://javascript.plainenglish.io/browser-error-tracking-the-tracker-you-can-finally-see-d77dbfffc742",
+      "by": "Rajat",
+      "time": 1795529812000,
       "tags": [
-        "llm",
+        "performance",
         "software-development",
-        "agentic-ai"
-      ]
-    },
-    {
-      "title": "Kubernetes: a “Detective Work” with the OOM Killer, Linux cgroups, and cAdvisor container_memory",
-      "url": "https://itnext.io/kubernetes-a-detective-work-with-the-oom-killer-linux-cgroups-and-cadvisor-container-memory-d2479f6c280e",
-      "by": "Arseny Zinchenko (setevoy)",
-      "time": 1795525769000,
-      "tags": [
-        "linux",
-        "kubernetes",
-        "devops"
-      ]
-    },
-    {
-      "title": "Your Production Incidents Are Probably More Expensive Than Your Cloud Bill",
-      "url": "https://medium.com/javarevisited/your-production-incidents-are-probably-more-expensive-than-your-cloud-bill-d0fd56cd71d1",
-      "by": "The Systems & Architecture",
-      "time": 1795525766000,
-      "tags": [
-        "software-engineering",
-        "java",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "Your Apps Know More Than You Think. A Researcher Found Out How Much.",
-      "url": "https://medium.com/skillstuff/your-apps-know-more-than-you-think-a-researcher-found-out-how-much-d243d39cff92",
-      "by": "CodeTune",
-      "time": 1795525585000,
-      "tags": [
-        "privacy",
-        "software-engineering",
         "technology"
       ]
     },
     {
-      "title": "@Data on a JPA Entity Gave Us a False `equals()` and 18,000 Duplicate Rows",
-      "url": "https://medium.com/@kamenivanov1991/data-on-a-jpa-entity-gave-us-a-false-equals-and-18-000-duplicate-rows-68a8045eb684",
-      "by": "Kamen Ivanov",
-      "time": 1795525396000,
+      "title": "Rust Keeps Borrowing Ideas From C. Is the Language Becoming More Powerful or More Complicated?",
+      "url": "https://medium.com/@rothyyorn9/rust-keeps-borrowing-ideas-from-c-is-the-language-becoming-more-powerful-or-more-complicated-c1f4e93dc029",
+      "by": "Rothy Yorn",
+      "time": 1795529786000,
       "tags": [
-        "programming",
-        "database",
+        "rust",
+        "technology",
         "software-development"
+      ]
+    },
+    {
+      "title": "Kotlin coroutines interview questions senior Android loops ask",
+      "url": "https://salari-dev.medium.com/kotlin-coroutines-interview-questions-senior-android-loops-ask-9467005fd8d9",
+      "by": "Mike Salari",
+      "time": 1795529762000,
+      "tags": [
+        "kotlin-coroutines",
+        "job-interview",
+        "kotlin"
+      ]
+    },
+    {
+      "title": "What Skills Do Engineers Need in the Age of AI? (Part 5: Understanding)",
+      "url": "https://taogang.medium.com/what-skills-do-engineers-need-in-the-age-of-ai-part-5-understanding-c56e808b2a92",
+      "by": "Gang Tao",
+      "time": 1795529762000,
+      "tags": [
+        "artificial-intelligence",
+        "software-engineering",
+        "learning"
+      ]
+    },
+    {
+      "title": "My AI Chat Ran in a Terminal. Why Was Chromium Still Eating My RAM?",
+      "url": "https://medium.com/swe-insights/my-ai-chat-ran-in-a-terminal-why-was-chromium-still-eating-my-ram-1debc281c27a",
+      "by": "bulutarkan",
+      "time": 1795529734000,
+      "tags": [
+        "chromium",
+        "memory-management",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "What Actually Happens When You Run docker run?",
+      "url": "https://medium.com/@ritanshbagal/what-actually-happens-when-you-run-docker-run-470e8d1bb2fe",
+      "by": "Ritansh Bagal",
+      "time": 1795529564000,
+      "tags": [
+        "linux",
+        "docker",
+        "containers"
+      ]
+    },
+    {
+      "title": "LLM Provider Outage and Failover: Designing Multi-Provider Resilience That Actually Works",
+      "url": "https://codefarm0.medium.com/llm-provider-outage-and-failover-designing-multi-provider-resilience-that-actually-works-ecc07873e641",
+      "by": "Arvind Kumar",
+      "time": 1795529461000,
+      "tags": [
+        "llm",
+        "large-language-models",
+        "software-engineering"
       ]
     }
   ]
