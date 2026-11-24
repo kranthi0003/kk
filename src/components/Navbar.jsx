@@ -678,6 +678,7 @@ function SidecarMenu() {
     { label: 'Europe', emoji: '❄️', hash: '#/europe' },
     { label: 'Goal · Singapore', emoji: '🇸🇬', hash: '#/singapore' },
     { label: 'Meta', emoji: '♾️', hash: '#/meta' },
+    { label: 'Stack', emoji: '🧱', hash: '#/stack' },
   ]
   const go = (hash) => { setOpen(false); window.location.hash = hash }
 

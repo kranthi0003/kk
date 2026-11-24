@@ -58,6 +58,7 @@ const SevenAM = lazy(() => import('./components/SevenAM'))
 const SparkPrep = lazy(() => import('./components/SparkPrep'))
 const TamPrep = lazy(() => import('./components/TamPrep'))
 const PlanTracker = lazy(() => import('./components/PlanTracker'))
+const StackPlan = lazy(() => import('./components/StackPlan'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const OrangeBadge = lazy(() => import('./components/OrangeBadge'))
@@ -134,8 +135,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The study guide, planner, meal plan, badge page and confession open straight away, without the intro.
-  const [intro, setIntro] = useState(() => !/^#\/(tam(\/[\w-]+)?|meta|meals|orangebadge|confession)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The study guide, planner, ledger, meal plan, badge page and confession open straight away, without the intro.
+  const [intro, setIntro] = useState(() => !/^#\/(tam(\/[\w-]+)?|meta|stack|meals|orangebadge|confession)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -337,6 +338,15 @@ function AppPages({ route, intro }) {
     return (
       <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b1015' }}><div className="text-xs font-mono" style={{ color: '#5aa7ff' }}>loading…</div></div>}>
         <PlanTracker onBack={() => { window.location.hash = '' }} />
+      </Suspense>
+    )
+  }
+
+  // Private, password-protected long-term plan and ledger; all content is encrypted.
+  if (route.toLowerCase().replace(/\/+$/, '') === '#/stack') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b0c0f' }}><div className="text-xs font-mono" style={{ color: '#ffb35c' }}>loading…</div></div>}>
+        <StackPlan onBack={() => { window.location.hash = '' }} />
       </Suspense>
     )
   }

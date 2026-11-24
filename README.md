@@ -47,13 +47,15 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music and Meal Plan pages |
-| 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner with encrypted on-device progress tracking; content is encrypted with `scripts/private-payload.mjs` |
+| 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner and a long-term plan with a ledger, both keeping encrypted records on the device; content is encrypted with `scripts/private-payload.mjs` |
 | 🥚 **Easter eggs** | Konami/matrix effect, dopamine teaser, hidden `#/skota` & `#/allthebest` notes |
 | 📱 **PWA** | Installable via `vite-plugin-pwa`, offline-ready |
 
 Private study diagrams use scene-local coordinates, parent-group IDs and stable edge IDs for walkthrough highlighting. Keep course copy, labels, explanations, examples and sources in the encrypted payload; the renderer contains only layout and interaction logic.
 
 The private planner (`src/components/PlanTracker.jsx`, payload `src/lib/planPayload.js`) saves progress only in the browser's `localStorage` (`pt_state_v1`), AES-GCM-encrypted with the payload's random `stateKey`; nothing is sent to a server. Backup files use the same key. When editing the payload, decrypt and re-encrypt it without changing `stateKey`, or saved progress and backups become unreadable. Changing the passphrase alone is safe.
+
+The private plan and ledger (`src/components/StackPlan.jsx`, payload `src/lib/stackPayload.js`) works the same way: records live only in `localStorage` (`sk_state_v1`), encrypted with the payload's `stateKey`, and backups and the `stateKey` rule are the same. After unlocking, it fetches the public price feed named in the payload; it can be switched off on the page.
 
 ---
 
@@ -153,6 +155,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/singapore` | 🔒 Private, password-protected goal page (also `#/goal-singapore`) |
 | `#/tam` | 🔒 Private, password-protected study guide |
 | `#/meta` | 🔒 Private, password-protected planner and progress tracker |
+| `#/stack` | 🔒 Private, password-protected long-term plan and ledger |
 | `#/allthebest`, `#/skota` | Private unlisted notes (shared by link) |
 
 ---
