@@ -494,7 +494,7 @@ const UI = {
   logBuy: 'Log a buy', logReserve: 'Log cash set aside', capped: 'The reserve is full ({cap}), so this month it all goes in.', steppedUp: 'Stepped up this month, from {a}.',
   reserve: 'Reserve', reserveCap: 'Full at {cap} (the excess goes straight in)', armed: 'Waiting', fired: 'Triggered', usedOn: 'Deployed {d}', markUsed: 'Mark deployed',
   unmark: 'Undo', levelAt: 'at {p}', deployPart: 'deploys {p} of what’s left', deployNow: 'Deploy about {a} from the reserve now.', reserveEmpty: 'Nothing set aside yet.',
-  yourStack: 'Your stack', putIn: 'Put in', plannedSoFar: 'plan: {a}', gainLoss: 'Gain / loss', toTarget: 'Of the target', ofTarget: 'of {a}',
+  yourStack: 'Your stack', putIn: 'Put in', avgShort: 'Avg cost', plannedSoFar: 'plan: {a}', gainLoss: 'Gain / loss', toTarget: 'Of the target', ofTarget: 'of {a}',
   includesStart: 'Includes your starting stack of {u} {c}.', coinsLabel: '{a} of {b} plan years stacked', startsShort: 'Starts {m}', finished: 'Finished',
   youAreHere: 'Month {k} of {K}', high: 'High', day24: '24h', sparkLabel: 'Price over the past year, from {a} to {b} now; the high was {h}.',
   logged: 'logged', firstMonth: 'first month', selfHeld: 'own wallet', totalPutIn: 'Total put in', startStack: 'Starting stack',
@@ -1389,6 +1389,7 @@ function StackStrip() {
         <dl className="sk-stack-metrics">
           <div><dt>{w.valueNow}</dt><dd>{B(shown)}<small>{L(bk.units * qt.local)}</small></dd></div>
           <div><dt>{w.putIn}</dt><dd>{B(bk.putIn)}<small>{fill(w.plannedSoFar, { a: B(plannedTo(p, k, bk)) })}</small></dd></div>
+          <div><dt>{w.avgShort}</dt><dd>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}<small>{bk.units > EPS ? L(bk.basisL / bk.units) : ''}</small></dd></div>
           <div><dt>{w.gainLoss}</dt><dd className={gain >= 0 ? 'is-up' : 'is-down'}>{signed(gain, base)}<small>{bk.basisB > 0 ? pct(gain / bk.basisB) : '—'}</small></dd></div>
           <div><dt>{w.toTarget}</dt><dd>{pct(p.target > 0 ? value / p.target : 0, 2)}<small>{fill(w.ofTarget, { a: B(p.target, { compact: true }) })}</small></dd></div>
         </dl>
@@ -2910,15 +2911,16 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-stackstrip { margin-top: 24px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; padding: 20px 24px; border-radius: var(--sk-r); border: 1px solid transparent;
   background: linear-gradient(rgba(15,17,22,.92), rgba(15,17,22,.92)) padding-box, linear-gradient(135deg, rgba(247,147,26,.65), rgba(255,255,255,.06) 40%, rgba(255,210,122,.28)) border-box;
   box-shadow: 0 34px 70px -44px rgba(247,147,26,.55); }
-.sk-stack-body { min-width: 0; }
+.sk-stack-body { min-width: 0; container-type: inline-size; }
 .sk-stack-units { display: flex; align-items: baseline; gap: 10px; margin-top: 6px !important; }
 .sk-stack-units b { font-size: clamp(32px, 4vw, 44px); line-height: 1; font-weight: 800; letter-spacing: -0.035em; }
 .sk-stack-units span { font: 700 15px var(--sk-mono); color: var(--sk-accent2); }
 .sk-stack-sats { margin-top: 4px !important; font: 500 12.5px var(--sk-mono); color: var(--sk-ink3); }
-.sk-stack-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 18px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--sk-line); }
+.sk-stack-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 18px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--sk-line); }
 .sk-stack-metrics dt { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
 .sk-stack-metrics dd { margin: 4px 0 0; font-weight: 750; font-size: 17px; letter-spacing: -0.02em; }
 .sk-stack-metrics dd small { display: block; margin-top: 1px; font-weight: 500; font-size: 12px; color: var(--sk-ink3); letter-spacing: 0; }
+@container (min-width: 600px) { .sk-stack-metrics { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 .sk-stack-note { margin-top: 10px !important; font-size: 12.5px; color: var(--sk-ink3); }
 .sk-coins { display: block; overflow: visible; filter: drop-shadow(0 14px 22px rgba(247,147,26,.2)); }
 .sk-coin { animation: sk-coin-in .55s cubic-bezier(.2,.9,.3,1.2) both; animation-delay: calc(var(--i) * 45ms); }
@@ -3322,6 +3324,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
   .sk-stack-units { margin-top: 0 !important; }
   .sk-stack-metrics, .sk-stack-note { grid-column: 1 / -1; }
   .sk-stack-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sk-stack-metrics > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .sk-month-body { grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 16px; }
   .sk-cards, .sk-cards[data-cols="2"], .sk-cards[data-cols="4"] { grid-template-columns: minmax(0, 1fr); }
   .sk-card { padding: 18px; }
