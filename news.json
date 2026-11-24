@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T04:24:49.567Z",
+  "generated": "2026-11-24T04:22:52.519Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Concurrency vs Parallelism",
-      "url": "https://medium.com/@abiral-acharya/concurrency-vs-parallelism-086470dc3cdb",
-      "by": "Abiral Acharya",
-      "time": 1795407440000,
+      "title": "Laravel 13 serializable_classes: Fix the Cache Error After Upgrading From 12",
+      "url": "https://medium.com/@raghavji2050/laravel-13-serializable-classes-fix-the-cache-error-after-upgrading-from-12-666aee1ff338",
+      "by": "Raghav Ji",
+      "time": 1795493638000,
+      "tags": [
+        "web-development",
+        "php",
+        "backend-development"
+      ]
+    },
+    {
+      "title": "Python ETL Performance Optimization: 8 Ways to Make Slow Pipelines Fast Without Rewriting Them in…",
+      "url": "https://python.plainenglish.io/python-etl-performance-optimization-8-ways-to-make-slow-pipelines-fast-without-rewriting-them-in-24a2ff6fc36c",
+      "by": "Saif Ur Rehman",
+      "time": 1795493008000,
       "tags": [
         "software-engineering",
-        "distributed-systems",
-        "system-design-concepts"
+        "python",
+        "software-development"
       ]
     },
     {
-      "title": "Workstation Discrete Math Plugin — Chapter 3, Part 6 — Decode the Contract, Not the Wish",
-      "url": "https://medium.com/@rantnrave31/workstation-discrete-math-plugin-chapter-3-part-6-decode-the-contract-not-the-wish-da9b33508dea",
-      "by": "Don Gunter",
-      "time": 1795407307000,
-      "tags": [
-        "discrete-mathematics",
-        "computer-science",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Wrongness in AI",
-      "url": "https://medium.com/@ankursaran_59645/the-wrongness-in-ai-a838d10baf02",
-      "by": "Ankur Saran",
-      "time": 1795407298000,
-      "tags": [
-        "ai",
-        "artificial-intelligence",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "AI Made Writing Code 10x Faster — And Code Reviews 10x Harder",
-      "url": "https://medium.com/@saif.rehman00002/ai-made-writing-code-10x-faster-and-code-reviews-10x-harder-fe953bddf5d0",
-      "by": "Saif Ur Rehman",
-      "time": 1795407106000,
-      "tags": [
-        "ai",
-        "code-review",
-        "programming"
-      ]
-    },
-    {
-      "title": "The Agentic Software Factory Runs on Trust",
-      "url": "https://medium.com/israeli-tech-radar/the-agentic-software-factory-runs-on-trust-1c4a06257abe",
-      "by": "Amit Karni",
-      "time": 1795406903000,
-      "tags": [
-        "ai-agent",
-        "ai-and-ml",
-        "agentic-software-factory"
-      ]
-    },
-    {
-      "title": "GLB Viewer: Compare a Product GLB in a Viewer and on a Web Page",
-      "url": "https://felixanderson-able.medium.com/glb-viewer-compare-a-product-glb-in-a-viewer-and-on-a-web-page-ecdb5408b244",
-      "by": "Felix Anderson",
-      "time": 1795406622000,
+      "title": "The Art of Making Complexity Feel Simple",
+      "url": "https://medium.com/@psoputt/the-art-of-making-complexity-feel-simple-f79c3051c73e",
+      "by": "Putra",
+      "time": 1795492972000,
       "tags": [
         "technology",
-        "3d-modeling",
-        "programming"
+        "product-development",
+        "user-experience"
       ]
     },
     {
-      "title": "Understanding Variables, Types, and Null Safety in Dart.",
-      "url": "https://medium.com/@shedalesoham/understanding-variables-types-and-null-safety-in-dart-f35502a806bd",
-      "by": "Soham S.",
-      "time": 1795406461000,
+      "title": "QCon SF 2026: Harnesses, Humans & Hallway Chats",
+      "url": "https://medium.com/@salonijshah/qcon-sf-2026-harnesses-humans-hallway-chats-42cadd6db3b8",
+      "by": "Saloni Shah",
+      "time": 1795492855000,
       "tags": [
-        "coding",
-        "programming",
-        "flutter"
-      ]
-    },
-    {
-      "title": "The Dark Side of Microservices: Why Distributed Architecture Isn’t Always Better",
-      "url": "https://medium.com/@harindayasiru/the-dark-side-of-microservices-why-distributed-architecture-isnt-always-better-44ca9ca690e2",
-      "by": "Yasiru Harinda Edirimanna",
-      "time": 1795406329000,
-      "tags": [
-        "microservices",
         "software-architecture",
-        "software-engineering"
+        "software-conferences",
+        "technology"
       ]
     },
     {
-      "title": "Your Go Toolchain is Slowing You Down — Here’s Why",
-      "url": "https://blog.devgenius.io/your-go-toolchain-is-slowing-you-down-heres-why-2f85b24154ee",
-      "by": "Yaninyz witty",
-      "time": 1795406236000,
+      "title": "Your AI Agent Can Fix a Pull Request. Should It Be Allowed to Approve It?",
+      "url": "https://medium.com/@techsuneel99/your-ai-agent-can-fix-a-pull-request-should-it-be-allowed-to-approve-it-eae506748bbe",
+      "by": "Suneel Kumar",
+      "time": 1795492662000,
       "tags": [
-        "golang",
-        "programming",
-        "writing"
+        "ai-agent",
+        "software-engineering",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Spring AI vs LangChain4j: Choosing IncidentPilot’s Framework",
-      "url": "https://medium.com/@abhinav.neo/spring-ai-vs-langchain4j-choosing-incidentpilots-framework-c477c928609d",
-      "by": "Abhinav Taduka",
-      "time": 1795405947000,
+      "title": "Can a PDF Answer Back? Building a Document Intelligence Platform with RAG",
+      "url": "https://medium.com/@kandagatlasaiteja25/can-a-pdf-answer-back-building-a-document-intelligence-platform-with-rag-92d2a7cfab1a",
+      "by": "Kandagatlasaiteja",
+      "time": 1795492443000,
+      "tags": [
+        "software-engineering",
+        "artificalintelligence",
+        "rags"
+      ]
+    },
+    {
+      "title": "AI Can Write the Code. But Is It Making Developers Less Skilled?",
+      "url": "https://beyondthecode1.medium.com/ai-can-write-the-code-but-is-it-making-developers-less-skilled-c3572a983a18",
+      "by": "Beyond The Code",
+      "time": 1795492425000,
+      "tags": [
+        "developer-productivity",
+        "programming",
+        "software-development"
+      ]
+    },
+    {
+      "title": "Brevo Interview Experience | Software Engineer — ReactJS Full Stack",
+      "url": "https://medium.com/@preetjit82/brevo-interview-experience-software-engineer-reactjs-full-stack-05391d9d1fd9",
+      "by": "Interview Simplified",
+      "time": 1795491940000,
+      "tags": [
+        "programming",
+        "react",
+        "jobs"
+      ]
+    },
+    {
+      "title": "I Gave Gemini 4 Neon a Film Crew. Now It Does Things Claude Code and Codex Can’t.",
+      "url": "https://levelup.gitconnected.com/i-gave-gemini-4-neon-a-film-crew-now-it-does-things-claude-code-and-codex-cant-30f88da3e0ac",
+      "by": "David Lee",
+      "time": 1795491813000,
+      "tags": [
+        "technology",
+        "software-engineering",
+        "software-development"
+      ]
+    },
+    {
+      "title": "How Netflix Made Its Codebase Ready for AI Coding Agents, and What Your Team Can Copy This Month",
+      "url": "https://medium.com/@ascendrixtech/how-netflix-made-its-codebase-ready-for-ai-coding-agents-and-what-your-team-can-copy-this-month-6e4af0be0ffe",
+      "by": "Ascendrix Technologies",
+      "time": 1795491701000,
       "tags": [
         "artificial-intelligence",
-        "java",
-        "software-engineering"
+        "ai-agent",
+        "software-development"
       ]
     }
   ]
