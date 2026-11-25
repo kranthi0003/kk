@@ -106,7 +106,6 @@ const ymAdd = (ym, n) => ymFrom(ymIndex(ym) + n)
 const fmtYm = (ym, month = 'short') => new Date(Date.UTC(Number(ym.slice(0, 4)), Number(ym.slice(5, 7)) - 1, 1))
   .toLocaleDateString('en-GB', { month, year: 'numeric', timeZone: 'UTC' })
 const fmtDate = (iso, opts) => (isIso(iso) ? new Date(utc(iso)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC', ...opts }) : '')
-const daysBetween = (a, b) => Math.round((utc(b) - utc(a)) / DAY_MS)
 const fyOf = (iso, startMonth = 4) => { const y = Number(iso.slice(0, 4)); return Number(iso.slice(5, 7)) >= startMonth ? y : y - 1 }
 
 function useToday() {
@@ -238,55 +237,10 @@ function rateNeeded(a, target) {
   if (finalOf({ ...a, rate: 5 }).v < target) return NaN
   return bisect((r) => finalOf({ ...a, rate: r }).v, target, 0, 5)
 }
-function monthlyNeeded(a, target) {
-  const f = (m) => finalOf({ ...a, monthly: m }).v
-  if (f(1e7) < target) return NaN
-  return bisect(f, target, 0, 1e7)
-}
 function crossYear(a, target, max = 40) {
   const pts = simulate({ ...a, run: max })
   const y = pts.findIndex((q) => q.v >= target)
   return y < 0 ? null : y
-}
-
-// The same plan with an optional one-off fall at the start of `crash.year`
-// and an optional glide path ({ planYear: share kept in the asset }). At the
-// start of each glide year, anything above the target share is sold, with
-// after-tax proceeds moving to a safer bucket growing at `safe`. With
-// `redirect`, new money from the first glide year goes to that bucket while
-// the asset is above target, so less has to be sold. `net` is after exit tax.
-function stress({ a, crash, glide, tax, safe, redirect }) {
-  const i = Math.pow(1 + a.rate, 1 / 12) - 1
-  const j = Math.pow(1 + safe, 1 / 12) - 1
-  const first = glide && Object.keys(glide).length ? Math.min(...Object.keys(glide).map(Number)) : Infinity
-  let keep = 1
-  let x = a.open
-  let xc = a.open
-  let s = 0
-  let sc = 0
-  const add = (m, y) => {
-    if (redirect && y >= first && x > keep * (x + s)) { s += m; sc += m } else { x += m; xc += m }
-  }
-  for (let y = 1; y <= a.years; y++) {
-    if (glide && glide[y] !== undefined) keep = glide[y]
-    if (y >= first && x > 0 && x > keep * (x + s)) {
-      const sell = x - keep * (x + s)
-      const t = sell * Math.max(0, 1 - xc / x) * tax
-      xc *= 1 - sell / x
-      x -= sell
-      s += sell - t
-      sc += sell - t
-    }
-    if (crash && crash.year === y) x *= 1 - crash.drop
-    for (let k = 0; k < 12; k++) {
-      x *= 1 + i
-      s *= 1 + j
-      add(monthlyAt(a, (y - 1) * 12 + k), y)
-    }
-    if (a.extra) add(a.extra, y)
-  }
-  const gross = x + s
-  return { gross, net: gross - Math.max(0, x - xc) * tax - Math.max(0, s - sc) * tax, safe: s }
 }
 
 // Buying rules by distance from the high: the row a drawdown falls in.
@@ -485,78 +439,70 @@ function loadState() {
 // Interface words. Defaults, overridable from the plan file's words.
 const UI = {
   back: 'Back to site', backup: 'Backup', sections: 'Sections', opening: 'Opening…', dismiss: 'Dismiss', undo: 'Undo',
-  saved: 'Saved on this device', saving: 'Saving…', saveError: 'Not saved — browser storage is full or blocked',
+  saved: 'Saved on this device', saveError: 'Not saved — browser storage is full or blocked',
   delete: 'Delete', confirmDelete: 'Tap again to delete', edit: 'Edit', cancel: 'Cancel', save: 'Save entry', update: 'Save changes', open: 'Open',
-  price: 'Price', fromHigh: 'Below the high', highLine: 'High {p} on {d}', fxLine: '{r} per {b}', refresh: 'Refresh', refreshing: 'Refreshing…',
+  price: 'Price', highLine: 'High {p} on {d}', fxLine: '{r} per {b}', refresh: 'Refresh', refreshing: 'Refreshing…',
   src_live: 'Live · {t}', src_cached: 'Saved price · {t}', src_seed: 'Reference price · {t}', src_manual: 'Your price · {t}', feedFailed: 'Live price unavailable.',
   thisMonth: 'This month', monthOf: 'Month {k} of {K}', yearOf: 'year {y} of {Y}', startsOn: 'The plan starts in {m}.', planDone: 'The plan ran its course in {m}.',
-  target: 'Target', core: 'Buy', toReserve: 'Set aside', weekly: '≈ {a} a week', loggedOf: '{a} of {b} logged', leftToGo: '{a} to go', monthDone: 'Done for this month ✓',
-  logBuy: 'Log a buy', logReserve: 'Log cash set aside', capped: 'The reserve is full ({cap}), so this month it all goes in.', steppedUp: 'Stepped up this month, from {a}.',
+  core: 'Buy', toReserve: 'Set aside', weekly: '{a} a week', firstMonthOn: '{m} · first month', loggedOf: '{a} of {b} logged', leftToGo: '{a} to go', monthDone: 'Done for this month ✓',
+  logBuy: 'Log a buy', logReserve: 'Log cash set aside',
   reserve: 'Reserve', reserveCap: 'Full at {cap} (the excess goes straight in)', armed: 'Waiting', fired: 'Triggered', usedOn: 'Deployed {d}', markUsed: 'Mark deployed',
   unmark: 'Undo', levelAt: 'at {p}', deployPart: 'deploys {p} of what’s left', deployNow: 'Deploy about {a} from the reserve now.', reserveEmpty: 'Nothing set aside yet.',
   yourStack: 'Your stack', putIn: 'Put in', avgShort: 'Avg cost', plannedSoFar: 'plan: {a}', gainLoss: 'Gain / loss', toTarget: 'Of the target', ofTarget: 'of {a}',
-  includesStart: 'Includes your starting stack of {u} {c}.', coinsLabel: '{a} of {b} plan years stacked', startsShort: 'Starts {m}', finished: 'Finished',
+  startsShort: 'Starts {m}', finished: 'Finished',
   youAreHere: 'Month {k} of {K}', high: 'High', day24: '24h', sparkLabel: 'Price over the past year, from {a} to {b} now; the high was {h}.',
-  logged: 'logged', firstMonth: 'first month', selfHeld: 'own wallet', totalPutIn: 'Total put in', startStack: 'Starting stack',
-  loggedSince: 'Logged in the ledger', monthsOnTarget: '{a} of {b} months on target', fromSettings: 'from Settings', editInSettings: 'Edit in Settings',
+  startStack: 'Starting stack',
+  fromSettings: 'from Settings', editInSettings: 'Edit in Settings',
   startHint: 'Counted everywhere. If you log the original purchases in the ledger, set the starting stack to 0 in Settings.',
   received: 'Received', openChain: '{n} transactions · cost {a}', view: 'View', viewTx: 'View the transaction of {d}',
-  costEstimated: 'Its cost is estimated from the price when each of its {n} transactions arrived.', costEntered: 'Its cost is the total you entered in Settings.',
-  ledgerCostNote: 'The blockchain records when coins arrived, not what was paid, so each cost here is the price in that hour. If you know what you actually paid, enter it in Settings.',
+  ledgerCostNote: 'Each is costed at Bitcoin’s price when it arrived. If you know what you actually paid, enter it in Settings.',
   ledgerCostEntered: 'Costs are scaled to the total you entered in Settings.',
   openAmtHint: 'The stack’s value when the plan began; projections grow from here.',
   openLocalChainHint: 'Estimated from the price when each transaction arrived. Enter what you actually paid to use that instead.',
   countStart: 'Count the starting stack: {u} {c} from {n} transactions', countStartHint: 'Switch this off if you log those purchases in the ledger yourself.',
   openLocal: 'Starting stack cost', openLocalHint: 'What you paid for it in total, for tax records.', openWhere: 'Starting stack is held',
-  holdings: 'Holdings', valueNow: 'Value now', invested: 'Invested', basis: 'Cost basis', avgCost: 'Average cost', unrealised: 'Unrealised', onExchange: 'On the exchange',
-  cold: 'In your own wallet', moveNow: '{a} is on the exchange, over your {t} limit. Move it to your own wallet.', holdingsEmpty: 'No entries yet. Start by logging what you already hold.',
-  pace: 'On plan?', contributed: 'Put in since the start', plannedToDate: 'Planned so far', ahead: '{a} ahead of plan', behind: '{a} behind plan', onPlan: 'Right on plan',
-  pending: 'On plan, with this month still to go', monthsHit: 'Months on target', beforePlan: 'Before the plan', planOpening: 'plan assumed {a}',
-  next: 'Coming up', stepUp: 'Step-up to {a} a month', review: 'Yearly review', lastBackup: 'Last backup', never: 'never', inDays: 'in {n} days', today: 'today',
-  due: 'Due now', nothingDue: 'Nothing due. Stay the course.',
+  valueNow: 'Value now', onExchange: 'On the exchange',
+  cold: 'In your own wallet',
+  never: 'never',
+  due: 'Due now',
   dueBuy: 'Log this month’s contribution: {a} to go.', dueDeploy: 'A reserve trigger fired: deploy about {a}.', dueCold: 'Move {a} from the exchange to your own wallet.',
   dueBackup: 'Download a fresh backup; the last one is over 30 days old.', dueBackupFirst: 'Download your first backup.', dueReview: 'Do the yearly review for year {y}.',
   dueProblems: 'The ledger has {n} entry problem(s) to fix.',
-  units: 'Units', small: 'small units', kind: 'Type', date: 'Date', amount: 'Amount', fee: 'Fee', rate: 'Rate', venue: 'Where', note: 'Note',
+  units: 'Units', kind: 'Type', date: 'Date', amount: 'Amount', fee: 'Fee', rate: 'Rate', venue: 'Where', note: 'Note',
   kind_buy: 'Buy', kind_sell: 'Sell', kind_out: 'To own wallet', kind_in: 'To exchange', kind_res: 'Cash set aside',
   amount_buy: 'Amount paid', amount_sell: 'Amount received', amount_res: 'Amount set aside', currency: 'Currency', fromReserve: 'Paid from the reserve',
-  fromReserveHint: 'Tick when this buy used reserve cash, not this month’s contribution.', tds: 'Tax deducted at source', tdsHint: 'Usually {p} of the sale: about {a}.',
+  tds: 'Tax deducted at source', tdsHint: 'Usually {p} of the sale: about {a}.',
   netFee: 'Network fee (units)', netFeeHint: 'Taken from the amount moved.', venueHint: 'Exchange or wallet', notePh: 'Transaction ID, order number…',
-  rateHint: 'Filled in with today’s rate. Use the rate on the day for older entries.', unitPrice: 'Works out at {b} ({l}) per unit.',
+  rateHint: 'Today’s rate. Change it for older entries.', unitPrice: 'Works out at {b} ({l}) per unit.',
   addEntry: 'Add an entry', editEntry: 'Edit entry', savedEntry: 'Saved.', ledger: 'Entries', showAll: 'Show all {n} months', showLess: 'Show recent months only',
   noEntries: 'Nothing logged yet.', monthTotal: '{a} put in', fromRes: 'reserve', sellGain: 'Gain {g} · est. tax {t}', sellLoss: 'Loss {g} (not deductible)',
   errDate: 'Pick a valid date.', errFuture: 'That date is in the future.', errUnits: 'Enter the units, more than zero.', errAmount: 'Enter the amount, more than zero.',
   errRes: 'Enter an amount (negative to take cash back out).', errRate: 'Enter the exchange rate, more than zero.', errFee: 'The network fee must be less than the amount moved.',
   prob_oversell: 'Sells more than was on the exchange that day', prob_overmove: 'Moves more than was held there that day', prob_reserve: 'Reserve buys add up to more than the cash set aside',
-  problems: 'Problems', bars: 'Monthly contributions', barsNote: 'Bars: what you put in. Line: the plan.', barsLabel: '{m}: {a} put in, plan {b}',
+  problems: 'Problems',
   taxYears: 'Tax years', fy: 'FY {a}–{b}', sold: 'Sold', proceeds: 'Proceeds', costFifo: 'Cost (first in, first out)', gains: 'Taxable gains', estTax: 'Estimated tax',
-  tdsPaid: 'Tax deducted', taxNote: 'Estimate at {t}: each sale is taxed on its own and losses aren’t set off. Set your surcharge band in Notes → Settings.',
-  export: 'Export', csv: 'Download CSV', csvHint: 'Every entry with both currencies, cost basis and estimated tax, for your records or your accountant.',
-  backupTitle: 'Backup', backupHint: 'Records live only in this browser. Download a backup now and then; it restores them on any device.',
+  tdsPaid: 'Tax deducted', taxNote: 'Estimate at {t}; losses aren’t set off. Set your surcharge band in Plan → Settings.',
+  csv: 'Download CSV',
+  backupTitle: 'Backup and export', backupHint: 'Entries live only in this browser; a backup restores them anywhere.',
   lastBackupOn: 'Last backup: {d}', restore: 'Restore from a backup file', restored: 'Restored the backup from {d}.', undone: 'Restore undone.',
   restoreBad: 'That file isn’t a backup from this page.', restoreWrongKey: 'That backup couldn’t be opened.',
   backupDone: 'Backup downloaded. Keep it somewhere safe.', undoFail: 'Nothing to undo.',
   orphan: 'Saved records on this device couldn’t be read, so they were set aside untouched. Restore a backup file to continue.',
   numbers: 'Your numbers', openAmt: 'Starting amount', monthly: 'Monthly amount', step: 'Step-up', every: 'Every (months)', cap: 'Monthly ceiling', capHint: 'Blank for none',
-  years: 'Years', extra: 'Extra each year', targetAmt: 'Target', useHoldings: 'Use today’s holdings ({a})', resetNumbers: 'Back to the plan’s numbers',
-  scale: 'Scale', linear: 'Linear', log: 'Log', paidIn: 'Put in', yourRate: 'Your rate', chartTitle: 'Projected value by year', chartKeys: 'Use the arrow keys to read the values year by year.',
-  asTable: 'Show the numbers', now: 'Now', year: 'Year', scenario: 'Scenario', endValue: 'Value at the end', multiple: 'Multiple', afterTax: 'After tax', crosses: 'Reaches target',
-  never2: 'Not within {n} years', crossNote: 'Assumes nothing new goes in after the plan’s last year.', needRate: 'Growth needed for {t} in {n} years', alone: 'Contributions alone get there',
-  outOfReach: 'Out of reach', needMonthly: 'Starting monthly amount needed', atRate: 'at {r}', levers: 'Levers', lever: 'Change', leverValue: 'Value at {r}', leverPaid: 'You put in',
-  stress: 'Stress test', crashYear: 'Fall in plan year', crashDrop: 'Size of the fall', hold: 'Hold everything', glide: 'Follow the glide path', noCrash: 'No fall', withCrash: 'With the fall',
-  stressNote: 'After-tax values at the end of the plan.', lever_x2: 'Double the monthly amount', lever_cap: 'Stop step-ups at {a} a month', lever_extra: 'Add {a} at each year’s end',
-  lever_years: 'Keep going {n} more years', lever_less: 'Step up {p} instead',
-  schedule: 'Year by year', months: 'Months', perMonth: 'Monthly', yearTotal: 'In that year', soFar: 'Put in so far', valueAt: 'At {r}',
-  zone: 'Zone', distance: 'Below the high', levelToday: 'Price level', split: 'Monthly split', action: 'Reserve', buyAll: 'All in', keep: 'Kept in the asset', moved: 'Moved to safety',
-  planYears: 'Plan years', forYear: 'For plan year {y}', of: 'of',
+  years: 'Years', targetAmt: 'Target', resetNumbers: 'Back to the plan’s numbers',
+  scale: 'Scale', linear: 'Linear', log: 'Log', paidIn: 'Put in', chartTitle: 'Projected value by year', chartKeys: 'Use the arrow keys to read the values year by year.',
+  asTable: 'Show the numbers', now: 'Now', year: 'Year', scenario: 'Scenario', endValue: 'Value at the end', afterTax: 'After tax',
+  never2: 'Not within {n} years', alone: 'Contributions alone get there',
+  outOfReach: 'Out of reach',
+  schedule: 'Year by year', months: 'Months', perMonth: 'Monthly', yearTotal: 'In that year', soFar: 'Put in so far',
+  zone: 'Zone', distance: 'Below the high', levelToday: 'Price level', split: 'Monthly split', action: 'Reserve', buyAll: 'All in',
+  forYear: 'For plan year {y}',
   settings: 'Settings', planSettings: 'Plan numbers', startMonth: 'First month', openUnits: 'Units held at the start', threshold: 'Move to own wallet above',
   reserveMonths: 'Reserve full at (months of contributions)', surcharge: 'Surcharge band', taxNow: 'tax on gains {t}', defaults: 'Back to the plan’s defaults', feed: 'Live price', feedOn: 'Fetch the live price',
-  feedHint: 'Asks a public price service; nothing about you or this plan is sent.', manualPrice: 'Your price', manualRate: 'Your exchange rate', manualHint: 'Used when the live price is off or unavailable.',
-  clear: 'Clear',
-  wallet: 'Cold storage wallet', walletKicker: 'Live from the blockchain', walletLive: 'Live', walletLoading: 'Loading…', walletOffline: 'Offline', walletStale: 'Last known',
+  manualPrice: 'Your price', manualRate: 'Your exchange rate', manualHint: 'Used when the live price is off or unavailable.',
+  wallet: 'Cold storage wallet', walletLive: 'Live', walletLoading: 'Loading…', walletOffline: 'Offline', walletStale: 'Last known',
   walletDown: 'Couldn’t reach the blockchain just now. It tries again every few minutes.',
   walletTxs: '{n} transactions', copyAddress: 'Copy the address {a}', copy: 'Copy', copied: 'Copied ✓', qrLabel: 'QR code for the wallet address',
-  walletMatches: 'Matches the ledger: {u} in your own wallet.',
   walletDiffers: 'The chain shows {c}; the ledger has {l} in your own wallet ({d}). Log any moves to match.',
   onChain: 'On-chain right now: {u} {c} in cold storage.', onChainOk: 'Matches the blockchain',
   migrateTitle: 'Bring over your earlier records', oldPassword: 'Old page password', migrateBtn: 'Bring them over', migrateLater: 'Not now',
@@ -564,7 +510,11 @@ const UI = {
   migrateWrong: "That password didn't open them. Try again.", migrateBroken: "They couldn't be opened here. Try again in a current browser.",
   migrated: 'Brought over {n} earlier entries.',
   restoreOld: 'That backup is from the password-protected version. Bring your earlier records over first, then restore it.',
-  verified: 'Verified', estimate: 'Estimate', checked: 'Checked {d}',
+  nextStep: 'Next step-up: {a} a month from {m}.', onExchangeNow: 'Also {u} {c} on the exchange.',
+  planTitle: 'The plan', glanceMonthly: 'Monthly', stepEvery: '+{p} every {n} months', putInBy: 'Put in by {m}', overYears: 'over {n} years',
+  needFor: 'Growth needed for {t}', aYear: 'a year', costOf: 'cost {a}', byYear: 'In {y}', needLine: 'a year gets you to {t} by {y}.',
+  growth: 'Growth', reaches: 'Reaches {t}', growNote: 'Scenarios, not forecasts. After tax takes {t} of the gain, and “Reaches” assumes nothing new goes in after {y}.',
+  settingsHint: 'Plan numbers, tax band and live price',
 }
 const Words = createContext(UI)
 const useW = () => useContext(Words)
@@ -739,7 +689,7 @@ function Checklist({ b }) {
     return { ...s, ticks }
   })
   return (
-    <section className="sk-card">
+    <section className="sk-card" id={b.id ? `sk-check-${b.id}` : undefined}>
       <Head b={b} extra={<span className={done === items.length && items.length ? 'sk-pill is-good' : 'sk-pill'}>{done} / {items.length}</span>} />
       {per && <p className="sk-sub">{fill(w.forYear, { y: yearNow })}</p>}
       <ul className="sk-checks">
@@ -755,7 +705,6 @@ function Checklist({ b }) {
 }
 
 function Block({ b }) {
-  const w = useW()
   switch (b.type) {
     case 'text':
       return <section className="sk-card"><Head b={b} /><div className="sk-prose"><Paras items={b.body} /><Points items={b.points} /></div></section>
@@ -766,78 +715,19 @@ function Block({ b }) {
           <div className="sk-prose"><Paras items={b.body} /><Points items={b.points} /></div>
         </aside>
       )
-    case 'cards':
+    case 'list':
       return (
         <section className="sk-card">
           <Head b={b} />
-          <div className="sk-cards" data-cols={b.cols || 3}>
+          <ul className="sk-list">
             {list(b.items).map((it, i) => (
-              <article key={i} className="sk-mini-card" data-tone={it.tone}>
-                {it.tag && <p className="sk-tag">{it.tag}</p>}
-                {it.title && <h3>{it.title}</h3>}
-                <div className="sk-prose"><Paras items={it.body} /><Points items={it.points} /></div>
-              </article>
-            ))}
-          </div>
-          {b.note && <p className="sk-note"><Inline text={b.note} /></p>}
-        </section>
-      )
-    case 'table':
-      return (
-        <section className="sk-card">
-          <Head b={b} />
-          <TableWrap label={b.title || w.schedule}>
-            <table className="sk-table">
-              <thead><tr>{list(b.head).map((h, i) => <th key={i} scope="col">{h}</th>)}</tr></thead>
-              <tbody>{list(b.rows).map((r, i) => <tr key={i}>{list(r).map((c, j) => (j === 0 ? <th key={j} scope="row"><Inline text={c} /></th> : <td key={j}><Inline text={c} /></td>))}</tr>)}</tbody>
-            </table>
-          </TableWrap>
-          {b.note && <p className="sk-note"><Inline text={b.note} /></p>}
-        </section>
-      )
-    case 'steps':
-      return (
-        <section className="sk-card">
-          <Head b={b} />
-          <ol className="sk-steps">
-            {list(b.items).map((it, i) => (
-              <li key={i}>
-                {it.when && <p className="sk-when">{it.when}</p>}
-                {it.title && <h3>{it.title}</h3>}
-                <div className="sk-prose"><Paras items={it.body} /><Points items={it.points} /></div>
-              </li>
-            ))}
-          </ol>
-        </section>
-      )
-    case 'checklist':
-      return <Checklist b={b} />
-    case 'facts':
-      return (
-        <section className="sk-card">
-          <Head b={b} />
-          <dl className="sk-facts">
-            {list(b.items).map((it, i) => (
-              <div key={i}>
-                <dt>{it.k}{it.tag && <span className={`sk-chip is-${it.tag}`}>{w[it.tag] || it.tag}</span>}</dt>
-                <dd><Inline text={it.v} />{it.src && <> <a href={it.src} target="_blank" rel="noopener noreferrer" className="sk-src">{it.srcLabel || 'Source'}</a></>}</dd>
-              </div>
-            ))}
-          </dl>
-          {b.asOf && <p className="sk-note">{fill(w.checked, { d: fmtDate(b.asOf) })}</p>}
-        </section>
-      )
-    case 'sources':
-      return (
-        <section className="sk-card">
-          <Head b={b} />
-          <ul className="sk-sources">
-            {list(b.items).map((it, i) => (
-              <li key={i}><a href={it.url} target="_blank" rel="noopener noreferrer">{it.label}</a>{it.note && <span><Inline text={it.note} /></span>}</li>
+              <li key={i} data-tone={it.tone}>{it.tag && <span className="sk-tag">{it.tag}</span>}<span><Inline text={it.text} /></span></li>
             ))}
           </ul>
         </section>
       )
+    case 'checklist':
+      return <Checklist b={b} />
     default: {
       const Live = LIVE_BLOCKS[b.type]
       return Live ? <Live b={b} /> : null
@@ -976,47 +866,6 @@ function LineChart({ series, labels, target, targetLabel, fmt, title, log }) {
   )
 }
 
-// Monthly bars (what went in) against a stepped line (the plan).
-function MonthBars({ rows, fmt, label }) {
-  const w = useW()
-  const box = useRef(null)
-  const W = useWidth(box)
-  const H = 190
-  const padL = 56
-  const padR = 8
-  const padT = 10
-  const padB = 26
-  const iw = Math.max(20, W - padL - padR)
-  const ih = H - padT - padB
-  const ticks = niceTicks(Math.max(1, ...rows.map((r) => Math.max(r.got, r.plan))) * 1.08, 4)
-  const hi = ticks[ticks.length - 1]
-  const bw = iw / Math.max(1, rows.length)
-  const y = (v) => padT + (1 - Math.max(0, v) / hi) * ih
-  const plan = rows.map((r, i) => `${i ? 'L' : 'M'}${(padL + i * bw).toFixed(1)},${y(r.plan).toFixed(1)}H${(padL + (i + 1) * bw).toFixed(1)}`).join('')
-  return (
-    <div className="sk-chart" ref={box}>
-      <svg width={W} height={H} role="img" aria-label={label}>
-        {ticks.map((t) => (
-          <g key={t}>
-            <line x1={padL} x2={W - padR} y1={y(t)} y2={y(t)} className="sk-gridline" />
-            <text x={padL - 8} y={y(t)} className="sk-axis" textAnchor="end" dominantBaseline="middle">{fmt(t, true)}</text>
-          </g>
-        ))}
-        {rows.map((r, i) => (
-          <g key={r.ym}>
-            <rect x={padL + i * bw + (bw - Math.min(bw * 0.64, 44)) / 2} y={y(r.got)} width={Math.min(bw * 0.64, 44)} height={Math.max(0, H - padB - y(r.got))} rx={4}
-              className={r.got >= r.plan - 0.5 && r.plan > 0 ? 'sk-barfill is-hit' : 'sk-barfill'}>
-              <title>{fill(w.barsLabel, { m: fmtYm(r.ym, 'long'), a: fmt(r.got), b: fmt(r.plan) })}</title>
-            </rect>
-            <text x={padL + (i + 0.5) * bw} y={H - 8} className="sk-axis" textAnchor="middle">{fmtYm(r.ym, 'short').slice(0, 3)}</text>
-          </g>
-        ))}
-        <path d={plan} className="sk-planline" />
-      </svg>
-    </div>
-  )
-}
-
 // ── Price ────────────────────────────────────────────────────────────────
 // Fetches the plan's public price feed; refreshes while the tab is visible. Nothing about the plan or the visitor is sent.
 function useQuote(feed, enabled) {
@@ -1108,10 +957,10 @@ function dueItems({ data, st, p, bk, qt, zone, today, w }) {
   const review = reviewOf(data)
   if (review && k >= 12 && k < K + 2 && k % 12 <= 1) {
     const y = Math.min(p.years, Math.floor(k / 12) + 1)
-    if (list(review.items).some((it) => !st.ticks[`${review.id}:${y}:${it.id}`])) out.push({ id: 'review', text: fill(w.dueReview, { y }), view: 'rules' })
+    if (list(review.items).some((it) => !st.ticks[`${review.id}:${y}:${it.id}`])) out.push({ id: 'review', text: fill(w.dueReview, { y }), view: 'plan', opts: { section: 'review' } })
   }
   if (bk.count && (!st.backupAt || Date.now() - st.backupAt > 30 * DAY_MS)) {
-    out.push({ id: 'backup', text: st.backupAt ? w.dueBackup : w.dueBackupFirst, view: 'notes', opts: { section: 'backup' } })
+    out.push({ id: 'backup', text: st.backupAt ? w.dueBackup : w.dueBackupFirst, view: 'log', opts: { section: 'backup' } })
   }
   return out
 }
@@ -1139,90 +988,6 @@ function useCountUp(value, ms = 900) {
     return () => cancelAnimationFrame(raf)
   }, [value, ms])
   return shown
-}
-
-function Ring({ value, max, size = 136, stroke = 12, label, children }) {
-  const gid = svgId(useId())
-  const r = (size - stroke) / 2
-  const c = 2 * Math.PI * r
-  const f = max > 0 ? clamp(value / max, 0, 1) : 0
-  const mid = size / 2
-  return (
-    <div className="sk-ring" style={{ width: size, height: size }} role="progressbar" aria-label={label}
-      aria-valuemin={0} aria-valuemax={Number(num(max).toFixed(2))} aria-valuenow={Number(clamp(num(value), 0, num(max)).toFixed(2))}>
-      <svg viewBox={`0 0 ${size} ${size}`} aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" style={{ stopColor: 'var(--sk-gold)' }} /><stop offset="1" style={{ stopColor: 'var(--sk-accent)' }} />
-          </linearGradient>
-        </defs>
-        <circle cx={mid} cy={mid} r={r} className="sk-ring-bg" strokeWidth={stroke} />
-        <circle cx={mid} cy={mid} r={r} className={f >= 0.999 ? 'sk-ring-fg is-done' : 'sk-ring-fg'} strokeWidth={stroke}
-          stroke={f >= 0.999 ? undefined : `url(#${gid})`} strokeDasharray={c} strokeDashoffset={c * (1 - f)} transform={`rotate(-90 ${mid} ${mid})`} />
-      </svg>
-      <div className="sk-ring-label">{children}</div>
-    </div>
-  )
-}
-
-function Donut({ parts, size = 116, stroke = 14, label, children }) {
-  const r = (size - stroke) / 2
-  const c = 2 * Math.PI * r
-  const mid = size / 2
-  const total = parts.reduce((s, x) => s + Math.max(0, x.v), 0)
-  let acc = 0
-  return (
-    <div className="sk-ring sk-donut" style={{ width: size, height: size }} role="img" aria-label={label}>
-      <svg viewBox={`0 0 ${size} ${size}`} aria-hidden="true" focusable="false">
-        <circle cx={mid} cy={mid} r={r} className="sk-ring-bg" strokeWidth={stroke} />
-        {total > 0 && parts.map((x, i) => {
-          const len = (Math.max(0, x.v) / total) * c
-          const el = <circle key={i} cx={mid} cy={mid} r={r} data-part={x.tone} strokeWidth={stroke} strokeDasharray={`${len} ${c - len}`} strokeDashoffset={-acc} transform={`rotate(-90 ${mid} ${mid})`} />
-          acc += len
-          return el
-        })}
-      </svg>
-      <div className="sk-ring-label">{children}</div>
-    </div>
-  )
-}
-
-// One coin for the starting stack at the bottom, then one per plan year:
-// years behind you are gold, the current one glows, the rest wait.
-function CoinStack({ years, done, part, base, label }) {
-  const gid = svgId(useId())
-  const W = 132
-  const rx = 50
-  const ry = 14
-  const t = 8
-  const gap = 8.5
-  const n = years + 1
-  const H = Math.ceil(ry * 2 + t + (n - 1) * gap + 6)
-  const cx = W / 2
-  return (
-    <svg className="sk-coins" viewBox={`0 0 ${W} ${H}`} width={W} height={H} role="img" aria-label={label}>
-      <defs>
-        <linearGradient id={`${gid}s`} x1="0" x2="1">
-          <stop offset="0" style={{ stopColor: '#8f4a08' }} /><stop offset=".5" style={{ stopColor: '#f39a2c' }} /><stop offset="1" style={{ stopColor: '#9b5209' }} />
-        </linearGradient>
-        <radialGradient id={`${gid}f`} cx=".38" cy=".3" r=".9">
-          <stop offset="0" style={{ stopColor: '#ffe0a3' }} /><stop offset=".5" style={{ stopColor: '#fbab43' }} /><stop offset="1" style={{ stopColor: '#e3820f' }} />
-        </radialGradient>
-      </defs>
-      {Array.from({ length: n }, (_, i) => {
-        const y = H - ry - t - 3 - i * gap
-        const state = i === 0 ? (base ? 'full' : 'empty') : i <= done ? 'full' : i === done + 1 && part > 0 ? 'part' : 'empty'
-        const lit = state !== 'empty'
-        return (
-          <g key={i} className={`sk-coin is-${state}`} style={{ '--i': i, '--part': state === 'part' ? 0.35 + 0.65 * part : undefined }}>
-            <path d={`M${cx - rx},${y}v${t}a${rx},${ry} 0 0 0 ${2 * rx},0v${-t}z`} className="sk-coin-side" fill={lit ? `url(#${gid}s)` : undefined} />
-            <ellipse cx={cx} cy={y} rx={rx} ry={ry} className="sk-coin-face" fill={lit ? `url(#${gid}f)` : undefined} />
-            <ellipse cx={cx} cy={y} rx={rx - 9} ry={ry - 4} className="sk-coin-rim" />
-          </g>
-        )
-      })}
-    </svg>
-  )
 }
 
 // Dec start → Nov end: phases, halvings and where today sits.
@@ -1256,24 +1021,6 @@ function Journey() {
         {phases.map((ph) => (
           <span key={ph.id} data-phase={ph.i} style={{ left: `${ph.a * 100}%`, width: `${(ph.b - ph.a) * 100}%` }}><b>{ph.name}</b><small>{ph.y0}–{ph.y1}</small></span>
         ))}
-      </div>
-    </div>
-  )
-}
-
-// Distance from the high as coloured bands, one per buying rule.
-function ZoneBar({ ladder, dd, zone }) {
-  const w = useW()
-  const max = 0.9
-  const segs = ladder.map((r, i) => ({ i, a: num(r.from), b: i + 1 < ladder.length ? num(ladder[i + 1].from) : max }))
-  return (
-    <div className="sk-zones" role="img" aria-label={`${pct(dd)} ${w.fromHigh.toLowerCase()}: ${ladder[zone]?.label || ''}`}>
-      <div className="sk-zones-bar">
-        {segs.map((s) => <span key={s.i} data-zone={s.i} className={s.i === zone ? 'is-on' : undefined} style={{ width: `${((s.b - s.a) / max) * 100}%` }} />)}
-        <i className="sk-zones-marker" style={{ left: `${clamp(dd / max, 0, 1) * 100}%` }} />
-      </div>
-      <div className="sk-zones-scale" aria-hidden="true">
-        {segs.map((s) => <span key={s.i} style={{ left: `${(s.a / max) * 100}%` }}>{s.a ? `−${pct(s.a, 0)}` : w.high}</span>)}
       </div>
     </div>
   )
@@ -1354,8 +1101,6 @@ const NAV_ICONS = {
   plan: 'M3.5 6.5l5.5-2 6 2 5.5-2v13l-5.5 2-6-2-5.5 2zM9 4.5v13M15 6.5v13',
   grow: 'M4 19.5h16M6 15.5l4-5 3.5 3 5.5-7.5M15 6h4v4',
   log: 'M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01',
-  rules: 'M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6zM9 12l2 2 4-4',
-  notes: 'M12 7.5h.01M11 11h1v5.5h1M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z',
 }
 
 // ── This month ───────────────────────────────────────────────────────────
@@ -1370,9 +1115,6 @@ function StackStrip() {
   const w = useW()
   const unit = data.meta.unit || {}
   const k = monthIndex(p, today)
-  const K = p.years * 12
-  const done = clamp(Math.floor(Math.max(0, k) / 12), 0, p.years)
-  const part = k < 0 || k >= K ? 0 : ((k % 12) + 1) / 12
   const value = bk.units * qt.price
   const gain = value - bk.basisB
   const units = useCountUp(bk.units)
@@ -1381,26 +1123,19 @@ function StackStrip() {
   const chainOk = chain && Math.abs(wallet.units - bk.cold) < 5e-9
   return (
     <section className="sk-stackstrip" aria-label={w.yourStack}>
-      <CoinStack years={p.years} done={done} part={part} base={bk.units > EPS} label={fill(w.coinsLabel, { a: done, b: p.years })} />
-      <div className="sk-stack-body">
+      <div className="sk-stack-top">
         <p className="sk-kicker">{w.yourStack}</p>
-        <p className="sk-stack-units"><b>{qty(units, unit.dp ?? 8)}</b><span>{unit.code}</span></p>
-        {unit.per ? <p className="sk-stack-sats">{qty(Math.round(bk.units * unit.per), 0)} {unit.small || w.small}</p> : null}
-        <dl className="sk-stack-metrics">
-          <div><dt>{w.valueNow}</dt><dd>{B(shown)}<small>{L(bk.units * qt.local)}</small></dd></div>
-          <div><dt>{w.putIn}</dt><dd>{B(bk.putIn)}<small>{fill(w.plannedSoFar, { a: B(plannedTo(p, k, bk)) })}</small></dd></div>
-          <div><dt>{w.avgShort}</dt><dd>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}<small>{bk.units > EPS ? L(bk.basisL / bk.units) : ''}</small></dd></div>
-          <div><dt>{w.gainLoss}</dt><dd className={gain >= 0 ? 'is-up' : 'is-down'}>{signed(gain, base)}<small>{bk.basisB > 0 ? pct(gain / bk.basisB) : '—'}</small></dd></div>
-          <div><dt>{w.toTarget}</dt><dd>{pct(p.target > 0 ? value / p.target : 0, 2)}<small>{fill(w.ofTarget, { a: B(p.target, { compact: true }) })}</small></dd></div>
-        </dl>
-        {bk.open && (
-          <p className="sk-stack-note">
-            {fill(w.includesStart, { u: qty(bk.open.u, unit.dp ?? 8), c: unit.code || '' })}
-            {chainOk && <> <span className="sk-chain-ok"><i aria-hidden="true">✓</i>{w.onChainOk}</span></>}
-          </p>
-        )}
-        {chain && !chainOk && <p className="sk-stack-note">{fill(w.onChain, { u: qty(wallet.units, 8), c: unit.code || '' })}</p>}
+        {chainOk && <span className="sk-chain-ok"><i aria-hidden="true">✓</i>{w.onChainOk}</span>}
       </div>
+      <p className="sk-stack-units"><b>{qty(units, unit.dp ?? 8)}</b><span>{unit.code}</span></p>
+      <dl className="sk-stack-metrics">
+        <div><dt>{w.valueNow}</dt><dd>{B(shown)}<small>{L(bk.units * qt.local)}</small></dd></div>
+        <div><dt>{w.putIn}</dt><dd>{B(bk.putIn)}<small>{fill(w.plannedSoFar, { a: B(plannedTo(p, k, bk)) })}</small></dd></div>
+        <div><dt>{w.avgShort}</dt><dd>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}<small>{bk.units > EPS ? L(bk.basisL / bk.units) : ''}</small></dd></div>
+        <div><dt>{w.gainLoss}</dt><dd className={gain >= 0 ? 'is-up' : 'is-down'}>{signed(gain, base)}<small>{bk.basisB > 0 ? `${gain < 0 ? '−' : '+'}${pct(Math.abs(gain) / bk.basisB)}` : '—'}</small></dd></div>
+        <div><dt>{w.toTarget}</dt><dd>{pct(p.target > 0 ? value / p.target : 0, 2)}<small>{fill(w.ofTarget, { a: B(p.target, { compact: true }) })}</small></dd></div>
+      </dl>
+      {chain && !chainOk && <p className="sk-stack-note">{fill(w.onChain, { u: qty(wallet.units, 8), c: unit.code || '' })}</p>}
     </section>
   )
 }
@@ -1427,12 +1162,11 @@ function PriceCard() {
         )}
       </div>
       <p className="sk-price-big">{B(price)}</p>
-      <p className="sk-price-local">{L(qt.local)}<span> · {fill(w.fxLine, { r: L(qt.fx, { cents: true }), b: `${data.meta.cur.base.sym}1` })}</span></p>
+      <p className="sk-price-local">{L(qt.local)}</p>
       {hist.length > 2 && (
         <PriceSpark points={hist} price={qt.price} high={qt.high} levels={levels} fmt={short}
           label={fill(w.sparkLabel, { a: B(hist[0][1]), b: B(qt.price), h: B(qt.high) })} />
       )}
-      <ZoneBar ladder={ladder} dd={qt.dd} zone={zone} />
       <div className="sk-price-zone">
         <span className="sk-zone-chip" data-zone={zone}>{row.label}</span>
         <span className="sk-price-dd"><b>−{pct(qt.dd)}</b> <small>{fill(w.highLine, { p: B(qt.high), d: fmtDate(qt.highAt) })}</small></span>
@@ -1446,7 +1180,7 @@ function PriceCard() {
 }
 
 function MonthCard() {
-  const { data, p, bk, qt, zone, today, go, B, L } = useT()
+  const { data, p, bk, qt, zone, today, go, due, B, L } = useT()
   const w = useW()
   const ym = ymOf(today)
   const k = monthIndex(p, today)
@@ -1454,56 +1188,45 @@ function MonthCard() {
   const ladder = list(data.plan.ladder)
   const row = ladder[zone] || {}
   if (k >= K) {
-    return <section className="sk-card sk-span-all"><Head b={{ title: w.thisMonth }} /><p className="sk-lead">{fill(w.planDone, { m: fmtYm(ymAdd(p.start, K - 1), 'long') })}</p></section>
+    return <section className="sk-card sk-month"><Head b={{ title: w.thisMonth }} /><p className="sk-lead">{fill(w.planDone, { m: fmtYm(ymAdd(p.start, K - 1), 'long') })}</p></section>
   }
   const target = monthlyAt(p, Math.max(0, k))
   const split = splitFor(p, ladder, zone, bk.reserve, target)
   const m = bk.months[ym] || {}
   const got = k >= 0 ? (m.core || 0) + (m.res || 0) : 0
-  const stepped = k > 0 && monthlyAt(p, k - 1) < target - 0.005
-  const kicker = k < 0 ? fill(w.startsOn, { m: fmtYm(p.start, 'long') })
-    : `${fmtYm(ym, 'long')} · ${fill(w.monthOf, { k: k + 1, K })}, ${fill(w.yearOf, { y: Math.floor(k / 12) + 1, Y: p.years })}`
+  const done = k >= 0 && got >= target - 0.5
+  const kicker = k < 0 ? fill(w.firstMonthOn, { m: fmtYm(p.start, 'long') }) : `${fmtYm(ym, 'long')} · ${fill(w.monthOf, { k: k + 1, K })}`
+  const weekly = fill(w.weekly, { a: B((split.core * 12) / 52) })
+  const nextAt = k < 0 ? p.every : (Math.floor(k / p.every) + 1) * p.every
+  const next = nextAt < K && monthlyAt(p, nextAt) > target + 0.005 ? { a: B(monthlyAt(p, nextAt)), m: fmtYm(ymAdd(p.start, nextAt), 'long') } : null
+  const todo = due.filter((d) => d.id !== 'buy')
   return (
-    <section className="sk-card sk-span-all sk-month">
+    <section className="sk-card sk-month">
       <Head b={{ kicker, title: w.thisMonth }} extra={<span className="sk-zone-chip" data-zone={zone}>{row.label}</span>} />
-      <div className="sk-month-body">
-        <Ring value={got} max={target} label={w.thisMonth}>
-          {k >= 0 ? <><b>{pct(target ? Math.min(1, got / target) : 0, 0)}</b><small>{w.logged}</small></> : <><b>{fmtYm(p.start).split(' ')[0]}</b><small>{w.firstMonth}</small></>}
-        </Ring>
-        <div className="sk-month-main">
-          <div className="sk-month-target"><span>{w.target}</span><b>{B(target)}</b><small>≈ {L(target * qt.fx)}</small></div>
-          <div className="sk-splitbar" aria-hidden="true">
-            <span className="is-core" style={{ flexGrow: Math.max(split.core, 0.001) }} />
-            {split.res > 0 && <span className="is-res" style={{ flexGrow: split.res }} />}
-          </div>
-          <dl className="sk-month-split">
-            <div><dt><i className="is-core" aria-hidden="true" />{w.core}</dt><dd>{B(split.core)}</dd><dd><small>{fill(w.weekly, { a: B((split.core * 12) / 52) })}</small></dd></div>
-            <div><dt><i className="is-res" aria-hidden="true" />{w.toReserve}</dt><dd>{B(split.res)}</dd><dd><small>{split.capped ? fill(w.capped, { cap: B(split.cap) }) : pct(target ? split.res / target : 0, 0)}</small></dd></div>
-          </dl>
-          {k >= 0 && <p className="sk-progress-line">{got >= target - 0.5 ? w.monthDone : `${fill(w.loggedOf, { a: B(got), b: B(target) })} · ${fill(w.leftToGo, { a: B(target - got) })}`}</p>}
+      <p className="sk-month-target"><b>{B(target)}</b><small>≈ {L(target * qt.fx)}{split.res > 0 ? '' : ` · ${weekly}`}</small></p>
+      {k >= 0 && (
+        <div className="sk-month-progress">
+          <Bar value={got} max={target} tone={done ? 'good' : undefined} label={w.thisMonth} />
+          <p className="sk-progress-line">{done ? w.monthDone : `${fill(w.loggedOf, { a: B(got), b: B(target) })} · ${fill(w.leftToGo, { a: B(target - got) })}`}</p>
         </div>
-      </div>
-      {stepped && <p className="sk-note">{fill(w.steppedUp, { a: B(monthlyAt(p, k - 1)) })}</p>}
-      {row.note && <p className="sk-zone-note"><Inline text={row.note} /></p>}
+      )}
+      {split.res > 0 && (
+        <dl className="sk-month-split">
+          <div><dt><i className="is-core" aria-hidden="true" />{w.core}</dt><dd>{B(split.core)} <small>{weekly}</small></dd></div>
+          <div><dt><i className="is-res" aria-hidden="true" />{w.toReserve}</dt><dd>{B(split.res)}</dd></div>
+        </dl>
+      )}
+      {row.note && <p className="sk-zone-note" data-zone={zone}><Inline text={row.note} /></p>}
+      {todo.length > 0 && (
+        <ul className="sk-due">
+          {todo.map((d) => <li key={d.id} data-kind={d.id}><span>{d.text}</span><button type="button" className="sk-mini" onClick={() => go(d.view, d.opts)}>{w.open}</button></li>)}
+        </ul>
+      )}
       <div className="sk-actions">
         <button type="button" className="sk-primary" onClick={() => go('log', { add: 'buy' })}>{w.logBuy}</button>
         {split.res > 0 && <button type="button" className="sk-secondary" onClick={() => go('log', { add: 'res' })}>{w.logReserve}</button>}
       </div>
-    </section>
-  )
-}
-
-function DueCard() {
-  const { due, go } = useT()
-  const w = useW()
-  return (
-    <section className="sk-card sk-due-card">
-      <Head b={{ title: w.due }} extra={due.length ? <span className="sk-pill is-warn">{due.length}</span> : <span className="sk-pill is-good">✓</span>} />
-      {due.length ? (
-        <ul className="sk-due">
-          {due.map((d) => <li key={d.id} data-kind={d.id}><span>{d.text}</span><button type="button" className="sk-mini" onClick={() => go(d.view, d.opts)}>{w.open}</button></li>)}
-        </ul>
-      ) : <p className="sk-sub">{w.nothingDue}</p>}
+      {next && <p className="sk-note">{fill(w.nextStep, next)}</p>}
     </section>
   )
 }
@@ -1516,6 +1239,7 @@ function ReserveCard() {
   const monthly = monthlyAt(p, clamp(monthIndex(p, today), 0, p.years * 12 - 1))
   const cap = p.capMonths * monthly
   const dep = deployPlan(ladder, zone, bk.reserve, used)
+  if (bk.reserve <= 0.5 && dep.total < 1 && splitFor(p, ladder, zone, bk.reserve, monthly).res <= 0) return null
   const mark = (i, on) => update((s) => {
     const c = s.cycle || { high: qt.high, at: qt.highAt, used: {} }
     const u = { ...(c.used || {}) }
@@ -1551,132 +1275,12 @@ function ReserveCard() {
   )
 }
 
-function HoldingsCard() {
-  const { data, p, bk, qt, go, B, L, base } = useT()
-  const w = useW()
-  const unit = data.meta.unit || {}
-  if (!bk.has) {
-    return (
-      <section className="sk-card">
-        <Head b={{ title: w.holdings }} />
-        <p className="sk-sub">{w.holdingsEmpty}</p>
-        <div className="sk-actions"><button type="button" className="sk-primary" onClick={() => go('log', { add: 'buy' })}>{w.logBuy}</button></div>
-      </section>
-    )
-  }
-  const value = bk.units * qt.price
-  const pl = value - bk.basisB
-  const exchV = bk.exch * qt.price
-  return (
-    <section className="sk-card">
-      <Head b={{ title: w.holdings }} />
-      <div className="sk-hold">
-        <Donut parts={[{ v: bk.exch, tone: 'exch' }, { v: bk.cold, tone: 'cold' }]} label={`${w.onExchange} ${qty(bk.exch, 8)}, ${w.cold} ${qty(bk.cold, 8)}`}>
-          <b>{bk.units > EPS ? pct(bk.cold / bk.units, 0) : '—'}</b><small>{w.selfHeld}</small>
-        </Donut>
-        <div className="sk-hold-main">
-          <p className="sk-units"><b>{qty(bk.units, unit.dp ?? 8)}</b> {unit.code}</p>
-          <ul className="sk-legend is-tight">
-            <li data-part="exch"><i aria-hidden="true" />{w.onExchange} <b>{qty(bk.exch, 8)}</b></li>
-            <li data-part="cold"><i aria-hidden="true" />{w.cold} <b>{qty(bk.cold, 8)}</b></li>
-          </ul>
-        </div>
-      </div>
-      <dl className="sk-dl">
-        <div><dt>{w.valueNow}</dt><dd>{B(value)} <small>{L(bk.units * qt.local)}</small></dd></div>
-        <div><dt>{w.basis}</dt><dd>{B(bk.basisB)} <small>{L(bk.basisL)}</small></dd></div>
-        <div><dt>{w.unrealised}</dt><dd className={pl >= 0 ? 'is-up' : 'is-down'}>{signed(pl, base)} <small>{bk.basisB > 0 ? pct(pl / bk.basisB) : ''}</small></dd></div>
-        <div><dt>{w.avgCost}</dt><dd>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}</dd></div>
-      </dl>
-      {bk.open && (
-        <p className="sk-note">
-          {fill(w.includesStart, { u: qty(bk.open.u, unit.dp ?? 8), c: unit.code || '' })}
-          {p.onChain ? ` ${p.costSet ? w.costEntered : fill(w.costEstimated, { n: bk.open.lots.length })}` : ''}
-        </p>
-      )}
-      {p.threshold > 0 && exchV >= p.threshold && <p className="sk-callout-line">{fill(w.moveNow, { a: B(exchV), t: B(p.threshold) })}</p>}
-      {w.valueNote && <p className="sk-note"><Inline text={w.valueNote} /></p>}
-    </section>
-  )
-}
-
-function PaceCard() {
-  const { data, p, bk, today, B } = useT()
-  const w = useW()
-  const unit = data.meta.unit || {}
-  const k = monthIndex(p, today)
-  const K = p.years * 12
-  const past = clamp(k, 0, K)
-  const floor = before(bk) + (past > 0 ? plannedThrough(p, past - 1) : 0)
-  const goal = plannedTo(p, k, bk)
-  let hit = 0
-  for (let i = 0; i < past; i++) {
-    const m = bk.months[ymAdd(p.start, i)] || {}
-    if ((m.core || 0) + (m.res || 0) >= monthlyAt(p, i) - 0.5) hit += 1
-  }
-  const put = bk.putIn
-  let tone = 'good'
-  let status = w.onPlan
-  if (put > goal + 0.5) status = fill(w.ahead, { a: B(put - goal) })
-  else if (put < floor - 0.5) { tone = 'warn'; status = fill(w.behind, { a: B(floor - put) }) } else if (put < goal - 0.5) { tone = 'accent'; status = w.pending }
-  return (
-    <section className="sk-card">
-      <Head b={{ title: w.pace }} />
-      <p className={`sk-pace is-${tone}`}>{status}</p>
-      <div className="sk-pacebar">
-        <Bar value={put} max={Math.max(goal, put) || 1} tone={tone} label={w.pace} />
-        <i style={{ left: `${(goal / (Math.max(goal, put) || 1)) * 100}%` }} aria-hidden="true" />
-      </div>
-      <dl className="sk-dl">
-        <div><dt>{w.totalPutIn}</dt><dd>{B(put)}</dd></div>
-        <div><dt>{w.plannedToDate}</dt><dd>{B(goal)}</dd></div>
-        <div><dt>{w.startStack}</dt><dd>{bk.open ? `${qty(bk.open.u, unit.dp ?? 8)} ${unit.code || ''} · ${B(bk.open.b)}` : '—'}</dd></div>
-        <div><dt>{w.loggedSince}</dt><dd>{B(bk.contrib)} <small>{fill(w.monthsOnTarget, { a: hit, b: past })}</small></dd></div>
-      </dl>
-    </section>
-  )
-}
-
-function ComingCard() {
-  const { data, p, st, today, B } = useT()
-  const w = useW()
-  const k = monthIndex(p, today)
-  const K = p.years * 12
-  const rows = []
-  const nextStep = k < 0 ? p.every : (Math.floor(k / p.every) + 1) * p.every
-  if (nextStep < K && monthlyAt(p, nextStep) > monthlyAt(p, nextStep - 1) + 0.005) {
-    rows.push({ kind: 'step', when: fmtYm(ymAdd(p.start, nextStep), 'long'), what: fill(w.stepUp, { a: B(monthlyAt(p, nextStep)) }) })
-  }
-  const nextReview = Math.max(12, (Math.floor(Math.max(k, 0) / 12) + 1) * 12)
-  if (nextReview < K) rows.push({ kind: 'review', when: fmtYm(ymAdd(p.start, nextReview), 'long'), what: w.review })
-  list(data.plan.events).filter((e) => isIso(e.d) && e.d >= today).sort((a, b) => (a.d < b.d ? -1 : 1)).slice(0, 2).forEach((e) => {
-    rows.push({ kind: 'event', when: e.approx ? fmtYm(ymOf(e.d), 'long') : fmtDate(e.d), what: e.label, n: daysBetween(today, e.d), approx: e.approx })
-  })
-  rows.push({ kind: 'backup', when: w.lastBackup, what: st.backupAt ? fmtDate(localIso(new Date(st.backupAt))) : w.never })
-  return (
-    <section className="sk-card">
-      <Head b={{ title: w.next }} />
-      <ul className="sk-next">
-        {rows.map((r, i) => (
-          <li key={i} data-kind={r.kind}><span>{r.when}</span><b>{r.what}</b>{r.n !== undefined && <small>{r.n === 0 ? w.today : `${r.approx ? '~' : ''}${fill(w.inDays, { n: r.n })}`}</small>}</li>
-        ))}
-      </ul>
-    </section>
-  )
-}
-
 function TodayView() {
-  const { data } = useT()
   return (
     <div className="sk-grid">
       <MonthCard />
-      <DueCard />
-      <ReserveCard />
-      <HoldingsCard />
       <WalletCard />
-      <PaceCard />
-      <ComingCard />
-      {list(data.sections?.today).length > 0 && <div className="sk-span-all sk-stack"><Blocks items={data.sections.today} /></div>}
+      <ReserveCard />
     </div>
   )
 }
@@ -1685,19 +1289,17 @@ function TodayView() {
 const planArgs = (p) => ({ open: p.openBase, monthly: p.monthly, step: p.step, every: p.every, cap: p.cap, years: p.years })
 
 function ScheduleTable({ b }) {
-  const { data, p, today, qt, B, L } = useT()
+  const { p, bk, today, B } = useT()
   const w = useW()
-  const scen = list(data.plan.scenarios)
-  const paths = scen.map((s) => simulate({ ...planArgs(p), rate: num(s.rate) }))
   const k = monthIndex(p, today)
   const cur = k >= 0 && k < p.years * 12 ? Math.floor(k / 12) + 1 : 0
-  let cum = p.openBase
+  let cum = before(bk)
   const rows = []
   for (let y = 1; y <= p.years; y++) {
     const ms = Array.from({ length: 12 }, (_, i) => monthlyAt(p, (y - 1) * 12 + i))
     const total = ms.reduce((s, v) => s + v, 0)
     cum += total
-    rows.push({ y, from: ymAdd(p.start, (y - 1) * 12), to: ymAdd(p.start, y * 12 - 1), lo: ms[0], hi: ms[11], total, cum, vals: paths.map((pt) => pt[y].v) })
+    rows.push({ y, from: ymAdd(p.start, (y - 1) * 12), to: ymAdd(p.start, y * 12 - 1), lo: ms[0], hi: ms[11], total, cum })
   }
   return (
     <section className="sk-card">
@@ -1705,23 +1307,16 @@ function ScheduleTable({ b }) {
       <TableWrap label={b.title || w.schedule}>
         <table className="sk-table is-num">
           <thead>
-            <tr>
-              <th scope="col">{w.year}</th><th scope="col">{w.months}</th><th scope="col">{w.perMonth}</th><th scope="col">{w.yearTotal}</th><th scope="col">{w.soFar}</th>
-              {scen.map((s) => <th key={s.id} scope="col">{fill(w.valueAt, { r: pct(num(s.rate), 0) })}</th>)}
-            </tr>
+            <tr><th scope="col">{w.year}</th><th scope="col">{w.months}</th><th scope="col">{w.perMonth}</th><th scope="col">{w.yearTotal}</th><th scope="col">{w.soFar}</th></tr>
           </thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.y} className={r.y === cur ? 'is-now' : undefined} aria-current={r.y === cur ? 'true' : undefined}>
                 <th scope="row">{r.y}</th>
                 <td>{fmtYm(r.from)} – {fmtYm(r.to)}</td>
-                <td>
-                  {Math.abs(r.hi - r.lo) < 0.5 ? B(r.lo) : `${B(r.lo)} → ${B(r.hi)}`}
-                  <small>≈ {L(r.lo * qt.fx, { compact: true })}{Math.abs(r.hi - r.lo) < 0.5 ? '' : ` → ${L(r.hi * qt.fx, { compact: true })}`}</small>
-                </td>
+                <td>{Math.abs(r.hi - r.lo) < 0.5 ? B(r.lo) : `${B(r.lo)} → ${B(r.hi)}`}</td>
                 <td>{B(r.total)}</td>
                 <td>{B(r.cum)}</td>
-                {r.vals.map((v, i) => <td key={i}>{B(v, { compact: true })}</td>)}
               </tr>
             ))}
           </tbody>
@@ -1764,100 +1359,38 @@ function LadderTable({ b }) {
   )
 }
 
-function GlideTable({ b }) {
-  const { data, p } = useT()
-  const w = useW()
-  const g = list(data.plan.glide)
-  return (
-    <section className="sk-card">
-      <Head b={{ kicker: b.kicker, title: b.title || w.glide, intro: b.intro }} />
-      <TableWrap label={b.title || w.glide}>
-        <table className="sk-table is-num">
-          <thead><tr><th scope="col">{w.year}</th><th scope="col">{w.months}</th><th scope="col">{w.keep}</th><th scope="col">{w.moved}</th></tr></thead>
-          <tbody>
-            {g.map((r) => (
-              <tr key={r.year}>
-                <th scope="row">{r.year}</th>
-                <td>{fmtYm(ymAdd(p.start, (r.year - 1) * 12))} – {fmtYm(ymAdd(p.start, r.year * 12 - 1))}</td>
-                <td>{pct(num(r.keep), 0)}</td>
-                <td>{pct(1 - num(r.keep), 0)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </TableWrap>
-      {b.note && <p className="sk-note"><Inline text={b.note} /></p>}
-    </section>
-  )
-}
-
-function PhasesBlock({ b }) {
-  const { data, p, today } = useT()
-  const w = useW()
-  const k = monthIndex(p, today)
-  const cur = k >= 0 ? Math.floor(k / 12) + 1 : 0
-  return (
-    <section className="sk-card">
-      <Head b={{ kicker: b.kicker, title: b.title, intro: b.intro }} />
-      <ol className="sk-steps is-phases">
-        {list(data.phases).map((ph) => (
-          <li key={ph.id} className={cur >= ph.from && cur <= ph.to ? 'is-now' : undefined}>
-            <p className="sk-when">{w.planYears} {ph.from}–{ph.to} · {fmtYm(ymAdd(p.start, (ph.from - 1) * 12))} – {fmtYm(ymAdd(p.start, ph.to * 12 - 1))}</p>
-            <h3>{ph.name}</h3>
-            <div className="sk-prose"><Paras items={ph.body} /><Points items={ph.points} /></div>
-          </li>
-        ))}
-      </ol>
-    </section>
-  )
-}
-
 // ── Projections ──────────────────────────────────────────────────────────
 const endYear = (p, y) => String(Number(ymAdd(p.start, y * 12 - 1).slice(0, 4)))
 
 function GrowView() {
-  const { data, st, update, p, bk, qt, B, base } = useT()
+  const { data, st, update, p, B, base } = useT()
   const w = useW()
   const scen = list(data.plan.scenarios)
   const pr = st.proj || {}
   const val = (k, d) => (pr[k] !== undefined && pr[k] !== null && Number.isFinite(Number(pr[k])) ? Number(pr[k]) : d)
   const a = {
     open: Math.max(0, val('open', p.openBase)), monthly: Math.max(0, val('monthly', p.monthly)), step: val('step', p.step),
-    every: clamp(Math.round(val('every', p.every)), 1, 120), cap: Math.max(0, val('cap', p.cap)), years: clamp(Math.round(val('years', p.years)), 1, 40),
-    extra: Math.max(0, val('extra', 0)),
+    every: clamp(Math.round(val('every', p.every)), 1, 120), cap: p.cap, years: clamp(Math.round(val('years', p.years)), 1, 40), extra: 0,
   }
-  const target = Math.max(0, val('target', p.target))
-  const custom = val('rate', NaN)
+  const target = p.target
   const set = (k) => (v) => update((s) => {
     const proj = { ...(s.proj || {}) }
     if (v === null || v === undefined || (typeof v === 'number' && !Number.isFinite(v))) delete proj[k]
     else proj[k] = v
     return { ...s, proj }
   })
-  const tax = p.tax
-  const lines = scen.map((s) => ({ id: s.id, label: s.label, tone: s.tone, rate: num(s.rate) }))
-  if (Number.isFinite(custom)) lines.push({ id: 'custom', label: `${w.yourRate} (${pct(custom)})`, tone: 'custom', rate: custom })
-  const runs = lines.map((l) => ({ ...l, pts: simulate({ ...a, rate: l.rate }) }))
+  const runs = scen.map((s) => ({ id: s.id, label: s.label, tone: s.tone, main: !!s.main, rate: num(s.rate), pts: simulate({ ...a, rate: num(s.rate) }) }))
   const paid = simulate({ ...a, rate: 0 }).map((q) => q.paid)
   const labels = Array.from({ length: a.years + 1 }, (_, y) => (y === 0 ? w.now : endYear(p, y)))
   const fmt = (v, axis) => money(v, base, { compact: !!axis, always: !!axis })
-  const series = [...runs.map((r) => ({ id: r.id, label: r.label, tone: r.tone, fill: !!scen.find((x) => x.id === r.id)?.main, values: r.pts.map((q) => q.v) })), { id: 'paid', label: w.paidIn, tone: 'paid', dash: true, values: paid }]
-  const main = scen.find((s) => s.main) || scen[Math.floor(scen.length / 2)] || { rate: 0.2 }
-  const r0 = num(main.rate)
-  const lv = data.plan.levers || {}
-  const levers = [
-    { label: w.lever_x2, a: { ...a, monthly: a.monthly * 2 } },
-    lv.cap > 0 && { label: fill(w.lever_cap, { a: B(lv.cap) }), a: { ...a, cap: a.cap > 0 ? Math.min(a.cap, lv.cap) : lv.cap } },
-    lv.step > 0 && { label: fill(w.lever_less, { p: pct(lv.step) }), a: { ...a, step: lv.step } },
-    lv.extra > 0 && { label: fill(w.lever_extra, { a: B(lv.extra) }), a: { ...a, extra: a.extra + lv.extra } },
-    lv.years > 0 && { label: fill(w.lever_years, { n: lv.years }), a: { ...a, years: a.years + lv.years } },
-  ].filter(Boolean)
+  const series = [...runs.map((r) => ({ id: r.id, label: r.label, tone: r.tone, fill: r.main, values: r.pts.map((q) => q.v) })), { id: 'paid', label: w.paidIn, tone: 'paid', dash: true, values: paid }]
   const need = rateNeeded(a, target)
-  const holdings = bk.units * qt.price
+  const goal = B(target, { compact: true })
+  const changed = ['open', 'monthly', 'step', 'every', 'years'].some((k) => pr[k] !== undefined && pr[k] !== null)
   return (
     <div className="sk-stack">
       <section className="sk-card">
-        <Head b={{ title: w.numbers }} extra={Object.keys(pr).some((k) => !['log', 'sScen', 'sYear', 'sDrop'].includes(k)) ? (
+        <Head b={{ title: w.numbers }} extra={changed ? (
           <button type="button" className="sk-mini" onClick={() => update((s) => ({ ...s, proj: { log: s.proj?.log } }))}>{w.resetNumbers}</button>
         ) : null} />
         <div className="sk-form-grid">
@@ -1865,22 +1398,15 @@ function GrowView() {
           <NumField label={w.monthly} value={a.monthly} onCommit={set('monthly')} prefix={base.sym} min={0} />
           <NumField label={w.step} value={a.step} onCommit={set('step')} suffix="%" scale={100} min={-50} max={200} />
           <NumField label={w.every} value={a.every} onCommit={set('every')} min={1} max={120} />
-          <NumField label={w.cap} value={a.cap || ''} onCommit={set('cap')} prefix={base.sym} min={0} placeholder={w.capHint} />
           <NumField label={w.years} value={a.years} onCommit={set('years')} min={1} max={40} />
-          <NumField label={w.extra} value={a.extra || ''} onCommit={set('extra')} prefix={base.sym} min={0} placeholder="0" />
-          <NumField label={w.targetAmt} value={target} onCommit={set('target')} prefix={base.sym} min={0} />
-          <NumField label={w.yourRate} value={Number.isFinite(custom) ? custom : ''} onCommit={set('rate')} suffix="%" scale={100} min={-90} max={300} placeholder="—" />
         </div>
-        {bk.has && holdings > 0 && (
-          <button type="button" className="sk-mini" onClick={() => set('open')(Math.round(holdings))}>{fill(w.useHoldings, { a: B(holdings) })}</button>
-        )}
       </section>
 
       <section className="sk-card">
         <Head b={{ title: w.chartTitle }} extra={<Seg label={w.scale} value={pr.log ? 'log' : 'lin'} onChange={(v) => set('log')(v === 'log' ? 1 : null)}
           options={[{ id: 'lin', label: w.linear }, { id: 'log', label: w.log }]} />} />
-        <ul className="sk-legend">{series.map((s) => <li key={s.id} data-tone={s.tone}><i aria-hidden="true" />{s.label}</li>)}{target > 0 && <li data-tone="target"><i aria-hidden="true" />{w.targetAmt} {B(target, { compact: true })}</li>}</ul>
-        <LineChart series={series} labels={labels} target={target} targetLabel={B(target, { compact: true })} fmt={fmt} title={w.chartTitle} log={!!pr.log} />
+        <ul className="sk-legend">{series.map((s) => <li key={s.id} data-tone={s.tone}><i aria-hidden="true" />{s.label}</li>)}{target > 0 && <li data-tone="target"><i aria-hidden="true" />{w.targetAmt} {goal}</li>}</ul>
+        <LineChart series={series} labels={labels} target={target} targetLabel={goal} fmt={fmt} title={w.chartTitle} log={!!pr.log} />
         <details className="sk-details">
           <summary>{w.asTable}</summary>
           <TableWrap label={w.chartTitle}>
@@ -1893,10 +1419,15 @@ function GrowView() {
       </section>
 
       <section className="sk-card">
-        <Head b={{ title: w.endValue }} />
-        <TableWrap label={w.endValue}>
+        <Head b={{ title: fill(w.byYear, { y: endYear(p, a.years) }) }} />
+        <p className="sk-need">
+          {Number.isFinite(need) && need > 0
+            ? <><b>{pct(need)}</b> {fill(w.needLine, { t: goal, y: endYear(p, a.years) })}</>
+            : <b>{Number.isNaN(need) ? w.outOfReach : w.alone}</b>}
+        </p>
+        <TableWrap label={fill(w.byYear, { y: endYear(p, a.years) })}>
           <table className="sk-table is-num">
-            <thead><tr><th scope="col">{w.scenario}</th><th scope="col">{w.rate}</th><th scope="col">{w.endValue}</th><th scope="col">{w.paidIn}</th><th scope="col">{w.multiple}</th><th scope="col">{w.afterTax}</th><th scope="col">{w.crosses}</th></tr></thead>
+            <thead><tr><th scope="col">{w.scenario}</th><th scope="col">{w.growth}</th><th scope="col">{w.endValue}</th><th scope="col">{w.afterTax}</th><th scope="col">{fill(w.reaches, { t: goal })}</th></tr></thead>
             <tbody>
               {runs.map((r) => {
                 const end = r.pts[a.years]
@@ -1906,49 +1437,7 @@ function GrowView() {
                     <th scope="row"><span className="sk-swatch" data-tone={r.tone} aria-hidden="true" />{r.label}</th>
                     <td>{pct(r.rate)}</td>
                     <td>{B(end.v)}</td>
-                    <td>{B(end.paid)}</td>
-                    <td>{end.paid > 0 ? `${(end.v / end.paid).toFixed(2)}×` : '—'}</td>
-                    <td>{B(end.v - Math.max(0, end.v - end.paid) * tax)}</td>
-                    <td>{cross === null ? fill(w.never2, { n: 40 }) : `${endYear(p, cross)} (${w.year.toLowerCase()} ${cross})`}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </TableWrap>
-        <p className="sk-note">{w.crossNote} {fill(data.words?.taxLine || '', { t: pct(tax) })}</p>
-      </section>
-
-      <section className="sk-card">
-        <Head b={{ title: fill(w.needRate, { t: B(target, { compact: true }), n: a.years }) }} />
-        <p className="sk-big-line">{Number.isNaN(need) ? w.outOfReach : need === 0 ? w.alone : pct(need)}</p>
-        <TableWrap label={w.needMonthly}>
-          <table className="sk-table is-num">
-            <thead><tr><th scope="col">{w.scenario}</th><th scope="col">{w.needMonthly}</th></tr></thead>
-            <tbody>
-              {lines.map((l) => {
-                const m = monthlyNeeded({ ...a, rate: l.rate }, target)
-                return <tr key={l.id}><th scope="row">{l.label} · {pct(l.rate)}</th><td>{Number.isNaN(m) ? w.outOfReach : B(m)}</td></tr>
-              })}
-            </tbody>
-          </table>
-        </TableWrap>
-      </section>
-
-      <section className="sk-card">
-        <Head b={{ title: w.levers, intro: fill(data.words?.leversIntro || '', { r: pct(r0) }) }} />
-        <TableWrap label={w.levers}>
-          <table className="sk-table is-num">
-            <thead><tr><th scope="col">{w.lever}</th><th scope="col">{fill(w.leverValue, { r: pct(r0) })}</th><th scope="col">{w.leverPaid}</th><th scope="col">{w.crosses}</th></tr></thead>
-            <tbody>
-              {[{ label: data.words?.leverBase || w.numbers, a }, ...levers].map((l, i) => {
-                const end = finalOf({ ...l.a, rate: r0 })
-                const cross = target > 0 ? crossYear({ ...l.a, rate: r0 }, target, 40) : null
-                return (
-                  <tr key={i} className={i === 0 ? 'is-now' : undefined}>
-                    <th scope="row">{l.label}</th>
-                    <td>{B(end.v)}</td>
-                    <td>{B(end.paid)}</td>
+                    <td>{B(end.v - Math.max(0, end.v - end.paid) * p.tax)}</td>
                     <td>{cross === null ? fill(w.never2, { n: 40 }) : endYear(p, cross)}</td>
                   </tr>
                 )
@@ -1956,65 +1445,34 @@ function GrowView() {
             </tbody>
           </table>
         </TableWrap>
+        <p className="sk-note">{fill(w.growNote, { t: pct(p.tax), y: endYear(p, a.years) })}</p>
       </section>
-
-      <StressCard a={a} lines={lines} main={main} />
-      <Blocks items={data.sections?.grow} />
     </div>
   )
 }
 
-function StressCard({ a, lines, main }) {
-  const { data, st, update, p, B } = useT()
+// The plan in four numbers, under the 13-year timeline.
+function GlanceCard({ b }) {
+  const { data, p, bk, B } = useT()
   const w = useW()
-  const pr = st.proj || {}
-  const set = (k, v) => update((s) => ({ ...s, proj: { ...(s.proj || {}), [k]: v } }))
-  const sc = lines.find((l) => l.id === pr.sScen) || lines.find((l) => l.id === main.id) || lines[0]
-  const drops = list(data.plan.stress?.drops).length ? list(data.plan.stress.drops) : [0.5, 0.7, 0.8]
-  const drop = drops.includes(pr.sDrop) ? pr.sDrop : drops[Math.min(1, drops.length - 1)]
-  const year = clamp(Math.round(num(pr.sYear, a.years)), 1, a.years)
-  const shift = a.years - p.years
-  const glide = Object.fromEntries(list(data.plan.glide).map((g) => [num(g.year) + shift, num(g.keep)]).filter(([y]) => y >= 1 && y <= a.years))
-  const tax = p.tax
-  const safe = num(data.plan.safeRate)
-  const run = (crash, gl) => stress({ a: { ...a, rate: sc.rate }, crash, glide: gl, tax, safe, redirect: !!data.plan.glideRedirect }).net
-  const crash = { year, drop }
-  const cells = [
-    [run(null, null), run(crash, null)],
-    [run(null, glide), run(crash, glide)],
-  ]
-  const yearId = useId()
+  const unit = data.meta.unit || {}
+  const K = p.years * 12
+  const need = rateNeeded(planArgs(p), p.target)
   return (
     <section className="sk-card">
-      <Head b={{ title: w.stress, intro: data.words?.stressIntro }} />
-      <div className="sk-stress-controls">
-        <Seg label={w.scenario} value={sc.id} onChange={(v) => set('sScen', v)} options={lines.map((l) => ({ id: l.id, label: pct(l.rate, 0), aria: l.label }))} />
-        <Seg label={w.crashDrop} value={drop} onChange={(v) => set('sDrop', v)} options={drops.map((d) => ({ id: d, label: `−${pct(d, 0)}` }))} />
-        <div className="sk-range">
-          <label htmlFor={yearId}>{w.crashYear}: <b>{year}</b> <small>({fmtYm(ymAdd(p.start, (year - 1) * 12))})</small></label>
-          <input id={yearId} type="range" min={1} max={a.years} step={1} value={year} onChange={(e) => set('sYear', Number(e.target.value))} />
-        </div>
-      </div>
-      <TableWrap label={w.stress}>
-        <table className="sk-table is-num sk-stress">
-          <thead><tr><th scope="col"><span className="sk-sr">{w.scenario}</span></th><th scope="col">{w.noCrash}</th><th scope="col">{w.withCrash}</th></tr></thead>
-          <tbody>
-            {[w.hold, w.glide].map((label, i) => (
-              <tr key={label}>
-                <th scope="row">{label}</th>
-                <td>{B(cells[i][0])}</td>
-                <td>{B(cells[i][1])} <small className="is-down">{cells[i][0] > 0 ? `−${pct(1 - cells[i][1] / cells[i][0], 0)}` : ''}</small></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </TableWrap>
-      <p className="sk-note">{w.stressNote}</p>
+      <Head b={{ kicker: b.kicker, title: b.title || w.planTitle, intro: b.intro }} />
+      <Journey />
+      <dl className="sk-glance">
+        <div><dt>{w.glanceMonthly}</dt><dd>{B(monthlyAt(p, 0))} → {B(monthlyAt(p, K - 1))}<small>{fill(w.stepEvery, { p: pct(p.step, 0), n: p.every })}</small></dd></div>
+        <div><dt>{fill(w.putInBy, { m: fmtYm(ymAdd(p.start, K - 1)) })}</dt><dd>{B(before(bk) + plannedThrough(p, K - 1))}<small>{fill(w.overYears, { n: p.years })}</small></dd></div>
+        <div><dt>{fill(w.needFor, { t: B(p.target, { compact: true }) })}</dt><dd>{Number.isNaN(need) ? w.outOfReach : need === 0 ? w.alone : pct(need)}<small>{Number.isFinite(need) && need > 0 ? w.aYear : ''}</small></dd></div>
+        <div><dt>{w.startStack}</dt><dd>{bk.open ? `${qty(bk.open.u, 4)} ${unit.code || ''}` : '—'}<small>{bk.open ? fill(w.costOf, { a: B(bk.open.b) }) : ''}</small></dd></div>
+      </dl>
     </section>
   )
 }
 
-const LIVE_BLOCKS = { schedule: ScheduleTable, ladder: LadderTable, glide: GlideTable, phases: PhasesBlock }
+const LIVE_BLOCKS = { schedule: ScheduleTable, ladder: LadderTable, glance: GlanceCard }
 
 // ── Ledger ───────────────────────────────────────────────────────────────
 const UNIT_KINDS = ['buy', 'sell', 'out', 'in']
@@ -2139,7 +1597,6 @@ function EntryForm({ initial, preset, onDone }) {
       {f.k === 'buy' && (
         <div className="sk-reserve-tick">
           <Check on={f.r} onChange={(v) => setF((s) => ({ ...s, r: v }))}>{w.fromReserve}</Check>
-          <small className="sk-hint">{w.fromReserveHint}</small>
         </div>
       )}
       {preview && <p className="sk-note">{preview}</p>}
@@ -2232,16 +1689,17 @@ function download(name, text, type) {
 }
 
 function LedgerView({ focus, nonce }) {
-  const { data, st, p, bk, today, go, B, L } = useT()
+  const { data, st, p, bk, go, backup, restore, B, L } = useT()
   const w = useW()
   const [editing, setEditing] = useState(null)
   const [all, setAll] = useState(false)
   const [saved, setSaved] = useState(false)
   const formRef = useRef(null)
+  const fileRef = useRef(null)
   const preset = useMemo(() => (focus?.add ? { add: focus.add, reserve: !!focus.reserve, focus: true, t: nonce } : null), [focus, nonce])
   useEffect(() => {
-    if (!focus?.add) return
-    requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: smooth(), block: 'start' }))
+    const el = focus?.add ? formRef.current : focus?.section === 'backup' ? document.getElementById('sk-backup') : null
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: smooth(), block: 'start' }))
   }, [focus, nonce])
   useEffect(() => {
     if (!saved) return undefined
@@ -2254,26 +1712,11 @@ function LedgerView({ focus, nonce }) {
     return Object.keys(by).sort().reverse().map((ym) => ({ ym, items: by[ym].sort((a, b) => (a.d < b.d ? 1 : a.d > b.d ? -1 : 0)) }))
   }, [st.entries])
   const shown = all ? groups : groups.slice(0, 6)
-  const k = monthIndex(p, today)
-  const endIdx = clamp(k, 0, p.years * 12 - 1)
-  const bars = Array.from({ length: 12 }, (_, i) => endIdx - 11 + i).filter((i) => i >= 0).map((i) => {
-    const ym = ymAdd(p.start, i)
-    const m = bk.months[ym] || {}
-    return { ym, got: (m.core || 0) + (m.res || 0), plan: monthlyAt(p, i) }
-  })
   const unit = data.meta.unit || {}
   const fyLabel = (y) => fill(w.fy, { a: y, b: String((y + 1) % 100).padStart(2, '0') })
+  const toSettings = () => go('plan', { section: 'settings' })
   return (
     <div className="sk-stack">
-      {bk.has && (
-        <div className="sk-tiles">
-          <div className="sk-tile"><span>{w.units}</span><b>{qty(bk.units, unit.dp ?? 8)}</b><small>{unit.code}</small></div>
-          <div className="sk-tile"><span>{w.totalPutIn}</span><b>{B(bk.putIn)}</b><small>{L(bk.investL)}</small></div>
-          <div className="sk-tile"><span>{w.avgCost}</span><b>{bk.units > EPS ? B(bk.basisB / bk.units) : '—'}</b><small>{bk.units > EPS ? L(bk.basisL / bk.units) : ''}</small></div>
-          <div className="sk-tile"><span>{w.reserve}</span><b>{B(bk.reserve)}</b><small>{fill(w.reserveCap, { cap: B(p.capMonths * monthlyAt(p, clamp(monthIndex(p, today), 0, p.years * 12 - 1))) })}</small></div>
-        </div>
-      )}
-
       <section className="sk-card" ref={formRef}>
         <Head b={{ title: editing ? w.editEntry : w.addEntry }} extra={saved ? <span className="sk-pill is-good" role="status">{w.savedEntry}</span> : null} />
         {editing
@@ -2286,13 +1729,6 @@ function LedgerView({ focus, nonce }) {
           <p className="sk-callout-title">{w.problems}</p>
           <ul className="sk-points">{bk.problems.map((pr, i) => <li key={i}>{pr.d ? `${fmtDate(pr.d)}: ` : ''}{w[`prob_${pr.k}`]}</li>)}</ul>
         </aside>
-      )}
-
-      {bars.length > 0 && (
-        <section className="sk-card">
-          <Head b={{ title: w.bars, intro: w.barsNote }} />
-          <MonthBars rows={bars} fmt={(v, axis) => money(v, data.meta.cur.base, { compact: !!axis, always: !!axis })} label={bars.map((r) => fill(w.barsLabel, { m: fmtYm(r.ym, 'long'), a: B(r.got), b: B(r.plan) })).join('. ')} />
-        </section>
       )}
 
       <section className="sk-card">
@@ -2309,8 +1745,8 @@ function LedgerView({ focus, nonce }) {
         })}
         {groups.length > 6 && <button type="button" className="sk-mini" onClick={() => setAll((v) => !v)}>{all ? w.showLess : fill(w.showAll, { n: groups.length })}</button>}
         {bk.open && p.onChain && (
-          <div className="sk-month-group">
-            <h3>{w.startStack}<small>{fill(w.openChain, { n: bk.open.lots.length, a: B(bk.open.b) })}</small></h3>
+          <details className="sk-open-group">
+            <summary><span>{w.startStack}</span><small>{fill(w.openChain, { n: bk.open.lots.length, a: B(bk.open.b) })}</small></summary>
             <ul className="sk-entries">
               {[...bk.open.lots].reverse().map((x) => (
                 <li key={x.tx || x.d} className="sk-entry" data-kind="open">
@@ -2330,9 +1766,9 @@ function LedgerView({ focus, nonce }) {
             </ul>
             <div className="sk-open-foot">
               <p className="sk-note">{p.costSet ? w.ledgerCostEntered : <Inline text={w.ledgerCostNote} />}</p>
-              <button type="button" className="sk-mini" onClick={() => go('notes', { section: 'plan' })}>{w.editInSettings}</button>
+              <button type="button" className="sk-mini" onClick={toSettings}>{w.editInSettings}</button>
             </div>
-          </div>
+          </details>
         )}
         {bk.open && !p.onChain && (
           <div className="sk-month-group">
@@ -2345,7 +1781,7 @@ function LedgerView({ focus, nonce }) {
                   <small>{B(bk.open.b)} · {L(bk.open.l)} · {bk.open.where === 'wallet' ? w.cold : w.onExchange}</small>
                   <small className="sk-entry-note">{w.startHint}</small>
                 </span>
-                <span className="sk-entry-actions"><button type="button" className="sk-mini" onClick={() => go('notes', { section: 'plan' })}>{w.editInSettings}</button></span>
+                <span className="sk-entry-actions"><button type="button" className="sk-mini" onClick={toSettings}>{w.editInSettings}</button></span>
               </li>
             </ul>
           </div>
@@ -2369,23 +1805,28 @@ function LedgerView({ focus, nonce }) {
         </section>
       )}
 
-      <section className="sk-card">
-        <Head b={{ title: w.export, intro: w.csvHint }} />
+      <section className="sk-card" id="sk-backup">
+        <Head b={{ title: w.backupTitle }} />
+        <p className="sk-sub">{w.backupHint} {fill(w.lastBackupOn, { d: st.backupAt ? new Date(st.backupAt).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) : w.never })}</p>
         <div className="sk-actions">
+          <button type="button" className="sk-primary" onClick={backup}>{w.backup}</button>
+          <button type="button" className="sk-secondary" onClick={() => fileRef.current?.click()}>{w.restore}</button>
           <button type="button" className="sk-secondary" disabled={!bk.has}
             onClick={() => download(`${data.meta.csv || 'ledger'}-${localIso()}.csv`, `\ufeff${toCsv(st.entries, bk, data)}`, 'text/csv;charset=utf-8')}>{w.csv}</button>
+          <input ref={fileRef} type="file" accept="application/json,.json" hidden onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ''; if (f) restore(f) }} />
         </div>
       </section>
     </div>
   )
 }
 
-// ── Rules, notes and settings ────────────────────────────────────────────
-function Settings() {
-  const { data, st, update, p, qt, backup, restore, base } = useT()
+// ── Plan and settings ────────────────────────────────────────────────────
+function Settings({ focus, nonce }) {
+  const { data, st, update, p, qt, base } = useT()
   const w = useW()
-  const fileRef = useRef(null)
   const startId = useId()
+  const [open, setOpen] = useState(focus?.section === 'settings')
+  useEffect(() => { if (focus?.section === 'settings') setOpen(true) }, [focus, nonce])
   const setPlan = (k) => (v) => update((s) => {
     const plan = { ...(s.plan || {}) }
     if (v === null || v === undefined || v === '') delete plan[k]
@@ -2393,106 +1834,88 @@ function Settings() {
     return { ...s, plan }
   })
   return (
-    <>
-      <section className="sk-card" id="sk-settings">
-        <Head b={{ title: w.planSettings }} extra={Object.keys(st.plan || {}).length ? <button type="button" className="sk-mini" onClick={() => update((s) => ({ ...s, plan: {} }))}>{w.defaults}</button> : null} />
-        <div className="sk-form-grid">
-          <div className="sk-field">
-            <label className="sk-field-label" htmlFor={startId}>{w.startMonth}</label>
-            <input id={startId} type="month" value={p.start} onChange={(e) => setPlan('start')(isYm(e.target.value) && e.target.value !== data.plan.start ? e.target.value : null)} />
+    <section className="sk-card" id="sk-settings">
+      <details className="sk-disclose" open={open} onToggle={(e) => setOpen(e.currentTarget.open)}>
+        <summary><h2>{w.settings}</h2><small>{w.settingsHint}</small></summary>
+        <div className="sk-disclose-body">
+          <div className="sk-head">
+            <h3>{w.planSettings}</h3>
+            {Object.keys(st.plan || {}).length > 0 && <button type="button" className="sk-mini" onClick={() => update((s) => ({ ...s, plan: {} }))}>{w.defaults}</button>}
           </div>
-          <NumField label={w.openAmt} value={p.openBase} onCommit={setPlan('openBase')} prefix={base.sym} min={0} hint={p.onChain ? w.openAmtHint : undefined} />
-          {p.onChain ? (
-            <NumField label={w.openLocal} value={Math.round(p.openLocal)} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalChainHint}
-              onCommit={(v) => setPlan('openLocal')(v === null || Math.abs(v - p.openLocalEst) < 0.5 ? null : v)} />
-          ) : (
-            <>
-              <NumField label={w.openUnits} value={p.openUnits} onCommit={setPlan('openUnits')} min={0} />
-              <NumField label={w.openLocal} value={Math.round(p.openLocal)} onCommit={setPlan('openLocal')} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalHint} />
-              <div className="sk-field">
-                <span className="sk-field-label">{w.openWhere}</span>
-                <Seg label={w.openWhere} value={p.openWhere} onChange={(v) => setPlan('openWhere')(v === (data.plan.openWhere || 'exchange') ? null : v)}
-                  options={[{ id: 'exchange', label: w.onExchange }, { id: 'wallet', label: w.cold }]} />
-              </div>
-            </>
+          <div className="sk-form-grid">
+            <div className="sk-field">
+              <label className="sk-field-label" htmlFor={startId}>{w.startMonth}</label>
+              <input id={startId} type="month" value={p.start} onChange={(e) => setPlan('start')(isYm(e.target.value) && e.target.value !== data.plan.start ? e.target.value : null)} />
+            </div>
+            <NumField label={w.openAmt} value={p.openBase} onCommit={setPlan('openBase')} prefix={base.sym} min={0} hint={p.onChain ? w.openAmtHint : undefined} />
+            {p.onChain ? (
+              <NumField label={w.openLocal} value={Math.round(p.openLocal)} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalChainHint}
+                onCommit={(v) => setPlan('openLocal')(v === null || Math.abs(v - p.openLocalEst) < 0.5 ? null : v)} />
+            ) : (
+              <>
+                <NumField label={w.openUnits} value={p.openUnits} onCommit={setPlan('openUnits')} min={0} />
+                <NumField label={w.openLocal} value={Math.round(p.openLocal)} onCommit={setPlan('openLocal')} prefix={data.meta.cur.local.sym} min={0} hint={w.openLocalHint} />
+                <div className="sk-field">
+                  <span className="sk-field-label">{w.openWhere}</span>
+                  <Seg label={w.openWhere} value={p.openWhere} onChange={(v) => setPlan('openWhere')(v === (data.plan.openWhere || 'exchange') ? null : v)}
+                    options={[{ id: 'exchange', label: w.onExchange }, { id: 'wallet', label: w.cold }]} />
+                </div>
+              </>
+            )}
+            <NumField label={w.monthly} value={p.monthly} onCommit={setPlan('monthly')} prefix={base.sym} min={0} />
+            <NumField label={w.step} value={p.step} onCommit={setPlan('step')} suffix="%" scale={100} min={-50} max={200} />
+            <NumField label={w.every} value={p.every} onCommit={setPlan('every')} min={1} max={120} />
+            <NumField label={w.cap} value={p.cap || ''} onCommit={setPlan('cap')} prefix={base.sym} min={0} placeholder={w.capHint} />
+            <NumField label={w.targetAmt} value={p.target} onCommit={setPlan('target')} prefix={base.sym} min={0} />
+            <NumField label={w.threshold} value={p.threshold} onCommit={setPlan('threshold')} prefix={base.sym} min={0} />
+            <NumField label={w.reserveMonths} value={p.capMonths} onCommit={setPlan('capMonths')} min={0} max={60} />
+          </div>
+          {p.onChain && (
+            <div className="sk-field">
+              <Check on={!p.openOff} onChange={(on) => update((s) => {
+                const plan = { ...(s.plan || {}) }
+                delete plan.openUnits
+                if (on) delete plan.openOff
+                else plan.openOff = true
+                return { ...s, plan }
+              })}>{fill(w.countStart, { u: qty(p.openUnits, 8), c: data.meta.unit?.code || '', n: p.openCount })}</Check>
+              <small className="sk-hint">{w.countStartHint}</small>
+            </div>
           )}
-          <NumField label={w.monthly} value={p.monthly} onCommit={setPlan('monthly')} prefix={base.sym} min={0} />
-          <NumField label={w.step} value={p.step} onCommit={setPlan('step')} suffix="%" scale={100} min={-50} max={200} />
-          <NumField label={w.every} value={p.every} onCommit={setPlan('every')} min={1} max={120} />
-          <NumField label={w.cap} value={p.cap || ''} onCommit={setPlan('cap')} prefix={base.sym} min={0} placeholder={w.capHint} />
-          <NumField label={w.targetAmt} value={p.target} onCommit={setPlan('target')} prefix={base.sym} min={0} />
-          <NumField label={w.threshold} value={p.threshold} onCommit={setPlan('threshold')} prefix={base.sym} min={0} />
-          <NumField label={w.reserveMonths} value={p.capMonths} onCommit={setPlan('capMonths')} min={0} max={60} />
-        </div>
-        {p.onChain && (
-          <div className="sk-field">
-            <Check on={!p.openOff} onChange={(on) => update((s) => {
-              const plan = { ...(s.plan || {}) }
-              delete plan.openUnits
-              if (on) delete plan.openOff
-              else plan.openOff = true
-              return { ...s, plan }
-            })}>{fill(w.countStart, { u: qty(p.openUnits, 8), c: data.meta.unit?.code || '', n: p.openCount })}</Check>
-            <small className="sk-hint">{w.countStartHint}</small>
-          </div>
-        )}
-        {list(data.plan.tax?.bands).length > 0 && (
-          <div className="sk-field">
-            <span className="sk-field-label">{w.surcharge} · {fill(w.taxNow, { t: pct(p.tax) })}</span>
-            <Seg label={w.surcharge} className="is-wrap" value={p.surcharge} onChange={(v) => setPlan('surcharge')(v === num(data.plan.surcharge) ? null : v)}
-              options={list(data.plan.tax.bands).map((b) => ({ id: num(b.v), label: b.label }))} />
-          </div>
-        )}
-      </section>
-
-      <section className="sk-card">
-        <Head b={{ title: w.feed }} />
-        <Check on={!st.feedOff} onChange={(on) => update((s) => ({ ...s, feedOff: !on }))}>{w.feedOn}</Check>
-        <p className="sk-hint">{w.feedHint}</p>
-        <div className="sk-form-grid">
-          <NumField label={w.manualPrice} value={st.manual?.price ?? ''} prefix={base.sym} min={0} hint={w.manualHint}
-            onCommit={(v) => update((s) => ({ ...s, manual: v > 0 ? { price: v, fx: num(s.manual?.fx) || qt.fx, at: Date.now() } : null }))} />
-          {st.manual && (
-            <NumField label={`${w.manualRate} (${fill(w.fxLine, { r: data.meta.cur.local.sym, b: base.sym })})`} value={st.manual.fx} min={0}
-              onCommit={(v) => update((s) => (s.manual ? { ...s, manual: { ...s.manual, fx: v > 0 ? v : qt.fx, at: Date.now() } } : s))} />
+          {list(data.plan.tax?.bands).length > 0 && (
+            <div className="sk-field">
+              <span className="sk-field-label">{w.surcharge} · {fill(w.taxNow, { t: pct(p.tax) })}</span>
+              <Seg label={w.surcharge} className="is-wrap" value={p.surcharge} onChange={(v) => setPlan('surcharge')(v === num(data.plan.surcharge) ? null : v)}
+                options={list(data.plan.tax.bands).map((b) => ({ id: num(b.v), label: b.label }))} />
+            </div>
           )}
+          <h3>{w.feed}</h3>
+          <Check on={!st.feedOff} onChange={(on) => update((s) => ({ ...s, feedOff: !on }))}>{w.feedOn}</Check>
+          <div className="sk-form-grid">
+            <NumField label={w.manualPrice} value={st.manual?.price ?? ''} prefix={base.sym} min={0} hint={w.manualHint}
+              onCommit={(v) => update((s) => ({ ...s, manual: v > 0 ? { price: v, fx: num(s.manual?.fx) || qt.fx, at: Date.now() } : null }))} />
+            {st.manual && (
+              <NumField label={`${w.manualRate} (${fill(w.fxLine, { r: data.meta.cur.local.sym, b: base.sym })})`} value={st.manual.fx} min={0}
+                onCommit={(v) => update((s) => (s.manual ? { ...s, manual: { ...s.manual, fx: v > 0 ? v : qt.fx, at: Date.now() } } : s))} />
+            )}
+          </div>
         </div>
-      </section>
-
-      <section className="sk-card" id="sk-backup">
-        <Head b={{ title: w.backupTitle, intro: w.backupHint }} />
-        <p className="sk-sub">{fill(w.lastBackupOn, { d: st.backupAt ? new Date(st.backupAt).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) : w.never })}</p>
-        <div className="sk-actions">
-          <button type="button" className="sk-primary" onClick={backup}>{w.backup}</button>
-          <button type="button" className="sk-secondary" onClick={() => fileRef.current?.click()}>{w.restore}</button>
-          <input ref={fileRef} type="file" accept="application/json,.json" hidden onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ''; if (f) restore(f) }} />
-        </div>
-      </section>
-
-    </>
+      </details>
+    </section>
   )
 }
 
-function PlanView() {
-  const { data } = useT()
-  return <div className="sk-stack"><Blocks items={data.sections?.plan} /></div>
-}
-function RulesView() {
-  const { data } = useT()
-  return <div className="sk-stack"><Blocks items={data.sections?.rules} /></div>
-}
-function NotesView({ focus, nonce }) {
+function PlanView({ focus, nonce }) {
   const { data } = useT()
   useEffect(() => {
-    const id = { backup: 'sk-backup', plan: 'sk-settings' }[focus?.section]
-    if (!id) return
-    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: smooth(), block: 'start' }))
-  }, [focus, nonce])
-  return <div className="sk-stack"><Blocks items={data.sections?.notes} /><Settings /></div>
+    const review = reviewOf(data)
+    const id = focus?.section === 'settings' ? 'sk-settings' : focus?.section === 'review' && review ? `sk-check-${review.id}` : ''
+    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: smooth(), block: 'start' }))
+  }, [focus, nonce, data])
+  return <div className="sk-stack"><Blocks items={data.sections?.plan} /><Settings focus={focus} nonce={nonce} /></div>
 }
-
 // ── Shell ────────────────────────────────────────────────────────────────
-const VIEWS = { today: TodayView, plan: PlanView, grow: GrowView, log: LedgerView, rules: RulesView, notes: NotesView }
+const VIEWS = { today: TodayView, log: LedgerView, grow: GrowView, plan: PlanView }
 
 // Writes the newest state to this browser whenever it changes.
 function useSaver(st) {
@@ -2547,7 +1970,7 @@ function WalletCard() {
   const state = wallet.status === 'live' ? w.walletLive : loading ? w.walletLoading : wallet.status === 'stale' ? w.walletStale : w.walletOffline
   return (
     <section className="sk-card sk-wallet">
-      <Head b={{ kicker: w.walletKicker, title: w.wallet }} extra={<span className={`sk-live is-${wallet.status}`}><i aria-hidden="true" />{state}</span>} />
+      <Head b={{ title: w.wallet }} extra={<span className={`sk-live is-${wallet.status}`}><i aria-hidden="true" />{state}</span>} />
       <div className="sk-wallet-body">
         <div className="sk-qr"><QRCodeSVG value={`bitcoin:${a}`} title={w.qrLabel} size={112} level="M" bgColor="#ffffff" fgColor="#0b0b0b" /></div>
         <div className="sk-wallet-main">
@@ -2561,12 +1984,10 @@ function WalletCard() {
           </div>
         </div>
       </div>
-      {known && (
-        <p className={Math.abs(diff) < 5e-9 ? 'sk-reconcile is-ok' : 'sk-reconcile is-off'}>
-          {Math.abs(diff) < 5e-9 ? fill(w.walletMatches, { u: qty(bk.cold, 8) })
-            : fill(w.walletDiffers, { c: qty(units, 8), l: qty(bk.cold, 8), d: `${diff > 0 ? '+' : '−'}${qty(Math.abs(diff), 8)}` })}
-        </p>
+      {known && Math.abs(diff) >= 5e-9 && (
+        <p className="sk-reconcile is-off">{fill(w.walletDiffers, { c: qty(units, 8), l: qty(bk.cold, 8), d: `${diff > 0 ? '+' : '−'}${qty(Math.abs(diff), 8)}` })}</p>
       )}
+      {bk.exch > EPS && <p className="sk-note">{fill(w.onExchangeNow, { u: qty(bk.exch, 8), c: data.meta.unit?.code || '' })}</p>}
     </section>
   )
 }
@@ -2798,12 +2219,6 @@ function Tracker({ data, onBack }) {
               </div>
               <PriceCard />
             </div>
-            <div className="sk-wrap sk-hero-foot">
-              <Journey />
-              {list(data.meta.chips).length > 0 && (
-                <dl className="sk-chips">{list(data.meta.chips).map((c, i) => <div key={i}><dt>{c.k}</dt><dd><Inline text={c.v} /></dd></div>)}</dl>
-              )}
-            </div>
           </div>
           <nav className="sk-nav" aria-label={words.sections}>
             <div className="sk-wrap sk-nav-inner">
@@ -2821,7 +2236,7 @@ function Tracker({ data, onBack }) {
             {orphan && (
               <div className="sk-banner is-warn">
                 <p>{words.orphan}</p>
-                <button type="button" className="sk-mini" onClick={() => go('notes', { section: 'backup' })}>{words.restore}</button>
+                <button type="button" className="sk-mini" onClick={() => go('log', { section: 'backup' })}>{words.restore}</button>
                 <button type="button" className="sk-mini" onClick={() => setOrphan(false)}>{words.dismiss}</button>
               </div>
             )}
@@ -2859,11 +2274,7 @@ const CSS = `
   min-height: 100vh; background: var(--sk-bg); color: var(--sk-ink);
   font-family: var(--sk-display); font-size: 14.5px; line-height: 1.55; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums;
 }
-.sk-root::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(1000px 560px at 88% -8%, rgba(247,147,26,.2), transparent 62%), radial-gradient(800px 520px at -8% 18%, rgba(139,110,255,.1), transparent 60%),
-    radial-gradient(900px 600px at 50% 112%, rgba(71,209,193,.07), transparent 60%); }
-.sk-root::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.3px); background-size: 22px 22px;
-  -webkit-mask-image: radial-gradient(1100px 520px at 72% 0%, #000, transparent 72%); mask-image: radial-gradient(1100px 520px at 72% 0%, #000, transparent 72%); }
+.sk-root::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(900px 480px at 85% -10%, rgba(247,147,26,.1), transparent 60%); }
 body:has(.sk-root) { background: #07080b !important; background-image: none !important; }
 .sk-root h1, .sk-root h2, .sk-root h3 { font-family: var(--sk-display); color: var(--sk-ink); letter-spacing: -0.025em; margin: 0; }
 .sk-root p { margin: 0; }
@@ -2887,50 +2298,36 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-top-mark .sk-mark { width: 20px; height: 20px; }
 .sk-top-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .sk-save { display: inline-flex; align-items: center; gap: 7px; font: 500 11.5px var(--sk-mono); color: var(--sk-ink3); }
-.sk-save-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sk-green); box-shadow: 0 0 10px rgba(69,209,143,.8); }
-.sk-save.is-saving .sk-save-dot { background: var(--sk-amber); box-shadow: 0 0 10px rgba(255,210,122,.8); }
+.sk-save-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sk-green); }
+.sk-save.is-saving .sk-save-dot { background: var(--sk-amber); }
 .sk-save.is-error { color: var(--sk-red); }
 .sk-save.is-error .sk-save-dot { background: var(--sk-red); }
 .sk-ghost { min-height: 36px; padding: 6px 15px; border: 1px solid var(--sk-line2); border-radius: 999px; background: rgba(255,255,255,.02); font-weight: 650; font-size: 13.5px; }
 .sk-ghost:hover { background: var(--sk-hover); border-color: var(--sk-accent-line); }
 
 .sk-band { position: relative; border-bottom: 1px solid var(--sk-line); }
-.sk-hero { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; padding-top: 40px; align-items: start; }
+.sk-hero { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; padding-top: 36px; padding-bottom: 34px; align-items: start; }
 .sk-hero-copy > .sk-kicker { margin-bottom: 12px; }
 .sk-root .sk-hero h1:focus-visible { outline: none; }
-.sk-hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; outline: none; text-wrap: balance; color: #fff; text-shadow: 0 0 46px rgba(247,147,26,.28); }
+.sk-hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; outline: none; text-wrap: balance; color: #fff; }
 .sk-hero-line { margin-top: 12px !important; display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 10px; border-radius: 999px; background: var(--sk-accent-soft); border: 1px solid var(--sk-accent-line); color: var(--sk-accent2); font: 600 12.5px var(--sk-mono); }
-.sk-hero-line::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sk-accent); box-shadow: 0 0 10px var(--sk-accent); animation: sk-blink 2.4s ease-in-out infinite; }
+.sk-hero-line::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sk-accent); animation: sk-blink 2.4s ease-in-out infinite; }
 .sk-subtitle { margin-top: 14px !important; color: var(--sk-ink2); max-width: 640px; font-size: 15.5px; line-height: 1.65; }
-.sk-hero-foot { display: grid; gap: 22px; padding-top: 30px; padding-bottom: 30px; }
-.sk-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-.sk-chips div { padding: 9px 14px; border: 1px solid var(--sk-line); border-radius: 14px; background: rgba(255,255,255,.025); }
-.sk-chips dt { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
-.sk-chips dd { margin: 3px 0 0; font-weight: 650; font-size: 14px; }
 
-.sk-stackstrip { margin-top: 24px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; padding: 20px 24px; border-radius: var(--sk-r); border: 1px solid transparent;
-  background: linear-gradient(rgba(15,17,22,.92), rgba(15,17,22,.92)) padding-box, linear-gradient(135deg, rgba(247,147,26,.65), rgba(255,255,255,.06) 40%, rgba(255,210,122,.28)) border-box;
-  box-shadow: 0 34px 70px -44px rgba(247,147,26,.55); }
-.sk-stack-body { min-width: 0; container-type: inline-size; }
+.sk-stackstrip { margin-top: 22px; display: grid; gap: 4px; padding: 20px 24px; border-radius: var(--sk-r); border: 1px solid var(--sk-accent-line); background: var(--sk-solid); box-shadow: var(--sk-shadow); container-type: inline-size; }
+.sk-stack-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .sk-stack-units { display: flex; align-items: baseline; gap: 10px; margin-top: 6px !important; }
 .sk-stack-units b { font-size: clamp(32px, 4vw, 44px); line-height: 1; font-weight: 800; letter-spacing: -0.035em; }
 .sk-stack-units span { font: 700 15px var(--sk-mono); color: var(--sk-accent2); }
-.sk-stack-sats { margin-top: 4px !important; font: 500 12.5px var(--sk-mono); color: var(--sk-ink3); }
-.sk-stack-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 18px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--sk-line); }
-.sk-stack-metrics dt { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
-.sk-stack-metrics dd { margin: 4px 0 0; font-weight: 750; font-size: 17px; letter-spacing: -0.02em; }
-.sk-stack-metrics dd small { display: block; margin-top: 1px; font-weight: 500; font-size: 12px; color: var(--sk-ink3); letter-spacing: 0; }
+.sk-stack-metrics, .sk-glance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--sk-line); }
+.sk-stack-metrics > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.sk-stack-metrics dt, .sk-glance dt { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
+.sk-stack-metrics dd, .sk-glance dd { margin: 4px 0 0; font-weight: 750; font-size: 17px; letter-spacing: -0.02em; }
+.sk-stack-metrics dd small, .sk-glance dd small { display: block; margin-top: 1px; font-weight: 500; font-size: 12px; color: var(--sk-ink3); letter-spacing: 0; }
+@container (min-width: 420px) { .sk-stack-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .sk-stack-metrics > div:last-child:nth-child(odd) { grid-column: auto; } }
 @container (min-width: 600px) { .sk-stack-metrics { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.sk-glance { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 6px; }
 .sk-stack-note { margin-top: 10px !important; font-size: 12.5px; color: var(--sk-ink3); }
-.sk-coins { display: block; overflow: visible; filter: drop-shadow(0 14px 22px rgba(247,147,26,.2)); }
-.sk-coin { animation: sk-coin-in .55s cubic-bezier(.2,.9,.3,1.2) both; animation-delay: calc(var(--i) * 45ms); }
-.sk-coin-rim { fill: none; stroke: rgba(255,255,255,.4); stroke-width: 1; }
-.sk-coin.is-empty { opacity: .62; }
-.sk-coin.is-empty .sk-coin-side { fill: #191b21; stroke: rgba(255,255,255,.12); stroke-width: 1; }
-.sk-coin.is-empty .sk-coin-face { fill: #20232a; stroke: rgba(255,255,255,.2); stroke-width: 1; }
-.sk-coin.is-empty .sk-coin-rim { stroke: rgba(255,255,255,.08); stroke-dasharray: 3 4; }
-.sk-coin.is-part .sk-coin-face, .sk-coin.is-part .sk-coin-side { fill-opacity: var(--part, .6); }
-.sk-coin.is-part { animation: sk-coin-in .55s cubic-bezier(.2,.9,.3,1.2) both, sk-glow 2.6s ease-in-out 1s infinite; animation-delay: calc(var(--i) * 45ms), 1s; }
 
 .sk-journey { position: relative; display: grid; gap: 8px; padding-top: 30px; }
 .sk-journey-track { position: relative; height: 12px; border-radius: 999px; background: rgba(255,255,255,.05); }
@@ -2938,7 +2335,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-journey-seg[data-phase="0"] { border-radius: 999px 0 0 999px; }
 .sk-journey-seg:last-of-type { border-radius: 0 999px 999px 0; }
 .sk-root [data-phase="0"] { --ph: #f7931a; } .sk-root [data-phase="1"] { --ph: #ffd27a; } .sk-root [data-phase="2"] { --ph: #47d1c1; }
-.sk-journey-fill { position: absolute; left: 0; top: 0; bottom: 0; min-width: 12px; border-radius: 999px; background: linear-gradient(90deg, #f7931a, #ffd27a); box-shadow: 0 0 18px rgba(247,147,26,.55); }
+.sk-journey-fill { position: absolute; left: 0; top: 0; bottom: 0; min-width: 12px; border-radius: 999px; background: linear-gradient(90deg, #f7931a, #ffd27a); }
 .sk-journey-event { position: absolute; top: 50%; width: 9px; height: 9px; background: #0b0c10; border: 2px solid var(--sk-gold); border-radius: 2px; transform: translate(-50%, -50%) rotate(45deg); }
 .sk-journey-now { position: absolute; top: 50%; width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; background: #fff; border: 5px solid var(--sk-accent); transform: translate(-50%, -50%); box-shadow: 0 0 0 6px rgba(247,147,26,.2), 0 0 22px rgba(247,147,26,.7); }
 .sk-journey-now em { position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%); white-space: nowrap; font: 700 11px var(--sk-mono); font-style: normal; padding: 3px 9px; border-radius: 999px; background: var(--sk-accent); color: var(--sk-accent-ink); }
@@ -2953,9 +2350,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-journey-phases b { font-size: 13px; font-weight: 750; color: var(--ph); white-space: nowrap; }
 .sk-journey-phases small { font: 500 10.5px var(--sk-mono); color: var(--sk-ink3); white-space: nowrap; }
 
-.sk-price { position: relative; display: grid; gap: 12px; padding: 20px; border-radius: var(--sk-r); border: 1px solid transparent; min-width: 0;
-  background: linear-gradient(rgba(15,17,22,.93), rgba(15,17,22,.93)) padding-box, linear-gradient(160deg, rgba(247,147,26,.6), rgba(255,255,255,.07) 45%, rgba(255,255,255,.04)) border-box;
-  box-shadow: 0 34px 80px -46px rgba(247,147,26,.6); }
+.sk-price { position: relative; display: grid; gap: 12px; padding: 20px; border-radius: var(--sk-r); border: 1px solid var(--sk-line2); min-width: 0; background: var(--sk-solid); box-shadow: var(--sk-shadow); }
 .sk-price-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .sk-price-big { font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.04em; }
 .sk-price-local { color: var(--sk-ink2); font-weight: 650; font-size: 14px; }
@@ -2966,7 +2361,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-change.is-down { background: var(--sk-red-soft); color: var(--sk-red); }
 .sk-spark { position: relative; width: 100%; min-width: 0; margin: 2px 0; }
 .sk-spark svg { display: block; overflow: visible; }
-.sk-spark-line { fill: none; stroke: var(--sk-accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: sk-draw 1.6s cubic-bezier(.3,.7,.2,1) .2s forwards; filter: drop-shadow(0 0 6px rgba(247,147,26,.5)); }
+.sk-spark-line { fill: none; stroke: var(--sk-accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: sk-draw 1.6s cubic-bezier(.3,.7,.2,1) .2s forwards; }
 .sk-spark-high { stroke: rgba(255,255,255,.4); stroke-dasharray: 2 4; }
 .sk-spark-level { stroke: rgba(247,147,26,.4); stroke-dasharray: 3 5; }
 .sk-spark-label { fill: var(--sk-ink3); font: 600 10px var(--sk-mono); }
@@ -2976,29 +2371,20 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-spark-axis { fill: var(--sk-ink3); font: 500 10px var(--sk-mono); }
 .sk-spark-now { fill: #fff; stroke: var(--sk-accent); stroke-width: 3; }
 .sk-spark-pulse { fill: rgba(247,147,26,.4); transform-box: fill-box; transform-origin: center; animation: sk-pulse 2.2s ease-out infinite; }
-.sk-zones { display: grid; gap: 6px; }
-.sk-zones-bar { position: relative; display: flex; gap: 3px; height: 10px; }
-.sk-zones-bar span { height: 100%; border-radius: 999px; opacity: .3; }
-.sk-zones-bar span.is-on { opacity: 1; }
 .sk-root [data-zone="0"] { --zc: #8abcff; } .sk-root [data-zone="1"] { --zc: #ffd27a; } .sk-root [data-zone="2"] { --zc: #f7931a; } .sk-root [data-zone="3"] { --zc: #45d18f; }
-.sk-zones-bar span { background: var(--zc); }
-.sk-zones-bar span.is-on { box-shadow: 0 0 14px var(--zc); }
-.sk-zones-marker { position: absolute; top: 50%; width: 4px; height: 22px; border-radius: 3px; background: #fff; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px rgba(7,8,11,.92), 0 0 12px rgba(255,255,255,.6); }
-.sk-zones-scale { position: relative; height: 14px; font: 500 10px var(--sk-mono); color: var(--sk-ink3); }
-.sk-zones-scale span { position: absolute; top: 0; white-space: nowrap; }
 .sk-price-zone { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .sk-price-dd b { font: 800 16px var(--sk-display); color: var(--sk-accent2); }
 .sk-price-dd small { display: block; text-align: right; color: var(--sk-ink3); font-size: 11.5px; }
 .sk-price-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 500 11px var(--sk-mono); color: var(--sk-ink3); padding-top: 10px; border-top: 1px solid var(--sk-line); }
 .sk-zone-chip { justify-self: start; display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; font: 700 11.5px var(--sk-mono); color: var(--zc, var(--sk-accent2)); background: color-mix(in oklab, var(--zc, #f7931a) 14%, transparent); border: 1px solid color-mix(in oklab, var(--zc, #f7931a) 45%, transparent); white-space: nowrap; }
-.sk-zone-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--zc, var(--sk-accent)); box-shadow: 0 0 8px var(--zc, var(--sk-accent)); }
+.sk-zone-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--zc, var(--sk-accent)); }
 
 .sk-nav { position: sticky; top: 57px; z-index: 20; background: rgba(7,8,11,.8); -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px); border-bottom: 1px solid var(--sk-line); }
 .sk-nav-inner { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-top: 9px; padding-bottom: 9px; }
 .sk-nav-inner::-webkit-scrollbar { display: none; }
 .sk-nav button { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 15px; border: 1px solid transparent; border-radius: 999px; background: transparent; color: var(--sk-ink3); font-weight: 650; font-size: 14px; transition: color .15s, background .15s, border-color .15s; }
 .sk-nav button:hover { color: var(--sk-ink); background: var(--sk-hover); }
-.sk-nav button[aria-current="page"] { color: var(--sk-ink); background: linear-gradient(180deg, rgba(247,147,26,.24), rgba(247,147,26,.08)); border-color: var(--sk-accent-line); box-shadow: 0 0 26px -8px rgba(247,147,26,.6); }
+.sk-nav button[aria-current="page"] { color: var(--sk-ink); background: linear-gradient(180deg, rgba(247,147,26,.24), rgba(247,147,26,.08)); border-color: var(--sk-accent-line); }
 .sk-nav-ico { width: 17px; height: 17px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .sk-nav button[aria-current="page"] .sk-nav-ico { stroke: var(--sk-accent2); }
 .sk-nav-dot { min-width: 19px; height: 19px; padding: 0 5px; border-radius: 999px; background: var(--sk-accent); color: var(--sk-accent-ink); font: 800 11px var(--sk-mono); display: inline-grid; place-items: center; box-sizing: border-box; }
@@ -3006,13 +2392,12 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-main { padding-top: 26px; padding-bottom: 70px; }
 .sk-stack { display: grid; gap: 18px; min-width: 0; }
 .sk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.sk-span-all { grid-column: 1 / -1; }
 .sk-main > .sk-grid > *, .sk-main > .sk-stack > * { animation: sk-rise .55s cubic-bezier(.2,.8,.2,1) both; }
 .sk-main > * > :nth-child(2) { animation-delay: .05s; } .sk-main > * > :nth-child(3) { animation-delay: .1s; } .sk-main > * > :nth-child(4) { animation-delay: .15s; }
 .sk-main > * > :nth-child(5) { animation-delay: .2s; } .sk-main > * > :nth-child(6) { animation-delay: .25s; } .sk-main > * > :nth-child(n+7) { animation-delay: .3s; }
 .sk-card { position: relative; display: grid; gap: 14px; min-width: 0; padding: 22px; border-radius: var(--sk-r); border: 1px solid var(--sk-line);
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012) 45%), var(--sk-card); box-shadow: var(--sk-shadow); }
-.sk-card::before { content: ""; position: absolute; left: 24px; right: 24px; top: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,179,92,.55), transparent); opacity: .55; pointer-events: none; }
+.sk-card[id] { scroll-margin-top: 128px; }
 .sk-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px 12px; flex-wrap: wrap; }
 .sk-head-text { display: grid; gap: 6px; min-width: 0; }
 .sk-head h2 { font-size: 19px; line-height: 1.3; font-weight: 750; outline: none; }
@@ -3041,45 +2426,30 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-mini.is-danger { border-color: var(--sk-red); color: var(--sk-red); background: var(--sk-red-soft); }
 .sk-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .sk-bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; }
-.sk-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #f7931a, #ffb35c); box-shadow: 0 0 12px rgba(247,147,26,.5); transition: width .6s cubic-bezier(.2,.8,.2,1); }
-.sk-bar[data-tone="good"] span { background: linear-gradient(90deg, #2fb57a, #45d18f); box-shadow: 0 0 12px rgba(69,209,143,.45); }
+.sk-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #f7931a, #ffb35c); transition: width .6s cubic-bezier(.2,.8,.2,1); }
+.sk-bar[data-tone="good"] span { background: linear-gradient(90deg, #2fb57a, #45d18f); }
 .sk-bar[data-tone="warn"] span { background: linear-gradient(90deg, #e25d52, #ff8a80); box-shadow: none; }
 .sk-bar[data-tone="gold"] span { background: linear-gradient(90deg, #ffb35c, #ffd27a); }
 
-.sk-month { border-color: var(--sk-accent-line); background: radial-gradient(640px 240px at 0% 0%, rgba(247,147,26,.18), transparent 70%), linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)), var(--sk-card); }
-.sk-month-body { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 26px; align-items: center; }
-.sk-month-main { display: grid; gap: 4px; min-width: 0; }
-.sk-month-target { display: grid; gap: 2px; }
-.sk-month-target span, .sk-month-split dt, .sk-dl dt, .sk-tile span { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
-.sk-month-target b { font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.04em; background: linear-gradient(180deg, #ffe2b0, #ffb35c); -webkit-background-clip: text; background-clip: text; color: #ffc77a; -webkit-text-fill-color: transparent; }
-.sk-month-target small { color: var(--sk-ink3); font-size: 13px; }
-.sk-splitbar { display: flex; gap: 3px; height: 10px; margin: 12px 0 10px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.06); }
-.sk-splitbar span { height: 100%; flex-basis: 0; }
-.sk-splitbar .is-core, .sk-month-split i.is-core { background: linear-gradient(90deg, #f7931a, #ffb35c); }
-.sk-splitbar .is-res, .sk-month-split i.is-res { background: var(--sk-blue); }
+.sk-month { border-color: var(--sk-accent-line); }
+.sk-month-target { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.sk-month-split dt { font: 600 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
+.sk-month-target b { font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.04em; color: var(--sk-accent2); }
+.sk-month-target small { color: var(--sk-ink3); font-size: 13.5px; }
+.sk-month-progress { display: grid; gap: 8px; }
+.sk-month-split i.is-core { background: linear-gradient(90deg, #f7931a, #ffb35c); }
+.sk-month-split i.is-res { background: var(--sk-blue); }
 .sk-month-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; margin: 0; }
 .sk-month-split dt { display: flex; align-items: center; gap: 7px; }
 .sk-month-split i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
-.sk-month-split dd { margin: 3px 0 0; font-weight: 750; font-size: 21px; letter-spacing: -0.02em; }
+.sk-month-split dd { margin: 3px 0 0; font-weight: 750; font-size: 19px; letter-spacing: -0.02em; }
 .sk-month-split dd + dd { margin-top: 0; }
 .sk-month-split dd small { font-size: 12.5px; color: var(--sk-ink3); font-weight: 500; letter-spacing: 0; }
-.sk-progress-line { margin-top: 8px !important; font-size: 13.5px; color: var(--sk-ink2); font-weight: 650; }
+.sk-progress-line { font-size: 13.5px; color: var(--sk-ink2); font-weight: 650; }
 .sk-zone-note { padding: 13px 15px; border-radius: 14px; background: color-mix(in oklab, var(--zc, #f7931a) 10%, transparent); border: 1px solid color-mix(in oklab, var(--zc, #f7931a) 35%, transparent); font-size: 14px; color: var(--sk-ink2); }
 .sk-zone-note strong { color: var(--sk-ink); }
-.sk-ring { position: relative; flex: none; display: grid; place-items: center; }
-.sk-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.sk-ring-bg { fill: none; stroke: rgba(255,255,255,.07); }
-.sk-ring-fg { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1); filter: drop-shadow(0 0 8px rgba(247,147,26,.5)); }
-.sk-ring-fg.is-done { stroke: var(--sk-green); filter: drop-shadow(0 0 8px rgba(69,209,143,.55)); }
-.sk-ring-label { position: relative; display: grid; justify-items: center; gap: 2px; text-align: center; }
-.sk-ring-label b { font-size: 26px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; }
-.sk-ring-label small { font: 600 10px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-ink3); }
-.sk-donut circle[data-part] { fill: none; }
-.sk-donut circle[data-part="exch"] { stroke: var(--sk-accent); }
-.sk-donut circle[data-part="cold"] { stroke: var(--sk-green); }
 .sk-legend [data-part="exch"] i { background: var(--sk-accent); }
 .sk-legend [data-part="cold"] i { background: var(--sk-green); }
-.sk-donut .sk-ring-label b { font-size: 20px; }
 
 .sk-due { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .sk-due li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 12px 11px 14px; border-radius: 14px; background: var(--sk-raised); border: 1px solid var(--sk-line); border-left: 3px solid var(--sk-accent); font-size: 14px; }
@@ -3100,31 +2470,10 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-triggers li[data-state="used"] .sk-trig-at { border-color: var(--sk-green); background: var(--sk-green-soft); color: var(--sk-green); }
 .sk-triggers li[data-state="used"] .sk-trig-state { color: var(--sk-green); }
 .sk-callout-line { padding: 11px 13px; border-radius: 14px; background: var(--sk-accent-soft); border: 1px solid var(--sk-accent-line); font-size: 14px; font-weight: 650; }
-.sk-hold { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; }
-.sk-hold-main { display: grid; gap: 10px; min-width: 0; }
 .sk-units { color: var(--sk-ink2); }
 .sk-units b { font-size: 30px; color: var(--sk-ink); font-weight: 800; letter-spacing: -0.035em; }
-.sk-dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; margin: 0; }
-.sk-dl dd { margin: 3px 0 0; font-weight: 700; font-size: 15.5px; }
-.sk-dl dd small { display: block; font-weight: 500; color: var(--sk-ink3); font-size: 12.5px; }
 .sk-root .is-up { color: var(--sk-green); }
 .sk-root .is-down { color: var(--sk-red); }
-.sk-pace { font-size: 20px; font-weight: 780; letter-spacing: -0.02em; }
-.sk-pace.is-good { color: var(--sk-green); }
-.sk-pace.is-warn { color: var(--sk-red); }
-.sk-pace.is-accent { color: var(--sk-accent2); }
-.sk-pacebar { position: relative; }
-.sk-pacebar i { position: absolute; top: -4px; width: 2px; height: 18px; margin-left: -1px; border-radius: 2px; background: #fff; box-shadow: 0 0 8px rgba(255,255,255,.7); }
-.sk-next { list-style: none; margin: 0; padding: 0; display: grid; }
-.sk-next li { position: relative; display: grid; grid-template-columns: 130px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 11px 0 11px 22px; border-bottom: 1px solid var(--sk-line); }
-.sk-next li:last-child { border-bottom: 0; }
-.sk-next li::before { content: ""; position: absolute; left: 3px; top: 17px; width: 9px; height: 9px; border-radius: 50%; background: var(--sk-accent); box-shadow: 0 0 0 4px rgba(247,147,26,.15); }
-.sk-next li[data-kind="event"]::before { background: var(--sk-gold); border-radius: 2px; transform: rotate(45deg); box-shadow: 0 0 0 4px rgba(255,210,122,.12); }
-.sk-next li[data-kind="review"]::before { background: var(--sk-blue); box-shadow: 0 0 0 4px rgba(138,188,255,.12); }
-.sk-next li[data-kind="backup"]::before { background: var(--sk-ink3); box-shadow: none; }
-.sk-next span { color: var(--sk-ink3); font: 500 12px var(--sk-mono); }
-.sk-next b { font-weight: 650; }
-.sk-next small { color: var(--sk-accent2); font: 700 11.5px var(--sk-mono); white-space: nowrap; }
 
 .sk-table-wrap { overflow-x: auto; border: 1px solid var(--sk-line); border-radius: 14px; background: rgba(0,0,0,.15); }
 .sk-table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -3165,12 +2514,8 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-legend.is-tight b { margin-left: auto; padding-left: 8px; font-weight: 700; color: var(--sk-ink); }
 .sk-legend li[data-tone="paid"] i { background: repeating-linear-gradient(90deg, var(--tone) 0 5px, transparent 5px 9px); }
 .sk-legend li[data-tone="target"] i { background: repeating-linear-gradient(90deg, var(--tone) 0 2px, transparent 2px 6px); }
-.sk-barfill { fill: rgba(247,147,26,.45); }
-.sk-barfill.is-hit { fill: var(--sk-accent); }
-.sk-planline { fill: none; stroke: var(--sk-ink); stroke-width: 2; stroke-dasharray: 4 3; }
 .sk-details summary { cursor: pointer; color: var(--sk-ink2); font-weight: 650; font-size: 14px; padding: 4px 0; }
 .sk-details[open] summary { margin-bottom: 10px; }
-.sk-big-line { font-size: 40px; font-weight: 800; letter-spacing: -0.04em; color: var(--sk-accent2); text-shadow: 0 0 30px rgba(247,147,26,.35); }
 
 .sk-form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px 14px; }
 .sk-field { display: grid; gap: 6px; align-content: start; min-width: 0; }
@@ -3191,16 +2536,10 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-form-error:empty { display: none; }
 .sk-entry-form { display: grid; gap: 14px; }
 .sk-reserve-tick { display: grid; gap: 2px; }
-.sk-reserve-tick .sk-hint { padding-left: 42px; }
-.sk-stress-controls { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
-.sk-range { display: grid; gap: 6px; min-width: 220px; flex: 1; }
-.sk-range label { font-size: 13px; color: var(--sk-ink2); font-weight: 650; }
-.sk-range small { color: var(--sk-ink3); font-weight: 500; }
-.sk-range input { accent-color: var(--sk-accent); width: 100%; min-height: 28px; }
 .sk-seg { display: inline-flex; flex: none; flex-wrap: nowrap; gap: 4px; padding: 4px; border-radius: 999px; background: var(--sk-field); border: 1px solid var(--sk-line2); justify-self: start; }
 .sk-seg.is-wrap { flex: initial; flex-wrap: wrap; border-radius: 16px; }
 .sk-seg button { min-height: 36px; padding: 5px 13px; border: 0; border-radius: 999px; background: transparent; color: var(--sk-ink2); font-size: 13.5px; font-weight: 650; }
-.sk-seg button.is-on { background: linear-gradient(135deg, #ffb35c, #f7931a); color: var(--sk-accent-ink); box-shadow: 0 6px 16px -8px rgba(247,147,26,.9); }
+.sk-seg button.is-on { background: linear-gradient(135deg, #ffb35c, #f7931a); color: var(--sk-accent-ink); }
 .sk-seg button:not(.is-on):hover { background: var(--sk-hover); color: var(--sk-ink); }
 .sk-check { display: flex; align-items: flex-start; gap: 10px; width: 100%; min-height: 40px; padding: 8px 10px; border: 0; border-radius: 12px; background: transparent; text-align: left; color: var(--sk-ink); }
 .sk-check:hover { background: var(--sk-hover); }
@@ -3212,10 +2551,6 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .sk-check-note { margin: -4px 0 6px 42px !important; color: var(--sk-ink3); font-size: 13px; }
 
-.sk-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.sk-tile { position: relative; display: grid; gap: 3px; padding: 16px 18px; border-radius: 18px; border: 1px solid var(--sk-line); min-width: 0; background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.01)), var(--sk-card); box-shadow: var(--sk-shadow); }
-.sk-tile b { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; overflow-wrap: anywhere; }
-.sk-tile small { color: var(--sk-ink3); font-size: 12.5px; }
 .sk-month-group { display: grid; gap: 8px; }
 .sk-month-group + .sk-month-group { margin-top: 12px; }
 .sk-month-group h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 15px; font-weight: 750; }
@@ -3225,7 +2560,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-entry[data-kind="buy"] { --k: var(--sk-green); } .sk-entry[data-kind="sell"] { --k: var(--sk-red); } .sk-entry[data-kind="out"] { --k: var(--sk-teal); }
 .sk-entry[data-kind="in"] { --k: var(--sk-blue); } .sk-entry[data-kind="res"] { --k: var(--sk-gold); } .sk-entry[data-kind="open"] { --k: var(--sk-accent); border-color: var(--sk-accent-line); background: var(--sk-accent-soft); }
 .sk-entry-kind { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 12.5px; font-weight: 750; color: var(--k); }
-.sk-entry-kind::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--k); box-shadow: 0 0 8px var(--k); }
+.sk-entry-kind::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--k); }
 .sk-entry-kind em { font-style: normal; color: var(--sk-accent2); font: 700 10px var(--sk-mono); text-transform: uppercase; letter-spacing: .08em; }
 .sk-entry-main { display: grid; gap: 2px; min-width: 0; }
 .sk-entry-main b { font-weight: 750; }
@@ -3238,35 +2573,27 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-callout[data-tone="good"] { border-left-color: var(--sk-green); }
 .sk-callout[data-tone="tip"] { border-left-color: var(--sk-blue); background: linear-gradient(90deg, rgba(138,188,255,.1), transparent 60%), var(--sk-card); }
 .sk-callout-title { font-weight: 780; font-size: 15.5px; color: var(--sk-ink); }
-.sk-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.sk-cards[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.sk-cards[data-cols="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.sk-mini-card { display: grid; gap: 8px; align-content: start; padding: 15px 17px; border-radius: 16px; background: var(--sk-raised); border: 1px solid var(--sk-line); min-width: 0; transition: border-color .2s, transform .2s; }
-.sk-mini-card:hover { border-color: var(--sk-accent-line); transform: translateY(-2px); }
-.sk-mini-card h3 { font-size: 16px; font-weight: 750; }
 .sk-tag { font: 700 10.5px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sk-accent2); }
-.sk-mini-card[data-tone="warn"] .sk-tag { color: var(--sk-red); }
-.sk-mini-card[data-tone="good"] .sk-tag { color: var(--sk-green); }
-.sk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.sk-steps > li { padding: 15px 17px; border-radius: 16px; background: var(--sk-raised); border: 1px solid var(--sk-line); display: grid; gap: 7px; }
-.sk-steps.is-phases > li { --ph: #f7931a; border-left: 3px solid var(--ph); background: linear-gradient(90deg, color-mix(in oklab, var(--ph) 9%, transparent), transparent 55%), var(--sk-raised); }
-.sk-steps.is-phases > li:nth-child(2) { --ph: #ffd27a; } .sk-steps.is-phases > li:nth-child(3) { --ph: #47d1c1; }
-.sk-steps.is-phases > li .sk-when { color: var(--ph); }
-.sk-steps > li.is-now { border-color: var(--sk-accent-line); box-shadow: 0 0 30px -14px rgba(247,147,26,.7); }
-.sk-when { font: 600 11px var(--sk-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--sk-accent2); }
-.sk-steps h3 { font-size: 18px; font-weight: 770; }
-.sk-facts { margin: 0; display: grid; }
-.sk-facts > div { display: grid; grid-template-columns: minmax(160px, 260px) minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--sk-line); }
-.sk-facts > div:last-child { border-bottom: 0; }
-.sk-facts dt { font-weight: 700; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.sk-facts dd { margin: 0; color: var(--sk-ink2); }
-.sk-chip { font: 700 10px var(--sk-mono); letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--sk-line2); color: var(--sk-ink3); }
-.sk-chip.is-verified { color: var(--sk-green); border-color: rgba(69,209,143,.4); }
-.sk-chip.is-estimate { color: var(--sk-amber); border-color: rgba(255,210,122,.4); }
-.sk-src { font-size: 13px; white-space: nowrap; }
-.sk-sources { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.sk-sources li { display: grid; gap: 2px; }
-.sk-sources span { color: var(--sk-ink3); font-size: 13px; }
+.sk-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 26px; }
+.sk-list li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--sk-line); color: var(--sk-ink2); }
+.sk-list li[data-tone="warn"] .sk-tag { color: var(--sk-red); }
+.sk-list li[data-tone="good"] .sk-tag { color: var(--sk-green); }
+.sk-need { color: var(--sk-ink2); }
+.sk-need b { margin-right: 6px; font-size: 32px; font-weight: 800; letter-spacing: -0.04em; color: var(--sk-accent2); }
+.sk-open-group, .sk-disclose { border-radius: 14px; }
+.sk-open-group { margin-top: 12px; border: 1px solid var(--sk-accent-line); background: var(--sk-accent-soft); }
+.sk-open-group > summary, .sk-disclose > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; cursor: pointer; list-style: none; }
+.sk-open-group > summary { padding: 13px 15px; font-weight: 750; }
+.sk-open-group > summary::-webkit-details-marker, .sk-disclose > summary::-webkit-details-marker { display: none; }
+.sk-open-group > summary::before, .sk-disclose > summary::before { content: ""; width: 7px; height: 7px; margin-right: 2px; border-right: 2px solid var(--sk-ink3); border-bottom: 2px solid var(--sk-ink3); transform: translateY(-2px) rotate(-45deg); transition: transform .15s; }
+.sk-open-group[open] > summary::before, .sk-disclose[open] > summary::before { transform: translateY(-3px) rotate(45deg); }
+.sk-open-group > summary small, .sk-disclose > summary small { margin-left: auto; color: var(--sk-ink3); font: 600 11.5px var(--sk-mono); }
+.sk-open-group .sk-entries { padding: 0 10px; }
+.sk-open-group .sk-entry[data-kind="open"] { background: rgba(7,8,11,.35); border-color: var(--sk-line); }
+.sk-open-group .sk-open-foot { margin: 0; padding: 12px 15px 14px; }
+.sk-disclose > summary h2 { font-size: 19px; line-height: 1.3; font-weight: 750; }
+.sk-disclose-body { display: grid; gap: 14px; margin-top: 16px; }
+.sk-disclose-body h3 { font-size: 15px; font-weight: 750; }
 .sk-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; margin-bottom: 16px; border-radius: 14px; border: 1px solid var(--sk-line2); background: var(--sk-card); }
 .sk-banner p { flex: 1 1 240px; }
 .sk-banner.is-warn { border-color: rgba(255,138,128,.5); background: var(--sk-red-soft); }
@@ -3291,7 +2618,6 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-live.is-live { color: var(--sk-green); border-color: rgba(69,209,143,.4); background: var(--sk-green-soft); }
 .sk-live.is-live i { background: var(--sk-green); box-shadow: 0 0 8px var(--sk-green); animation: sk-blink 2.4s ease-in-out infinite; }
 .sk-reconcile { padding: 10px 12px; border-radius: 12px; font-size: 13.5px; border: 1px solid var(--sk-line); }
-.sk-reconcile.is-ok { color: var(--sk-green); background: var(--sk-green-soft); border-color: rgba(69,209,143,.35); }
 .sk-reconcile.is-off { color: var(--sk-amber); background: rgba(255,210,122,.08); border-color: rgba(255,210,122,.35); }
 .sk-banner.is-gold { border-color: var(--sk-accent-line); background: linear-gradient(90deg, rgba(247,147,26,.16), rgba(247,147,26,.04)); }
 .sk-migrate { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 18px; align-items: center; padding: 16px 18px; }
@@ -3305,34 +2631,20 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 @keyframes sk-draw { to { stroke-dashoffset: 0; } }
 @keyframes sk-pulse { from { transform: scale(.5); opacity: .9; } to { transform: scale(2.3); opacity: 0; } }
 @keyframes sk-blink { 50% { opacity: .35; } }
-@keyframes sk-coin-in { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
-@keyframes sk-glow { 50% { filter: drop-shadow(0 0 7px rgba(255,179,92,.9)); } }
 
 @media (max-width: 1000px) {
   .sk-hero { grid-template-columns: minmax(0, 1fr); }
-  .sk-cards, .sk-cards[data-cols="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sk-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .sk-wrap { padding: 0 14px; }
   .sk-grid { grid-template-columns: minmax(0, 1fr); }
   .sk-hero { padding-top: 26px; gap: 22px; }
-  .sk-stackstrip { grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; padding: 18px; }
-  .sk-stack-body { display: contents; }
-  .sk-coins { grid-row: 1 / span 3; align-self: center; width: 84px; height: auto; }
-  .sk-stackstrip .sk-kicker, .sk-stack-units, .sk-stack-sats { grid-column: 2; }
-  .sk-stack-units { margin-top: 0 !important; }
-  .sk-stack-metrics, .sk-stack-note { grid-column: 1 / -1; }
-  .sk-stack-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sk-stack-metrics > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .sk-month-body { grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 16px; }
-  .sk-cards, .sk-cards[data-cols="2"], .sk-cards[data-cols="4"] { grid-template-columns: minmax(0, 1fr); }
+  .sk-stackstrip { padding: 18px; }
+  .sk-glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sk-list { grid-template-columns: minmax(0, 1fr); }
   .sk-card { padding: 18px; }
   .sk-hide-sm, .sk-save-text { display: none; }
   .sk-entry { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .sk-facts > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
-  .sk-next li { grid-template-columns: minmax(0, 1fr) auto; }
-  .sk-next li span { grid-column: 1 / -1; }
   .sk-span-2 { grid-column: auto; }
   .sk-journey-phases b { font-size: 12px; }
   .sk-journey-phases small, .sk-journey-events span { font-size: 9.5px; }
@@ -3341,10 +2653,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
   .sk-migrate-form .sk-num { width: 100%; }
 }
 @media (max-width: 420px) {
-  .sk-tiles { gap: 8px; }
-  .sk-dl { grid-template-columns: minmax(0, 1fr); }
   .sk-top-mark { display: none; }
-  .sk-hold { grid-template-columns: minmax(0, 1fr); justify-items: start; }
   .sk-triggers li { grid-template-columns: 52px minmax(0, 1fr); }
   .sk-trig-state { grid-column: 2; text-align: left; }
   .sk-month-split { grid-template-columns: minmax(0, 1fr); }

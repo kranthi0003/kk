@@ -45,7 +45,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📇 **QR vCard** | Scannable contact card via `qrcode.react` |
 | 🧮 **Calculators** | Dev calc, carbon calc, salary calc |
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
-| ₿ **Bitcoin plan** | 13-year Bitcoin plan behind the navbar's Bitcoin icon (`#/bitcoin`): live price and buying rules, projections with a stress test, the cold-storage wallet read from the chain, and a ledger kept in the browser |
+| ₿ **Bitcoin plan** | 13-year Bitcoin plan behind the navbar's Bitcoin icon (`#/bitcoin`): live price and buying rules, projections, the cold-storage wallet read from the chain, and a ledger kept in the browser |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music and Meal Plan pages |
 | 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner with encrypted on-device progress tracking; content is encrypted with `scripts/private-payload.mjs` |
