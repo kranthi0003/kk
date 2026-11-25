@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T14:21:49.075Z",
+  "generated": "2026-11-25T02:20:47.435Z",
   "season": "2026",
   "sources": [
     {
@@ -201,9 +201,9 @@
         "pos": 1,
         "code": "ENG",
         "team": "England",
-        "matches": 42,
-        "points": 11231,
-        "rating": 267
+        "matches": 43,
+        "points": 11542,
+        "rating": 268
       },
       {
         "pos": 2,
@@ -217,9 +217,9 @@
         "pos": 3,
         "code": "AUS",
         "team": "Australia",
-        "matches": 39,
-        "points": 10187,
-        "rating": 261
+        "matches": 40,
+        "points": 10404,
+        "rating": 260
       },
       {
         "pos": 4,

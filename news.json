@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T14:21:45.511Z",
+  "generated": "2026-11-25T02:20:42.925Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Flash Sale System Design: How Would You Handle 1 Million Users Clicking “Buy” at the Same Second?",
-      "url": "https://uiround.medium.com/flash-sale-system-design-how-would-you-handle-1-million-users-clicking-buy-at-the-same-second-ccc1a23a8119",
-      "by": "UIRound",
-      "time": 1795530071000,
+      "title": "Three Rebel Microsoft Programmers Created a Great Technology That Transformed the Gaming Industry",
+      "url": "https://pub.huizhou92.com/three-rebel-microsoft-programmers-created-a-great-technology-that-transformed-the-gaming-industry-57b8c4745c21",
+      "by": "Evan Zhou",
+      "time": 1795572535000,
       "tags": [
-        "javascript",
-        "software-engineering",
-        "frontend-development"
+        "programming",
+        "games",
+        "microsoft"
       ]
     },
     {
-      "title": "The Software Engineer in 2027: How AI Redefined the Market (and the Paths for Leaders and…",
-      "url": "https://medium.com/@demostenesbr/the-software-engineer-in-2027-how-ai-redefined-the-market-and-the-paths-for-leaders-and-dd5c88d68168",
-      "by": "Demostenes Brito",
-      "time": 1795529976000,
+      "title": "Terraform Interview Questions: 10 Real-World DevOps Questions",
+      "url": "https://medium.com/@preetjit82/terraform-interview-questions-10-real-world-devops-questions-ccf41a9c8622",
+      "by": "Interview Simplified",
+      "time": 1795572436000,
       "tags": [
-        "entrepreneurship",
+        "devops",
+        "interview-questions",
+        "jobs"
+      ]
+    },
+    {
+      "title": "Po-Shen Loh’s Method on the 8051: Faster Roots and Leaner Ray Casting",
+      "url": "https://medium.com/@sakamoto2000.kim/po-shen-lohs-method-on-the-8051-faster-roots-and-leaner-ray-casting-1161b33dea52",
+      "by": "Kasumi",
+      "time": 1795572361000,
+      "tags": [
+        "electronics",
+        "microcontrollers",
+        "arduino"
+      ]
+    },
+    {
+      "title": "8051 上的羅博深法：求根更快，中點寫法讓光線求交更省時",
+      "url": "https://medium.com/@sakamoto2000.kim/8051-%E4%B8%8A%E7%9A%84%E7%BE%85%E5%8D%9A%E6%B7%B1%E6%B3%95-%E6%B1%82%E6%A0%B9%E6%9B%B4%E5%BF%AB-%E4%B8%AD%E9%BB%9E%E5%AF%AB%E6%B3%95%E8%AE%93%E5%85%89%E7%B7%9A%E6%B1%82%E4%BA%A4%E6%9B%B4%E7%9C%81%E6%99%82-8f774e53340e",
+      "by": "Kasumi",
+      "time": 1795572062000,
+      "tags": [
+        "electronics",
+        "embedded-systems",
+        "programming"
+      ]
+    },
+    {
+      "title": "[Seri Membuat Database Key-Value Sendiri Bagian 1] Kenapa map di memori tidak cukup",
+      "url": "https://medium.com/@archetipe/seri-membuat-database-key-value-sendiri-bagian-1-kenapa-map-di-memori-tidak-cukup-d2c94671f110",
+      "by": "Heri Santoso",
+      "time": 1795572062000,
+      "tags": [
+        "programming",
+        "software-architecture",
+        "golang"
+      ]
+    },
+    {
+      "title": "Self-Hosted iOS Runners: Is a Mac mini Enough for CI/CD?",
+      "url": "https://khatzie.medium.com/self-hosted-ios-runners-is-a-mac-mini-enough-for-ci-cd-17dee7993cc8",
+      "by": "Khatzie",
+      "time": 1795572062000,
+      "tags": [
+        "ios-development",
+        "xcode",
+        "devops"
+      ]
+    },
+    {
+      "title": "@Valid vs @Validated in Spring Boot 4: 9 Places Validation Silently Doesn't Run",
+      "url": "https://medium.com/@devadiga.navya/valid-vs-validated-in-spring-boot-4-9-places-validation-silently-doesnt-run-570b8bd24935",
+      "by": "Navya Devadiga",
+      "time": 1795571992000,
+      "tags": [
+        "api-design",
+        "java",
+        "spring-boot"
+      ]
+    },
+    {
+      "title": "Finding Your Footing in the AI Era: Practical Motivation for IT Professionals and Managers",
+      "url": "https://medium.com/@irizarryjc/finding-your-footing-in-the-ai-era-practical-motivation-for-it-professionals-and-managers-f4d9ea93b342",
+      "by": "Juan C. Irizarry, OCP",
+      "time": 1795571778000,
+      "tags": [
+        "artificial-intelligence",
         "leadership",
-        "software-engineering"
+        "careers"
       ]
     },
     {
-      "title": "Types of Machine Learning: When to Use Which?",
-      "url": "https://medium.com/@iclalaca.ai/types-of-machine-learning-when-to-use-which-8ce9a79b8f94",
-      "by": "İclal Aca",
-      "time": 1795529963000,
+      "title": "Start Here: Three Shelves, Three Chairs, and Leaving the Wheels Out on the Table",
+      "url": "https://medium.com/@edwrdtjustice/start-here-three-shelves-three-chairs-and-leaving-the-wheels-out-on-the-table-8262b2f55fdb",
+      "by": "edwrdtjustice",
+      "time": 1795571388000,
       "tags": [
-        "machine-learning",
-        "artificial-intelligence",
-        "data-science"
+        "creativity",
+        "writing",
+        "ai"
       ]
     },
     {
-      "title": "Browser Error Tracking: The Tracker You Can Finally See",
-      "url": "https://javascript.plainenglish.io/browser-error-tracking-the-tracker-you-can-finally-see-d77dbfffc742",
-      "by": "Rajat",
-      "time": 1795529812000,
+      "title": "System Design Interviews: When Do You Actually Need Redis or Kafka?",
+      "url": "https://medium.com/@emilyhustlenyc/system-design-interviews-when-do-you-actually-need-redis-or-kafka-b2d50e792d1c",
+      "by": "Emily",
+      "time": 1795570725000,
       "tags": [
-        "performance",
-        "software-development",
-        "technology"
-      ]
-    },
-    {
-      "title": "Rust Keeps Borrowing Ideas From C. Is the Language Becoming More Powerful or More Complicated?",
-      "url": "https://medium.com/@rothyyorn9/rust-keeps-borrowing-ideas-from-c-is-the-language-becoming-more-powerful-or-more-complicated-c1f4e93dc029",
-      "by": "Rothy Yorn",
-      "time": 1795529786000,
-      "tags": [
-        "rust",
-        "technology",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Kotlin coroutines interview questions senior Android loops ask",
-      "url": "https://salari-dev.medium.com/kotlin-coroutines-interview-questions-senior-android-loops-ask-9467005fd8d9",
-      "by": "Mike Salari",
-      "time": 1795529762000,
-      "tags": [
-        "kotlin-coroutines",
-        "job-interview",
-        "kotlin"
-      ]
-    },
-    {
-      "title": "What Skills Do Engineers Need in the Age of AI? (Part 5: Understanding)",
-      "url": "https://taogang.medium.com/what-skills-do-engineers-need-in-the-age-of-ai-part-5-understanding-c56e808b2a92",
-      "by": "Gang Tao",
-      "time": 1795529762000,
-      "tags": [
-        "artificial-intelligence",
-        "software-engineering",
-        "learning"
-      ]
-    },
-    {
-      "title": "My AI Chat Ran in a Terminal. Why Was Chromium Still Eating My RAM?",
-      "url": "https://medium.com/swe-insights/my-ai-chat-ran-in-a-terminal-why-was-chromium-still-eating-my-ram-1debc281c27a",
-      "by": "bulutarkan",
-      "time": 1795529734000,
-      "tags": [
-        "chromium",
-        "memory-management",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "What Actually Happens When You Run docker run?",
-      "url": "https://medium.com/@ritanshbagal/what-actually-happens-when-you-run-docker-run-470e8d1bb2fe",
-      "by": "Ritansh Bagal",
-      "time": 1795529564000,
-      "tags": [
-        "linux",
-        "docker",
-        "containers"
-      ]
-    },
-    {
-      "title": "LLM Provider Outage and Failover: Designing Multi-Provider Resilience That Actually Works",
-      "url": "https://codefarm0.medium.com/llm-provider-outage-and-failover-designing-multi-provider-resilience-that-actually-works-ecc07873e641",
-      "by": "Arvind Kumar",
-      "time": 1795529461000,
-      "tags": [
-        "llm",
-        "large-language-models",
-        "software-engineering"
+        "kafka",
+        "redis",
+        "design-systems"
       ]
     }
   ]
