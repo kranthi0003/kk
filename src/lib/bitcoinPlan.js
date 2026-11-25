@@ -70,6 +70,16 @@ export const BITCOIN_PLAN = {
       "at": "2026-11-24"
     },
     "csv": "btc-ledger",
+    "market": {
+      "markets": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&price_change_percentage=1h,24h,7d",
+      "trending": "https://api.coingecko.com/api/v3/search/trending",
+      "global": "https://api.coingecko.com/api/v3/global",
+      "companies": "https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin",
+      "governments": "https://api.coingecko.com/api/v3/governments/public_treasury/bitcoin",
+      "coinUrl": "https://www.coingecko.com/en/coins/{id}",
+      "every": 300,
+      "minVolume": 5000000
+    },
     "wallet": {
       "address": "bc1quaunu4xa0jgeh446jlx2mchlv4gda9tj0dqz9e",
       "txUrl": "https://mempool.space/tx/{t}",
@@ -109,6 +119,10 @@ export const BITCOIN_PLAN = {
     {
       "id": "plan",
       "label": "Plan"
+    },
+    {
+      "id": "coins",
+      "label": "Coin tracker"
     }
   ],
   "phases": [

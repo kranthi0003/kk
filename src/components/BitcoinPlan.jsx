@@ -515,6 +515,17 @@ const UI = {
   needFor: 'Growth needed for {t}', aYear: 'a year', costOf: 'cost {a}', byYear: 'In {y}', needLine: 'a year gets you to {t} by {y}.',
   growth: 'Growth', reaches: 'Reaches {t}', growNote: 'Scenarios, not forecasts. After tax takes {t} of the gain, and “Reaches” assumes nothing new goes in after {y}.',
   settingsHint: 'Plan numbers, tax band and live price',
+  pulse: 'Market today', updatedAt: 'Updated {t}', cryptoMarket: 'Crypto market', in24h: '{c} in 24h', btcShare: 'Bitcoin’s share', ofAllCrypto: 'of all crypto',
+  upToday: 'Up in 24h', nOfM: '{a} of {b}', inTop: 'coins in the top 250', btcBeat: 'Bitcoin beat', ofCoins: '{p} of coins', btcIn24h: 'Bitcoin {c} in 24h',
+  moves: 'Biggest moves', movesHint: 'Top 250 coins with real trading. Stablecoins and tokenized assets are left out.', period: 'Period', goingUp: 'Up', goingDown: 'Down',
+  noneUp: 'Nothing is up over this period.', noneDown: 'Nothing is down over this period.',
+  attention: 'Getting attention', attentionHint: 'Most searched on CoinGecko in the last 24 hours.',
+  busiest: 'Busiest trading', busiestHint: 'Traded the most in 24 hours for their size.', traded: '{a} traded',
+  whoBuys: 'Who’s buying Bitcoin', holderKind: 'Holders', companies: 'Companies', governments: 'Governments', buyingSince: 'Added the most since {d}:',
+  noBuyers: 'No one in the top 30 has added any since then.', holdersLater: 'The biggest holders today. Check back in a day or two to see who’s adding.',
+  holder: 'Holder', ofSupply: 'Of all Bitcoin', addedSince: 'Since {d}', newHolder: 'New', holdersTotal: '{k} hold {u} BTC, {p} of all Bitcoin.',
+  costVs: 'Your average cost is {a}; {n}’s is {b}.', loadingMarket: 'Loading…', marketFailed: 'Couldn’t load this right now. Try Refresh in a minute.',
+  trackerOff: 'Live prices are off in Settings, so the tracker is paused.', trackerNote: 'For watching only. The plan stays Bitcoin only.',
 }
 const Words = createContext(UI)
 const useW = () => useContext(Words)
@@ -1101,6 +1112,7 @@ const NAV_ICONS = {
   plan: 'M3.5 6.5l5.5-2 6 2 5.5-2v13l-5.5 2-6-2-5.5 2zM9 4.5v13M15 6.5v13',
   grow: 'M4 19.5h16M6 15.5l4-5 3.5 3 5.5-7.5M15 6h4v4',
   log: 'M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01',
+  coins: 'M3 12h4l3-8 4 16 3-8h4',
 }
 
 // ── This month ───────────────────────────────────────────────────────────
@@ -1473,6 +1485,297 @@ function GlanceCard({ b }) {
 }
 
 const LIVE_BLOCKS = { schedule: ScheduleTable, ladder: LadderTable, glance: GlanceCard }
+
+// ── Coin tracker ─────────────────────────────────────────────────────────
+// Live market data from the public feeds in meta.market, fetched only while
+// the tab is open and kept in this browser for a few minutes between visits.
+const MARKET_KEY = 'btc_market_v1'
+const HOLDERS_KEY = 'btc_holders_v1'
+const pause = (ms) => new Promise((r) => setTimeout(r, ms))
+const readJson = (k) => { try { return JSON.parse(localStorage.getItem(k) || 'null') } catch { return null } }
+const writeJson = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} }
+const https = (u) => (typeof u === 'string' && /^https:\/\//.test(u) ? u : '')
+async function getJson(url) {
+  const ctl = new AbortController()
+  const t = setTimeout(() => ctl.abort(), 15000)
+  try {
+    const r = await fetch(url, { signal: ctl.signal, cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer' })
+    if (!r.ok) throw new Error(`HTTP ${r.status}`)
+    return await r.json()
+  } finally { clearTimeout(t) }
+}
+function holdersOf(j, key) {
+  const rows = list(j?.[key]).filter((c) => c && c.name && num(c.total_holdings) > 0)
+    .map((c) => ({ n: String(c.name), c: String(c.country || ''), h: num(c.total_holdings), e: num(c.total_entry_value_usd), pct: num(c.percentage_of_total_supply, NaN) }))
+  return { total: num(j?.total_holdings), dom: num(j?.market_cap_dominance, NaN), list: rows.sort((a, b) => b.h - a.h).slice(0, 30) }
+}
+// Only the fields the tab shows, so the saved copy stays small.
+const MARKET_PARTS = {
+  markets: (j) => list(j).filter((c) => c && c.id).map((c) => ({
+    id: String(c.id), s: String(c.symbol || '').toUpperCase(), n: String(c.name || c.id), img: https(c.image), p: num(c.current_price, NaN), mc: num(c.market_cap), r: num(c.market_cap_rank), v: num(c.total_volume),
+    h1: num(c.price_change_percentage_1h_in_currency, NaN), d1: num(c.price_change_percentage_24h_in_currency ?? c.price_change_percentage_24h, NaN), w1: num(c.price_change_percentage_7d_in_currency, NaN),
+  })),
+  trending: (j) => list(j?.coins).map((x) => x?.item).filter((c) => c && c.id).map((c) => ({
+    id: String(c.id), s: String(c.symbol || '').toUpperCase(), n: String(c.name || c.id), img: https(c.small || c.thumb), r: num(c.market_cap_rank), p: num(c.data?.price, NaN),
+    d1: num(c.data?.price_change_percentage_24h?.usd, NaN), spark: https(c.data?.sparkline),
+  })),
+  global: (j) => ({ mc: num(j?.data?.total_market_cap?.usd), ch: num(j?.data?.market_cap_change_percentage_24h_usd, NaN), btc: num(j?.data?.market_cap_percentage?.btc, NaN) }),
+  companies: (j) => holdersOf(j, 'companies'),
+  governments: (j) => holdersOf(j, 'governments'),
+}
+function useMarket(cfg, enabled) {
+  const [m, setM] = useState(() => readJson(MARKET_KEY))
+  const [busy, setBusy] = useState(false)
+  const running = useRef(false)
+  const alive = useRef(true)
+  useEffect(() => { alive.current = true; return () => { alive.current = false } }, [])
+  const load = useCallback(async () => {
+    if (!enabled || !cfg || running.current) return
+    running.current = true
+    setBusy(true)
+    const prev = readJson(MARKET_KEY) || {}
+    const data = { ...(prev.data || {}) }
+    const failed = []
+    const keys = Object.keys(MARKET_PARTS).filter((k) => cfg[k])
+    for (const [i, k] of keys.entries()) {
+      if (i) await pause(600)
+      if (!alive.current) break
+      try { data[k] = MARKET_PARTS[k](await getJson(cfg[k])) } catch { failed.push(k) }
+    }
+    const next = { at: failed.length < keys.length ? Date.now() : num(prev.at), data, failed }
+    writeJson(MARKET_KEY, next)
+    running.current = false
+    if (alive.current) { setM(next); setBusy(false) }
+  }, [cfg, enabled])
+  useEffect(() => {
+    if (!enabled || !cfg) return undefined
+    const every = Math.max(60, num(cfg.every, 300)) * 1000
+    if (!(Date.now() - num(readJson(MARKET_KEY)?.at) < every)) load()
+    const id = setInterval(() => { if (document.visibilityState === 'visible') load() }, every)
+    return () => clearInterval(id)
+  }, [enabled, cfg, load])
+  return [m, busy, load]
+}
+
+// Coins worth comparing: enough trading, and not stablecoins or tokenized
+// stocks, gold or funds, which only follow what they track.
+const NOT_COINS = /tokeni[sz]ed|\bgold\b|\bstocks?\b|\bfund\b|\bvault\b|treasur|t-?bill|\bcredit\b|\bclo\b|wrapped|bridged|\bstaked\b|restaked/i
+function marketCoins(rows, cfg) {
+  const minVol = num(cfg?.minVolume, 5e6)
+  return list(rows).filter((c) => c.mc > 0 && c.v >= minVol && Number.isFinite(c.p)
+    && !(Math.abs(c.p - 1) < 0.05 && Math.abs(num(c.d1)) < 2) && !(/usd|eur/i.test(c.s) && c.p > 0.8 && c.p < 1.3)
+    && !NOT_COINS.test(c.n) && !/^pc\d+$/i.test(c.s))
+}
+// The oldest snapshot of each holders list from the past month, for "added since".
+function useHolderBases(m, today) {
+  const [bases, setBases] = useState({})
+  useEffect(() => {
+    const store = readJson(HOLDERS_KEY) || {}
+    const next = { ...store }
+    const out = {}
+    for (const kind of ['companies', 'governments']) {
+      const rows = list(m?.data?.[kind]?.list)
+      const hist = list(store[kind]).filter((x) => x && isIso(x.d) && x.h && typeof x.h === 'object' && x.d <= today && (utc(today) - utc(x.d)) / DAY_MS <= 31)
+      out[kind] = hist.find((x) => x.d < today) || null
+      if (rows.length && !hist.some((x) => x.d === today)) hist.push({ d: today, h: Object.fromEntries(rows.map((r) => [r.n, r.h])) })
+      next[kind] = hist.slice(-32)
+    }
+    writeJson(HOLDERS_KEY, next)
+    setBases(out)
+  }, [m, today])
+  return bases
+}
+
+const usdShort = (n) => (n > 0 ? nf('en-US', { style: 'currency', currency: 'USD', notation: 'compact', maximumFractionDigits: n >= 1e12 ? 2 : 1 }).format(n) : '—')
+function coinPrice(p) {
+  if (!Number.isFinite(p)) return '—'
+  const o = p >= 1000 ? { maximumFractionDigits: 0 } : p >= 1 ? { minimumFractionDigits: 2, maximumFractionDigits: 2 } : { maximumSignificantDigits: 4 }
+  return nf('en-US', { style: 'currency', currency: 'USD', ...o }).format(p)
+}
+const signPct = (x) => (Number.isFinite(x) ? `${x >= 0 ? '+' : '−'}${pct(Math.abs(x) / 100)}` : '—')
+const Chg = ({ v }) => <span className={`sk-chg ${v >= 0 ? 'is-up' : 'is-down'}`}>{signPct(v)}</span>
+
+function CoinRow({ c, rank, change, spark, extra }) {
+  const { data } = useT()
+  const url = data.meta.market?.coinUrl
+  const href = url ? fill(url, { id: encodeURIComponent(c.id) }) : ''
+  return (
+    <li className={c.id === 'bitcoin' ? 'sk-coin is-btc' : 'sk-coin'}>
+      {rank !== undefined && <span className="sk-coin-rank">{rank}</span>}
+      {c.img ? <img className="sk-coin-ico" src={c.img} alt="" width="22" height="22" loading="lazy" decoding="async" referrerPolicy="no-referrer" /> : <span className="sk-coin-ico" aria-hidden="true" />}
+      <span className="sk-coin-name">
+        {href ? <a href={href} target="_blank" rel="noopener noreferrer">{c.n}</a> : <b>{c.n}</b>}
+        <small>{c.s}{c.r ? ` · #${c.r}` : ''}</small>
+      </span>
+      {spark ? <img className="sk-coin-spark" src={spark} alt="" width="64" height="22" loading="lazy" decoding="async" referrerPolicy="no-referrer" /> : null}
+      <span className="sk-coin-price">{coinPrice(c.p)}</span>
+      {extra ?? <Chg v={change} />}
+    </li>
+  )
+}
+function MarketEmpty({ m, busy, part }) {
+  const w = useW()
+  return <p className="sk-sub">{busy && !m?.data?.[part] ? w.loadingMarket : w.marketFailed}</p>
+}
+
+function PulseCard({ m, busy, load, coins }) {
+  const w = useW()
+  const g = m?.data?.global
+  const btc = list(m?.data?.markets).find((c) => c.id === 'bitcoin')
+  const up = coins.filter((c) => c.d1 > 0).length
+  const others = coins.filter((c) => c.id !== 'bitcoin' && Number.isFinite(c.d1))
+  const beat = btc && others.length ? others.filter((c) => c.d1 < btc.d1).length / others.length : NaN
+  const at = num(m?.at)
+  const t = at ? new Date(at).toLocaleString('en-GB', localIso(new Date(at)) === localIso() ? { hour: '2-digit', minute: '2-digit' } : { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''
+  return (
+    <section className="sk-card">
+      <Head b={{ title: w.pulse }} extra={(
+        <span className="sk-pulse-meta">
+          {t && <span>{fill(w.updatedAt, { t })}</span>}
+          <button type="button" className="sk-mini" onClick={load} disabled={busy}>{busy ? w.refreshing : w.refresh}</button>
+        </span>
+      )} />
+      <dl className="sk-glance">
+        <div><dt>{w.cryptoMarket}</dt><dd>{usdShort(num(g?.mc))}<small>{Number.isFinite(g?.ch) ? fill(w.in24h, { c: signPct(g.ch) }) : ''}</small></dd></div>
+        <div><dt>{w.btcShare}</dt><dd>{Number.isFinite(g?.btc) ? pct(g.btc / 100) : '—'}<small>{w.ofAllCrypto}</small></dd></div>
+        <div><dt>{w.upToday}</dt><dd>{coins.length ? fill(w.nOfM, { a: up, b: coins.length }) : '—'}<small>{w.inTop}</small></dd></div>
+        <div><dt>{w.btcBeat}</dt><dd>{Number.isFinite(beat) ? fill(w.ofCoins, { p: pct(beat, 0) }) : '—'}<small>{btc ? fill(w.btcIn24h, { c: signPct(btc.d1) }) : ''}</small></dd></div>
+      </dl>
+    </section>
+  )
+}
+
+const PERIODS = [{ id: 'h1', label: '1h' }, { id: 'd1', label: '24h' }, { id: 'w1', label: '7d' }]
+function MovesCard({ m, busy, coins }) {
+  const w = useW()
+  const [per, setPer] = useState('d1')
+  const sorted = coins.filter((c) => Number.isFinite(c[per])).sort((a, b) => b[per] - a[per])
+  const up = sorted.filter((c) => c[per] > 0).slice(0, 5)
+  const down = sorted.filter((c) => c[per] < 0).slice(-5).reverse()
+  const side = (rows, label, tone, none) => (
+    <div>
+      <h3 className={tone}>{label}</h3>
+      {rows.length ? <ul className="sk-coins">{rows.map((c) => <CoinRow key={c.id} c={c} change={c[per]} />)}</ul> : <p className="sk-sub">{none}</p>}
+    </div>
+  )
+  return (
+    <section className="sk-card">
+      <Head b={{ title: w.moves, intro: w.movesHint }} extra={<Seg label={w.period} value={per} onChange={setPer} options={PERIODS} />} />
+      {sorted.length ? <div className="sk-moves">{side(up, w.goingUp, 'is-up', w.noneUp)}{side(down, w.goingDown, 'is-down', w.noneDown)}</div> : <MarketEmpty m={m} busy={busy} part="markets" />}
+    </section>
+  )
+}
+
+function AttentionCard({ m, busy }) {
+  const w = useW()
+  const rows = list(m?.data?.trending).slice(0, 10)
+  return (
+    <section className="sk-card">
+      <Head b={{ title: w.attention, intro: w.attentionHint }} />
+      {rows.length ? <ol className="sk-coins">{rows.map((c, i) => <CoinRow key={c.id} c={c} rank={i + 1} change={c.d1} spark={c.spark} />)}</ol> : <MarketEmpty m={m} busy={busy} part="trending" />}
+    </section>
+  )
+}
+
+function BusyCard({ m, busy, coins }) {
+  const w = useW()
+  const rows = coins.map((c) => ({ ...c, turn: c.v / c.mc })).sort((a, b) => b.turn - a.turn).slice(0, 6)
+  return (
+    <section className="sk-card">
+      <Head b={{ title: w.busiest, intro: w.busiestHint }} />
+      {rows.length ? (
+        <ul className="sk-coins">
+          {rows.map((c) => <CoinRow key={c.id} c={c} extra={<span className="sk-coin-turn"><b>{pct(c.turn, 0)}</b><small>{fill(w.traded, { a: usdShort(c.v) })}</small></span>} />)}
+        </ul>
+      ) : <MarketEmpty m={m} busy={busy} part="markets" />}
+    </section>
+  )
+}
+
+function HoldersCard({ m, busy, bases }) {
+  const { bk, B } = useT()
+  const w = useW()
+  const [kind, setKind] = useState('companies')
+  const part = m?.data?.[kind]
+  const all = list(part?.list)
+  const rows = all.slice(0, 10)
+  const base = bases[kind]
+  const added = (r) => (base && Number.isFinite(base.h?.[r.n]) ? r.h - base.h[r.n] : NaN)
+  const buyers = base ? all.map((r) => ({ ...r, d: added(r) })).filter((r) => r.d >= 0.5).sort((a, b) => b.d - a.d).slice(0, 3) : []
+  const lead = kind === 'companies' ? all.find((r) => r.e > 0) : null
+  return (
+    <section className="sk-card">
+      <Head b={{ title: w.whoBuys }} extra={<Seg label={w.holderKind} value={kind} onChange={setKind} options={[{ id: 'companies', label: w.companies }, { id: 'governments', label: w.governments }]} />} />
+      {base ? (
+        <p className="sk-buying">
+          <span>{fill(w.buyingSince, { d: fmtDate(base.d) })}</span>
+          {buyers.length ? buyers.map((r) => <b key={r.n}>{r.n} <em className="is-up">+{qty(r.d, 0)}</em></b>) : <i>{w.noBuyers}</i>}
+        </p>
+      ) : rows.length > 0 && <p className="sk-sub">{w.holdersLater}</p>}
+      {rows.length ? (
+        <>
+          <TableWrap label={w.whoBuys}>
+            <table className="sk-table is-num sk-holders">
+              <thead><tr><th scope="col">{w.holder}</th><th scope="col">{w.units}</th><th scope="col" className="sk-hide-sm">{w.ofSupply}</th>{kind === 'companies' && <th scope="col">{w.avgShort}</th>}{base && <th scope="col">{fill(w.addedSince, { d: fmtDate(base.d, { year: undefined }) })}</th>}</tr></thead>
+              <tbody>
+                {rows.map((r) => {
+                  const d = added(r)
+                  return (
+                    <tr key={r.n}>
+                      <th scope="row">{r.n}{r.c && <small>{r.c}</small>}</th>
+                      <td>{qty(r.h, 0)}</td>
+                      <td className="sk-hide-sm">{Number.isFinite(r.pct) ? pct(r.pct / 100, 2) : '—'}</td>
+                      {kind === 'companies' && <td>{r.e > 0 ? B(r.e / r.h) : '—'}</td>}
+                      {base && <td>{Number.isFinite(d) ? (Math.abs(d) >= 0.5 ? <span className={d > 0 ? 'is-up' : 'is-down'}>{d > 0 ? '+' : '−'}{qty(Math.abs(d), 0)}</span> : '0') : w.newHolder}</td>}
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </TableWrap>
+          <p className="sk-note">
+            {fill(w.holdersTotal, { k: kind === 'companies' ? w.companies : w.governments, u: qty(part.total, 0), p: Number.isFinite(part.dom) ? pct(part.dom / 100) : '—' })}
+            {lead && bk.units > EPS ? ` ${fill(w.costVs, { a: B(bk.basisB / bk.units), n: lead.n, b: B(lead.e / lead.h) })}` : ''}
+          </p>
+        </>
+      ) : <MarketEmpty m={m} busy={busy} part={kind} />}
+    </section>
+  )
+}
+
+function TrackerView() {
+  const { data, st, today, go } = useT()
+  const w = useW()
+  const cfg = data.meta.market
+  const on = !!cfg && !st.feedOff
+  const [m, busy, load] = useMarket(cfg, on)
+  const coins = useMemo(() => marketCoins(m?.data?.markets, cfg), [m, cfg])
+  const bases = useHolderBases(m, today)
+  if (!cfg) return null
+  if (!on) {
+    return (
+      <div className="sk-stack">
+        <section className="sk-card">
+          <Head b={{ title: w.pulse }} />
+          <p className="sk-sub">{w.trackerOff}</p>
+          <div className="sk-actions"><button type="button" className="sk-mini" onClick={() => go('plan', { section: 'settings' })}>{w.editInSettings}</button></div>
+        </section>
+      </div>
+    )
+  }
+  return (
+    <div className="sk-stack">
+      <PulseCard m={m} busy={busy} load={load} coins={coins} />
+      <MovesCard m={m} busy={busy} coins={coins} />
+      <div className="sk-grid">
+        <AttentionCard m={m} busy={busy} />
+        <BusyCard m={m} busy={busy} coins={coins} />
+      </div>
+      <HoldersCard m={m} busy={busy} bases={bases} />
+      <p className="sk-note sk-tracker-note">{w.trackerNote}</p>
+    </div>
+  )
+}
 
 // ── Ledger ───────────────────────────────────────────────────────────────
 const UNIT_KINDS = ['buy', 'sell', 'out', 'in']
@@ -1915,7 +2218,7 @@ function PlanView({ focus, nonce }) {
   return <div className="sk-stack"><Blocks items={data.sections?.plan} /><Settings focus={focus} nonce={nonce} /></div>
 }
 // ── Shell ────────────────────────────────────────────────────────────────
-const VIEWS = { today: TodayView, log: LedgerView, grow: GrowView, plan: PlanView }
+const VIEWS = { today: TodayView, log: LedgerView, grow: GrowView, plan: PlanView, coins: TrackerView }
 
 // Writes the newest state to this browser whenever it changes.
 function useSaver(st) {
@@ -2484,7 +2787,7 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-table tr:last-child > * { border-bottom: 0; }
 .sk-table tbody tr:hover > * { background: rgba(255,255,255,.025); }
 .sk-table.is-num td, .sk-table.is-num thead th:not(:first-child) { text-align: right; white-space: nowrap; }
-.sk-table td small { display: block; color: var(--sk-ink3); font-size: 12px; }
+.sk-table td small, .sk-table th small { display: block; color: var(--sk-ink3); font-size: 12px; font-weight: 500; }
 .sk-table tr.is-now > * { background: var(--sk-accent-soft); }
 .sk-table tr.is-now > th { color: var(--sk-accent2); box-shadow: inset 3px 0 0 var(--sk-accent); }
 .sk-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; background: var(--tone, var(--sk-ink3)); }
@@ -2581,6 +2884,34 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
 .sk-need { color: var(--sk-ink2); }
 .sk-need b { margin-right: 6px; font-size: 32px; font-weight: 800; letter-spacing: -0.04em; color: var(--sk-accent2); }
 .sk-open-group, .sk-disclose { border-radius: 14px; }
+.sk-pulse-meta { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font: 500 11.5px var(--sk-mono); color: var(--sk-ink3); }
+.sk-coins { list-style: none; margin: 0; padding: 0; display: grid; }
+.sk-coin { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-top: 1px solid var(--sk-line); }
+.sk-coins > .sk-coin:first-child { border-top: 0; }
+.sk-coin-rank { flex: none; width: 18px; text-align: right; font: 600 11.5px var(--sk-mono); color: var(--sk-ink3); }
+.sk-coin-ico { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--sk-raised2); object-fit: cover; }
+.sk-coin-name { flex: 1; min-width: 0; display: grid; }
+.sk-coin-name a, .sk-coin-name b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.sk-root .sk-coin-name a { color: var(--sk-ink); text-decoration-color: rgba(255,255,255,.22); }
+.sk-root .sk-coin-name a:hover { text-decoration-color: currentColor; }
+.sk-root .sk-coin.is-btc .sk-coin-name a, .sk-coin.is-btc .sk-coin-name b { color: var(--sk-accent2); }
+.sk-coin-name small { font: 500 11px var(--sk-mono); color: var(--sk-ink3); }
+.sk-coin-spark { flex: none; width: 64px; height: 22px; }
+.sk-coin-price { flex: none; min-width: 76px; text-align: right; font-size: 13.5px; font-weight: 650; color: var(--sk-ink2); }
+.sk-chg { flex: none; min-width: 64px; text-align: right; font: 700 12.5px var(--sk-mono); }
+.sk-chg.is-up, .sk-moves h3.is-up { color: var(--sk-green); }
+.sk-chg.is-down, .sk-moves h3.is-down { color: var(--sk-red); }
+.sk-coin-turn { flex: none; min-width: 76px; display: grid; justify-items: end; }
+.sk-coin-turn b { font: 700 13px var(--sk-mono); color: var(--sk-accent2); }
+.sk-coin-turn small { font-size: 11.5px; color: var(--sk-ink3); }
+.sk-moves { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 30px; }
+.sk-moves h3 { margin-bottom: 4px; font: 700 11px var(--sk-mono); letter-spacing: .12em; text-transform: uppercase; }
+.sk-buying { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 11px 13px; border-radius: 12px; background: var(--sk-green-soft); border: 1px solid rgba(69,209,143,.3); font-size: 14px; color: var(--sk-ink2); }
+.sk-buying b { color: var(--sk-ink); font-weight: 700; }
+.sk-buying em { font: 700 12.5px var(--sk-mono); font-style: normal; }
+.sk-buying i { font-style: normal; color: var(--sk-ink3); }
+.sk-tracker-note { text-align: center; }
+.sk-holders tbody th { min-width: 9em; }
 .sk-open-group { margin-top: 12px; border: 1px solid var(--sk-accent-line); background: var(--sk-accent-soft); }
 .sk-open-group > summary, .sk-disclose > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; cursor: pointer; list-style: none; }
 .sk-open-group > summary { padding: 13px 15px; font-weight: 750; }
@@ -2642,6 +2973,8 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
   .sk-stackstrip { padding: 18px; }
   .sk-glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sk-list { grid-template-columns: minmax(0, 1fr); }
+  .sk-moves { grid-template-columns: minmax(0, 1fr); }
+  .sk-coin-spark { display: none; }
   .sk-card { padding: 18px; }
   .sk-hide-sm, .sk-save-text { display: none; }
   .sk-entry { grid-template-columns: minmax(0, 1fr); gap: 6px; }
@@ -2658,6 +2991,9 @@ body:has(.sk-root) { background: #07080b !important; background-image: none !imp
   .sk-trig-state { grid-column: 2; text-align: left; }
   .sk-month-split { grid-template-columns: minmax(0, 1fr); }
   .sk-wallet-body { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+}
+@media (max-width: 360px) {
+  .sk-coin-price { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sk-root *, .sk-root *::before, .sk-root *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

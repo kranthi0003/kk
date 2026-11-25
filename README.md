@@ -45,7 +45,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 📇 **QR vCard** | Scannable contact card via `qrcode.react` |
 | 🧮 **Calculators** | Dev calc, carbon calc, salary calc |
 | 📈 **Dashboards** | Crypto dashboard, DevNet, service/system status, weather |
-| ₿ **Bitcoin plan** | 13-year Bitcoin plan behind the navbar's Bitcoin icon (`#/bitcoin`): live price and buying rules, projections, the cold-storage wallet read from the chain, and a ledger kept in the browser |
+| ₿ **Bitcoin plan** | 13-year Bitcoin plan behind the navbar's Bitcoin icon (`#/bitcoin`): live price and buying rules, projections, the cold-storage wallet read from the chain, a ledger kept in the browser, and a coin tracker (biggest moves, most-searched coins, busiest trading, and who holds and is adding Bitcoin) |
 | 📝 **Guestbook** | Realtime via Supabase |
 | 📰 **Content** | Blog, Now, Uses, Timeline, Knowledge Base, Music and Meal Plan pages |
 | 🔒 **Private pages** | Password-protected trip plans, a goal page, study guides (nested diagrams, guided traces and keyboard-accessible component inspection; drills and flashcards) and a planner with encrypted on-device progress tracking; content is encrypted with `scripts/private-payload.mjs` |
@@ -56,7 +56,7 @@ Private study diagrams use scene-local coordinates, parent-group IDs and stable 
 
 The private planner (`src/components/PlanTracker.jsx`, payload `src/lib/planPayload.js`) saves progress only in the browser's `localStorage` (`pt_state_v1`), AES-GCM-encrypted with the payload's random `stateKey`; nothing is sent to a server. Backup files use the same key. When editing the payload, decrypt and re-encrypt it without changing `stateKey`, or saved progress and backups become unreadable. Changing the passphrase alone is safe.
 
-The Bitcoin plan (`src/components/BitcoinPlan.jsx`) is public; its words and numbers live in `src/lib/bitcoinPlan.js`. The starting stack there (`plan.openLots`) is the cold-storage wallet's transactions, each costed at Bitcoin's price in the hour it arrived; entering the amount actually paid in Settings scales those costs. Ledger entries stay in the visitor's browser (`localStorage` `btc_ledger_v1`) and in backup files they download; nothing is sent to a server. The page reads the public price feed and the cold-storage wallet's balance (mempool.space, then blockstream.info). It was the password-protected `#/stack` until 24 Nov 2026; `src/lib/stackPayload.js` stays only so records saved then can be brought over once with the old password.
+The Bitcoin plan (`src/components/BitcoinPlan.jsx`) is public; its words and numbers live in `src/lib/bitcoinPlan.js`. The starting stack there (`plan.openLots`) is the cold-storage wallet's transactions, each costed at Bitcoin's price in the hour it arrived; entering the amount actually paid in Settings scales those costs. Ledger entries stay in the visitor's browser (`localStorage` `btc_ledger_v1`) and in backup files they download; nothing is sent to a server. The page reads the public price feed and the cold-storage wallet's balance (mempool.space, then blockstream.info). The Coin tracker tab reads CoinGecko’s public market, trending and treasury feeds only while it is open, keeps a five-minute copy in `localStorage` (`btc_market_v1`), and saves one holders snapshot a day for a month (`btc_holders_v1`) to show who added Bitcoin since. It was the password-protected `#/stack` until 24 Nov 2026; `src/lib/stackPayload.js` stays only so records saved then can be brought over once with the old password.
 
 ---
 
