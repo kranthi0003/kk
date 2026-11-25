@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T02:20:42.925Z",
+  "generated": "2026-11-25T02:47:14.053Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Three Rebel Microsoft Programmers Created a Great Technology That Transformed the Gaming Industry",
-      "url": "https://pub.huizhou92.com/three-rebel-microsoft-programmers-created-a-great-technology-that-transformed-the-gaming-industry-57b8c4745c21",
-      "by": "Evan Zhou",
-      "time": 1795572535000,
+      "title": "Reciprocal-Zero Quadruples, the Divisor Function, and Sextic Second Roots",
+      "url": "https://medium.com/@rantnrave31/reciprocal-zero-quadruples-the-divisor-function-and-sextic-second-roots-ec4a7c2b16ac",
+      "by": "Don Gunter",
+      "time": 1795574589000,
       "tags": [
+        "mathematics",
+        "science",
+        "computer-science"
+      ]
+    },
+    {
+      "title": "How Serverless Platforms Hide the Computer Science Fundamentals You Actually Need",
+      "url": "https://medium.com/@dtv7288/how-serverless-platforms-hide-the-computer-science-fundamentals-you-actually-need-03b7d164f661",
+      "by": "Dat Vo",
+      "time": 1795574194000,
+      "tags": [
+        "cplusplus",
+        "software-engineering",
+        "software-architecture"
+      ]
+    },
+    {
+      "title": "Java Conditional Statements: if, else, and switch",
+      "url": "https://medium.com/@muhamadsyafii4/java-conditional-statements-if-else-and-switch-37aa701f88c0",
+      "by": "Muhamad Syafii",
+      "time": 1795574123000,
+      "tags": [
+        "learn-to-code",
         "programming",
-        "games",
-        "microsoft"
+        "software-development"
       ]
     },
     {
-      "title": "Terraform Interview Questions: 10 Real-World DevOps Questions",
-      "url": "https://medium.com/@preetjit82/terraform-interview-questions-10-real-world-devops-questions-ccf41a9c8622",
-      "by": "Interview Simplified",
-      "time": 1795572436000,
+      "title": "Your AI agent is copying the worst code in your repo",
+      "url": "https://medium.com/@rodrigoventuri123/your-ai-agent-is-copying-the-worst-code-in-your-repo-0320075d4afa",
+      "by": "Rodrigo Venturi",
+      "time": 1795574088000,
       "tags": [
-        "devops",
-        "interview-questions",
-        "jobs"
+        "software-engineering",
+        "code-review",
+        "artificial-intelligence"
       ]
     },
     {
-      "title": "Po-Shen Loh’s Method on the 8051: Faster Roots and Leaner Ray Casting",
-      "url": "https://medium.com/@sakamoto2000.kim/po-shen-lohs-method-on-the-8051-faster-roots-and-leaner-ray-casting-1161b33dea52",
-      "by": "Kasumi",
-      "time": 1795572361000,
+      "title": "Same Voltage, Same Current, Different Results: Lessons From an EV Charger Factory",
+      "url": "https://medium.com/@mooselai2020/same-voltage-same-current-different-results-lessons-from-an-ev-charger-factory-bc53cd5fc4de",
+      "by": "Mooselai",
+      "time": 1795573970000,
       "tags": [
-        "electronics",
-        "microcontrollers",
-        "arduino"
+        "electric-vehicles",
+        "supply-chain",
+        "battery-technology"
       ]
     },
     {
-      "title": "8051 上的羅博深法：求根更快，中點寫法讓光線求交更省時",
-      "url": "https://medium.com/@sakamoto2000.kim/8051-%E4%B8%8A%E7%9A%84%E7%BE%85%E5%8D%9A%E6%B7%B1%E6%B3%95-%E6%B1%82%E6%A0%B9%E6%9B%B4%E5%BF%AB-%E4%B8%AD%E9%BB%9E%E5%AF%AB%E6%B3%95%E8%AE%93%E5%85%89%E7%B7%9A%E6%B1%82%E4%BA%A4%E6%9B%B4%E7%9C%81%E6%99%82-8f774e53340e",
-      "by": "Kasumi",
-      "time": 1795572062000,
+      "title": "“My Pipeline Isn’t Working.” One Cry That Led Me to Microsoft’s Code Red",
+      "url": "https://medium.com/@sugamsays/my-pipeline-isnt-working-one-cry-that-led-me-to-microsoft-s-code-red-a7e269b05ffd",
+      "by": "Sugam Arora",
+      "time": 1795573861000,
       "tags": [
-        "electronics",
-        "embedded-systems",
+        "software-engineering",
+        "sugam",
+        "software-development"
+      ]
+    },
+    {
+      "title": "One Question Mark Broke Kyverno’s Namespace Walls",
+      "url": "https://sahilkhaire.medium.com/one-question-mark-broke-kyvernos-namespace-walls-6094e32d708b",
+      "by": "Sahil Khaire",
+      "time": 1795573826000,
+      "tags": [
+        "cybersecurity",
+        "kubernetes",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Top 10 Tools for Running LLMs on Your Own Hardware",
+      "url": "https://liu-111.medium.com/top-10-tools-for-running-llms-on-your-own-hardware-542298dd5a9e",
+      "by": "Jesse L",
+      "time": 1795573527000,
+      "tags": [
+        "software-engineering",
+        "programming",
+        "software"
+      ]
+    },
+    {
+      "title": "Two Pointers: How One Sorted List Lets You Skip Most of the Work",
+      "url": "https://medium.com/@patel.d/two-pointers-how-one-sorted-list-lets-you-skip-most-of-the-work-c261ce6aab33",
+      "by": "D Patel",
+      "time": 1795573399000,
+      "tags": [
+        "algorithms",
+        "software-engineering",
         "programming"
       ]
     },
     {
-      "title": "[Seri Membuat Database Key-Value Sendiri Bagian 1] Kenapa map di memori tidak cukup",
-      "url": "https://medium.com/@archetipe/seri-membuat-database-key-value-sendiri-bagian-1-kenapa-map-di-memori-tidak-cukup-d2c94671f110",
-      "by": "Heri Santoso",
-      "time": 1795572062000,
+      "title": "SQL Injection (SQLi) Explained",
+      "url": "https://medium.com/@shamith.nimhara/sql-injection-sqli-explained-41089b830b9b",
+      "by": "Shamith Nimhara",
+      "time": 1795573151000,
       "tags": [
         "programming",
-        "software-architecture",
-        "golang"
-      ]
-    },
-    {
-      "title": "Self-Hosted iOS Runners: Is a Mac mini Enough for CI/CD?",
-      "url": "https://khatzie.medium.com/self-hosted-ios-runners-is-a-mac-mini-enough-for-ci-cd-17dee7993cc8",
-      "by": "Khatzie",
-      "time": 1795572062000,
-      "tags": [
-        "ios-development",
-        "xcode",
-        "devops"
-      ]
-    },
-    {
-      "title": "@Valid vs @Validated in Spring Boot 4: 9 Places Validation Silently Doesn't Run",
-      "url": "https://medium.com/@devadiga.navya/valid-vs-validated-in-spring-boot-4-9-places-validation-silently-doesnt-run-570b8bd24935",
-      "by": "Navya Devadiga",
-      "time": 1795571992000,
-      "tags": [
-        "api-design",
-        "java",
-        "spring-boot"
-      ]
-    },
-    {
-      "title": "Finding Your Footing in the AI Era: Practical Motivation for IT Professionals and Managers",
-      "url": "https://medium.com/@irizarryjc/finding-your-footing-in-the-ai-era-practical-motivation-for-it-professionals-and-managers-f4d9ea93b342",
-      "by": "Juan C. Irizarry, OCP",
-      "time": 1795571778000,
-      "tags": [
-        "artificial-intelligence",
-        "leadership",
-        "careers"
-      ]
-    },
-    {
-      "title": "Start Here: Three Shelves, Three Chairs, and Leaving the Wheels Out on the Table",
-      "url": "https://medium.com/@edwrdtjustice/start-here-three-shelves-three-chairs-and-leaving-the-wheels-out-on-the-table-8262b2f55fdb",
-      "by": "edwrdtjustice",
-      "time": 1795571388000,
-      "tags": [
-        "creativity",
-        "writing",
-        "ai"
-      ]
-    },
-    {
-      "title": "System Design Interviews: When Do You Actually Need Redis or Kafka?",
-      "url": "https://medium.com/@emilyhustlenyc/system-design-interviews-when-do-you-actually-need-redis-or-kafka-b2d50e792d1c",
-      "by": "Emily",
-      "time": 1795570725000,
-      "tags": [
-        "kafka",
-        "redis",
-        "design-systems"
+        "software-development",
+        "cybersecurity"
       ]
     }
   ]
