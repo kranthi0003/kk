@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T03:03:48.932Z",
+  "generated": "2026-11-25T04:23:13.789Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,112 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Everyone knows the Taj Mahal.",
-      "url": "https://medium.com/@advmajburakhatun/everyone-knows-the-taj-mahal-bb415173caf9",
-      "by": "Maira",
-      "time": 1795575644000,
+      "title": "Claude Ship Is a Great Idea. It’s Also Proof That Salesforce Delivery Is a Different Problem!",
+      "url": "https://medium.com/@gauravkheterpal/claude-ship-is-a-great-idea-its-also-proof-that-salesforce-delivery-is-a-different-problem-388c7cbe96bd",
+      "by": "Gaurav Kheterpal",
+      "time": 1795579881000,
       "tags": [
-        "programming",
-        "self-improvement",
-        "technology"
+        "agentops",
+        "salesforce",
+        "claude"
       ]
     },
     {
-      "title": "ssosync Let a Recycled Email Inherit Someone Else’s AWS Access.",
-      "url": "https://sarathkrishnaprasad.medium.com/ssosync-let-a-recycled-email-inherit-someone-elses-aws-access-783cde12bd18",
-      "by": "Sarath Krishna Prasad",
-      "time": 1795575100000,
+      "title": "7 MCP Servers That Blew My Mind",
+      "url": "https://medium.com/@the_infinity/7-mcp-servers-that-blew-my-mind-0482692d3df5",
+      "by": "Infinity",
+      "time": 1795579767000,
       "tags": [
-        "security",
-        "devops",
-        "cloud-computing"
-      ]
-    },
-    {
-      "title": "We pulled the supervisor out of our coding agent. Memory was the easy half.",
-      "url": "https://medium.com/@donk8r/we-pulled-the-supervisor-out-of-our-coding-agent-memory-was-the-easy-half-9f2e5df4950d",
-      "by": "Don Karter",
-      "time": 1795575041000,
-      "tags": [
-        "artificial-intelligence",
-        "developer-tools",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Lauren Tan：把 Agent 寫的「垃圾」，變成敢上線的程式碼",
-      "url": "https://medium.com/@dimanyen/lauren-tan-%E6%8A%8A-agent-%E5%AF%AB%E7%9A%84-%E5%9E%83%E5%9C%BE-%E8%AE%8A%E6%88%90%E6%95%A2%E4%B8%8A%E7%B7%9A%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC-247087e9d2f6",
-      "by": "Diman Yen",
-      "time": 1795574874000,
-      "tags": [
-        "ai-agent",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Reciprocal-Zero Quadruples, the Divisor Function, and Sextic Second Roots",
-      "url": "https://medium.com/@rantnrave31/reciprocal-zero-quadruples-the-divisor-function-and-sextic-second-roots-ec4a7c2b16ac",
-      "by": "Don Gunter",
-      "time": 1795574589000,
-      "tags": [
-        "mathematics",
-        "science",
-        "computer-science"
-      ]
-    },
-    {
-      "title": "How Serverless Platforms Hide the Computer Science Fundamentals You Actually Need",
-      "url": "https://medium.com/@dtv7288/how-serverless-platforms-hide-the-computer-science-fundamentals-you-actually-need-03b7d164f661",
-      "by": "Dat Vo",
-      "time": 1795574194000,
-      "tags": [
-        "cplusplus",
+        "software-development",
         "software-engineering",
-        "software-architecture"
+        "mindfulness"
       ]
     },
     {
-      "title": "Java Conditional Statements: if, else, and switch",
-      "url": "https://medium.com/@muhamadsyafii4/java-conditional-statements-if-else-and-switch-37aa701f88c0",
-      "by": "Muhamad Syafii",
-      "time": 1795574123000,
+      "title": "Your AI Feature Will Fail on Black Friday. Decide What Happens Next.",
+      "url": "https://medium.com/@hello_18940/your-ai-feature-will-fail-on-black-friday-decide-what-happens-next-b0b1d6e201b4",
+      "by": "Mansoori Technologies",
+      "time": 1795579595000,
       "tags": [
-        "learn-to-code",
-        "programming",
-        "software-development"
-      ]
-    },
-    {
-      "title": "Your AI agent is copying the worst code in your repo",
-      "url": "https://medium.com/@rodrigoventuri123/your-ai-agent-is-copying-the-worst-code-in-your-repo-0320075d4afa",
-      "by": "Rodrigo Venturi",
-      "time": 1795574088000,
-      "tags": [
-        "software-engineering",
-        "code-review",
+        "ecommerce",
+        "black-friday",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Same Voltage, Same Current, Different Results: Lessons From an EV Charger Factory",
-      "url": "https://medium.com/@mooselai2020/same-voltage-same-current-different-results-lessons-from-an-ev-charger-factory-bc53cd5fc4de",
-      "by": "Mooselai",
-      "time": 1795573970000,
+      "title": "Why Most AI Projects Fail After the Demo: The Hidden Gap Between AI Prototypes and Production",
+      "url": "https://medium.com/@techsuneel99/why-most-ai-projects-fail-after-the-demo-the-hidden-gap-between-ai-prototypes-and-production-4def980fe460",
+      "by": "Suneel Kumar",
+      "time": 1795579505000,
       "tags": [
-        "electric-vehicles",
-        "supply-chain",
-        "battery-technology"
+        "ai-agent",
+        "software-development",
+        "programming"
       ]
     },
     {
-      "title": "“My Pipeline Isn’t Working.” One Cry That Led Me to Microsoft’s Code Red",
-      "url": "https://medium.com/@sugamsays/my-pipeline-isnt-working-one-cry-that-led-me-to-microsoft-s-code-red-a7e269b05ffd",
-      "by": "Sugam Arora",
-      "time": 1795573861000,
+      "title": "C Programming for Beginners: Free Step-by-Step Course",
+      "url": "https://medium.com/@codingmadeeasy92/c-programming-for-beginners-free-step-by-step-course-51f8004fe755",
+      "by": "Codingmadeeasy",
+      "time": 1795579434000,
+      "tags": [
+        "programming",
+        "coding",
+        "learning-to-code"
+      ]
+    },
+    {
+      "title": "Your EC2 Is 80% Idle and ECS Keeps Launching New Instances — Here’s How ENI Trunking Fixed It",
+      "url": "https://medium.com/@nagulesh03/your-ec2-is-80-idle-and-ecs-keeps-launching-new-instances-heres-how-eni-trunking-fixed-it-1a30c3044893",
+      "by": "Nagulesh",
+      "time": 1795579261000,
+      "tags": [
+        "cloud-computing",
+        "devops",
+        "cloud-cost-optimization"
+      ]
+    },
+    {
+      "title": "I Pay for Claude Code and Still Run Ollama. Here’s What It Kept",
+      "url": "https://medium.com/@monkscript/i-pay-for-claude-code-and-still-run-ollama-heres-what-it-kept-9f8c64089fcf",
+      "by": "Aman Singh",
+      "time": 1795579196000,
+      "tags": [
+        "software-development",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Laravel Scheduler Locks Need a Shared Cache",
+      "url": "https://medium.com/@udit.rawat03/laravel-scheduler-locks-need-a-shared-cache-6ba8d1c65d6c",
+      "by": "Udit Rawat",
+      "time": 1795579143000,
+      "tags": [
+        "laravel",
+        "redis",
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "Day Zero: Your Whole App on One Server, and What Breaks First",
+      "url": "https://medium.com/@shubham.patel191295/day-zero-your-whole-app-on-one-server-and-what-breaks-first-355c4bf52009",
+      "by": "Shubham Patel",
+      "time": 1795578961000,
       "tags": [
         "software-engineering",
-        "sugam",
-        "software-development"
+        "distributed-systems",
+        "system-design-interview"
+      ]
+    },
+    {
+      "title": "When the Reader Becomes the Publisher",
+      "url": "https://medium.com/@brian_73437/when-the-reader-becomes-the-publisher-decf8397bd13",
+      "by": "Brian Kennedy",
+      "time": 1795578959000,
+      "tags": [
+        "civictech",
+        "public-records",
+        "government-transparency"
       ]
     }
   ]
