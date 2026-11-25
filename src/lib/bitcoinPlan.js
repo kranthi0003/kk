@@ -77,7 +77,13 @@ export const BITCOIN_PLAN = {
       "companies": "https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin",
       "governments": "https://api.coingecko.com/api/v3/governments/public_treasury/bitcoin",
       "coinUrl": "https://www.coingecko.com/en/coins/{id}",
-      "every": 300,
+      "ttl": {
+        "markets": 300,
+        "trending": 300,
+        "global": 900,
+        "companies": 21600,
+        "governments": 21600
+      },
       "minVolume": 5000000
     },
     "wallet": {

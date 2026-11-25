@@ -524,7 +524,7 @@ const UI = {
   whoBuys: 'Who’s buying Bitcoin', holderKind: 'Holders', companies: 'Companies', governments: 'Governments', buyingSince: 'Added the most since {d}:',
   noBuyers: 'No one in the top 30 has added any since then.', holdersLater: 'The biggest holders today. Check back in a day or two to see who’s adding.',
   holder: 'Holder', ofSupply: 'Of all Bitcoin', addedSince: 'Since {d}', newHolder: 'New', holdersTotal: '{k} hold {u} BTC, {p} of all Bitcoin.',
-  costVs: 'Your average cost is {a}; {n}’s is {b}.', loadingMarket: 'Loading…', marketFailed: 'Couldn’t load this right now. Try Refresh in a minute.',
+  costVs: 'Your average cost is {a}; {n}’s is {b}.', loadingMarket: 'Loading…', marketFailed: 'Couldn’t load this right now. Try Refresh in a minute.', marketRetry: 'CoinGecko is busy right now. Trying again shortly…',
   trackerOff: 'Live prices are off in Settings, so the tracker is paused.', trackerNote: 'For watching only. The plan stays Bitcoin only.',
 }
 const Words = createContext(UI)
@@ -1488,7 +1488,7 @@ const LIVE_BLOCKS = { schedule: ScheduleTable, ladder: LadderTable, glance: Glan
 
 // ── Coin tracker ─────────────────────────────────────────────────────────
 // Live market data from the public feeds in meta.market, fetched only while
-// the tab is open and kept in this browser for a few minutes between visits.
+// the tab is open and kept in this browser between visits.
 const MARKET_KEY = 'btc_market_v1'
 const HOLDERS_KEY = 'btc_holders_v1'
 const pause = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -1523,38 +1523,63 @@ const MARKET_PARTS = {
   companies: (j) => holdersOf(j, 'companies'),
   governments: (j) => holdersOf(j, 'governments'),
 }
+// Each feed has its own freshness (seconds); holders change slowly. A feed that
+// fails (CoinGecko's rate limit shows up as a failed request) is tried again
+// after 30 s, then 60 s and so on, up to five minutes, while the tab is open.
+const MARKET_TTL = { markets: 300, trending: 300, global: 900, companies: 21600, governments: 21600 }
+const MARKET_FIRST = ['markets', 'trending', 'companies', 'global']
 function useMarket(cfg, enabled) {
   const [m, setM] = useState(() => readJson(MARKET_KEY))
   const [busy, setBusy] = useState(false)
+  const want = useRef(new Set(MARKET_FIRST))
+  const backoff = useRef({})
   const running = useRef(false)
   const alive = useRef(true)
   useEffect(() => { alive.current = true; return () => { alive.current = false } }, [])
-  const load = useCallback(async () => {
+  const load = useCallback(async (force = false) => {
     if (!enabled || !cfg || running.current) return
+    const cache = readJson(MARKET_KEY) || {}
+    const at = typeof cache.at === 'object' && cache.at ? { ...cache.at } : {}
+    const now = Date.now()
+    const ttl = (k) => num(cfg.ttl?.[k], MARKET_TTL[k] || 300) * 1000
+    const keys = [...want.current].filter((k) => cfg[k] && MARKET_PARTS[k] && (
+      force ? (ttl(k) <= 900000 || !cache.data?.[k] || (cache.failed || []).includes(k))
+        : !(now - num(at[k]) < ttl(k)) && !(now < num(backoff.current[k]?.next))))
+    if (!keys.length) return
     running.current = true
     setBusy(true)
-    const prev = readJson(MARKET_KEY) || {}
-    const data = { ...(prev.data || {}) }
-    const failed = []
-    const keys = Object.keys(MARKET_PARTS).filter((k) => cfg[k])
+    const data = { ...(cache.data || {}) }
+    const failed = (cache.failed || []).filter((k) => !keys.includes(k))
     for (const [i, k] of keys.entries()) {
-      if (i) await pause(600)
+      if (i) await pause(1200)
       if (!alive.current) break
-      try { data[k] = MARKET_PARTS[k](await getJson(cfg[k])) } catch { failed.push(k) }
+      try {
+        data[k] = MARKET_PARTS[k](await getJson(cfg[k]))
+        at[k] = Date.now()
+        delete backoff.current[k]
+      } catch {
+        failed.push(k)
+        const n = (backoff.current[k]?.n || 0) + 1
+        backoff.current[k] = { n, next: Date.now() + Math.min(30000 * 2 ** (n - 1), 300000) }
+      }
     }
-    const next = { at: failed.length < keys.length ? Date.now() : num(prev.at), data, failed }
+    const next = { data, at, failed }
     writeJson(MARKET_KEY, next)
     running.current = false
     if (alive.current) { setM(next); setBusy(false) }
   }, [cfg, enabled])
+  const need = useCallback((k) => {
+    if (want.current.has(k)) return
+    want.current.add(k)
+    load()
+  }, [load])
   useEffect(() => {
     if (!enabled || !cfg) return undefined
-    const every = Math.max(60, num(cfg.every, 300)) * 1000
-    if (!(Date.now() - num(readJson(MARKET_KEY)?.at) < every)) load()
-    const id = setInterval(() => { if (document.visibilityState === 'visible') load() }, every)
+    load()
+    const id = setInterval(() => { if (document.visibilityState === 'visible') load() }, 30000)
     return () => clearInterval(id)
   }, [enabled, cfg, load])
-  return [m, busy, load]
+  return [m, busy, load, need]
 }
 
 // Coins worth comparing: enough trading, and not stablecoins or tokenized
@@ -1615,7 +1640,8 @@ function CoinRow({ c, rank, change, spark, extra }) {
 }
 function MarketEmpty({ m, busy, part }) {
   const w = useW()
-  return <p className="sk-sub">{busy && !m?.data?.[part] ? w.loadingMarket : w.marketFailed}</p>
+  const failed = list(m?.failed).includes(part)
+  return <p className="sk-sub">{failed ? w.marketRetry : busy || !m ? w.loadingMarket : w.marketFailed}</p>
 }
 
 function PulseCard({ m, busy, load, coins }) {
@@ -1625,14 +1651,14 @@ function PulseCard({ m, busy, load, coins }) {
   const up = coins.filter((c) => c.d1 > 0).length
   const others = coins.filter((c) => c.id !== 'bitcoin' && Number.isFinite(c.d1))
   const beat = btc && others.length ? others.filter((c) => c.d1 < btc.d1).length / others.length : NaN
-  const at = num(m?.at)
+  const at = typeof m?.at === 'object' && m.at ? num(m.at.markets) : num(m?.at)
   const t = at ? new Date(at).toLocaleString('en-GB', localIso(new Date(at)) === localIso() ? { hour: '2-digit', minute: '2-digit' } : { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : ''
   return (
     <section className="sk-card">
       <Head b={{ title: w.pulse }} extra={(
         <span className="sk-pulse-meta">
           {t && <span>{fill(w.updatedAt, { t })}</span>}
-          <button type="button" className="sk-mini" onClick={load} disabled={busy}>{busy ? w.refreshing : w.refresh}</button>
+          <button type="button" className="sk-mini" onClick={() => load(true)} disabled={busy}>{busy ? w.refreshing : w.refresh}</button>
         </span>
       )} />
       <dl className="sk-glance">
@@ -1692,10 +1718,11 @@ function BusyCard({ m, busy, coins }) {
   )
 }
 
-function HoldersCard({ m, busy, bases }) {
+function HoldersCard({ m, busy, bases, need }) {
   const { bk, B } = useT()
   const w = useW()
   const [kind, setKind] = useState('companies')
+  useEffect(() => { need(kind) }, [kind, need])
   const part = m?.data?.[kind]
   const all = list(part?.list)
   const rows = all.slice(0, 10)
@@ -1748,7 +1775,7 @@ function TrackerView() {
   const w = useW()
   const cfg = data.meta.market
   const on = !!cfg && !st.feedOff
-  const [m, busy, load] = useMarket(cfg, on)
+  const [m, busy, load, need] = useMarket(cfg, on)
   const coins = useMemo(() => marketCoins(m?.data?.markets, cfg), [m, cfg])
   const bases = useHolderBases(m, today)
   if (!cfg) return null
@@ -1771,7 +1798,7 @@ function TrackerView() {
         <AttentionCard m={m} busy={busy} />
         <BusyCard m={m} busy={busy} coins={coins} />
       </div>
-      <HoldersCard m={m} busy={busy} bases={bases} />
+      <HoldersCard m={m} busy={busy} bases={bases} need={need} />
       <p className="sk-note sk-tracker-note">{w.trackerNote}</p>
     </div>
   )
