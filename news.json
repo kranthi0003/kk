@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T02:47:14.053Z",
+  "generated": "2026-11-25T03:03:48.932Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,6 +74,49 @@
   ],
   "medium": [
     {
+      "title": "Everyone knows the Taj Mahal.",
+      "url": "https://medium.com/@advmajburakhatun/everyone-knows-the-taj-mahal-bb415173caf9",
+      "by": "Maira",
+      "time": 1795575644000,
+      "tags": [
+        "programming",
+        "self-improvement",
+        "technology"
+      ]
+    },
+    {
+      "title": "ssosync Let a Recycled Email Inherit Someone Else’s AWS Access.",
+      "url": "https://sarathkrishnaprasad.medium.com/ssosync-let-a-recycled-email-inherit-someone-elses-aws-access-783cde12bd18",
+      "by": "Sarath Krishna Prasad",
+      "time": 1795575100000,
+      "tags": [
+        "security",
+        "devops",
+        "cloud-computing"
+      ]
+    },
+    {
+      "title": "We pulled the supervisor out of our coding agent. Memory was the easy half.",
+      "url": "https://medium.com/@donk8r/we-pulled-the-supervisor-out-of-our-coding-agent-memory-was-the-easy-half-9f2e5df4950d",
+      "by": "Don Karter",
+      "time": 1795575041000,
+      "tags": [
+        "artificial-intelligence",
+        "developer-tools",
+        "software-engineering"
+      ]
+    },
+    {
+      "title": "Lauren Tan：把 Agent 寫的「垃圾」，變成敢上線的程式碼",
+      "url": "https://medium.com/@dimanyen/lauren-tan-%E6%8A%8A-agent-%E5%AF%AB%E7%9A%84-%E5%9E%83%E5%9C%BE-%E8%AE%8A%E6%88%90%E6%95%A2%E4%B8%8A%E7%B7%9A%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC-247087e9d2f6",
+      "by": "Diman Yen",
+      "time": 1795574874000,
+      "tags": [
+        "ai-agent",
+        "software-engineering"
+      ]
+    },
+    {
       "title": "Reciprocal-Zero Quadruples, the Divisor Function, and Sextic Second Roots",
       "url": "https://medium.com/@rantnrave31/reciprocal-zero-quadruples-the-divisor-function-and-sextic-second-roots-ec4a7c2b16ac",
       "by": "Don Gunter",
@@ -137,50 +180,6 @@
         "software-engineering",
         "sugam",
         "software-development"
-      ]
-    },
-    {
-      "title": "One Question Mark Broke Kyverno’s Namespace Walls",
-      "url": "https://sahilkhaire.medium.com/one-question-mark-broke-kyvernos-namespace-walls-6094e32d708b",
-      "by": "Sahil Khaire",
-      "time": 1795573826000,
-      "tags": [
-        "cybersecurity",
-        "kubernetes",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "Top 10 Tools for Running LLMs on Your Own Hardware",
-      "url": "https://liu-111.medium.com/top-10-tools-for-running-llms-on-your-own-hardware-542298dd5a9e",
-      "by": "Jesse L",
-      "time": 1795573527000,
-      "tags": [
-        "software-engineering",
-        "programming",
-        "software"
-      ]
-    },
-    {
-      "title": "Two Pointers: How One Sorted List Lets You Skip Most of the Work",
-      "url": "https://medium.com/@patel.d/two-pointers-how-one-sorted-list-lets-you-skip-most-of-the-work-c261ce6aab33",
-      "by": "D Patel",
-      "time": 1795573399000,
-      "tags": [
-        "algorithms",
-        "software-engineering",
-        "programming"
-      ]
-    },
-    {
-      "title": "SQL Injection (SQLi) Explained",
-      "url": "https://medium.com/@shamith.nimhara/sql-injection-sqli-explained-41089b830b9b",
-      "by": "Shamith Nimhara",
-      "time": 1795573151000,
-      "tags": [
-        "programming",
-        "software-development",
-        "cybersecurity"
       ]
     }
   ]
