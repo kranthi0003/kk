@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T04:22:55.104Z",
+  "generated": "2026-11-27T04:22:43.624Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
@@ -877,5 +877,47 @@
       "pole": null
     }
   ],
-  "lastRace": null
+  "lastRace": {
+    "round": 21,
+    "name": "Las Vegas Grand Prix",
+    "circuit": "Las Vegas Strip Street Circuit",
+    "country": "USA",
+    "date": "2026-11-22",
+    "podium": [
+      {
+        "pos": 1,
+        "first": "Max",
+        "last": "Verstappen",
+        "code": "VER",
+        "team": "Red Bull",
+        "teamId": "red_bull",
+        "time": "1:27:39.624",
+        "points": 25
+      },
+      {
+        "pos": 2,
+        "first": "Lando",
+        "last": "Norris",
+        "code": "NOR",
+        "team": "McLaren",
+        "teamId": "mclaren",
+        "time": "+0.639",
+        "points": 18
+      },
+      {
+        "pos": 3,
+        "first": "Oscar",
+        "last": "Piastri",
+        "code": "PIA",
+        "team": "McLaren",
+        "teamId": "mclaren",
+        "time": "+1.529",
+        "points": 15
+      }
+    ],
+    "fastestLap": {
+      "time": "1:35.591",
+      "driver": "Lawson"
+    }
+  }
 }

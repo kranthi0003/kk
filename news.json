@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T04:22:53.070Z",
+  "generated": "2026-11-27T04:22:41.418Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Helm Interviews: Why Knowing the Commands Isn’t Enough",
-      "url": "https://medium.com/@naveedkumbhar/helm-interviews-why-knowing-the-commands-isnt-enough-69ee224ce4bf",
-      "by": "Naveed Ahmed",
-      "time": 1795666365000,
+      "title": "November 2026, 6 Critical Flaws: From PHP2Shell to Java4Shell and What You Need to Update Right Now",
+      "url": "https://medium.com/codex/november-2026-6-critical-flaws-from-php2shell-to-java4shell-and-what-you-need-to-update-right-now-4d7a2d77b870",
+      "by": "Developer Awam",
+      "time": 1795753086000,
       "tags": [
+        "programming",
         "devops",
-        "gitops",
-        "helm"
+        "php"
       ]
     },
     {
-      "title": "Java File I/O and CSV Parsing Explained: From Teletypes to Finite Automata",
-      "url": "https://medium.com/codex/java-file-i-o-and-csv-parsing-explained-from-teletypes-to-finite-automata-930c8112766d",
-      "by": "Someone",
-      "time": 1795665851000,
+      "title": "The Bug That Reads Perfectly Fine",
+      "url": "https://medium.com/@mishraashutoshmishra424/the-bug-that-reads-perfectly-fine-6541cae2b174",
+      "by": "ASHUTOSH MISHRA",
+      "time": 1795752305000,
       "tags": [
-        "software-testing",
-        "computer-science",
-        "java"
-      ]
-    },
-    {
-      "title": "​ ภาษาไทย\n​มนุษย์คือผู้ครอง — AI กับอัลกอริทึมคือกระจกสะท้อนใจ\n​ผู้เขียน: อุมาลิน กิ่งแก้ว…",
-      "url": "https://umarinzy1512531.medium.com/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2-%E0%B8%A1%E0%B8%99%E0%B8%B8%E0%B8%A9%E0%B8%A2%E0%B9%8C%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%87-ai-%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%B1%E0%B8%A5%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B8%B4%E0%B8%97%E0%B8%B6%E0%B8%A1%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%81%E0%B8%AA%E0%B8%B0%E0%B8%97%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B9%83%E0%B8%88-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-%E0%B8%AD%E0%B8%B8%E0%B8%A1%E0%B8%B2%E0%B8%A5%E0%B8%B4%E0%B8%99-%E0%B8%81%E0%B8%B4%E0%B9%88%E0%B8%87%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7-20604a7048d4",
-      "by": "Umarin Kingkaew",
-      "time": 1795665699000,
-      "tags": [
+        "artificial-intelligence",
         "programming",
-        "money",
-        "self-improvement"
+        "startup"
       ]
     },
     {
-      "title": "I Taught Claude and Chrome Manifest V3 to Automate B2B Customer Onboarding It Saves Agencies 14…",
-      "url": "https://medium.com/@thebruteforceartist/i-taught-claude-and-chrome-manifest-v3-to-automate-b2b-customer-onboarding-it-saves-agencies-14-48d3ccd05420",
-      "by": "bruteforceartist",
-      "time": 1795665662000,
+      "title": "Bubble, Insertion and Selection Sort. Explained Simply | Bhaskar Yadav",
+      "url": "https://medium.com/@bosswriter/bubble-insertion-and-selection-sort-explained-simply-bhaskar-yadav-a9d8862e35ff",
+      "by": "Bhaskar Yadav",
+      "time": 1795752022000,
       "tags": [
-        "technology",
-        "entrepreneurship",
-        "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "The 4D AI Fluency Framework Every Developer Should Know",
-      "url": "https://generativeai.pub/the-4d-ai-fluency-framework-every-developer-should-know-af3d04ff680c",
-      "by": "Kavathiyakhushali",
-      "time": 1795665627000,
-      "tags": [
-        "software-engineering",
-        "ai-engineering",
-        "generative-ai-tools"
-      ]
-    },
-    {
-      "title": "El arte de fallar con criterio: cuándo proteger un estado y cuándo solo tirar un error",
-      "url": "https://medium.com/@juanfraherrero/el-arte-de-fallar-con-criterio-cu%C3%A1ndo-proteger-un-estado-y-cu%C3%A1ndo-solo-tirar-un-error-75f37bcdab16",
-      "by": "Juan Francisco Herrero",
-      "time": 1795665552000,
-      "tags": [
+        "python",
         "programming",
-        "golang",
+        "python-programming"
+      ]
+    },
+    {
+      "title": "I Compared Three Python Agent Frameworks by Giving Them the Same Real-World Task",
+      "url": "https://python.plainenglish.io/i-compared-three-python-agent-frameworks-by-giving-them-the-same-real-world-task-5b8ff971e1f5",
+      "by": "Dr.Michael",
+      "time": 1795751870000,
+      "tags": [
+        "framework",
+        "programming",
+        "data-engineering"
+      ]
+    },
+    {
+      "title": "I Don’t Want Another AI Subscription. So I Tried Something Different.",
+      "url": "https://blog.stackademic.com/i-dont-want-another-ai-subscription-so-i-tried-something-different-2e85a01d0b31",
+      "by": "Saurabh Singh",
+      "time": 1795751534000,
+      "tags": [
+        "software-architecture",
+        "ai",
         "software-engineering"
       ]
     },
     {
-      "title": "6 Questions Business Owners Ask About AI — Honest Answers Every Agency Should Know",
-      "url": "https://medium.com/@preetjit82/6-questions-business-owners-ask-about-ai-honest-answers-every-agency-should-know-3bd6e1f3b36e",
-      "by": "Interview Simplified",
-      "time": 1795665084000,
+      "title": "Interwoven Paths",
+      "url": "https://medium.com/@abhishekchaturvedi_74630/interwoven-paths-46fb46ef8c7b",
+      "by": "Abhishek Chaturvedi",
+      "time": 1795751510000,
       "tags": [
-        "interview-questions",
-        "jobs",
-        "ai"
-      ]
-    },
-    {
-      "title": "Treat Every Subprocess as an Untrusted Boundary in Python",
-      "url": "https://medium.com/@udit.rawat03/treat-every-subprocess-as-an-untrusted-boundary-in-python-dbaee907d8af",
-      "by": "Udit Rawat",
-      "time": 1795665055000,
-      "tags": [
-        "reliability",
-        "software-engineering",
-        "python"
-      ]
-    },
-    {
-      "title": "The AWS Costs Nobody Notices Until the First Production Bill",
-      "url": "https://blog.stackademic.com/the-aws-costs-nobody-notices-until-the-first-production-bill-35924406db75",
-      "by": "Yaninyz witty",
-      "time": 1795664896000,
-      "tags": [
-        "programming",
-        "aws",
-        "code"
-      ]
-    },
-    {
-      "title": "The Bug That Only Happens on February 29",
-      "url": "https://medium.com/@zaydislam25/the-bug-that-only-happens-on-february-29-ac6ec29c9e72",
-      "by": "Zayd Islam",
-      "time": 1795664889000,
-      "tags": [
-        "python-programming",
+        "life",
         "software-development",
-        "python"
+        "friendship"
+      ]
+    },
+    {
+      "title": "I Compared Worker Threads, Child Processes, and Web Workers by Running the Same JavaScript Workloads",
+      "url": "https://javascript.plainenglish.io/i-compared-worker-threads-child-processes-and-web-workers-by-running-the-same-javascript-workloads-e877fe2fddd8",
+      "by": "Dr.Michael",
+      "time": 1795751081000,
+      "tags": [
+        "javascript",
+        "programming",
+        "threads"
+      ]
+    },
+    {
+      "title": "Giving an AI Agent Your Database Keys is Like Handing a Toddler a Chainsaw",
+      "url": "https://medium.com/@sanjeev.mandal93/giving-an-ai-agent-your-database-keys-is-like-handing-a-toddler-a-chainsaw-2ed882d426fd",
+      "by": "Dr Sanjeev Kumar Mandal",
+      "time": 1795750899000,
+      "tags": [
+        "campus-placements",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "What is system design? Client and server, explained like you’re 5",
+      "url": "https://medium.com/selvi-infotech/what-is-system-design-client-and-server-explained-like-youre-5-2f71d6ae98b9",
+      "by": "Lavanya",
+      "time": 1795750557000,
+      "tags": [
+        "software-architecture",
+        "design-systems",
+        "programming"
+      ]
+    },
+    {
+      "title": "Exit Code 1 Can Print “Blocked” While Your Build Folder Is Deleted",
+      "url": "https://medium.com/@anup.karanjkar08/exit-code-1-can-print-blocked-while-your-build-folder-is-deleted-b3bdbed900da",
+      "by": "Anup Karanjkar",
+      "time": 1795750532000,
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "mcp-server"
       ]
     }
   ]

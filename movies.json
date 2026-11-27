@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T04:21:43.734Z",
+  "generated": "2026-11-27T04:21:44.333Z",
   "source": "Wikipedia + Wikidata",
   "films": [
     {
@@ -8,7 +8,7 @@
       "date": "2026-11-27",
       "precision": "day",
       "by": "Sooraj Barjatya",
-      "desc": "Upcoming 2026 Hindi film directed by Sooraj Barjatya",
+      "desc": "2026 Indian film by Sooraj Barjatya",
       "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cf/Yeh_Prem_Mol_Liya_film_poster.jpg/120px-Yeh_Prem_Mol_Liya_film_poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Yeh_Prem_Mol_Liya",
       "imdb": "https://www.imdb.com/title/tt38907401/"
@@ -97,7 +97,7 @@
       "precision": null,
       "by": null,
       "desc": "Upcoming Indian Tamil-language film",
-      "poster": null,
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/c3/Chitukurinji-theatrical-release-poster.jpg/120px-Chitukurinji-theatrical-release-poster.jpg",
       "url": "https://en.wikipedia.org/wiki/Chitukurinji",
       "imdb": null
     },
@@ -135,17 +135,6 @@
       "imdb": "https://www.imdb.com/title/tt9598520/"
     },
     {
-      "title": "Gunmaaster G9",
-      "lang": "Hindi",
-      "date": null,
-      "precision": null,
-      "by": null,
-      "desc": "2026 Indian Hindi-language action thriller film",
-      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Gunmaaster_G9_film_poster.jpg/120px-Gunmaaster_G9_film_poster.jpg",
-      "url": "https://en.wikipedia.org/wiki/Gunmaaster_G9",
-      "imdb": "https://www.imdb.com/title/tt37539573/"
-    },
-    {
       "title": "Jai Hind Jai Sindh: A Love Story",
       "lang": "Hindi",
       "date": null,
@@ -155,6 +144,17 @@
       "poster": null,
       "url": "https://en.wikipedia.org/wiki/Jai_Hind_Jai_Sindh%3A_A_Love_Story",
       "imdb": "https://www.imdb.com/title/tt40412562/"
+    },
+    {
+      "title": "Karathey Babu",
+      "lang": "Tamil",
+      "date": null,
+      "precision": null,
+      "by": null,
+      "desc": "Indian film",
+      "poster": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/69/Karathey_Babu.jpg/120px-Karathey_Babu.jpg",
+      "url": "https://en.wikipedia.org/wiki/Karathey_Babu",
+      "imdb": "https://www.imdb.com/title/tt33673925/"
     }
   ]
 }
