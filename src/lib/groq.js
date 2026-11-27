@@ -1,11 +1,13 @@
 // Centralized Groq API proxy — routes through Supabase Edge Function
 // This keeps the API key server-side (never exposed to the browser)
 //
-// The model is named here and nowhere else. Six features run through this
-// one function — the chatbot, the terminal, the meme generator, stranger
-// chat and the collab editor — and none of them pass a model of their own.
-// The site agent at #/ask calls tools, so it has its own function at the
-// bottom of this file, but its models are named here too.
+// The model is named here and nowhere else. The terminal, the meme
+// generator, stranger chat and the collab editor run through this one
+// function, and none of them pass a model of their own. The site agent at
+// #/ask and the AI twin use the function at the bottom of this file instead:
+// the agent calls tools, and the twin must answer only from its own memory,
+// which compound-mini's web search would undermine. Their models are named
+// here too.
 //
 // That turned out to matter. Groq decommissioned llama-3.1-8b-instant and
 // all six broke at once, quietly: the proxy still answers 200 with an

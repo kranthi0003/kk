@@ -20,7 +20,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 3. **🎮 3D Gamer Workspace** — a walkable 3D desk scene with LED strips, monitors, neon bars, a soldier NPC (`WASD`), and live GitHub feed.
 4. **Mini-apps & games** — battle, collab editor, stranger chat, AstroDither, truth-or-dare, and more.
 5. **Content pages** — blog, now, uses, timeline, knowledge base, music.
-6. **Floating tools & widgets** — AI chatbot, share cards, calculators, crypto/dev dashboards, meme generator, and a spotlight command palette.
+6. **Floating tools & widgets** — AI twin chat, share cards, calculators, crypto/dev dashboards, meme generator, and a spotlight command palette.
 
 ---
 
@@ -33,7 +33,7 @@ A single React + Vite site that packs several distinct experiences behind hash r
 | 🌌 **3D Solar System** | Real planet textures, fly-to camera, orbiting moons, Saturn rings, NASA Eyes-style HUD (`#/space`) |
 | 🎮 **3D Gamer Workspace** | Walkable desk scene, soldier NPC (`WASD`), LED strips, live GitHub feed on monitors (`#/workspace`) |
 | 🎨 **AstroDither** | Dithered astro/generative visual experience (`#/astro`) |
-| 🤖 **AI Chatbot** | Floating assistant trained on my bio |
+| 🤖 **AI twin** | Floating chat that answers as me, in the first person, from my own words; `#/me` talks out loud |
 | 🎙️ **Site agent** | Ask by voice; gpt-oss calls tools over the F1, cricket and jobs data and every step is shown live (`#/ask`) |
 | ⚔️ **Battle & Collab** | Battle minigame (`#/battle`) + multiplayer Monaco editor (`#/collab`) |
 | 💬 **Stranger Chat** | Anonymous realtime chat (`#/stranger`) |
@@ -57,6 +57,8 @@ Private study diagrams use scene-local coordinates, parent-group IDs and stable 
 The private planner (`src/components/PlanTracker.jsx`, payload `src/lib/planPayload.js`) saves progress only in the browser's `localStorage` (`pt_state_v1`), AES-GCM-encrypted with the payload's random `stateKey`; nothing is sent to a server. Backup files use the same key. When editing the payload, decrypt and re-encrypt it without changing `stateKey`, or saved progress and backups become unreadable. Changing the passphrase alone is safe.
 
 The Bitcoin plan (`src/components/BitcoinPlan.jsx`) is public; its words and numbers live in `src/lib/bitcoinPlan.js`. The starting stack there (`plan.openLots`) is the cold-storage wallet's transactions, each costed at Bitcoin's price in the hour it arrived; entering the amount actually paid in Settings scales those costs. Ledger entries stay in the visitor's browser (`localStorage` `btc_ledger_v1`) and in backup files they download; nothing is sent to a server. The page reads the public price feed and the cold-storage wallet's balance (mempool.space, then blockstream.info). The Coin tracker tab reads CoinGecko’s public market, trending and treasury feeds only while it is open, one at a time. It keeps a copy in `localStorage` (`btc_market_v1`), refreshing prices and trends every five minutes and holder lists every six hours, retries a feed that CoinGecko rate-limits, and saves one holders snapshot a day for a month (`btc_holders_v1`) to show who added Bitcoin since. It was the password-protected `#/stack` until 24 Nov 2026; `src/lib/stackPayload.js` stays only so records saved then can be brought over once with the old password.
+
+The AI twin (the floating chat in `src/components/AIChatbot.jsx`, and `#/me` in `src/components/TwinFace.jsx`) answers as me, in the first person, only from the markdown in `src/brain/`. `me.md`, `voice.md` and `boundaries.md` go with every question; the few memories closest to the question come from the other files (`src/lib/twin.js`). It runs on the gpt-oss models through the Groq proxy without web search, keeps private topics offline, and says it's AI when asked. Everything in `src/brain/` ships with the site, so nothing private goes there. To teach it more, answer the questions in `src/brain/interview.md`: each answer becomes a memory and a suggested question. `#/me` speaks with the visitor's browser voice, not mine. Until `public/twin/me.glb` exists it's a voice call with my photo; with it, a 3D me sits in a chair and answers with lip-sync, expressions and gestures ([TalkingHead](https://github.com/met4citizen/TalkingHead), MIT, vendored in `src/vendor/talkinghead`). To make that file, create an avatar from selfies at [Avaturn](https://avaturn.me) (free for non-commercial use), export it as a Type-2 (T2) GLB, and try it at `#/me?preview` (the file stays in the browser) before adding it as `public/twin/me.glb`.
 
 ---
 
@@ -152,6 +154,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/reliability` | Reliability Lab (observability dashboard) |
 | `#/ask` | 🎙️ Voice agent over the F1, cricket and jobs data |
 | `#/bitcoin` | ₿ 13-year Bitcoin plan, cold-storage wallet and ledger (also `#/stack`); the navbar's Bitcoin icon opens it |
+| `#/me` | 🗣️ Talk to my AI twin out loud: a 3D me in a chair once `public/twin/me.glb` exists, a voice call until then (`#/me?preview` tries an avatar file) |
 | `#/vegas` | 🔒 Private, password-protected trip plan |
 | `#/europe` | 🔒 Private, password-protected winter-trip plan |
 | `#/singapore` | 🔒 Private, password-protected goal page (also `#/goal-singapore`) |
@@ -182,7 +185,8 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
         ├── AstroDither.jsx       # dithered astro visuals
         ├── Hero.jsx / Experience.jsx / TechStack.jsx / Projects.jsx / About.jsx
         ├── Terminal.jsx / TravelMap.jsx / Guestbook.jsx / Contact.jsx
-        ├── AIChatbot.jsx / ShareCard.jsx / QRvCard.jsx / MemeGenerator.jsx
+        ├── AIChatbot.jsx / TwinFace.jsx  # AI twin: floating chat and #/me (brain in src/brain/)
+        ├── ShareCard.jsx / QRvCard.jsx / MemeGenerator.jsx
         ├── CryptoDashboard.jsx / DevNet.jsx / ServiceStatus.jsx / WeatherWidget.jsx
         ├── Blog.jsx / NowPage.jsx / UsesPage.jsx / Timeline.jsx / KnowledgeBase.jsx / MusicPage.jsx
         └── battle/               # BattlePage, CollabEditor, ...

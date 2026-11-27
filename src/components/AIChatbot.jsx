@@ -1,445 +1,265 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { groqChat } from '../lib/groq'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import profile from '../../assets/profile.png'
+import { askTwin, faceAvailable, loadBrain, suggestionsFrom } from '../lib/twin'
+import { RealMe, TwinText } from './TwinText'
 
-const SYSTEM_PROMPT = `You are an AI assistant on Kranthi Kiran's portfolio website (kranthikiran.com). You speak as if you know Kranthi personally. Answer questions based on this detailed profile:
+// The floating chat: my AI twin, answering in first person from src/brain
+// (see src/lib/twin.js). Replies arrive as a few short texts with a typing
+// pause between them, the way I'd actually reply.
+const GREETING = [
+  'hey! 👋 this is my AI twin',
+  "it only knows what I've actually written and said, so it's close to talking to me. ask me anything: work, projects, life",
+]
+const START = ['What do you actually do at GitHub?', 'What certifications do you have?', 'What do you do outside work?', 'How does this AI twin work?']
 
-BASICS:
-- Full name: Kranthi Kiran Akkumahanthi
-- Goes by: Kranthi (the site greets visitors as "Kranthi")
-- Current role: SE-III (Software Engineer 3) at GitHub (Microsoft)
-- Location: Visakhapatnam (Vizag), Andhra Pradesh, India
-- Hometown: Vizag — born and raised
-- Education: B.Tech in Computer Science from GITAM University, Vizag (2017-2021)
-- Email: kranthikiranakkumahanthi@gmail.com
-- LinkedIn: linkedin.com/in/akkiran003
-- GitHub: github.com/kranthi0003 (very active — thousands of contributions a year)
-- X/Twitter: x.com/kranthikiran03
-- Website: kranthikiran.com
-- On GitHub since: February 2019
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+const shuffle = (arr) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
+let nextId = 1
+const greeting = () => GREETING.map((text) => ({ id: nextId++, role: 'assistant', text, turn: 0 }))
 
-WORK EXPERIENCE (chronological):
-1. Cloud Engineer at Amazon Web Services (2021-2025, ~4 years)
-   - Worked on distributed systems at scale serving millions of customers
-   - Deep expertise in AWS cloud infrastructure
-2. SE-II (Software Engineer) at Couchbase (2025-2026)
-   - Enterprise NoSQL database support
-   - Worked with clients like Netflix, Apple & Salesforce
-   - Earned 3 Couchbase certifications during tenure
-3. SE-III (Software Engineer 3) at GitHub / Microsoft (2026-Present)
-   - Distributed systems, Git internals & platform reliability at scale
-   - Working on engineering excellence and automation
+// Earlier turns for the twin, with each reply's texts joined back together.
+function historyOf(messages) {
+  const out = []
+  for (const m of messages) {
+    if (m.turn === 0 || m.note) continue
+    const prev = out[out.length - 1]
+    if (prev && prev.role === m.role && prev.turn === m.turn) prev.text += `\n\n${m.text}`
+    else out.push({ role: m.role, text: m.text, turn: m.turn })
+  }
+  return out
+}
 
-TECHNICAL SKILLS:
-- Languages: Python (strong), Java, Ruby, Bash, JavaScript, TypeScript, Go, C++
-- Cloud & Infra: AWS (strong, certified), Azure, Terraform, Docker, Kubernetes
-- Databases: PostgreSQL, Couchbase (certified), Redis, SQL (strong)
-- DevOps: GitHub Actions, GitOps, CI/CD pipelines, automation
-- Monitoring: Prometheus, Grafana, observability tools
-- Core: Networking (strong), Operating Systems (strong), Distributed Systems, System Design
-
-CERTIFICATIONS:
-- Claude Certified Associate – Foundations (Anthropic), earned Aug 2026
-- GitHub Actions (GitHub / Microsoft)
-- GitHub Administration (GitHub / Microsoft)
-- GitHub Foundations (GitHub / Microsoft)
-- Certified Professional Administrator (Couchbase)
-- Certified Associate Python Developer (Couchbase)
-- Certified Associate Architect with Capella (Couchbase)
-- AWS Solutions Architect – Associate (Amazon)
-- Currently pursuing: GHAS, GitHub Copilot certifications
-
-PROJECTS:
-1. SketchGate — A high-availability distributed rate limiter with penalty queues, built in Go. Designed for cloud-native architectures with sliding window counters and adaptive throttling.
-2. Health Risk Prediction — ML pipeline for predicting health risks using patient data. Classification models with feature engineering using Python, Pandas, Scikit-learn.
-3. kranthikiran.com — This portfolio site! Built with React, Tailwind CSS, Vite. Features an interactive travel map, AI chatbot, interactive terminal, Ubuntu boot sequence, Matrix easter egg, Bitcoin wallet tracker.
-4. 2028 Halving Strategy — Crypto halving cycle strategy tracker in TypeScript. Analyzes historical Bitcoin halving data and models investment strategies.
-5. IoT Smart Home Controller — NodeMCU + Arduino project to remotely control lights/fans via mobile app using relays and WiFi.
-6. Rotating Solar Panel — Self-rotating solar panel using gear motor and Arduino UNO for maximum sunlight tracking.
-7. Speech Assistant — Python voice assistant with speech recognition and text-to-speech.
-8. GitHub Foundations Quest — Gamified certification prep tool with quizzes and progress tracking.
-9. GazeTracker — Eye tracking project (pinned on GitHub)
-
-TRAVEL (places visited):
-India: Visakhapatnam (hometown), Hyderabad (worked here), Bangalore, Mumbai, Delhi, Goa, Chennai, Kolkata
-International: Las Vegas, Chicago (USA)
-
-CAREER GOALS:
-- Short-term: Excel at GitHub, crack roles at top product companies
-- Medium-term: Become highly skilled in DevOps, cloud architecture, and engineering excellence
-- Certifications target: Complete all GitHub certifications (Admin, Actions, GHAS, Copilot)
-- Long-term: Financial independence & early retirement by ~40, travel the world full-time, build a YouTube channel for travel content
-
-CURRENT FOCUS:
-- Automating backend troubleshooting at GitHub
-- Improving engineering workflows
-- Learning advanced cloud + DevOps tooling
-- Building meaningful open-source side projects
-- Growing personal brand and digital presence
-
-INTERESTS & HOBBIES:
-- Algorithmic trading using Zerodha Kite API
-- Crypto investing (Bitcoin, high-growth opportunities, tracks halving cycles)
-- Owns a Bitcoin wallet (tracks it on his site!)
-- Fitness — on a focused 6-month body transformation he calls "The Lock-In" (home gym + calorie-deficit diet + skincare + daily discipline), tracked in a private Transformation HQ on the site. Goal: leanest, sharpest shape.
-- Travel content creation — loves sunrises and sunsets
-- Gaming — plays Valorant
-- Satellite imagery enthusiast
-- Loves building creative tech projects
-
-PERSONALITY:
-- Highly ambitious, future-focused, values independence
-- Analytical thinker — loves breaking down complex systems
-- Prefers crisp, structured, no-BS communication
-- Balances deep technical skills with creative interests
-- Driven by growth, efficiency, and long-term success
-
-ABOUT THIS WEBSITE:
-- Built with React + Tailwind CSS + Vite, hosted on GitHub Pages
-- Domain: kranthikiran.com
-- Uses Groq API (Llama 3.1 8B) for AI chatbot and shell translator
-- Uses Supabase for guestbook storage and live visitor presence tracking
-
-SITE FEATURES (everything on the site):
-1. Boot Sequence — neofetch-style terminal boot that detects real visitor hardware (CPU, GPU, RAM, browser, network). Shows on first visit, skipped after.
-2. Two-line Navbar — Line 1: Logo, centered nav links, search bar, wallet, spotify, status monitor, theme toggle. Line 2: Action bar with 9 icon buttons (see below).
-3. Command Palette (press / or Cmd+K) — macOS Spotlight-style search with 60+ searchable actions. Frosted glass UI, keyboard nav, covers every feature on the site.
-4. Admin Mode — type "kk2026" in search bar + Enter to unlock admin features (visitor dashboard, guestbook moderation). Green badge shows when active.
-5. AI Chatbot (you!) — bottom-right floating button. Knows everything about Kranthi. Typing effect, suggestion pills, sessionStorage cache.
-6. Interactive Terminal — AI Shell Translator (English → shell commands), Architecture Diagram Generator ("design twitter"), 4 games (Snake, Tic-Tac-Toe, Wordle with tech words, Memory). Rotating prompt suggestions.
-7. Travel Map — a hand-drawn dark map of India marking places Kranthi has visited (home base: Vizag), plus temples/pilgrimage spots and a few trips abroad (LA, Vegas, Chicago, Mauritius).
-8. Bitcoin Wallet Tracker — navbar dropdown showing live BTC balance, USD value, transaction count. Uses the mempool.space Esplora API, with blockstream.info as a fallback.
-9. Ambient Radio — a YouTube-powered ambient/chill music player in the navbar that keeps playing across the whole site (it pauses itself on the Lock-In page).
-10. Status Monitor — navbar dropdown with ECG heartbeat canvas, live metrics (FCP, TTFB, DOM load, resource count, JS heap memory). Pings every 750ms.
-11. Guestbook — Supabase-backed visitor messages (280 char limit). Hidden admin mode for deleting messages.
-12. Live Visitor Counter — Supabase Realtime Presence, shows "X viewing now" badge when 2+ visitors online.
-13. Visitor Dashboard (admin only) — shows each visitor's country/city (IP geolocation), device, browser, OS, referrer, current section they're viewing, time on site. Ctrl+Shift+V or admin mode.
-14. Changelog Feed — inline section showing last 4 commits from GitHub API, grouped with dot timeline. "View changelog" opens full 30-commit modal with date grouping and commit tags (New/Fix/Update/Remove).
-15. About Section — Apple-style bento grid: profile card, Spotify embed, live clock, "Currently" status, Instagram embed, rotating quotes, site stats.
-16. Stack & Credentials — 4-column bento cards for skills + gradient certification pills with tag badges.
-17. Projects — 5 OS-styled terminal window cards: DeployDiff (WIP), CronExplain (WIP), StrangerChat, SketchGate, Portfolio site. Traffic light dots, status badges.
-18. Connect Section — contact form with social links.
-19. Matrix Easter Egg — 5x rapid click on theme toggle triggers Matrix code rain animation.
-20. Scroll Progress Bar — thin accent bar at top showing scroll position.
-21. Grid Background — faint engineering paper grid across entire site (different opacity for light/dark mode).
-
-RECENT ADDITIONS (2026):
-- Transformation HQ — "The 6-Month Lock-In": a personal fitness OS with a daily clock-in, home-gym workouts (each linking a form video), a calorie-deficit diet plan, a skincare routine, a gym playlist, and a progress/monitor dashboard. Reachable from the "Lock-In" item in the navbar.
-- Crypto Dashboard — live markets, Bitcoin network stats, a fear/greed gauge, and a live BTC price ticker that updates every couple of seconds. There's also a Bitcoin wallet popup with a scannable QR.
-- Blog + a /now page — short essays/reflections and a snapshot of what he's focused on right now.
-- Reliability Lab — a live status & observability dashboard.
-- The greeting on the homepage rolls "hello" through many languages.
-- The Sidecar — a slide-in drawer of "things I follow", opened by a round button near the top-right. Currently holds three cards: the next Formula 1 race with a live countdown, the F1 drivers'/constructors' championship standings, and an "Upcoming Indian cinema" card listing films like Toxic, Ramayana, King and Varanasi with posters, directors and release dates (titles from Wikipedia, links go to IMDb).
-- Tech News — a dropdown in the navbar (desktop) with four tabs: Hacker News and DEV.to, which are live and refresh every five minutes, plus Medium and Reddit (r/programming, r/devops, r/kubernetes), which are baked in at build time and refresh daily.
-- The 3D workspace scene and the Sidecar each have their own reload button, so a scene or card that didn't load can be refreshed on its own without reloading the page.
-
-ACTION BAR (Line 2 of navbar, desktop only — 9 icon buttons):
-Left side:
-- Changelog — opens full commit history modal
-- AI Chat — opens chatbot
-- Resume — opens CV/PDF viewer
-- QR vCard — generates scannable QR code with contact info + downloadable .vcf file
-
-Right side:
-- Surprise Me — random action (starts a game, opens a feature, scrolls somewhere)
-- Reading Mode — strips all animations, iframes, canvas. Narrows content to 720px for clean reading/printing. Bottom bar shows exit instructions.
-- Speed Test — dark modal with performance grade (A+ to D), visual progress bars for FCP/TTFB/DOM/Load/Transfer, stats grid.
-- Share Card — generates branded 1200×630 social media card with 4 themes (Dark, Ocean, Purple, Minimal). Shows name, title, tech tags, URLs. Download PNG or copy to clipboard.
-- Hire Me — opens pre-filled recruiter email template with role/company/location fields.
-
-KEYBOARD SHORTCUTS:
-- / or Cmd+K — Open command palette search
-- Ctrl+Shift+V — Open visitor dashboard (admin)
-- Esc — Close any modal/palette
-- Arrow keys + Enter — Navigate command palette results
-
-RESPONSE GUIDELINES:
-- KEEP IT SHORT. 1-2 sentences max. No essays. Think tweet-length.
-- Answer the question directly, then stop. Don't over-explain or add context nobody asked for.
-- Skip intros like "Great question!" or "Sure thing!" — just answer.
-- No emojis unless it genuinely adds something.
-- Don't list everything — pick the most relevant 2-3 things.
-- If someone asks "what does Kranthi do?", one line: role + company + one cool detail. Done.
-- Sound like a friend giving a quick answer, not a Wikipedia article.
-- Never make up facts about Kranthi.
-- If you don't know, say "not sure about that" and move on.`
+function Face({ size = 24 }) {
+  return (
+    <span className="relative flex-shrink-0" style={{ width: size, height: size }}>
+      <img src={profile} alt="" className="w-full h-full rounded-full object-cover" style={{ boxShadow: '0 0 0 1.5px color-mix(in oklab, var(--color-accent) 55%, transparent)' }} />
+    </span>
+  )
+}
 
 export default function AIChatbot() {
   const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState([
-    { role: 'assistant', text: "Hey! I know a thing or two about Kranthi. Ask me anything — work, skills, projects, whatever." }
-  ])
+  const [messages, setMessages] = useState(greeting)
   const [input, setInput] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [busy, setBusy] = useState(false)
   const [typing, setTyping] = useState(false)
-  const scrollRef = useRef()
-  const inputRef = useRef()
-  const typingRef = useRef(null)
-
-  const ALL_SUGGESTIONS = [
-    'What does Kranthi do?', 'Skills & stack', 'Projects', 'Contact info',
-    'Career journey?', 'Certifications?', 'Where has he traveled?',
-    'What is SketchGate?', 'Hobbies?', 'Current role?',
-    'Education?', 'Favorite tech?', 'Career goals?',
-    'Work at Amazon?', 'Why GitHub?', 'Bitcoin?',
-    'The 6-month Lock-In?', 'DevOps tools?', 'Work style?',
-    "What's on this site?", 'Time at Couchbase?', 'Fitness goals?',
-  ]
-  // Cycle through the questions (shuffled) three at a time, so the pills never
-  // repeat until every one has been shown.
-  const shuffle = (arr) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
-  const poolRef = useRef(null)
-  const posRef = useRef(0)
-  if (!poolRef.current) poolRef.current = shuffle(ALL_SUGGESTIONS)
-  const takeThree = () => {
-    if (posRef.current + 3 > poolRef.current.length) { poolRef.current = shuffle(ALL_SUGGESTIONS); posRef.current = 0 }
-    const out = poolRef.current.slice(posRef.current, posRef.current + 3)
-    posRef.current += 3
-    return out
-  }
-  const [suggestions, setSuggestions] = useState(() => takeThree())
-
-  const rotateSuggestions = () => setSuggestions(takeThree())
-
-  useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
-  }, [messages, typing])
-
-  useEffect(() => {
-    if (open && inputRef.current) inputRef.current.focus()
-  }, [open])
-
-  // Cleanup typing interval on unmount
-  useEffect(() => () => { if (typingRef.current) clearTimeout(typingRef.current) }, [])
-
-  const typeReply = (fullText) => {
-    setTyping(true)
-    setMessages(prev => [...prev, { role: 'assistant', text: '', typing: true }])
-    let i = 0
-    const baseSpeed = Math.max(20, Math.min(45, 2500 / fullText.length))
-    
-    const tick = () => {
-      i++
-      setMessages(prev => {
-        const updated = [...prev]
-        updated[updated.length - 1] = { role: 'assistant', text: fullText.slice(0, i), typing: true }
-        return updated
-      })
-      if (i >= fullText.length) {
-        setMessages(prev => {
-          const updated = [...prev]
-          updated[updated.length - 1] = { role: 'assistant', text: fullText }
-          return updated
-        })
-        setTyping(false)
-        return
-      }
-      // Variable speed — pause longer at punctuation, faster on spaces
-      const char = fullText[i - 1]
-      let delay = baseSpeed + Math.random() * 15
-      if (char === '.' || char === '!' || char === '?') delay += 120
-      else if (char === ',') delay += 60
-      else if (char === ' ') delay = baseSpeed * 0.5
-      typingRef.current = setTimeout(tick, delay)
-    }
-    
-    typingRef.current = setTimeout(tick, 300) // initial pause before typing starts
-  }
-
-  const sendMessage = async (e) => {
-    e.preventDefault()
-    const msg = input.trim()
-    if (!msg || loading || typing) return
-
-    const newMessages = [...messages, { role: 'user', text: msg }]
-    setMessages(newMessages)
-    setInput('')
-
-    // Check cache first
-    const cacheKey = `chat_${msg.toLowerCase()}`
-    const cached = sessionStorage.getItem(cacheKey)
-    if (cached) {
-      typeReply(cached)
-      rotateSuggestions()
-      return
-    }
-
-    setLoading(true)
-
-    try {
-      const chatMessages = [
-        { role: 'system', content: SYSTEM_PROMPT },
-        ...newMessages.map(m => ({
-          role: m.role === 'assistant' ? 'assistant' : 'user',
-          content: m.text
-        }))
-      ]
-
-      const data = await groqChat(chatMessages, { max_tokens: 150, temperature: 0.6 })
-
-      setLoading(false)
-      if (data.error) {
-        if (data.error.message?.includes('rate')) {
-          const wait = data.error.message?.match(/(\d+\.?\d*)s/)?.[1]
-          const secs = Math.ceil(parseFloat(wait) || 10)
-          setMessages(prev => [...prev, { role: 'assistant', text: `Whoa, too many questions! Give me ${secs}s to catch my breath 😮‍💨` }])
-        } else {
-          setMessages(prev => [...prev, { role: 'assistant', text: "Something went wrong on my end. Try again in a sec." }])
-        }
-        console.error('Groq API error:', data.error?.message)
-      } else {
-        const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't process that. Try again!"
-        sessionStorage.setItem(cacheKey, reply)
-        typeReply(reply)
-        rotateSuggestions()
-      }
-    } catch {
-      setLoading(false)
-      setMessages(prev => [...prev, { role: 'assistant', text: "Oops, something went wrong. Try again in a moment!" }])
-    }
-  }
-
+  const [face, setFace] = useState(false)
   const [nudge, setNudge] = useState(false)
+  const [suggestions, setSuggestions] = useState(START.slice(0, 3))
+  const pool = useRef({ list: START, pos: 3, asked: new Set() })
+  const run = useRef(0)
+  const ctl = useRef(null)
+  const turn = useRef(0)
+  const scrollRef = useRef(null)
+  const inputRef = useRef(null)
 
-  // Show nudge tooltip after 8 seconds if chat hasn't been opened
-  useEffect(() => {
-    if (sessionStorage.getItem('chat_nudged')) return
-    const timer = setTimeout(() => {
-      if (!open) {
-        setNudge(true)
-        sessionStorage.setItem('chat_nudged', '1')
-        setTimeout(() => setNudge(false), 6000)
-      }
-    }, 5000)
-    return () => clearTimeout(timer)
+  const nextSuggestions = useCallback(() => {
+    const p = pool.current
+    const fresh = p.list.filter((q) => !p.asked.has(q))
+    if (fresh.length < 3) { p.asked.clear(); p.list = shuffle(p.list); p.pos = 0 }
+    const out = []
+    for (let n = 0; out.length < 3 && n < p.list.length * 2; n++) {
+      const q = p.list[p.pos % p.list.length]
+      p.pos++
+      if (!p.asked.has(q) && !out.includes(q)) out.push(q)
+    }
+    setSuggestions(out)
   }, [])
+
+  // The brain and the face check load the first time the chat opens.
+  useEffect(() => {
+    if (!open) return
+    inputRef.current?.focus()
+    loadBrain().then((b) => {
+      const list = suggestionsFrom(b)
+      if (list.length >= 3 && pool.current.list === START) { pool.current = { list: shuffle(list), pos: 0, asked: pool.current.asked }; nextSuggestions() }
+    }).catch(() => {})
+    faceAvailable().then(setFace)
+  }, [open, nextSuggestions])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (el) el.scrollTop = el.scrollHeight
+  }, [messages, typing, open])
+
+  useEffect(() => () => { run.current++; ctl.current?.abort() }, [])
+
+  useEffect(() => {
+    if (sessionStorage.getItem('chat_nudged')) return undefined
+    const t = setTimeout(() => {
+      setNudge(true)
+      sessionStorage.setItem('chat_nudged', '1')
+      setTimeout(() => setNudge(false), 6000)
+    }, 5000)
+    return () => clearTimeout(t)
+  }, [])
+
+  const say = (text, extra = {}) => setMessages((m) => [...m, { id: nextId++, role: 'assistant', text, turn: turn.current, ...extra }])
+
+  const send = async (raw) => {
+    const text = String(raw || '').trim()
+    if (!text || busy) return
+    const mine = run.current
+    turn.current += 1
+    pool.current.asked.add(text)
+    const before = messages
+    setMessages((m) => [...m, { id: nextId++, role: 'user', text, turn: turn.current }])
+    setInput('')
+    setBusy(true)
+    setTyping(true)
+    ctl.current?.abort()
+    ctl.current = new AbortController()
+    try {
+      const brain = await loadBrain()
+      const res = await askTwin({ brain, history: historyOf(before), message: text, signal: ctl.current.signal })
+      if (run.current !== mine) return
+      if (!res.ok) {
+        setTyping(false)
+        say(res.wait ? `whoa, lots of questions at once 😅 give me ${res.wait}s and try again` : 'my brain glitched for a sec 😅 try that again?', { note: true })
+      } else {
+        // The network wait already covered the first text; later ones get a
+        // typing pause that scales with their length.
+        for (const [i, b] of res.bubbles.entries()) {
+          if (i) { setTyping(true); await sleep(Math.min(1500, 450 + b.length * 14)) } else await sleep(Math.min(600, 120 + b.length * 5))
+          if (run.current !== mine) return
+          setTyping(false)
+          say(b, { real: res.real && i === res.bubbles.length - 1 })
+          if (i < res.bubbles.length - 1) await sleep(220)
+        }
+      }
+      nextSuggestions()
+    } catch (e) {
+      if (run.current === mine && e?.name !== 'AbortError') { setTyping(false); say('my brain glitched for a sec 😅 try that again?', { note: true }) }
+    } finally {
+      if (run.current === mine) { setBusy(false); setTyping(false) }
+    }
+  }
+
+  const reset = () => {
+    run.current++
+    ctl.current?.abort()
+    turn.current = 0
+    setBusy(false)
+    setTyping(false)
+    setMessages(greeting())
+    pool.current.asked.clear()
+    nextSuggestions()
+  }
+
+  const toFace = () => { setOpen(false); window.location.hash = '#/me' }
 
   return (
     <>
-      {/* Nudge tooltip */}
       {nudge && !open && (
         <div className="fixed bottom-20 right-6 z-50 animate-fade-in-up">
-          <div className="relative bg-foreground text-background px-4 py-2.5 rounded-xl shadow-lg max-w-[200px]">
-            <p className="text-xs font-medium">Hey! Ask me anything about Kranthi 👋</p>
+          <div className="relative bg-foreground text-background px-4 py-2.5 rounded-xl shadow-lg max-w-[210px]">
+            <p className="text-xs font-medium">hey, it's me 👋 well, my AI twin. ask me anything</p>
             <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-foreground rotate-45" />
-            <button onClick={() => setNudge(false)} className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-muted text-foreground flex items-center justify-center text-[10px] hover:bg-border transition-colors">✕</button>
+            <button type="button" onClick={() => setNudge(false)} aria-label="Dismiss" className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-muted text-foreground flex items-center justify-center text-[10px] hover:bg-border transition-colors">✕</button>
           </div>
         </div>
       )}
 
-      {/* Chat trigger */}
       <button
-        onClick={() => { setOpen(o => !o); setNudge(false) }}
+        type="button"
+        onClick={() => { setOpen((o) => !o); setNudge(false) }}
         data-chatbot-btn
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
-          open
-            ? 'bg-foreground/10 text-foreground backdrop-blur-sm'
-            : 'bg-foreground text-background hover:scale-105'
-        }`}
+        aria-label={open ? 'Close chat' : 'Chat with my AI twin'}
+        aria-expanded={open}
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${open ? 'bg-foreground/10 text-foreground backdrop-blur-sm' : 'bg-foreground text-background hover:scale-105'}`}
       >
-        {!open && !nudge && (
-          <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border-2 border-background animate-pulse" />
-        )}
+        {!open && !nudge && <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border-2 border-background animate-pulse" />}
         {open ? (
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
         ) : (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
-            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z" />
+            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z" />
           </svg>
         )}
       </button>
 
-      {/* Chat window */}
       {open && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[372px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden flex flex-col animate-fade-in-up"
+        <div role="dialog" aria-label="Chat with my AI twin"
+          className="fixed bottom-20 right-4 sm:right-6 z-50 w-[372px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden flex flex-col animate-fade-in-up"
           style={{
-            height: '520px', maxHeight: 'calc(100vh - 7rem)',
+            height: '540px', maxHeight: 'calc(100vh - 7rem)',
             background: 'color-mix(in oklab, var(--color-card) 94%, transparent)',
             border: '1px solid color-mix(in oklab, var(--color-border) 70%, transparent)',
             backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
             boxShadow: '0 24px 70px -16px rgba(0,0,0,.6)',
           }}>
-
-          {/* Header */}
           <div className="px-4 py-3 flex items-center justify-between flex-shrink-0 border-b"
             style={{ borderColor: 'color-mix(in oklab, var(--color-border) 50%, transparent)', background: 'linear-gradient(180deg, color-mix(in oklab, var(--color-accent) 9%, transparent), transparent)' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="relative w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))', boxShadow: '0 3px 10px -3px color-mix(in oklab, var(--color-accent) 60%, transparent)' }}>
-                <svg className="w-4 h-4" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.7 4.3L18 8l-4.3 1.7L12 14l-1.7-4.3L6 8l4.3-1.7L12 2z" /></svg>
-                <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400" style={{ border: '2px solid var(--color-card)' }} />
-              </div>
-              <div className="leading-tight">
-                <div className="text-[13.5px] font-semibold text-foreground">Ask Kranthi</div>
-                <div className="text-[10px] text-muted-foreground">AI · usually replies instantly</div>
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className="relative">
+                <Face size={34} />
+                <span className="absolute -bottom-1 -right-1.5 px-1 rounded-md text-[8px] font-bold leading-[13px]" style={{ background: 'var(--color-accent)', color: 'var(--color-accent-foreground)', boxShadow: '0 0 0 2px var(--color-card)' }}>AI</span>
+              </span>
+              <div className="leading-tight min-w-0">
+                <div className="text-[13.5px] font-semibold text-foreground">Kranthi</div>
+                <div className="text-[10.5px] text-muted-foreground truncate">AI twin · built from my own words</div>
               </div>
             </div>
-            <button
-              onClick={() => setMessages([{ role: 'assistant', text: "Fresh chat. What do you want to know about Kranthi?" }])}
-              className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-              title="New chat"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            </button>
+            <div className="flex items-center gap-1">
+              <button type="button" onClick={toFace} className="h-8 px-2.5 rounded-lg inline-flex items-center gap-1.5 text-[11.5px] font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" title={face ? 'Talk face to face' : 'Talk out loud'}>
+                {face ? (
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M15.5 10.5l4.6-2.6a.6.6 0 01.9.5v7.2a.6.6 0 01-.9.5l-4.6-2.6M4.5 18h9a2 2 0 002-2V8a2 2 0 00-2-2h-9a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg>
+                )}
+                {face ? 'Face to face' : 'Talk'}
+              </button>
+              <button type="button" onClick={reset} className="w-8 h-8 rounded-lg grid place-items-center text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" title="New chat" aria-label="New chat">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </button>
+            </div>
           </div>
 
-          {/* Messages */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-3.5 py-4 space-y-3 scroll-smooth scrollbar-hide">
-            {messages.map((msg, i) => (
-              <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                {msg.role !== 'user' && (
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mb-0.5"
-                    style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))' }}>
-                    <svg className="w-3 h-3" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.4 3.6L17 7l-3.6 1.4L12 12l-1.4-3.6L7 7l3.6-1.4L12 2z" /></svg>
+          <div ref={scrollRef} role="log" aria-live="polite" aria-label="Conversation" className="flex-1 overflow-y-auto px-3.5 py-4 space-y-1.5 scrollbar-hide">
+            {messages.map((msg, i) => {
+              const mine = msg.role === 'user'
+              const next = messages[i + 1]
+              const lastOfGroup = !next || next.role !== msg.role || next.turn !== msg.turn
+              return (
+                <div key={msg.id} className={lastOfGroup ? 'pb-1.5' : ''}>
+                  <div className={`flex items-end gap-2 ${mine ? 'justify-end' : 'justify-start'}`}>
+                    {!mine && (lastOfGroup ? <Face /> : <span className="w-6 flex-shrink-0" />)}
+                    <div className={`max-w-[80%] px-3.5 py-2 text-[13px] leading-relaxed rounded-2xl ${mine ? (lastOfGroup ? 'rounded-br-md' : '') : (lastOfGroup ? 'rounded-bl-md' : '')}`}
+                      style={mine
+                        ? { background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)' }
+                        : { background: 'color-mix(in oklab, var(--color-muted) 60%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
+                      {mine ? msg.text : <TwinText text={msg.text} />}
+                    </div>
                   </div>
-                )}
-                <div className={`max-w-[80%] px-3.5 py-2.5 text-[13px] leading-relaxed ${msg.role === 'user' ? 'rounded-2xl rounded-br-md' : 'rounded-2xl rounded-bl-md'}`}
-                  style={msg.role === 'user'
-                    ? { background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)' }
-                    : { background: 'color-mix(in oklab, var(--color-muted) 60%, transparent)', color: 'var(--color-foreground)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-border) 45%, transparent)' }}>
-                  {msg.text}{msg.typing && <span className="inline-block w-[2px] h-3.5 bg-foreground/60 ml-0.5 animate-pulse align-middle" />}
+                  {msg.real && <RealMe className="pl-8 pt-2" />}
                 </div>
-              </div>
-            ))}
-            {loading && (
+              )
+            })}
+            {typing && (
               <div className="flex items-end gap-2 justify-start">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(140deg, var(--color-accent), var(--color-primary))' }}>
-                  <svg className="w-3 h-3" style={{ color: 'var(--color-accent-foreground)' }} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.4 3.6L17 7l-3.6 1.4L12 12l-1.4-3.6L7 7l3.6-1.4L12 2z" /></svg>
-                </div>
+                <Face />
                 <div className="rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1" style={{ background: 'color-mix(in oklab, var(--color-muted) 60%, transparent)' }}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <span className="sr-only">typing</span>
+                  {[0, 150, 300].map((d) => <span key={d} aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 animate-bounce" style={{ animationDelay: `${d}ms` }} />)}
                 </div>
               </div>
             )}
           </div>
 
-          {/* Suggestion pills */}
-          {!loading && !typing && (
+          {!busy && (
             <div className="px-3.5 pb-2 flex flex-wrap gap-1.5">
-              {suggestions.map(q => (
-                <button
-                  key={q}
-                  onClick={() => { setInput(q); setTimeout(() => inputRef.current?.form?.requestSubmit(), 0) }}
-                  className="px-3 py-1 rounded-full text-[11px] font-medium transition-all text-muted-foreground hover:text-foreground"
-                  style={{ background: 'color-mix(in oklab, var(--color-accent) 7%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 20%, transparent)' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 15%, transparent)' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'color-mix(in oklab, var(--color-accent) 7%, transparent)' }}
-                >
+              {suggestions.map((q) => (
+                <button key={q} type="button" onClick={() => send(q)}
+                  className="px-3 py-1 rounded-full text-[11px] font-medium transition-colors text-muted-foreground hover:text-foreground"
+                  style={{ background: 'color-mix(in oklab, var(--color-accent) 7%, transparent)', boxShadow: 'inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 20%, transparent)' }}>
                   {q}
                 </button>
               ))}
             </div>
           )}
 
-          {/* Input */}
-          <form onSubmit={sendMessage} className="px-3 pb-3 pt-1 flex-shrink-0">
+          <form onSubmit={(e) => { e.preventDefault(); send(input) }} className="px-3 pb-3 pt-1 flex-shrink-0">
             <style>{`
               .chat-typebox { background: color-mix(in oklab, var(--color-muted) 45%, transparent); box-shadow: inset 0 0 0 1px var(--color-border); }
               .chat-typebox:focus-within { box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--color-accent) 55%, transparent), 0 0 0 3px color-mix(in oklab, var(--color-accent) 16%, transparent); }
@@ -447,27 +267,15 @@ export default function AIChatbot() {
               .chat-send:not(:disabled):active { transform: scale(0.94); }
             `}</style>
             <div className="chat-typebox flex items-center gap-1.5 rounded-full pl-4 pr-1.5 py-1.5 transition-shadow">
-              <input
-                ref={inputRef}
-                value={input}
-                onChange={e => setInput(e.target.value)}
-                placeholder="Ask anything…"
-                className="flex-1 bg-transparent text-[13.5px] text-foreground placeholder:text-muted-foreground/45 outline-none"
-                disabled={loading || typing}
-              />
-              <button
-                type="submit"
-                disabled={loading || typing || !input.trim()}
+              <input ref={inputRef} value={input} onChange={(e) => setInput(e.target.value)} placeholder="Message me…" aria-label="Message"
+                maxLength={500} className="flex-1 bg-transparent text-[13.5px] text-foreground placeholder:text-muted-foreground/60 outline-none" />
+              <button type="submit" disabled={busy || !input.trim()} aria-label="Send"
                 className="chat-send w-8 h-8 rounded-full grid place-items-center flex-shrink-0 transition-transform disabled:opacity-30 disabled:cursor-not-allowed"
-                style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)', boxShadow: '0 2px 8px -2px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}
-                aria-label="Send"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
-                </svg>
+                style={{ background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))', color: 'var(--color-accent-foreground)', boxShadow: '0 2px 8px -2px color-mix(in oklab, var(--color-accent) 55%, transparent)' }}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" /></svg>
               </button>
             </div>
-            <div className="text-center text-[9px] text-muted-foreground/45 mt-1.5 font-mono">powered by Groq</div>
+            <div className="text-center text-[10px] text-muted-foreground/70 mt-1.5">AI twin, not me typing live · it can get things wrong</div>
           </form>
         </div>
       )}
