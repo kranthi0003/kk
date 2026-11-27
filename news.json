@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T04:22:41.418Z",
+  "generated": "2026-11-27T06:01:21.198Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "November 2026, 6 Critical Flaws: From PHP2Shell to Java4Shell and What You Need to Update Right Now",
-      "url": "https://medium.com/codex/november-2026-6-critical-flaws-from-php2shell-to-java4shell-and-what-you-need-to-update-right-now-4d7a2d77b870",
-      "by": "Developer Awam",
-      "time": 1795753086000,
+      "title": "Open Die Forging for Buyers: What It Makes and How to Order It",
+      "url": "https://medium.com/@thankyouamericaseo/open-die-forging-for-buyers-what-it-makes-and-how-to-order-it-902324a31269",
+      "by": "Thank You America LLC",
+      "time": 1795758642000,
       "tags": [
-        "programming",
-        "devops",
-        "php"
-      ]
-    },
-    {
-      "title": "The Bug That Reads Perfectly Fine",
-      "url": "https://medium.com/@mishraashutoshmishra424/the-bug-that-reads-perfectly-fine-6541cae2b174",
-      "by": "ASHUTOSH MISHRA",
-      "time": 1795752305000,
-      "tags": [
-        "artificial-intelligence",
-        "programming",
-        "startup"
-      ]
-    },
-    {
-      "title": "Bubble, Insertion and Selection Sort. Explained Simply | Bhaskar Yadav",
-      "url": "https://medium.com/@bosswriter/bubble-insertion-and-selection-sort-explained-simply-bhaskar-yadav-a9d8862e35ff",
-      "by": "Bhaskar Yadav",
-      "time": 1795752022000,
-      "tags": [
-        "python",
-        "programming",
-        "python-programming"
-      ]
-    },
-    {
-      "title": "I Compared Three Python Agent Frameworks by Giving Them the Same Real-World Task",
-      "url": "https://python.plainenglish.io/i-compared-three-python-agent-frameworks-by-giving-them-the-same-real-world-task-5b8ff971e1f5",
-      "by": "Dr.Michael",
-      "time": 1795751870000,
-      "tags": [
-        "framework",
-        "programming",
-        "data-engineering"
-      ]
-    },
-    {
-      "title": "I Don’t Want Another AI Subscription. So I Tried Something Different.",
-      "url": "https://blog.stackademic.com/i-dont-want-another-ai-subscription-so-i-tried-something-different-2e85a01d0b31",
-      "by": "Saurabh Singh",
-      "time": 1795751534000,
-      "tags": [
-        "software-architecture",
-        "ai",
+        "forging",
+        "metalworking",
         "software-engineering"
       ]
     },
     {
-      "title": "Interwoven Paths",
-      "url": "https://medium.com/@abhishekchaturvedi_74630/interwoven-paths-46fb46ef8c7b",
-      "by": "Abhishek Chaturvedi",
-      "time": 1795751510000,
+      "title": "JavaScript: Event Loop, Call Stack, Microtask ve Macrotask Nasıl Çalışır?",
+      "url": "https://medium.com/@recumbentibus/javascript-event-loop-call-stack-microtask-ve-macrotask-nas%C4%B1l-%C3%A7al%C4%B1%C5%9F%C4%B1r-0442d5327208",
+      "by": "Aleyna",
+      "time": 1795758627000,
       "tags": [
-        "life",
-        "software-development",
-        "friendship"
-      ]
-    },
-    {
-      "title": "I Compared Worker Threads, Child Processes, and Web Workers by Running the Same JavaScript Workloads",
-      "url": "https://javascript.plainenglish.io/i-compared-worker-threads-child-processes-and-web-workers-by-running-the-same-javascript-workloads-e877fe2fddd8",
-      "by": "Dr.Michael",
-      "time": 1795751081000,
-      "tags": [
-        "javascript",
-        "programming",
-        "threads"
-      ]
-    },
-    {
-      "title": "Giving an AI Agent Your Database Keys is Like Handing a Toddler a Chainsaw",
-      "url": "https://medium.com/@sanjeev.mandal93/giving-an-ai-agent-your-database-keys-is-like-handing-a-toddler-a-chainsaw-2ed882d426fd",
-      "by": "Dr Sanjeev Kumar Mandal",
-      "time": 1795750899000,
-      "tags": [
-        "campus-placements",
         "software-engineering",
+        "programming",
+        "frontend-development"
+      ]
+    },
+    {
+      "title": "I Stopped Building Everything From Scratch After Finding These 10 GitHub Projects",
+      "url": "https://python.plainenglish.io/i-stopped-building-everything-from-scratch-after-finding-these-10-github-projects-c3786ecf48d6",
+      "by": "Muhummad Zaki",
+      "time": 1795758600000,
+      "tags": [
+        "programming",
+        "productivity",
+        "data-science"
+      ]
+    },
+    {
+      "title": "Microsoft AI Engineer Interview: How Would You Prevent Sensitive Data Leakage in a Semantic Cache?",
+      "url": "https://medium.com/@preetjit82/microsoft-ai-engineer-interview-how-would-you-prevent-sensitive-data-leakage-in-a-semantic-cache-f209391c5963",
+      "by": "Interview Simplified",
+      "time": 1795758203000,
+      "tags": [
+        "jobs",
+        "interview",
+        "ai"
+      ]
+    },
+    {
+      "title": "Flutter Under the Hood | Story 75 | Flutter App Lifecycle Under the Hood: How AppLifecycleState…",
+      "url": "https://medium.com/fludev/flutter-under-the-hood-story-75-flutter-app-lifecycle-under-the-hood-how-applifecyclestate-323fdb855832",
+      "by": "Developer Hub",
+      "time": 1795758061000,
+      "tags": [
+        "programming",
+        "technology",
+        "dart"
+      ]
+    },
+    {
+      "title": "Another Six Students from Universal Engineering College Placed at Apollo Tyres in 2026",
+      "url": "https://shinsiyaks98.medium.com/another-six-students-from-universal-engineering-college-placed-at-apollo-tyres-in-2026-af79bc407625",
+      "by": "Shinsiya ks",
+      "time": 1795758060000,
+      "tags": [
+        "placement",
+        "data-engineering",
+        "engineering"
+      ]
+    },
+    {
+      "title": "I Wish I Had Discovered These 10 GitHub Repositories Earlier",
+      "url": "https://python.plainenglish.io/i-wish-i-had-discovered-these-10-github-repositories-earlier-2dc9dc132ee5",
+      "by": "Muhummad Zaki",
+      "time": 1795758000000,
+      "tags": [
+        "programming",
+        "productivity",
+        "machine-learning"
+      ]
+    },
+    {
+      "title": "When to Run Regression Testing — and How Smart Teams Keep Releases Fast Without Missing Bugs",
+      "url": "https://medium.com/@Global_Executive/when-to-run-regression-testing-and-how-smart-teams-keep-releases-fast-without-missing-bugs-4fb1845c90c7",
+      "by": "Olha Remeniak",
+      "time": 1795757818000,
+      "tags": [
+        "test-automation",
+        "software-development",
+        "quality-assurance"
+      ]
+    },
+    {
+      "title": "App Maintenance Cost: What You Really Pay Per Year After Launch",
+      "url": "https://medium.com/@i_plus_t_solution/app-maintenance-cost-what-you-really-pay-per-year-after-launch-403c64cdb6d7",
+      "by": "I Plus T Solution",
+      "time": 1795757761000,
+      "tags": [
+        "mobile-app-development",
+        "software-engineering",
+        "app-development"
+      ]
+    },
+    {
+      "title": "Your AI Feature Is Quietly Building a Second Database",
+      "url": "https://medium.com/@jaberadam2001/your-ai-feature-is-quietly-building-a-second-database-42345196bdd3",
+      "by": "Adam Jaber",
+      "time": 1795757715000,
+      "tags": [
+        "llm",
+        "data-engineering",
         "artificial-intelligence"
-      ]
-    },
-    {
-      "title": "What is system design? Client and server, explained like you’re 5",
-      "url": "https://medium.com/selvi-infotech/what-is-system-design-client-and-server-explained-like-youre-5-2f71d6ae98b9",
-      "by": "Lavanya",
-      "time": 1795750557000,
-      "tags": [
-        "software-architecture",
-        "design-systems",
-        "programming"
-      ]
-    },
-    {
-      "title": "Exit Code 1 Can Print “Blocked” While Your Build Folder Is Deleted",
-      "url": "https://medium.com/@anup.karanjkar08/exit-code-1-can-print-blocked-while-your-build-folder-is-deleted-b3bdbed900da",
-      "by": "Anup Karanjkar",
-      "time": 1795750532000,
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "mcp-server"
       ]
     }
   ]
