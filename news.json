@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-28T04:21:45.520Z",
+  "generated": "2026-11-28T13:16:22.235Z",
   "reddit": [
     {
       "title": "Would you interview me for a DevOps/Cloud Engineer role based on this resume?",
@@ -74,113 +74,113 @@
   ],
   "medium": [
     {
-      "title": "Do You Really Need Many Machines? (Microservices, Serverless, and the Cost of Data)",
-      "url": "https://alexandra272003.medium.com/do-you-really-need-many-machines-microservices-serverless-and-the-cost-of-data-0c6d30f7518d",
-      "by": "Alexandra Pratap Singh",
-      "time": 1795839328000,
+      "title": "My Staff Engineer Said 70% of Our Developers Were Replaceable. Nobody Asked If He Was One of Them",
+      "url": "https://medium.com/javarevisited/my-staff-engineer-said-70-of-our-developers-were-replaceable-nobody-asked-if-he-was-one-of-them-9da14fd98805",
+      "by": "Production Systems",
+      "time": 1795871237000,
       "tags": [
-        "design-systems",
-        "data-privacy",
-        "data-engineering"
-      ]
-    },
-    {
-      "title": "PIETER LEVELS: How One Man With No Employees Turns Attention Into Millions",
-      "url": "https://medium.com/@dathaze20/pieter-levels-how-one-man-with-no-employees-turns-attention-into-millions-2c4d8f583069",
-      "by": "Abel Arroyo",
-      "time": 1795838961000,
-      "tags": [
-        "business",
-        "technology",
-        "programming"
-      ]
-    },
-    {
-      "title": "Harness Engineering: The Missing Layer Behind Reliable AI Agents",
-      "url": "https://medium.com/@sudharsan97511/harness-engineering-the-missing-layer-behind-reliable-ai-agents-f50de2313a5d",
-      "by": "Sudharsan",
-      "time": 1795838945000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "llm"
-      ]
-    },
-    {
-      "title": "Twelve interviews, zero offers. Then a hackathon he had already lost once got him hired.",
-      "url": "https://medium.com/@anjali.shah44350/twelve-interviews-zero-offers-then-a-hackathon-he-had-already-lost-once-got-him-hired-42714b6e6c04",
-      "by": "Anjali Shah",
-      "time": 1795838810000,
-      "tags": [
-        "india",
-        "interview",
-        "data-science"
-      ]
-    },
-    {
-      "title": "Part 1: Why Can’t One Database Do Everything?",
-      "url": "https://alexandra272003.medium.com/part-1-why-cant-one-database-do-everything-94fcc682fbda",
-      "by": "Alexandra Pratap Singh",
-      "time": 1795838744000,
-      "tags": [
-        "system-design-interview",
-        "data-science",
-        "data-engineering"
-      ]
-    },
-    {
-      "title": "Shared Hosting vs. Dedicated Servers (2026): When Should You Actually Upgrade?",
-      "url": "https://medium.com/@guliamayank974/shared-hosting-vs-dedicated-servers-2026-when-should-you-actually-upgrade-e039f13a7481",
-      "by": "Mayank Kumar",
-      "time": 1795838181000,
-      "tags": [
-        "technology",
-        "devops",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "15 Java Backend Developer Interview Questions Asked at Oracle, Salesforce, PayPal, Intuit…",
-      "url": "https://medium.com/@pardeepgill82/15-java-backend-developer-interview-questions-asked-at-oracle-salesforce-paypal-intuit-efc2235bb448",
-      "by": "Interview Playbook",
-      "time": 1795838160000,
-      "tags": [
-        "jobs",
-        "interview",
-        "interview-questions"
-      ]
-    },
-    {
-      "title": "You Only Need To Learn These 7 SQL Queries to Solve Any Problem",
-      "url": "https://medium.com/javarevisited/you-only-need-to-learn-these-7-sql-queries-to-solve-any-problem-717909a3f9c2",
-      "by": "Saquib Aftab",
-      "time": 1795838141000,
-      "tags": [
-        "technology",
         "programming",
+        "leadership",
+        "technology"
+      ]
+    },
+    {
+      "title": "My CTO Replaced Three Engineers With AI. Our Best Developer Started Looking for a Job",
+      "url": "https://medium.com/javarevisited/my-cto-replaced-three-engineers-with-ai-our-best-developer-started-looking-for-a-job-01bc2f9b067c",
+      "by": "Architecture Unfiltered",
+      "time": 1795871083000,
+      "tags": [
+        "technology",
+        "data-science",
         "software-engineering"
       ]
     },
     {
-      "title": "6 Node.js Built-Ins I Finally Used to Shrink node_modules in 2026",
-      "url": "https://medium.com/javarevisited/6-node-js-built-ins-i-finally-used-to-shrink-node-modules-in-2026-88d16f747b47",
-      "by": "Mahad Nadeem",
-      "time": 1795838137000,
+      "title": "My Senior Engineer Said AI Had Made Him Stupid. He Was Our Most Productive Developer",
+      "url": "https://medium.com/javarevisited/my-senior-engineer-said-ai-had-made-him-stupid-he-was-our-most-productive-developer-22b03d916426",
+      "by": "Staff Engineer Career",
+      "time": 1795870953000,
       "tags": [
-        "backend-development",
-        "javascript",
+        "software-development",
+        "programming",
+        "technology"
+      ]
+    },
+    {
+      "title": "Python Libraries That Make Impossible Projects Possible",
+      "url": "https://python.plainenglish.io/python-libraries-that-make-impossible-projects-possible-15bdf00d55bd",
+      "by": "Hassan Nauman",
+      "time": 1795870934000,
+      "tags": [
+        "python",
+        "artificial-intelligence",
+        "technology"
+      ]
+    },
+    {
+      "title": "10 Websites Every Developer Must Know About",
+      "url": "https://python.plainenglish.io/10-websites-every-developer-must-know-about-80bb976fc16e",
+      "by": "Arham Ali",
+      "time": 1795870895000,
+      "tags": [
+        "website",
+        "data-science",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "I Tried to Build the Smoothest Online CSV Viewer. Here’s How Close I Got.",
+      "url": "https://medium.com/codex/i-tried-to-build-the-smoothest-online-csv-viewer-heres-how-close-i-got-edc9d1df7d92",
+      "by": "Crizant Lai",
+      "time": 1795870863000,
+      "tags": [
+        "programming",
+        "webassembly",
+        "rust"
+      ]
+    },
+    {
+      "title": "A Python HTTP Timeout Is Not a Stopwatch",
+      "url": "https://medium.com/@djangowiki/a-python-http-timeout-is-not-a-stopwatch-4ee2c51590f7",
+      "by": "Django Wiki",
+      "time": 1795870863000,
+      "tags": [
+        "api",
+        "software-development",
+        "https"
+      ]
+    },
+    {
+      "title": "Fable, Sonnet or Haiku: Reading Anthropic’s Docs Before You Pick",
+      "url": "https://medium.com/@sanookai55/fable-sonnet-or-haiku-reading-anthropics-docs-before-you-pick-3066cafe9b02",
+      "by": "Sanook Ai",
+      "time": 1795870863000,
+      "tags": [
+        "large-language-models",
+        "programming",
         "software-development"
       ]
     },
     {
-      "title": "I Built a Java API With Spring Boot 4 and Hibernate 7.4 to Explore the New Persistence Features",
-      "url": "https://medium.com/javarevisited/i-built-a-java-api-with-spring-boot-4-and-hibernate-7-4-to-explore-the-new-persistence-features-83b6c72363ee",
-      "by": "Dr.Michael",
-      "time": 1795838135000,
+      "title": "I Stopped Telling My Manager How Much Time AI Saves Me. Here’s Why",
+      "url": "https://medium.com/javarevisited/i-stopped-telling-my-manager-how-much-time-ai-saves-me-heres-why-9c0791ff680b",
+      "by": "Staff Engineer Mindset",
+      "time": 1795870784000,
       "tags": [
-        "hibernate",
-        "spring-boot",
-        "java"
+        "product-management",
+        "technology",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Why Security Engineers Must Know At Least Two Cloud Providers!",
+      "url": "https://medium.com/@andyblooman/why-security-engineers-must-know-at-least-two-cloud-providers-e6fc5e021761",
+      "by": "Andrew Blooman",
+      "time": 1795870680000,
+      "tags": [
+        "careers",
+        "cybersecurity",
+        "ai"
       ]
     }
   ]
