@@ -11,7 +11,6 @@ import Connect from './components/Contact'
 import Footer from './components/Footer'
 import ResumeViewer from './components/ResumeViewer'
 import AIChatbot from './components/AIChatbot'
-import TransformationHQ from './components/TransformationHQ'
 import ThemeToggle from './components/ThemeToggle'
 import ChangelogFeed from './components/ChangelogFeed'
 import AgentIntro, { wantsAgentIntro } from './components/AgentIntro'
@@ -60,6 +59,7 @@ const TamPrep = lazy(() => import('./components/TamPrep'))
 const PlanTracker = lazy(() => import('./components/PlanTracker'))
 const BitcoinPlan = lazy(() => import('./components/BitcoinPlan'))
 const TwinFace = lazy(() => import('./components/TwinFace'))
+const TransformationPlan = lazy(() => import('./components/TransformationPlan'))
 const WallE = lazy(() => import('./components/WallE'))
 const ElevenEleven = lazy(() => import('./components/ElevenEleven'))
 const OrangeBadge = lazy(() => import('./components/OrangeBadge'))
@@ -136,8 +136,8 @@ function MobileBanner() {
 
 export default function App() {
   const [route, setRoute] = useState(() => window.location.hash || (window.location.pathname === '/battle' ? '#/battle' : ''))
-  // The study guide, planner, Bitcoin plan, meal plan, badge page, confession and AI twin open straight away, without the intro.
-  const [intro, setIntro] = useState(() => !/^#\/(tam(\/[\w-]+)?|meta|bitcoin|stack|meals|orangebadge|confession|me(\?[\w=&-]*)?)\/*$/i.test(window.location.hash) && wantsAgentIntro())
+  // The study guide, planner, Bitcoin plan, meal plan, workout plan, badge page, confession and AI twin open straight away, without the intro.
+  const [intro, setIntro] = useState(() => !/^#\/(tam(\/[\w-]+)?|meta|bitcoin|stack|meals|transformation(\/[\w-]+)?|orangebadge|confession|me(\?[\w=&-]*)?)\/*$/i.test(window.location.hash) && wantsAgentIntro())
   const [revealing, setRevealing] = useState(false)
   const revealPage = useCallback(() => setRevealing(true), [])
   const finishIntro = useCallback(() => setIntro(false), [])
@@ -243,14 +243,13 @@ function AppPages({ route, intro }) {
     )
   }
 
-  // Transformation HQ page route
+  // The Lock-In page, from the navbar's Lock-In button: this month's home
+  // workout and diet. Old #/transformation/<tab> links land here too.
   if (route.startsWith('#/transformation')) {
     return (
-      <>
-        <div className="pr-backdrop-glow" aria-hidden="true" />
-        <div className="pr-backdrop-noise" aria-hidden="true" />
-        <TransformationHQ onBack={() => { window.location.hash = '' }} />
-      </>
+      <Suspense fallback={<div className="fixed inset-0 bg-background flex items-center justify-center"><div className="text-xs font-mono text-muted-foreground animate-pulse">loading…</div></div>}>
+        <TransformationPlan onBack={() => { window.location.hash = '' }} />
+      </Suspense>
     )
   }
 

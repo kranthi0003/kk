@@ -1,7 +1,8 @@
 ## The Lock-In
-tags: fitness, gym, workout, diet, transformation, discipline, health, body
+tags: fitness, gym, workout, diet, transformation, discipline, health, body, dumbbells, meals, food, eat
 ask: What's the Lock-In?
-I'm doing a six-month Lock-In: home gym, a calorie deficit, skincare and daily discipline, tracked every day in my own Transformation HQ. The goal is to get into the leanest, sharpest shape of my life.
+link: https://kranthikiran.com/#/transformation
+I'm doing a six-month Lock-In: home gym, a calorie deficit, skincare and daily discipline. The goal is to get into the leanest, sharpest shape of my life. December 2026 is four dumbbell days at home (two upper, two lower) with 10 to 15 minute walks, two recovery days and one full rest day. Meals are planned for every day: eggs each morning, chicken breast with rice, dal and vegetables for lunch (sardines or mackerel on Saturday), and two rotis with tofu, soya chunks or chicken for dinner.
 
 ## What I do outside work
 tags: hobbies, fun, weekend, free time, trek, hike, games, valorant, gaming

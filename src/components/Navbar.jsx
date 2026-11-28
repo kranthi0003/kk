@@ -11,7 +11,7 @@ import TechNews from './TechNews'
 import ThemeToggle from './ThemeToggle'
 import MatrixToggle from './MatrixToggle'
 import StockTicker from './StockTicker'
-import TransformationPulse from './TransformationPulse'
+import LockInLink from './LockInLink'
 import AmbientPlayer from './AmbientPlayer'
 import { SystemStatusDot } from './SystemStatus'
 
@@ -500,7 +500,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
           <div className="hidden lg:flex items-center gap-2">
             <StockTicker />
             <SystemStatusDot />
-            <TransformationPulse labeled />
+            <LockInLink />
             <ToolsDropdown />
             <TechNews side="right" />
             <NavBitcoin />
@@ -541,7 +541,7 @@ export default function Navbar({ onSecretTrigger, onResumeClick }) {
       {mobileOpen && (
         <div className="md:hidden thq-nav-surface-2 backdrop-blur-xl border-b border-border">
           <div className="px-6 py-3 flex flex-col gap-0.5">
-            {!IS_LITE && <div className="flex justify-center mb-1"><TransformationPulse labeled /></div>}
+            {!IS_LITE && <div className="flex justify-center mb-1"><LockInLink /></div>}
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (

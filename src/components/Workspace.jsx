@@ -37,7 +37,7 @@ const HOTSPOTS = [
   // In-scene interactions (no route change)
   { id: 'about',      label: 'Say hi',             hint: 'NPC in chair',         pos: [0.6, 0, 1.2] },
   { id: 'guestbook',  label: 'Drop a sticky note', hint: 'on the back wall',     pos: [0.0, 0, -1.8] },
-  { id: 'fitness',    label: 'Transformation HQ',  hint: 'pick up the dumbbell', pos: [-1.7, 0, 1.4] },
+  { id: 'fitness',    label: 'Workout & diet',     hint: 'pick up the dumbbell', pos: [-1.7, 0, 1.4] },
   { id: 'stranger',   label: 'Stranger chat',      hint: 'wear the headphones',  pos: [-0.6, 0, -0.65] },
   // Info-only
   { id: 'clock',      label: 'Live IST clock',     hint: 'on the wall',          pos: [2.0, 0, -2.0] },

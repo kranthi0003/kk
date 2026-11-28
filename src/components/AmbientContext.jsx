@@ -191,9 +191,8 @@ export function AmbientProvider({ children }) {
     return { elapsed: 0, duration: 0 }
   }, [])
 
-  // Pages like the Lock-In / gym experience call this to silence the ambient
-  // radio while they're open (so it never clashes with the intro reel or the
-  // gym playlist), then release it when they unmount.
+  // Pages with their own sound (videos, music, a voice) call this to silence
+  // the ambient radio while they're open, then release it when they unmount.
   const setSuppressed = useCallback((v) => {
     suppressedRef.current = !!v
     setSuppressedState(!!v)

@@ -142,7 +142,7 @@ Routing is hash-based (SPA, reload-free). Most sub-pages are lazy-loaded.
 | `#/battle` | Battle minigame |
 | `#/collab` | Multiplayer Monaco editor |
 | `#/stranger` | Stranger chat |
-| `#/transformation` | Transformation HQ |
+| `#/transformation` | 🏋️ This month's home workout and diet; the navbar's Lock-In button opens it |
 | `#/tod` | Truth or Dare |
 | `#/blog`, `#/blog/:slug` | Blog index & posts (`#/dopamine` → `cheap-dopamine`) |
 | `#/now` | What I'm doing now |

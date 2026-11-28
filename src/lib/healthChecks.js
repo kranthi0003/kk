@@ -147,8 +147,6 @@ export const GROUPS = [
     blurb: 'Video reels and imagery',
     checks: [
       { id: 'yt', label: 'YouTube', run: () => imgProbe('https://i.ytimg.com/vi/PQnS87AnnR0/hqdefault.jpg') },
-      { id: 'reel', label: 'Lock-In reel', run: () => httpProbe('/lockin-intro.mp4', { method: 'HEAD' }) },
-      { id: 'poster', label: 'Reel poster', run: () => httpProbe('/lockin-intro-poster.jpg', { method: 'HEAD' }) },
     ],
   },
   {

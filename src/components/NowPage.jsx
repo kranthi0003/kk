@@ -44,7 +44,7 @@ const NOW = [
     icon: '🌱',
     title: 'Life',
     lines: [
-      'A 6-month lock-in — home gym, calorie deficit, skincare. Tracked daily in the private Transformation HQ.',
+      'A 6-month lock-in — home gym, calorie deficit, skincare.',
       'Based in Visakhapatnam, India.',
     ],
   },
